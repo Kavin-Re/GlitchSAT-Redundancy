@@ -1,6 +1,6 @@
 # Verdict Dial: stage notes
 
-License: UNDECIDED. Working title TBD. Toy designs, modelled bit flips, nothing physical, nothing established as new.
+License: Apache-2.0. GlitchSAT. Toy designs, modelled bit flips, nothing physical, nothing established as new.
 
 File: `docs/wow/dial.html` (single file, opens offline from `file://`). Data: `docs/wow/dial.json`, built by `build_dial.py`, re-checked by `check_dial.py`. Every digit on the dial is MEASURED (a copy of one source row); 94 of the 432 switch combinations have a row, the other 338 show "not measured".
 

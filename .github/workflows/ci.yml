@@ -1,0 +1,65 @@
+# CI for GlitchSAT-Redundancy: runs the engine tests and re-derives the 36 baseline rows.
+#
+# The runner is pinned to ubuntu-24.04 on purpose: its apt packages are Yosys 0.33 and Icarus Verilog 12.0, the versions
+# ci/expected_reproduce.json was recorded with. Another Yosys build can synthesize rtl/v2.v to a different netlist and
+# give a different (still correct) minimum, which `make check-reproduce` reports as a mismatch. Do not change the runner
+# to ubuntu-latest without re-measuring ci/expected_reproduce.json.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test-and-reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: ci/requirements-ci.txt
+      - name: Install Yosys and Icarus Verilog (apt)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends yosys iverilog
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ci/requirements-ci.txt numpy
+          pip install "./product[test]"
+      - name: Tool versions
+        run: |
+          make check-tools
+          yosys -V | grep -q "Yosys 0.33" || echo "::warning::Yosys is not 0.33; ci/expected_reproduce.json was recorded with 0.33, so check-reproduce may report mismatches that are tool differences"
+      - name: Engine tests (make test)
+        run: make test
+      - name: Product tests
+        run: python -m pytest -q product/tests
+      - name: Reproduce the baseline table (make reproduce)
+        run: make reproduce
+      - name: Compare with expected rows (make check-reproduce)
+        run: make check-reproduce
+      - name: Replay attacks in Icarus Verilog (make replay)
+        run: make replay
+      - name: Independent z3-free simulator (make validate)
+        run: make validate
+      - name: Headline numbers are consistent across documents
+        run: python scripts/check_numbers.py --verify
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: |
+            results/reproduce_summary.json
+            results/reproduce/
+            results/logs/
+          if-no-files-found: warn

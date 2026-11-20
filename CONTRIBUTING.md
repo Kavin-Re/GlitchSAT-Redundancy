@@ -5,4 +5,4 @@
 3. If a verdict legitimately changes, update `ci/expected_reproduce.json` in the same change and say why. Never edit it just to silence CI.
 4. Label every number MEASURED, SIMULATED, ESTIMATED or ILLUSTRATIVE (`docs/EVIDENCE_LABELS.md`). Say UNVERIFIED for anything not run. Faults are modelled, not physical.
 5. Do not commit `.venv/`, `results/work/`, generated testbenches or absolute personal paths (use paths relative to the repository root).
-6. Licence is undecided (`LICENSE_CHOICE.md`); do not assume terms for contributions yet.
+6. The project is licensed Apache-2.0 (`LICENSE`); contributions are accepted under the same terms.

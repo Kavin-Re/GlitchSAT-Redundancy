@@ -117,6 +117,24 @@ def test_n1_yosys_flow_sh_does_not_execute_names(tmp_path):
     assert r.returncode == 0 and "netlist_sha256:" in r.stdout
 
 
+def test_n1_yosys_flow_sh_refuses_newline_in_names(tmp_path):
+    """A newline in a file name must be refused BEFORE any Yosys script is written: a second script line that starts with '!' is run by
+    Yosys as a shell command. Uses a fake `yosys` on PATH that records whether it was reached, so the test needs no real Yosys."""
+    script = os.path.join(PROD, "scripts", "yosys_flow.sh")
+    fake = tmp_path / "bin"; fake.mkdir()
+    reached = tmp_path / "reached"
+    (fake / "yosys").write_text(f'#!/bin/sh\n[ "$1" = "-V" ] && {{ echo fake; exit 0; }}\ntouch "{reached}"\nexit 1\n')
+    (fake / "yosys").chmod(0o755)
+    env = dict(os.environ, PATH=f"{fake}{os.pathsep}{os.environ['PATH']}")
+    bad = tmp_path / "real.v\n!touch PWNED\nx"
+    bad.write_text(VSRC)
+    r = subprocess.run(["bash", script, str(bad), "m", str(tmp_path / "o.json")], capture_output=True, text=True, timeout=60, env=env, cwd=tmp_path)
+    assert r.returncode == 3 and not reached.exists() and not (tmp_path / "PWNED").exists()
+    ok = tmp_path / "a.v"; ok.write_text(VSRC)
+    r = subprocess.run(["bash", script, str(ok), "m", str(tmp_path / "o\n!id\n.json")], capture_output=True, text=True, timeout=60, env=env, cwd=tmp_path)
+    assert r.returncode == 3 and not reached.exists()
+
+
 def test_n1_action_passes_inputs_through_env_only():
     text = open(os.path.join(PROD, "action", "action.yml"), encoding="utf-8").read()
     yaml = pytest.importorskip("yaml")

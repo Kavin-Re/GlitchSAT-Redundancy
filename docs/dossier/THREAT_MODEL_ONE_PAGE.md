@@ -1,5 +1,5 @@
 # THREAT MODEL (one page), second pass
-Working title TBD. License: UNDECIDED. Paths relative to `/home/user/project/`.
+Project: GlitchSAT-Redundancy. License: Apache-2.0. Paths are relative to the repository root.
 
 **System under study.** A toy secure-boot decision: an 8-bit compare of an input `sig` with key 0xC3 decides whether the boot word (the state register) becomes 0x96 (accept) or 0x69 (reject). Three designs: V0 plain, V1 two compare copies into one shared net `ok`, V2 three compare copies each driving its own result bits, no vote [`rtl/v1.v`, `rtl/v2.v`].
 

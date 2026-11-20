@@ -1,4 +1,4 @@
-# Title TBD (working package name only). License: UNDECIDED (owner decision; no LICENSE file, no SPDX field).
+# Working package name only (project: GlitchSAT). License: Apache-2.0.
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
@@ -6,8 +6,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "faultbound-working-title"
 version = "0.0.1.dev0"
-description = "Working title TBD. Bounded fault-injection (bit-flip) analysis of Yosys gate-level netlists with z3. "
+description = "GlitchSAT. Bounded fault-injection (bit-flip) analysis of Yosys gate-level netlists with z3. "
 readme = "README.md"
+license = "Apache-2.0"
 requires-python = ">=3.11"
 dependencies = ["z3-solver==5.4.1.0"]
 

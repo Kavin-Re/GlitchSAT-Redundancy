@@ -31,7 +31,7 @@ step pytest_tests 900 "$PY" -m pytest tests -q -p no:cacheprovider
 step pytest_product_tests 900 "$PY" -m pytest product/tests -q -p no:cacheprovider
 step wow_checks 120 "$PY" docs/wow/check_hub.py
 step check_numbers 300 "$PY" scripts/check_numbers.py
-# the three START.md commands (START.md says: cp -r /home/user/project /tmp/proj_copy; here we run them inside the unzipped copy)
+# the three START.md commands (run inside the unzipped copy)
 step start_cmd1_v1_k1 300 "$PY" scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6
 step start_cmd2_v2_k2 300 "$PY" scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 2 --cycles 6
 step start_cmd3_v2_boot_ok 300 "$PY" scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6 --goal-out boot_ok --goal-value 1

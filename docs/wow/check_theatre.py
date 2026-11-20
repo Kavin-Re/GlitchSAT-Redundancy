@@ -183,7 +183,7 @@ ext = re.findall(r'(?:https?:)?//[A-Za-z0-9.-]+\.[a-z]{2,}|<link\b|<img\b|<ifram
 rep(not ext, 'page has no external resources, no network calls, no storage, no cookies' + (f' (found {ext[:4]})' if ext else ''))
 text = re.sub(r'<[^>]+>', ' ', code)
 for need in ("replay of the solver's witness in a gate-level simulation", 'simplified diagram', 'What we did NOT show', 'No 1- or 2-flip attack found within',
-             '', 'License: UNDECIDED', 'Working title TBD', 'No hardware'):
+             '', 'License: Apache-2.0', 'GlitchSAT', 'No hardware'):
     rep(need in code, f'required wording present: {need!r}', quiet=True)
 for w in ('safe', 'secure', 'glitch-proof', 'certified', 'hardened', 'proven', 'proved', 'works on real chips', 'novel', 'first to'):
     rep(not re.search(r'\b' + re.escape(w), text, re.I), f'banned word absent: {w!r}', quiet=True)

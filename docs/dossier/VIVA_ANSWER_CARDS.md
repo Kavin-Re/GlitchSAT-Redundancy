@@ -1,5 +1,5 @@
 # VIVA ANSWER CARDS (40 cards)
-Working title TBD. License: UNDECIDED. Study aid, not the owner's words: say only what you can explain; for anything you cannot, say "I do not know; here is what the file says". Full spoken answers, source tags and follow-ups: `research/c4/viva/VIVA_SIM_REPORT.md` (card id E1-1 etc. matches). All numbers are for modelled single-cycle flips in toy netlists, T=6, k<=3 unless stated; nothing physical, nothing new. Eight questions in the full report (E1-10, E1-11, E2-4, E2-9, E3-11, E3-12, E4-10, E4-11) have no card; read them there. Cards marked IDK: the honest reply is "I do not know / we did not test that". Cards marked OWNER cannot be answered by an agent.
+GlitchSAT. License: Apache-2.0. Study aid, not the owner's words: say only what you can explain; for anything you cannot, say "I do not know; here is what the file says". Full spoken answers, source tags and follow-ups: `research/c4/viva/VIVA_SIM_REPORT.md` (card id E1-1 etc. matches). All numbers are for modelled single-cycle flips in toy netlists, T=6, k<=3 unless stated; nothing physical, nothing new. Eight questions in the full report (E1-10, E1-11, E2-4, E2-9, E3-11, E3-12, E4-10, E4-11) have no card; read them there. Cards marked IDK: the honest reply is "I do not know / we did not test that". Cards marked OWNER cannot be answered by an agent.
 
 ## E1: ECE professor (derivations)
 **E1-1. Why does V1 (two copies) fall to one flip?**
@@ -227,7 +227,7 @@ Number: **189 passed, 2 skipped** (re-run it) / **72.5% root, 67.6% product** mu
 Number: **2040 gates, 46 s**. File: `research/c3/r20/R20_REPORT.md`. Trap: "scales to real chips".
 
 **E4-12. Licence, third-party code, ethics?**
-- Licence undecided: my decision. `third_party_derived/` holds adapted third-party code (CLEAVE no licence file; uArchiFI LGPL-2.1): keep out of any bundle until decided.
+- Licence: Apache-2.0 (decided 2026-11-20). `third_party_derived/` holds adapted third-party code (CLEAVE no licence file; uArchiFI LGPL-2.1): keep out of any bundle (the Apache-2.0 licence covers only this project's own files).
 - Responsible-use text drafted; nothing sent externally.
 
 ## Coding view and encoding root cause (added by agent INT, 2026-11-20; cards C-1 to C-8 from `research/c6/p13/P13_REPORT.md`)

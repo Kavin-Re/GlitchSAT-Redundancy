@@ -1,6 +1,6 @@
 # Claims check: every number in docs/report/ and its source
 
-Paths are relative to `/home/user/project/`. "Docs" = PROJECT_REPORT.md, ONE_PAGE_SUMMARY.md, DEMO_5MIN.md, SLIDES.pptx, SLIDES_OUTLINE.md. Labels per `docs/EVIDENCE_LABELS.md`. Column "Re-checked" says what this refresh did: **YES** = I compared the number against the file or re-ran the command on 2026-11-19; **no** = copied from the source file, not re-checked.
+Paths are relative to the repository root. "Docs" = PROJECT_REPORT.md, ONE_PAGE_SUMMARY.md, DEMO_5MIN.md, SLIDES.pptx, SLIDES_OUTLINE.md. Labels per `docs/EVIDENCE_LABELS.md`. Column "Re-checked" says what this refresh did: **YES** = I compared the number against the file or re-ran the command on 2026-11-19; **no** = copied from the source file, not re-checked.
 
 Tool builds behind the numbers: Yosys 0.33 + z3-solver 5.4.1 (solver, sweep, validation); Yosys 0.38 + SymbiYosys (litex-hub 0.0.0_0074) + ABC + boolector (formal); OpenROAD f12e2f47, magic 8.3.464, netgen 1.5.272, KLayout 0.30.13 (layout).
 
@@ -71,7 +71,7 @@ Tool builds behind the numbers: Yosys 0.33 + z3-solver 5.4.1 (solver, sweep, val
 |---|---|---|---|---|
 | CI workflows exist, never ran on GitHub | report 6.7, slide 15 | ci/README.md | statement | YES: `.github/workflows/ci.yml` and `nightly.yml` exist |
 | Clean-install test passed | report 6.7, slide 15 | ci/clean_install_log.txt | MEASURED | YES (log tail: every quickstart step exit 0) |
-| No LICENSE file by design | report 6.7, slide 15 | LICENSE_CHOICE.md | statement | YES: only `LICENSE_CHOICE.md` matches `LICENSE*` in the project root |
+| Licence: Apache-2.0 (decided 2026-11-20) | report 6.7, slide 15 | LICENSE, LICENSE_CHOICE.md, NOTICE.md | statement | YES: `LICENSE` (Apache-2.0 text) exists in the project root; `LICENSE_CHOICE.md` records the decision |
 | Validation scripts run from any directory | report 6.7, slide 15 | lead's note | statement | YES: ran `validation/k1.py` with absolute paths from `/tmp`, exit 0 |
 | Self-score 3/10 now, ceiling about 6/10 | report 10 | docs/FINAL_STATUS.md | the project's own opinion, not a result | no |
 | Prior-art statements (SYNFI, FIRMER, FIVER, CLEAVE, SCFI) | report 8, slide 14 | docs/PRIOR_ART.md; compare/COMPARISON.md | UNVERIFIED (abstract/README level) | no |

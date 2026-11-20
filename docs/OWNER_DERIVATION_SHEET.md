@@ -57,4 +57,4 @@ Setting for all five: toy designs `rtl/v1.v` and `rtl/v2.v`, key `0xC3`, state r
 - My derivation: ______
 
 ## After you finish
-If you can do any one of these without this page, say so in the dossier section "my own contribution"; the agent cannot write that for you.
+If you can do any one of these without this page, you are ready for the corresponding viva questions.
