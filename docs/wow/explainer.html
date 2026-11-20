@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Three guards, one wire</title>
-<!-- Single file, offline, no tracking, no external resources. License: UNDECIDED. Working title TBD. -->
+<title>GlitchSAT: Three guards, one wire</title>
+<!-- Single file, offline, no tracking, no external resources. License: Apache-2.0. GlitchSAT. -->
 <style>
 :root{--bg:#fbfaf7;--ink:#1b1f24;--mute:#454f5a;--line:#c9cfd6;--card:#fff;--chip:#fff;--btn:#1f4e9c;--btnink:#fff;--link:#1f4e9c;--focus:#1f4e9c;
 --red:#b3261e;--redline:#b3261e;--redbg:#fde3e1;--green:#17653a;--greenbg:#e1f3e8;--shut:#17653a;--open:#b3261e;--wire:#4a5560;
@@ -240,7 +240,7 @@ summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weig
 <li>Goal is the 8-bit result word only: with the accept flag <code>boot_ok</code> as goal, V2 falls to 1 flip (CT-1, docs/dossier/CRITIQUE.md). Start state known, input nets not fault sites (a time-varying input check on the stored netlist only: research/c2/e1_timevarying).</li>
 <li>Synthesis dependence was previously shown by SYNFI (faults needed dropped 3 to 2 after FSM recoding and 4 to 2 after register merging; <code>set_dont_touch</code> restored 4); our E2 replicates the effect on a toy design across 864 synthesis configs and a keep-attribute axis. Supply-dip rows (SIMULATED basis): under B3's 1-to-0-only rail model V1, V2 and V5 survive within the bound (V0 does not under a cone event), but a 0->1 event on the three compare copies breaks V2 and V5 with one event (V1 and V0 too): survival depends on polarity, not on triplication; SPICE supports 1-to-0 for supply dips, EM literature reportedly describes set-to-1 (UNVERIFIED, snippet level); the domain is the netlist hierarchy, not a physical rail; physical track closed (no extraction, selectivity unproven; L2 spread layouts failed LVS 4/4 by a known filler flow bug); a selective event costs 1. E2 split: 180/60/24 of 264 solved configs (152 distinct netlists: 94/38/20).</li>
 <li>Conda 0.38+92 was not run for the opt flow. Real netlists have 58 to 85 gates; the pictures show only the wires that matter.</li>
-<li>No hardware, no physical glitching: faults are modelled bit flips. Not yet tested by real people. No tracking, works offline. Working title TBD; licence undecided.</li>
+<li>No hardware, no physical glitching: faults are modelled bit flips. Not yet tested by real people. No tracking, works offline. GlitchSAT; licence Apache-2.0.</li>
 </ul>
 </details>
 </div></section>

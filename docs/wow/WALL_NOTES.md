@@ -1,6 +1,6 @@
 # Reveal wall: how to present it in 90 seconds
 
-License: UNDECIDED. Working title TBD.
+License: Apache-2.0. GlitchSAT.
 Page: `docs/wow/wall.html` (standalone, works from `file://`, no network). Data: `docs/wow/e2_wall.json`.
 Every number below is MEASURED: a count of rows in `research/c2/e2_variance/raw/matrix.csv` (wall) or
 `research/c6/p01/sweep_rows.csv` (second wall); re-derive with `python3 docs/wow/check_wall.py`.

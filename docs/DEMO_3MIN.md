@@ -1,6 +1,6 @@
 # 3-minute stage demo (zero typing)
 
-built from `docs/wow/DIAL_NOTES.md` (P40), `docs/wow/THEATRE_NOTES.md` (P21) and `docs/wow/WALL_NOTES.md` (P24). License: UNDECIDED. Working title TBD. Toy designs, modelled single-tick bit flips, nothing physical, nothing established as new.
+built from `docs/wow/DIAL_NOTES.md` (P40), `docs/wow/THEATRE_NOTES.md` (P21) and `docs/wow/WALL_NOTES.md` (P24). License: Apache-2.0. GlitchSAT. Toy designs, modelled single-tick bit flips, nothing physical, nothing established as new.
 
 **Timings are ESTIMATED and UNPILOTED**: nobody has spoken this script aloud with a clock. The owner should time it once and cut words, not beats. The longer version with live commands stays in `docs/report/DEMO_5MIN.md`.
 

@@ -1,6 +1,6 @@
 # Quickstart (about 10 minutes)
 
-Working package name `faultbound-wt`; project title TBD; licence UNDECIDED.
+Working package name `faultbound-wt`; project title GlitchSAT; licence Apache-2.0.
 
 You will check a small digital lock against **modelled** bit-flip faults. Nothing here is a physical glitch, and no hardware is involved.
 A result is *bounded result under this model; not a proof of security*.

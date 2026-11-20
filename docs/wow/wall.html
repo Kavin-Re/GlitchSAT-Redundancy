@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Same blueprint, many builders: the reveal wall (toy model)</title>
-<!-- Licence: UNDECIDED. Working title TBD.
+<title>GlitchSAT: Same blueprint, many builders: the reveal wall (toy model)</title>
+<!-- License: Apache-2.0. GlitchSAT.
      Standalone page: no network, no libraries. Data block below is written by scripts/export_e2_wall.py
      and checked by docs/wow/check_wall.py. Every number in the text is a data-n span checked against that data. -->
 <style>
@@ -276,7 +276,7 @@ footer p{margin:.4em 0;max-width:95ch}
 <p><b>Layout.</b> Left box: settings without <code>opt_merge</code>; right box: <code>opt_merge</code> after flatten. Each box has four blocks (flow × order). In the every-setting view each block is a 6 × 6 grid: columns are the ABC script (default, no MUX, AND/OR only, <code>-fast</code>, <code>-dff</code>, no ABC), rows are Yosys build × keep attribute; dashed "–" tiles (<span data-n="counts.settings.unsupported">24</span>) are netlists the engine could not read: no verdict, not counted. The one-flip tiles outside both outlined families all use <code>abc -dff</code>; why they fall to 1 was not analysed. In the distinct-netlist view a netlist is drawn once, at the first setting that built it, and in the cause step it counts as "<code>opt_merge</code> on" if any setting that builds it has the option on (<span data-n="counts.netlists.built_with_and_without_merge">6</span> netlists are built both with and without it).</p>
 <p><b>Labels.</b> Every count on this page is MEASURED: a count of rows in those files; the minimum-flip values come from bounded solver runs (goal <code>boot_word == 0x96</code>, attacker input held constant and not the key, 6 cycles, at most 3 single-cycle flips of a gate output or flop). "Distinct netlist" = distinct SHA-256 of the netlist file with the tool's creator line dropped; hashes are shown as their first 16 hex digits. Faults are modelled bit flips, not physical glitches.</p>
 <p><button class="btn" id="theme" title="Switch light / dark">Theme: auto</button></p>
-<p>License: UNDECIDED. Working title TBD. Keys: <kbd>Space</kbd> next step, <kbd>Esc</kbd> show all, arrow keys move between tiles, <kbd>Enter</kbd> pins a tile's details. Links: <code>?stage=1</code> opens on step 1, <code>?view=264</code> opens the every-setting view, <code>?kiosk=1</code> loops the steps.</p>
+<p>License: Apache-2.0. GlitchSAT. Keys: <kbd>Space</kbd> next step, <kbd>Esc</kbd> show all, arrow keys move between tiles, <kbd>Enter</kbd> pins a tile's details. Links: <code>?stage=1</code> opens on step 1, <code>?view=264</code> opens the every-setting view, <code>?kiosk=1</code> loops the steps.</p>
 </footer>
 </div>
 

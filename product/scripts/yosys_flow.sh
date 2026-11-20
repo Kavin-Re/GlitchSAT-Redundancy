@@ -20,6 +20,8 @@ case "$TOP" in [A-Za-z_\$]*) ;; *) echo "error: TOP must be a plain module name 
 case "$TOP" in *[!A-Za-z0-9_\$]*) echo "error: TOP must be a plain module name ([A-Za-z_\$][A-Za-z0-9_\$]*)" >&2; exit 3;; esac
 for P in "$V" "$OUT"; do
   case "$P" in -*|"") echo "error: file name must not be empty or start with '-'" >&2; exit 3;; esac
+  # grep is line-based, so a newline inside a name is never seen by the check below; refuse control characters (newline, CR, tab) first.
+  case "$P" in *[[:cntrl:]]*) echo "error: file names with control characters (newline, tab, ...) are not accepted" >&2; exit 3;; esac
   if printf '%s' "$P" | LC_ALL=C grep -q '[^ -~]'; then echo "error: file names with control or non-ASCII characters are not accepted" >&2; exit 3; fi
   case "$P" in *\;*|*\"*|*\'*|*\`*|*\\*|*\#*) echo "error: file names with quotes, backtick, ';', backslash or '#' are not accepted (they go into a Yosys script)" >&2; exit 3;; esac
 done

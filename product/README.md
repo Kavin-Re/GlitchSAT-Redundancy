@@ -1,6 +1,6 @@
-# faultbound-wt (working package name; project title TBD)
+# faultbound-wt (working package name; project: GlitchSAT)
 
-Licence: UNDECIDED (owner decision; no LICENSE file is shipped, so default copyright applies).
+Licence: Apache-2.0 (see the LICENSE file at the repository root).
 
 Bounded search for **modelled** bit-flip attacks on a Yosys gate-level netlist, using z3. A fault is a single-cycle flip of a gate output or flop Q. Nothing here is a physical glitch model and nothing was run on hardware. Verdicts are bounded in flips and cycles and are not a proof of security. Nothing here is established as new; related open tools (SYNFI, uArchiFI, FIRMER/CLEAVE, FIVER) exist.
 
