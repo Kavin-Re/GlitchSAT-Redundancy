@@ -1,12 +1,12 @@
 # Deep results: solver depth sweep (MEASURED, bounded)
 
-**Re-run note (F1, CC-18):** `results/deep/work/nl/` is not stored and `run_one.py` uses absolute paths under `<repo>`, so do not run it on a copy expecting isolation; re-run single cells with `scripts/glitchsat.py check`. The stored per-run JSON in `results/deep/json/` is the checkable record. Scope of V2 rows: see the V2 scope paragraph in `docs/FINAL_STATUS.md` (word goal only; `boot_ok` falls to 1 flip; input nets not fault sites).
+**Re-run note (F1, CC-18):** `results/deep/work/nl/` is not stored and `run_one.py` and `sweep.py` write under `results/deep/` of the tree they are run from; re-run single cells with `scripts/glitchsat.py check`. The stored per-run JSON in `results/deep/json/` is the checkable record. Scope of V2 rows: see the V2 scope paragraph in `docs/FINAL_STATUS.md` (word goal only; `boot_ok` falls to 1 flip; input nets not fault sites).
 
 All numbers below were produced by `scripts/glitchsat.py` (unmodified, `run_check`, default `reduce=full`) via the wrappers in `results/deep/`. Nothing here is an unbounded proof. Every verdict holds only for: at most k modelled single-cycle bit flips (gate output or flop Q), within the stated number of cycles, attacker input `sig` free but held constant for the whole run (and != key 0xC3), goal `boot_word == 0x96` at some cycle < N, on the specific netlist named. Toy 8-bit designs.
 
 ## Commands
 ```
-cd results/deep
+cd results/deep     # from the repository root
 python3 -I sweep.py deepk     # k=4,5 on V2 spike at cycles 4 and 6 -> sweep_deepk.json / .out
 python3 -I sweep.py main      # 90-run grid below -> sweep_main.json / .out
 # each run is: python3 -I run_one.py work/nl/<design>_<route>.json <top> <k> <cycles> json/<tag>.json

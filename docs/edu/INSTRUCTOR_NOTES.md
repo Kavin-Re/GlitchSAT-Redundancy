@@ -1,6 +1,6 @@
 # Instructor notes
 
-*Not reviewed by the project owner. Licence UNDECIDED. Model-only lab; nothing physical; nothing here is established as new (prior art: SYNFI, FIRMER, k-FRP, CLEAVE, FIVER, uArchiFI; `docs/PRIOR_ART.md`).*
+*Not reviewed by the project owner. Licence Apache-2.0. Model-only lab; nothing physical; nothing here is established as new (prior art: SYNFI, FIRMER, k-FRP, CLEAVE, FIVER, uArchiFI; `docs/PRIOR_ART.md`).*
 
 ## Before class (about 25 minutes)
 1. Do the whole lab once in a copy (`docs/edu/LAB_GUIDE.md` setup). The slowest command is V2 at `--max-flips 3`, about 8 s here (MEASURED once, EDU2 copy; ESTIMATED for your machine).

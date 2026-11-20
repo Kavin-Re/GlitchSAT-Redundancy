@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Solver Replay Theatre</title>
-<!-- Single file, offline, no tracking, no external resources. License: UNDECIDED. Working title TBD.
+<title>GlitchSAT: Solver Replay Theatre</title>
+<!-- Single file, offline, no tracking, no external resources. License: Apache-2.0. GlitchSAT.
      The data block near the end is written by scripts/export_witness.py (solver output + parsed VCD of the gate-level replay);
      docs/wow/check_theatre.py re-checks it against docs/wow/witness.json and a fresh run. Do not edit the data by hand.
      The two small schematics are simplified hand-drawn diagrams; the waveform strips are drawn from the parsed VCD. -->
@@ -135,7 +135,7 @@ footer{font-size:14px;color:var(--mute);padding:6px 0 28px}
 
 <footer>
 <p>Data: <code>docs/wow/witness.json</code>, written by <code>python3 scripts/export_witness.py</code> and inlined here unchanged. Check: <code>python3 docs/wow/check_theatre.py --browser</code>. Words used: a "tick" is one clock cycle; a "flip" is one wire inverted for one tick in the model; "boot word" is the lock's 8-bit state (<span id="codes"></span>); the "accept flag" is the one-bit output <code>boot_ok</code>.</p>
-<p>Nothing here is established as new. License: UNDECIDED. Working title TBD. Add <code>?kiosk=1</code> to the address for a self-running loop.</p>
+<p>Nothing here is established as new. License: Apache-2.0. GlitchSAT. Add <code>?kiosk=1</code> to the address for a self-running loop.</p>
 </footer>
 </div>
 

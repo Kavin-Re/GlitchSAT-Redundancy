@@ -1,5 +1,5 @@
 # NUMBERS: single source of truth for every headline number
-Working title TBD. License: UNDECIDED. Faults are modelled single-cycle bit flips in toy netlists; nothing physical; nothing established as new. Owner has not reviewed this page.
+GlitchSAT. License: Apache-2.0. Faults are modelled single-cycle bit flips in toy netlists; nothing physical; nothing established as new. Owner has not reviewed this page.
 
 Purpose: README.md, START.md, docs/FINAL_STATUS.md, docs/report, docs/dossier, docs/wow, docs/edu, product/QUICKSTART.md and the dashboard quote the same numbers. Quote a number only as it appears here. When a measurement changes, edit THIS file first, then run `python3 scripts/check_numbers.py` to list every page that still carries the old value.
 
@@ -7,7 +7,7 @@ Status labels: MEASURED (a command was run, the output was seen), SIMULATED (SPI
 
 ## How RECON measured today's test counts
 ```
-tar-pipe copy of <repo> (excluding work, dl, dl_repo, venv, compare/synfi_run/venv, third_party_derived, .git, handoff/*.zip, *.odb *.vcd *.fst *.vvp) -> /tmp/work_recon/copy
+tar-pipe copy of the repository root (excluding work, dl, dl_repo, venv, compare/synfi_run/venv, third_party_derived, .git, handoff/*.zip, *.odb *.vcd *.fst *.vvp) -> /tmp/work_recon/copy
 python3 -m venv /tmp/work_recon/venv && pip install -r ci/requirements-ci.txt "./product[test]"
 pytest tests --co -q            -> 98 tests collected
 pytest tests -q                 -> 98 passed in 26.7 s
@@ -17,7 +17,7 @@ pytest product/tests -q         -> 138 passed, 1 skipped (98.9 s)
 
 ## How RECON2 re-measured the test counts (second pass, after T2, T3, PS4, PS5) (history: at 2026-11-19 21:5x; current 136 root / 324 product since RECON5, 2026-11-20; 133 / 321 at RECON4; 310 at H2/H3 time)
 ```
-tar-pipe copy of <repo> (same exclusions) -> /tmp/work_recon2
+tar-pipe copy of the repository root (same exclusions) -> /tmp/work_recon2
 python3 -m venv /tmp/work_recon2/venv && pip install -r ci/requirements-ci.txt "./product[test]"
 pytest tests -q          -> 99 passed in 15.52 s          (history: at 2026-11-19 21:5x; now 136 passed, RECON5; 133 at RECON3/RECON4; lead also measured 99 passed; T3 gate 2: 99 passed in 14 s)
 pytest product/tests -q  -> 139 passed, 1 skipped in 33.22 s  (history: at 2026-11-19 21:5x; now 324 passed, RECON5 (321 at RECON4; 310 at H2/H3 time); T3 gate 2: 139 passed, 1 skipped, 29 s)
@@ -27,7 +27,7 @@ The RECON counts (98 and 138 + 1 skipped) were taken before T2's `test_mt_target
 
 ## How RECON3 re-measured the test counts (third pass, after PS6, DASH2, FIX3, H2, H3; 2026-11-20)
 ```
-tar-pipe copy of <repo> (same exclusions) -> /tmp/work_recon3/p ; venv /tmp/work_recon3/venv ; pip install "./p/product[test]" pytest z3-solver pyyaml
+tar-pipe copy of the repository root (same exclusions) -> /tmp/work_recon3/p ; venv /tmp/work_recon3/venv ; pip install "./p/product[test]" pytest z3-solver pyyaml
 pytest tests -q                    -> 133 passed in 18.32 s            (99 + 34 new in tests/test_h3.py)
 pytest product/tests -q            -> 310 passed in 80.88 s            (175 + 135 new in product/tests/test_h2.py; 0 skipped because pyyaml is installed)
 python3 ci/check_reproduce.py      -> 36/36 rows match (summary + per-run files + input hashes; engine NOT re-run); 0 row(s) FAILED; exit 0
@@ -38,7 +38,7 @@ All five were MEASURED by RECON3 on the fresh copy; nothing was created in the t
 
 ## How RECON4 re-measured the test counts (fourth pass, after H4; 2026-11-20)
 ```
-tar-pipe copy of <repo> (same exclusions) -> /tmp/work_recon4/p ; venv /tmp/work_recon4/venv ; pip install -r ci/requirements-ci.txt "./p/product[test]" pytest z3-solver pyyaml
+tar-pipe copy of the repository root (same exclusions) -> /tmp/work_recon4/p ; venv /tmp/work_recon4/venv ; pip install -r ci/requirements-ci.txt "./p/product[test]" pytest z3-solver pyyaml
 pytest tests -q                    -> 133 passed in 14.93 s            (unchanged)
 pytest product/tests -q            -> 321 passed in 81.34 s            (310 + 11 new in product/tests/test_h4.py; 0 skipped; `[test]` now pulls pyyaml)
 python3 ci/check_reproduce.py      -> 36/36 rows match (engine NOT re-run); 0 row(s) FAILED; 0 problem(s); exit 0
@@ -49,7 +49,7 @@ MEASURED by RECON4 on the fresh copy; nothing was created in the tree (`product/
 
 ## How RECON5 re-measured the test counts (fifth pass, after H5, the Action run and the Docker run; 2026-11-20)
 ```
-tar-pipe copy of <repo> (same exclusions) -> /tmp/work_recon5/p ; venv /tmp/work_recon5/venv ; pip install -r ci/requirements-ci.txt "./p/product[test]" pytest z3-solver pyyaml
+tar-pipe copy of the repository root (same exclusions) -> /tmp/work_recon5/p ; venv /tmp/work_recon5/venv ; pip install -r ci/requirements-ci.txt "./p/product[test]" pytest z3-solver pyyaml
 pytest tests -q                    -> 136 passed in 15.37 s            (133 + 3 new in tests/test_h5.py)
 pytest product/tests -q            -> 324 passed in 81.32 s            (321 + 3 new in product/tests/test_h5.py)
 python3 ci/check_reproduce.py      -> 36/36 rows match (engine NOT re-run); 0 row(s) FAILED; 0 problem(s)

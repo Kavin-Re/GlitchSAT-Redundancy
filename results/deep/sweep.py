@@ -3,7 +3,7 @@
 after a TIMEOUT the larger cycles of that chain are recorded as NOT_RUN (not measured)."""
 import subprocess, json, time, os, sys
 from concurrent.futures import ThreadPoolExecutor
-D = 'results/deep'; TO = 600
+D = os.path.dirname(os.path.abspath(__file__)); TO = 600   # results/deep of this checkout
 def run(design, route, k, N):
     tag = f'{design}_{route}_k{k}_c{N}'
     out = f'{D}/json/{tag}.json'; log = f'{D}/logs/{tag}.log'

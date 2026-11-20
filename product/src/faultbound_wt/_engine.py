@@ -1,4 +1,4 @@
-# ORIGIN: copied from scripts/glitchsat.py of this repository (project working title TBD), engine
+# ORIGIN: copied from scripts/glitchsat.py of this repository (GlitchSAT), engine
 # part only (Netlist, build, solve, honest_boots, explain). The original file is NOT modified; this copy is a
 # snapshot and will drift unless re-synced by hand. Local changes versus the original (all marked "PS-CHANGE"):
 #   1. the CLI / synth / run_check section is dropped (the package has its own CLI and runner);

@@ -1,6 +1,6 @@
 # 5-minute demo script (no hardware, modelled flips only)
 
-Licence UNDECIDED; title TBD. Replaces the 19:30 version (kept in `research/c4/pres/backup/DEMO_5MIN.md.orig`). Everything below is a bounded result on toy designs under a model; nothing is physical and nothing is claimed as new.
+Licence Apache-2.0; title GlitchSAT. Replaces the 19:30 version (kept in `research/c4/pres/backup/DEMO_5MIN.md.orig`). Everything below is a bounded result on toy designs under a model; nothing is physical and nothing is claimed as new.
 
 Every command was run on a copy of the project on 2026-11-19 (agent PRES, `/tmp/work_pres/copy`, venv with `pip install ./product`, z3-solver 5.4.1; timings are wall-clock on that machine, MEASURED, they vary with load). Do NOT run `make` in the live tree (it rewrites `results/` and `tb/`); everything here only reads the tree and writes to `/tmp`.
 
@@ -8,7 +8,7 @@ Every command was run on a copy of the project on 2026-11-19 (agent PRES, `/tmp/
 
 ## Prep, not on stage (about 2 minutes, do it the day before and again 10 minutes before)
 ```
-cp -r <repo> /tmp/demo && cd /tmp/demo
+cp -r . /tmp/demo && cd /tmp/demo     # from the repository root
 python3 -m venv .venv && . .venv/bin/activate
 pip install ./product z3-solver                  # needs PyPI; installs the command faultbound-wt
 EX="$(faultbound-wt example-path)"; A="analyze $EX/v2.json --config $EX/threat.toml"

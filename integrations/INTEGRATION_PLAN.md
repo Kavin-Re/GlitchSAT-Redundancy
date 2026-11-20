@@ -1,6 +1,6 @@
 # Integration plan: interoperate with existing fault-injection tools
 
-License: UNDECIDED. Project title: working title TBD. Date 2026-11-19. Agent IN.
+License: Apache-2.0. Project title: GlitchSAT: How Many Glitches Does Redundancy Stop? Date 2026-11-19. Agent IN.
 Owner direction (chat, quoted): "even if something exists we integrate it". Reading of that direction: the project should interoperate with and build on existing tools, not compete with them. The project's own contribution is then limited to the pieces listed in section 1; nothing here is established as new.
 
 Labels: MEASURED = command run in this session (logs in `integrations/data/`, tests in `integrations/tests/`); READ = from reading documents/repos, nothing run; DESIGNED = specified or code written but not exercised against the real tool; UNTESTED = code exists, third-party tool never run; ESTIMATED = my guess. Effort is ESTIMATED person-hours. Faults are modelled bit flips, not physical glitches.

@@ -1,6 +1,6 @@
 # One-page summary
 
-Licence: UNDECIDED. Title: working title TBD. Previous version: `research/c4/pres/backup/ONE_PAGE_SUMMARY.md.orig`. Numbers: `docs/NUMBERS.md`. Faults are modelled single-cycle bit flips on toy 8-bit designs; nothing is physical; nothing is established as new.
+License: Apache-2.0. Title: GlitchSAT. Previous version: `research/c4/pres/backup/ONE_PAGE_SUMMARY.md.orig`. Numbers: `docs/NUMBERS.md`. Faults are modelled single-cycle bit flips on toy 8-bit designs; nothing is physical; nothing is established as new.
 
 **The sentence.** Three guards on one wire are really one guard.
 

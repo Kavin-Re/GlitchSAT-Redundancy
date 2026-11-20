@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Licence: UNDECIDED. Working title TBD.
+"""License: Apache-2.0. GlitchSAT.
 
 Export the E2 synthesis-variance data for the "same blueprint, many builders" wall.
 

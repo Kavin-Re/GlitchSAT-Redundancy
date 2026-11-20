@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""License: UNDECIDED. Working title TBD.
+"""License: Apache-2.0. GlitchSAT.
 
 Self-contained pytest: the Reed-Muller code RM(1,3) and the 8-bit words used in rtl/v1.v and rtl/v2.v.
 

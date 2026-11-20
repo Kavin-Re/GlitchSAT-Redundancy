@@ -160,7 +160,7 @@ rep('id="caveats"' in html and not re.search(r'\[data-stage[^{]*(#caveats|\.cave
 rep("Same blueprint," in text and "only a minority give the full 3-flip protection" in text, "page: headline wording")
 rep("Previously shown by SYNFI" in text, "page: cause caption says 'Previously shown by SYNFI'")
 rep("Nothing established as new" in text or "nothing established as new" in text.lower(), "page: 'nothing established as new'")
-rep("" in text and "UNDECIDED" in text and "MEASURED" in text, "page: draft / licence / MEASURED labels")
+rep("" in text and "Apache-2.0" in text and "MEASURED" in text, "page: draft / licence / MEASURED labels")
 rep(re.search(r'id="vN" aria-pressed="true"', html) is not None and "view=(Q.view===\"264\"" in html, "page: default view is the 152 distinct netlists")
 rep("prefers-reduced-motion" in html and "prefers-color-scheme:dark" in html, "page: reduced-motion and dark rules present")
 rep(not re.search(r'(?:src|href)\s*=\s*"(?:https?:)?//', html) and "@import" not in html and "fetch(" not in html,

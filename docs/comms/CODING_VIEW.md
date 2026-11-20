@@ -1,6 +1,6 @@
 # Redundancy as a code: the coding view of the V0/V1/V2 designs
 
-License: UNDECIDED. Working title TBD. Textbook coding theory measured on toy designs: nothing here is established as new. Faults are modelled single-cycle bit flips in a gate netlist, not physics. Every number has a label and a source (file and CSV row; row numbers count the header as row 1).
+License: Apache-2.0. GlitchSAT. Textbook coding theory measured on toy designs: nothing here is established as new. Faults are modelled single-cycle bit flips in a gate netlist, not physics. Every number has a label and a source (file and CSV row; row numbers count the header as row 1).
 
 ## In plain words
 
