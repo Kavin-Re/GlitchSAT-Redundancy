@@ -1,0 +1,9 @@
+variant,netlist_sha256,gates,flops,verdict,cost,runtime_s,status,yosys,count_rule
+"plain","f3fe962135ab92ca0e8735755ccdc6685a928e8fbf21a9cb88d88b8cfd33481f","85","8","ATTACK_FOUND","2","0.358","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"plain_opt_merge","39e2acfefb033ec97b39a24746afe543196b34cb993bbb4102c9266d8604b174","63","8","ATTACK_FOUND","1","0.228","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"flatten_before_abc","9e8254100a076b9c473bfd28651ee021ea8c6b322eda457d4ff502cb9f3749a9","71","8","ATTACK_FOUND","1","0.224","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"abc_fast","9454bf79b733b22561d551171ae83fed68255618476427d699e7fff9c0731b5a","88","8","ATTACK_FOUND","2","0.297","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"abc_no_mux","f3fe962135ab92ca0e8735755ccdc6685a928e8fbf21a9cb88d88b8cfd33481f","85","8","ATTACK_FOUND","2","0.358","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"opt_flow","b2517bdf9163be2cf4e2e4f894ef8bcaaf6e40ac566f5a6117f4756ed46eb096","81","8","ATTACK_FOUND","2","0.317","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"plain_keep_off","eef1c78d899bae42fc2ef188b3f3e49e02156590f47f9996491d56f94bca3115","83","8","ATTACK_FOUND","2","0.312","ok","Yosys 0.33 (git sha1 2584903a060)","stem"
+"opt_flow_keep_off","7fe9c3dc373e7094d4a940b7e9e1f78ab074741e79cb574601523ec1cea59dfe","81","8","ATTACK_FOUND","2","0.28","ok","Yosys 0.33 (git sha1 2584903a060)","stem"

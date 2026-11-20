@@ -1,0 +1,131 @@
+{
+  "schema": "faultbound-wt-report/1",
+  "label": "MEASURED (this run; tool)",
+  "provenance": {
+    "tool": "faultbound-working-title",
+    "tool_version": "0.0.1.dev0",
+    "command": "faultbound-wt analyze apt_plain_merge.json --top v5 --max-flips 3 --cycles 6 --report apt_plain_merge.rep.json --exit-zero",
+    "python": "3.13.18",
+    "z3": "5.4.1",
+    "yosys_on_path": "Yosys 0.33 (git sha1 2584903a060)",
+    "utc": "2026-11-19T22:12:42Z",
+    "input_kind": "yosys-json",
+    "netlist_yosys_creator": "Yosys 0.33 (git sha1 2584903a060)",
+    "netlist_path": "apt_plain_merge.json",
+    "netlist_sha256": "9cae21389c0d75e4d6ff849eca40aa52f7e45c8b78a8e3908b70bc46f21b1a24",
+    "top": "v5",
+    "netlist_stats": {
+      "gates": 102,
+      "flops": 9,
+      "basis": "gates = combinational cells, flops = $_DFF_P_ (MEASURED from the netlist)"
+    }
+  },
+  "threat_model": {
+    "max_flips": 3,
+    "cycles": 6,
+    "kinds": [
+      "gate",
+      "flop"
+    ],
+    "include": [],
+    "exclude": [],
+    "attacker_input": "sig",
+    "attacker_model": "constant",
+    "legitimate_value": 195,
+    "output": "boot_word",
+    "bad_value": 150,
+    "top": null,
+    "timeout_ms": 0,
+    "defaulted": [
+      "attacker.input",
+      "attacker.legitimate_value",
+      "property.output",
+      "property.bad_value"
+    ],
+    "honest_check": true,
+    "consumer_bits": null,
+    "input_sites": "none",
+    "init": "known",
+    "count_rule": "stem"
+  },
+  "verdict": "ATTACK_FOUND",
+  "scope": {
+    "goal": "output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..5, while `sig` != 0xC3",
+    "input_treatment": "every input port except the clock `clk` is a free value chosen by the solver and held CONSTANT for the whole run (free inputs here: sig); `sig` must differ from legitimate_value; input ports are NOT fault sites; the clock is implicit (one rising edge per cycle) and is not modelled as a signal",
+    "init_state": "all 9 flops start at a known value: 9 from an explicit Yosys `init` attribute, 0 default to 0; no reset sequence is simulated and unknown (x) power-up state is not modelled",
+    "options": {
+      "goal_output": "boot_word",
+      "accept_value": "0x96",
+      "consumer_bits": "all",
+      "input_sites": "none",
+      "init": "known",
+      "count_rule": "stem (flip of a net counts once for all its fanout)"
+    },
+    "fault_model": "one fault = one flip of one net (gate output or flop Q; kinds allowed: gate/flop) at one cycle; a flip is XORed onto the net for that cycle only and propagates through all its fanout (counts as 1); flips of the same net in different cycles count separately; at most max_flips faults in total over all cycles; no stuck-at, multi-bit, timing or voltage effects",
+    "bounds": {
+      "max_flips": 3,
+      "cycles": 6,
+      "solver_timeout_ms": "none"
+    },
+    "netlist_sha256": "9cae21389c0d75e4d6ff849eca40aa52f7e45c8b78a8e3908b70bc46f21b1a24",
+    "tool_version": "0.0.1.dev0",
+    "defaulted_config_values": [
+      "attacker.input",
+      "attacker.legitimate_value",
+      "property.output",
+      "property.bad_value"
+    ],
+    "statement": "bounded result under this model; not a proof of security"
+  },
+  "bound": {
+    "max_flips": 3,
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of a gate output or flop Q (MODELLED, not physical)",
+    "attacker_input": "`sig` free, constant over the run, != 0xC3",
+    "property": "attack goal: boot_word == 0x96 at some cycle < 6"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "sites": {
+    "modelled": 498,
+    "of_unfiltered_budget": 666
+  },
+  "honest_input_reaches_goal_fault_free": true,
+  "config_warnings": [
+    "these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)"
+  ],
+  "runtime_s": 0.331,
+  "min_faults": 1,
+  "faults": [
+    {
+      "net": "c0.m",
+      "net_id": 36,
+      "cycle": 1,
+      "kind": "gate_output",
+      "aliases": [
+        "c0.m",
+        "c1.m",
+        "c2.m",
+        "g[0].a.a"
+      ]
+    }
+  ],
+  "attacker_input_value": {
+    "sig": 0
+  },
+  "explanation": {
+    "summary": "SINGLE POINT OF FAILURE: one AND gate output, net `c0.m`, has 8 bit(s) of `sig` in its fan-in cone and reaches 8 of 8 bits of `boot_word`. Flipping it for ONE cycle (cycle 1) is enough to reach the goal value. [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]",
+    "fix_pattern": "(Generic design pattern, not derived from this netlist.) Avoid letting one net decide: duplicate the logic feeding it with copies that share no gate, and decide per bit.",
+    "fault_details": [
+      {
+        "net": "c0.m",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "AND",
+        "input_bits_in_fanin_cone": 8,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      }
+    ],
+    "scope_line": "modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security"
+  }
+}

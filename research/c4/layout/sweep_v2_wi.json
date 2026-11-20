@@ -1,0 +1,125 @@
+{
+ "design": "v2_wi",
+ "T": 6,
+ "cap": 3,
+ "label": "SIMULATED fault-model verdicts on MEASURED geometry; bounded T=6, <=3 events",
+ "sweep": [
+  {
+   "r_um": 1.0,
+   "n_distinct_domains": 37,
+   "max_cells_in_domain": 1,
+   "allornothing_word": "3",
+   "allornothing_ok": "3",
+   "subset_word": "3",
+   "subset_ok": "3"
+  },
+  {
+   "r_um": 1.5,
+   "n_distinct_domains": 37,
+   "max_cells_in_domain": 1,
+   "allornothing_word": "3",
+   "allornothing_ok": "3",
+   "subset_word": "3",
+   "subset_ok": "3"
+  },
+  {
+   "r_um": 2.0,
+   "n_distinct_domains": 41,
+   "max_cells_in_domain": 3,
+   "allornothing_word": "2",
+   "allornothing_ok": "2",
+   "subset_word": "2",
+   "subset_ok": "2"
+  },
+  {
+   "r_um": 2.5,
+   "n_distinct_domains": 44,
+   "max_cells_in_domain": 4,
+   "allornothing_word": "2",
+   "allornothing_ok": "2",
+   "subset_word": "2",
+   "subset_ok": "2"
+  },
+  {
+   "r_um": 3.0,
+   "n_distinct_domains": 47,
+   "max_cells_in_domain": 5,
+   "allornothing_word": "2",
+   "allornothing_ok": "2",
+   "subset_word": "2",
+   "subset_ok": "2"
+  },
+  {
+   "r_um": 3.5,
+   "n_distinct_domains": 47,
+   "max_cells_in_domain": 6,
+   "allornothing_word": "3",
+   "allornothing_ok": "2",
+   "subset_word": "2",
+   "subset_ok": "2"
+  },
+  {
+   "r_um": 4.0,
+   "n_distinct_domains": 48,
+   "max_cells_in_domain": 7,
+   "allornothing_word": ">3",
+   "allornothing_ok": "2",
+   "subset_word": "2",
+   "subset_ok": "2"
+  },
+  {
+   "r_um": 5.0,
+   "n_distinct_domains": 47,
+   "max_cells_in_domain": 10,
+   "allornothing_word": "2",
+   "allornothing_ok": "2",
+   "subset_word": "1",
+   "subset_ok": "1"
+  },
+  {
+   "r_um": 6.0,
+   "n_distinct_domains": 48,
+   "max_cells_in_domain": 13,
+   "allornothing_word": "2",
+   "allornothing_ok": "2",
+   "subset_word": "1",
+   "subset_ok": "1"
+  },
+  {
+   "r_um": 7.0,
+   "n_distinct_domains": 47,
+   "max_cells_in_domain": 16,
+   "allornothing_word": ">3",
+   "allornothing_ok": "2",
+   "subset_word": "1",
+   "subset_ok": "1"
+  },
+  {
+   "r_um": 8.0,
+   "n_distinct_domains": 49,
+   "max_cells_in_domain": 19,
+   "allornothing_word": ">3",
+   "allornothing_ok": "2",
+   "subset_word": "1",
+   "subset_ok": "1"
+  },
+  {
+   "r_um": 10.0,
+   "n_distinct_domains": 48,
+   "max_cells_in_domain": 28,
+   "allornothing_word": ">3",
+   "allornothing_ok": "2",
+   "subset_word": "1",
+   "subset_ok": "1"
+  },
+  {
+   "r_um": 15.0,
+   "n_distinct_domains": 42,
+   "max_cells_in_domain": 36,
+   "allornothing_word": ">3",
+   "allornothing_ok": "2",
+   "subset_word": "1",
+   "subset_ok": "1"
+  }
+ ]
+}

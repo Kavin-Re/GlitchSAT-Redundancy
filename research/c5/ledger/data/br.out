@@ -1,0 +1,6 @@
+{"cell": "v2_apt033", "model": "branch_flip", "min": "3", "status": "ATTACK", "secs": 3.2}
+{"cell": "v1_apt033", "model": "branch_flip", "min": "2", "status": "ATTACK", "secs": 0.2}
+{"cell": "v0_apt033", "model": "branch_flip", "min": "1", "status": "ATTACK", "secs": 0.1}
+{"cell": "v1_conda038", "model": "branch_flip", "min": "2", "status": "ATTACK", "secs": 0.5}
+{"cell": "v2_conda038", "model": "branch_flip", "min": "3", "status": "ATTACK", "secs": 8.3}
+{"cell": "v2_spike", "model": "branch_flip", "min": "3", "status": "ATTACK", "secs": 11.6}

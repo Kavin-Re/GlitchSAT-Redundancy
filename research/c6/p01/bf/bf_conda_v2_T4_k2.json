@@ -1,0 +1,1 @@
+{"netlist": "nl_conda_v2.json", "model": "stem_flip", "T": 4, "K": 2, "n_events_per_cycle": 91, "combos_total": 66431, "attacking_by_size": {"0": 0, "1": 0, "2": 0}, "combos_by_size": {"0": 1, "1": 364, "2": 66066}, "min_cost": null, "secs": 27.4, "ok_attacking_by_size": {"0": 0, "1": 4, "2": 1465}, "witness": []}

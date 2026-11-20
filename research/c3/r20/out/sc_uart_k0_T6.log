@@ -1,0 +1,2 @@
+uartw: NO_ATTACK_UP_TO_BOUND  (k<=0, cycles=6, reduce=full)  solve=0.938s
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 0 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.

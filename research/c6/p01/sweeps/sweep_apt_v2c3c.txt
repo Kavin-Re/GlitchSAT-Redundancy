@@ -1,0 +1,15 @@
+v2c3c: synthesis sweep (Yosys 0.33 (git sha1 2584903a060); count rule stem; max_flips=3, cycles=6, per-cell timeout 120000 ms; source sha256 fb1da34b1b882c20d64ad1ddcb8dd01e093f0c15b9550f3a5ee6e6b1394fe866)
+  variant            | netlist sha256 (16) | gates | flops | min flips | time  
+  -------------------+---------------------+-------+-------+-----------+-------
+  plain              | 13f6ba78c4879db8    | 86    | 8     | 3         | 0.727s
+  plain_opt_merge    | f7eec351068737da    | 63    | 8     | 1         | 0.498s
+  flatten_before_abc | 879306abf1f55e8c    | 71    | 8     | 1         | 0.555s
+  abc_fast           | 01bb1d4ffd728d87    | 89    | 8     | 3         | 1.152s
+  abc_no_mux         | 13f6ba78c4879db8*   | 86    | 8     | 3         | 0.727s
+  opt_flow           | 366e9297a59acecb    | 82    | 8     | 3         | 0.753s
+  plain_keep_off     | f87de96c37d73bf9    | 84    | 8     | 3         | 0.84s 
+  opt_flow_keep_off  | 0ed608aff4b4e2f0    | 82    | 8     | 3         | 0.867s
+  * = byte-identical to an earlier variant's netlist (abc_no_mux=plain)
+  verdict changes across 8 variants: min flips ranged 1..3 (at max_flips=3: ATTACK_FOUND in 8, NO_ATTACK_UP_TO_BOUND in 0)
+  one row = one synthesis flow = one netlist hash; cost = minimum number of flips found (exact when no '<='), '>k' = none within <= k flips and the cycle bound, 'unknown' = solver timeout (NOT 'no attack'), 'unsupported' = the engine cannot read that netlist (no verdict), 'synth-failed' = Yosys error. bounded result under this model; not a proof of security. Faults are modelled bit flips; the variants are a small sample of synthesis choices, not all of them.
+  wrote out/sweep_apt_v2c3c.json

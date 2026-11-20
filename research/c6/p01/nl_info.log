@@ -1,0 +1,24 @@
+== ../reference/spike_netlists/v2.json
+creator: Yosys 0.33 (git sha1 2584903a060)
+comb gates: 68 {'$_NOT_': 13, '$_AND_': 29, '$_OR_': 10, '$_MUX_': 16} flops: 8
+init attr st = F0
+state seq wrong key 0x00: ['F0', 'CC', '69', '69', '69']  honest 0xC3: ['F0', 'CC', '96', '96', '96']
+== nl_apt_v2.json
+creator: Yosys 0.33 (git sha1 2584903a060)
+comb gates: 85 {'$_NOT_': 20, '$_AND_': 40, '$_OR_': 25} flops: 8
+init attr st = F0
+state seq wrong key 0x00: ['F0', 'CC', '69', '69', '69']  honest 0xC3: ['F0', 'CC', '96', '96', '96']
+NET $abc$275$new_n58_ (bit 51) driver=$_AND_ inputs={'A': 'c1.m', 'B': '$abc$275$new_n54_'} direct_fanout=3 -> ['$procmux$10.Y[1]:$_OR_', '$procmux$10.Y[4]:$_OR_', '$abc$275$new_n83_:$_OR_'] ; reaches D of st bits [1, 4, 7] copies ['m1', 'm1', 'm1']
+NET $abc$275$new_n74_ (bit 67) driver=$_OR_ inputs={'A': '$abc$275$new_n56_', 'B': '$abc$275$new_n69_'} direct_fanout=2 -> ['$procmux$10.Y[3]:$_OR_', '$procmux$10.Y[6]:$_OR_'] ; reaches D of st bits [3, 6] copies ['m0', 'm0']
+== nl_conda_v2.json
+creator: Yosys 0.38+92 (git sha1 84116c9a3, x86_64-conda-linux-gnu-cc 11.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/root/conda-eda/conda-eda/workdir/conda-env/conda-bld/yosys_1708682804602/work=/usr/local/src/conda/yosys-0.38_93_g84116c9a3 -fdebug-prefix-map=/tmp/mm_root/envs/eda=/usr/local/src/conda-prefix -fPIC -Os -fno-merge-constants)
+comb gates: 83 {'$_NOT_': 20, '$_AND_': 37, '$_OR_': 25, '$_MUX_': 1} flops: 8
+init attr st = F0
+state seq wrong key 0x00: ['F0', 'CC', '69', '69', '69']  honest 0xC3: ['F0', 'CC', '96', '96', '96']
+== nl_apt_v2e.json
+creator: Yosys 0.33 (git sha1 2584903a060)
+comb gates: 89 {'$_NOT_': 20, '$_AND_': 40, '$_OR_': 29} flops: 8
+init attr st = F0
+state seq wrong key 0x00: ['F0', 'A5', '69', '69', '69']  honest 0xC3: ['F0', 'A5', '96', '96', '96']
+NET $abc$275$new_n58_ (bit 50) driver=$_OR_ inputs={'A': '$abc$275$new_n52_', 'B': '$abc$275$new_n55_'} direct_fanout=3 -> ['$abc$275$new_n67_:$_AND_', '$abc$275$new_n79_:$_AND_', '$abc$275$new_n84_:$_AND_'] ; reaches D of st bits [0, 4, 5, 6, 7] copies ['m0', 'm1', 'm2', 'm0', 'm1']
+NET $abc$275$new_n74_ (bit 67) driver=$_AND_ inputs={'A': 'word[5]', 'B': '$abc$275$new_n65_'} direct_fanout=1 -> ['$abc$275$new_n82_:$_OR_'] ; reaches D of st bits [5] copies ['m2']

@@ -1,0 +1,6 @@
+v4b cells done 255 /255 unknown 0 (min flips: count; 0=collision)
+  pop1 0:6 1:2; pop2 0:11 1:17; pop3 0:8 1:48; pop4 0:2 1:68; pop5 1:56; pop6 1:28; pop7 1:8; pop8 1:1
+v6h cells done 222 /255 unknown 0 (min flips: count; 0=collision)
+  pop1 0:6 1:2; pop2 0:11 1:17; pop3 0:8 1:47; pop4 0:2 1:63; pop5 1:46; pop6 1:18; pop7 1:2
+v5 cells done 82 /255 unknown 1 (min flips: count; 0=collision)
+  pop1 0:5 1:2; pop2 0:6 1:13 2:1; pop3 0:2 1:17 2:10; pop4 1:6 2:13; pop5 2:5 3:1

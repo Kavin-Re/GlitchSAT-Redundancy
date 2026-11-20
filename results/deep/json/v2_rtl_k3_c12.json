@@ -1,0 +1,80 @@
+{
+  "label": "MEASURED",
+  "tool": "glitchsat.py",
+  "design": "results/deep/work/nl/v2_rtl.json",
+  "design_sha256_16": "031980732adea3e0",
+  "top": "v2",
+  "synth_flow": "given-netlist",
+  "verdict": "ATTACK_FOUND",
+  "bound": {
+    "max_faults": 3,
+    "cycles": 12,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 12"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 12 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "netlist": {
+    "gates": 85,
+    "flops": 8
+  },
+  "honest_key_boots_fault_free": true,
+  "model": {
+    "sites_total": 1116,
+    "sites_modelled": 888,
+    "reduce": "full",
+    "build_s": 0.531,
+    "solve_s": 2.196,
+    "minimize_s": 0.501
+  },
+  "runtime_s": {
+    "synth": 0.0,
+    "solve_and_minimize": 3.282
+  },
+  "netlist_json": "results/deep/work/nl/v2_rtl.json",
+  "min_faults": 2,
+  "faults": [
+    {
+      "net": "$abc$275$new_n58_",
+      "net_id": 51,
+      "cycle": 0,
+      "kind": "gate_output"
+    },
+    {
+      "net": "$abc$275$new_n74_",
+      "net_id": 67,
+      "cycle": 0,
+      "kind": "gate_output"
+    }
+  ],
+  "attacker_input": {
+    "sig": "0xC7"
+  },
+  "attacker_input_raw": {
+    "sig": 199
+  },
+  "explanation": {
+    "summary": "MINIMUM ATTACK COST = 2 faults (`$abc$275$new_n58_`@0, `$abc$275$new_n74_`@0). No single net decides, but the faults found hit independent redundant copies; the attacker needs 2 coordinated single-cycle flips (spanning 1 distinct cycle(s)).",
+    "fix_pattern": "Raise the cost above the attacker's fault budget: add another independent copy (so quorum needs >2), keep every copy's result in its own disjoint output bits, and add a sticky alarm on any disagreement. Re-run the tool at k=2.",
+    "fault_details": [
+      {
+        "net": "$abc$275$new_n58_",
+        "cycle": 0,
+        "kind": "gate output",
+        "gate": "AND",
+        "input_bits_in_fanin_cone": 8,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      },
+      {
+        "net": "$abc$275$new_n74_",
+        "cycle": 0,
+        "kind": "gate output",
+        "gate": "OR",
+        "input_bits_in_fanin_cone": 8,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      }
+    ]
+  }
+}

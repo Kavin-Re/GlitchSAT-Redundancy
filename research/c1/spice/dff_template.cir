@@ -1,0 +1,20 @@
+* DFF timing/voltage disturbance, sky130_fd_sc_hd__dfxtp_1, tt corner. NOT physical validation.
+.lib /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+.param vdd=1.8 tsetup=__TS__ cw=__CW__ vdip=__VD__
+Vdd vpwr 0 PWL(0 {vdd} 5.5n {vdd} 5.6n {vdip} 6.6n {vdip} 6.7n {vdd})
+Vss vgnd 0 0
+Vnb vnb 0 0
+* D rises (new value 1) at 5n+3.2n? clock rising at tclk; D rises tsetup before it
+Vclk clk 0 PWL(0 0 2n 0 2.1n {vdd} 4n {vdd} 4.1n 0 6n 0 6.05n {vdd} {6n+cw} {vdd} {6n+cw+0.05n} 0 12n 0)
+Vd d 0 PWL(0 0 {6n-tsetup} 0 {6n-tsetup+0.05n} {vdd} 20n {vdd})
+X1 clk d vgnd vnb vpwr vpwr q sky130_fd_sc_hd__dfxtp_1
+Cl q 0 5f
+.tran 5p 12n
+.control
+run
+meas tran qfinal find v(q) at=11n
+meas tran qmid find v(q) at=9n
+quit
+.endc
+.end

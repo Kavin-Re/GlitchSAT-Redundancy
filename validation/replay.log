@@ -1,0 +1,14 @@
+v0 T 6 k<= 1 sig 211 faults [[1, '$flatten\\c.$abc$175$new_n13_']] -> replay CONFIRMED
+v0 T 6 k<= 2 sig 3 faults [[1, '$flatten\\c.$abc$175$new_n15_']] -> replay CONFIRMED
+v0 T 6 k<= 3 sig 227 faults [[0, 'st[1]']] -> replay CONFIRMED
+v0 T 6 k<= 4 sig 192 faults [[2, 'st[0]']] -> replay CONFIRMED
+v0 T 6 k<= 5 sig 227 faults [[0, 'st[1]']] -> replay CONFIRMED
+v1 T 6 k<= 1 sig 3 faults [[1, 'ok']] -> replay CONFIRMED
+v1 T 6 k<= 2 sig 3 faults [[1, 'ok']] -> replay CONFIRMED
+v1 T 6 k<= 3 sig 227 faults [[1, 'ok']] -> replay CONFIRMED
+v1 T 6 k<= 4 sig 3 faults [[1, 'ok']] -> replay CONFIRMED
+v1 T 6 k<= 5 sig 192 faults [[1, 'ok']] -> replay CONFIRMED
+v2 T 6 k<= 3 sig 203 faults [[1, 'word[0]'], [1, '$flatten\\c1.$abc$251$new_n10_'], [1, '$flatten\\c2.$abc$251$new_n10_']] -> replay CONFIRMED
+v2 T 6 k<= 4 sig 3 faults [[1, '$flatten\\c0.$abc$251$new_n15_'], [1, '$flatten\\c1.$abc$251$new_n15_'], [1, '$flatten\\c2.$abc$251$new_n16_']] -> replay CONFIRMED
+v2 T 6 k<= 5 sig 211 faults [[1, '$flatten\\c0.$abc$251$new_n11_'], [1, '$flatten\\c1.$abc$251$new_n13_'], [1, '$flatten\\c2.$abc$251$new_n13_']] -> replay CONFIRMED
+confirmed 13 not 0

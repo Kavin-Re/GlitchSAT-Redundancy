@@ -1,0 +1,134 @@
+[
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 4,
+    "reduce": "none",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 0.46,
+    "fault_vars": 304,
+    "fault_vars_unreduced": 304,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 4,
+    "reduce": "coi",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 0.42,
+    "fault_vars": 276,
+    "fault_vars_unreduced": 304,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 4,
+    "reduce": "full",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 0.34,
+    "fault_vars": 215,
+    "fault_vars_unreduced": 304,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 6,
+    "reduce": "none",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 1.57,
+    "fault_vars": 456,
+    "fault_vars_unreduced": 456,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 6,
+    "reduce": "coi",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 1.35,
+    "fault_vars": 414,
+    "fault_vars_unreduced": 456,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 6,
+    "reduce": "full",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 1.28,
+    "fault_vars": 353,
+    "fault_vars_unreduced": 456,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 8,
+    "reduce": "none",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 7.53,
+    "fault_vars": 608,
+    "fault_vars_unreduced": 608,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 8,
+    "reduce": "coi",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 6.08,
+    "fault_vars": 552,
+    "fault_vars_unreduced": 608,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 8,
+    "reduce": "full",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 8.05,
+    "fault_vars": 491,
+    "fault_vars_unreduced": 608,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 10,
+    "reduce": "none",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 28.47,
+    "fault_vars": 760,
+    "fault_vars_unreduced": 760,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 10,
+    "reduce": "coi",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 23.73,
+    "fault_vars": 690,
+    "fault_vars_unreduced": 760,
+    "label": "MEASURED"
+  },
+  {
+    "design": "v2(spike netlist)",
+    "k": 2,
+    "cycles": 10,
+    "reduce": "full",
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "total_s": 21.66,
+    "fault_vars": 629,
+    "fault_vars_unreduced": 760,
+    "label": "MEASURED"
+  }
+]

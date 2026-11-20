@@ -1,0 +1,17 @@
+
+PASS  pip_install_product
+PASS  pip_install_ci_requirements
+PASS  check_reproduce
+PASS  check_reproduce_rerun
+PASS  pytest_tests
+PASS  pytest_product_tests
+FAIL  check_numbers (rc=1)
+PASS  start_cmd1_v1_k1
+PASS  start_cmd2_v2_k2
+PASS  start_cmd3_v2_boot_ok
+PASS  dashboard_build
+PASS  dashboard_index_unchanged
+PASS  no_forbidden_paths_in_zip
+files with /tmp or /home/user: 600 (in run path dirs: 7); list: /tmp/bundle_verify_paths.txt
+fails: 1 ; full log /tmp/bundle_verify_log.txt
+done

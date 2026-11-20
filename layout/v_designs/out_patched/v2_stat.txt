@@ -1,0 +1,82 @@
+
+8. Printing statistics.
+
+=== cmp8 ===
+
+   Number of wires:                  4
+   Number of wire bits:             11
+   Number of public wires:           2
+   Number of public wire bits:       9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     sky130_fd_sc_hd__nand2_1        1
+     sky130_fd_sc_hd__nand4bb_1      1
+     sky130_fd_sc_hd__nor4_1         1
+
+   Chip area for module '\cmp8': 21.270400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== v2 ===
+
+   Number of wires:                 26
+   Number of wire bits:             61
+   Number of public wires:          10
+   Number of public wire bits:      45
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 30
+     cmp8                            3
+     sky130_fd_sc_hd__a21boi_0       1
+     sky130_fd_sc_hd__a21o_1         2
+     sky130_fd_sc_hd__a22o_1         2
+     sky130_fd_sc_hd__a2bb2oi_1      2
+     sky130_fd_sc_hd__and4_1         2
+     sky130_fd_sc_hd__clkinv_1       2
+     sky130_fd_sc_hd__dfxtp_1        8
+     sky130_fd_sc_hd__mux2_1         1
+     sky130_fd_sc_hd__nand2_1        1
+     sky130_fd_sc_hd__nand4_1        1
+     sky130_fd_sc_hd__nand4bb_1      1
+     sky130_fd_sc_hd__nor2_1         2
+     sky130_fd_sc_hd__nor4_1         1
+     sky130_fd_sc_hd__nor4bb_1       1
+
+   Area for cell type \cmp8 is unknown!
+
+   Chip area for module '\v2': 299.036800
+     of which used for sequential elements: 160.153600 (53.56%)
+
+=== design hierarchy ===
+
+   v2                                1
+     cmp8                            3
+
+   Number of wires:                 38
+   Number of wire bits:             94
+   Number of public wires:          16
+   Number of public wire bits:      72
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     sky130_fd_sc_hd__a21boi_0       1
+     sky130_fd_sc_hd__a21o_1         2
+     sky130_fd_sc_hd__a22o_1         2
+     sky130_fd_sc_hd__a2bb2oi_1      2
+     sky130_fd_sc_hd__and4_1         2
+     sky130_fd_sc_hd__clkinv_1       2
+     sky130_fd_sc_hd__dfxtp_1        8
+     sky130_fd_sc_hd__mux2_1         1
+     sky130_fd_sc_hd__nand2_1        4
+     sky130_fd_sc_hd__nand4_1        1
+     sky130_fd_sc_hd__nand4bb_1      4
+     sky130_fd_sc_hd__nor2_1         2
+     sky130_fd_sc_hd__nor4_1         4
+     sky130_fd_sc_hd__nor4bb_1       1
+
+   Chip area for top module '\v2': 362.848000
+     of which used for sequential elements: 0.000000 (0.00%)
+

@@ -1,0 +1,12 @@
+# Same as the bundled threat.toml for v0/v1/v2 but the asset is the ACCEPT FLAG boot_ok (1 bit) instead of the 8-bit word. MODELLED flips only.
+[faults]
+max_flips = 3
+cycles = 6
+kinds = ["gate", "flop"]
+[attacker]
+input = "sig"
+model = "constant"
+legitimate_value = 0xC3
+[property]
+output = "boot_ok"
+bad_value = 1

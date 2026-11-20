@@ -1,0 +1,3473 @@
+{
+ "label": "MEASURED",
+ "T": 6,
+ "rows": [
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c.$abc$175$new_n15_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 6.4,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.m",
+     "flip"
+    ],
+    [
+     1,
+     "$flatten\\c1.$abc$251$new_n14_",
+     "flip"
+    ],
+    [
+     1,
+     "$flatten\\c2.$abc$251$new_n16_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "$abc$206$new_n16_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.9,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$275$new_n58_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n74_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     2,
+     "st[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.8,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "stem_flip",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 15.8,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "boot_word[3]",
+     "flip"
+    ],
+    [
+     1,
+     "$abc$275$new_n59",
+     "flip"
+    ],
+    [
+     2,
+     "$procmux$10.Y[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "branch_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "pin B of gate $flatten\\c.$abc$175$new_n16_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "branch_flip",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.9,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin B of gate c2.m",
+     "flip"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c1.$abc$246$new_n16_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.6,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c.$abc$175$new_n16_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.8,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 25.1,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$auto$rtlil.cc:2609:MuxGate$296",
+     "flip"
+    ],
+    [
+     0,
+     "$auto$rtlil.cc:2609:MuxGate$308",
+     "flip"
+    ],
+    [
+     0,
+     "$auto$rtlil.cc:2609:MuxGate$302",
+     "flip"
+    ],
+    [
+     0,
+     "$auto$rtlil.cc:2609:MuxGate$314",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c.$abc$196$new_n10_",
+     "flip"
+    ],
+    [
+     1,
+     "$flatten\\c.$abc$196$new_n13_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.6,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$abc$266$new_n44_",
+     "flip"
+    ],
+    [
+     1,
+     "$abc$266$new_n50_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 12.5,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$275$new_n58_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n69_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[2]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.6,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     3,
+     "$abc$206$new_n16",
+     "flip"
+    ],
+    [
+     3,
+     "$procmux$8.Y[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 224
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.7,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.m",
+     "flip"
+    ],
+    [
+     1,
+     "c2.m",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 16
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "group_hood_m2",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 5.0,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "boot_word[1]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[2]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[5]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     5,
+     "st[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 5.8,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     4,
+     "$abc$255$new_n16_",
+     "flip"
+    ],
+    [
+     4,
+     "$abc$255$new_n26_",
+     "flip"
+    ],
+    [
+     4,
+     "$abc$255$new_n28_",
+     "flip"
+    ],
+    [
+     4,
+     "$abc$255$new_n29_",
+     "flip"
+    ],
+    [
+     4,
+     "$abc$255$auto$simplemap.cc:246:simplemap_eqne$147",
+     "flip"
+    ],
+    [
+     4,
+     "$abc$255$auto$opt_dff.cc:194:make_patterns_logic$25",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$285",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$289",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$293",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$297",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$301",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$305",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$309",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$313",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$283",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$287",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$291",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$295",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$299",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$303",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$307",
+     "flip"
+    ],
+    [
+     4,
+     "$auto$rtlil.cc:2609:MuxGate$311",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 4.7,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     2,
+     "$abc$260$new_n20_",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$260$new_n33_",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$260$new_n35_",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$260$new_n36_",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$260$auto$opt_dff.cc:194:make_patterns_logic$25",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$292",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$296",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$300",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$304",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$308",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$312",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$316",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$320",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.8,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c.$abc$196$new_n12_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 5.7,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 16.1,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$275$new_n63_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n64_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n67_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n68_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n69_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n70_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[2]",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n72_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n74_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[3]",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n76_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[4]",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n78_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[5]",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n80_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[6]",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n82_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n83_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[7]",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$275$new_n58_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.1,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     4,
+     "st[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 6.1,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 211
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "cone_flip_exact",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 22.4,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$275$new_n59",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n70",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[2]",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n73",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[3]",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 208
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "st[1]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.5,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$255$auto$simplemap.cc:246:simplemap_eqne$147",
+     "flip"
+    ],
+    [
+     0,
+     "ok",
+     "flip"
+    ],
+    [
+     0,
+     "$auto$rtlil.cc:2609:MuxGate$293",
+     "flip"
+    ],
+    [
+     0,
+     "$auto$rtlil.cc:2609:MuxGate$291",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.7,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     2,
+     "$abc$260$new_n31_",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$260$new_n36_",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$260$auto$opt_dff.cc:194:make_patterns_logic$25",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$292",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$296",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$300",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$304",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$308",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$312",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$316",
+     "flip"
+    ],
+    [
+     2,
+     "$auto$rtlil.cc:2609:MuxGate$320",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 131
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     3,
+     "$abc$206$new_n17_",
+     "flip"
+    ],
+    [
+     3,
+     "$abc$206$new_n20_",
+     "flip"
+    ],
+    [
+     3,
+     "$abc$206$new_n21_",
+     "flip"
+    ],
+    [
+     3,
+     "$procmux$8.Y[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 19
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.6,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 10.2,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$275$new_n58_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n69_",
+     "flip"
+    ],
+    [
+     0,
+     "$abc$275$new_n83_",
+     "flip"
+    ],
+    [
+     0,
+     "$procmux$10.Y[7]",
+     "flip"
+    ],
+    [
+     4,
+     "$procmux$10.Y[2]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     2,
+     "st[1]",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$206$new_n16",
+     "flip"
+    ],
+    [
+     2,
+     "$abc$206$new_n20",
+     "flip"
+    ],
+    [
+     2,
+     "$procmux$8.Y[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 2.1,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "hood_flip_exact",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 4.9,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "boot_word[1]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[2]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[5]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "c.a[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 194
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.a[5]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 194
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     2,
+     "$procmux$8.Y[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 255
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.6,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[2]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c.$abc$196$new_n14",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.6,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.a[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 194
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "input_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.9,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[1]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 193
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "st[1]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.6,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.a[6]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 131
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[0]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 194
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "st[1]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.7,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "set"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.8,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[1]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 193
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "c.m",
+     "set"
+    ]
+   ],
+   "attacker_sig": 40
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "set"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "input_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[1]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 193
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$abc$184$auto$wreduce.cc:461:run$27[0]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 48
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.a[2]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[5]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$abc$206$new_n17_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.a[3]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.5,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[2]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "$abc$206$new_n15",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 16
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c1.a[2]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "input_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.a[5]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "input_branch_flip",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $flatten\\c.$abc$175$new_n14_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 194
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "input_branch_flip",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 7.0,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate c1.m",
+     "flip"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c2.$abc$246$new_n10_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "reset_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$abc$184$auto$wreduce.cc:461:run$27[0]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 32
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "reset_only",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c1.$abc$246$new_n10_",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c2.$abc$246$new_n10_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "reset_only",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.8,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c0.$abc$251$new_n10_",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c1.$abc$251$new_n10_",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c2.$abc$251$new_n12_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "reset_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$abc$206$new_n17_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "reset_only",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c1.$abc$256$new_n15_",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c2.$abc$256$new_n15_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "reset_only",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.0,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c2.$abc$265$new_n15_",
+     "reset"
+    ],
+    [
+     1,
+     "$abc$275$new_n56_",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c1.$abc$265$new_n15_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "reset_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     4,
+     "$abc$206$new_n20",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 32
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "reset_only",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.9,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c1.$abc$256$new_n10",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c2.$abc$256$new_n10",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "reset_only",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.0,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c0.$abc$265$new_n15",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c1.$abc$265$new_n15",
+     "reset"
+    ],
+    [
+     1,
+     "$flatten\\c2.$abc$265$new_n15",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "branch_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $abc$184$auto$wreduce.cc:461:run$27[0]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "branch_set",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.1,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate c1.m",
+     "set"
+    ],
+    [
+     1,
+     "pin A of gate c2.m",
+     "set"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "branch_set",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 5.4,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin B of gate c2.m",
+     "set"
+    ],
+    [
+     1,
+     "pin B of gate $flatten\\c0.$abc$251$new_n16_",
+     "set"
+    ],
+    [
+     1,
+     "pin B of gate $flatten\\c1.$abc$251$new_n16_",
+     "set"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "branch_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "pin A of gate $abc$206$new_n16_",
+     "set"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "branch_set",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.3,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $abc$266$new_n47_",
+     "set"
+    ],
+    [
+     1,
+     "pin B of gate $abc$266$new_n50_",
+     "set"
+    ]
+   ],
+   "attacker_sig": 231
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "branch_set",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 6.3,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin B of gate c2.m",
+     "set"
+    ],
+    [
+     1,
+     "pin A of gate $abc$275$new_n58_",
+     "set"
+    ],
+    [
+     1,
+     "pin B of gate $flatten\\c0.$abc$265$new_n17_",
+     "set"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "branch_set",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $abc$206$new_n16",
+     "set"
+    ]
+   ],
+   "attacker_sig": 24
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "branch_set",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.8,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate ok",
+     "set"
+    ],
+    [
+     1,
+     "pin B of gate ok",
+     "set"
+    ]
+   ],
+   "attacker_sig": 215
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "branch_set",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 6.9,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate c2.m",
+     "set"
+    ],
+    [
+     1,
+     "pin A of gate c1.m",
+     "set"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c0.$abc$265$new_n13",
+     "set"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     4,
+     "pin A of gate $auto$rtlil.cc:2609:MuxGate$195",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 32
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.8,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $flatten\\c1.$abc$246$new_n12_",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c2.$abc$246$new_n13_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 2.0,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin B of gate $flatten\\c0.$abc$251$new_n12_",
+     "reset"
+    ],
+    [
+     1,
+     "pin B of gate $flatten\\c1.$abc$251$new_n12_",
+     "reset"
+    ],
+    [
+     1,
+     "pin B of gate $flatten\\c2.$abc$251$new_n12_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 211
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     4,
+     "pin A of gate boot_word[0]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.7,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $flatten\\c1.$abc$256$new_n16_",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c2.$abc$256$new_n16_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.9,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $flatten\\c2.$abc$265$new_n16_",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c0.$abc$265$new_n16_",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c1.$abc$265$new_n16_",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     4,
+     "pin S of gate $procmux$8.Y[0]",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 40
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.7,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $flatten\\c1.$abc$256$new_n11",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c2.$abc$256$new_n11",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "branch_reset",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.1,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "pin A of gate $flatten\\c0.$abc$265$new_n11",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c1.$abc$265$new_n11",
+     "reset"
+    ],
+    [
+     1,
+     "pin A of gate $flatten\\c2.$abc$265$new_n11",
+     "reset"
+    ]
+   ],
+   "attacker_sig": 211
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.0,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.0,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "flop_hold",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.0,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.0,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.0,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "clock_skip_all",
+   "T": 6,
+   "min": ">3",
+   "status": "NONE_UP_TO_CAP",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [],
+   "attacker_sig": null
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "$flatten\\c.$abc$175$new_n15_",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 3
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.1,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 227
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 3.4,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "boot_word[1]",
+     "flip"
+    ],
+    [
+     1,
+     "boot_word[3]",
+     "flip"
+    ],
+    [
+     2,
+     "boot_word[4]",
+     "flip"
+    ],
+    [
+     2,
+     "boot_word[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     4,
+     "st[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.2,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 3.2,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "$abc$275$new_n58_",
+     "flip"
+    ],
+    [
+     1,
+     "boot_word[3]",
+     "flip"
+    ],
+    [
+     1,
+     "boot_word[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 131
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     2,
+     "st[0]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.3,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 131
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "group_flops_m2",
+   "T": 6,
+   "min": "2",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 2.4,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     0,
+     "boot_word[1]",
+     "flip"
+    ],
+    [
+     0,
+     "boot_word[5]",
+     "flip"
+    ],
+    [
+     1,
+     "boot_word[2]",
+     "flip"
+    ],
+    [
+     1,
+     "boot_word[6]",
+     "flip"
+    ]
+   ],
+   "attacker_sig": 199
+  },
+  {
+   "design": "v0",
+   "netlist": "spike",
+   "model": "set_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.2,
+   "stats": {
+    "gates": 18,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "st[1]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 0
+  },
+  {
+   "design": "v1",
+   "netlist": "spike",
+   "model": "set_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 58,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "set"
+    ]
+   ],
+   "attacker_sig": 192
+  },
+  {
+   "design": "v2",
+   "netlist": "spike",
+   "model": "set_only",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 1.0,
+   "stats": {
+    "gates": 68,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c2.m",
+     "set"
+    ],
+    [
+     1,
+     "$flatten\\c0.$abc$251$new_n13_",
+     "set"
+    ],
+    [
+     1,
+     "$flatten\\c1.$abc$251$new_n13_",
+     "set"
+    ]
+   ],
+   "attacker_sig": 211
+  },
+  {
+   "design": "v0",
+   "netlist": "apt033",
+   "model": "set_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 25,
+    "flops": 2
+   },
+   "faults": [
+    [
+     0,
+     "st[1]",
+     "set"
+    ]
+   ],
+   "attacker_sig": 196
+  },
+  {
+   "design": "v1",
+   "netlist": "apt033",
+   "model": "set_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 72,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "set"
+    ]
+   ],
+   "attacker_sig": 211
+  },
+  {
+   "design": "v2",
+   "netlist": "apt033",
+   "model": "set_only",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 85,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.m",
+     "set"
+    ],
+    [
+     1,
+     "c2.m",
+     "set"
+    ],
+    [
+     1,
+     "c1.m",
+     "set"
+    ]
+   ],
+   "attacker_sig": 219
+  },
+  {
+   "design": "v0",
+   "netlist": "conda038",
+   "model": "set_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.1,
+   "stats": {
+    "gates": 23,
+    "flops": 2
+   },
+   "faults": [
+    [
+     1,
+     "c.m",
+     "set"
+    ]
+   ],
+   "attacker_sig": 20
+  },
+  {
+   "design": "v1",
+   "netlist": "conda038",
+   "model": "set_only",
+   "T": 6,
+   "min": "1",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.3,
+   "stats": {
+    "gates": 70,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "ok",
+     "set"
+    ]
+   ],
+   "attacker_sig": 203
+  },
+  {
+   "design": "v2",
+   "netlist": "conda038",
+   "model": "set_only",
+   "T": 6,
+   "min": "3",
+   "status": "ATTACK",
+   "cap": 3,
+   "secs": 0.4,
+   "stats": {
+    "gates": 83,
+    "flops": 8
+   },
+   "faults": [
+    [
+     1,
+     "c0.m",
+     "set"
+    ],
+    [
+     1,
+     "c2.m",
+     "set"
+    ],
+    [
+     1,
+     "c1.m",
+     "set"
+    ]
+   ],
+   "attacker_sig": 3
+  }
+ ]
+}

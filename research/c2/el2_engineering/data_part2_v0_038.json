@@ -1,0 +1,155 @@
+{
+ "all_cells_by_slack": [
+  {
+   "n_sites": 2,
+   "slack_le_ns": 7.048,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     4,
+     "boot_ok"
+    ]
+   ],
+   "wall": 0.24
+  },
+  {
+   "n_sites": 3,
+   "slack_le_ns": 7.048,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     3,
+     "boot_ok"
+    ]
+   ],
+   "wall": 0.21
+  },
+  {
+   "n_sites": 4,
+   "slack_le_ns": 7.089,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     5,
+     "st[0]"
+    ]
+   ],
+   "wall": 0.33
+  },
+  {
+   "n_sites": 6,
+   "slack_le_ns": 7.571,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     4,
+     "boot_ok"
+    ]
+   ],
+   "wall": 0.34
+  },
+  {
+   "n_sites": 7,
+   "slack_le_ns": 7.571,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     4,
+     "boot_ok"
+    ]
+   ],
+   "wall": 0.44
+  },
+  {
+   "n_sites": 8,
+   "slack_le_ns": 7.767,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     4,
+     "boot_ok"
+    ]
+   ],
+   "wall": 0.45
+  },
+  {
+   "n_sites": 9,
+   "slack_le_ns": 9.332,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "st[1]"
+    ]
+   ],
+   "wall": 0.32
+  },
+  {
+   "n_sites": 10,
+   "slack_le_ns": 9.357,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "st[1]"
+    ]
+   ],
+   "wall": 0.32
+  }
+ ],
+ "flops_only_by_Dslack": [
+  {
+   "n_sites": 1,
+   "slack_le_ns": 7.571,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     5,
+     "st[0]"
+    ]
+   ],
+   "wall": 0.39
+  },
+  {
+   "n_sites": 2,
+   "slack_le_ns": 9.357,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     2,
+     "st[0]"
+    ]
+   ],
+   "wall": 0.3
+  }
+ ],
+ "cell_slacks": {
+  "_3_": 7.048,
+  "_8_": 7.048,
+  "clkbuf_0_clk": 7.048,
+  "clkbuf_1_1__f_clk": 7.048,
+  "_4_": 7.048,
+  "clkbuf_1_0__f_clk": 7.089,
+  "_9_": 7.089,
+  "_7_": 7.571,
+  "c/_4_": 7.571,
+  "c/_2_": 7.571,
+  "c/_3_": 7.767,
+  "_6_": 9.332,
+  "_5_": 9.357
+ },
+ "flop_D_slacks": {
+  "_9_": 7.571,
+  "_8_": 9.357
+ }
+}

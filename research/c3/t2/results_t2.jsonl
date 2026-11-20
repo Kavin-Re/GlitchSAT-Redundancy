@@ -1,0 +1,148 @@
+{"id": "flip_or", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-3] - AssertionEr..."], "old_from_MT": true}
+{"id": "flip_or", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-3] - AssertionEr..."], "old_from_MT": true}
+{"id": "flip_and", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "flip_and", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "no_flop_sites", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-65] - assert 2 == 1"], "old_from_MT": true}
+{"id": "no_flop_sites", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "no_gate_sites", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "no_gate_sites", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "k_plus1", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "k_plus1", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "k_minus1", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "k_minus1", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "drop_atmost", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "drop_atmost", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "min_off", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "min_off", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-3] - assert 2 == 1"], "old_from_MT": true}
+{"id": "min_bound2", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "min_bound2", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-3] - assert 2 == 1"], "old_from_MT": true}
+{"id": "min_nopop_brk", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "min_nopop_brk", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "temporal_off1", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "temporal_off1", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "temporal_off2", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_single_cycle_comb_fault_found[full] - ..."], "old_from_MT": true}
+{"id": "temporal_off2", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_single_cycle_comb_fault_found[full] - ..."], "old_from_MT": true}
+{"id": "coi_nolast", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_single_cycle_comb_fault_found[coi] - A..."], "old_from_MT": true}
+{"id": "coi_nolast", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_single_cycle_comb_fault_found[coi] - A..."], "old_from_MT": true}
+{"id": "hits_or", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "hits_or", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "goal_shift", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "goal_shift", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "goal_invert", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "goal_invert", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "last_cycle_only", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-26] - assert 2 == 1"], "old_from_MT": true}
+{"id": "last_cycle_only", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-26] - assert 2 == 1"], "old_from_MT": true}
+{"id": "first_cycle_only", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "first_cycle_only", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "key_eq", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "key_eq", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "skip_badonly", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "skip_badonly", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "fixed_in_neg", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "fixed_in_neg", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "honest_invert", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "honest_invert", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "honest_nofix", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_honest_boots_requires_the_legitimate_key"], "old_from_MT": true}
+{"id": "honest_nofix", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "honest_badonly", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "honest_badonly", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "and_to_or", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "and_to_or", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "or_to_and", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "or_to_and", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "xor_to_and", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "xor_to_and", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "xor_to_or", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-16] - assert 0 == 1"], "old_from_MT": true}
+{"id": "xor_to_or", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-16] - assert 0 == 1"], "old_from_MT": true}
+{"id": "not_dropped", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "not_dropped", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "mux_swap", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "mux_swap", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "mux_sel_inv", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "mux_sel_inv", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "init_all_zero", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "init_all_zero", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "init_default1", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-13] - assert 0 == 1"], "old_from_MT": true}
+{"id": "init_default1", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_oracle.py::test_matches_bruteforce[none-13] - assert 0 == 1"], "old_from_MT": true}
+{"id": "init_bit_inv", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "init_bit_inv", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "state_hold", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "state_hold", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "cycles_minus1", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "cycles_minus1", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "simp_off", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "simp_off", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "simp_always", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "simp_always", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "dist_noinc", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "dist_noinc", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": true}
+{"id": "dist_goal_none", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_single_cycle_comb_fault_found[full] - ..."], "old_from_MT": true}
+{"id": "dist_goal_none", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_single_cycle_comb_fault_found[full] - ..."], "old_from_MT": true}
+{"id": "fanin_incl_y", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "fanin_incl_y", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "multidrv_off", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "multidrv_off", "suite": "product", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "inport_drv_off", "suite": "root", "old": "KILLED", "old_from_MT": true, "new": null}
+{"id": "inport_drv_off", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 0.0, "new": "KILLED", "new_failed": ["FAILED tests/test_mt_targeted.py::test_gate_driving_input_port_bit_rejected"], "old_from_MT": true}
+{"id": "loop_off", "suite": "root", "old": "TIMEOUT", "old_failed": [], "old_secs": 120.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "loop_off", "suite": "product", "old": "TIMEOUT", "old_failed": [], "old_secs": 120.1, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "xinit_off", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_x_init_fails - AssertionError: assert (0..."], "old_secs": 27.0, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "xinit_off", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_duplicate_key_and_x_init - AssertionErro..."], "old_secs": 14.9, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "dupkey_off", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_duplicate_json_key_fails - AssertionErro..."], "old_secs": 28.1, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "dupkey_off", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_duplicate_key_and_x_init - assert (3 == ..."], "old_secs": 14.7, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "undriven_off", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_undriven_and_comb_loop_and_latch_fail_cleanly"], "old_secs": 23.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "undriven_off", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_malformed_netlists_exit_3[<lambda>-undriven]"], "old_secs": 12.7, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "xconst_off", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_x_constant_fails - assert (3 == 3 and 'x..."], "old_secs": 23.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "xconst_off", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_malformed_netlists_exit_3[<lambda>-x/z]"], "old_secs": 13.1, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "unk_is_true", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 26.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "unk_is_true", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 24.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "timeout_off", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 27.1, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "timeout_off", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 28.5, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "extract_inv", "suite": "root", "old": "TIMEOUT", "old_failed": [], "old_secs": 120.0, "new": "TIMEOUT", "new_failed": [], "old_from_MT": false}
+{"id": "extract_inv", "suite": "product", "old": "TIMEOUT", "old_failed": [], "old_secs": 120.0, "new": "TIMEOUT", "new_failed": [], "old_from_MT": false}
+{"id": "goal_widthchk", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 26.9, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "goal_widthchk", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 27.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "attin_dirchk", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 28.6, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "attin_dirchk", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 26.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "clk_free", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 36.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "clk_free", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 23.8, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "expl_k1", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 26.1, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "expl_k1", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 24.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "expl_nin", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 25.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "expl_nin", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 25.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "reach_lt", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 24.6, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "reach_lt", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 26.5, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "sup_flop", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 24.9, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "sup_flop", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 26.3, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "kind_label", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 26.6, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "kind_label", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_ps2.py::test_canned_redundancy_text_only_when_structure_supports_it"], "old_secs": 17.4, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "dffs_sub", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_engine.py::test_k0_unsat_and_known_key_boots[v0] - glitchsa..."], "old_secs": 2.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "dffs_sub", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_v0_v1_break_with_one_flip[v0] - faultbound_..."], "old_secs": 0.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_k_neg", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_cli_argument_validation[args4] - Asserti..."], "old_secs": 21.6, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_k_le0", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_engine.py::test_k0_unsat_and_known_key_boots[v0] - glitchsa..."], "old_secs": 0.7, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_N_zero", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_cli_argument_validation[args3] - Asserti..."], "old_secs": 22.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_gv_width", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_cli_argument_validation[args1] - Asserti..."], "old_secs": 22.2, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_key_width", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_cli_argument_validation[args2] - Asserti..."], "old_secs": 22.2, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_exit_unk", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 27.2, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "cli_nofaults_min", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_engine.py::test_v0_v1_one_fault_breaks - AssertionError: as..."], "old_secs": 3.2, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "cli_honest_flag", "suite": "root", "old": "SURVIVED", "old_failed": [], "old_secs": 27.9, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "cli_safe_off", "suite": "root", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_safe_escapes_terminal_controls - Asserti..."], "old_secs": 27.2, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pf_filter_none", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_site_filter_restricts_and_is_monotone - ass..."], "old_secs": 11.8, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pf_filter_kind", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 29.8, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pf_unsup_gate", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 31.2, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_kind_inv", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_v0_v1_break_with_one_flip[v0] - AssertionEr..."], "old_secs": 0.4, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pr_incl_any", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 26.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_excl_off", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 26.0, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_honest_chk", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_ps2.py::test_wrong_legitimate_value_is_config_error - asser..."], "old_secs": 16.2, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pr_honest_inv", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_v0_v1_break_with_one_flip[v0] - AssertionEr..."], "old_secs": 0.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pr_lv_width", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 25.3, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_bv_width", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 25.4, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_kindlabel", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 25.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_minfaults", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 24.8, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_reduce_none", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 33.7, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pr_outwrongkey", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_v0_v1_break_with_one_flip[v0] - AssertionEr..."], "old_secs": 0.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pr_dir_in", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 26.3, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pc_exit_attack", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_exit_codes_and_reports - AssertionError: as..."], "old_secs": 10.2, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pc_exit_unknown", "suite": "product", "old": "SURVIVED", "old_failed": [], "old_secs": 27.3, "new": "SURVIVED", "new_failed": [], "old_from_MT": false}
+{"id": "pc_internal", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_hardening.py::test_exit_codes_distinct - AssertionError: as..."], "old_secs": 11.3, "new": null, "new_failed": null, "old_from_MT": false}
+{"id": "pc_exitzero", "suite": "product", "old": "KILLED", "old_failed": ["FAILED tests/test_golden.py::test_exit_codes_and_reports - AssertionError: as..."], "old_secs": 10.1, "new": null, "new_failed": null, "old_from_MT": false}

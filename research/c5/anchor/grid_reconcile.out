@@ -1,0 +1,8 @@
+E2 V2 configs 288 solved 264 min counts {'2': 60, '1': 180, '3': 24} ENGINE_UNSUPPORTED 24
+REP V2 netlists 32 unit min counts {'2': 26, '3': 6}
+REP V2 netlists with an E2 counterpart 16 of 32 ; (REP netlist, E2 config) pairs 24 ; min flips agree 24 ; gate count agree 24
+REP min=3 netlists inside E2 grid: ['v2_plain_038_s0', 'v2_plain_038_s1', 'v2_plain_038_s4'] ; outside: ['v2_plain_038_s5', 'v2_plain_038_s6', 'v2_plain_038_s7']
+REP min=2 inside/outside: 13 / 13
+E2 sub-grid with the REP recipe (4 shared ABC, 2 flows, 3 builds): 24 {'2': 18, '3': 6}
+E2 V2 solved configs NOT reachable by the REP recipe: 240 {'2': 42, '1': 180, '3': 18}
+E2 min=1 configs reachable by REP recipe family (order abc_then_flatten, nomerge, keep_on): 6 (all are abc -dff, a level REP does not have)

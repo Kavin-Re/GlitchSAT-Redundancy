@@ -1,0 +1,296 @@
+{
+ "design": "v2_wi",
+ "label": "MEASURED geometry; set enumeration = z3 verdicts (SIMULATED fault model, T=6, one cell-level subset dip event); enumeration limited to <=4 cells and 400 sets",
+ "minimal_sets": {
+  "word": [
+   {
+    "cells": [
+     "_16_",
+     "c0/_2_",
+     "c1/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 5.343,
+    "centre": [
+     21.62,
+     10.88
+    ],
+    "bbox_w_h": [
+     9.66,
+     10.88
+    ],
+    "rows": [
+     0,
+     3
+    ],
+    "vpwr_rails": [
+     8.16,
+     13.6
+    ],
+    "others_in_circle": 9,
+    "flops_in_circle": 1,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "_16_",
+     "c0/_3_",
+     "c1/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 5.434,
+    "centre": [
+     18.716,
+     9.553
+    ],
+    "bbox_w_h": [
+     11.5,
+     10.88
+    ],
+    "rows": [
+     0,
+     1,
+     3
+    ],
+    "vpwr_rails": [
+     8.16,
+     13.6
+    ],
+    "others_in_circle": 8,
+    "flops_in_circle": 2,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_2_",
+     "c1/_2_",
+     "c2/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 4.575,
+    "centre": [
+     23.0,
+     10.88
+    ],
+    "bbox_w_h": [
+     8.28,
+     10.88
+    ],
+    "rows": [
+     0,
+     2,
+     3
+    ],
+    "vpwr_rails": [
+     8.16,
+     13.6
+    ],
+    "others_in_circle": 5,
+    "flops_in_circle": 0,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_3_",
+     "c1/_3_",
+     "c2/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 6.133,
+    "centre": [
+     18.17,
+     8.16
+    ],
+    "bbox_w_h": [
+     13.34,
+     5.44
+    ],
+    "rows": [
+     0,
+     1
+    ],
+    "vpwr_rails": [
+     8.16
+    ],
+    "others_in_circle": 7,
+    "flops_in_circle": 2,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   }
+  ],
+  "ok": [
+   {
+    "cells": [
+     "_16_",
+     "c0/_2_",
+     "c1/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 5.343,
+    "centre": [
+     21.62,
+     10.88
+    ],
+    "bbox_w_h": [
+     9.66,
+     10.88
+    ],
+    "rows": [
+     0,
+     3
+    ],
+    "vpwr_rails": [
+     8.16,
+     13.6
+    ],
+    "others_in_circle": 9,
+    "flops_in_circle": 1,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "_16_",
+     "c0/_3_",
+     "c1/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 194,
+    "r_um": 5.434,
+    "centre": [
+     18.716,
+     9.553
+    ],
+    "bbox_w_h": [
+     11.5,
+     10.88
+    ],
+    "rows": [
+     0,
+     1,
+     3
+    ],
+    "vpwr_rails": [
+     8.16,
+     13.6
+    ],
+    "others_in_circle": 8,
+    "flops_in_circle": 2,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_2_",
+     "c1/_2_",
+     "c2/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 4.575,
+    "centre": [
+     23.0,
+     10.88
+    ],
+    "bbox_w_h": [
+     8.28,
+     10.88
+    ],
+    "rows": [
+     0,
+     2,
+     3
+    ],
+    "vpwr_rails": [
+     8.16,
+     13.6
+    ],
+    "others_in_circle": 5,
+    "flops_in_circle": 0,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_3_",
+     "c1/_3_",
+     "c2/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 194,
+    "r_um": 6.133,
+    "centre": [
+     18.17,
+     8.16
+    ],
+    "bbox_w_h": [
+     13.34,
+     5.44
+    ],
+    "rows": [
+     0,
+     1
+    ],
+    "vpwr_rails": [
+     8.16
+    ],
+    "others_in_circle": 7,
+    "flops_in_circle": 2,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   }
+  ]
+ }
+}

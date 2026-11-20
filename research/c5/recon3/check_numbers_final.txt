@@ -1,0 +1,39 @@
+check_numbers: 52 files scanned, 4 STALE, 17 HISTORICAL (rules: 34)
+kind | row        | file                               | line  | found                              | should be                      | owner
+STAL | T.root.133 | esearch/c4/viva/VIVA_SIM_REPORT.md | 209   | 99 root                            | 133 passed (root, RECON3; 99 + | VIVA agent
+STAL | T.prod.310 | esearch/c4/viva/VIVA_SIM_REPORT.md | 209   | 139 product                        | 310 passed, 310 collected (pro | VIVA agent
+STAL | T.root.133 | esearch/c4/viva/VIVA_SIM_REPORT.md | 210   | 99 root                            | 133 passed (root, RECON3; 99 + | VIVA agent
+STAL | T.prod.310 | esearch/c4/viva/VIVA_SIM_REPORT.md | 210   | 139 product                        | 310 passed, 310 collected (pro | VIVA agent
+HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 133 passed (10 only as history | LEAD (F2/docs)
+HIST | T.root.133 | docs/ENGINE_STATUS.md              | 71    | 99 passed                          | 133 passed (root, RECON3; 99 + | LEAD (F2/docs)
+HIST | T.prod.310 | docs/ENGINE_STATUS.md              | 71    | 139 + 1                            | 310 passed, 310 collected (pro | LEAD (F2/docs)
+HIST | T.root.133 | docs/FINAL_STATUS.md               | 59    | 99 passed                          | 133 passed (root, RECON3; 99 + | LEAD
+HIST | T.prod.310 | docs/FINAL_STATUS.md               | 59    | 139 + 1                            | 310 passed, 310 collected (pro | LEAD
+HIST | T.root.133 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 99 passed                          | 133 passed (root, RECON3; 99 + | DOSSIER agent (D2)
+HIST | T.prod.310 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 139 + 1                            | 310 passed, 310 collected (pro | DOSSIER agent (D2)
+HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 133 passed (10 only as history | DOSSIER agent (D2)
+HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
+HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 133 passed (10 only as history | REPORT agent (F2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 133 passed (10 only as history | REPORT agent (F2)
+HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT agent (F2)
+HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT agent (F2)
+HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 133 passed (10 only as history | REPORT agent (F2)
+HIST | T.root.133 | esearch/c4/viva/VIVA_SIM_REPORT.md | 268   | 99 root                            | 133 passed (root, RECON3; 99 + | VIVA agent
+HIST | T.prod.310 | esearch/c4/viva/VIVA_SIM_REPORT.md | 268   | 139 product                        | 310 passed, 310 collected (pro | VIVA agent
+
+--verify (recomputed from stored data files):
+  OK   heldout 144 raw / 150 corrected      cells 163 raw 144 corrected 150 (expect 163/144/150)
+  OK   E2 matrix 180/60/24                  configs 864 V2 [180, 60, 24] V1 [233, 31, 0] V0 [264, 0, 0] (expect 864, 180/60/24, 233/31/0, 264/0/0)
+  OK   M1 masks 88/96/44 and width curve    masks 255 colliding 27 split 1/2/3 = 88/96/44 width curve 0,1,1,2,2,3,3,3 (expect 255, 27, 88/96/44, 0,1,1,2,2,3,3,3)
+  OK   REP 26/6 and 32/32 and 64/64         V2 n=32 unit(2,3)=(26, 6) fanout3=32; V1 n=32 fanout2=32; agree rows 64 (expect 32, (26,6), 32, 32, 32, 64)
+  OK   reproduce rows 36                    reproduce_summary.json rows 36 (expect 36)
+  OK   M1b CSV identical to M1 CSV          m1b_all_masks.csv byte-identical to m1_all_masks.csv: True (expect True; 0 of 1785 cells changed)
+  OK   B3 matrix claims (T=6)               rows 182; rail_all/half/unions >3 everywhere True; rail_cone V0 1, V2/V5 >3 True; dip_subset 1 in every row True; unknown 0
+  OK   layout minimal sets 4                minimal one-event sets word [2.95, 3.06, 3.29, 4.58] ok [2.95, 3.06, 3.29, 4.58] (expect 4 sets, r 2.95 3.06 3.29 4.58)
+  OK   L2 spacing, wire, LVS, radius, rail_all wire % {'v8': 29, 's8': 31, 'v15': 49, 'rr': 36}; LVS match {'base': True, 'v8': False, 's8': False, 'v15': False, 'rr': False}; router DRC 0 True antenna 0 True; min copy distance {'base': 1.84, 'v8': 9.2, 's8': 17.94, 'v15': 23.46, 'rr': 16.32}; min set radius {'base': 2.95, 'v8': 11.15, 's8': 17.91, 'v15': 15.16, 'rr': 15.3}; rail_all SUB 1 everywhere True
+  OK   PS4 scope sweep 3,1,0,0 ...          scope sweep rows (word, 0xF, 0x6A, boot_ok) ['3,1,0,0', '2,1,0,0', '3,1,0,0', '1,1,0,0'] (expect 3,1,0,0 / 2,1,0,0 / 3,1,0,0 / 1,1,0,0)
+
+--pytest (collect-only):
+  OK   tests              collected 133, NUMBERS.md says 133 (133 tests collected in 0.03s)
+  OK   product/tests      collected 310, NUMBERS.md says 310 (310 tests collected in 0.08s)

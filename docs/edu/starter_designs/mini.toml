@@ -1,0 +1,13 @@
+# Threat model for the mini_v* starters: attacker holds a constant 4-bit sig; goal = boot_word == 0x9 although sig != 0x5.
+# Faults are MODELLED single-cycle bit flips, not physical glitches.
+[faults]
+max_flips = 2
+cycles = 6
+kinds = ["gate", "flop"]
+[attacker]
+input = "sig"
+model = "constant"
+legitimate_value = 5
+[property]
+output = "boot_word"
+bad_value = 9

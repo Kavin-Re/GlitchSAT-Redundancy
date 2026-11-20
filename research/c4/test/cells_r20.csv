@@ -1,0 +1,12 @@
+group,cell,netlist,top,goal_out,mask,T,solver_min,lb,est,pred,flag,ub_direct,pred_s,error,n_configs,example_cfg
+R20,crc_plain_T4,/tmp/work_r20/work/crc_plain.json,bootcrc,ok,0x1,4,1,1,1,1,ok,1,0.047,,1,crc_plain_k1/k2
+R20,crc_tmr_T4,/tmp/work_r20/work/crc_tmr.json,bootcrc_tmr,ok,0x1,4,1,1,1,1,ok,1,0.067,,1,"crc_tmr_k1/k2,sc_crc_k0"
+R20,sbox_unprot_T4,/tmp/work_r20/work/sbox_unprot.json,sbox_unprot,y,0xff,4,1,1,1,1,ok,1,1.472,,1,sbox_unprot_k1
+R20,sbox_par_T4,/tmp/work_r20/work/sbox_par.json,sbox_par,gout,0x1ff,4,1,1,1,1,ok,1,2.399,,1,sbox_par_k1
+R20,sbox_par2_T4,/tmp/work_r20/work/sbox_par2.json,sbox_par2,gout,0x1ff,4,1,1,1,1,ok,1,13.725,,1,sbox_par2_k1
+R20,sbox_par2_T8,/tmp/work_r20/work/sbox_par2.json,sbox_par2,gout,0x1ff,8,1,1,1,1,ok,1,28.957,,1,sc_par2_k2_T8
+R20,sbox_par2_T16,/tmp/work_r20/work/sbox_par2.json,sbox_par2,gout,0x1ff,16,1,1,1,1,ok,1,62.197,,1,sc_par2_k2_T16
+R20,keymem_T8,/tmp/work_r20/work/keymem_a.json,keymemw,ready,0x1,8,1,1,1,1,ok,1,0.056,,1,keymem_k1
+R20,uart_T6,/tmp/work_r20/work/uart.json,uartw,gout,0x7,6,1,1,1,1,ok,2,1.554,,1,uart_k1
+R20,uart_T30,/tmp/work_r20/work/uart.json,uartw,gout,0x7,30,1,1,1,1,ok,2,47.701,,1,sc_uart_k2_T30
+R20,sbox_dmr_T4,/tmp/work_test/sbox_dmr.json,sbox_dmr,gout,0x1ff,4,2,1,,2,uncovered,1,3.218,,1,"dmr_k1,dmr_k2"

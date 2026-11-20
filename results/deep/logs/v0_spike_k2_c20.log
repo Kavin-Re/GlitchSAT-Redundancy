@@ -1,0 +1,4 @@
+CMD: python3 -I /home/user/project/results/deep/run_one.py /home/user/project/results/deep/work/nl/v0_spike.json v0 2 20 /home/user/project/results/deep/json/v0_spike_k2_c20.json
+v0 ATTACK_FOUND min 1 wall 0.54 [('$auto$rtlil.cc:2609:MuxGate$195', 2)] honest True
+
+wall_s=0.69

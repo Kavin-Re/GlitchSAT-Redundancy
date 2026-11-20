@@ -1,0 +1,16 @@
+read_verilog -sv -formal /tmp/work_run2/apt/v2.v
+read_verilog -sv -formal wrap.v
+hierarchy -top wrap
+proc
+select v2/w:n*
+setattr -set fault_signals 1
+select -clear
+flatten
+plugin -i /tmp/work_run2/up_build/fault_rtlil.so
+select a:fault_signals=1 w:*$flatten* %d
+fault_rtlil -effect flip -timing 0:5 -cnt 2
+select -clear
+opt
+async2sync
+dffunmap
+write_smt2 -wires m.smt2

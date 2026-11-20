@@ -1,0 +1,7 @@
+apt033_plain boot_word honest key boots fault-free: ATTACK_FOUND
+{'netlist': 'apt033_plain', 'goal': 'boot_word', 'input_sites': False, 'init': 'known', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 78.2} [('ca0.a[7]', 3), ('ca0.a[7]', 4), ('cc0.a[7]', 4)]
+{'netlist': 'apt033_plain', 'goal': 'boot_word', 'input_sites': False, 'init': 'known', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 64.3} [('ca0.a[5]', 2), ('ca0.a[1]', 4), ('cb0.a[2]', 4)]
+{'netlist': 'apt033_plain', 'goal': 'boot_word', 'input_sites': False, 'init': 'free_nongoal', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 67.3} [('ca0.a[3]', 3), ('ca0.a[3]', 4), ('cc0.a[3]', 4)]
+{'netlist': 'apt033_plain', 'goal': 'boot_word', 'input_sites': False, 'init': 'free_nongoal', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 33.1} [('ca0.a[6]', 2), ('ca0.a[4]', 3), ('ca0.a[7]', 4)]
+{'netlist': 'apt033_plain', 'goal': 'boot_word', 'input_sites': False, 'init': 'free', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 51.2} [('ca0.a[0]', 3), ('ca0.a[0]', 4), ('cc0.a[0]', 4)]
+{'netlist': 'apt033_plain', 'goal': 'boot_word', 'input_sites': False, 'init': 'free', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 37.1} [('ca0.a[7]', 2), ('ca0.a[0]', 3), ('ca0.a[0]', 4)]

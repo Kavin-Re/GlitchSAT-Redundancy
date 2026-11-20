@@ -1,0 +1,168 @@
+{
+ "ex_m": {
+  "hscroll": false,
+  "hero_before": "Shared wire: NOT flipped. Door shut.",
+  "hero_after": "Shared wire: FLIPPED. Door open.",
+  "oh": "In this picture: one flip, three guards beaten. Here the copies meet at one point, so they act as one.",
+  "herobtn": "Put the wire back",
+  "hero_again": "Shared wire: NOT flipped. Door shut.",
+  "pick2": "Choose a wiring:",
+  "pickfig_text": "wrong code\nguard A\nguard B\nguard C\nYES\nwire X\nYES\nwire Y\nDOOR OPEN\n\nWiring B: both joined wires flipped. Door opens. 2 flips.",
+  "cnt1": "Counted as 1 flip. Wiring B then needs only 2 flips and looks weaker than Wiring A (3 flips; result word only, the accept flag itself falls to 1 flip).",
+  "cnt2": "Counted once per place it feeds. Wiring B then needs 3 flips, the same as A. (All 32 rebuilds needed 3 this way. Measured on small designs from one recipe, result word only; the accept flag itself falls to 1 flip. Not shown physical.)",
+  "copy_fq10": "Copied.",
+  "clip_fq10": "Copies that meet at one point may count as one.",
+  "copy_fq25": "Copied.",
+  "clip_fq25": "In a computer model, how many glitches fool a lock depends on where its backup copies meet and how you count; nothing physical was tested.",
+  "errs": [],
+  "wide": [],
+  "smallfont": 0
+ },
+ "g_m": {
+  "hscroll": false,
+  "tabs": [
+   "No backup",
+   "2 guards, 1 wire",
+   "3 guards, 1 wire",
+   "3 guards, own wires",
+   "Rebuilt: Wiring A",
+   "Rebuilt: Wiring B"
+  ],
+  "status0": "The lock is shut. Tap a wire to flip it.",
+  "hint": "Hint: only one guard. Tap its wire.",
+  "par": "1",
+  "nodes": 1,
+  "after0": [
+   "1",
+   "The lock opened with the wrong code, after 1 flip. That is the fewest possible here. Round finished: press Reset to play again."
+  ],
+  "tap_after_open": [
+   "1",
+   "Round finished: press Reset to play again."
+  ],
+  "reset": [
+   "0",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "best": [
+   "1",
+   "The lock opened with the wrong code, after 1 flip. That is the fewest possible here. Round finished: press Reset to play again."
+  ],
+  "ntabs": 6,
+  "tab0": [
+   "No backup",
+   "1",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab1": [
+   "2 guards, 1 wire",
+   "1",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab2": [
+   "3 guards, 1 wire",
+   "1",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab3": [
+   "3 guards, own wires",
+   "3",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab4": [
+   "Rebuilt: Wiring A",
+   "3",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab5": [
+   "Rebuilt: Wiring B",
+   "2",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "errs": [],
+  "smallfont": 0
+ },
+ "ex_d": {
+  "hscroll": false,
+  "hero_before": "Shared wire: NOT flipped. Door shut.",
+  "hero_after": "Shared wire: FLIPPED. Door open.",
+  "oh": "In this picture: one flip, three guards beaten. Here the copies meet at one point, so they act as one.",
+  "herobtn": "Put the wire back",
+  "hero_again": "Shared wire: NOT flipped. Door shut.",
+  "pick2": "Choose a wiring:",
+  "pickfig_text": "wrong code\nguard A\nguard B\nguard C\nYES\nwire X\nYES\nwire Y\nDOOR OPEN\n\nWiring B: both joined wires flipped. Door opens. 2 flips.",
+  "cnt1": "Counted as 1 flip. Wiring B then needs only 2 flips and looks weaker than Wiring A (3 flips; result word only, the accept flag itself falls to 1 flip).",
+  "cnt2": "Counted once per place it feeds. Wiring B then needs 3 flips, the same as A. (All 32 rebuilds needed 3 this way. Measured on small designs from one recipe, result word only; the accept flag itself falls to 1 flip. Not shown physical.)",
+  "copy_fq10": "Copied.",
+  "clip_fq10": "Copies that meet at one point may count as one.",
+  "copy_fq25": "Copied.",
+  "clip_fq25": "In a computer model, how many glitches fool a lock depends on where its backup copies meet and how you count; nothing physical was tested.",
+  "errs": [],
+  "wide": [],
+  "smallfont": 0
+ },
+ "g_d": {
+  "hscroll": false,
+  "tabs": [
+   "No backup",
+   "2 guards, 1 wire",
+   "3 guards, 1 wire",
+   "3 guards, own wires",
+   "Rebuilt: Wiring A",
+   "Rebuilt: Wiring B"
+  ],
+  "status0": "The lock is shut. Tap a wire to flip it.",
+  "hint": "Hint: only one guard. Tap its wire.",
+  "par": "1",
+  "nodes": 1,
+  "after0": [
+   "1",
+   "The lock opened with the wrong code, after 1 flip. That is the fewest possible here. Round finished: press Reset to play again."
+  ],
+  "tap_after_open": [
+   "1",
+   "Round finished: press Reset to play again."
+  ],
+  "reset": [
+   "0",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "best": [
+   "1",
+   "The lock opened with the wrong code, after 1 flip. That is the fewest possible here. Round finished: press Reset to play again."
+  ],
+  "ntabs": 6,
+  "tab0": [
+   "No backup",
+   "1",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab1": [
+   "2 guards, 1 wire",
+   "1",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab2": [
+   "3 guards, 1 wire",
+   "1",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab3": [
+   "3 guards, own wires",
+   "3",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab4": [
+   "Rebuilt: Wiring A",
+   "3",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "tab5": [
+   "Rebuilt: Wiring B",
+   "2",
+   "The lock is shut. Tap a wire to flip it."
+  ],
+  "errs": [],
+  "smallfont": 0
+ }
+}

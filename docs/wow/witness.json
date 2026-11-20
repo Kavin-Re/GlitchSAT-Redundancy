@@ -1,0 +1,2086 @@
+{
+ "frames": [
+  {
+   "design": "v1",
+   "id": "v1_faultfree",
+   "kind": "replay",
+   "label": "MEASURED (solver output) + SIMULATED (gate-level replay)",
+   "netlist_sha256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc",
+   "replay": {
+    "command": "python3 scripts/replay.py <solver result JSON> --outdir <tmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)",
+    "honest_opens": true,
+    "runs": {
+     "honest": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=2 boot_word=96 input=c3",
+      "goal_hit_cycle": 2,
+      "run_faults": 0,
+      "sig": 195,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          15,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          150
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         150,
+         150,
+         150,
+         150
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          195
+         ]
+        ],
+        "per_tick": [
+         195,
+         195,
+         195,
+         195,
+         195,
+         195
+        ],
+        "width": 8
+       }
+      },
+      "stimulus": "honest key 0xC3, no faults (stimulus built by export_witness.py)",
+      "t_end": 59,
+      "vcd_basename": "v1_honest_faultfree.vcd"
+     },
+     "wrong": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=c7",
+      "goal_hit_cycle": -1,
+      "run_faults": 0,
+      "sig": 199,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          105
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         105,
+         105,
+         105,
+         105
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          199
+         ]
+        ],
+        "per_tick": [
+         199,
+         199,
+         199,
+         199,
+         199,
+         199
+        ],
+        "width": 8
+       }
+      },
+      "stimulus": "wrong key 0xC7 (the solver's attacker input), no faults",
+      "t_end": 59,
+      "vcd_basename": "v1_wrongkey_faultfree.vcd"
+     }
+    },
+    "wrong_stays_shut": true
+   },
+   "side": "left",
+   "solver": {
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 0 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 0 --cycles 6",
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "flops": 8,
+    "gates": 58,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 0,
+    "min_faults": null,
+    "reduce": "full",
+    "sites_modelled": 313,
+    "sites_total": 396,
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "verdict_text": "v1: NO_ATTACK_UP_TO_BOUND  (k<=0, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v1.json",
+   "step": 1,
+   "title": "Fault-free run: honest key opens, wrong key stays shut"
+  },
+  {
+   "design": "v2",
+   "id": "v2_faultfree",
+   "kind": "replay",
+   "label": "MEASURED (solver output) + SIMULATED (gate-level replay)",
+   "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+   "replay": {
+    "command": "python3 scripts/replay.py <solver result JSON> --outdir <tmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)",
+    "honest_opens": true,
+    "runs": {
+     "honest": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=2 boot_word=96 input=c3",
+      "goal_hit_cycle": 2,
+      "run_faults": 0,
+      "sig": 195,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          15,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          150
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         150,
+         150,
+         150,
+         150
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          195
+         ]
+        ],
+        "per_tick": [
+         195,
+         195,
+         195,
+         195,
+         195,
+         195
+        ],
+        "width": 8
+       }
+      },
+      "stimulus": "honest key 0xC3, no faults (stimulus built by export_witness.py)",
+      "t_end": 59,
+      "vcd_basename": "v2_honest_faultfree.vcd"
+     },
+     "wrong": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=d3",
+      "goal_hit_cycle": -1,
+      "run_faults": 0,
+      "sig": 211,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          105
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         105,
+         105,
+         105,
+         105
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          211
+         ]
+        ],
+        "per_tick": [
+         211,
+         211,
+         211,
+         211,
+         211,
+         211
+        ],
+        "width": 8
+       }
+      },
+      "stimulus": "wrong key 0xD3 (the solver's attacker input), no faults",
+      "t_end": 59,
+      "vcd_basename": "v2_wrongkey_faultfree.vcd"
+     }
+    },
+    "wrong_stays_shut": true
+   },
+   "side": "right",
+   "solver": {
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 0 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 0 --cycles 6",
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "flops": 8,
+    "gates": 68,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 0,
+    "min_faults": null,
+    "reduce": "full",
+    "sites_modelled": 353,
+    "sites_total": 456,
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "verdict_text": "v2: NO_ATTACK_UP_TO_BOUND  (k<=0, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v2.json",
+   "step": 1,
+   "title": "Fault-free run: honest key opens, wrong key stays shut"
+  },
+  {
+   "design": "v1",
+   "id": "v1_k1",
+   "kind": "replay",
+   "label": "MEASURED (solver output) + SIMULATED (gate-level replay)",
+   "netlist_sha256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc",
+   "replay": {
+    "agrees_with_solver": true,
+    "command": "python3 scripts/replay.py <solver result JSON> --outdir <tmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)",
+    "goal_port": "boot_word",
+    "goal_value": 150,
+    "runs": {
+     "faulted": {
+      "bench_line": "REPLAY run_faults=1 goal_hit_cycle=2 boot_word=96 input=c7",
+      "goal_hit_cycle": 2,
+      "run_faults": 1,
+      "sig": 199,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          15,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          150
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         150,
+         150,
+         150,
+         150
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n45": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          15,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         1,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r45": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          199
+         ]
+        ],
+        "per_tick": [
+         199,
+         199,
+         199,
+         199,
+         199,
+         199
+        ],
+        "width": 8
+       }
+      },
+      "t_end": 59,
+      "vcd_basename": "v1_k1_faulted.vcd"
+     },
+     "faultfree": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=c7",
+      "goal_hit_cycle": -1,
+      "run_faults": 0,
+      "sig": 199,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          105
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         105,
+         105,
+         105,
+         105
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n45": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r45": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          199
+         ]
+        ],
+        "per_tick": [
+         199,
+         199,
+         199,
+         199,
+         199,
+         199
+        ],
+        "width": 8
+       }
+      },
+      "t_end": 59,
+      "vcd_basename": "v1_k1_faultfree.vcd"
+     }
+    }
+   },
+   "side": "left",
+   "solver": {
+    "attacker_input": {
+     "sig": "0xC7"
+    },
+    "attacker_input_raw": {
+     "sig": 199
+    },
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6",
+    "cycles": 6,
+    "explanation": "SINGLE POINT OF FAILURE: one AND gate output, net `ok`, combines 8 input bits of `sig` (the redundant checks converge here) and alone drives 8 of 8 bits of `boot_word`. Flipping it for ONE cycle (cycle 1) makes a wrong `sig` look valid, even though the checks upstream are duplicated.",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "faults": [
+     {
+      "cycle": 1,
+      "gate": "AND",
+      "is_output_net": [],
+      "kind": "gate_output",
+      "net": "ok",
+      "net_id": 45,
+      "reaches_word_bits": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flops": 8,
+    "gates": 58,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 1,
+    "min_faults": 1,
+    "reduce": "full",
+    "sites_modelled": 313,
+    "sites_total": 396,
+    "verdict": "ATTACK_FOUND",
+    "verdict_text": "v1: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v1.json",
+   "step": 2,
+   "title": "The solver's witness for V1: one flip"
+  },
+  {
+   "design": "v2",
+   "id": "v2_k1",
+   "kind": "solver_only",
+   "label": "MEASURED (solver output)",
+   "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+   "side": "right",
+   "solver": {
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6",
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "flops": 8,
+    "gates": 68,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 1,
+    "min_faults": null,
+    "reduce": "full",
+    "sites_modelled": 353,
+    "sites_total": 456,
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "verdict_text": "v2: NO_ATTACK_UP_TO_BOUND  (k<=1, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v2.json",
+   "step": 3,
+   "title": "V2 with at most 1 flip"
+  },
+  {
+   "design": "v2",
+   "id": "v2_k2",
+   "kind": "solver_only",
+   "label": "MEASURED (solver output)",
+   "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+   "side": "right",
+   "solver": {
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 2 --cycles 6",
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "flops": 8,
+    "gates": 68,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 2,
+    "min_faults": null,
+    "reduce": "full",
+    "sites_modelled": 353,
+    "sites_total": 456,
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "verdict_text": "v2: NO_ATTACK_UP_TO_BOUND  (k<=2, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v2.json",
+   "step": 3,
+   "title": "V2 with at most 2 flips"
+  },
+  {
+   "design": "v2",
+   "id": "v2_k3",
+   "kind": "replay",
+   "label": "MEASURED (solver output) + SIMULATED (gate-level replay)",
+   "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+   "replay": {
+    "agrees_with_solver": true,
+    "command": "python3 scripts/replay.py <solver result JSON> --outdir <tmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)",
+    "goal_port": "boot_word",
+    "goal_value": 150,
+    "runs": {
+     "faulted": {
+      "bench_line": "REPLAY run_faults=1 goal_hit_cycle=2 boot_word=96 input=d3",
+      "goal_hit_cycle": 2,
+      "run_faults": 1,
+      "sig": 211,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          15,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          150
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         150,
+         150,
+         150,
+         150
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n27": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          15,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         1,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n30": {
+        "changes": [
+         [
+          0,
+          1
+         ],
+         [
+          5,
+          0
+         ],
+         [
+          15,
+          1
+         ]
+        ],
+        "per_tick": [
+         1,
+         0,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "n65": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          15,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         1,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r27": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r30": {
+        "changes": [
+         [
+          0,
+          1
+         ]
+        ],
+        "per_tick": [
+         1,
+         1,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "r65": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          211
+         ]
+        ],
+        "per_tick": [
+         211,
+         211,
+         211,
+         211,
+         211,
+         211
+        ],
+        "width": 8
+       }
+      },
+      "t_end": 59,
+      "vcd_basename": "v2_k3_faulted.vcd"
+     },
+     "faultfree": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=d3",
+      "goal_hit_cycle": -1,
+      "run_faults": 0,
+      "sig": 211,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          105
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         105,
+         105,
+         105,
+         105
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n27": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n30": {
+        "changes": [
+         [
+          0,
+          1
+         ]
+        ],
+        "per_tick": [
+         1,
+         1,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "n65": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r27": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r30": {
+        "changes": [
+         [
+          0,
+          1
+         ]
+        ],
+        "per_tick": [
+         1,
+         1,
+         1,
+         1,
+         1,
+         1
+        ],
+        "width": 1
+       },
+       "r65": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          211
+         ]
+        ],
+        "per_tick": [
+         211,
+         211,
+         211,
+         211,
+         211,
+         211
+        ],
+        "width": 8
+       }
+      },
+      "t_end": 59,
+      "vcd_basename": "v2_k3_faultfree.vcd"
+     }
+    }
+   },
+   "side": "right",
+   "solver": {
+    "attacker_input": {
+     "sig": "0xD3"
+    },
+    "attacker_input_raw": {
+     "sig": 211
+    },
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 3 --cycles 6",
+    "cycles": 6,
+    "explanation": "MINIMUM ATTACK COST = 3 faults (`c2.m`@1, `word[0]`@1, `c1.m`@1). No single net decides; the attacker needs 3 coordinated single-cycle flips (spanning 1 distinct cycle(s)). Faults at 3 distinct nets (names listed); this output does not classify whether they sit on independent copies or on a shared decision path; see the consumer-bits and ledger docs.",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "faults": [
+     {
+      "cycle": 1,
+      "gate": "AND",
+      "is_output_net": [],
+      "kind": "gate_output",
+      "net": "c2.m",
+      "net_id": 27,
+      "reaches_word_bits": [
+       2,
+       5
+      ]
+     },
+     {
+      "cycle": 1,
+      "gate": "NOT",
+      "is_output_net": [],
+      "kind": "gate_output",
+      "net": "word[0]",
+      "net_id": 30,
+      "reaches_word_bits": [
+       0,
+       3,
+       6
+      ]
+     },
+     {
+      "cycle": 1,
+      "gate": "AND",
+      "is_output_net": [],
+      "kind": "gate_output",
+      "net": "c1.m",
+      "net_id": 65,
+      "reaches_word_bits": [
+       1,
+       4,
+       7
+      ]
+     }
+    ],
+    "flops": 8,
+    "gates": 68,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 3,
+    "min_faults": 3,
+    "reduce": "full",
+    "sites_modelled": 353,
+    "sites_total": 456,
+    "verdict": "ATTACK_FOUND",
+    "verdict_text": "v2: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v2.json",
+   "step": 3,
+   "title": "The solver's witness for V2: three flips"
+  },
+  {
+   "design": "v2",
+   "id": "v2_flag_k1",
+   "kind": "replay",
+   "label": "MEASURED (solver output) + SIMULATED (gate-level replay)",
+   "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+   "replay": {
+    "agrees_with_solver": true,
+    "command": "python3 scripts/replay.py <solver result JSON> --outdir <tmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)",
+    "goal_port": "boot_ok",
+    "goal_value": 1,
+    "runs": {
+     "faulted": {
+      "bench_line": "REPLAY run_faults=1 goal_hit_cycle=3 boot_ok=0 input=43",
+      "goal_hit_cycle": 3,
+      "run_faults": 1,
+      "sig": 67,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          35,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         1,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          105
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         105,
+         105,
+         105,
+         105
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n11": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          35,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         1,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r11": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          67
+         ]
+        ],
+        "per_tick": [
+         67,
+         67,
+         67,
+         67,
+         67,
+         67
+        ],
+        "width": 8
+       }
+      },
+      "t_end": 59,
+      "vcd_basename": "v2_flag_k1_faulted.vcd"
+     },
+     "faultfree": {
+      "bench_line": "REPLAY run_faults=0 goal_hit_cycle=-1 boot_ok=0 input=43",
+      "goal_hit_cycle": -1,
+      "run_faults": 0,
+      "sig": 67,
+      "signals": {
+       "boot_ok": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "boot_word": {
+        "changes": [
+         [
+          0,
+          240
+         ],
+         [
+          5,
+          204
+         ],
+         [
+          15,
+          105
+         ]
+        ],
+        "per_tick": [
+         240,
+         204,
+         105,
+         105,
+         105,
+         105
+        ],
+        "width": 8
+       },
+       "clk": {
+        "changes": [
+         [
+          0,
+          0
+         ],
+         [
+          5,
+          1
+         ],
+         [
+          10,
+          0
+         ],
+         [
+          15,
+          1
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          25,
+          1
+         ],
+         [
+          30,
+          0
+         ],
+         [
+          35,
+          1
+         ],
+         [
+          40,
+          0
+         ],
+         [
+          45,
+          1
+         ],
+         [
+          50,
+          0
+         ],
+         [
+          55,
+          1
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "n11": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "r11": {
+        "changes": [
+         [
+          0,
+          0
+         ]
+        ],
+        "per_tick": [
+         0,
+         0,
+         0,
+         0,
+         0,
+         0
+        ],
+        "width": 1
+       },
+       "sig": {
+        "changes": [
+         [
+          0,
+          67
+         ]
+        ],
+        "per_tick": [
+         67,
+         67,
+         67,
+         67,
+         67,
+         67
+        ],
+        "width": 8
+       }
+      },
+      "t_end": 59,
+      "vcd_basename": "v2_flag_k1_faultfree.vcd"
+     }
+    }
+   },
+   "side": "right",
+   "solver": {
+    "attacker_input": {
+     "sig": "0x43"
+    },
+    "attacker_input_raw": {
+     "sig": 67
+    },
+    "attacker_input_rule": "`sig` free, held constant, != key 0xC3",
+    "bound_note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6 --goal-out boot_ok --goal-value 1",
+    "cycles": 6,
+    "explanation": "SINGLE POINT OF FAILURE: gate output `boot_ok` (AND), flipped for one cycle at cycle 3, reaches 1/1 bits of `boot_ok` and is enough to reach the accept value.",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "faults": [
+     {
+      "cycle": 3,
+      "gate": "AND",
+      "is_output_net": [
+       "boot_ok"
+      ],
+      "kind": "gate_output",
+      "net": "boot_ok",
+      "net_id": 11,
+      "reaches_word_bits": []
+     }
+    ],
+    "flops": 8,
+    "gates": 68,
+    "goal": "boot_ok == 0x1 at some cycle < 6",
+    "honest_key_boots_fault_free": true,
+    "max_faults": 1,
+    "min_faults": 1,
+    "reduce": "full",
+    "sites_modelled": 399,
+    "sites_total": 456,
+    "verdict": "ATTACK_FOUND",
+    "verdict_text": "v2: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)"
+   },
+   "source_file": "reference/spike_netlists/v2.json",
+   "step": 4,
+   "title": "Caveat: the accept flag of V2 falls to one flip"
+  }
+ ],
+ "meta": {
+  "accept_word": 150,
+  "cycles": 6,
+  "fault_signals": "r<id> = the net as the gate drives it; n<id> = the net after the modelled flip (XOR during the fault tick)",
+  "generated_by": "python3 scripts/export_witness.py",
+  "key": 195,
+  "label": "MEASURED solver output and SIMULATED gate-level replays of modelled bit flips on a toy design. No hardware.",
+  "netlists": {
+   "v1": {
+    "file": "reference/spike_netlists/v1.json",
+    "flops": 8,
+    "gates": 58,
+    "sha256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc"
+   },
+   "v2": {
+    "file": "reference/spike_netlists/v2.json",
+    "flops": 8,
+    "gates": 68,
+    "sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec"
+   }
+  },
+  "sampling": "tick 0 is sampled at t=1, tick c>=1 at t=10*c; rising clock edges at t=5,15,25,... (scripts/replay.py bench)",
+  "state_codes": {
+   "0x69": "shut",
+   "0x96": "open",
+   "0xCC": "checking",
+   "0xF0": "idle"
+  },
+  "state_codes_source": "rtl/v1.v line 8 comment (IDLE F0, CMP CC, BOOT 96, FAIL 69)",
+  "tools": {
+   "netlist_creator": {
+    "v1": "Yosys 0.33 (git sha1 2584903a060)",
+    "v2": "Yosys 0.33 (git sha1 2584903a060)"
+   },
+   "simulator": "Icarus Verilog version 12.0 (stable) ()",
+   "solver": "scripts/glitchsat.py (z3 5.4.1)"
+  },
+  "what": "replay of the solver's witness in a gate-level simulation"
+ }
+}

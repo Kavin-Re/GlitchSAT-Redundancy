@@ -1,0 +1,276 @@
+[
+ {
+  "id": "V2 spike word k=2 (none)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min": null,
+  "secs": 1.5
+ },
+ {
+  "id": "V2 spike word k=2 (none)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min": null,
+  "secs": 7.2
+ },
+ {
+  "id": "V2 spike word k=3 (min 3)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 3,
+  "secs": 2.0
+ },
+ {
+  "id": "V2 spike word k=3 (min 3)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 3,
+  "secs": 21.8
+ },
+ {
+  "id": "V2 spike boot_ok k=1",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.5
+ },
+ {
+  "id": "V2 spike boot_ok k=1",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 2.5
+ },
+ {
+  "id": "V1 spike word k=1",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.4
+ },
+ {
+  "id": "V1 spike word k=1",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 2.1
+ },
+ {
+  "id": "V0 spike word k=1",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 0.8
+ },
+ {
+  "id": "V0 spike word k=1",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.0
+ },
+ {
+  "id": "V2 apt0.33 plain k=1 (none)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min": null,
+  "secs": 0.9
+ },
+ {
+  "id": "V2 apt0.33 plain k=1 (none)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min": null,
+  "secs": 2.6
+ },
+ {
+  "id": "V2 apt0.33 plain k=2 (min 2)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 2,
+  "secs": 1.9
+ },
+ {
+  "id": "V2 apt0.33 plain k=2 (min 2)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 2,
+  "secs": 2.7
+ },
+ {
+  "id": "V2 conda0.38 plain (E2) k=2 (none)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min": null,
+  "secs": 1.8
+ },
+ {
+  "id": "V2 conda0.38 plain (E2) k=2 (none)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min": null,
+  "secs": 10.5
+ },
+ {
+  "id": "V2 conda0.38 plain (E2) k=3 (min 3)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 3,
+  "secs": 2.2
+ },
+ {
+  "id": "V2 conda0.38 plain (E2) k=3 (min 3)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 3,
+  "secs": 10.3
+ },
+ {
+  "id": "V2 apt opt_merge (E2) k=1 (min 1)",
+  "amk": "counter",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.2
+ },
+ {
+  "id": "V2 apt opt_merge (E2) k=1 (min 1)",
+  "amk": "legacy",
+  "tool": "gs",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.8
+ },
+ {
+  "id": "V2 spike mask 0x02 k=3 (min 1)",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.7
+ },
+ {
+  "id": "V2 spike mask 0x02 k=3 (min 1)",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 2.0
+ },
+ {
+  "id": "V2 spike mask 0x0E k=3 (min 2)",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 2,
+  "secs": 1.8
+ },
+ {
+  "id": "V2 spike mask 0x0E k=3 (min 2)",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 2,
+  "secs": 2.2
+ },
+ {
+  "id": "V2 spike mask 0x3E k=3 (min 3)",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 3,
+  "secs": 1.5
+ },
+ {
+  "id": "V2 spike mask 0x3E k=3 (min 3)",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 3,
+  "secs": 5.2
+ },
+ {
+  "id": "V2 spike input-sites=all k=3 (min 1)",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.3
+ },
+ {
+  "id": "V2 spike input-sites=all k=3 (min 1)",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.8
+ },
+ {
+  "id": "V2 spike init=free_nongoal k=3 (min 1)",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.5
+ },
+ {
+  "id": "V2 spike init=free_nongoal k=3 (min 1)",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 1,
+  "secs": 1.7
+ },
+ {
+  "id": "V2 spike init=arbitrary k=3 (min 0)",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 0,
+  "secs": 0.6
+ },
+ {
+  "id": "V2 spike init=arbitrary k=3 (min 0)",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ATTACK_FOUND",
+  "min": 0,
+  "secs": 1.3
+ },
+ {
+  "id": "V2 spike count-rule=branch k=3",
+  "amk": "counter",
+  "tool": "pr",
+  "verdict": "ERR/TIMEOUT",
+  "min": null,
+  "secs": 0.2,
+  "err": "[Errno 2] No such file or directory: '/tmp/work_ledger/t3/o_6215396383626919950.json'"
+ },
+ {
+  "id": "V2 spike count-rule=branch k=3",
+  "amk": "legacy",
+  "tool": "pr",
+  "verdict": "ERR/TIMEOUT",
+  "min": null,
+  "secs": 0.1,
+  "err": "[Errno 2] No such file or directory: '/tmp/work_ledger/t3/o_8691396271465435961.json'"
+ }
+]

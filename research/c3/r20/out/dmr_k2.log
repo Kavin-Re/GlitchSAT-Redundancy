@@ -1,0 +1,5 @@
+sbox_dmr: ATTACK_FOUND  (k<=2, cycles=4, reduce=full)  solve=46.492s
+  min faults: 2 [('A.new_sboxw[5]', 1), ('$flatten\\B.$abc$43666$new_n581_', 1)] input {'sig': '0xA7'}
+  MINIMUM ATTACK COST = 2 faults (`A.new_sboxw[5]`@1, `$flatten\B.$abc$43666$new_n581_`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 2 coordinated single-cycle flips (spanning 1 distinct cycle(s)).
+  FIX: Raise the cost above the attacker's fault budget: add another independent copy (so quorum needs >2), keep every copy's result in its own disjoint output bits, and add a sticky alarm on any disagreement. Re-run the tool at k=2.
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.

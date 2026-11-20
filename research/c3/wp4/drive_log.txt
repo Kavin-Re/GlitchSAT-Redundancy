@@ -1,0 +1,90 @@
+m scrollW 390 vs 390
+hero btn text Flip the shared wire {'x': 16, 'y': 451.140625, 'width': 191.09375, 'height': 48}
+hero btn after Flip the shared wire
+hero fig text: wrong code | guard A | guard B | guard C | no | shared wire | DOOR SHUT |  | Three guards all say no. Door shut.
+hero btn after2 Flip the shared wire | fig: wrong code | guard A | guard B | guard C | YES | shared wire | DOOR OPEN |  | Shared wire flipped: door opens. Three guards ignored. 1 flip.
+pickhint Choose a wiring:
+pick click 0 Flip the next wire | wrong code | guard A | guard B | guard C | YES | wire X | no | wire Y | DOOR SHUT |  | Wiring B: 1 of 2 wires flipped. Door still shut.
+pick click 1 Flip the next wire | wrong code | guard A | guard B | guard C | YES | wire X | YES | wire Y | DOOR OPEN |  | Wiring B: both joined wires flipped. Door opens. 2 flips.
+pick click 2 Flip the next wire | wrong code | guard A | guard B | guard C | no | wire X | no | wire Y | DOOR SHUT |  | Wiring B, nothing flipped. Door shut. Tap a wire.
+showfewest: wrong code | guard A | guard B | guard C | YES | wire X | YES | wire Y | DOOR OPEN |  | Wiring B: both joined wires flipped. Door opens. 2 flips.
+A fewest: wrong code | guard A | guard B | guard C | YES | wire 1 | YES | wire 2 | YES | wire 3 | DOOR OPEN |  | Wiring A: all 3 wires flipped. Door opens. 3 flips.
+count out 1: Counted as 1 flip. Wiring B then needs only 2 flips and looks weaker than Wiring A (3).
+count out 2: Counted once per place it feeds. Wiring B then needs 3, the same as A. (All 32 rebuilds needed 3 this way; measured on small designs, not shown physical.)
+errors []
+game scrollW 390
+tabs 6 ['No backup', '2 guards, 1 wire', '3 guards, 1 wire', '3 guards, own wires', 'Rebuilt: Wiring A', 'Rebuilt: Wiring B']
+--tab 0 par 1 hint Hint: only one guard. Tap its wire.
+ 1 tap used 1 status: The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+ best used 1 The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+--tab 1 par 1 hint Hint: look at the joined wire. Both guards end there.
+ 1 tap used 1 status: Still shut after 1 flip. The other guards still say no, so the joined wire stays no. Hint: look at the joined wire. Both guards end there.
+ tap2 used 2 status: The lock opened with the wrong code, after 2 flips. The fewest possible here is 1.
+ tap3 used 3 status: You flipped every wire and the lock still holds. Flips can cancel each other: a wire that the guards already pushed to YES goes back to no when you flip it. Fewer flips win here: the fewest is 1.
+ best used 1 The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+--tab 2 par 1 hint Hint: look at the joined wire. All three guards end there.
+ 1 tap used 1 status: Still shut after 1 flip. The other guards still say no, so the joined wire stays no. Hint: look at the joined wire. All three guards end there.
+ tap2 used 2 status: Still shut after 2 flips. The other guards still say no, so the joined wire stays no. Hint: look at the joined wire. All three guards end there.
+ tap3 used 3 status: The lock opened with the wrong code, after 3 flips. The fewest possible here is 1.
+ tap4 used 4 status: You flipped every wire and the lock still holds. Flips can cancel each other: a wire that the guards already pushed to YES goes back to no when you flip it. Fewer flips win here: the fewest is 1.
+ best used 1 The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+--tab 3 par 3 hint Hint: each guard feeds its own lights. How many guards must you fool?
+ 1 tap used 1 status: Still shut after 1 flip. Hint: each guard feeds its own lights. How many guards must you fool?
+ tap2 used 2 status: Still shut after 2 flips. Hint: each guard feeds its own lights. How many guards must you fool?
+ tap3 used 3 status: The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+ best used 3 The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+--tab 4 par 3 hint Hint: each guard still has its own wire here, so you must fool all 3 guards. Rebuilding changed nothing in this case.
+ 1 tap used 1 status: Still shut after 1 flip. Hint: each guard still has its own wire here, so you must fool all 3 guards. Rebuilding changed nothing in this case.
+ tap2 used 2 status: Still shut after 2 flips. Hint: each guard still has its own wire here, so you must fool all 3 guards. Rebuilding changed nothing in this case.
+ tap3 used 3 status: The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+ best used 3 The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+--tab 5 par 2 hint Hint: only two joined wires, X and Y, are in play. Flip both.
+ 1 tap used 1 status: Still shut after 1 flip. Hint: only two joined wires, X and Y, are in play. Flip both.
+ tap2 used 2 status: The lock opened with the wrong code, after 2 flips. That is the fewest possible here.
+ best used 2 The lock opened with the wrong code, after 2 flips. That is the fewest possible here.
+cards No backup | In this game | 1 flip | Computer check | 1 flip | Two guards, one shared wire | In this game | 1 flip | Computer check | 1 flip | Three guards, one shared wire | In this game | 1 flip | Computer check | not checked | Three guards, own wires | In this game | 3 flips | Computer check | 3 flips | Same design, rebuilt: Wiring A | In this game | 3 flips | Computer check | 3 flips | Same design, rebuilt: Wiring B | In this game | 2 flips | Computer check | 2 flips
+d scrollW 1366 vs 1366
+hero btn text Flip the shared wire {'x': 239, 'y': 357.25, 'width': 191.09375, 'height': 48}
+hero btn after Flip the shared wire
+hero fig text: wrong code | guard A | guard B | guard C | no | shared wire | DOOR SHUT |  | Three guards all say no. Door shut.
+hero btn after2 Flip the shared wire | fig: wrong code | guard A | guard B | guard C | YES | shared wire | DOOR OPEN |  | Shared wire flipped: door opens. Three guards ignored. 1 flip.
+pickhint Choose a wiring:
+pick click 0 Flip the next wire | wrong code | guard A | guard B | guard C | YES | wire X | no | wire Y | DOOR SHUT |  | Wiring B: 1 of 2 wires flipped. Door still shut.
+pick click 1 Flip the next wire | wrong code | guard A | guard B | guard C | YES | wire X | YES | wire Y | DOOR OPEN |  | Wiring B: both joined wires flipped. Door opens. 2 flips.
+pick click 2 Flip the next wire | wrong code | guard A | guard B | guard C | no | wire X | no | wire Y | DOOR SHUT |  | Wiring B, nothing flipped. Door shut. Tap a wire.
+showfewest: wrong code | guard A | guard B | guard C | YES | wire X | YES | wire Y | DOOR OPEN |  | Wiring B: both joined wires flipped. Door opens. 2 flips.
+A fewest: wrong code | guard A | guard B | guard C | YES | wire 1 | YES | wire 2 | YES | wire 3 | DOOR OPEN |  | Wiring A: all 3 wires flipped. Door opens. 3 flips.
+count out 1: Counted as 1 flip. Wiring B then needs only 2 flips and looks weaker than Wiring A (3).
+count out 2: Counted once per place it feeds. Wiring B then needs 3, the same as A. (All 32 rebuilds needed 3 this way; measured on small designs, not shown physical.)
+errors []
+game scrollW 1366
+tabs 6 ['No backup', '2 guards, 1 wire', '3 guards, 1 wire', '3 guards, own wires', 'Rebuilt: Wiring A', 'Rebuilt: Wiring B']
+--tab 0 par 1 hint Hint: only one guard. Tap its wire.
+ 1 tap used 1 status: The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+ best used 1 The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+--tab 1 par 1 hint Hint: look at the joined wire. Both guards end there.
+ 1 tap used 1 status: Still shut after 1 flip. The other guards still say no, so the joined wire stays no. Hint: look at the joined wire. Both guards end there.
+ tap2 used 2 status: The lock opened with the wrong code, after 2 flips. The fewest possible here is 1.
+ tap3 used 3 status: You flipped every wire and the lock still holds. Flips can cancel each other: a wire that the guards already pushed to YES goes back to no when you flip it. Fewer flips win here: the fewest is 1.
+ best used 1 The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+--tab 2 par 1 hint Hint: look at the joined wire. All three guards end there.
+ 1 tap used 1 status: Still shut after 1 flip. The other guards still say no, so the joined wire stays no. Hint: look at the joined wire. All three guards end there.
+ tap2 used 2 status: Still shut after 2 flips. The other guards still say no, so the joined wire stays no. Hint: look at the joined wire. All three guards end there.
+ tap3 used 3 status: The lock opened with the wrong code, after 3 flips. The fewest possible here is 1.
+ tap4 used 4 status: You flipped every wire and the lock still holds. Flips can cancel each other: a wire that the guards already pushed to YES goes back to no when you flip it. Fewer flips win here: the fewest is 1.
+ best used 1 The lock opened with the wrong code, after 1 flip. That is the fewest possible here.
+--tab 3 par 3 hint Hint: each guard feeds its own lights. How many guards must you fool?
+ 1 tap used 1 status: Still shut after 1 flip. Hint: each guard feeds its own lights. How many guards must you fool?
+ tap2 used 2 status: Still shut after 2 flips. Hint: each guard feeds its own lights. How many guards must you fool?
+ tap3 used 3 status: The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+ best used 3 The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+--tab 4 par 3 hint Hint: each guard still has its own wire here, so you must fool all 3 guards. Rebuilding changed nothing in this case.
+ 1 tap used 1 status: Still shut after 1 flip. Hint: each guard still has its own wire here, so you must fool all 3 guards. Rebuilding changed nothing in this case.
+ tap2 used 2 status: Still shut after 2 flips. Hint: each guard still has its own wire here, so you must fool all 3 guards. Rebuilding changed nothing in this case.
+ tap3 used 3 status: The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+ best used 3 The lock opened with the wrong code, after 3 flips. That is the fewest possible here.
+--tab 5 par 2 hint Hint: only two joined wires, X and Y, are in play. Flip both.
+ 1 tap used 1 status: Still shut after 1 flip. Hint: only two joined wires, X and Y, are in play. Flip both.
+ tap2 used 2 status: The lock opened with the wrong code, after 2 flips. That is the fewest possible here.
+ best used 2 The lock opened with the wrong code, after 2 flips. That is the fewest possible here.
+cards No backup | In this game | 1 flip | Computer check | 1 flip | Two guards, one shared wire | In this game | 1 flip | Computer check | 1 flip | Three guards, one shared wire | In this game | 1 flip | Computer check | not checked | Three guards, own wires | In this game | 3 flips | Computer check | 3 flips | Same design, rebuilt: Wiring A | In this game | 3 flips | Computer check | 3 flips | Same design, rebuilt: Wiring B | In this game | 2 flips | Computer check | 2 flips

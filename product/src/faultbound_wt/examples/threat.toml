@@ -1,0 +1,17 @@
+# Example threat model for the bundled spike netlists (v0, v1, v2).
+# All faults are MODELLED single-cycle bit flips, not physical glitches.
+[faults]
+max_flips = 3          # attacker budget: at most this many flips in total
+cycles = 6             # analysis horizon in clock cycles
+kinds = ["gate", "flop"]   # which net kinds may be flipped
+include = []           # glob patterns on net names; empty = every net of the allowed kinds
+exclude = []           # glob patterns removed after include
+
+[attacker]
+input = "sig"          # free input port controlled by the attacker
+model = "constant"     # only "constant" (held constant over the run) is supported; per-cycle is a TODO
+legitimate_value = 0xC3   # the attacker must use a value different from this
+
+[property]
+output = "boot_word"   # output port that must not reach bad_value
+bad_value = 0x96

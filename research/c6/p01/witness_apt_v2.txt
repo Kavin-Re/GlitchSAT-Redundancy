@@ -1,0 +1,13 @@
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 85 gates, 8 flops; 0.187s)
+  minimum attack: $abc$275$new_n58_@0, $abc$275$new_n74_@0
+  MINIMUM ATTACK COST = 2 flips (`$abc$275$new_n58_`@0, `$abc$275$new_n74_`@0), on 2 distinct net(s) in 1 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+  scope: goal: output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..5, while `sig` != 0xC3
+  scope: inputs: every input port except the clock `clk` is a free value chosen by the solver and held CONSTANT for the whole run (free inputs here: sig); `sig` must differ from legitimate_value; input ports are NOT fault sites; the clock is implicit (one rising edge per cycle) and is not modelled as a signal
+  scope: init state: all 8 flops start at a known value: 8 from an explicit Yosys `init` attribute, 0 default to 0; no reset sequence is simulated and unknown (x) power-up state is not modelled
+  scope: options: goal_output=boot_word, accept_value=0x96, consumer_bits=all, input_sites=none, init=known, count_rule=stem (flip of a net counts once for all its fanout)
+  scope: fault model: one fault = one flip of one net (gate output or flop Q; kinds allowed: gate/flop) at one cycle; a flip is XORed onto the net for that cycle only and propagates through all its fanout (counts as 1); flips of the same net in different cycles count separately; at most max_flips faults in total over all cycles; no stuck-at, multi-bit, timing or voltage effects
+  scope: bounds: max_flips=3, cycles=6, timeout_ms=none
+  scope: netlist sha256 214a2987170feb5071e927386b72cf5c8df17c908b059f1242d5a83f50954466; tool version 0.0.1.dev0
+  scope: bounded result under this model; not a proof of security.

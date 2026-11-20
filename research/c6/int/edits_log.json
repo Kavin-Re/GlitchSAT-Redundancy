@@ -1,0 +1,367 @@
+[
+ {
+  "file": "README.md",
+  "before": "| Full 8-bit word, re-synthesized with apt Yosys 0.33 (85 gates; conda 0.38 and Docker 0.52 give 83 gates and no 2-flip attack: verdict depends on the Yosys version) | **2** | same |",
+  "after": "| Full 8-bit word, `rtl/v2.v` re-synthesized with apt Yosys 0.33 (85 gates). Not a version effect: the stored netlist is also Yosys 0.33 (68 gates, another flow). Cause: the armed word 0xCC differs from 0x96 only in bits of 2 of the 3 copies. Over the 8 `--synth-sweep` flows: 2 1 1 2 2 2 2 2; re-encoded `rtl/v2e.v` (0xA5): 3 1 1 3 3 3 3 3; conda 0.38 (83 gates) gives 3 on the plain flow only. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. | **2** | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md` |"
+ },
+ {
+  "file": "README.md",
+  "before": "<img src=\"docs/report/ledger.png\" alt=\"redundancy survival ledger\" width=\"520\">\n",
+  "after": "<img src=\"docs/report/ledger.png\" alt=\"redundancy survival ledger\" width=\"520\">\n\n**Redundancy is a code** (MEASURED, `results/comms/distance_sweep.csv`, `research/c6/p11/P11_REPORT.md`; toy design, modelled flips, observed not a theorem, nothing new). The state words F0, CC, 96, 69 are codewords of the textbook Reed-Muller code RM(1,3) (distance 4), and the copies are a repetition code. Over 19 codebooks: with only the state flops as fault sites the minimum equals the distance to the nearest non-accept word in 15 of 15 codebooks with distance <= 6; with all nets it never exceeds that (19 of 19), and it stays at about one flip per comparator copy. Failed predictions, kept: (a) 'flops-only = idle-to-accept distance' fails where a fail word is nearer; (c) 3 of 16 three-copy codebooks sit at 2, not 3, on the project flow; word order matters under ABC (F0 then CC gives 2, CC then F0 gives 3); the mechanism was not dissected. More: `docs/comms/CODING_VIEW.md`, `docs/report/WHY_TWO_FLIPS.md`.\n\n<img src=\"docs/comms/staircase.png\" alt=\"flips needed against code distance: flops only and all nets\" width=\"420\">\n"
+ },
+ {
+  "file": "README.md",
+  "before": "The apt 0.33 and conda 0.38 builds give different V2 netlists (85 vs 83 combinational gates), so CI on another Yosys may not reproduce `ci/expected_reproduce.json`.",
+  "after": "The apt 0.33 and conda 0.38 builds give different V2 netlists (85 vs 83 combinational gates; a build or flow difference changes the netlist, not the underlying weakness, `docs/report/WHY_TWO_FLIPS.md`), so CI on another Yosys may not reproduce `ci/expected_reproduce.json`."
+ },
+ {
+  "file": "docs/FINAL_STATUS.md",
+  "before": "The difference tracks the tool build (apt Yosys 0.33 versus conda Yosys 0.38+92); the reason inside ABC or Yosys was not analysed (a hypothesis, not a located cause; see also the synthesis-recipe and counting-rule bullet above).",
+  "after": "CORRECTED 2026-11-20 (agent P01a, `research/c6/p01/P01_REPORT.md`, `docs/report/WHY_TWO_FLIPS.md`; the earlier text called this a Yosys-build/version effect, which was an error): the stored netlist's header also reads Yosys 0.33, so stored-vs-apt is a flow/source difference (one mux per bit, 68 gates). The root cause is the encoding: the armed word 0xCC differs from 0x96 in bits {1,3,4,6}, owned by only two of the three comparator copies, so two flips of next-state stems can turn the cycle-0 load of CC into 96. Re-encoding that one constant to 0xA5 (`rtl/v2e.v`) gives 3 1 1 3 3 3 3 3 over the 8 `--synth-sweep` flows (v2: 2 1 1 2 2 2 2 2; MEASURED, apt 0.33, re-verified by the lead 2026-11-20); the 1s are flows that merge the copies (opt_merge / flatten before ABC), which no encoding fixes. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness."
+ },
+ {
+  "file": "docs/FINAL_STATUS.md",
+  "before": "Yosys version dependence (H5, 2026-11-20, MEASURED): the same V2 source at <=2 flips gives an attack with apt Yosys 0.33 (85 gates) but no attack with conda 0.38 and Docker/Debian 0.52 (83 gates each); verdicts belong to a netlist hash and tool build.",
+  "after": "Build differences (H5, 2026-11-20, MEASURED): on the plain flow at <=2 flips apt Yosys 0.33 (85 gates) gives an attack, conda 0.38 and Docker/Debian 0.52 (83 gates each) do not; but conda 0.38 gives 2 on three other flows (P01a), so this is not a version immunity. Verdicts belong to a netlist hash and flow."
+ },
+ {
+  "file": "docs/ENGINE_STATUS.md",
+  "before": "The countermeasure's strength therefore depends on the synthesized netlist and the Yosys build, not just the RTL.",
+  "after": "The countermeasure's strength therefore depends on the synthesized netlist, not just the RTL. Root cause (CORRECTED 2026-11-20, P01a, `docs/report/WHY_TWO_FLIPS.md`; earlier wording blamed the Yosys version, an error: the stored netlist is also Yosys 0.33): the armed word 0xCC differs from 0x96 only in bits of two of the three copies; `rtl/v2e.v` (0xA5) gives 3 1 1 3 3 3 3 3 over the 8 flows versus 2 1 1 2 2 2 2 2. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness."
+ },
+ {
+  "file": "docs/ENGINE_STATUS.md",
+  "before": "Yosys version dependence (H5, 2026-11-20, MEASURED): the same V2 source at <=2 flips gives an attack with apt Yosys 0.33 (85 gates) but no attack with conda 0.38 and Docker/Debian 0.52 (83 gates each); verdicts belong to a netlist hash and tool build.",
+  "after": "Build differences (H5, 2026-11-20, MEASURED): on the plain flow at <=2 flips apt 0.33 (85 gates) gives an attack, conda 0.38 and Docker/Debian 0.52 (83 gates each) do not; conda 0.38 gives 2 on three other flows (P01a). Verdicts belong to a netlist hash and flow."
+ },
+ {
+  "file": "docs/report/PROJECT_REPORT.md",
+  "before": "8. The Yosys 0.33 versus 0.38 difference is unexplained; Yosys 0.52 (Docker, H5) behaves like 0.38 (83 gates, no 2-flip attack): the V2 verdict at <=2 flips depends on the Yosys version.",
+  "after": "8. CORRECTED (2026-11-20; the earlier item said the V2 verdict depends on the Yosys version, an error found by a fresh-eyes review and measured by P01a, `docs/report/WHY_TWO_FLIPS.md`): the stored netlist is also Yosys 0.33 (68 gates, another flow); the 85 vs 83 gates (apt 0.33 vs conda 0.38; 0.52 like 0.38 on the plain flow, H5) are flow/build differences in the netlist. The cause of 2 flips is the encoding: 0xCC xor 0x96 touches only two of three copies; `rtl/v2e.v` (0xA5) gives 3 1 1 3 3 3 3 3 over 8 flows (v2: 2 1 1 2 2 2 2 2); conda 0.38 gives 3 only on the plain flow. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness."
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "Docker Debian Yosys 0.52 = 83 gates, no attack at <=2 flips (H5, MEASURED; toolchain-dependent verdict);",
+  "after": "Docker Debian Yosys 0.52 = 83 gates, no attack at <=2 flips on the plain flow (H5, MEASURED; a netlist difference, not a version immunity: conda 0.38 gives 2 on three other flows, P01a);"
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "The exact Yosys/ABC change responsible was NOT located: \"build\" is a correlate, not an identified cause. This is the honest answer to \"why 85 vs 83?\": we do not know the cause; we know where it is not (not the compare copies) and which options remove it.",
+  "after": "The exact Yosys/ABC change behind 85 vs 83 gates was NOT located. CORRECTED 2026-11-20 (P01a, `docs/report/WHY_TWO_FLIPS.md`): why V2 can fall to 2 is now explained by the encoding, not the build: the stored netlist is also Yosys 0.33; 0xCC xor 0x96 touches only two of three copies; `rtl/v2e.v` (0xA5) gives 3 1 1 3 3 3 3 3 over 8 flows (v2 2 1 1 2 2 2 2 2). Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness."
+ },
+ {
+  "file": "docs/edu/INSTRUCTOR_NOTES.md",
+  "before": "H5 also measured 83 gates and no 2-flip attack on Yosys 0.52 (Docker): the verdict depends on the Yosys version.",
+  "after": "H5 also measured 83 gates and no 2-flip attack on Yosys 0.52 (Docker, plain flow). Do not teach this as a version effect (corrected 2026-11-20, `docs/report/WHY_TWO_FLIPS.md`): Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. Conda 0.38 gives 2 on three other flows."
+ },
+ {
+  "file": "docs/edu/ANSWER_KEY.md",
+  "before": "(H5); the verdict depends on the Yosys version;",
+  "after": "(H5); not a version effect: Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. (`docs/report/WHY_TWO_FLIPS.md`);"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "(Yosys version dependence: 0.33 gives 85 gates with a 2-flip attack; 0.38 and 0.52 give 83 gates with none.)",
+  "after": "(Not a version effect: the stored netlist is also Yosys 0.33. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. See slide 'Why 2 and not 3?'.)"
+ },
+ {
+  "file": "dashboard/template.html",
+  "before": "with Yosys 0.38 and with Yosys 0.52 (Docker, H5): the verdict depends on the Yosys version. Always name the tool build.",
+  "after": "with Yosys 0.38 and with Yosys 0.52 (Docker, H5) on the plain flow. That is not a version effect (the stored netlist is also Yosys 0.33): Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. Always name the netlist hash and flow (<code>docs/report/WHY_TWO_FLIPS.md</code>)."
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "The verdict is toolchain-dependent (consistent with E2); state the Yosys version with every V2 result |",
+  "after": "Netlist-dependent, not a version effect (CORRECTED 2026-11-20 by P01a: stored netlist also Yosys 0.33; conda 0.38 gives 2 on three other flows; cause = encoding, see `P01.*`); state the netlist hash and flow with every V2 result |"
+ },
+ {
+  "file": "docs/dossier/VIVA_SHEET.md",
+  "before": "**D-bonus. Why 85 gates (apt 0.33) versus 83 (conda 0.38)?** We do not know the exact cause.",
+  "after": "**D-bonus. Why 85 gates (apt 0.33) versus 83 (conda 0.38)?** We do not know the exact gate-count cause, but we now know why V2 can fall to 2 (P01a, `docs/report/WHY_TWO_FLIPS.md`): Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. Earlier E2 notes:"
+ },
+ {
+  "file": "docs/dossier/VIVA_SHEET.md",
+  "before": "[flag] WE DO NOT KNOW the exact tool change.",
+  "after": "[flag] The exact tool change behind the gate count is unknown; the 2-flip weakness is the encoding (0xCC xor 0x96 touches 2 of 3 copies; `rtl/v2e.v` gives 3 on 6 of 8 flows; WHY_TWO_FLIPS.md)."
+ },
+ {
+  "file": "docs/dossier/VIVA_SHEET.md",
+  "before": "| \"I do not know the exact cause. Synthesis is deterministic,",
+  "after": "| \"The gate counts differ by flow and build; the 2-flip weakness is the encoding: the armed word touches only two of three copies, and re-encoding it gives 3 on 6 of 8 flows (WHY_TWO_FLIPS.md). Synthesis is deterministic,"
+ },
+ {
+  "file": "docs/dossier/ONE_PAGE_FOR_THE_OWNER.md",
+  "before": "why two Yosys versions disagree (we do not know the exact cause).",
+  "after": "the exact tool change behind 85 vs 83 gates (unknown). Corrected 2026-11-20: the 2-vs-3 flips is not a version effect but the encoding (`docs/report/WHY_TWO_FLIPS.md`)."
+ },
+ {
+  "file": "dashboard/template.html",
+  "before": "built with Yosys 0.38 it gave a different netlist with no 2-flip attack. A countermeasure",
+  "after": "built with Yosys 0.38 (plain flow) it gave a different netlist with no 2-flip attack. The weakness is the encoding (the armed word touches 2 of 3 copies; re-encoded rtl/v2e.v gives 3 on 6 of 8 flows); a build or flow difference changes the netlist, not the weakness. A countermeasure"
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "Test (SIMULATED fault model, D1 re-run, T=6,",
+  "after": "Test (SIMULATED fault model, D1, re-run by P13a 2026-11-20, `research/c6/p13/hamming_runs.txt`, T=6,"
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "Communication engineering: not applicable beyond Hamming-distance state encoding.",
+  "after": "Communication engineering (coding-theory view, `docs/comms/CODING_VIEW.md`): the state words F0, CC, 96, 69 and the key C3 are codewords of the Reed-Muller code RM(1,3) [8,4,4] (FACT, `docs/comms/test_rm13.py`, 16 passed; weight enumerator 1 + 14z^4 + z^8, d=4; re-checked by the lead 2026-11-20); the copies form repetition codes (V1 n=2 merged into one net `ok`, V2 n=3 used for detection only). Distance is the flops-only budget: flops-only minimum 4 = d on four netlists, all nets 1/3/1/2 (V1 spike, V2 spike, V1 apt, V2 apt; MEASURED, `research/c6/p13/hamming_runs.txt`); over 19 codebooks flops-only equals the nearest non-accept distance in 15 of 15 with distance <= 6 (P11, `results/comms/distance_sweep.csv`). The decoder sets the ceiling: about one flip per comparator copy, lower when synthesis shares logic (3 of 16 three-copy codebooks at 2). Burst caveat pending: the complementary pair 96/69 (distance 8) is mapped onto itself by one all-flop inversion (arithmetic; circuit burst run pending P14). Textbook coding theory measured on toy designs; nothing new; no claim that RM(1,3) was chosen on purpose."
+ },
+ {
+  "file": "docs/dossier/RUBRIC_MAP.md",
+  "before": "| 7 | Analysis | dossier s7, s12; DS synthesis; FP derived-vs-chosen table | States what is derived (shared wire; SAT answer; Hamming distance) versus chosen (fault, counting, goal, input, init); M1 explains V2's '3' by a Hamming-plus-cut rule (known-style reasoning, not a discovery) that matches 255/255 masks on the spike netlist (187/255 on apt) | 85 vs 83 cause not located (E2);",
+  "after": "| 7 | Analysis | dossier s7, s12; DS synthesis; FP derived-vs-chosen table; `docs/comms/CODING_VIEW.md`, `docs/comms/test_rm13.py`, `results/comms/distance_sweep.csv`; `docs/report/WHY_TWO_FLIPS.md` | States what is derived (shared wire; SAT answer; Hamming distance) versus chosen (fault, counting, goal, input, init); M1 explains V2's '3' by a Hamming-plus-cut rule (known-style reasoning, not a discovery) that matches 255/255 masks on the spike netlist (187/255 on apt); coding view: state code is a subset of RM(1,3) (tested); fault-capacity table separates code distance (flops-only 4) from decoder ceiling (all nets 1 to 3); P11 codebook sweep (19 codebooks, failed predictions kept); P01a root cause of 2 vs 3 flips is the encoding (0xCC touches 2 of 3 copies; v2e restores 3 on 6 of 8 flows) | exact tool change behind 85 vs 83 gates not located (E2), but the 2-flip weakness is explained (P01a); burst run (P14) and random channel (P12) pending; textbook material, no new theory;"
+ },
+ {
+  "file": "docs/OWNER_DERIVATION_SHEET.md",
+  "before": "## After you finish",
+  "after": "## 6. From the armed word to the accept word in two flips (V2, encoding root cause)\n- Question: derive, by hand, the flip count to reach 0x96 from 0xCC at the load and show which copies the flipped bits belong to.\n- Data: `rtl/v2.v` (bit groups: m0 bits 0,3,6; m1 bits 1,4,7; m2 bits 2,5); `docs/report/WHY_TWO_FLIPS.md`.\n- Hand steps: (leave for the owner)\n- Expected answer: (leave for the owner; the agent's check values are in `research/c6/p01/P01_REPORT.md`)\n- Check against: `research/c6/p01/sweeps/sweep_apt_v2.json`, `research/c6/p01/sweeps/sweep_apt_v2e.json`.\n- My derivation: ______\n\n## After you finish"
+ },
+ {
+  "file": "docs/dossier/VIVA_ANSWER_CARDS.md",
+  "before": "**E2-7. 85 gates (apt 0.33) vs 83 (conda 0.38)?** IDK\n- I do not know the exact cause.\n- Known: synthesis deterministic; compare cones disjoint in both; difference in next-state mapping (one MUX on conda).\n- Not shown: that the Yosys version is the cause.",
+  "after": "**E2-7. 85 gates (apt 0.33) vs 83 (conda 0.38)?** PARTLY KNOWN (corrected 2026-11-20)\n- I do not know the exact tool change behind the gate counts.\n- But the 2-vs-3 flips is not a version effect: the stored netlist is also Yosys 0.33; the cause is the encoding (see card ENC-1).\n- Known: synthesis deterministic; compare cones disjoint in both; difference in next-state mapping (one MUX on conda)."
+ },
+ {
+  "file": "docs/dossier/VIVA_ANSWER_CARDS.md",
+  "before": "(appended at end)",
+  "after": "\n## Coding view and encoding root cause (added by agent INT, 2026-11-20; cards C-1 to C-8 from `research/c6/p13/P13_REPORT.md`)\n\n**C-1. Is there any communications content in this project?**\n- The state words are codewords of RM(1,3) [8,4,4], and the copied comparators are repetition codes.\n- The measured flops-only cost equals the code distance; the all-nets cost is set by the decoder.\n- It is textbook coding theory measured on toy designs, nothing new.\nNumber: **d=4, flops-only 4 on 4 of 4 netlists** (MEASURED). File: `docs/comms/CODING_VIEW.md`, `research/c6/p13/hamming_runs.txt`.\n\n**C-2. Prove F0, CC, 96, 69 are RM(1,3) codewords.**\n- Bit i = f(binary(i)); x2 = F0, x1 = CC.\n- 69 = 0F+33+55 = 1+x0+x1+x2 and 96 is its complement x0+x1+x2.\n- Also true if the byte is read MSB-first (bit reversal is an affine change of variables).\nNumber: **16 codewords, all 5 RTL words members** (FACT). File: `docs/comms/test_rm13.py`.\n\n**C-3. What is the minimum distance and what does it guarantee?**\n- Weight enumerator 1 + 14z^4 + z^8, so d=4.\n- Detects any 3 bit errors, would correct 1 if a decoder corrected (none does).\n- Guarantee holds for errors on the stored bits only.\nNumber: **d=4, detect 3, correct 1** (FACT). File: `research/c6/p13/test_output.txt`.\n\n**C-4. If d=4, why does V1 fall to 1 flip?**\n- The two copies are a [2,1,2] repetition code merged by `ok = m1 & m2` into one net.\n- That net is a point where all codewords decode alike; flipping it at cycle 1 writes 96.\n- A code protects the codeword, not the circuit that decodes it.\nNumber: **1 (`ok`@1), flops-only 4** (MEASURED). File: `research/c6/p13/cli_runs.txt`, `hamming_runs.txt`.\n\n**C-5. Why is V2 3 on the stored netlist but 2 after re-synthesis?**\n- Three copies with disjoint bit groups: a [3,1,3] repetition code used for detection, so 3 = its distance.\n- CC xor 96 touches only two of three groups, so a netlist with one shared next-state net per group falls to 2 (card ENC-1).\n- Re-encoded `rtl/v2e.v` gives 3 on 6 of 8 flows.\nNumber: **3 spike, 2 apt-0.33** (MEASURED; anchor brute force 182 triples / 3 pairs). File: `research/c5/anchor/ANCHOR_REPORT.md`, `docs/report/WHY_TWO_FLIPS.md`.\n\n**C-6. What happens if the consumer reads only some bits?**\n- It reads a punctured code: the distance on those bits only.\n- For masks 0x03, 0x0F, 0x4E the masked distance from F0/CC to 96 is 1, 2, 3 and the CLI measures 1, 2, 3 with flop flips only.\n- On all 255 masks the solver never exceeds the masked distance.\nNumber: **1/2/3; 255/255** (MEASURED). File: `research/c6/p13/cli_masks.txt`, `research/c3/m1/m1_all_masks.csv`.\n\n**C-7. Is the complementary pair 96/69 a good choice?**\n- Against independent flips yes: distance 8, the maximum.\n- Against one event that inverts all 8 flops no: 69 xor FF = 96, and FAIL holds, so a later burst turns reject into accept.\n- Interleaving or separating copies is the classic answer; not measured here.\nNumber: **distance 8; burst = 1 event** (ARITHMETIC; circuit run pending P14). File: `docs/comms/CODING_VIEW.md`.\n\n**C-8. What may you not claim from the coding view?**\n- No novelty; no claim that RM(1,3) was chosen on purpose.\n- Modelled flips, T=6, four netlists: \"matched in 4 of 4\", not \"always\".\n- No bit-error rates or physical glitch claims.\nNumber: **4 of 4** (MEASURED). File: `docs/comms/CODING_VIEW.md` \"Limits\".\n\n**ENC-1. Why does V2 need 2 flips and not 3 on the apt 0.33 netlist?**\n- The machine loads the armed word 0xCC at cycle 0; 0xCC xor 0x96 = 0x5A, bits {1,3,4,6}, owned by copies m1 and m0 only.\n- On this netlist one net moves bits {1,4} and another moves {3,6}: two flips turn the load of CC into 96.\n- Encoding sets the floor (2 copies touched => 2); the synthesis flow decides whether the floor is reached.\nNumber: **2 1 1 2 2 2 2 2 over 8 flows** (MEASURED, P01a; re-verified by the lead 2026-11-20). File: `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`. Trap: \"it is a Yosys version effect\" (the stored netlist is also Yosys 0.33; that wording was an error, now corrected).\n\n**ENC-2. Does re-encoding fix it?**\n- Changing only the armed constant to 0xA5 (xor 96 = bits 0,1,4,5, all three copies) gives 3 on 6 of 8 flows.\n- The two flows that merge the comparators (opt_merge, flatten before ABC) stay at 1: no encoding fixes merged copies.\n- Conda 0.38 with 0xCC: 3 only on the plain flow; three other flows give 2.\nNumber: **v2e 3 1 1 3 3 3 3 3** (MEASURED, apt and conda). File: `rtl/v2e.v`, `research/c6/p01/sweeps/`. Trap: \"v2e is secure\" (bounded: T=6, k<=3, toy, modelled flips).\n"
+ },
+ {
+  "file": "docs/dossier/EVIDENCE_INDEX.md",
+  "before": "| 6 | Verdict table depends on the Yosys build (apt 0.33 vs conda 0.38+92); only 0.33 was run in the tree |",
+  "after": "| 6 | Verdict table depends on the netlist (apt 0.33 vs conda 0.38+92 builds give different netlists); only 0.33 was run in the tree. CORRECTED 2026-11-20: the old reading 'depends on the Yosys version' was an error (row 78) |"
+ },
+ {
+  "file": "docs/dossier/EVIDENCE_INDEX.md",
+  "before": "(appended at end)",
+  "after": "| 77 | Coding view: state words F0, CC, 96, 69, C3 are RM(1,3) codewords, d=4, enumerator 1,14,1; flops-only 4 on V1/V2 spike and apt; all nets 1/3/1/2 | FACT (test) + MEASURED | `docs/comms/CODING_VIEW.md`, `docs/comms/test_rm13.py`, `research/c6/p13/hamming_runs.txt` | `python3 -m pytest -q docs/comms/test_rm13.py` | P13a; lead re-ran membership |\n| 78 | CORRECTED ERROR: 'V2 needs 3 flips stored and 2 on apt 0.33 because of the Yosys version' was wrong (found by a fresh-eyes review, measured by P01a): stored netlist is also Yosys 0.33; cause is the encoding (0xCC touches 2 of 3 copies); v2 rows 2 1 1 2 2 2 2 2, v2e rows 3 1 1 3 3 3 3 3 | MEASURED | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`, `research/c6/fresh_eyes/ENHANCEMENT_PLAN.md` | `faultbound-wt analyze rtl/v2.v --top v2 --max-flips 3 --cycles 6 --synth-sweep` | P01a; lead re-verified 2026-11-20 05:06 UTC |\n| 79 | Codebook sweep: 19 codebooks; flops-only = nearest non-accept distance in 15/15 (d<=6); all nets <= flops-only 19/19; failed predictions (a) literal, (c) 3 of 16 at 2, word order | MEASURED | `results/comms/distance_sweep.csv`, `research/c6/p11/P11_REPORT.md`, `docs/comms/staircase.png` | `python3 scripts/comms/distance_sweep.py --out results/comms/distance_sweep.csv --cli faultbound-wt` | P11a |\n| 80 | glitchsat.py runs synth.sh via `sh` and no longer advises 'add another independent copy'; sha256 1ad037ef... | MEASURED | `research/c6/p08/P08_REPORT.md`, `tests/test_p08.py` | `pytest -q tests/test_p08.py` | P08; lead updated ENGINE_MANIFEST |\n"
+ },
+ {
+  "file": "docs/dossier/CRITIQUE.md",
+  "before": "(appended at end)",
+  "after": "| FE-1 | fresh-eyes review (P01a measured) | HIGH | Headline misattribution: '3 flips stored, 2 on apt 0.33' was explained as a Yosys-VERSION effect; the stored netlist is also Yosys 0.33 (flow/source difference); the cause is the encoding (0xCC xor 0x96 touches 2 of 3 copies); `rtl/v2e.v` (0xA5) gives 3 1 1 3 3 3 3 3 over 8 flows | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md` | FIXED (agent INT 2026-11-20: old wording marked as a corrected error in README, FINAL_STATUS, ENGINE_STATUS, dossier, report, dashboard, edu, slides, viva) |\n| FE-2 | P11a | MED | Coding-view predictions partly failed: flops-only = d(I,W) fails for 2 B-variant codebooks; 3 of 16 three-copy codebooks at 2 on the project flow; word order matters under ABC; mechanism undissected | `research/c6/p11/P11_REPORT.md` | OPEN (stated in README) |\n"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "  > SAY: I do not know the exact reason two Yosys versions disagree. I only know that it happens and that a verdict belongs to one exact netlist file. This is measured, bounded, toy designs.",
+  "after": "  > SAY: I used to say two Yosys versions disagree. That was wrong: the stored netlist was made by the same Yosys 0.33. The real cause is the encoding, which I show on slide 'Why 2 and not 3?'. Encoding sets the floor; the synthesis flow decides whether the floor is reached. A build or flow difference changes the netlist, not the underlying weakness. This is measured, bounded, toy designs."
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "# Slides outline (16 slides: 12 main + 4 appendix)",
+  "after": "# Slides outline (19 slides: 14 main + 5 appendix; slides 13 and 14 added by agent INT, 2026-11-20)"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "## 13. A1. Counting rule: one flipped net is one fault",
+  "after": "## 13. Redundancy is a code   (added by INT)\n- Picture: `docs/comms/staircase.png` (flips needed against code distance; flops only and all nets).\n- The state words are codewords of a textbook code (distance 4); the copies are a repetition code.\n- Flops only: flips needed = distance to the nearest non-accept word (15 of 15 codebooks).\n- All nets: about one flip per copy; 3 of 16 three-copy codebooks fall to 2 (my prediction failed).\n- Modelled, toy, observed not a theorem. MEASURED: 19 codebooks, T=6, apt Yosys 0.33; `results/comms/distance_sweep.csv`, `docs/comms/CODING_VIEW.md`.\n- Speaker notes (say this):\n  > SAY: Here is a way a communications engineer would read the design. The state words of the boot machine form a small textbook code, a Reed-Muller code with distance four, and the copied comparators are a repetition code.\n  > SAY: On this plot, the diagonal is what happens when only the state register may flip: in all 15 codebooks with distance up to six, the flips needed equal the distance to the nearest word that is not accept. When every net may flip, the curve stops at about one flip per comparator copy, so a bigger distance buys nothing past three.\n  > SAY: Some of my predictions failed and I keep them visible. The flops-only count follows the nearest fail word, not the idle word. On the project flow 3 of 16 three-copy codebooks sit at 2, and the order of the words matters: F0 then CC gives 2, CC then F0 gives 3. I did not dissect why. This is modelled, on a toy design, observed and not a theorem, and nothing here is new coding theory.\n\n## 14. Why 2 and not 3?   (added by INT)\n- At cycle 0 the machine loads the armed word 0xCC. 0xCC xor 0x96 = bits {1,3,4,6}: they belong to only 2 of the 3 copies.\n- So 2 flips of next-state nets can turn that load into 0x96. Not a Yosys-version effect: the stored netlist (3 flips) is also Yosys 0.33, another flow.\n- Table, 8 synthesis flows, apt Yosys 0.33: v2 (armed 0xCC, 2 copies) 2 1 1 2 2 2 2 2; v2e (armed 0xA5, 3 copies) 3 1 1 3 3 3 3 3.\n- The 1s are flows that merge the copies (opt_merge, flatten before ABC): no encoding fixes those.\n- Encoding sets the floor; the synthesis flow decides whether it is reached.\n- MEASURED by agent P01a, re-run by the lead 2026-11-20: `docs/report/WHY_TWO_FLIPS.md`, `rtl/v2e.v`. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.\n- Speaker notes (say this):\n  > SAY: Earlier I blamed the Yosys version for V2 needing three flips on one netlist and two on another. That was wrong, and a fresh-eyes review caught it: both netlists come from Yosys 0.33.\n  > SAY: The real reason is in the encoding. Before the key check, the machine loads the armed word CC. CC and the accept word 96 differ in four bits, and those four bits belong to only two of the three comparator copies. So an attacker does not need to fool all three copies: two flips at the moment CC is loaded are enough, if the netlist has one shared net per copy.\n  > SAY: To test that, only the one constant was changed to A5, which touches all three copies. Over the same eight synthesis flows V2 gives 2, 1, 1, 2, 2, 2, 2, 2 and the re-encoded design gives 3, 1, 1, 3, 3, 3, 3, 3. The ones are flows that merge the copies, and no encoding fixes that. So: encoding sets the floor, the flow decides whether it is reached. Toy design, modelled flips, bounded at six cycles and three flips.\n\n## 15. A1. Counting rule: one flipped net is one fault"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "## 14. A2. Predictor",
+  "after": "## 16. A2. Predictor"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "## 15. A3. The one unbounded proof",
+  "after": "## 17. A3. The one unbounded proof"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "## 16. A4. Layout",
+  "after": "## 18. A4. Layout"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "## 17. A5. Ledger",
+  "after": "## 19. A5. Ledger"
+ },
+ {
+  "file": "dashboard/build.py",
+  "before": "research/c3/rep/REP_REPORT.md): always name the tool build.'),",
+  "after": "research/c3/rep/REP_REPORT.md). It is not a version effect (the spike netlist is also Yosys 0.33): the armed word 0xCC touches only 2 of the 3 copies, so encoding sets the floor at 2 and the flow decides whether it is reached (docs/report/WHY_TWO_FLIPS.md). Always name the netlist hash and flow.'),"
+ },
+ {
+  "file": "README.md",
+  "before": "make check-tools && make test                   # 136 passed (quote your own count)",
+  "after": "make check-tools && make test                   # 150 passed (quote your own count)"
+ },
+ {
+  "file": "START.md",
+  "before": "Counts as of 2026-11-20 (RECON5): `make test` 136 passed; product tests 324 passed; mutation score (REPORTED) root 72.5%, product 67.6% (quote your own counts). Expected: the first finds an attack with 1 flip on the shared net `ok`; the second says NO_ATTACK_UP_TO_BOUND (no 2-flip attack on the word, 6 cycles); the third finds an attack with 1 flip on `boot_ok`. Each prints its bound. Optional full sweep: `make reproduce && make check-reproduce` (about 25 s; needs yosys, iverilog, `pip install -r ci/requirements-ci.txt`).",
+  "after": "Counts as of 2026-11-20 (INT, 2026-11-20 05:13 UTC): `make test` 150 passed; product tests 324 passed; mutation score (REPORTED) root 72.5%, product 67.6% (quote your own counts). Expected: the first finds an attack with 1 flip on the shared net `ok`; the second says NO_ATTACK_UP_TO_BOUND (no 2-flip attack on the word, 6 cycles); the third finds an attack with 1 flip on `boot_ok`. Each prints its bound. Optional full sweep: `make reproduce && make check-reproduce` (about 25 s; needs yosys, iverilog, `pip install -r ci/requirements-ci.txt`)."
+ },
+ {
+  "file": "docs/ENGINE_STATUS.md",
+  "before": "make test          # pytest tests/ (136 passed in 15.4 s and product tests 324 passed in 81.3 s after `pip install ./product[test]`: MEASURED by RECON on a copy, 2026-11-20 (RECON5); history: 10 tests at first writing, then a 30-test suite after H1, 27 product tests per PS2; run it and quote your own count, `docs/NUMBERS.md`)",
+  "after": "make test          # pytest tests/ (150 passed in 19.9 s and product tests 324 passed in 81.3 s after `pip install ./product[test]`: MEASURED by RECON on a copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC); history: 10 tests at first writing, then a 30-test suite after H1, 27 product tests per PS2; run it and quote your own count, `docs/NUMBERS.md`)"
+ },
+ {
+  "file": "docs/ENGINE_STATUS.md",
+  "before": "R27's sequential-counter 'at most j' encoding was APPLIED by T3 to `scripts/glitchsat.py` and `product/src/faultbound_wt/_engine.py` (default `--amk counter`; `--amk legacy` keeps the old code; product: env `FAULTBOUND_AMK`; `research/c4/t3/T3_REPORT.md`, reported, lead re-ran `check_reproduce --rerun` 36/36 in 12.9 s and `pytest tests` 99 passed at that time): 36/36 reproduce rows match (witness set differs in 11/36, as before), tests 99 and 139 + 1 skipped pass at T3 time (now 136 and 324 (RECON5); 133 and 321 at RECON4/H4 time; 310 at H2/H3 time), UNSAT cells at least 43x faster (dmr k=1 T=4: 1.6 s vs legacy timeout at 150 s), 80x (V2 k=2 T=12), at least 107x (T=20); summed reproduce row time 14.4 s -> 4.2 s; slower on some SAT cells (R27: uart k=3 T=60 4.5 s -> 33 s). `make reproduce` outputs in `results/` predate the patch.",
+  "after": "R27's sequential-counter 'at most j' encoding was APPLIED by T3 to `scripts/glitchsat.py` and `product/src/faultbound_wt/_engine.py` (default `--amk counter`; `--amk legacy` keeps the old code; product: env `FAULTBOUND_AMK`; `research/c4/t3/T3_REPORT.md`, reported, lead re-ran `check_reproduce --rerun` 36/36 in 12.9 s and `pytest tests` 99 passed at that time): 36/36 reproduce rows match (witness set differs in 11/36, as before), tests 99 and 139 + 1 skipped pass at T3 time (now 150 and 324 (INT); 136 at RECON5; 133 and 321 at RECON4/H4 time; 310 at H2/H3 time), UNSAT cells at least 43x faster (dmr k=1 T=4: 1.6 s vs legacy timeout at 150 s), 80x (V2 k=2 T=12), at least 107x (T=20); summed reproduce row time 14.4 s -> 4.2 s; slower on some SAT cells (R27: uart k=3 T=60 4.5 s -> 33 s). `make reproduce` outputs in `results/` predate the patch."
+ },
+ {
+  "file": "docs/FINAL_STATUS.md",
+  "before": "- Engine (`docs/ENGINE_STATUS.md`): root tests **136 passed**; product tests **324 passed** after `pip install ./product[test]` (MEASURED by RECON on a copy, 2026-11-20 (RECON5), `research/c4/recon/RECON_REPORT.md`; history 10, 30 (RA), 98 and 21, 27 (PS2), 38 (lead count, unmeasured); counts move when tests are added: run `make test` and quote your own, `docs/NUMBERS.md`), `make reproduce` about 25 s. At 6 cycles: V0 and V1 break with 1 fault (V1 on the shared net `ok`); V2 on the spike netlist has no word-goal attack for k<=2, attack at k=3 (scope above: the accept flag `boot_ok` falls to 1 flip; input nets are not fault sites).",
+  "after": "- Engine (`docs/ENGINE_STATUS.md`): root tests **150 passed**; product tests **324 passed** after `pip install ./product[test]` (MEASURED by RECON on a copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC), `research/c4/recon/RECON_REPORT.md`; history 10, 30 (RA), 98 and 21, 27 (PS2), 38 (lead count, unmeasured); counts move when tests are added: run `make test` and quote your own, `docs/NUMBERS.md`), `make reproduce` about 25 s. At 6 cycles: V0 and V1 break with 1 fault (V1 on the shared net `ok`); V2 on the spike netlist has no word-goal attack for k<=2, attack at k=3 (scope above: the accept flag `boot_ok` falls to 1 flip; input nets are not fault sites)."
+ },
+ {
+  "file": "docs/FINAL_STATUS.md",
+  "before": "- **Faster encoding** (R27, T3): R27's sequential-counter 'at most j' encoding was APPLIED by T3 to `scripts/glitchsat.py` and `product/src/faultbound_wt/_engine.py` (default `--amk counter`; `--amk legacy` keeps the old code; product: env `FAULTBOUND_AMK`; `research/c4/t3/T3_REPORT.md`, reported, lead re-ran `check_reproduce --rerun` 36/36 in 12.9 s and `pytest tests` 99 passed at that time): 36/36 reproduce rows match (witness set differs in 11/36, as before), tests 99 and 139 + 1 skipped pass at T3 time (now 136 and 324 (RECON5); 133 and 321 at RECON4/H4 time; 310 at H2/H3 time), UNSAT cells at least 43x faster (dmr k=1 T=4: 1.6 s vs legacy timeout at 150 s), 80x (V2 k=2 T=12), at least 107x (T=20); summed reproduce row time 14.4 s -> 4.2 s; slower on some SAT cells (R27: uart k=3 T=60 4.5 s -> 33 s).",
+  "after": "- **Faster encoding** (R27, T3): R27's sequential-counter 'at most j' encoding was APPLIED by T3 to `scripts/glitchsat.py` and `product/src/faultbound_wt/_engine.py` (default `--amk counter`; `--amk legacy` keeps the old code; product: env `FAULTBOUND_AMK`; `research/c4/t3/T3_REPORT.md`, reported, lead re-ran `check_reproduce --rerun` 36/36 in 12.9 s and `pytest tests` 99 passed at that time): 36/36 reproduce rows match (witness set differs in 11/36, as before), tests 99 and 139 + 1 skipped pass at T3 time (now 150 and 324 (INT); 136 at RECON5; 133 and 321 at RECON4/H4 time; 310 at H2/H3 time), UNSAT cells at least 43x faster (dmr k=1 T=4: 1.6 s vs legacy timeout at 150 s), 80x (V2 k=2 T=12), at least 107x (T=20); summed reproduce row time 14.4 s -> 4.2 s; slower on some SAT cells (R27: uart k=3 T=60 4.5 s -> 33 s)."
+ },
+ {
+  "file": "docs/report/CLAIMS_CHECK.md",
+  "before": "| `make test` 10 passed at first writing (now 136 passed; product tests 324 passed after `pip install ./product[test]`; RECON 2026-11-20 (RECON5)); `make reproduce` about 25 s | report 4,5; demo | docs/ENGINE_STATUS.md | MEASURED | YES: 10 passed in 20.2 s; reproduce finished in well under a minute |",
+  "after": "| `make test` 10 passed at first writing (now 150 passed; product tests 324 passed after `pip install ./product[test]`; RECON 2026-11-20 (INT, 2026-11-20 05:13 UTC)); `make reproduce` about 25 s | report 4,5; demo | docs/ENGINE_STATUS.md | MEASURED | YES: 10 passed in 20.2 s; reproduce finished in well under a minute |"
+ },
+ {
+  "file": "docs/report/CLAIMS_CHECK.md",
+  "before": "| \"18 slides\", \"10 tests\" at first writing (now 136) | deck | counted from the built deck / ENGINE_STATUS | n/a | YES (18 slides rendered) |",
+  "after": "| \"18 slides\", \"10 tests\" at first writing (now 150) | deck | counted from the built deck / ENGINE_STATUS | n/a | YES (18 slides rendered) |"
+ },
+ {
+  "file": "docs/report/ONE_PAGE_SUMMARY.md",
+  "before": "**What we built.** The solver; a product CLI `faultbound-wt` with consumer bits, input sites, power-up modes, scope sweep, width sweep and timeout; a dashboard with a Scope tab; a classroom kit. Tests: 136 root passed, 324 product passed (MEASURED on a copy, 2026-11-20 (RECON5); quote your own count). Mutation score 50 of 69 (72.5%) root, 50 of 74 (67.6%) product (REPORTED, T2/T3; earlier 67% / 65% was over the first 43 mutants only). Reproduce: `make reproduce` and `make check-reproduce` give 36 of 36 rows on a copy; do not run them in the live tree.",
+  "after": "**What we built.** The solver; a product CLI `faultbound-wt` with consumer bits, input sites, power-up modes, scope sweep, width sweep and timeout; a dashboard with a Scope tab; a classroom kit. Tests: 150 root passed, 324 product passed (MEASURED on a copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC); quote your own count). Mutation score 50 of 69 (72.5%) root, 50 of 74 (67.6%) product (REPORTED, T2/T3; earlier 67% / 65% was over the first 43 mutants only). Reproduce: `make reproduce` and `make check-reproduce` give 36 of 36 rows on a copy; do not run them in the live tree."
+ },
+ {
+  "file": "docs/report/PROJECT_REPORT.md",
+  "before": "Solver, product CLI, dashboard (with a Scope tab), classroom kit, explainer page and game, layout flow demos. Tests: 136 root passed; 324 product passed (MEASURED, clean copy, 2026-11-20 (RECON5)). Mutation score 50 of 69 (72.5%) root, 50 of 74 (67.6%) product (REPORTED, T2/T3; 10 product mutant runs never run, so the product figure is over the runs that exist; earlier 67% / 65% was over the first 43 mutants only). `make reproduce` and `make check-reproduce`: 36 of 36 rows on a copy (CI on another Yosys build may differ). Run them only on a copy.",
+  "after": "Solver, product CLI, dashboard (with a Scope tab), classroom kit, explainer page and game, layout flow demos. Tests: 150 root passed; 324 product passed (MEASURED, clean copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC)). Mutation score 50 of 69 (72.5%) root, 50 of 74 (67.6%) product (REPORTED, T2/T3; 10 product mutant runs never run, so the product figure is over the runs that exist; earlier 67% / 65% was over the first 43 mutants only). `make reproduce` and `make check-reproduce`: 36 of 36 rows on a copy (CI on another Yosys build may differ). Run them only on a copy."
+ },
+ {
+  "file": "docs/report/REVIEW_NOTES.md",
+  "before": "| `make test` | PASS: 10 passed in 20.2 s (at review time; now 136 passed, RECON5; 133 at RECON3/RECON4) |",
+  "after": "| `make test` | PASS: 10 passed in 20.2 s (at review time; now 150 passed, INT, 2026-11-20 05:13 UTC; 133 at RECON3/RECON4) |"
+ },
+ {
+  "file": "docs/report/SLIDES_OUTLINE.md",
+  "before": "  > SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 136 tests in the main suite and 324 in the product suite, counted on a clean copy. A mutation check killed 50 of 69 sabotaged versions of the main engine, about 72 percent, and 50 of 74 for the product, about 68 percent; those figures come from agent reports and I did not re-run them. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.",
+  "after": "  > SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 150 tests in the main suite and 324 in the product suite, counted on a clean copy. A mutation check killed 50 of 69 sabotaged versions of the main engine, about 72 percent, and 50 of 74 for the product, about 68 percent; those figures come from agent reports and I did not re-run them. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics."
+ },
+ {
+  "file": "docs/dossier/AI_USE_DISCLOSURE_DRAFT.md",
+  "before": "| `tests/`, `product/`, `Makefile`, `scripts/*.py` |  | Run `make test` (136 passed on a copy, 2026-11-20 (RECON5), MEASURED by RECON; quote your own count) and `make check-reproduce` on a copy; know what each checks | |",
+  "after": "| `tests/`, `product/`, `Makefile`, `scripts/*.py` |  | Run `make test` (150 passed on a copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC), MEASURED by RECON; quote your own count) and `make check-reproduce` on a copy; know what each checks | |"
+ },
+ {
+  "file": "docs/dossier/CRITIQUE.md",
+  "before": "| R27-1 | R27 | LOW | Faster encoding patch applied by T3 (gates: 36/36 reproduce, 99 and 139+1 tests at T3 time; now 136 and 324 (RECON5); 133 and 321 at RECON4/H4 time; 310 at H2/H3 time); some SAT cells slower (uart k=3 T=60) | research/c3/r27/R27_REPORT.md s4 | DONE (T3, research/c4/t3/T3_REPORT.md); product CLI has no --amk flag |",
+  "after": "| R27-1 | R27 | LOW | Faster encoding patch applied by T3 (gates: 36/36 reproduce, 99 and 139+1 tests at T3 time; now 150 and 324 (INT); 136 at RECON5; 133 and 321 at RECON4/H4 time; 310 at H2/H3 time); some SAT cells slower (uart k=3 T=60) | research/c3/r27/R27_REPORT.md s4 | DONE (T3, research/c4/t3/T3_REPORT.md); product CLI has no --amk flag |"
+ },
+ {
+  "file": "docs/dossier/EVIDENCE_INDEX.md",
+  "before": "| 1 | `make test` (root `pytest tests`): **136 passed** in 15.4 s on a copy, 2026-11-20 (RECON5). History: 10 at first writing, 30 (RA, after H1), 99 (MT/T2 added tests), 136 now (H3 added 34 in tests/test_h3.py); quote your own count, `docs/NUMBERS.md`. | MEASURED | `tests/` (`test_engine.py`, `test_hardening.py`, `test_check_reproduce.py`); `research/c3/ra/RA_REPORT.md` s2; `research/c3/h1/H1_LOG.md`; `research/c3/f2/F2_LOG.md` | `make test` on a copy | RECON (136 passed); earlier RA, H1, lead, MT (30) |",
+  "after": "| 1 | `make test` (root `pytest tests`): **150 passed** in 15.4 s on a copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC). History: 10 at first writing, 30 (RA, after H1), 99 (MT/T2 added tests), 150 now (H3 added 34 in tests/test_h3.py); quote your own count, `docs/NUMBERS.md`. | MEASURED | `tests/` (`test_engine.py`, `test_hardening.py`, `test_check_reproduce.py`); `research/c3/ra/RA_REPORT.md` s2; `research/c3/h1/H1_LOG.md`; `research/c3/f2/F2_LOG.md` | `make test` on a copy | RECON (150 passed); earlier RA, H1, lead, MT (30) |"
+ },
+ {
+  "file": "docs/dossier/ONE_PAGE_FOR_THE_OWNER.md",
+  "before": "- Other tools and re-runs agree with the solver, but they all share the same fault model, so they check the code, not the physics. The tests pass (136 main tests, 324 product tests, on a copy, 2026-11-20 (RECON5); run `make test` and quote your own count). Mutation score of those tests (REPORTED, not re-run): root 72.5% (50 of 69 runs), product 67.6% (50 of 74). One unlimited-time proof exists for one case; no one has independently replicated it.",
+  "after": "- Other tools and re-runs agree with the solver, but they all share the same fault model, so they check the code, not the physics. The tests pass (150 main tests, 324 product tests, on a copy, 2026-11-20 (INT, 2026-11-20 05:13 UTC); run `make test` and quote your own count). Mutation score of those tests (REPORTED, not re-run): root 72.5% (50 of 69 runs), product 67.6% (50 of 74). One unlimited-time proof exists for one case; no one has independently replicated it."
+ },
+ {
+  "file": "docs/dossier/ONE_PAGE_FOR_THE_OWNER.md",
+  "before": "5. (30 s) How it was checked (other tools, same model; 136 tests; re-run on a copy) and what is not claimed (hardware, novelty, security).",
+  "after": "5. (30 s) How it was checked (other tools, same model; 150 tests; re-run on a copy) and what is not claimed (hardware, novelty, security)."
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "- R27 (`research/c3/r27/R27_REPORT.md`): a sequential-counter encoding with assumption-based \"at most j\" (`research/c3/r27/seq_counter.patch`, 63 lines, `glitchsat.py` only) gives 10x to 40x faster UNSAT cells and finishes cells (spike V2 k=2 at T=12 and T=20) where the engine's PbLe times out; same verdicts and minima on the 14 cells compared (a first wrapper wrapped a 6-bit popcount and gave a spurious FAIL, fixed by a wide counter). Times noisy (4 cores shared). **Status: APPLIED by T3** (`research/c4/t3/T3_REPORT.md`): 36/36 in 12.9 s and `pytest tests` 99 passed at that time): 36/36 reproduce rows match (witness set differs in 11/36, as before), tests 99 and 139 + 1 skipped pass at T3 time (now 136 and 324 (RECON5); 133 and 321 at RECON4/H4 time; 310 at H2/H3 time), UNSAT cells at least 43x faster (dmr k=1 T=4: 1.6 s vs legacy timeout at 150 s), 80x (V2 k=2 T=12), at least 107x (T=20); summed reproduce row time 14.4 s -> 4.2 s; slower on some SAT cells (R27: uart k=3 T=60 4.5 s -> 33 s). The unbounded IC3 wrapper with a budget counter is an untested design.",
+  "after": "- R27 (`research/c3/r27/R27_REPORT.md`): a sequential-counter encoding with assumption-based \"at most j\" (`research/c3/r27/seq_counter.patch`, 63 lines, `glitchsat.py` only) gives 10x to 40x faster UNSAT cells and finishes cells (spike V2 k=2 at T=12 and T=20) where the engine's PbLe times out; same verdicts and minima on the 14 cells compared (a first wrapper wrapped a 6-bit popcount and gave a spurious FAIL, fixed by a wide counter). Times noisy (4 cores shared). **Status: APPLIED by T3** (`research/c4/t3/T3_REPORT.md`): 36/36 in 12.9 s and `pytest tests` 99 passed at that time): 36/36 reproduce rows match (witness set differs in 11/36, as before), tests 99 and 139 + 1 skipped pass at T3 time (now 150 and 324 (INT); 136 at RECON5; 133 and 321 at RECON4/H4 time; 310 at H2/H3 time), UNSAT cells at least 43x faster (dmr k=1 T=4: 1.6 s vs legacy timeout at 150 s), 80x (V2 k=2 T=12), at least 107x (T=20); summed reproduce row time 14.4 s -> 4.2 s; slower on some SAT cells (R27: uart k=3 T=60 4.5 s -> 33 s). The unbounded IC3 wrapper with a budget counter is an untested design."
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "- H1 (`research/c3/h1/H1_LOG.md`; applied to the tree after copy tests): both engines now raise `NetlistError` for multi-driver nets, duplicate JSON keys, `x` init/constants, undriven nets, combinational loops and unsupported flops; evaluation is iterative (3000-gate chain works); CLI bound/width validation; product exit codes 0/1/2/3/4; XML/HTML escaping in reports and `dashboard/build.py` (dashboard HTML not regenerated in the tree); `ci/check_reproduce.py` checks row set, per-row files and input hashes, and `--rerun` re-runs all 36 rows. MEASURED on a copy at that time: the 30-test suite passed (now 136 tests, see s9); `make reproduce` identical verdict/min_faults on all 36 rows (witnesses differ on 11 of 36: not unique, the minimal size is unchanged); RT cross-check 2040 runs, 0 disagreements. The lead re-ran the 30-test suite and 36/36 on a copy (RUN_LOG entry 151). Without `--rerun` the check is an accident check, not tamper evidence (a summary and an expected file in the same tree can both be edited). Not fixed: A9 (all non-clk inputs free; the report lists only `sig`), Verilog path with hostile sources untested.",
+  "after": "- H1 (`research/c3/h1/H1_LOG.md`; applied to the tree after copy tests): both engines now raise `NetlistError` for multi-driver nets, duplicate JSON keys, `x` init/constants, undriven nets, combinational loops and unsupported flops; evaluation is iterative (3000-gate chain works); CLI bound/width validation; product exit codes 0/1/2/3/4; XML/HTML escaping in reports and `dashboard/build.py` (dashboard HTML not regenerated in the tree); `ci/check_reproduce.py` checks row set, per-row files and input hashes, and `--rerun` re-runs all 36 rows. MEASURED on a copy at that time: the 30-test suite passed (now 150 tests, see s9); `make reproduce` identical verdict/min_faults on all 36 rows (witnesses differ on 11 of 36: not unique, the minimal size is unchanged); RT cross-check 2040 runs, 0 disagreements. The lead re-ran the 30-test suite and 36/36 on a copy (RUN_LOG entry 151). Without `--rerun` the check is an accident check, not tamper evidence (a summary and an expected file in the same tree can both be edited). Not fixed: A9 (all non-clk inputs free; the report lists only `sig`), Verilog path with hostile sources untested."
+ },
+ {
+  "file": "docs/dossier/PROJECT_DOSSIER.md",
+  "before": "- RA (`research/c3/ra/RA_REPORT.md`; MEASURED on a copy): the README quickstart works end to end; `make test` passed the 30-test suite in 28.7 s (history; today 136 passed, RECON 2026-11-20 (RECON5)); `make reproduce` 29.1 s; `check-reproduce` 36/36; `--rerun` 36/36 in 23.6 s; `make replay` agrees. Of 28 traced headline claims: 22 TRACED, 1 MISMATCH (the \"10 passed\" count at first writing, since superseded), 3 NOT TRACED (product test count; fuzzing \"0 mismatches in about 6,700 programs\"; CMSIS issues). Verdicts are tied to Yosys 0.33; conda-based items (PDR, sby, SPICE, layout) could not be re-run from the bundle.",
+  "after": "- RA (`research/c3/ra/RA_REPORT.md`; MEASURED on a copy): the README quickstart works end to end; `make test` passed the 30-test suite in 28.7 s (history; today 150 passed, RECON 2026-11-20 (INT, 2026-11-20 05:13 UTC)); `make reproduce` 29.1 s; `check-reproduce` 36/36; `--rerun` 36/36 in 23.6 s; `make replay` agrees. Of 28 traced headline claims: 22 TRACED, 1 MISMATCH (the \"10 passed\" count at first writing, since superseded), 3 NOT TRACED (product test count; fuzzing \"0 mismatches in about 6,700 programs\"; CMSIS issues). Verdicts are tied to Yosys 0.33; conda-based items (PDR, sby, SPICE, layout) could not be re-run from the bundle."
+ },
+ {
+  "file": "docs/dossier/RUBRIC_MAP.md",
+  "before": "| 5 | Verification | `tests/` (136 passed), `product/tests` (324 passed); RECON 2026-11-20 (RECON5) on a copy, `validation/`, `formal/`, RT 2040-run cross-check, mutation testing (root 72.5%, 50 of 69; product 67.6%, 50 of 74; T2/T3, reported), REP 64/64 | Several routes plus red-team plus mutation testing | All routes share one fault model; no proof certificate; mutation run incomplete (10 product runs never run, 5 no longer apply); no human code review | 7 |",
+  "after": "| 5 | Verification | `tests/` (150 passed), `product/tests` (324 passed); RECON 2026-11-20 (INT, 2026-11-20 05:13 UTC) on a copy, `validation/`, `formal/`, RT 2040-run cross-check, mutation testing (root 72.5%, 50 of 69; product 67.6%, 50 of 74; T2/T3, reported), REP 64/64 | Several routes plus red-team plus mutation testing | All routes share one fault model; no proof certificate; mutation run incomplete (10 product runs never run, 5 no longer apply); no human code review | 7 |"
+ },
+ {
+  "file": "docs/dossier/VIVA_ANSWER_CARDS.md",
+  "before": "Number: **136 passed** (re-run it) / **72.5% root, 67.6% product** mutation score. File: `research/c3/t2/T2_REPORT.md`, `research/c4/t3/T3_REPORT.md`. Trap: repeating an old test count (the docs once said 30) without checking.",
+  "after": "Number: **150 passed** (re-run it) / **72.5% root, 67.6% product** mutation score. File: `research/c3/t2/T2_REPORT.md`, `research/c4/t3/T3_REPORT.md`. Trap: repeating an old test count (the docs once said 30) without checking."
+ },
+ {
+  "file": "docs/dossier/VIVA_SHEET.md",
+  "before": "29. *Which numbers did you re-run yourself?* Say exactly what you ran. Lead/others re-ran: CT-1 (1 flip on `boot_ok`), `pytest tests` (136 passed on 2026-11-20 (RECON5); older pages said 30) and `check-reproduce` 36/36 on copies, D1's earlier re-runs, RA's quickstart, REP's replication. Agent-reported only: B1 matrix, E1 free-input, E2 matrix, M1, B2, SYNFI run, SPICE data. Fuzzing \"0 mismatches in about 6,700 programs\" and the CMSIS issues are not reproducible from the repo.",
+  "after": "29. *Which numbers did you re-run yourself?* Say exactly what you ran. Lead/others re-ran: CT-1 (1 flip on `boot_ok`), `pytest tests` (150 passed on 2026-11-20 (INT, 2026-11-20 05:13 UTC); older pages said 30) and `check-reproduce` 36/36 on copies, D1's earlier re-runs, RA's quickstart, REP's replication. Agent-reported only: B1 matrix, E1 free-input, E2 matrix, M1, B2, SYNFI run, SPICE data. Fuzzing \"0 mismatches in about 6,700 programs\" and the CMSIS issues are not reproducible from the repo."
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "| `T.root.collected` | 136 | pytest tests: tests collected (root engine suite, now incl. test_h3.py) | tests/ (test_engine, test_hardening, test_check_reproduce, test_mt_oracle, test_mt_targeted, test_h3) | `pytest tests --co -q` (check_numbers.py --pytest) on the tar copy | MEASURED (RECON3) | 2026-11-20 |",
+  "after": "| `T.root.collected` | 150 | pytest tests: tests collected (root engine suite, now incl. test_h3.py) | tests/ (test_engine, test_hardening, test_check_reproduce, test_mt_oracle, test_mt_targeted, test_h3, test_h5, test_distance_sweep, test_p08; INT 2026-11-20) | `pytest tests --co -q` (check_numbers.py --pytest) on the tar copy | MEASURED (RECON3) | 2026-11-20 |"
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "| `T.root.passed` | 136 | pytest tests: passed, 0 failed (15.4 s on the RECON5 copy). 136 = 99 + 34 new in `tests/test_h3.py` (H3) + 3 new in `tests/test_h5.py` (H5); 133 was the count at RECON3/RECON4 (history). Docs saying 30, 10, 98 or 99 are stale or history | tests/ | `pytest tests -q` on a tar copy (RECON3); H3 saw 133 on its own copy | MEASURED (RECON3; H3) | 2026-11-20 |",
+  "after": "| `T.root.passed` | 150 | pytest tests: passed, 0 failed (19.9 s on the INT fresh copy, 2026-11-20 05:13 UTC; 136 at RECON5, 15.4 s). 150 = 136 + 12 in `tests/test_distance_sweep.py` (P11) + 2 in `tests/test_p08.py` (P08); 136 = 99 + 34 new in `tests/test_h3.py` (H3) + 3 new in `tests/test_h5.py` (H5); 133 was the count at RECON3/RECON4 (history). Docs saying 30, 10, 98 or 99 are stale or history | tests/ | `pytest tests -q` on a tar copy (RECON3); H3 saw 133 on its own copy | MEASURED (RECON3; H3) | 2026-11-20 |"
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": " \"current\": {\n  \"T.root.passed\": \"136\",",
+  "after": " \"current\": {\n  \"T.root.passed\": \"150\","
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "  \"T.root.collected\": \"136\"\n }",
+  "after": "  \"T.root.collected\": \"150\"\n }"
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "\"should\": \"136 root passed, 324 product passed (RECON5, 2026-11-20); 133 / 321 only as history (RECON4)\"",
+  "after": "\"should\": \"150 root passed, 324 product passed (INT, 2026-11-20); 133 / 321 only as history (RECON4)\""
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "\"should\": \"136 passed (root `pytest tests`, 2026-11-20, RECON5); or 'run `make test` and quote your own count'\"",
+  "after": "\"should\": \"150 passed (root `pytest tests`, 2026-11-20, INT); or 'run `make test` and quote your own count'\""
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "\"should\": \"136 passed (10 only as history with a marker such as 'first writing')\"",
+  "after": "\"should\": \"150 passed (10 only as history with a marker such as 'first writing')\""
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "\"should\": \"136 passed (root, RECON5; 99 + 34 in test_h3.py + 3 in test_h5.py); 99 only as history\"",
+  "after": "\"should\": \"150 passed (root, INT; 99 + 34 in test_h3.py + 3 in test_h5.py); 99 only as history\""
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "\"should\": \"136 passed (root, RECON5); 98 only as history\"",
+  "after": "\"should\": \"150 passed (root, INT); 98 only as history\""
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "   \"id\": \"T.root.collected\",\n   \"value\": \"136\",",
+  "after": "   \"id\": \"T.root.collected\",\n   \"value\": \"150\","
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "   \"id\": \"T.root.passed\",\n   \"value\": \"136\",\n   \"source\": \"tests/\",\n   \"status\": \"MEASURED\",\n   \"date\": \"2026-11-20 RECON5\"",
+  "after": "   \"id\": \"T.root.passed\",\n   \"value\": \"150\",\n   \"source\": \"tests/\",\n   \"status\": \"MEASURED\",\n   \"date\": \"2026-11-20 INT\""
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": " \"rules\": [\n",
+  "after": " \"rules\": [\n  {\n   \"id\": \"T.root.136\",\n   \"hist\": true,\n   \"re\": \"\\\\b136\\\\s+(?:passed|root|main tests|tests?\\\\b)|\\\\*\\\\*136 passed|now 136\\\\b\",\n   \"should\": \"150 root passed (INT, 2026-11-20; 136 + 12 test_distance_sweep + 2 test_p08); 136 only as history (RECON5)\",\n   \"label\": \"stale root test count 136 (before P08/P11 tests)\"\n  },\n  {\n   \"id\": \"YOSYS.version.cause\",\n   \"hist\": true,\n   \"re\": \"(?i)verdict depends on the Yosys version|Yosys version dependence|depends on the Yosys version\",\n   \"should\": \"not a version effect: encoding sets the floor (0xCC touches 2 of 3 copies), the flow decides whether it is reached (docs/report/WHY_TWO_FLIPS.md, P01a)\",\n   \"label\": \"misattribution corrected 2026-11-20 (fresh-eyes review, P01a)\"\n  },\n"
+ },
+ {
+  "file": "docs/NUMBERS.md",
+  "before": "## Machine-readable block",
+  "after": "## 13 Encoding root cause, coding view, P08 (agent INT, 2026-11-20)\nToy designs, modelled single-cycle bit flips, nothing physical, nothing established as new. Flow order of `--synth-sweep`: plain, plain_opt_merge, flatten_before_abc, abc_fast, abc_no_mux, opt_flow, plain_keep_off, opt_flow_keep_off.\n| id | value | meaning | source | how measured | status | date |\n|---|---|---|---|---|---|---|\n| `P01.v2.apt.sweep` | 2 1 1 2 2 2 2 2 (8 flows) | V2 min flips per flow, apt Yosys 0.33, goal boot_word==0x96, stem rule, T=6, k<=3, known init | research/c6/p01/P01_REPORT.md; sweeps/sweep_apt_v2.json | `faultbound-wt analyze rtl/v2.v --top v2 --max-flips 3 --cycles 6 --synth-sweep` | MEASURED (P01a; re-run by the lead 2026-11-20 05:06 UTC, identical) | 2026-11-20 |\n| `P01.v2e.apt.sweep` | 3 1 1 3 3 3 3 3 | `rtl/v2e.v` (armed 0xA5, touches 3 copies), same command; conda 0.38 identical | P01_REPORT.md; sweeps/sweep_apt_v2e.json, sweep_conda_v2e.json | same with `rtl/v2e.v --top v2e` | MEASURED (P01a; lead re-run identical) | 2026-11-20 |\n| `P01.v2.conda.sweep` | 3 1 1 2 3 2 3 2 | V2 with conda Yosys 0.38+92: 3 only on plain (and abc_no_mux, plain_keep_off), 2 on abc_fast, opt_flow, opt_flow_keep_off | P01_REPORT.md; sweeps/sweep_conda_v2.json | conda yosys first in PATH | MEASURED (P01a) | 2026-11-20 |\n| `P01.stored.creator` | stored V2 netlist creator `Yosys 0.33 (git sha1 2584903a060)`, 68 gates | stored vs apt is a flow/source difference, not a version difference | P01_REPORT.md; nl_info.log | `nl_info.py` | MEASURED (P01a) | 2026-11-20 |\n| `P01.cause` | 0xCC xor 0x96 = 0x5A = bits {1,3,4,6}, copies m1 and m0 only; apt witness `new_n58_` (bits 1,4) and `new_n74_` (bits 3,6) at cycle 0 | encoding sets the floor; the flow decides whether it is reached; the 1s are copy-merging flows | WHY_TWO_FLIPS.md; witness_apt_v2.txt | arithmetic + solver witness | MEASURED (P01a) | 2026-11-20 |\n| `P01.controls` | 3 copies (5A, 3C): 3 1 1 3 3 3 3 3 on both versions; 2 copies (BB, 4D, 0F): 2 or 3; 1 copy (04): 1 everywhere, B2 1 or 2; brute force T=4 k<=2: apt v2 3 pairs, apt v2e 0 of 75,467, conda v2 0, conda v2e 0; 9 designs boot only for key 0xC3 | controls for the encoding hypothesis | P01_REPORT.md; bf/*.json; tb_all.log | anchor_sim.py; iverilog 256 keys | MEASURED (P01a) | 2026-11-20 |\n| `P11.codebooks` | 19 codebooks measured (+2 negative controls rejected before any solver run) | code distance as fault budget | research/c6/p11/P11_REPORT.md; results/comms/distance_sweep.csv | `python3 scripts/comms/distance_sweep.py --out results/comms/distance_sweep.csv --cli faultbound-wt` | MEASURED (P11a) | 2026-11-20 |\n| `P11.flops` | flops-only min = nearest non-accept distance d_min in 15 of 15 codebooks with d_min <= 6; 4 of 4 with d_min > 6 no attack up to 6 (bounded) | prediction (a) held | same | same | MEASURED (P11a) | 2026-11-20 |\n| `P11.allnets` | all nets <= flops-only in 19 of 19 (both flows); no-ABC structural netlist equals the copy rule 19 of 19 | prediction (b) held | same | same | MEASURED (P11a) | 2026-11-20 |\n| `P11.failed` | FAILED: flops-only = d(I,W) (2 B-variant codebooks: 3 and 6 vs 8); 3 of 16 three-copy codebooks at 2 on the apt plain flow; complement pairs give 3, not 2; word order: F0 then CC 2, CC then F0 3 (mechanism not dissected) | failed predictions, kept | same | same | MEASURED (P11a) | 2026-11-20 |\n| `P13.rm13` | RM(1,3) [8,4,4], d=4, weight enumerator 1 + 14z^4 + z^8; F0, CC, 96, 69, C3 all members (LSB- and MSB-first) | coding view | docs/comms/test_rm13.py; research/c6/p13/test_output.txt | `pytest -q docs/comms/test_rm13.py`: 16 passed (INT fresh copy, 2026-11-20) | FACT (test); lead re-ran membership | 2026-11-20 |\n| `P13.hamming` | flops-only min 4 on V1 spike, V2 spike, V1 apt, V2 apt; all nets 1 / 3 / 1 / 2 | distance = flops-only budget; decoder = ceiling | research/c6/p13/hamming_runs.txt | `python3 docs/dossier/test_hamming.py` (z3, T=6) | MEASURED (P13a) | 2026-11-20 |\n| `P08.glitchsat` | `scripts/glitchsat.py` sha256 1ad037ef07e23c2aabcea75b87a99616591957bd61ed8e0b80abae6b737a9f3c (old 78ecea08...); synth.sh run via `sh`; 'add another independent copy' advice removed; ENGINE_MANIFEST updated by the lead | engine change | research/c6/p08/P08_REPORT.md; tests/test_p08.py (2 tests) | sha256sum | MEASURED (P08; lead) | 2026-11-20 |\n| `INT.tests` | root `pytest tests` 150 passed (19.9 s; incl. test_distance_sweep 12, test_p08 2, test_h5 3); product `pytest product/tests` 324 passed (82.4 s); `docs/comms/test_rm13.py` 16 passed (not under tests/, not counted in 150) | current test counts | /tmp/work_int/m1 (fresh tar copy, venv with ci/requirements-ci.txt and ./product[test]) | `pytest -q tests`; `pytest -q product/tests` | MEASURED (INT, 2026-11-20 05:13 UTC) | 2026-11-20 |\n| `INT.repro` | `ci/check_reproduce.py` 36/36 rows match; `--rerun` 36/36 (engine re-run), 0 FAILED, no manifest warning | reproduce gate after P08 | same copy | `python3 ci/check_reproduce.py [--rerun]` | MEASURED (INT) | 2026-11-20 |\n\n## Machine-readable block"
+ }
+]

@@ -1,0 +1,13 @@
+{"design": "s2", "k": 0, "T": 6, "old": ["NO_ATTACK_UP_TO_BOUND", null, 0.08], "new": ["NO_ATTACK_UP_TO_BOUND", null, 0.07], "agree": true}
+{"design": "s2", "k": 1, "T": 6, "old": ["NO_ATTACK_UP_TO_BOUND", null, 0.37], "new": ["NO_ATTACK_UP_TO_BOUND", null, 0.32], "agree": true}
+{"design": "s2", "k": 2, "T": 6, "old": ["NO_ATTACK_UP_TO_BOUND", null, 1.15], "new": ["NO_ATTACK_UP_TO_BOUND", null, 0.18], "agree": true}
+{"design": "s2", "k": 3, "T": 6, "old": ["ATTACK_FOUND", 3, 5.77], "new": ["ATTACK_FOUND", 3, 0.23], "agree": true}
+{"design": "w2", "k": 0, "T": 6, "old": ["NO_ATTACK_UP_TO_BOUND", null, 0.09], "new": ["NO_ATTACK_UP_TO_BOUND", null, 0.1], "agree": true}
+{"design": "w2", "k": 1, "T": 6, "old": ["NO_ATTACK_UP_TO_BOUND", null, 0.35], "new": ["NO_ATTACK_UP_TO_BOUND", null, 0.14], "agree": true}
+{"design": "w2", "k": 2, "T": 6, "old": ["ATTACK_FOUND", 2, 0.47], "new": ["ATTACK_FOUND", 2, 0.19], "agree": true}
+{"design": "w2", "k": 3, "T": 6, "old": ["ATTACK_FOUND", 2, 0.47], "new": ["ATTACK_FOUND", 2, 0.24], "agree": true}
+{"design": "s2", "k": 2, "T": 10, "old": ["NO_ATTACK_UP_TO_BOUND", null, 25.98], "new": ["NO_ATTACK_UP_TO_BOUND", null, 0.49], "agree": true}
+{"design": "dmr", "k": 0, "T": 4, "old": ["NO_ATTACK_UP_TO_BOUND", null, 0.88], "new": ["NO_ATTACK_UP_TO_BOUND", null, 2.58], "agree": true}
+{"design": "dmr", "k": 1, "T": 4, "old": ["UNKNOWN_TIMEOUT", null, 121.48], "new": ["NO_ATTACK_UP_TO_BOUND", null, 6.34], "agree": false}
+{"design": "dmr", "k": 2, "T": 4, "old": ["ATTACK_FOUND", 2, 122.82], "new": ["ATTACK_FOUND", 2, 6.47], "agree": true}
+{"design": "uart", "k": 0, "T": 6, "old": ["NO_ATTACK_UP_TO_BOUND", null, 1.37], "new": ["NO_ATTACK_UP_TO_BOUND", null, 1.36], "agree": true}

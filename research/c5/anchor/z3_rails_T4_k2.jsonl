@@ -1,0 +1,48 @@
+{"netlist": "v0_spike", "model": "rail_all", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v0_spike", "model": "rail_all", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v0_spike", "model": "rail_half", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v0_spike", "model": "rail_half", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v0_spike", "model": "rail_unions", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 3}
+{"netlist": "v0_spike", "model": "rail_unions", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 3}
+{"netlist": "v0_spike", "model": "rail_cone", "goal": "word", "T": 4, "cap": 2, "z3_min": "1", "events": [[1, "rail_cone_c.m"]], "n_events": 12}
+{"netlist": "v0_spike", "model": "rail_cone", "goal": "ok", "T": 4, "cap": 2, "z3_min": "1", "events": [[1, "rail_cone_$flatten\\c.$abc$175$new_n10_"]], "n_events": 12}
+{"netlist": "v0_spike", "model": "stem_flip", "goal": "word", "T": 4, "cap": 2, "z3_min": "1", "events": [[1, "flip_$flatten\\c.$abc$175$new_n15_"]], "n_events": 20}
+{"netlist": "v0_spike", "model": "stem_flip", "goal": "ok", "T": 4, "cap": 2, "z3_min": "1", "events": [[1, "flip_$flatten\\c.$abc$175$new_n14_"]], "n_events": 20}
+{"netlist": "v0_spike", "model": "reset_one", "goal": "word", "T": 4, "cap": 2, "z3_min": "1", "events": [[1, "reset_$auto$rtlil.cc:2609:MuxGate$195"]], "n_events": 18}
+{"netlist": "v0_spike", "model": "reset_one", "goal": "ok", "T": 4, "cap": 2, "z3_min": "1", "events": [[2, "reset_$auto$rtlil.cc:2609:MuxGate$195"]], "n_events": 18}
+{"netlist": "v1_spike", "model": "rail_all", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v1_spike", "model": "rail_all", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v1_spike", "model": "rail_half", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 3}
+{"netlist": "v1_spike", "model": "rail_half", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 3}
+{"netlist": "v1_spike", "model": "rail_unions", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 7}
+{"netlist": "v1_spike", "model": "rail_unions", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 7}
+{"netlist": "v1_spike", "model": "rail_cone", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 48}
+{"netlist": "v1_spike", "model": "rail_cone", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 48}
+{"netlist": "v1_spike", "model": "stem_flip", "goal": "word", "T": 4, "cap": 2, "z3_min": "1", "events": [[1, "flip_ok"]], "n_events": 66}
+{"netlist": "v1_spike", "model": "stem_flip", "goal": "ok", "T": 4, "cap": 2, "z3_min": "1", "events": [[0, "flip_boot_ok"]], "n_events": 66}
+{"netlist": "v1_spike", "model": "reset_one", "goal": "word", "T": 4, "cap": 2, "z3_min": "2", "events": [[1, "reset_$flatten\\c1.$abc$246$new_n10_"], [1, "reset_$flatten\\c2.$abc$246$new_n12_"]], "n_events": 58}
+{"netlist": "v1_spike", "model": "reset_one", "goal": "ok", "T": 4, "cap": 2, "z3_min": "2", "events": [[1, "reset_$flatten\\c1.$abc$246$new_n11_"], [1, "reset_$flatten\\c2.$abc$246$new_n12_"]], "n_events": 58}
+{"netlist": "v2_spike", "model": "rail_all", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v2_spike", "model": "rail_all", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v2_spike", "model": "rail_half", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 7}
+{"netlist": "v2_spike", "model": "rail_half", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 7}
+{"netlist": "v2_spike", "model": "rail_unions", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 15}
+{"netlist": "v2_spike", "model": "rail_unions", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 15}
+{"netlist": "v2_spike", "model": "rail_cone", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 53}
+{"netlist": "v2_spike", "model": "rail_cone", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 53}
+{"netlist": "v2_spike", "model": "stem_flip", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 76}
+{"netlist": "v2_spike", "model": "stem_flip", "goal": "ok", "T": 4, "cap": 2, "z3_min": "1", "events": [[3, "flip_boot_ok"]], "n_events": 76}
+{"netlist": "v2_spike", "model": "reset_one", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 68}
+{"netlist": "v2_spike", "model": "reset_one", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 68}
+{"netlist": "v2_apt033", "model": "rail_all", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v2_apt033", "model": "rail_all", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 1}
+{"netlist": "v2_apt033", "model": "rail_half", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 7}
+{"netlist": "v2_apt033", "model": "rail_half", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 7}
+{"netlist": "v2_apt033", "model": "rail_unions", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 15}
+{"netlist": "v2_apt033", "model": "rail_unions", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 15}
+{"netlist": "v2_apt033", "model": "rail_cone", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 68}
+{"netlist": "v2_apt033", "model": "rail_cone", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 68}
+{"netlist": "v2_apt033", "model": "stem_flip", "goal": "word", "T": 4, "cap": 2, "z3_min": "2", "events": [[0, "flip_$abc$275$new_n74_"], [1, "flip_$abc$275$new_n58_"]], "n_events": 93}
+{"netlist": "v2_apt033", "model": "stem_flip", "goal": "ok", "T": 4, "cap": 2, "z3_min": "1", "events": [[0, "flip_boot_ok"]], "n_events": 93}
+{"netlist": "v2_apt033", "model": "reset_one", "goal": "word", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 85}
+{"netlist": "v2_apt033", "model": "reset_one", "goal": "ok", "T": 4, "cap": 2, "z3_min": ">2", "events": null, "n_events": 85}

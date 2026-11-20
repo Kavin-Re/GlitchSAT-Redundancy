@@ -1,0 +1,10 @@
+v2: NO_ATTACK_UP_TO_BOUND  (k<=3, cycles=1, reduce=full)  solve=0.025s
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 1 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+v2: NO_ATTACK_UP_TO_BOUND  (k<=3, cycles=2, reduce=full)  solve=0.055s
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 2 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+v2: ATTACK_FOUND  (k<=3, cycles=3, reduce=full)  solve=0.142s
+  min faults: 3 [('c2.m', 1), ('c0.m', 1), ('c1.m', 1)] input {'sig': '0x00'}
+  MINIMUM ATTACK COST = 3 faults (`c2.m`@1, `c0.m`@1, `c1.m`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 3 coordinated single-cycle flips (spanning 1 distinct cycle(s)).
+v2: ATTACK_FOUND  (k<=3, cycles=4, reduce=full)  solve=0.133s
+  min faults: 3 [('c2.m', 1), ('c0.m', 1), ('$flatten\\c1.$abc$251$new_n16_', 1)] input {'sig': '0x03'}
+  MINIMUM ATTACK COST = 3 faults (`c2.m`@1, `c0.m`@1, `$flatten\c1.$abc$251$new_n16_`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 3 coordinated single-cycle flips (spanning 1 distinct cycle(s)).

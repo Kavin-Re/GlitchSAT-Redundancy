@@ -1,0 +1,109 @@
+******* Circuit Stats ********
+Cells size: 21
+Sigs size: 34
+Inputs size: 9
+Ouputs size: 3
+Registers size: 2
+Nets size: 24
+******* Partition info ********
+Number of partitions: 2
+Largest partitions: (0: 1) (1: 1) 
+
+********************************************************************************
+                    Procedure 1 -- Build partitions
+********************************************************************************
+--------------------------------------------------------------------------------
+Partitioning for 0/2 faulty partitions,
+1/19 combinational faults at initial state,
+and 0/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 1: 0.0 s ->  SAT 
+  - Faulty comb gates at clock cycle 0: 14 ($abc$184$auto$opt_dff.cc:194:make_patterns_logic$25) 
+  - Faulty comb gates at clock cycle 1: 
+  - Faulty partitions (initial): 
+  - Faulty partitions (next): 0 ( 13 ) 1 ( 15 ) 
+  Merge together : 0 1 
+  Merged: 2, Remaining: 1
+******* Partition info ********
+Number of partitions: 1
+Largest partitions: (0: 2) 
+
+  Running solver 2: 0.0 s ->  UNSAT
+  Partitioning finished with 1 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k1/partitioning-2.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/1 faulty partitions,
+0/19 combinational faults at initial state,
+and 0/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 3: 0.0 s ->  UNSAT
+  Partitioning finished with 1 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k1/partitioning-3.json`
+=> Procedure 1 verification time: 0.0 s
+
+********************************************************************************
+                    Procedure 2 -- Check output integrity
+********************************************************************************
+  Optimize 0 faults in partitions
+  Optimize 15 faults in comb logic
+--------------------------------------------------------------------------------
+Check output integrity for 1/1 faulty partitions,
+0/19 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 
+
+  Running solver 3: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 0 ( 15 13 ) 
+Corrupted outputs: 12 11 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 0 
+
+  Running solver 4: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 0/1 faulty partitions,
+1/19 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 0 
+
+  Running solver 4: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 12 
+Faulty partitions (initial): 
+Corrupted outputs: 12 
+
+Enumerate exploitable faults: 12 
+Enumerate exploitable partitions: 0 
+
+  Running solver 5: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 11 
+Faulty partitions (initial): 
+Corrupted outputs: 11 
+
+Enumerate exploitable faults: 11 12 
+Enumerate exploitable partitions: 0 
+
+  Running solver 6: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 16 
+Faulty partitions (initial): 
+Corrupted outputs: 11 
+
+Enumerate exploitable faults: 16 11 12 
+Enumerate exploitable partitions: 0 
+
+  Running solver 7: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 14 
+Faulty partitions (initial): 
+Corrupted outputs: 12 
+
+Enumerate exploitable faults: 14 16 11 12 
+Enumerate exploitable partitions: 0 
+
+  Running solver 8: UNSAT 0.0 s
+=> Procedure 2 verification time: 0.0 s

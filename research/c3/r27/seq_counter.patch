@@ -1,0 +1,63 @@
+--- project/scripts/glitchsat.py	2026-11-19 20:19:27.000000000 +0000
++++ gs_new.py	2026-11-19 20:50:05.112233495 +0000
+@@ -10,7 +10,7 @@
+ more cycles or more faults.
+ """
+ import argparse, json, os, subprocess, sys, time, hashlib, collections
+-from z3 import (Solver, Bool, BoolVal, BitVec, Extract, And, Or, Not, Xor, If, PbLe, sat, unsat,
++from z3 import (Solver, Bool, BoolVal, BitVec, Extract, And, Or, Not, Xor, If, Implies, PbLe, sat, unsat,
+                 is_true, simplify, set_param)
+ 
+ HERE = os.path.dirname(os.path.abspath(__file__))
+@@ -256,15 +256,33 @@
+     return s, F, inputs, dict(sites_total=len(allsites) * N, sites_modelled=len(F), reduce=reduce)
+ 
+ 
++def seq_counter(xs, kmax):
++    """Unary sequential counter (Sinz style, one-directional x -> count). Returns (clauses, outs) where outs[j] is a literal
++    that is forced TRUE whenever at least j of xs are true (j = 1..kmax+1). Asserting Not(outs[k+1]) means 'at most k'."""
++    cl = []; prev = [BoolVal(False)] * (kmax + 2)
++    for i, x in enumerate(xs):
++        cur = [BoolVal(False)] * (kmax + 2)
++        for j in range(1, kmax + 2):
++            c = Bool(f'cnt_{i}_{j}')
++            cl.append(Implies(prev[j], c))
++            cl.append(Implies(And(x, prev[j - 1]) if j > 1 else x, c))
++            cur[j] = c
++        prev = cur
++    return cl, prev
++
++
+ def solve(nl, N, k, timeout_ms=0, minimize=True, **kw):
+     t0 = time.time()
+     s, F, inputs, info = build(nl, N, **kw)
+     info['build_s'] = round(time.time() - t0, 3)
+     if timeout_ms: s.set('timeout', timeout_ms)
+     allf = list(F.values())
+-    if allf: s.add(PbLe([(f, 1) for f in allf], k))
+-    elif k > 0: pass
+-    t0 = time.time(); r = s.check(); info['solve_s'] = round(time.time() - t0, 3)
++    # R27: sequential counter instead of PbLe; one counter sized for k, 'at most j' is an assumption literal, so the
++    # minimisation loop below reuses the solver (learned clauses) instead of push/pop with a fresh PbLe.
++    cl, outs = seq_counter(allf, k) if allf else ([], None)
++    s.add(*cl)
++    atmost = lambda j: [Not(outs[j + 1])] if (allf and j <= k) else []
++    t0 = time.time(); r = s.check(*atmost(k)); info['solve_s'] = round(time.time() - t0, 3)
+     if r == unsat: return 'NO_ATTACK_UP_TO_BOUND', info, None
+     if r != sat: return 'UNKNOWN_TIMEOUT', info, None
+     def extract(mod):
+@@ -272,11 +290,10 @@
+     mod = s.model(); best = extract(mod)
+     t0 = time.time()
+     while minimize and best:
+-        s.push(); s.add(PbLe([(f, 1) for f in allf], len(best) - 1))
+-        if s.check() == sat:
+-            mod = s.model(); best = extract(mod); s.pop()
++        if s.check(*atmost(len(best) - 1)) == sat:
++            mod = s.model(); best = extract(mod)
+         else:
+-            s.pop(); break
++            break
+     info['minimize_s'] = round(time.time() - t0, 3)
+     atk = {p: mod.eval(v, model_completion=True).as_long() for p, v in inputs.items()}
+     return 'ATTACK_FOUND', info, dict(inputs=atk, faults=sorted(best, key=lambda x: (x[0], x[1])))

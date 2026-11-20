@@ -1,0 +1,1 @@
+{"netlist": "v2_spike.json", "model": "stem_flip", "T": 2, "K": 3, "n_events_per_cycle": 76, "combos_total": 585429, "attacking_by_size": {"0": 0, "1": 0, "2": 0, "3": 0}, "combos_by_size": {"0": 1, "1": 152, "2": 11476, "3": 573800}, "min_cost": null, "secs": 25.5, "ok_attacking_by_size": {"0": 0, "1": 2, "2": 312, "3": 23969}, "witness": []}

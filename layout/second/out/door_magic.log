@@ -1,0 +1,836 @@
+
+Magic 8.3 revision 464 - Compiled on Sat Mar  9 23:18:29 UTC 2024.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Loading "flow/gds.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: sky130_fd_sc_hd
+Reading "sky130_fd_sc_hd__or4bb_4".
+Reading "sky130_fd_sc_hd__probe_p_8".
+Reading "sky130_fd_sc_hd__probec_p_8".
+Reading "sky130_fd_sc_hd__sdfbbn_1".
+Reading "sky130_fd_sc_hd__sdfsbp_2".
+Reading "sky130_fd_sc_hd__sdfsbp_1".
+Reading "sky130_fd_sc_hd__sdfrtp_4".
+Reading "sky130_fd_sc_hd__sdfrtp_2".
+Reading "sky130_fd_sc_hd__sdfrtp_1".
+Reading "sky130_fd_sc_hd__sdfrtn_1".
+Reading "sky130_fd_sc_hd__sdfrbp_2".
+Reading "sky130_fd_sc_hd__sdfrbp_1".
+Reading "sky130_fd_sc_hd__sdfbbp_1".
+Reading "sky130_fd_sc_hd__sdfbbn_2".
+Reading "sky130_fd_sc_hd__sdfstp_1".
+Reading "sky130_fd_sc_hd__sdfstp_2".
+Reading "sky130_fd_sc_hd__sdfstp_4".
+Reading "sky130_fd_sc_hd__sdfxbp_1".
+Reading "sky130_fd_sc_hd__sdfxbp_2".
+Reading "sky130_fd_sc_hd__sdfxtp_1".
+Reading "sky130_fd_sc_hd__sdfxtp_2".
+Reading "sky130_fd_sc_hd__sdfxtp_4".
+Reading "sky130_fd_sc_hd__sdlclkp_1".
+Reading "sky130_fd_sc_hd__sdlclkp_2".
+Reading "sky130_fd_sc_hd__sdlclkp_4".
+Reading "sky130_fd_sc_hd__sedfxbp_1".
+Reading "sky130_fd_sc_hd__sedfxbp_2".
+Reading "sky130_fd_sc_hd__sedfxtp_1".
+Reading "sky130_fd_sc_hd__sedfxtp_2".
+Reading "sky130_fd_sc_hd__sedfxtp_4".
+Reading "sky130_fd_sc_hd__tap_1".
+Reading "sky130_fd_sc_hd__tap_2".
+Reading "sky130_fd_sc_hd__xor2_1".
+Reading "sky130_fd_sc_hd__xnor3_4".
+Reading "sky130_fd_sc_hd__xnor3_2".
+Reading "sky130_fd_sc_hd__xnor3_1".
+Reading "sky130_fd_sc_hd__xnor2_4".
+Reading "sky130_fd_sc_hd__xnor2_2".
+Reading "sky130_fd_sc_hd__xnor2_1".
+Reading "sky130_fd_sc_hd__tapvpwrvgnd_1".
+Reading "sky130_fd_sc_hd__tapvgnd_1".
+Reading "sky130_fd_sc_hd__tapvgnd2_1".
+Reading "sky130_fd_sc_hd__xor2_2".
+Reading "sky130_fd_sc_hd__xor2_4".
+Reading "sky130_fd_sc_hd__xor3_1".
+Reading "sky130_fd_sc_hd__xor3_2".
+Reading "sky130_fd_sc_hd__xor3_4".
+Reading "sky130_fd_sc_hd__o41a_4".
+Reading "sky130_fd_sc_hd__o41ai_1".
+Reading "sky130_fd_sc_hd__o41ai_2".
+Reading "sky130_fd_sc_hd__o41ai_4".
+Reading "sky130_fd_sc_hd__o211a_1".
+Reading "sky130_fd_sc_hd__o211a_2".
+Reading "sky130_fd_sc_hd__o211a_4".
+Reading "sky130_fd_sc_hd__o211ai_1".
+Reading "sky130_fd_sc_hd__o211ai_2".
+Reading "sky130_fd_sc_hd__o211ai_4".
+Reading "sky130_fd_sc_hd__o221a_1".
+Reading "sky130_fd_sc_hd__o221a_2".
+Reading "sky130_fd_sc_hd__o221a_4".
+Reading "sky130_fd_sc_hd__o221ai_1".
+Reading "sky130_fd_sc_hd__o221ai_2".
+Reading "sky130_fd_sc_hd__o221ai_4".
+Reading "sky130_fd_sc_hd__o2111a_4".
+Reading "sky130_fd_sc_hd__o2111a_2".
+Reading "sky130_fd_sc_hd__o2111a_1".
+Reading "sky130_fd_sc_hd__o311ai_4".
+Reading "sky130_fd_sc_hd__o311ai_2".
+Reading "sky130_fd_sc_hd__o311ai_1".
+Reading "sky130_fd_sc_hd__o311ai_0".
+Reading "sky130_fd_sc_hd__o311a_4".
+Reading "sky130_fd_sc_hd__o311a_2".
+Reading "sky130_fd_sc_hd__o311a_1".
+Reading "sky130_fd_sc_hd__o2111ai_1".
+Reading "sky130_fd_sc_hd__o2111ai_2".
+Reading "sky130_fd_sc_hd__o2111ai_4".
+Reading "sky130_fd_sc_hd__or2_0".
+Reading "sky130_fd_sc_hd__or2_1".
+Reading "sky130_fd_sc_hd__or2_2".
+Reading "sky130_fd_sc_hd__or2_4".
+Reading "sky130_fd_sc_hd__or2b_1".
+Reading "sky130_fd_sc_hd__or2b_2".
+Reading "sky130_fd_sc_hd__or2b_4".
+Reading "sky130_fd_sc_hd__or3_1".
+Reading "sky130_fd_sc_hd__or3_2".
+Reading "sky130_fd_sc_hd__or3_4".
+Reading "sky130_fd_sc_hd__or3b_1".
+Reading "sky130_fd_sc_hd__or3b_2".
+Reading "sky130_fd_sc_hd__or3b_4".
+Reading "sky130_fd_sc_hd__or4_1".
+Reading "sky130_fd_sc_hd__or4_2".
+Reading "sky130_fd_sc_hd__or4_4".
+Reading "sky130_fd_sc_hd__or4b_1".
+Reading "sky130_fd_sc_hd__or4b_2".
+Reading "sky130_fd_sc_hd__or4b_4".
+Reading "sky130_fd_sc_hd__or4bb_1".
+Reading "sky130_fd_sc_hd__or4bb_2".
+Reading "sky130_fd_sc_hd__nor3b_2".
+Reading "sky130_fd_sc_hd__nor3b_4".
+Reading "sky130_fd_sc_hd__nor4_1".
+Reading "sky130_fd_sc_hd__nor4_2".
+Reading "sky130_fd_sc_hd__nor4_4".
+Reading "sky130_fd_sc_hd__nor4b_1".
+Reading "sky130_fd_sc_hd__nor4b_2".
+Reading "sky130_fd_sc_hd__nor4b_4".
+Reading "sky130_fd_sc_hd__nor4bb_1".
+Reading "sky130_fd_sc_hd__nor4bb_2".
+Reading "sky130_fd_sc_hd__nor4bb_4".
+Moving label "k" from mvpsubdiff to ndiff in cell sky130_fd_sc_hd__nor4bb_4.
+Reading "sky130_fd_sc_hd__o2bb2a_1".
+Reading "sky130_fd_sc_hd__o2bb2a_2".
+Reading "sky130_fd_sc_hd__o2bb2a_4".
+Reading "sky130_fd_sc_hd__o2bb2ai_1".
+Reading "sky130_fd_sc_hd__o2bb2ai_2".
+Reading "sky130_fd_sc_hd__o2bb2ai_4".
+Reading "sky130_fd_sc_hd__o21a_1".
+Reading "sky130_fd_sc_hd__o21a_2".
+Reading "sky130_fd_sc_hd__o21ai_2".
+Reading "sky130_fd_sc_hd__o21ai_1".
+Reading "sky130_fd_sc_hd__o21ai_0".
+Reading "sky130_fd_sc_hd__o21a_4".
+Reading "sky130_fd_sc_hd__o21ba_2".
+Reading "sky130_fd_sc_hd__o21ba_1".
+Reading "sky130_fd_sc_hd__o21ai_4".
+Reading "sky130_fd_sc_hd__o21bai_2".
+Reading "sky130_fd_sc_hd__o21bai_1".
+Reading "sky130_fd_sc_hd__o21ba_4".
+Reading "sky130_fd_sc_hd__o21bai_4".
+Reading "sky130_fd_sc_hd__o22a_1".
+Reading "sky130_fd_sc_hd__o22a_2".
+Reading "sky130_fd_sc_hd__o22a_4".
+Reading "sky130_fd_sc_hd__o22ai_1".
+Reading "sky130_fd_sc_hd__o22ai_2".
+Reading "sky130_fd_sc_hd__o22ai_4".
+Reading "sky130_fd_sc_hd__o31a_1".
+Reading "sky130_fd_sc_hd__o31a_2".
+Reading "sky130_fd_sc_hd__o31a_4".
+Reading "sky130_fd_sc_hd__o31ai_1".
+Reading "sky130_fd_sc_hd__o31ai_2".
+Reading "sky130_fd_sc_hd__o31ai_4".
+Reading "sky130_fd_sc_hd__o32a_1".
+Reading "sky130_fd_sc_hd__o32a_2".
+Reading "sky130_fd_sc_hd__o32a_4".
+Reading "sky130_fd_sc_hd__o32ai_1".
+Reading "sky130_fd_sc_hd__o32ai_2".
+Reading "sky130_fd_sc_hd__o32ai_4".
+Reading "sky130_fd_sc_hd__o41a_1".
+Reading "sky130_fd_sc_hd__o41a_2".
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1".
+CIF file read warning: CIF style sky130(): units rescaled by factor of 5 / 1
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2".
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4".
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4".
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1".
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2".
+Reading "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4".
+Reading "sky130_fd_sc_hd__nor2_2".
+Reading "sky130_fd_sc_hd__nand2_2".
+Reading "sky130_fd_sc_hd__inv_2".
+Reading "sky130_fd_sc_hd__conb_1".
+Reading "sky130_fd_sc_hd__macro_sparecell".
+Reading "sky130_fd_sc_hd__maj3_1".
+Reading "sky130_fd_sc_hd__maj3_2".
+Reading "sky130_fd_sc_hd__maj3_4".
+Reading "sky130_fd_sc_hd__mux2_1".
+Reading "sky130_fd_sc_hd__mux2_2".
+Reading "sky130_fd_sc_hd__mux2_4".
+Reading "sky130_fd_sc_hd__mux2_8".
+Reading "sky130_fd_sc_hd__mux2i_1".
+Reading "sky130_fd_sc_hd__mux2i_2".
+Reading "sky130_fd_sc_hd__nand2_1".
+Reading "sky130_fd_sc_hd__nand2_4".
+Reading "sky130_fd_sc_hd__nand2_8".
+Reading "sky130_fd_sc_hd__nand2b_1".
+Reading "sky130_fd_sc_hd__mux2i_4".
+Reading "sky130_fd_sc_hd__mux4_1".
+Reading "sky130_fd_sc_hd__mux4_2".
+Reading "sky130_fd_sc_hd__mux4_4".
+Reading "sky130_fd_sc_hd__nand2b_2".
+Reading "sky130_fd_sc_hd__nand2b_4".
+Reading "sky130_fd_sc_hd__nand3_1".
+Reading "sky130_fd_sc_hd__nand3_2".
+Reading "sky130_fd_sc_hd__nand3_4".
+Reading "sky130_fd_sc_hd__nand3b_1".
+Reading "sky130_fd_sc_hd__nand3b_2".
+Reading "sky130_fd_sc_hd__nand3b_4".
+Reading "sky130_fd_sc_hd__nand4_1".
+Reading "sky130_fd_sc_hd__nand4_2".
+Reading "sky130_fd_sc_hd__nand4_4".
+Reading "sky130_fd_sc_hd__nand4b_1".
+Reading "sky130_fd_sc_hd__nand4b_2".
+Reading "sky130_fd_sc_hd__nand4b_4".
+Reading "sky130_fd_sc_hd__nand4bb_1".
+Reading "sky130_fd_sc_hd__nand4bb_2".
+Reading "sky130_fd_sc_hd__nand4bb_4".
+Reading "sky130_fd_sc_hd__nor2_1".
+Reading "sky130_fd_sc_hd__nor2_4".
+Reading "sky130_fd_sc_hd__nor2_8".
+Reading "sky130_fd_sc_hd__nor2b_1".
+Reading "sky130_fd_sc_hd__nor2b_2".
+Reading "sky130_fd_sc_hd__nor2b_4".
+Reading "sky130_fd_sc_hd__nor3_1".
+Reading "sky130_fd_sc_hd__nor3_2".
+Reading "sky130_fd_sc_hd__nor3_4".
+Reading "sky130_fd_sc_hd__nor3b_1".
+Reading "sky130_fd_sc_hd__einvp_1".
+Reading "sky130_fd_sc_hd__einvp_2".
+Reading "sky130_fd_sc_hd__einvp_4".
+Reading "sky130_fd_sc_hd__einvp_8".
+Reading "sky130_fd_sc_hd__fa_1".
+Reading "sky130_fd_sc_hd__fa_2".
+Reading "sky130_fd_sc_hd__fa_4".
+Reading "sky130_fd_sc_hd__fah_1".
+Reading "sky130_fd_sc_hd__fahcin_1".
+Reading "sky130_fd_sc_hd__fahcon_1".
+Reading "sky130_fd_sc_hd__fill_1".
+Reading "sky130_fd_sc_hd__fill_2".
+Reading "sky130_fd_sc_hd__fill_4".
+Reading "sky130_fd_sc_hd__fill_8".
+Reading "sky130_fd_sc_hd__ha_1".
+Reading "sky130_fd_sc_hd__ha_2".
+Reading "sky130_fd_sc_hd__ha_4".
+Reading "sky130_fd_sc_hd__inv_1".
+Reading "sky130_fd_sc_hd__inv_16".
+Reading "sky130_fd_sc_hd__inv_12".
+Reading "sky130_fd_sc_hd__inv_8".
+Reading "sky130_fd_sc_hd__inv_6".
+Reading "sky130_fd_sc_hd__inv_4".
+Reading "sky130_fd_sc_hd__lpflow_clkbufkapwr_4".
+Reading "sky130_fd_sc_hd__lpflow_clkbufkapwr_2".
+Reading "sky130_fd_sc_hd__lpflow_clkbufkapwr_1".
+Reading "sky130_fd_sc_hd__lpflow_bleeder_1".
+Reading "sky130_fd_sc_hd__lpflow_clkbufkapwr_8".
+Reading "sky130_fd_sc_hd__lpflow_clkbufkapwr_16".
+Reading "sky130_fd_sc_hd__lpflow_clkinvkapwr_1".
+Reading "sky130_fd_sc_hd__lpflow_clkinvkapwr_2".
+Reading "sky130_fd_sc_hd__lpflow_clkinvkapwr_4".
+Reading "sky130_fd_sc_hd__lpflow_clkinvkapwr_8".
+Reading "sky130_fd_sc_hd__lpflow_clkinvkapwr_16".
+Reading "sky130_fd_sc_hd__lpflow_decapkapwr_3".
+Reading "sky130_fd_sc_hd__lpflow_decapkapwr_4".
+Reading "sky130_fd_sc_hd__lpflow_decapkapwr_6".
+Reading "sky130_fd_sc_hd__lpflow_inputiso0n_1".
+Reading "sky130_fd_sc_hd__lpflow_decapkapwr_12".
+Reading "sky130_fd_sc_hd__lpflow_decapkapwr_8".
+Reading "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+Reading "sky130_fd_sc_hd__lpflow_inputiso1p_1".
+Reading "sky130_fd_sc_hd__lpflow_inputiso1n_1".
+Reading "sky130_fd_sc_hd__lpflow_inputiso0p_1".
+Reading "sky130_fd_sc_hd__lpflow_isobufsrc_4".
+Reading "sky130_fd_sc_hd__lpflow_isobufsrc_2".
+Reading "sky130_fd_sc_hd__lpflow_isobufsrc_1".
+Reading "sky130_fd_sc_hd__lpflow_isobufsrc_8".
+Reading "sky130_fd_sc_hd__lpflow_isobufsrc_16".
+Reading "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16".
+Reading "sky130_fd_sc_hd__dfrtp_2".
+Reading "sky130_fd_sc_hd__dfrtp_4".
+Reading "sky130_fd_sc_hd__dfsbp_1".
+Reading "sky130_fd_sc_hd__dfsbp_2".
+Reading "sky130_fd_sc_hd__dfstp_1".
+Reading "sky130_fd_sc_hd__dfstp_2".
+Reading "sky130_fd_sc_hd__dfstp_4".
+Reading "sky130_fd_sc_hd__dfxbp_1".
+Reading "sky130_fd_sc_hd__dfxbp_2".
+Reading "sky130_fd_sc_hd__dfxtp_1".
+Reading "sky130_fd_sc_hd__dfxtp_2".
+Reading "sky130_fd_sc_hd__dfxtp_4".
+Reading "sky130_fd_sc_hd__diode_2".
+Reading "sky130_fd_sc_hd__dlclkp_1".
+Reading "sky130_fd_sc_hd__dlclkp_2".
+Reading "sky130_fd_sc_hd__dlclkp_4".
+Reading "sky130_fd_sc_hd__dlrbn_1".
+Reading "sky130_fd_sc_hd__dlrbp_1".
+Reading "sky130_fd_sc_hd__dlrtn_1".
+Reading "sky130_fd_sc_hd__dlrtn_2".
+Reading "sky130_fd_sc_hd__dlrbn_2".
+Reading "sky130_fd_sc_hd__dlrbp_2".
+Reading "sky130_fd_sc_hd__dlrtn_4".
+Reading "sky130_fd_sc_hd__dlrtp_1".
+Reading "sky130_fd_sc_hd__dlrtp_2".
+Reading "sky130_fd_sc_hd__dlrtp_4".
+Reading "sky130_fd_sc_hd__dlxbn_1".
+Reading "sky130_fd_sc_hd__dlxbn_2".
+Reading "sky130_fd_sc_hd__dlxbp_1".
+Reading "sky130_fd_sc_hd__dlxtn_1".
+Reading "sky130_fd_sc_hd__dlxtn_2".
+Reading "sky130_fd_sc_hd__dlxtn_4".
+Reading "sky130_fd_sc_hd__dlxtp_1".
+Reading "sky130_fd_sc_hd__dlygate4sd1_1".
+Reading "sky130_fd_sc_hd__dlygate4sd2_1".
+Reading "sky130_fd_sc_hd__dlygate4sd3_1".
+Reading "sky130_fd_sc_hd__dlymetal6s2s_1".
+Reading "sky130_fd_sc_hd__dlymetal6s4s_1".
+Reading "sky130_fd_sc_hd__dlymetal6s6s_1".
+Reading "sky130_fd_sc_hd__ebufn_1".
+Reading "sky130_fd_sc_hd__ebufn_2".
+Reading "sky130_fd_sc_hd__ebufn_4".
+Reading "sky130_fd_sc_hd__einvn_0".
+Reading "sky130_fd_sc_hd__einvn_1".
+Reading "sky130_fd_sc_hd__einvn_2".
+Reading "sky130_fd_sc_hd__einvn_4".
+Reading "sky130_fd_sc_hd__ebufn_8".
+Reading "sky130_fd_sc_hd__edfxbp_1".
+Reading "sky130_fd_sc_hd__edfxtp_1".
+Reading "sky130_fd_sc_hd__einvn_8".
+Reading "sky130_fd_sc_hd__and4_4".
+Reading "sky130_fd_sc_hd__and4b_1".
+Reading "sky130_fd_sc_hd__and4b_2".
+Reading "sky130_fd_sc_hd__and4b_4".
+Reading "sky130_fd_sc_hd__and4bb_1".
+Reading "sky130_fd_sc_hd__and4bb_2".
+Reading "sky130_fd_sc_hd__and4bb_4".
+Reading "sky130_fd_sc_hd__buf_1".
+Reading "sky130_fd_sc_hd__buf_2".
+Reading "sky130_fd_sc_hd__buf_4".
+Reading "sky130_fd_sc_hd__buf_6".
+Reading "sky130_fd_sc_hd__buf_8".
+Reading "sky130_fd_sc_hd__buf_12".
+Reading "sky130_fd_sc_hd__buf_16".
+Reading "sky130_fd_sc_hd__bufbuf_8".
+Reading "sky130_fd_sc_hd__clkdlybuf4s15_2".
+Reading "sky130_fd_sc_hd__clkdlybuf4s15_1".
+Reading "sky130_fd_sc_hd__clkbuf_16".
+Reading "sky130_fd_sc_hd__clkbuf_8".
+Reading "sky130_fd_sc_hd__clkbuf_4".
+Reading "sky130_fd_sc_hd__clkbuf_2".
+Reading "sky130_fd_sc_hd__clkbuf_1".
+Reading "sky130_fd_sc_hd__bufinv_16".
+Reading "sky130_fd_sc_hd__bufinv_8".
+Reading "sky130_fd_sc_hd__bufbuf_16".
+Reading "sky130_fd_sc_hd__clkdlybuf4s18_1".
+Reading "sky130_fd_sc_hd__clkdlybuf4s18_2".
+Reading "sky130_fd_sc_hd__clkdlybuf4s25_1".
+Reading "sky130_fd_sc_hd__clkdlybuf4s25_2".
+Reading "sky130_fd_sc_hd__clkdlybuf4s50_1".
+Reading "sky130_fd_sc_hd__clkdlybuf4s50_2".
+Reading "sky130_fd_sc_hd__clkinv_1".
+Reading "sky130_fd_sc_hd__clkinv_2".
+Reading "sky130_fd_sc_hd__clkinv_4".
+Reading "sky130_fd_sc_hd__dfbbn_1".
+Reading "sky130_fd_sc_hd__decap_12".
+Reading "sky130_fd_sc_hd__decap_8".
+Reading "sky130_fd_sc_hd__decap_6".
+Reading "sky130_fd_sc_hd__decap_4".
+Reading "sky130_fd_sc_hd__decap_3".
+Reading "sky130_fd_sc_hd__clkinvlp_4".
+Reading "sky130_fd_sc_hd__clkinvlp_2".
+Reading "sky130_fd_sc_hd__clkinv_16".
+Reading "sky130_fd_sc_hd__clkinv_8".
+Reading "sky130_fd_sc_hd__dfbbn_2".
+Reading "sky130_fd_sc_hd__dfbbp_1".
+Reading "sky130_fd_sc_hd__dfrbp_1".
+Reading "sky130_fd_sc_hd__dfrbp_2".
+Reading "sky130_fd_sc_hd__dfrtn_1".
+Reading "sky130_fd_sc_hd__dfrtp_1".
+Reading "sky130_fd_sc_hd__a32oi_1".
+Reading "sky130_fd_sc_hd__a32oi_2".
+Reading "sky130_fd_sc_hd__a32oi_4".
+Reading "sky130_fd_sc_hd__a41o_1".
+Reading "sky130_fd_sc_hd__a41o_2".
+Reading "sky130_fd_sc_hd__a41o_4".
+Reading "sky130_fd_sc_hd__a41oi_1".
+Reading "sky130_fd_sc_hd__a41oi_2".
+Reading "sky130_fd_sc_hd__a41oi_4".
+Reading "sky130_fd_sc_hd__a221o_4".
+Reading "sky130_fd_sc_hd__a221o_2".
+Reading "sky130_fd_sc_hd__a221oi_1".
+Reading "sky130_fd_sc_hd__a211oi_2".
+Reading "sky130_fd_sc_hd__a211oi_1".
+Reading "sky130_fd_sc_hd__a211o_4".
+Reading "sky130_fd_sc_hd__a211o_2".
+Reading "sky130_fd_sc_hd__a211o_1".
+Reading "sky130_fd_sc_hd__a221o_1".
+Reading "sky130_fd_sc_hd__a211oi_4".
+Reading "sky130_fd_sc_hd__a221oi_2".
+Reading "sky130_fd_sc_hd__a221oi_4".
+Reading "sky130_fd_sc_hd__a222oi_1".
+Reading "sky130_fd_sc_hd__a311o_1".
+Reading "sky130_fd_sc_hd__a311o_2".
+Reading "sky130_fd_sc_hd__a311o_4".
+Reading "sky130_fd_sc_hd__a311oi_1".
+Reading "sky130_fd_sc_hd__a311oi_2".
+Reading "sky130_fd_sc_hd__a311oi_4".
+Reading "sky130_fd_sc_hd__a2111o_1".
+Reading "sky130_fd_sc_hd__a2111o_2".
+Reading "sky130_fd_sc_hd__a2111o_4".
+Reading "sky130_fd_sc_hd__a2111oi_0".
+Reading "sky130_fd_sc_hd__a2111oi_1".
+CIF file read warning: Input off lambda grid by 2/5; snapped to grid.
+Reading "sky130_fd_sc_hd__a2111oi_2".
+Reading "sky130_fd_sc_hd__a2111oi_4".
+Reading "sky130_fd_sc_hd__and2_0".
+Reading "sky130_fd_sc_hd__and2_1".
+Reading "sky130_fd_sc_hd__and2b_1".
+Reading "sky130_fd_sc_hd__and2_4".
+Reading "sky130_fd_sc_hd__and2_2".
+Reading "sky130_fd_sc_hd__and2b_4".
+Reading "sky130_fd_sc_hd__and2b_2".
+Reading "sky130_fd_sc_hd__and3_4".
+Reading "sky130_fd_sc_hd__and3_2".
+Reading "sky130_fd_sc_hd__and3_1".
+Reading "sky130_fd_sc_hd__and3b_2".
+Reading "sky130_fd_sc_hd__and3b_1".
+Reading "sky130_fd_sc_hd__and3b_4".
+Reading "sky130_fd_sc_hd__and4_1".
+Reading "sky130_fd_sc_hd__and4_2".
+Reading "sky130_ef_sc_hd__decap_12".
+Reading "sky130_ef_sc_hd__fill_4".
+Reading "sky130_ef_sc_hd__fill_8".
+Reading "sky130_ef_sc_hd__fill_12".
+Reading "sky130_fd_sc_hd__a2bb2o_1".
+Reading "sky130_fd_sc_hd__a2bb2o_2".
+Reading "sky130_fd_sc_hd__a2bb2o_4".
+Reading "sky130_fd_sc_hd__a2bb2oi_1".
+Reading "sky130_fd_sc_hd__a2bb2oi_2".
+Reading "sky130_fd_sc_hd__a2bb2oi_4".
+Reading "sky130_fd_sc_hd__a21bo_1".
+Reading "sky130_fd_sc_hd__a21bo_2".
+Reading "sky130_fd_sc_hd__a21bo_4".
+Reading "sky130_fd_sc_hd__a21boi_0".
+Reading "sky130_fd_sc_hd__a21boi_1".
+Reading "sky130_fd_sc_hd__a21boi_2".
+Reading "sky130_fd_sc_hd__a21boi_4".
+Reading "sky130_fd_sc_hd__a21o_1".
+Reading "sky130_fd_sc_hd__a21o_2".
+Reading "sky130_fd_sc_hd__a22o_1".
+Reading "sky130_fd_sc_hd__a21oi_4".
+Reading "sky130_fd_sc_hd__a21oi_2".
+Reading "sky130_fd_sc_hd__a22oi_2".
+Reading "sky130_fd_sc_hd__a22oi_1".
+Reading "sky130_fd_sc_hd__a22o_4".
+Reading "sky130_fd_sc_hd__a22o_2".
+Reading "sky130_fd_sc_hd__a22oi_4".
+Reading "sky130_fd_sc_hd__a21oi_1".
+Reading "sky130_fd_sc_hd__a21o_4".
+Reading "sky130_fd_sc_hd__a31o_1".
+Reading "sky130_fd_sc_hd__a31o_2".
+Reading "sky130_fd_sc_hd__a31o_4".
+Reading "sky130_fd_sc_hd__a31oi_1".
+Reading "sky130_fd_sc_hd__a31oi_2".
+Reading "sky130_fd_sc_hd__a31oi_4".
+Reading "sky130_fd_sc_hd__a32o_1".
+Reading "sky130_fd_sc_hd__a32o_2".
+Reading "sky130_fd_sc_hd__a32o_4".
+Reading LEF data from file /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef.
+This action cannot be undone.
+LEF read, Line 82 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 83 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 116 (Message): Unknown keyword "MINENCLOSEDAREA" in LEF file; ignoring.
+LEF read, Line 118 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 119 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 125 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 126 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 127 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 160 (Message): Unknown keyword "MINENCLOSEDAREA" in LEF file; ignoring.
+LEF read, Line 168 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 169 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 171 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 172 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 173 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 210 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 211 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 213 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 214 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 215 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 252 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 253 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 255 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 256 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 257 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 294 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 295 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read: Processed 801 lines.
+Reading LEF data from file /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef.
+This action cannot be undone.
+LEF read: Processed 56536 lines.
+Reading DEF data from file out/door.def.
+This action cannot be undone.
+  Processed 4 vias total.
+  Processed 27 subcell instances total.
+  Processed 43 pins total.
+  Processed 2 special nets total.
+  Processed 22 nets total.
+DEF read: Processed 383 lines.
+   Generating output for cell sky130_fd_sc_hd__fill_8
+   Generating output for cell sky130_fd_sc_hd__fill_4
+   Generating output for cell sky130_fd_sc_hd__conb_1
+   Generating output for cell sky130_fd_sc_hd__fill_1
+   Generating output for cell sky130_fd_sc_hd__tapvpwrvgnd_1
+   Generating output for cell sky130_fd_sc_hd__decap_3
+   Generating output for cell sky130_fd_sc_hd__fill_2
+   Generating output for cell sky130_fd_sc_hd__nand4bb_1
+   Generating output for cell sky130_fd_sc_hd__nor4bb_1
+   Generating output for cell door
+DRC style is now "drc(full)"
+Loading DRC CIF style.
+DRC_TOTAL {sky130_fd_sc_hd__nand4bb_1 10} {sky130_fd_sc_hd__decap_3 3} {sky130_fd_sc_hd__fill_4 1} {sky130_fd_sc_hd__fill_2 1} {sky130_fd_sc_hd__conb_1 1} {sky130_fd_sc_hd__fill_1 1} {sky130_fd_sc_hd__fill_8 1} {sky130_fd_sc_hd__nor4bb_1 9}
+No errors found.
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 0.160,  0.000), ( 0.300,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 16.00,  0.00 ), ( 30.00,  48.50)  679.00    
+internal:     28 x 97      (    32,  0    ), (    60,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 1.080,  0.000), ( 1.220,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 108.00,  0.00 ), ( 122.00,  48.50)  679.00    
+internal:     28 x 97      (   216,  0    ), (   244,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 2.000,  0.000), ( 2.140,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 200.00,  0.00 ), ( 214.00,  48.50)  679.00    
+internal:     28 x 97      (   400,  0    ), (   428,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  20.590), ( 0.800,  20.890)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  2059.00), ( 80.00,  2089.00)  2400.00   
+internal:    160 x 60      (     0,  4118 ), (   160,  4178 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  19.230), ( 0.800,  19.530)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1923.00), ( 80.00,  1953.00)  2400.00   
+internal:    160 x 60      (     0,  3846 ), (   160,  3906 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  17.870), ( 0.800,  18.170)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1787.00), ( 80.00,  1817.00)  2400.00   
+internal:    160 x 60      (     0,  3574 ), (   160,  3634 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  16.510), ( 0.800,  16.810)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1651.00), ( 80.00,  1681.00)  2400.00   
+internal:    160 x 60      (     0,  3302 ), (   160,  3362 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 2.920,  0.000), ( 3.060,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 292.00,  0.00 ), ( 306.00,  48.50)  679.00    
+internal:     28 x 97      (   584,  0    ), (   612,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 3.840,  0.000), ( 3.980,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 384.00,  0.00 ), ( 398.00,  48.50)  679.00    
+internal:     28 x 97      (   768,  0    ), (   796,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 4.760,  0.000), ( 4.900,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 476.00,  0.00 ), ( 490.00,  48.50)  679.00    
+internal:     28 x 97      (   952,  0    ), (   980,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 5.680,  0.000), ( 5.820,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 568.00,  0.00 ), ( 582.00,  48.50)  679.00    
+internal:     28 x 97      (  1136,  0    ), (  1164,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 6.600,  0.000), ( 6.740,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 660.00,  0.00 ), ( 674.00,  48.50)  679.00    
+internal:     28 x 97      (  1320,  0    ), (  1348,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 7.520,  0.000), ( 7.660,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 752.00,  0.00 ), ( 766.00,  48.50)  679.00    
+internal:     28 x 97      (  1504,  0    ), (  1532,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 8.440,  0.000), ( 8.580,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 844.00,  0.00 ), ( 858.00,  48.50)  679.00    
+internal:     28 x 97      (  1688,  0    ), (  1716,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 9.360,  0.000), ( 9.500,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 936.00,  0.00 ), ( 950.00,  48.50)  679.00    
+internal:     28 x 97      (  1872,  0    ), (  1900,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 10.280,  0.000), ( 10.420,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 1028.00,  0.00 ), ( 1042.00,  48.50)  679.00    
+internal:     28 x 97      (  2056,  0    ), (  2084,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 11.200,  0.000), ( 11.340,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 1120.00,  0.00 ), ( 1134.00,  48.50)  679.00    
+internal:     28 x 97      (  2240,  0    ), (  2268,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 12.120,  0.000), ( 12.260,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 1212.00,  0.00 ), ( 1226.00,  48.50)  679.00    
+internal:     28 x 97      (  2424,  0    ), (  2452,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 13.040,  0.000), ( 13.180,  0.485)  0.068     
+lambda:    14.00 x 48.50   ( 1304.00,  0.00 ), ( 1318.00,  48.50)  679.00    
+internal:     28 x 97      (  2608,  0    ), (  2636,  97   )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  15.150), ( 0.800,  15.450)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1515.00), ( 80.00,  1545.00)  2400.00   
+internal:    160 x 60      (     0,  3030 ), (   160,  3090 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  13.790), ( 0.800,  14.090)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1379.00), ( 80.00,  1409.00)  2400.00   
+internal:    160 x 60      (     0,  2758 ), (   160,  2818 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  12.430), ( 0.800,  12.730)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1243.00), ( 80.00,  1273.00)  2400.00   
+internal:    160 x 60      (     0,  2486 ), (   160,  2546 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  11.070), ( 0.800,  11.370)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  1107.00), ( 80.00,  1137.00)  2400.00   
+internal:    160 x 60      (     0,  2214 ), (   160,  2274 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  9.710), ( 0.800,  10.010)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  971.00), ( 80.00,  1001.00)  2400.00   
+internal:    160 x 60      (     0,  1942 ), (   160,  2002 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  8.350), ( 0.800,  8.650)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  835.00), ( 80.00,  865.00)  2400.00   
+internal:    160 x 60      (     0,  1670 ), (   160,  1730 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  6.990), ( 0.800,  7.290)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  699.00), ( 80.00,  729.00)  2400.00   
+internal:    160 x 60      (     0,  1398 ), (   160,  1458 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  5.630), ( 0.800,  5.930)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  563.00), ( 80.00,  593.00)  2400.00   
+internal:    160 x 60      (     0,  1126 ), (   160,  1186 )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  4.270), ( 0.800,  4.570)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  427.00), ( 80.00,  457.00)  2400.00   
+internal:    160 x 60      (     0,  854  ), (   160,  914  )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  2.910), ( 0.800,  3.210)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  291.00), ( 80.00,  321.00)  2400.00   
+internal:    160 x 60      (     0,  582  ), (   160,  642  )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  1.550), ( 0.800,  1.850)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  155.00), ( 80.00,  185.00)  2400.00   
+internal:    160 x 60      (     0,  310  ), (   160,  370  )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.800 x 0.300   ( 0.000,  0.190), ( 0.800,  0.490)  0.240     
+lambda:    80.00 x 30.00   (  0.00,  19.00), ( 80.00,  49.00)  2400.00   
+internal:    160 x 60      (     0,  38   ), (   160,  98   )  9600      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 5.680,  21.335), ( 5.820,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 568.00,  2133.50), ( 582.00,  2182.00)  679.00    
+internal:     28 x 97      (  1136,  4267 ), (  1164,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 11.200,  21.335), ( 11.340,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1120.00,  2133.50), ( 1134.00,  2182.00)  679.00    
+internal:     28 x 97      (  2240,  4267 ), (  2268,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 12.120,  21.335), ( 12.260,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1212.00,  2133.50), ( 1226.00,  2182.00)  679.00    
+internal:     28 x 97      (  2424,  4267 ), (  2452,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 6.600,  21.335), ( 6.740,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 660.00,  2133.50), ( 674.00,  2182.00)  679.00    
+internal:     28 x 97      (  1320,  4267 ), (  1348,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 15.800,  21.335), ( 15.940,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1580.00,  2133.50), ( 1594.00,  2182.00)  679.00    
+internal:     28 x 97      (  3160,  4267 ), (  3188,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 8.440,  21.335), ( 8.580,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 844.00,  2133.50), ( 858.00,  2182.00)  679.00    
+internal:     28 x 97      (  1688,  4267 ), (  1716,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 7.520,  21.335), ( 7.660,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 752.00,  2133.50), ( 766.00,  2182.00)  679.00    
+internal:     28 x 97      (  1504,  4267 ), (  1532,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 13.960,  21.335), ( 14.100,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1396.00,  2133.50), ( 1410.00,  2182.00)  679.00    
+internal:     28 x 97      (  2792,  4267 ), (  2820,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 14.880,  21.335), ( 15.020,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1488.00,  2133.50), ( 1502.00,  2182.00)  679.00    
+internal:     28 x 97      (  2976,  4267 ), (  3004,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 9.360,  21.335), ( 9.500,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 936.00,  2133.50), ( 950.00,  2182.00)  679.00    
+internal:     28 x 97      (  1872,  4267 ), (  1900,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 13.040,  21.335), ( 13.180,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1304.00,  2133.50), ( 1318.00,  2182.00)  679.00    
+internal:     28 x 97      (  2608,  4267 ), (  2636,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.140 x 0.485   ( 10.280,  21.335), ( 10.420,  21.820)  0.068     
+lambda:    14.00 x 48.50   ( 1028.00,  2133.50), ( 1042.00,  2182.00)  679.00    
+internal:     28 x 97      (  2056,  4267 ), (  2084,  4364 )  2716      
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:   0.600 x 0.600   ( 10.510,  10.900), ( 11.110,  11.500)  0.360     
+lambda:    60.00 x 60.00   ( 1051.00,  1090.00), ( 1111.00,  1150.00)  3600.00   
+internal:    120 x 120     (  2102,  2180 ), (  2222,  2300 )  14400     
+   Generating output for cell sky130_fd_sc_hd__fill_8
+   Generating output for cell sky130_fd_sc_hd__fill_4
+   Generating output for cell sky130_fd_sc_hd__conb_1
+   Generating output for cell sky130_fd_sc_hd__fill_1
+   Generating output for cell sky130_fd_sc_hd__tapvpwrvgnd_1
+   Generating output for cell sky130_fd_sc_hd__decap_3
+   Generating output for cell sky130_fd_sc_hd__fill_2
+   Generating output for cell sky130_fd_sc_hd__nand4bb_1
+   Generating output for cell sky130_fd_sc_hd__nor4bb_1
+   Generating output for cell out/door
+Extracting door_flat into door_flat.ext:
+Warning:  Ports "uo_out[7]" and "uo_out[6]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[5]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[4]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[3]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[2]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[7]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[6]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[5]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[4]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[3]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[2]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[1]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[0]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[7]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[6]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[5]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[4]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[3]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[2]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[1]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[0]" are electrically shorted.
+freeMagic called with NULL argument.
+door_flat: 8 warnings
+Total of 8 warnings.
+Warning:  Ports "uo_out[7]" and "uo_out[6]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[5]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[4]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[3]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uo_out[2]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[7]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[6]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[5]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[4]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[3]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[2]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[1]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_out[0]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[7]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[6]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[5]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[4]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[3]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[2]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[1]" are electrically shorted.
+Warning:  Ports "uo_out[7]" and "uio_oe[0]" are electrically shorted.
+exttospice finished.

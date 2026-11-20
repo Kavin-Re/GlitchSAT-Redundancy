@@ -1,0 +1,14 @@
+{"design": "s2", "k": 2, "T": 12, "enc": "seq", "eng": "smt", "reduce": "full", "verdict": "UNSAT", "build_s": 0.2, "solve_s": 0.45, "sites": 767}
+{"design": "s2", "k": 2, "T": 20, "enc": "seq", "eng": "smt", "reduce": "full", "verdict": "UNSAT", "build_s": 0.6, "solve_s": 1.59, "sites": 1319}
+{"design": "s2", "k": 2, "T": 12, "enc": "pb", "eng": "smt", "reduce": "full", "verdict": "TIMEOUT", "build_s": 0.17, "solve_s": 150.04, "sites": 767}
+{"design": "s2", "k": 2, "T": 20, "enc": "pb", "eng": "smt", "reduce": "full", "verdict": "TIMEOUT", "build_s": 0.46, "solve_s": 150.04, "sites": 1319}
+{"design": "dmr", "k": 1, "T": 4, "enc": "seq", "eng": "smt", "reduce": "none", "verdict": "UNSAT", "build_s": 2.44, "solve_s": 13.27, "sites": 8288}
+{"design": "dmr", "k": 1, "T": 8, "enc": "pb", "eng": "smt", "reduce": "full", "verdict": "TIMEOUT", "build_s": 2.72, "solve_s": 200.13, "sites": 14536}
+{"design": "uart", "k": 0, "T": 60, "enc": "seq", "eng": "smt", "reduce": "none", "verdict": "UNSAT", "build_s": 6.56, "solve_s": 0.93, "sites": 24120}
+{"design": "uart", "k": 0, "T": 60, "enc": "pb", "eng": "smt", "reduce": "none", "verdict": "UNSAT", "build_s": 5.78, "solve_s": 0.81, "sites": 24120}
+{"design": "uart", "k": 3, "T": 60, "enc": "pb", "eng": "smt", "reduce": "none", "verdict": "SAT", "build_s": 5.66, "solve_s": 4.48, "sites": 24120}
+{"design": "uart", "k": 3, "T": 60, "enc": "seq", "eng": "smt", "reduce": "none", "verdict": "SAT", "build_s": 6.62, "solve_s": 32.64, "sites": 24120}
+{"design": "s2", "k": 2, "T": 6, "enc": "seq", "eng": "bb", "reduce": "full", "verdict": "UNSAT", "build_s": 0.32, "solve_s": 0.3, "sites": 353}
+{"design": "w2", "k": 1, "T": 6, "enc": "seq", "eng": "bb", "reduce": "full", "verdict": "UNSAT", "build_s": 0.31, "solve_s": 0.16, "sites": 408}
+{"design": "dmr", "k": 1, "T": 4, "enc": "seq", "eng": "bb", "reduce": "full", "verdict": "UNSAT", "build_s": 3.7, "solve_s": 5.49, "sites": 6248}
+{"design": "dmr", "k": 1, "T": 8, "enc": "seq", "eng": "smt", "reduce": "full", "verdict": "UNSAT", "build_s": 8.46, "solve_s": 97.12, "sites": 14536}

@@ -1,0 +1,21 @@
+module t205(input clk, input [5:0] sig, output [5:0] boot_word);
+  (* keep *) reg [7:0] q; initial q = 8'd127;
+  wire g0 = ~q[7];
+  wire g1 = ~sig[2];
+  wire g2 = sig[4] ^ q[3];
+  wire g3 = g1 ? q[0] : q[1];
+  wire g4 = sig[4] ^ g3;
+  wire g5 = q[3] | q[3];
+  wire g6 = g3 ^ g2;
+  wire g7 = g1 | g3;
+  wire g8 = g7 ^ sig[2];
+  wire g9 = g2 ^ g4;
+  wire g10 = g5 ^ g3;
+  wire g11 = g3 | sig[4];
+  wire g12 = sig[0] ? g9 : sig[2];
+  wire g13 = g9 ^ q[4];
+  wire g14 = g8 | g3;
+  wire g15 = g12 ^ g13;
+  always @(posedge clk) q <= {g14, g15, g9, g7, g12, g12, g3, g5};
+  assign boot_word = {g15, g13, g9, g15, q[4], g12};
+endmodule

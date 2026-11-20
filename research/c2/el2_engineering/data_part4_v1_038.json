@@ -1,0 +1,274 @@
+{
+ "tag": "v1_038",
+ "missing_in_def": [],
+ "rows": [
+  {
+   "radius_um": 0,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "_20_"
+    ]
+   ],
+   "wall": 0.34
+  },
+  {
+   "radius_um": 1.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "_20_"
+    ]
+   ],
+   "wall": 0.31
+  },
+  {
+   "radius_um": 2.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 31,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     0,
+     "_29_"
+    ]
+   ],
+   "wall": 0.36
+  },
+  {
+   "radius_um": 3.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 33,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c1/_3_"
+    ]
+   ],
+   "wall": 0.3
+  },
+  {
+   "radius_um": 5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 34,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     0,
+     "_25_"
+    ]
+   ],
+   "wall": 0.31
+  },
+  {
+   "radius_um": 7,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     2,
+     "_32_"
+    ]
+   ],
+   "wall": 0.33
+  },
+  {
+   "radius_um": 10,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "_36_"
+    ]
+   ],
+   "wall": 0.43
+  },
+  {
+   "radius_um": 15,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 32,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     2,
+     "_26_"
+    ]
+   ],
+   "wall": 0.47
+  },
+  {
+   "radius_um": 25,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 1,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     5,
+     "_19_"
+    ]
+   ],
+   "wall": 0.43
+  },
+  {
+   "radius_um": 0,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 28,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     0,
+     "_29_"
+    ]
+   ],
+   "wall": 0.25
+  },
+  {
+   "radius_um": 1.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 28,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     0,
+     "_29_"
+    ]
+   ],
+   "wall": 0.33
+  },
+  {
+   "radius_um": 2.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 24,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     0,
+     "_29_"
+    ]
+   ],
+   "wall": 0.28
+  },
+  {
+   "radius_um": 3.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 29,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c1/_3_"
+    ]
+   ],
+   "wall": 0.49
+  },
+  {
+   "radius_um": 5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 28,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c1/_3_"
+    ]
+   ],
+   "wall": 0.29
+  },
+  {
+   "radius_um": 7,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 33,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     3,
+     "_31_"
+    ]
+   ],
+   "wall": 0.3
+  },
+  {
+   "radius_um": 10,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 34,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     2,
+     "_25_"
+    ]
+   ],
+   "wall": 0.4
+  },
+  {
+   "radius_um": 15,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 29,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     4,
+     "_32_"
+    ]
+   ],
+   "wall": 0.41
+  },
+  {
+   "radius_um": 25,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 1,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_events": null,
+   "events": [],
+   "wall": 0.31
+  }
+ ],
+ "copy_centroids_um": {
+  "c1": [
+   21.54,
+   22.21,
+   9.91
+  ],
+  "c2": [
+   17.4,
+   19.49,
+   21.77
+  ]
+ },
+ "copy_centroid_dist_um": {
+  "c1-c2": 4.95
+ },
+ "logic_bbox_um": [
+  5.3,
+  6.8,
+  26.5,
+  25.8
+ ]
+}

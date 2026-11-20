@@ -1,0 +1,325 @@
+{
+ "tag": "v2_038",
+ "missing_in_def": [],
+ "rows": [
+  {
+   "radius_um": 0,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 36,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     1,
+     "c0/_4_"
+    ],
+    [
+     1,
+     "c1/_4_"
+    ],
+    [
+     1,
+     "c2/_2_"
+    ]
+   ],
+   "wall": 1.11
+  },
+  {
+   "radius_um": 1.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 34,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     1,
+     "_16_"
+    ],
+    [
+     1,
+     "c0/_4_"
+    ],
+    [
+     1,
+     "c1/_4_"
+    ]
+   ],
+   "wall": 1.8
+  },
+  {
+   "radius_um": 2.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 32,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     1,
+     "_18_"
+    ],
+    [
+     1,
+     "c1/_4_"
+    ]
+   ],
+   "wall": 0.65
+  },
+  {
+   "radius_um": 3.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 34,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c0/_2_"
+    ]
+   ],
+   "wall": 0.5
+  },
+  {
+   "radius_um": 5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 36,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c0/_4_"
+    ]
+   ],
+   "wall": 0.56
+  },
+  {
+   "radius_um": 7,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c2/_2_"
+    ]
+   ],
+   "wall": 0.67
+  },
+  {
+   "radius_um": 10,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 36,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     5,
+     "_34_"
+    ]
+   ],
+   "wall": 0.47
+  },
+  {
+   "radius_um": 15,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 28,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     5,
+     "_16_"
+    ]
+   ],
+   "wall": 0.57
+  },
+  {
+   "radius_um": 25,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 1,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     3,
+     "_16_"
+    ]
+   ],
+   "wall": 0.29
+  },
+  {
+   "radius_um": 0,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 29,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     1,
+     "_16_"
+    ],
+    [
+     1,
+     "c0/_3_"
+    ],
+    [
+     1,
+     "c1/_3_"
+    ]
+   ],
+   "wall": 0.72
+  },
+  {
+   "radius_um": 1.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 27,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     1,
+     "c0/_3_"
+    ],
+    [
+     1,
+     "c1/_3_"
+    ],
+    [
+     1,
+     "c2/_3_"
+    ]
+   ],
+   "wall": 0.49
+  },
+  {
+   "radius_um": 2.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 25,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     1,
+     "_18_"
+    ],
+    [
+     1,
+     "c1/_4_"
+    ]
+   ],
+   "wall": 0.35
+  },
+  {
+   "radius_um": 3.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 31,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c1/_4_"
+    ]
+   ],
+   "wall": 0.67
+  },
+  {
+   "radius_um": 5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 33,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c0/_4_"
+    ]
+   ],
+   "wall": 0.59
+  },
+  {
+   "radius_um": 7,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 34,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "_18_"
+    ]
+   ],
+   "wall": 0.39
+  },
+  {
+   "radius_um": 10,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 36,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     2,
+     "_17_"
+    ],
+    [
+     2,
+     "_27_"
+    ]
+   ],
+   "wall": 0.61
+  },
+  {
+   "radius_um": 15,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 25,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     3,
+     "_28_"
+    ]
+   ],
+   "wall": 0.37
+  },
+  {
+   "radius_um": 25,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 1,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_events": null,
+   "events": [],
+   "wall": 0.26
+  }
+ ],
+ "copy_centroids_um": {
+  "c0": [
+   21.7,
+   9.52,
+   7.82
+  ],
+  "c1": [
+   19.4,
+   8.61,
+   10.29
+  ],
+  "c2": [
+   18.78,
+   6.8,
+   12.88
+  ]
+ },
+ "copy_centroid_dist_um": {
+  "c0-c1": 2.47,
+  "c0-c2": 3.99,
+  "c1-c2": 1.91
+ },
+ "logic_bbox_um": [
+  8.3,
+  6.8,
+  26.0,
+  25.8
+ ]
+}

@@ -1,0 +1,3 @@
+v2: 76 sites (8 flops, 68 gates), T=6
+k=0: attacking sigs: 0 honest KEY boots: 1
+k=1 successful (cycle,site,#sig values,examples): 0 of 456 (site,cycle) pairs; all 255 non-key sigs covered exhaustively

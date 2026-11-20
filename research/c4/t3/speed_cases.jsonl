@@ -1,0 +1,10 @@
+{"eng": "glitchsat", "amk": "counter", "case": "dmr k=1 T=4", "verdict": "NO_ATTACK_UP_TO_BOUND", "nfaults": null, "build_s": 0.86, "solve_s": 1.581, "wall_s": 3.5}
+{"eng": "glitchsat", "amk": "legacy", "case": "dmr k=1 T=4", "verdict": "UNKNOWN_TIMEOUT", "nfaults": null, "build_s": 0.749, "solve_s": 150.016, "wall_s": 150.8}
+{"eng": "glitchsat", "amk": "counter", "case": "dmr k=1 T=8", "verdict": "NO_ATTACK_UP_TO_BOUND", "nfaults": null, "build_s": 2.167, "solve_s": 34.709, "wall_s": 39.3}
+{"eng": "glitchsat", "amk": "legacy", "case": "dmr k=1 T=8", "verdict": "UNKNOWN_TIMEOUT", "nfaults": null, "build_s": 1.645, "solve_s": 150.03, "wall_s": 151.9}
+{"eng": "glitchsat", "amk": "counter", "case": "s2 k=2 T=12", "verdict": "NO_ATTACK_UP_TO_BOUND", "nfaults": null, "build_s": 0.162, "solve_s": 0.347, "wall_s": 0.7}
+{"eng": "glitchsat", "amk": "legacy", "case": "s2 k=2 T=12", "verdict": "NO_ATTACK_UP_TO_BOUND", "nfaults": null, "build_s": 0.136, "solve_s": 56.633, "wall_s": 56.8}
+{"eng": "glitchsat", "amk": "counter", "case": "s2 k=2 T=20", "verdict": "NO_ATTACK_UP_TO_BOUND", "nfaults": null, "build_s": 0.367, "solve_s": 0.636, "wall_s": 1.4}
+{"eng": "glitchsat", "amk": "legacy", "case": "s2 k=2 T=20", "verdict": "UNKNOWN_TIMEOUT", "nfaults": null, "build_s": 0.382, "solve_s": 150.009, "wall_s": 150.4}
+{"eng": "glitchsat", "amk": "counter", "case": "s2 k=3 T=6", "verdict": "ATTACK_FOUND", "nfaults": 3, "build_s": 0.047, "solve_s": 0.048, "wall_s": 0.2}
+{"eng": "glitchsat", "amk": "legacy", "case": "s2 k=3 T=6", "verdict": "ATTACK_FOUND", "nfaults": 3, "build_s": 0.046, "solve_s": 4.67, "wall_s": 5.7}

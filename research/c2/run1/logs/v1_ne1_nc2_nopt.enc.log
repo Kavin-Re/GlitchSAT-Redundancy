@@ -1,0 +1,48 @@
+Runing FIRMER...
+Task 3
+
+noncomposition
+black list
+FLAGL_ KONST_ MUXAUX_ OBS_ 
+
+0.008267 seconds for counstuct the graph
+0.009204 seconds for get register stage
+0.009615 seconds for get gate stage
+max clock cycles: 7
+
+Encode golden circuit...
+number of gate for every type
+and 309
+in 8
+not 159
+or 120
+out 2
+reg 48
+xor 1
+line 324
+
+Encode faulty circuit...
+REG size: 48
+number of gate for every type
+and 309
+in 8
+not 159
+or 120
+out 2
+reg 48
+xor 1
+
+blacklist gates number: 324
+registers number: 48
+faultLocation: 313
+
+test output number: 2
+nof_sm is 1
+nof_sm is 1
+nof_sm is 1
+nof_sm is 1
+nof_sm is 1
+nof_sm is 1
+finished read file and static analysis with cnf
+Output path: /tmp/work_run1/out/v1_ne1_nc2_nopt.cnf
+Encode time: 0.020627

@@ -1,0 +1,1627 @@
+[
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 3,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 45.35,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 3,
+  "solve_s": 44.854,
+  "faults": [
+   [
+    "$flatten\\c0.$abc$251$new_n12_",
+    1
+   ],
+   [
+    "$flatten\\c1.$abc$251$new_n13_",
+    1
+   ],
+   [
+    "$flatten\\c2.$abc$251$new_n13_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 3,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 68.24,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 3,
+  "solve_s": 67.917,
+  "faults": [
+   [
+    "$flatten\\c0.$abc$251$new_n11_",
+    1
+   ],
+   [
+    "$flatten\\c1.$abc$251$new_n11_",
+    1
+   ],
+   [
+    "$flatten\\c2.$abc$251$new_n12_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 3,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 48.36,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 3,
+  "solve_s": 48.115,
+  "faults": [
+   [
+    "word[0]",
+    1
+   ],
+   [
+    "$flatten\\c1.$abc$251$new_n15_",
+    1
+   ],
+   [
+    "$flatten\\c2.$abc$251$new_n15_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 3,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 188.4,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 3,
+  "solve_s": 188.012,
+  "faults": [
+   [
+    "word[0]",
+    1
+   ],
+   [
+    "$flatten\\c1.$abc$251$new_n13_",
+    1
+   ],
+   [
+    "$flatten\\c2.$abc$251$new_n13_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 3,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 474.94,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 3,
+  "solve_s": 474.438,
+  "faults": [
+   [
+    "c2.m",
+    1
+   ],
+   [
+    "$flatten\\c0.$abc$251$new_n10_",
+    1
+   ],
+   [
+    "$flatten\\c1.$abc$251$new_n10_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 2,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 12.04,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 11.658,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 2,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 55.83,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 55.363,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 2,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 53.64,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 53.306,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 2,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 150.41,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 150.074,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 2,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 294.27,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 293.507,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 1,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 0.89,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 0.649,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 1,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.03,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 0.653,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 1,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 2.08,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 1.456,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 1,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 2.08,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 1.155,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "spike",
+  "k": 1,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 3.97,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 3.205,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 3.65,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 3.179,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 2.09,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 1.299,
+  "faults": [
+   [
+    "$abc$275$new_n74_",
+    0
+   ],
+   [
+    "$abc$275$new_n58_",
+    8
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 4.17,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 3.282,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 2.62,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 1.977,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 4.06,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 2.856,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.38,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 1.163,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.64,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 1.218,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 3.28,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 2.762,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 4.63,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 4.007,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 5.37,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "solve_s": 3.847,
+  "faults": [
+   [
+    "$abc$275$new_n58_",
+    0
+   ],
+   [
+    "$abc$275$new_n74_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.21,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 0.917,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.38,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 0.981,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.17,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 0.794,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 3.09,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 1.822,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v2",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 4.99,
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "solve_s": 3.464,
+  "faults": [],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 3,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.62,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.085,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 3,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.43,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.026,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 3,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.64,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.284,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 3,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 2.03,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.475,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 3,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 2.12,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.237,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 2,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.49,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.865,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 2,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.4,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.04,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 2,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.55,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.032,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 2,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 1.78,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.997,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 2,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 1.75,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.098,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 1,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.1,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.699,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 1,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.26,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.851,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 1,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.07,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.681,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 1,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 2.59,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.515,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "spike",
+  "k": 1,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 2.61,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 2.025,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.34,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.021,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.32,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.805,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 3.19,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 2.285,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 3.44,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 2.118,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 3.22,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 2.104,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.41,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.035,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.01,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.696,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.45,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.969,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 2.25,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.657,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 2.88,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.86,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.0,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.57,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 2.09,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.356,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.8,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.131,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 2.89,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.541,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v1",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 3.03,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.888,
+  "faults": [
+   [
+    "ok",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 3,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 0.68,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.43,
+  "faults": [
+   [
+    "st[0]",
+    3
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 3,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 0.95,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.629,
+  "faults": [
+   [
+    "st[0]",
+    4
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 3,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 0.63,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.36,
+  "faults": [
+   [
+    "st[0]",
+    4
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 3,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 1.54,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.963,
+  "faults": [
+   [
+    "st[0]",
+    5
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 3,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 1.17,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.848,
+  "faults": [
+   [
+    "st[0]",
+    9
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 2,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 0.48,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.293,
+  "faults": [
+   [
+    "st[1]",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 2,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 0.75,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.538,
+  "faults": [
+   [
+    "$flatten\\c.$abc$175$new_n16_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 2,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 0.73,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.476,
+  "faults": [
+   [
+    "st[0]",
+    2
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 2,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 0.55,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.326,
+  "faults": [
+   [
+    "st[0]",
+    5
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 2,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 0.69,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.48,
+  "faults": [
+   [
+    "$auto$rtlil.cc:2609:MuxGate$195",
+    2
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 1,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 0.45,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.326,
+  "faults": [
+   [
+    "st[0]",
+    3
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 1,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 0.69,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.523,
+  "faults": [
+   [
+    "st[0]",
+    9
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 1,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 0.4,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.285,
+  "faults": [
+   [
+    "st[0]",
+    11
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 1,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 1.49,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.029,
+  "faults": [
+   [
+    "$auto$rtlil.cc:2609:MuxGate$195",
+    13
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "spike",
+  "k": 1,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 2.09,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.333,
+  "faults": [
+   [
+    "st[0]",
+    19
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 0.47,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.343,
+  "faults": [
+   [
+    "boot_word[0]",
+    2
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.03,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.762,
+  "faults": [
+   [
+    "$abc$206$new_n16_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 1.57,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 1.027,
+  "faults": [
+   [
+    "$abc$206$new_n16_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 1.38,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.819,
+  "faults": [
+   [
+    "$abc$206$new_n16_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 3,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 1.25,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.872,
+  "faults": [
+   [
+    "st[0]",
+    18
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 1.01,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.704,
+  "faults": [
+   [
+    "st[0]",
+    7
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 0.7,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.387,
+  "faults": [
+   [
+    "$abc$206$new_n21_",
+    3
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 0.74,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.437,
+  "faults": [
+   [
+    "$flatten\\c.$abc$196$new_n11_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 0.79,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.421,
+  "faults": [
+   [
+    "$procmux$8.Y[0]",
+    5
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 2,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 0.92,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.616,
+  "faults": [
+   [
+    "$abc$206$new_n16_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 8,
+  "status": "DONE",
+  "wall_s": 0.86,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.599,
+  "faults": [
+   [
+    "$abc$206$new_n21_",
+    2
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 10,
+  "status": "DONE",
+  "wall_s": 1.01,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.666,
+  "faults": [
+   [
+    "st[0]",
+    4
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 12,
+  "status": "DONE",
+  "wall_s": 0.88,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.653,
+  "faults": [
+   [
+    "$abc$206$new_n17_",
+    1
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 16,
+  "status": "DONE",
+  "wall_s": 0.56,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.409,
+  "faults": [
+   [
+    "$abc$206$new_n16_",
+    0
+   ]
+  ],
+  "honest": true
+ },
+ {
+  "design": "v0",
+  "route": "rtl",
+  "k": 1,
+  "cycles": 20,
+  "status": "DONE",
+  "wall_s": 0.59,
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "solve_s": 0.427,
+  "faults": [
+   [
+    "$procmux$8.Y[0]",
+    9
+   ]
+  ],
+  "honest": true
+ }
+]

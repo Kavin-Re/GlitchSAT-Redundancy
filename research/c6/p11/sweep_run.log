@@ -1,0 +1,55 @@
+2026-11-20T05:03:32Z
+F0_96_stored               d=4 dmin=4 rule=3 flops=4 all=2 | struct flops=4 all=3 | measured
+CC_96                      d=4 dmin=4 rule=3 flops=4 all=3 | struct flops=4 all=3 | measured
+69_96_complement           d=8 dmin=8 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+2B_95                      d=6 dmin=6 rule=3 flops=6 all=3 | struct flops=6 all=3 | measured
+C3_3C_complement           d=8 dmin=8 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+A5_5A_complement           d=8 dmin=8 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+A5_96                      d=4 dmin=4 rule=3 flops=4 all=2 | struct flops=4 all=3 | measured
+A5_A6                      d=2 dmin=2 rule=2 flops=2 all=2 | struct flops=2 all=2 | measured
+00_1F_F8_E7                d=5 dmin=5 rule=3 flops=5 all=3 | struct flops=5 all=3 | measured
+fam_d1                     d=1 dmin=1 rule=1 flops=1 all=1 | struct flops=1 all=1 | measured
+fam_d2                     d=2 dmin=2 rule=2 flops=2 all=2 | struct flops=2 all=2 | measured
+fam_d3                     d=3 dmin=3 rule=3 flops=3 all=3 | struct flops=3 all=3 | measured
+fam_d4                     d=4 dmin=4 rule=3 flops=4 all=2 | struct flops=4 all=3 | measured
+fam_d5                     d=5 dmin=5 rule=3 flops=5 all=3 | struct flops=5 all=3 | measured
+fam_d6                     d=6 dmin=6 rule=3 flops=6 all=3 | struct flops=6 all=3 | measured
+fam_d7                     d=7 dmin=7 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+Bvar_one_copy              d=8 dmin=3 rule=1 flops=3 all=1 | struct flops=3 all=1 | measured
+Bvar_two_copies            d=8 dmin=6 rule=2 flops=6 all=2 | struct flops=6 all=2 | measured
+ctrl_one_copy_grouping     d=4 dmin=4 rule=1 flops=4 all=1 | struct flops=4 all=1 | measured
+NEG_fail_equals_accept     d=4 dmin=0 rule=0 flops= all= | struct flops= all= | rejected_by_functional_check: FAIL wrong key boots sig=0 t=1
+NEG_idle_equals_accept     d=0 dmin=0 rule=0 flops= all= | struct flops= all= | rejected_by_functional_check: FAIL power-up accepted sig=0; 
+total wall 14.7s; wrote results/comms/distance_sweep.csv
+
+real	0m14.745s
+user	0m42.049s
+sys	0m3.273s
+2026-11-20T05:05:20Z
+RERUN after making synthesis path-independent (relative file names; numbers must not change, hashes do)
+F0_96_stored               d=4 dmin=4 rule=3 flops=4 all=2 | struct flops=4 all=3 | measured
+CC_96                      d=4 dmin=4 rule=3 flops=4 all=3 | struct flops=4 all=3 | measured
+69_96_complement           d=8 dmin=8 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+2B_95                      d=6 dmin=6 rule=3 flops=6 all=3 | struct flops=6 all=3 | measured
+C3_3C_complement           d=8 dmin=8 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+A5_5A_complement           d=8 dmin=8 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+A5_96                      d=4 dmin=4 rule=3 flops=4 all=2 | struct flops=4 all=3 | measured
+A5_A6                      d=2 dmin=2 rule=2 flops=2 all=2 | struct flops=2 all=2 | measured
+00_1F_F8_E7                d=5 dmin=5 rule=3 flops=5 all=3 | struct flops=5 all=3 | measured
+fam_d1                     d=1 dmin=1 rule=1 flops=1 all=1 | struct flops=1 all=1 | measured
+fam_d2                     d=2 dmin=2 rule=2 flops=2 all=2 | struct flops=2 all=2 | measured
+fam_d3                     d=3 dmin=3 rule=3 flops=3 all=3 | struct flops=3 all=3 | measured
+fam_d4                     d=4 dmin=4 rule=3 flops=4 all=2 | struct flops=4 all=3 | measured
+fam_d5                     d=5 dmin=5 rule=3 flops=5 all=3 | struct flops=5 all=3 | measured
+fam_d6                     d=6 dmin=6 rule=3 flops=6 all=3 | struct flops=6 all=3 | measured
+fam_d7                     d=7 dmin=7 rule=3 flops=>6 all=3 | struct flops=>6 all=3 | measured
+Bvar_one_copy              d=8 dmin=3 rule=1 flops=3 all=1 | struct flops=3 all=1 | measured
+Bvar_two_copies            d=8 dmin=6 rule=2 flops=6 all=2 | struct flops=6 all=2 | measured
+ctrl_one_copy_grouping     d=4 dmin=4 rule=1 flops=4 all=1 | struct flops=4 all=1 | measured
+NEG_fail_equals_accept     d=4 dmin=0 rule=0 flops= all= | struct flops= all= | rejected_by_functional_check: FAIL wrong key boots sig=0 t=1
+NEG_idle_equals_accept     d=0 dmin=0 rule=0 flops= all= | struct flops= all= | rejected_by_functional_check: FAIL power-up accepted sig=0; 
+total wall 12.1s; wrote results/comms/distance_sweep.csv
+
+real	0m12.129s
+user	0m41.235s
+sys	0m3.098s

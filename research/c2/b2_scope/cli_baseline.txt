@@ -1,0 +1,27 @@
+## v0 spike goal boot_word
+v0: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.216s
+  min faults: 1 [('st[0]', 5)] input {'sig': '0x04'}
+## v0 spike goal boot_ok
+v0: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.139s
+  min faults: 1 [('st[1]', 0)] input {'sig': '0x28'}
+## v0 apt033 RTL plain boot_word k=2
+v0: ATTACK_FOUND  (k<=2, cycles=6, reduce=full)  solve=0.885s
+  min faults: 1 [('$flatten\\c.$abc$196$new_n16_', 1)] input {'sig': '0xC7'}
+## v1 spike goal boot_word
+v1: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.663s
+  min faults: 1 [('ok', 1)] input {'sig': '0x03'}
+## v1 spike goal boot_ok
+v1: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.751s
+  min faults: 1 [('ok', 1)] input {'sig': '0x03'}
+## v1 apt033 RTL plain boot_word k=2
+v1: ATTACK_FOUND  (k<=2, cycles=6, reduce=full)  solve=0.8s
+  min faults: 1 [('ok', 1)] input {'sig': '0xC0'}
+## v2 spike goal boot_word
+v2: NO_ATTACK_UP_TO_BOUND  (k<=1, cycles=6, reduce=full)  solve=0.7s
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs
+## v2 spike goal boot_ok
+v2: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.796s
+  min faults: 1 [('boot_ok', 1)] input {'sig': '0xC0'}
+## v2 apt033 RTL plain boot_word k=2
+v2: ATTACK_FOUND  (k<=2, cycles=6, reduce=full)  solve=1.123s
+  min faults: 2 [('$abc$275$new_n58_', 0), ('$abc$275$new_n74_', 0)] input {'sig': '0x03'}

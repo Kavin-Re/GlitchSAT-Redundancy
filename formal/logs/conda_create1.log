@@ -1,0 +1,29 @@
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.2 sec)
+Parsing Packages' Records                                                                 ✔ Done (0.5 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (0.7 sec)
+⚠ Shard Index for litex-hub/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for litex-hub/linux-64                                                      ✔ Starting
+Using Flat Repodata for litex-hub/linux-64                                                ✔ Done (0.0 sec)
+⚠ Shard Index for litex-hub/noarch not available, falling back to flat repodata
+Using Flat Repodata for litex-hub/noarch                                                        ✔ Starting
+Using Flat Repodata for litex-hub/noarch                                                  ✔ Done (0.0 sec)
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (0.3 sec)
+Parsing Packages' Records                                                                 ✔ Done (0.6 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (1.1 sec)
+error    libmamba Could not solve for environment specs
+    The following packages are incompatible
+    ├─ boolector =* * does not exist (perhaps a typo or a missing channel);
+    ├─ yices =* * does not exist (perhaps a typo or a missing channel);
+    └─ z3 =* * does not exist (perhaps a typo or a missing channel).
+critical libmamba Could not solve for environment specs
+
+real	0m3.460s
+user	0m2.602s
+sys	0m0.261s

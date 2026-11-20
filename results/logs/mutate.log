@@ -1,0 +1,5 @@
+{'mutant': 'share_c1_with_c0', 'baseline_min_faults': 2, 'mutant_min_faults': 2, 'verdict': 'ATTACK_FOUND', 'caught': False, 'label': 'MEASURED', 'bound': {'k': 3, 'cycles': 6}}
+{'mutant': 'share_c2_with_c1', 'baseline_min_faults': 2, 'mutant_min_faults': 2, 'verdict': 'ATTACK_FOUND', 'caught': False, 'label': 'MEASURED', 'bound': {'k': 3, 'cycles': 6}}
+{'mutant': 'single_decision_net', 'baseline_min_faults': 2, 'mutant_min_faults': 1, 'verdict': 'ATTACK_FOUND', 'caught': True, 'label': 'MEASURED', 'bound': {'k': 3, 'cycles': 6}}
+{'mutant': 'netlist_share_c1_with_c0', 'baseline_min_faults': 3, 'mutant_min_faults': 2, 'verdict': 'ATTACK_FOUND', 'caught': True, 'label': 'MEASURED', 'bound': {'k': 3, 'cycles': 6}}
+{'mutant': 'netlist_share_c2_with_c1', 'baseline_min_faults': 3, 'mutant_min_faults': 2, 'verdict': 'ATTACK_FOUND', 'caught': True, 'label': 'MEASURED', 'bound': {'k': 3, 'cycles': 6}}

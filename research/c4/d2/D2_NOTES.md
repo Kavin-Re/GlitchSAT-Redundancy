@@ -1,0 +1,2 @@
+# D2 notes
+Rewrote docs/dossier/{PROJECT_DOSSIER,VIVA_SHEET,RUBRIC_MAP,AI_USE_DISCLOSURE_DRAFT,THREAT_MODEL_ONE_PAGE,EVIDENCE_INDEX,CRITIQUE}.md, added ONE_PAGE_FOR_THE_OWNER.md. EL1_REPORT.md integrated (dossier s7.8; an earlier draft misread an invalid 1 ns column, corrected). NOT integrated: research/c4/council/COUNCIL_W1.md, research/c4/bp/BP_REPORT.md, research/c4/sweeps/SWEEP_S1.md, docs/dossier/PROBLEM_STATEMENT_EVOLUTION.md (draft P3 statement); D2 did not read them. Nothing re-run. Section 17 left blank for the owner.

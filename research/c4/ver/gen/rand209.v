@@ -1,0 +1,25 @@
+module t209(input clk, input [7:0] sig, output [7:0] boot_word);
+  (* keep *) reg [2:0] q; initial q = 3'd2;
+  wire g0 = q[2] ^ sig[5];
+  wire g1 = sig[3] & sig[6];
+  wire g2 = sig[3] & q[0];
+  wire g3 = q[1] ? sig[4] : q[1];
+  wire g4 = sig[3] | g2;
+  wire g5 = sig[4] ^ sig[0];
+  wire g6 = q[1] ? g3 : q[2];
+  wire g7 = ~q[1];
+  wire g8 = g1 | g7;
+  wire g9 = g2 ^ sig[2];
+  wire g10 = ~g1;
+  wire g11 = g10 ? g3 : g3;
+  wire g12 = g2 ^ g1;
+  wire g13 = g6 & g5;
+  wire g14 = g5 ^ g8;
+  wire g15 = g9 ^ g8;
+  wire g16 = g7 ^ g5;
+  wire g17 = ~g11;
+  wire g18 = g5 & g6;
+  wire g19 = g10 & g14;
+  always @(posedge clk) q <= {g3, g14, g4};
+  assign boot_word = {g19, g19, g12, g19, g19, q[1], g13, g10};
+endmodule

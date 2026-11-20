@@ -1,0 +1,142 @@
+# Allow-list for scripts/make_bundle.sh. Paths are relative to the project root.
+# Sections: [A] viva kit, [B-include] full tree, [EXCLUDE] applies to B (and A), [PII] secret/PII scan.
+# A line "src => dest" in [A] stores src under dest in the zip (used for the slides PDF, which lives in research/).
+# Files in [A] that are missing are reported as MISSING (a warning, not a failure) so the lead sees what is absent.
+# Nothing here names the owner. Add the owner's name/email to [PII] locally if you want the scan to catch them.
+
+[A]
+README.md
+START.md
+docs/dossier/ONE_PAGE_FOR_THE_OWNER.md
+docs/dossier/VIVA_SHEET.md
+docs/dossier/VIVA_ANSWER_CARDS.md
+docs/dossier/PROJECT_DOSSIER.md
+docs/dossier/RUBRIC_MAP.md
+docs/dossier/AI_USE_DISCLOSURE_DRAFT.md
+docs/dossier/PROBLEM_STATEMENT_EVOLUTION.md
+docs/OWNER_DERIVATION_SHEET.md
+docs/report/ONE_PAGE_SUMMARY.md
+docs/report/DEMO_5MIN.md
+docs/report/SLIDES.pptx
+docs/report/SLIDES.pdf
+docs/report/ledger.png
+docs/wow/explainer.html
+docs/wow/game.html
+docs/wow/index.html
+docs/wow/dial.html
+docs/wow/theatre.html
+docs/wow/wall.html
+dashboard/index.html
+docs/comms/CODING_VIEW.md
+docs/report/WHY_TWO_FLIPS.md
+docs/NUMBERS.md
+# fallback for the PDF if docs/report/SLIDES.pdf is absent (copied only if the dest is still missing)
+research/c4/pres/render/SLIDES.pdf => docs/report/SLIDES.pdf
+
+[B-include]
+README.md
+START.md
+Makefile
+LICENSE_CHOICE.md
+NOTICE.md
+THIRD_PARTY.md
+CONTRIBUTING.md
+ci
+rtl
+tb
+tests
+scripts
+reference
+results
+validation
+formal
+product
+dashboard
+docs
+layout
+research
+integrations
+real_designs
+# explicit (already covered by the directory entries above; listed so a later narrowing of those cannot drop them)
+docs/comms
+docs/wow
+docs/report/WHY_TWO_FLIPS.md
+docs/report/SLIDES.pdf
+results/comms
+scripts/comms
+scripts/export_e2_wall.py
+scripts/export_witness.py
+rtl/v2e.v
+rtl/v2_secded.v
+rtl/v2c.v
+tb/tb_v2_secded.v
+tb/tb_v2c.v
+tests
+research/c6
+
+[EXCLUDE]
+# keep: path prefixes exempt from dir:/glob: exclusions (the size cap still applies). Small documentation screenshots only.
+keep:docs/wow/shots
+# directory names (any depth)
+dir:third_party_derived
+dir:compare
+dir:numerics_audit
+dir:backup
+dir:shots
+dir:dl_repo
+dir:venv
+dir:.venv
+dir:__pycache__
+dir:.pytest_cache
+dir:.git
+dir:.github_local
+dir:node_modules
+dir:.mypy_cache
+dir:.ruff_cache
+# exact path prefixes
+path:real_designs/second/dl_repo
+path:real_designs/work
+path:work
+path:dl
+path:product/build
+# NOTE: results/work, results/mutants/work and results/deep/work are KEPT (ci/check_reproduce.py and docs read results/).
+path:formal/runs
+# globs (fnmatch on the full relative path)
+glob:*.egg-info
+glob:*.egg-info/*
+glob:*.pyc
+glob:*.zip
+glob:*.tar
+glob:*.tar.gz
+glob:*.odb
+glob:*.vcd
+glob:*.fst
+glob:*.vvp
+glob:*.orig
+glob:*.log.gz
+glob:.DS_Store
+glob:*.swp
+# size cap in bytes
+maxbytes:3145728
+
+[PII]
+# name|regex  (python re, case-insensitive). Any hit in a text file of the staging tree fails the build.
+linkedin|linkedin\.com
+email|[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.(com|org|net|edu|ca|in|io|gov|de|uk|co|ac|info|eu|fr|ch|se|nl|jp|cn)\b
+openai_style_key|\bsk-[A-Za-z0-9_-]{20,}
+github_token|\bgh[pousr]_[A-Za-z0-9]{30,}
+github_pat|github_pat_[A-Za-z0-9_]{30,}
+aws_key|\bAKIA[0-9A-Z]{16}\b
+slack_token|\bxox[abprs]-[A-Za-z0-9-]{10,}
+private_key|-----BEGIN [A-Z ]*PRIVATE KEY-----
+bearer|\bBearer\s+[A-Za-z0-9._~+/=-]{24,}
+key_assign|\b(api[_-]?key|secret|passwd|password|token)\b\s*[:=]\s*['"][A-Za-z0-9_\-/+=]{16,}['"]
+
+[PII-ALLOW]
+# literal substrings that are known benign (tool banners, public contacts, placeholders). A match line is ignored if it contains one.
+claire@yosyshq.com
+security@opentitan.org
+developer.example.org
+noreply@anthropic.com
+@example.com
+@example.org

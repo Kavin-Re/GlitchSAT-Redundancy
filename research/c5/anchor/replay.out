@@ -1,0 +1,4 @@
+spike V2 CLI T=3 witness c2.m,c0.m,c1.m @1 sig=0x00: [(0, False), (1, False), (2, True)]
+  same, only 2 of the 3 flips (c2.m,c0.m): [(0, False), (1, False), (2, False)]
+spike V2 CLI T=4 witness c2.m,c0.m,$flatten\c1.$abc$251$new_n16_ @1 sig=0x03: [(0, False), (1, False), (2, True), (3, True)]
+apt0.33 V2 z3 (b3pack) witness new_n58_,new_n74_ both @0, any sig (sig=0x00): [(0, False), (1, True), (2, True), (3, True)]

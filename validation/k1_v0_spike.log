@@ -1,0 +1,22 @@
+v0: 20 sites (2 flops, 18 gates), T=6
+k=0: attacking sigs: 0 honest KEY boots: 1
+k=1 successful (cycle,site,#sig values,examples): 19 of 120 (site,cycle) pairs; all 255 non-key sigs covered exhaustively
+   (0, 'st[1]', 255, [0, 1, 2, 3])
+   (1, '$abc$184$auto$wreduce.cc:461:run$27[0]', 255, [0, 1, 2, 3])
+   (1, '$auto$rtlil.cc:2609:MuxGate$195', 255, [0, 1, 2, 3])
+   (1, '$auto$rtlil.cc:2609:MuxGate$193', 255, [0, 1, 2, 3])
+   (1, '$flatten\\c.$abc$175$new_n10_', 3, [199, 203, 207])
+   (1, '$flatten\\c.$abc$175$new_n11_', 3, [211, 227, 243])
+   (1, '$flatten\\c.$abc$175$new_n12_', 15, [199, 203, 207, 211])
+   (1, '$flatten\\c.$abc$175$new_n13_', 15, [199, 203, 207, 211])
+   (1, '$flatten\\c.$abc$175$new_n14_', 3, [192, 193, 194])
+   (1, '$flatten\\c.$abc$175$new_n15_', 3, [3, 67, 131])
+   (1, '$flatten\\c.$abc$175$new_n16_', 15, [0, 1, 2, 3])
+   (1, 'c.m', 255, [0, 1, 2, 3])
+   (2, 'st[0]', 255, [0, 1, 2, 3])
+   (2, '$auto$rtlil.cc:2609:MuxGate$195', 255, [0, 1, 2, 3])
+   (3, 'st[0]', 255, [0, 1, 2, 3])
+   (3, '$auto$rtlil.cc:2609:MuxGate$195', 255, [0, 1, 2, 3])
+   (4, 'st[0]', 255, [0, 1, 2, 3])
+   (4, '$auto$rtlil.cc:2609:MuxGate$195', 255, [0, 1, 2, 3])
+   (5, 'st[0]', 255, [0, 1, 2, 3])

@@ -1,0 +1,6 @@
+v2 T=3 k=3 EXHAUSTIVE: 1949476 fault sets x 255 sigs; successful sets=182; 163s
+   [(1, 'word[0]'), (1, '$flatten\\c1.$abc$251$new_n10_'), (1, '$flatten\\c2.$abc$251$new_n10_')] sigs: 3
+   [(1, 'word[0]'), (1, '$flatten\\c1.$abc$251$new_n10_'), (1, '$flatten\\c2.$abc$251$new_n12_')] sigs: 3
+   [(1, 'word[0]'), (1, '$flatten\\c1.$abc$251$new_n10_'), (1, '$flatten\\c2.$abc$251$new_n13_')] sigs: 3
+   [(1, 'word[0]'), (1, '$flatten\\c1.$abc$251$new_n10_'), (1, 'c2.m')] sigs: 3
+   [(1, 'word[0]'), (1, '$flatten\\c1.$abc$251$new_n11_'), (1, '$flatten\\c2.$abc$251$new_n11_')] sigs: 3

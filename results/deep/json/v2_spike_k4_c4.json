@@ -1,0 +1,95 @@
+{
+  "label": "MEASURED",
+  "tool": "glitchsat.py",
+  "design": "results/deep/work/nl/v2_spike.json",
+  "design_sha256_16": "289355dc483b9e6a",
+  "top": "v2",
+  "synth_flow": "given-netlist",
+  "verdict": "ATTACK_FOUND",
+  "bound": {
+    "max_faults": 4,
+    "cycles": 4,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 4"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 4 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "netlist": {
+    "gates": 68,
+    "flops": 8
+  },
+  "honest_key_boots_fault_free": true,
+  "model": {
+    "sites_total": 304,
+    "sites_modelled": 215,
+    "reduce": "full",
+    "build_s": 0.076,
+    "solve_s": 2.67,
+    "minimize_s": 0.263
+  },
+  "runtime_s": {
+    "synth": 0.0,
+    "solve_and_minimize": 3.021
+  },
+  "netlist_json": "results/deep/work/nl/v2_spike.json",
+  "min_faults": 3,
+  "faults": [
+    {
+      "net": "$flatten\\c0.$abc$251$new_n10_",
+      "net_id": 66,
+      "cycle": 1,
+      "kind": "gate_output"
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n10_",
+      "net_id": 73,
+      "cycle": 1,
+      "kind": "gate_output"
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n10_",
+      "net_id": 80,
+      "cycle": 1,
+      "kind": "gate_output"
+    }
+  ],
+  "attacker_input": {
+    "sig": "0xC7"
+  },
+  "attacker_input_raw": {
+    "sig": 199
+  },
+  "explanation": {
+    "summary": "MINIMUM ATTACK COST = 3 faults (`$flatten\\c0.$abc$251$new_n10_`@1, `$flatten\\c1.$abc$251$new_n10_`@1, `$flatten\\c2.$abc$251$new_n10_`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 3 coordinated single-cycle flips (spanning 1 distinct cycle(s)).",
+    "fix_pattern": "Raise the cost above the attacker's fault budget: add another independent copy (so quorum needs >3), keep every copy's result in its own disjoint output bits, and add a sticky alarm on any disagreement. Re-run the tool at k=3.",
+    "fault_details": [
+      {
+        "net": "$flatten\\c0.$abc$251$new_n10_",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "OR",
+        "input_bits_in_fanin_cone": 2,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      },
+      {
+        "net": "$flatten\\c1.$abc$251$new_n10_",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "OR",
+        "input_bits_in_fanin_cone": 2,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      },
+      {
+        "net": "$flatten\\c2.$abc$251$new_n10_",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "OR",
+        "input_bits_in_fanin_cone": 2,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      }
+    ]
+  }
+}

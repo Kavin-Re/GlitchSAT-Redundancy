@@ -1,0 +1,18 @@
+magic
+tech sky130A
+timestamp 1
+<< checkpaint >>
+rect 0 0 1 1
+use sky130_fd_sc_hd__tapvpwrvgnd_1  t0
+timestamp 1
+transform 1 0 0 0 1 0
+box 0 0 1 1
+use sky130_fd_sc_hd__dfxtp_1  d0
+timestamp 1
+transform 1 0 46 0 1 0
+box 0 0 1 1
+use sky130_fd_sc_hd__tapvpwrvgnd_1  t1
+timestamp 1
+transform 1 0 782 0 1 0
+box 0 0 1 1
+<< end >>

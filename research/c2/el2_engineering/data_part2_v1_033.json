@@ -1,0 +1,479 @@
+{
+ "all_cells_by_slack": [
+  {
+   "n_sites": 1,
+   "slack_le_ns": 6.821,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.32
+  },
+  {
+   "n_sites": 4,
+   "slack_le_ns": 6.821,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.26
+  },
+  {
+   "n_sites": 5,
+   "slack_le_ns": 6.821,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.23
+  },
+  {
+   "n_sites": 6,
+   "slack_le_ns": 6.832,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.23
+  },
+  {
+   "n_sites": 8,
+   "slack_le_ns": 6.849,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.24
+  },
+  {
+   "n_sites": 9,
+   "slack_le_ns": 7.033,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.31
+  },
+  {
+   "n_sites": 11,
+   "slack_le_ns": 7.041,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.3
+  },
+  {
+   "n_sites": 12,
+   "slack_le_ns": 7.041,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.33
+  },
+  {
+   "n_sites": 13,
+   "slack_le_ns": 7.046,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.32
+  },
+  {
+   "n_sites": 15,
+   "slack_le_ns": 7.055,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.36
+  },
+  {
+   "n_sites": 16,
+   "slack_le_ns": 7.062,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.4
+  },
+  {
+   "n_sites": 17,
+   "slack_le_ns": 7.062,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.29
+  },
+  {
+   "n_sites": 18,
+   "slack_le_ns": 7.07,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.32
+  },
+  {
+   "n_sites": 19,
+   "slack_le_ns": 7.076,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.31
+  },
+  {
+   "n_sites": 20,
+   "slack_le_ns": 7.083,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.28
+  },
+  {
+   "n_sites": 21,
+   "slack_le_ns": 7.086,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.26
+  },
+  {
+   "n_sites": 22,
+   "slack_le_ns": 7.093,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.34
+  },
+  {
+   "n_sites": 25,
+   "slack_le_ns": 7.102,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.31
+  },
+  {
+   "n_sites": 26,
+   "slack_le_ns": 7.104,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.3
+  },
+  {
+   "n_sites": 27,
+   "slack_le_ns": 7.109,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.29
+  },
+  {
+   "n_sites": 28,
+   "slack_le_ns": 7.124,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.23
+  },
+  {
+   "n_sites": 29,
+   "slack_le_ns": 7.252,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.25
+  },
+  {
+   "n_sites": 30,
+   "slack_le_ns": 7.294,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.25
+  },
+  {
+   "n_sites": 31,
+   "slack_le_ns": 8.566,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     0,
+     "_16_"
+    ]
+   ],
+   "wall": 0.3
+  },
+  {
+   "n_sites": 32,
+   "slack_le_ns": 8.593,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.24
+  },
+  {
+   "n_sites": 33,
+   "slack_le_ns": 8.637,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.22
+  },
+  {
+   "n_sites": 34,
+   "slack_le_ns": 8.683,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.26
+  },
+  {
+   "n_sites": 35,
+   "slack_le_ns": 9.328,
+   "verdict": "ATTACK_FOUND",
+   "min_k": 1,
+   "faults": [
+    [
+     1,
+     "_10_"
+    ]
+   ],
+   "wall": 0.23
+  }
+ ],
+ "flops_only_by_Dslack": [
+  {
+   "n_sites": 1,
+   "slack_le_ns": 6.821,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.23
+  },
+  {
+   "n_sites": 2,
+   "slack_le_ns": 6.832,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.25
+  },
+  {
+   "n_sites": 3,
+   "slack_le_ns": 7.083,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.27
+  },
+  {
+   "n_sites": 4,
+   "slack_le_ns": 7.102,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.33
+  },
+  {
+   "n_sites": 5,
+   "slack_le_ns": 7.104,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.46
+  },
+  {
+   "n_sites": 6,
+   "slack_le_ns": 7.109,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.3
+  },
+  {
+   "n_sites": 7,
+   "slack_le_ns": 7.252,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.29
+  },
+  {
+   "n_sites": 8,
+   "slack_le_ns": 7.294,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_k": null,
+   "faults": [],
+   "wall": 0.3
+  }
+ ],
+ "cell_slacks": {
+  "_38_": 6.821,
+  "_21_": 6.821,
+  "_30_": 6.821,
+  "c2/_4_": 6.821,
+  "c2/_2_": 6.821,
+  "_35_": 6.832,
+  "c1/_2_": 6.849,
+  "c1/_4_": 6.849,
+  "c2/_3_": 7.033,
+  "_24_": 7.041,
+  "_25_": 7.041,
+  "_43_": 7.041,
+  "clkbuf_0_clk": 7.041,
+  "clkbuf_1_0__f_clk": 7.041,
+  "c1/_3_": 7.046,
+  "_23_": 7.055,
+  "_46_": 7.055,
+  "_44_": 7.062,
+  "clkbuf_1_1__f_clk": 7.062,
+  "_20_": 7.062,
+  "_40_": 7.07,
+  "_42_": 7.076,
+  "_36_": 7.083,
+  "_47_": 7.086,
+  "_41_": 7.093,
+  "_22_": 7.102,
+  "_28_": 7.102,
+  "_39_": 7.102,
+  "_31_": 7.104,
+  "_34_": 7.109,
+  "_45_": 7.124,
+  "_37_": 7.252,
+  "_29_": 7.294,
+  "_26_": 8.566,
+  "_27_": 8.593,
+  "_33_": 8.637,
+  "_32_": 8.683,
+  "_19_": 9.328
+ },
+ "flop_D_slacks": {
+  "_46_": 6.821,
+  "_43_": 6.832,
+  "_44_": 7.083,
+  "_47_": 7.102,
+  "_41_": 7.104,
+  "_42_": 7.109,
+  "_45_": 7.252,
+  "_40_": 7.294
+ }
+}

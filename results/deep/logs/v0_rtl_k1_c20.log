@@ -1,0 +1,4 @@
+CMD: python3 -I /home/user/project/results/deep/run_one.py /home/user/project/results/deep/work/nl/v0_rtl.json v0 1 20 /home/user/project/results/deep/json/v0_rtl_k1_c20.json
+v0 ATTACK_FOUND min 1 wall 0.5 [('$procmux$8.Y[0]', 9)] honest True
+
+wall_s=0.59

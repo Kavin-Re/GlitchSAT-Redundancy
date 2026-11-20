@@ -1,0 +1,179 @@
+******* Circuit Stats ********
+Cells size: 21
+Sigs size: 34
+Inputs size: 9
+Ouputs size: 3
+Registers size: 2
+Nets size: 24
+******* Partition info ********
+Number of partitions: 2
+Largest partitions: (0: 1) (1: 1) 
+
+********************************************************************************
+                    Procedure 1 -- Build partitions
+********************************************************************************
+--------------------------------------------------------------------------------
+Partitioning for 0/2 faulty partitions,
+3/19 combinational faults at initial state,
+and 0/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 1: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-1.json`
+--------------------------------------------------------------------------------
+Partitioning for 0/2 faulty partitions,
+2/19 combinational faults at initial state,
+and 1/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 2: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-2.json`
+--------------------------------------------------------------------------------
+Partitioning for 0/2 faulty partitions,
+1/19 combinational faults at initial state,
+and 2/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 3: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-3.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/2 faulty partitions,
+2/19 combinational faults at initial state,
+and 0/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 4: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-4.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/2 faulty partitions,
+1/19 combinational faults at initial state,
+and 1/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 5: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-5.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/2 faulty partitions,
+0/19 combinational faults at initial state,
+and 2/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 6: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-6.json`
+--------------------------------------------------------------------------------
+Partitioning for 2/2 faulty partitions,
+1/19 combinational faults at initial state,
+and 0/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 7: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-7.json`
+--------------------------------------------------------------------------------
+Partitioning for 2/2 faulty partitions,
+0/19 combinational faults at initial state,
+and 1/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 8: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-8.json`
+--------------------------------------------------------------------------------
+Partitioning for 3/2 faulty partitions,
+0/19 combinational faults at initial state,
+and 0/1 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+
+  Running solver 9: 0.0 s ->  UNSAT
+  Partitioning finished with 2 partitions.
+  Write partitioning in file `/tmp/work_run2/k/out/v0_k3/partitioning-9.json`
+=> Procedure 1 verification time: 0.0 s
+
+********************************************************************************
+                    Procedure 2 -- Check output integrity
+********************************************************************************
+  Optimize 0 faults in partitions
+  Optimize 15 faults in comb logic
+--------------------------------------------------------------------------------
+Check output integrity for 3/2 faulty partitions,
+0/19 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 
+
+  Running solver 9: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 0 ( 13 ) 1 ( 15 ) 
+Corrupted outputs: 12 11 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 10: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 2/2 faulty partitions,
+1/19 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 10: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 12 
+Faulty partitions (initial): 
+Corrupted outputs: 12 
+
+Enumerate exploitable faults: 12 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 11: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 11 
+Faulty partitions (initial): 
+Corrupted outputs: 11 
+
+Enumerate exploitable faults: 11 12 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 12: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 16 
+Faulty partitions (initial): 
+Corrupted outputs: 11 
+
+Enumerate exploitable faults: 16 11 12 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 13: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 14 
+Faulty partitions (initial): 
+Corrupted outputs: 12 
+
+Enumerate exploitable faults: 14 16 11 12 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 14: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 1/2 faulty partitions,
+2/19 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 14 16 11 12 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 14: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 0/2 faulty partitions,
+3/19 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 14 16 11 12 
+Enumerate exploitable partitions: 1 0 
+
+  Running solver 14: UNSAT 0.0 s
+=> Procedure 2 verification time: 0.0 s

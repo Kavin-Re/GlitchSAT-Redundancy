@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="faultbound-wt" tests="1" failures="1" errors="0">
+<testsuite name="t" tests="1" failures="1" errors="0" time="0.026">
+<properties><property name="verdict" value="ATTACK_FOUND"/><property name="netlist_sha256" value="c2decbe406d556ecb01f394a3c804a9d2921d18c2ee21d97fcbae1d321fa2d30"/><property name="gates" value="2"/><property name="flops" value="0"/><property name="z3" value="5.4.1"/><property name="yosys" value=""/><property name="command" value="faultbound-wt analyze hostile.json --top t --config h.toml --report h.json --report h.sarif --report h.junit.xml"/></properties>
+<testcase classname="faultbound-wt" name="t: no attack with &lt;= 1 flips in 2 cycles" time="0.026"><failure message="ATTACK_FOUND (&lt;= 1 flips, 2 cycles): min 1 flip(s)" type="AttackFound">  a"b'&lt;script&gt;alert(1)&lt;/script&gt;&amp;amp;]]&gt;--
+‮../../etc/passwd  &lt;/failure&gt;&lt;/testcase&gt;&lt;x y="1"&gt;${jndi:x}%s (gate_output) cycle 0
+SINGLE POINT OF FAILURE: one AND gate output, net `a"b'&lt;script&gt;alert(1)&lt;/script&gt;&amp;amp;]]&gt;--
+‮../../etc/passwd  &lt;/failure&gt;&lt;/testcase&gt;&lt;x y="1"&gt;${jndi:x}%s`, combines 2 input bits of `sig` (the redundant checks converge here) and alone drives 1 of 2 bits of `boot_word`. Flipping it for ONE cycle (cycle 0) makes a wrong `sig` look valid, even though the checks upstream are duplicated.</failure><system-out>BOUNDED, NOT UNBOUNDED: verdict holds only for &lt;= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 2 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.</system-out></testcase>
+</testsuite></testsuites>

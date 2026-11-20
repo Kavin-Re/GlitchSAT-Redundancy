@@ -1,0 +1,4 @@
+v2 T=6 k=3 all triples all at cycle 1 (EXHAUSTIVE for that slice): 70300 sets, successful=182
+['word[0]', '$flatten\\c1.$abc$251$new_n10_', '$flatten\\c2.$abc$251$new_n10_']
+['word[0]', '$flatten\\c1.$abc$251$new_n10_', '$flatten\\c2.$abc$251$new_n12_']
+['word[0]', '$flatten\\c1.$abc$251$new_n10_', '$flatten\\c2.$abc$251$new_n13_']

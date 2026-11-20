@@ -1,0 +1,150 @@
+{
+ "cycles": 6,
+ "note": "Expected verdicts (MEASURED 2026-11-19, yosys 0.33, z3 5.4.1). Regenerate deliberately, never to silence CI.",
+ "expected": {
+  "v0|rtl/plain|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v0|rtl/plain|k1": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v0|rtl/plain|k2": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v0|rtl/plain|k3": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|rtl/plain|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v1|rtl/plain|k1": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|rtl/plain|k2": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|rtl/plain|k3": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v2|rtl/plain|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|rtl/plain|k1": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|rtl/plain|k2": [
+   "ATTACK_FOUND",
+   2
+  ],
+  "v2|rtl/plain|k3": [
+   "ATTACK_FOUND",
+   2
+  ],
+  "v0|rtl/opt|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v0|rtl/opt|k1": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v0|rtl/opt|k2": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v0|rtl/opt|k3": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|rtl/opt|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v1|rtl/opt|k1": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|rtl/opt|k2": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|rtl/opt|k3": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v2|rtl/opt|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|rtl/opt|k1": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|rtl/opt|k2": [
+   "ATTACK_FOUND",
+   2
+  ],
+  "v2|rtl/opt|k3": [
+   "ATTACK_FOUND",
+   2
+  ],
+  "v0|spike/given-netlist|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v0|spike/given-netlist|k1": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v0|spike/given-netlist|k2": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v0|spike/given-netlist|k3": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|spike/given-netlist|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v1|spike/given-netlist|k1": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|spike/given-netlist|k2": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v1|spike/given-netlist|k3": [
+   "ATTACK_FOUND",
+   1
+  ],
+  "v2|spike/given-netlist|k0": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|spike/given-netlist|k1": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|spike/given-netlist|k2": [
+   "NO_ATTACK_UP_TO_BOUND",
+   null
+  ],
+  "v2|spike/given-netlist|k3": [
+   "ATTACK_FOUND",
+   3
+  ]
+ }
+}

@@ -1,0 +1,5 @@
+URL: https://raw.githubusercontent.com/secworks/aes/master/src/rtl/aes_key_mem.v
+Commit/hash: branch master, NOT pinned (raw fetch; UNVERIFIED revision). sha256 below.
+Licence: BSD-2-Clause (LICENSE copied here, Copyright 2014 Joachim Stromberson)
+Date fetched: 2026-11-19
+d5fbd6124f7b4ac2a50a2dcfaa2a02bfe65f8cb9a387b3488111a257e833ca55  designs/aes_key_mem/aes_key_mem.v

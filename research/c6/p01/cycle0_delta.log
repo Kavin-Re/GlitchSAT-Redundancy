@@ -1,0 +1,80 @@
+../reference/spike_netlists/v2.json: golden next state after cycle 0 = CC (armed CC); bits that must change to reach 96: 5A = [(1, 'm1'), (3, 'm0'), (4, 'm1'), (6, 'm0')]
+  delta 02 (bits [1], copies ['m1']): 2 net(s): $auto$rtlil.cc:2609:MuxGate$296, $auto$rtlil.cc:2609:MuxGate$294
+  delta 08 (bits [3], copies ['m0']): 2 net(s): $auto$rtlil.cc:2609:MuxGate$304, $auto$rtlil.cc:2609:MuxGate$302
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $auto$rtlil.cc:2609:MuxGate$308, $auto$rtlil.cc:2609:MuxGate$306
+  delta 40 (bits [6], copies ['m0']): 2 net(s): $auto$rtlil.cc:2609:MuxGate$316, $auto$rtlil.cc:2609:MuxGate$314
+  fewest cycle-0 flips whose deltas XOR to 5A (deltas inside the needed bits only, <=4): (4, ['02', '08', '10', '40'])
+nl_apt_v2.json: golden next state after cycle 0 = CC (armed CC); bits that must change to reach 96: 5A = [(1, 'm1'), (3, 'm0'), (4, 'm1'), (6, 'm0')]
+  delta 12 (bits [1, 4], copies ['m1']): 1 net(s): $abc$275$new_n58_
+  delta 48 (bits [3, 6], copies ['m0']): 1 net(s): $abc$275$new_n74_
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 08 (bits [3], copies ['m0']): 1 net(s): $procmux$10.Y[3]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n76_, $procmux$10.Y[4]
+  delta 40 (bits [6], copies ['m0']): 1 net(s): $procmux$10.Y[6]
+  fewest cycle-0 flips whose deltas XOR to 5A (deltas inside the needed bits only, <=4): (2, ['12', '48'])
+nl_apt_v2e.json: golden next state after cycle 0 = A5 (armed A5); bits that must change to reach 96: 33 = [(0, 'm0'), (1, 'm1'), (4, 'm1'), (5, 'm2')]
+  delta 12 (bits [1, 4], copies ['m1']): 1 net(s): $abc$275$new_n72_
+  delta 01 (bits [0], copies ['m0']): 2 net(s): $abc$275$new_n70_, $procmux$10.Y[0]
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n79_, $procmux$10.Y[4]
+  delta 20 (bits [5], copies ['m2']): 2 net(s): $abc$275$new_n82_, $procmux$10.Y[5]
+  fewest cycle-0 flips whose deltas XOR to 33 (deltas inside the needed bits only, <=4): (3, ['01', '12', '20'])
+nl_apt_v2c5a.json: golden next state after cycle 0 = 5A (armed 5A); bits that must change to reach 96: CC = [(2, 'm2'), (3, 'm0'), (6, 'm0'), (7, 'm1')]
+  delta 48 (bits [3, 6], copies ['m0']): 1 net(s): $abc$275$new_n77_
+  delta 80 (bits [7], copies ['m1']): 3 net(s): $abc$275$new_n71_, $abc$275$new_n86_, $procmux$10.Y[7]
+  delta 04 (bits [2], copies ['m2']): 2 net(s): $abc$275$new_n74_, $procmux$10.Y[2]
+  delta 08 (bits [3], copies ['m0']): 1 net(s): $procmux$10.Y[3]
+  delta 40 (bits [6], copies ['m0']): 1 net(s): $procmux$10.Y[6]
+  fewest cycle-0 flips whose deltas XOR to CC (deltas inside the needed bits only, <=4): (3, ['80', '04', '48'])
+nl_apt_v2c4d.json: golden next state after cycle 0 = 4D (armed 4D); bits that must change to reach 96: DB = [(0, 'm0'), (1, 'm1'), (3, 'm0'), (4, 'm1'), (6, 'm0'), (7, 'm1')]
+  delta 49 (bits [0, 3, 6], copies ['m0']): 1 net(s): $abc$275$new_n71_
+  delta 92 (bits [1, 4, 7], copies ['m1']): 1 net(s): $abc$275$new_n73_
+  delta 01 (bits [0], copies ['m0']): 1 net(s): $procmux$10.Y[0]
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 08 (bits [3], copies ['m0']): 1 net(s): $procmux$10.Y[3]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n81_, $procmux$10.Y[4]
+  delta 40 (bits [6], copies ['m0']): 1 net(s): $procmux$10.Y[6]
+  delta 80 (bits [7], copies ['m1']): 2 net(s): $abc$275$new_n87_, $procmux$10.Y[7]
+  fewest cycle-0 flips whose deltas XOR to DB (deltas inside the needed bits only, <=4): (2, ['49', '92'])
+nl_apt_v2c04.json: golden next state after cycle 0 = 04 (armed 04); bits that must change to reach 96: 92 = [(1, 'm1'), (4, 'm1'), (7, 'm1')]
+  delta 92 (bits [1, 4, 7], copies ['m1']): 1 net(s): $abc$275$new_n56_
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n73_, $procmux$10.Y[4]
+  delta 80 (bits [7], copies ['m1']): 2 net(s): $abc$275$new_n79_, $procmux$10.Y[7]
+  fewest cycle-0 flips whose deltas XOR to 92 (deltas inside the needed bits only, <=4): (1, ['92'])
+nl_conda_v2.json: golden next state after cycle 0 = CC (armed CC); bits that must change to reach 96: 5A = [(1, 'm1'), (3, 'm0'), (4, 'm1'), (6, 'm0')]
+  delta 12 (bits [1, 4], copies ['m1']): 1 net(s): $abc$275$new_n59
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 08 (bits [3], copies ['m0']): 2 net(s): $abc$275$new_n73, $procmux$10.Y[3]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n76, $procmux$10.Y[4]
+  delta 40 (bits [6], copies ['m0']): 1 net(s): $procmux$10.Y[6]
+  fewest cycle-0 flips whose deltas XOR to 5A (deltas inside the needed bits only, <=4): (3, ['12', '08', '40'])
+nl_conda_v2e.json: golden next state after cycle 0 = A5 (armed A5); bits that must change to reach 96: 33 = [(0, 'm0'), (1, 'm1'), (4, 'm1'), (5, 'm2')]
+  delta 12 (bits [1, 4], copies ['m1']): 1 net(s): $abc$275$new_n69
+  delta 01 (bits [0], copies ['m0']): 1 net(s): $procmux$10.Y[0]
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n75, $procmux$10.Y[4]
+  delta 20 (bits [5], copies ['m2']): 1 net(s): $procmux$10.Y[5]
+  fewest cycle-0 flips whose deltas XOR to 33 (deltas inside the needed bits only, <=4): (3, ['01', '12', '20'])
+nl_conda_v2c5a.json: golden next state after cycle 0 = 5A (armed 5A); bits that must change to reach 96: CC = [(2, 'm2'), (3, 'm0'), (6, 'm0'), (7, 'm1')]
+  delta 80 (bits [7], copies ['m1']): 3 net(s): $abc$275$new_n58, $abc$275$new_n86, $procmux$10.Y[7]
+  delta 04 (bits [2], copies ['m2']): 2 net(s): $abc$275$new_n75, $procmux$10.Y[2]
+  delta 08 (bits [3], copies ['m0']): 2 net(s): $abc$275$new_n77, $procmux$10.Y[3]
+  delta 40 (bits [6], copies ['m0']): 1 net(s): $procmux$10.Y[6]
+  fewest cycle-0 flips whose deltas XOR to CC (deltas inside the needed bits only, <=4): (4, ['80', '04', '08', '40'])
+nl_conda_v2c4d.json: golden next state after cycle 0 = 4D (armed 4D); bits that must change to reach 96: DB = [(0, 'm0'), (1, 'm1'), (3, 'm0'), (4, 'm1'), (6, 'm0'), (7, 'm1')]
+  delta 92 (bits [1, 4, 7], copies ['m1']): 1 net(s): $abc$275$new_n72
+  delta 09 (bits [0, 3], copies ['m0']): 1 net(s): $abc$275$new_n70
+  delta 01 (bits [0], copies ['m0']): 1 net(s): $procmux$10.Y[0]
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 08 (bits [3], copies ['m0']): 1 net(s): $procmux$10.Y[3]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n80, $procmux$10.Y[4]
+  delta 40 (bits [6], copies ['m0']): 1 net(s): $procmux$10.Y[6]
+  delta 80 (bits [7], copies ['m1']): 2 net(s): $abc$275$new_n86, $procmux$10.Y[7]
+  fewest cycle-0 flips whose deltas XOR to DB (deltas inside the needed bits only, <=4): (3, ['09', '92', '40'])
+nl_conda_v2c04.json: golden next state after cycle 0 = 04 (armed 04); bits that must change to reach 96: 92 = [(1, 'm1'), (4, 'm1'), (7, 'm1')]
+  delta 92 (bits [1, 4, 7], copies ['m1']): 1 net(s): $abc$275$new_n55
+  delta 02 (bits [1], copies ['m1']): 1 net(s): $procmux$10.Y[1]
+  delta 10 (bits [4], copies ['m1']): 2 net(s): $abc$275$new_n74, $procmux$10.Y[4]
+  delta 80 (bits [7], copies ['m1']): 2 net(s): $abc$275$new_n80, $procmux$10.Y[7]
+  fewest cycle-0 flips whose deltas XOR to 92 (deltas inside the needed bits only, <=4): (1, ['92'])

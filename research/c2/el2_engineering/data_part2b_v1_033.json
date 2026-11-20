@@ -1,0 +1,38 @@
+{
+ "n_thresholds": 24,
+ "res": {
+  "1": {
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     2,
+     "th8.637"
+    ]
+   ],
+   "wall": 0.71
+  },
+  "2": {
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     5,
+     "th9.328"
+    ]
+   ],
+   "wall": 0.6
+  },
+  "3": {
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     5,
+     "th7.294"
+    ]
+   ],
+   "wall": 0.55
+  }
+ }
+}

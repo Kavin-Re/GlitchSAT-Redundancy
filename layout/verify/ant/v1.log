@@ -1,0 +1,8 @@
+== check_antennas v1
+Notice 0: Split top of 12 T shapes.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO ANT-0002] Found 0 net violations in 47 nets.
+ANT_VIOLATING_NETS_RETURN 0
+mfg_grid_dbu 5 dbu_per_um 1000
+instances 76 offgrid_origin 0
+Error: v1.tcl, 18 invalid command name "odb::dbWireShapeItr"

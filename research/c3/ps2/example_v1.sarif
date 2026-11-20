@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "faultbound-working-title",
+          "version": "0.0.1.dev0",
+          "rules": [
+            {
+              "id": "FBWT001",
+              "name": "BoundedFaultAttackFound",
+              "shortDescription": {
+                "text": "Modelled bit-flip attack reaches the target property"
+              },
+              "fullDescription": {
+                "text": "Within the stated flip budget and cycle bound, a set of modelled single-cycle bit flips plus an attacker input makes the target output equal the bad value."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "FBWT002",
+              "name": "SolverInconclusive",
+              "shortDescription": {
+                "text": "Solver did not decide within the timeout"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            },
+            {
+              "id": "FBWT003",
+              "name": "ConfigurationProblem",
+              "shortDescription": {
+                "text": "Honest input does not reach the goal in the fault-free design"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "/tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/v1.json"
+          },
+          "hashes": {
+            "sha-256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc"
+          }
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "commandLine": "faultbound-wt analyze /tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/v1.json --config /tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/threat.toml --max-flips 1 --report /tmp/work_ps2/v1.json --report /tmp/work_ps2/v1.sarif --report /tmp/work_ps2/v1.junit.xml"
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "FBWT001",
+          "level": "error",
+          "message": {
+            "text": "ATTACK_FOUND (<= 1 flips, 6 cycles): minimum 1 flip(s): ok (gate_output) @cycle 1. SINGLE POINT OF FAILURE: one AND gate output, net `ok`, has 8 bit(s) of `sig` in its fan-in cone and reaches 8 of 8 bits of `boot_word`; STRUCTURE: its direct fan-in nets `c1.m` and `c2.m` are distinct sub-circuits that depend on the same input bits (parallel checks that this gate recombines). Flipping it for ONE cycle (cycle 1) is enough to reach the goal value. MODELLED faults on this synthesized netlist only; bounded result under this model; not a proof of security."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/v1.json"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "name": "ok",
+                  "fullyQualifiedName": "v1.ok",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "faults": [
+              {
+                "net": "ok",
+                "net_id": 45,
+                "cycle": 1,
+                "kind": "gate_output",
+                "aliases": [
+                  "ok"
+                ]
+              }
+            ],
+            "attacker_input": {
+              "sig": 3
+            }
+          }
+        }
+      ],
+      "properties": {
+        "verdict": "ATTACK_FOUND",
+        "scope": {
+          "goal": "output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..5, while `sig` != 0xC3",
+          "input_treatment": "every input port except the clock `clk` is a free value chosen by the solver and held CONSTANT for the whole run (free inputs here: sig); `sig` must differ from legitimate_value; input ports are not fault sites; the clock is implicit (one rising edge per cycle) and is not modelled as a signal",
+          "init_state": "all 8 flops start at a known value: 8 from an explicit Yosys `init` attribute, 0 default to 0; no reset sequence is simulated and unknown (x) power-up state is not modelled",
+          "fault_model": "one fault = one flip of one net (gate output or flop Q; kinds allowed: gate/flop) at one cycle; a flip is XORed onto the net for that cycle only and propagates through all its fanout (counts as 1); flips of the same net in different cycles count separately; at most max_flips faults in total over all cycles; no stuck-at, multi-bit, timing or voltage effects",
+          "bounds": {
+            "max_flips": 1,
+            "cycles": 6,
+            "solver_timeout_ms": "none"
+          },
+          "netlist_sha256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc",
+          "tool_version": "0.0.1.dev0",
+          "defaulted_config_values": [],
+          "statement": "bounded result under this model; not a proof of security"
+        },
+        "bound": {
+          "max_flips": 1,
+          "cycles": 6,
+          "fault_model": "single-cycle bit flip of a gate output or flop Q (MODELLED, not physical)",
+          "attacker_input": "`sig` free, constant over the run, != 0xC3",
+          "property": "attack goal: boot_word == 0x96 at some cycle < 6"
+        },
+        "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+        "config_warnings": [],
+        "provenance": {
+          "tool": "faultbound-working-title",
+          "tool_version": "0.0.1.dev0",
+          "command": "faultbound-wt analyze /tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/v1.json --config /tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/threat.toml --max-flips 1 --report /tmp/work_ps2/v1.json --report /tmp/work_ps2/v1.sarif --report /tmp/work_ps2/v1.junit.xml",
+          "python": "3.13.18",
+          "z3": "5.4.1",
+          "yosys_on_path": "Yosys 0.33 (git sha1 2584903a060)",
+          "utc": "2026-11-19T20:25:24Z",
+          "input_kind": "yosys-json",
+          "netlist_yosys_creator": "Yosys 0.33 (git sha1 2584903a060)",
+          "netlist_path": "/tmp/work_ps2/venv/lib/python3.13/site-packages/faultbound_wt/examples/v1.json",
+          "netlist_sha256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc",
+          "top": "v1",
+          "netlist_stats": {
+            "gates": 58,
+            "flops": 8,
+            "basis": "gates = combinational cells, flops = $_DFF_P_ (MEASURED from the netlist)"
+          }
+        },
+        "threat_model": {
+          "max_flips": 1,
+          "cycles": 6,
+          "kinds": [
+            "gate",
+            "flop"
+          ],
+          "include": [],
+          "exclude": [],
+          "attacker_input": "sig",
+          "attacker_model": "constant",
+          "legitimate_value": 195,
+          "output": "boot_word",
+          "bad_value": 150,
+          "top": null,
+          "timeout_ms": 0,
+          "defaulted": [],
+          "honest_check": true
+        }
+      }
+    }
+  ]
+}

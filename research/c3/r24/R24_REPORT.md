@@ -1,0 +1,100 @@
+# R24: Adoption, education and positioning
+Agent R24, 2026-11-19. License: UNDECIDED. Title: working title TBD. Extends (does not repeat) research/c1/R1_users_needs.md, R2_tool_landscape.md, c3/r23. Method: about 11 WebSearch plus 2 WebFetch calls (standard mode), plus reading product/ in this repo. Nothing was installed or run; no tool was run. Labels: SOURCED (URL + title, 2026 access; "SOURCED-SNIPPET" = search-result text only, page not opened), OPENED (page fetched this session), INFERENCE (my reasoning, not evidence), UNVERIFIED. Not done: no survey of real users exists; no forum threads found; Tiny Tapeout template workflow files and OpenTitan's current CI were not opened (only search summaries). One fetch (Piraeus CDS206 lab2 PDF) returned HTTP 503 and was not retried by other means.
+
+## 0. What the product already has (read from the repo, MEASURED by reading, not re-run)
+- `product/` package `faultbound-wt` (pip, z3-solver only dependency, Python >=3.11). `analyze` takes a Yosys JSON netlist OR a `.v` file with `--top` (calls yosys itself): so "Verilog-direct input" ALREADY EXISTS (cli.py lines 35-39; QUICKSTART step 4). Reports: JSON, SARIF, JUnit via repeated `--report`. Exit codes 0/1/2/3/4. TOML threat config. Bundled examples (v0/v1/v2 JSON, `pin_lock`). `product/examples/github-actions-sarif.yml` exists but has never been run.
+- Missing for adoption: no Dockerfile, no composite GitHub Action (`action.yml`), no pre-commit hook, no cocotb/pytest hook, no Yosys plugin, no PyPI release, no badge, no example repo, no license (owner decision).
+
+## 1. Adoption: how open-hardware projects run checks in CI today
+
+| Community | What they run in CI | Format / interface | Source |
+|---|---|---|---|
+| OpenTitan / Ibex (lowRISC) | Verible style lint over RTL, DV, FPV sources; Verilator lint; Verilator simulation via FuseSoC; Bazel-driven tests; "slow-lint" job script | Shell scripts + Bazel; no SARIF writer seen in the search results | SOURCED-SNIPPET: https://www.github.com/lowRISC/ibex/blob/353d23b53957736f81ac0f56689c9ae317733bcb/.github/workflows/ci.yml (Ibex CI, lint_dv job); https://www.github.com/lowRISC/opentitan/blob/30d7e787c753caaa03fe68a4a70da1bbcbc1d96f/ci/jobs/slow-lint.sh ("slow lint", older commit, current setup may differ) |
+| OpenTitan security FI | They state no pre-silicon FPGA FI; use SYNFI, FRP for Ibex lockstep, FI-extended Verilator, commercial Z01X (some tooling restricted to Silver members) | custom, not CI-standard | OPENED in R1: https://lowrisc.org/news/opentitans-pre-silicon-security-simulation-and-verification/ (do not re-read) |
+| Tiny Tapeout | Template repos have separate workflows: GDS build (OpenLane with Yosys, sky130), `test` (cocotb), `docs`; the testbench is re-run automatically as a gate-level test after GDS; cocotb Makefile has a `GL_TEST` define for the gate-level netlist | GitHub Actions; cocotb results; the GL netlist (`runs/wokwi/results/final/verilog/gl/<name>.v`) is a downloadable artifact | SOURCED-SNIPPET: https://tinytapeout.com/hdl/testing/ ("Testing your design"); https://uithub.com/TinyTapeout/tt06-verilog-template (tt06 template; newer templates exist, check before copying) ; https://www.tinytapeout.com/guides/workshop/create-your-gds |
+| Code-scanning route | GitHub accepts third-party SARIF 2.1.0 via `upload-sarif` (subset of schema; results-per-upload and size limits exist and vary by version; fingerprints computed if repo contains the source) | SARIF | SOURCED-SNIPPET: https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/integrating-with-code-scanning ; older limits page https://docs.github.com/en/enterprise-server@3.4/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github (limits may have changed: UNVERIFIED now) |
+| Yosys users | `yosys -p "read_verilog x.v; synth -top t; write_json out.json"` is the documented one-liner pattern; `write_json` output may gain unknown fields (consumers must ignore them); SBY/EQY recommended for formal; SBY has a JUnit path | CLI + JSON | SOURCED-SNIPPET: https://yosyshq.readthedocs.io/projects/yosys/en/stable/cmd/index_backends.html (write_json); https://yosyshq.readthedocs.io/projects/yosys/en/stable/using_yosys/more_scripting/model_checking.html |
+| Binary distribution | YosysHQ OSS CAD Suite bundles yosys, sby, eqy, mcy etc., Linux/macOS/Windows; eqy requires a matching Yosys version | tarball | SOURCED-SNIPPET: https://github.com/YosysHQ/oss-cad-suite-build ; https://yosyshq.readthedocs.io/projects/eqy/en/latest/install.html |
+
+Findings:
+- F1. SARIF and JUnit are already emitted by our tool, which matches how general software CI consumes results. But the hardware projects I found (above) mostly gate on exit codes of scripts/Verilator/cocotb and do not appear (SNIPPET only, absence not proven) to publish SARIF. INFERENCE: for hardware users the exit code plus a human-readable summary matters more than SARIF; SARIF is a plus for teams already on GitHub code scanning (private repos need GitHub Advanced Security, per our own workflow comment; verify).
+- F2. Tiny Tapeout publishes a post-synthesis gate-level netlist in CI as a standard artifact: a natural input for a netlist-level tool, with no extra synthesis step. INFERENCE: this is the lowest-friction input source found; whether the artifact is Yosys-JSON-ready or needs `read_verilog` of sky130 cells with a cell library is UNVERIFIED (our tool reads only plain gates after Yosys synthesis; sky130 cell netlists would need a cell-library mapping step that the product does not have).
+- F3. Version risk: Yosys changes (0.33 apt vs 0.38 conda in this project) changed the netlist and the verdict (README, M1). Any CI integration must record the Yosys version and netlist SHA-256 (the tool already prints the SHA).
+
+### Adjacent Yosys TMR plugins (new this round; the best first users)
+- TaMaRa (UQ bachelor's thesis; MPL-2.0): Yosys plugin `plugin -i libtamara.so; tamara_tmr`, adds TMR; ships a `tools/fault_injection_sweep.py` (random sampling up to a fault count), eqy/mcy equivalence checks, Verismith fuzzing. README says: "not suitable for production use, and can only handle a very limited number of simple circuits"; known bugs with multiple logic cones and memories; does NOT say whether later synthesis can remove redundancy. OPENED: https://codeberg.org/melyoung/tamara
+- TMRX (Yosys plugin; Logic TMR and Full Module TMR; Docker or source build): "not yet ready for production use" and may produce broken netlists; licence not stated on the page fetched. OPENED: https://xelef2000.github.io/TMRX/tmrx/index.html
+- INFERENCE: both are exactly "triplicate then trust" tools whose outputs should be checked by an exhaustive bounded search, which is what this toolkit does for small designs. Their authors/users are the closest-fit audience and they already live in Yosys. Caveat: I have not run either; whether our tool can parse their output netlists is UNVERIFIED (QUICKSTART restriction: only plain gates and plain flops).
+- Non-Yosys: PeerJ "Triple Modular Redundancy verification via heuristic netlist analysis" extracts the flip-flop driver cone and runs exhaustive FI to verify TMR (SOURCED-SNIPPET: https://peerj.com/articles/cs-21). Prior art for the check idea: nothing here is new.
+
+### What would get a small tool installed (INFERENCE unless stated)
+1. One command, no build: `pip install` (z3-solver wheel is on PyPI; SOURCED by pyproject pin, wheel availability not re-checked) beats C++/CUDD builds (FIVER, R2) and Docker/Yosys-0.61 pinning (uArchiFI, R2).
+2. A result in 10 minutes that fits an existing flow: take the netlist the flow already writes, add a TOML of ~6 lines, get exit code + one-screen summary.
+3. A copy-paste CI snippet that has actually been run (ours has not).
+4. Honest scope text beside every verdict (already present).
+Channel ranking by effort/payoff: pip + CLI (exists) > composite GitHub Action > Docker image (pins Yosys version, kills version drift) > pre-commit hook > cocotb/pytest helper > Yosys plugin (C++/Python embedding effort, narrow audience; a `yosys -p` one-liner script gets 80% of it) > VS Code extension (not recommended: no evidence of demand).
+
+### Five best-fit first users and what each needs in the first 10 minutes
+| # | User | Why a fit | First 10 minutes need |
+|---|---|---|---|
+| 1 | Authors/users of Yosys TMR plugins (TaMaRa, TMRX) | Their output is "unverified by construction" per their own READMEs; they use Yosys already | A recipe: `yosys -p "read_verilog d.v; synth -top t; tamara_tmr; write_json n.json"` then `faultbound-wt analyze n.json`; a TOML template; a clear message if the plugin's netlist uses unsupported cells (UNVERIFIED that it works today) |
+| 2 | Digital-design / hardware-security instructors and TAs | Small netlists, need a visible demo; see section 2 | A lab handout, a prebuilt example with a known answer (exists: V1 breaks with 1 flip), runtime of seconds, no install beyond pip |
+| 3 | Tiny Tapeout / open-silicon hobbyists adding a TMR or duplicated check to a lock/FSM | Netlist from GDS action is an artifact; small designs fit the solver | Verilog-direct flow with `--top`, a sync-reset-only note up front (async reset is refused), a 6-line TOML, worked example (pin_lock exists) |
+| 4 | Researchers who build FI tools (SYNFI/FIRMER/k-FRP users) | Want a cross-check on a counting convention and small cases | JSON netlist input, scope lines with netlist SHA, statement of counting rule (flip of fanout net = 1 fault or f faults); honest comparison table pointing to their tools (docs/PRIOR_ART.md) |
+| 5 | OpenTitan-adjacent security engineers wanting a "what-if" before real tooling | Public pain: accessible open FI flow is a gap (R1, lowRISC page) | Not a replacement for SYNFI/k-FRP: a quick check on a small block; export to JSON/SARIF; Docker pinned Yosys. Expect them to need larger designs than the solver handles (scalability beyond the toy is UNVERIFIED) |
+Caveat: none of these five was contacted; the ranking is INFERENCE.
+
+## 2. Education
+
+### What exists (SOURCED-SNIPPET unless noted; none opened in full)
+- Univ. of Piraeus CDS206 Embedded Systems Reliability: syllabus includes TMR with FPGA lab hours; lab 2 reportedly builds a TMR adder on an FPGA and uses fault injection to see the effect on architectural vulnerability factor; materials online. https://thales.cs.unipi.gr/modules/document/file.php/CDS126/Lab%20exercises/lab2/lab_notes/CDS206_lab2.pdf (fetch returned 503; claim from the search summary only: UNVERIFIED in detail) and https://cybersecdatasci.cs.unipi.gr/?p=2211
+- Piraeus CDS205 Hardware Security: voltage/clock glitching labs on MCU boards (search summary).
+- INSA Toulouse hardware-security lab (Nov 2025): clock glitching with a precomputed glitch heatmap. https://moodle.insa-toulouse.fr/mod/resource/view.php?id=105051 (search summary; may need login).
+- UNSW COMP6420 week 5 "Fault Injection Attacks and SoC Security": lab with AES FPGA bitstreams faulted at rounds 8/9/10 (differential fault analysis). https://cgi.cse.unsw.edu.au/~cs6420/lectures/05fault_and_soc/
+- A bootloader lab where students add >=5 countermeasures (including redundancy) and test with the FiSim simulator (Riscure; closed source per R1/R2). https://digitum-pre.conocimientovirtual.org/bitstreams/d7b47e6e-2671-4f74-a742-20a464ad203b/download (search summary; details UNVERIFIED)
+- Training courses on fault injection (hardware, not netlist): hardwear.io https://hardwear.io/usa-2023/training/applied-fault-injection.php ; RingZer0 https://archive.ringzer0.training/trainings/the-art-of-fault-injection.html ; NTU CET920 https://www.ntu.edu.sg/pace/programmes/detail/cet920-fault-injection-attacks-hardware-trojan
+- Contest: Hack@DAC uses an altered OpenTitan SoC with planted bugs (not FI-specific). https://www.sigda.org/sigda-events/hackdac/
+- Textbooks: Koren and Krishna, Fault-Tolerant Systems (2nd ed., 2020) has hardware fault tolerance (TMR) and cryptographic fault detection chapters (https://shop.elsevier.com/books/fault-tolerant-systems/koren/978-0-12-818105-8); O'Flynn and van Woudenberg, The Hardware Hacking Handbook (No Starch, 2021) covers voltage/clock glitching (https://nostarch.com/node/456); Joye and Tunstall, Fault Analysis in Cryptography (Springer 2012) (https://link.springer.com/doi/10.1007/978-3-642-29656-7). I could not confirm TMR coverage in Harris & Weste (not found in search): UNVERIFIED.
+
+### Does a "play with a netlist, flip bits, see which copies fail" lab exist?
+I did not find one (search covered TMR+FI lab terms; absence of evidence only). The nearest are the Piraeus TMR-adder FPGA FI lab (hardware-flavoured, FPGA needed) and the FiSim bootloader lab (software-level, closed tool). INFERENCE: the gap is a pure-software, netlist-level, no-FPGA lab where the student sees the SAME netlist fail after the synthesis step "optimises" redundancy. I do not claim no such lab exists.
+
+### How our assets could serve a lab (INFERENCE; the dashboard was not re-opened this round)
+- CLI: pip install, seconds-per-run, exit codes fit autograders (exit 0 vs 1 = pass/fail of a student's design; JUnit output feeds LMS/CI graders).
+- Dashboard "break it / fix it" acts: demonstration for a lecture; to be a lab it would need an interactive "choose a net and cycle" mode, which the dashboard may not have (UNVERIFIED; check dashboard/ before promising).
+- Safe framing for students: modelled bit flips, not glitches; say so on the handout.
+
+### Five lab ideas (learning outcome each)
+1. "One shared wire": triplicate a comparator but share one input/enable wire (like V1). Students predict, then run: 1 flip breaks it. Outcome: redundancy only helps if copies are independent; locate the single point of failure.
+3. "Does synthesis keep your copies?": synthesize a TMR RTL design with two Yosys settings (or versions) and compare gate counts and minimum attack size. Outcome: redundancy can be merged or restructured; verify the netlist, not the RTL (motivation also in the SYNFI paper, R1).
+4. "The voter is part of the system": TMR with a single voter, then add a result-flag output (like `boot_ok`). Find the 1-flip attack on the accept flag while the data word is protected (README CT-1). Outcome: define the goal/asset precisely; protecting the data bits is not protecting the decision.
+5. "Fix it and prove it up to a bound": students edit a small lock (pin_lock) until `--max-flips 2` returns NO_ATTACK, then raise to 3 and read the counter-example. Outcome: bounded vs unbounded claims; "no attack up to the bound" is not security.
+Extra option: a "reproduce a published weakness class" exercise is NOT proposed, to avoid implying equivalence with real chips.
+
+## 3. Positioning
+- One sentence (honest): "A small Python tool that takes a gate-level netlist from Yosys and a short threat file, and uses an SMT solver to search for the smallest set of modelled single-cycle bit flips, within a stated bound, that makes a chosen output wrong, reporting the scope of that answer next to the verdict."
+- 30-second pitch (no novelty claim): "If you add redundant copies of a security check, did synthesis keep them, and do they really protect you? This tool lets you take your own Yosys netlist, say how many bit flips an attacker gets and for how many cycles, and asks a solver for the smallest attack. You get either a list of net-and-cycle flips or 'none up to this bound', plus the exact netlist hash and counting rule so the answer cannot be quoted out of context. It is a small, pip-installable what-if for toy-to-small designs and for teaching. It models bit flips in a netlist, not physical glitches, and bigger, more mature tools already exist for real designs (SYNFI, uArchiFI, k-FRP, FIRMER); this one aims to be quick to try."
+- Three things NOT to promise:
+  1. That "no attack found" means the design is secure, or that it covers inputs, power-up state, a changing key, or the accept flag unless that is the stated goal (README scope; CT-1).
+  2. Anything about silicon, physical glitches, or that it finds attacks that would work on a chip; and any "first / novel / better than SYNFI/uArchiFI/k-FRP" claim (nothing established as new; R2/R23).
+  3. Scalability, or support for arbitrary vendor netlists (only plain gates and sync flops today; async reset refused; no sky130/vendor cell mapping; solver time grows quickly with `max_flips`: 3 flips already takes seconds on the toy; larger designs UNVERIFIED).
+  (Also avoid: implying OpenTitan or any named project endorses or uses it.)
+
+## 4. The 8 smallest changes to product/ that raise adoption most
+(effort S ~ hours, M ~ a day, L ~ multi-day. All proposals only; I edited nothing outside research/c3/r24/. A change touching the tool needs the lead; effort figures are ESTIMATED.)
+| # | Change | Effort | Why / dependency |
+|---|---|---|---|
+| 1 | A tested `yosys -p` one-liner and shell script `examples/synth_and_check.sh` (read_verilog, `synth -top`, flatten, `write_json`, then `analyze`), with Yosys version printed into the report; document in QUICKSTART as the primary path. Verilog-direct already exists, so this is documentation plus a test | S | Gets 80% of the "Yosys plugin" value with none of the C++/embedding cost |
+| 2 | Run and fix the existing GitHub Actions workflow in a scratch repo/fork (needs the owner; I cannot do outward actions), then wrap it as a composite `action.yml` (inputs: netlist, config, report paths; outputs: exit code) | M | A workflow that has never run is a credibility gap. Needs a fresh public repo; owner decision |
+| 3 | `Dockerfile` pinning Yosys version + Python + the package (and a `docker run` line in the QUICKSTART) | S | Removes version drift (0.33 vs 0.38 gave different verdicts); uArchiFI users already accept Docker. Image size/licence of base: check |
+| 4 | Two small example repos/dirs: (a) TMR lock with Makefile; (b) Tiny Tapeout-style layout with a cocotb test beside the fault check. Each runs in <1 min with known expected verdicts | M | Examples drive installs; pin_lock exists as seed. Do not ship TaMaRa/TMRX outputs until verified to parse |
+| 5 | `pytest`/cocotb-friendly Python API: `faultbound_wt.analyze(netlist, config) -> Result` with `assert result.no_attack`, plus an example test file | S to M | Python API is probably already internal (runner.py); wrapping is small. cocotb users already write Python tests. Real cocotb hook (reading a simulator netlist) would be L; not needed |
+| 6 | `.pre-commit-hooks.yaml` entry running `analyze` on changed netlist/config pairs | S | Cheap; low demand evidence (INFERENCE); only for teams that commit netlists |
+| 7 | Badge: shields-style JSON endpoint or a README snippet that shows the scoped verdict ("no attack <= k=2, T=6, sha 1a2b...") from the JSON report; never a bare "secure" badge | S | Visibility; the text must carry bound and hash to avoid overclaiming. Risk: badges invite misreading; keep bound in the label |
+| 8 | Input hardening for real-world netlists: friendlier errors and a documented cell-mapping hook for non-plain cells (e.g. Yosys `abc -g` to simple gates; note for sky130 netlists from Tiny Tapeout: re-synthesize the RTL with `synth` instead of reading the mapped one), plus a PyPI release under a real name | M | The biggest practical failure in the first 10 minutes will be an unsupported cell; PyPI name and licence are owner decisions |
+Not recommended now: VS Code extension (L, no demand evidence found), native Yosys plugin (L; the one-liner in #1 covers most of it), SARIF-only focus (already done).
+
+## 5. Open questions for the lead
+- Does `faultbound-wt` accept the output of `tamara_tmr` / TMRX after `synth; abc -g AND,XOR,MUX`? Cheapest next step (needs the plugin built; not allowed this session: third-party tools not to be run).
+- Is the Python API stable enough to publish (#5)?
+- Owner: licence, name, PyPI publication, public example repo, and whether the dashboard should get an interactive flip-a-net mode for teaching.

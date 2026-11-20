@@ -1,0 +1,29 @@
+.subckt door clk ena rst_n ui_in[7] ui_in[6] ui_in[5] ui_in[4] ui_in[3] ui_in[2] ui_in[1] ui_in[0] uio_in[7] uio_in[6] uio_in[5] uio_in[4] uio_in[3] uio_in[2] uio_in[1] uio_in[0] uio_oe[7] uio_oe[6] uio_oe[5] uio_oe[4] uio_oe[3] uio_oe[2] uio_oe[1] uio_oe[0] uio_out[7] uio_out[6] uio_out[5] uio_out[4] uio_out[3] uio_out[2] uio_out[1] uio_out[0] uo_out[7] uo_out[6] uo_out[5] uo_out[4] uo_out[3] uo_out[2] uo_out[1] uo_out[0] VPWR VGND
+X_0_ ui_in[0] ui_in[2] ui_in[3] ui_in[1] VGND VGND VPWR VPWR uo_out[0] sky130_fd_sc_hd__nor4bb_1
+X_1_ ui_in[0] ui_in[2] ui_in[3] ui_in[1] VGND VGND VPWR VPWR uo_out[1] sky130_fd_sc_hd__nand4bb_1
+X_2_ VGND VGND VPWR VPWR NC_X_2__HI uio_oe[7] sky130_fd_sc_hd__conb_1
+XTAP_0 VGND VPWR sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_1 VGND VPWR sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_2 VGND VPWR sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_0_8 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_0_16 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_4
+XFILLER_0_20 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_1
+XFILLER_0_22 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_0_30 VGND VGND VPWR VPWR sky130_fd_sc_hd__decap_3
+XFILLER_1_0 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_1_8 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_1_19 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_1_27 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_4
+XFILLER_1_31 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_2
+XFILLER_2_0 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_2_8 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_2_16 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_4
+XFILLER_2_20 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_1
+XFILLER_2_22 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_2_30 VGND VGND VPWR VPWR sky130_fd_sc_hd__decap_3
+XFILLER_3_0 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_1
+XFILLER_3_18 VGND VGND VPWR VPWR sky130_fd_sc_hd__decap_3
+XFILLER_3_22 VGND VGND VPWR VPWR sky130_fd_sc_hd__fill_8
+XFILLER_3_30 VGND VGND VPWR VPWR sky130_fd_sc_hd__decap_3
+.ends

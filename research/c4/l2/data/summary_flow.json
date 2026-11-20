@@ -1,0 +1,281 @@
+{
+ "base": {
+  "area_um2": "399",
+  "util_pct": "77",
+  "slack": [
+   [
+    "7.035",
+    "MET"
+   ],
+   [
+    "0.476",
+    "MET"
+   ]
+  ],
+  "wl_detailed_um": 949.0,
+  "wl_global_um": 1869.9,
+  "route_violations": "0",
+  "route_drc_rpt_bytes": 0,
+  "antenna_pin_net": [
+   "0",
+   [
+    "0",
+    "48"
+   ]
+  ],
+  "magic_top_drc_rules": [],
+  "magic_top_count": [],
+  "shorts": [],
+  "lvs": "Circuits match uniquely.",
+  "devices": [
+   "430",
+   "430"
+  ],
+  "nets": [
+   "226",
+   "226"
+  ],
+  "components": 72,
+  "time": "total_s 19"
+ },
+ "v8": {
+  "area_um2": "400",
+  "util_pct": "58",
+  "slack": [
+   [
+    "7.056",
+    "MET"
+   ],
+   [
+    "0.479",
+    "MET"
+   ]
+  ],
+  "wl_detailed_um": 1222.9,
+  "wl_global_um": 1938.9,
+  "route_violations": "0",
+  "route_drc_rpt_bytes": 0,
+  "antenna_pin_net": [
+   "0",
+   [
+    "0",
+    "48"
+   ]
+  ],
+  "magic_top_drc_rules": [
+   "RULE|32|Local interconnect spacing < 0.17um (li.3)",
+   "RULE|1|Diffusion contact spacing < 0.17um (licon.2)",
+   "RULE|2|P-tap minimum area < 0.07011um^2 (psd.10b)",
+   "RULE|12|This layer can't abut or partially overlap between subcells",
+   "RULE|7|Can't overlap those layers",
+   "RULE|2|nFET cannot abut P-diffusion (diff/tap.3)",
+   "RULE|3|Metal3 minimum area < 0.24um^2 (met3.6)"
+  ],
+  "magic_top_count": [
+   "15"
+  ],
+  "shorts": [
+   [
+    "FILLER_8_59.VNB",
+    "VGND"
+   ],
+   [
+    "FILLER_8_59.VNB",
+    "boot_word[3]"
+   ],
+   [
+    "FILLER_8_59.VNB",
+    "sig[2]"
+   ]
+  ],
+  "lvs": "Top level cell failed pin matching.",
+  "devices": [
+   "428",
+   "430"
+  ],
+  "nets": [
+   "220",
+   "226"
+  ],
+  "components": 102,
+  "time": "total_s 62"
+ },
+ "s8": {
+  "area_um2": "414",
+  "util_pct": "31",
+  "slack": [
+   [
+    "7.056",
+    "MET"
+   ],
+   [
+    "0.478",
+    "MET"
+   ]
+  ],
+  "wl_detailed_um": 1240.8,
+  "wl_global_um": 2283.9,
+  "route_violations": "0",
+  "route_drc_rpt_bytes": 0,
+  "antenna_pin_net": [
+   "0",
+   [
+    "0",
+    "48"
+   ]
+  ],
+  "magic_top_drc_rules": [
+   "RULE|53|Local interconnect spacing < 0.17um (li.3)",
+   "RULE|2|P-tap minimum area < 0.07011um^2 (psd.10b)",
+   "RULE|11|This layer can't abut or partially overlap between subcells",
+   "RULE|9|Can't overlap those layers",
+   "RULE|2|nFET cannot abut P-diffusion (diff/tap.3)"
+  ],
+  "magic_top_count": [
+   "20"
+  ],
+  "shorts": [
+   [
+    "FILLER_12_80.VNB",
+    "VGND"
+   ],
+   [
+    "FILLER_12_80.VNB",
+    "sig[2]"
+   ]
+  ],
+  "lvs": "Top level cell failed pin matching.",
+  "devices": [
+   "427",
+   "430"
+  ],
+  "nets": [
+   "219",
+   "226"
+  ],
+  "components": 199,
+  "time": "total_s 17"
+ },
+ "v15": {
+  "area_um2": "427",
+  "util_pct": "26",
+  "slack": [
+   [
+    "7.054",
+    "MET"
+   ],
+   [
+    "0.474",
+    "MET"
+   ]
+  ],
+  "wl_detailed_um": 1418.7,
+  "wl_global_um": 2546.1,
+  "route_violations": "0",
+  "route_drc_rpt_bytes": 0,
+  "antenna_pin_net": [
+   "0",
+   [
+    "0",
+    "48"
+   ]
+  ],
+  "magic_top_drc_rules": [
+   "RULE|55|Local interconnect spacing < 0.17um (li.3)",
+   "RULE|6|This layer can't abut or partially overlap between subcells",
+   "RULE|6|Can't overlap those layers",
+   "RULE|10|Metal3 minimum area < 0.24um^2 (met3.6)",
+   "RULE|2|Core local interconnect spacing < 0.14um (li.c2)"
+  ],
+  "magic_top_count": [
+   "24"
+  ],
+  "shorts": [
+   [
+    "FILLER_13_89.VNB",
+    "VGND"
+   ],
+   [
+    "FILLER_13_89.VNB",
+    "sig[2]"
+   ],
+   [
+    "FILLER_13_89.VNB",
+    "sig[3]"
+   ],
+   [
+    "FILLER_13_89.VNB",
+    "sig[4]"
+   ]
+  ],
+  "lvs": "Top level cell failed pin matching.",
+  "devices": [
+   "425",
+   "430"
+  ],
+  "nets": [
+   "219",
+   "226"
+  ],
+  "components": 243,
+  "time": "total_s 59"
+ },
+ "rr": {
+  "area_um2": "414",
+  "util_pct": "31",
+  "slack": [
+   [
+    "7.043",
+    "MET"
+   ],
+   [
+    "0.479",
+    "MET"
+   ]
+  ],
+  "wl_detailed_um": 1290.1,
+  "wl_global_um": 2373.6,
+  "route_violations": "0",
+  "route_drc_rpt_bytes": 0,
+  "antenna_pin_net": [
+   "0",
+   [
+    "0",
+    "48"
+   ]
+  ],
+  "magic_top_drc_rules": [
+   "RULE|50|Local interconnect spacing < 0.17um (li.3)",
+   "RULE|2|P-tap minimum area < 0.07011um^2 (psd.10b)",
+   "RULE|8|This layer can't abut or partially overlap between subcells",
+   "RULE|6|Can't overlap those layers",
+   "RULE|2|nFET cannot abut P-diffusion (diff/tap.3)",
+   "RULE|5|Metal3 minimum area < 0.24um^2 (met3.6)",
+   "RULE|2|Core local interconnect spacing < 0.14um (li.c2)"
+  ],
+  "magic_top_count": [
+   "18"
+  ],
+  "shorts": [
+   [
+    "c2__4_.VNB",
+    "VGND"
+   ],
+   [
+    "c2__4_.VNB",
+    "sig[3]"
+   ]
+  ],
+  "lvs": "Top level cell failed pin matching.",
+  "devices": [
+   "427",
+   "430"
+  ],
+  "nets": [
+   "221",
+   "226"
+  ],
+  "components": 195,
+  "time": "total_s 58"
+ }
+}

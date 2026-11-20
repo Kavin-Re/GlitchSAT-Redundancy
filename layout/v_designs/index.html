@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>V1 and V2 sky130 layouts</title>
+<style>:root{--bg:#fff;--fg:#1a1a22;--card:#f3f3f7;--m:#0a6b2d;--a:#a15c00;--w:#b00020}
+@media (prefers-color-scheme:dark){:root{--bg:#14141a;--fg:#e8e8ee;--card:#20202a;--m:#5fd68a;--a:#ffb454;--w:#ff7a8a}}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif;margin:0;padding:16px;max-width:1100px;margin:auto}
+img{max-width:100%;height:auto;border-radius:6px}figure{margin:0 0 24px;background:var(--card);padding:12px;border-radius:8px}
+.t{font-weight:700;font-size:.8rem;padding:2px 8px;border-radius:4px;border:1px solid}.M{color:var(--m)}.A{color:var(--a)}.W{color:var(--w)}
+table{border-collapse:collapse;width:100%;overflow-x:auto;display:block}td,th{border:1px solid #8884;padding:4px 8px;text-align:left}</style></head><body>
+<h1>V1 and V2 in sky130_fd_sc_hd</h1>
+<p><span class="t W">not DRC/LVS verified</span> Real yosys + OpenROAD + magic flow, ~25 s total. Router reports 0 violations; magic DRC reports raw errors (V1 13, V2 18, undiagnosed); netgen LVS: netlists do not match. No physical glitch behaviour is claimed.</p>
+<h2><span class="t M">MEASURED</span> Flow results</h2>
+<table><tr><th></th><th>V1</th><th>V2</th></tr>
+<tr><td>yosys cells / area</td><td>35 / 357.8 um2</td><td>36 / 362.8 um2</td></tr>
+<tr><td>cmp8 copies survived</td><td>2 of 2</td><td>3 of 3</td></tr>
+<tr><td>placed area, utilisation</td><td>393 um2, 75%</td><td>393 um2, 75%</td></tr>
+<tr><td>die</td><td>30.4 x 30.4 um</td><td>30.6 x 30.6 um</td></tr>
+<tr><td>setup / hold slack (10 ns)</td><td>+6.964 / +0.509 ns</td><td>+7.016 / +0.479 ns</td></tr>
+<tr><td>runtime synth / P&amp;R</td><td>1.0 s / 8.2 s</td><td>1.2 s / 12.7 s</td></tr>
+<tr><td>route DRC report</td><td>empty (0 violations)</td><td>empty (0 violations)</td></tr>
+<tr><td>magic DRC / netgen LVS</td><td>13 errors / no match</td><td>18 errors / no match</td></tr></table>
+<h2>V1 full layout</h2><figure><img src="out/v1_full.png" alt="V1 layout"><figcaption><span class="t M">MEASURED</span> placed and routed, GDS via magic.</figcaption></figure>
+<figure><img src="out/v1_zoom_ok.png" alt="V1 zoom"><figcaption><span class="t A">ANNOTATION</span> instance _20_ (and2_0) found as the driver of net <code>ok</code> in the post-synthesis netlist (name survived, high confidence). The solver fault model ran on a different, generic gate netlist.</figcaption></figure>
+<h2>V2 full layout</h2><figure><img src="out/v2_full.png" alt="V2 layout"><figcaption><span class="t M">MEASURED</span> placed and routed, GDS via magic.</figcaption></figure>
+<figure><img src="out/v2_zoom_copies.png" alt="V2 copies"><figcaption><span class="t A">ANNOTATION</span> three compare copies c0 red, c1 green, c2 blue, from hierarchical instance names in the DEF. Placement proximity implies nothing about fault independence. Solver model was a different generic netlist.</figcaption></figure>
+<p>Commands: see README.md.</p></body></html>

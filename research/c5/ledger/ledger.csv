@@ -1,0 +1,93 @@
+design,stage,column,min_events,label,source
+V0,"1 Synthesis flow (stem flip, full word)",stored spike,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md; reference/spike_netlists via B3 stem_flip row"
+V0,"1 Synthesis flow (stem flip, full word)",apt0.33 plain,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V0,"1 Synthesis flow (stem flip, full word)",apt0.33 opt,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V0,"1 Synthesis flow (stem flip, full word)",apt plain +opt_merge,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V0,"1 Synthesis flow (stem flip, full word)",conda0.38 plain,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V0,"1 Synthesis flow (stem flip, full word)",conda0.38 opt,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V0,2 Consumer bits (stem),full word,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike)
+V0,2 Consumer bits (stem),4-bit 0x0F,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike)
+V0,2 Consumer bits (stem),accept flag boot_ok,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike)
+V0,3 Counting rule,stem,1,MEASURED,B1_REPORT matrix_T6.md
+V0,3 Counting rule,fanout branch,1,MEASURED,B1_REPORT matrix_T6.md
+V0,4 Fault model (word goal),stem flip,1,MEASURED,"B3 stem_flip row, reproduced in data/ctrl.jsonl"
+V0,4 Fault model (word goal),rail 1->0,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; B3 rail_any (all/half/unions/cone)"
+V0,4 Fault model (word goal),rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; rise_all/half/unions/cone, min"
+V0,4 Fault model (word goal),either polarity,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; both_any = union of both event families, one polarity per event"
+V0,4 Fault model (word goal),selective 1->0 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; B3 dip_subset bound"
+V0,4 Fault model (word goal),selective 0->1 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V0,4b boot_ok goal,rail 1->0,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V0,4b boot_ok goal,rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V0,"5 Placement (V2, per-rail selective)",base,n/a,UNMEASURED,no placed layout for V0
+V0,"5 Placement (V2, per-rail selective)",spread v8,n/a,UNMEASURED,no placed layout for V0
+V0,"5 Placement (V2, per-rail selective)",rr (diff. rails),n/a,UNMEASURED,no placed layout for V0
+V0,"5 Placement (V2, per-rail selective)",any: 0->1 event,n/a,UNMEASURED,the 0->1 control was run on netlist hierarchy domains only; not on layout-derived domains (needs b3cell + L2 DEFs)
+V1,"1 Synthesis flow (stem flip, full word)",stored spike,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md; reference/spike_netlists via B3 stem_flip row"
+V1,"1 Synthesis flow (stem flip, full word)",apt0.33 plain,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V1,"1 Synthesis flow (stem flip, full word)",apt0.33 opt,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V1,"1 Synthesis flow (stem flip, full word)",apt plain +opt_merge,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V1,"1 Synthesis flow (stem flip, full word)",conda0.38 plain,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V1,"1 Synthesis flow (stem flip, full word)",conda0.38 opt,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); research/c2/b2_scope/matrix.jsonl / B2_REPORT.md"
+V1,2 Consumer bits (stem),full word,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike)
+V1,2 Consumer bits (stem),4-bit 0x0F,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike)
+V1,2 Consumer bits (stem),accept flag boot_ok,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike)
+V1,3 Counting rule,stem,1,MEASURED,B1_REPORT matrix_T6.md
+V1,3 Counting rule,fanout branch,2,MEASURED,B1_REPORT matrix_T6.md
+V1,4 Fault model (word goal),stem flip,1,MEASURED,"B3 stem_flip row, reproduced in data/ctrl.jsonl"
+V1,4 Fault model (word goal),rail 1->0,>3,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; B3 rail_any (all/half/unions/cone)"
+V1,4 Fault model (word goal),rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; rise_all/half/unions/cone, min"
+V1,4 Fault model (word goal),either polarity,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; both_any = union of both event families, one polarity per event"
+V1,4 Fault model (word goal),selective 1->0 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; B3 dip_subset bound"
+V1,4 Fault model (word goal),selective 0->1 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V1,4b boot_ok goal,rail 1->0,>3,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V1,4b boot_ok goal,rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V1,"5 Placement (V2, per-rail selective)",base,1,SIMULATED,LAYOUT_REPORT sec.4: V1 rows/rails/straps SUB 1/1
+V1,"5 Placement (V2, per-rail selective)",spread v8,n/a,UNMEASURED,no spread layout for V1
+V1,"5 Placement (V2, per-rail selective)",rr (diff. rails),n/a,UNMEASURED,no spread layout for V1
+V1,"5 Placement (V2, per-rail selective)",any: 0->1 event,n/a,UNMEASURED,the 0->1 control was run on netlist hierarchy domains only; not on layout-derived domains (needs b3cell + L2 DEFs)
+V2,"1 Synthesis flow (stem flip, full word)",stored spike,3,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); B2_REPORT.md matrix; B3_REPORT.md stem row"
+V2,"1 Synthesis flow (stem flip, full word)",apt0.33 plain,2,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); B2_REPORT.md matrix; B3_REPORT.md stem row"
+V2,"1 Synthesis flow (stem flip, full word)",apt0.33 opt,2,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); B2_REPORT.md matrix; B3_REPORT.md stem row"
+V2,"1 Synthesis flow (stem flip, full word)",apt plain +opt_merge,1,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); B2_REPORT.md matrix; B3_REPORT.md stem row"
+V2,"1 Synthesis flow (stem flip, full word)",conda0.38 plain,3,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); B2_REPORT.md matrix; B3_REPORT.md stem row"
+V2,"1 Synthesis flow (stem flip, full word)",conda0.38 opt,2,MEASURED,"research/c2/e2_variance/raw/matrix.csv (keep_on, abc_then_flatten, default ABC); B2_REPORT.md matrix; B3_REPORT.md stem row"
+V2,2 Consumer bits (stem),full word,3,MEASURED,research/c3/m1/m1_all_masks.csv (spike); boot_ok: B2/B3
+V2,2 Consumer bits (stem),4-bit 0x0F,2,MEASURED,research/c3/m1/m1_all_masks.csv (spike); boot_ok: B2/B3
+V2,2 Consumer bits (stem),accept flag boot_ok,1,MEASURED,research/c3/m1/m1_all_masks.csv (spike); boot_ok: B2/B3
+V2,3 Counting rule,stem,3,MEASURED,"stem: B1/B3; branch: B1 left it unfinished at 60 s, re-run here with B1 faultpack, 100 s z3 limit: 3 (data/br.out)"
+V2,3 Counting rule,fanout branch,3,MEASURED,"stem: B1/B3; branch: B1 left it unfinished at 60 s, re-run here with B1 faultpack, 100 s z3 limit: 3 (data/br.out)"
+V2,4 Fault model (word goal),stem flip,3,MEASURED,"B3 stem_flip row, reproduced in data/ctrl.jsonl"
+V2,4 Fault model (word goal),rail 1->0,>3,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; B3 rail_any (all/half/unions/cone)"
+V2,4 Fault model (word goal),rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; rise_all/half/unions/cone, min"
+V2,4 Fault model (word goal),either polarity,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; both_any = union of both event families, one polarity per event"
+V2,4 Fault model (word goal),selective 1->0 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist; B3 dip_subset bound"
+V2,4 Fault model (word goal),selective 0->1 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V2,4b boot_ok goal,rail 1->0,>3,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V2,4b boot_ok goal,rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; spike netlist"
+V2,"5 Placement (V2, per-rail selective)",base,1,SIMULATED,"research/c4/l2/L2_REPORT.md rail-level paragraph (SUB cost word/ok), research/c4/layout/LAYOUT_REPORT.md: VPWR rail family base 1/1"
+V2,"5 Placement (V2, per-rail selective)",spread v8,2,SIMULATED,"research/c4/l2/L2_REPORT.md rail-level paragraph (SUB cost word/ok), research/c4/layout/LAYOUT_REPORT.md: v8 2/2"
+V2,"5 Placement (V2, per-rail selective)",rr (diff. rails),3,SIMULATED,"research/c4/l2/L2_REPORT.md rail-level paragraph (SUB cost word/ok), research/c4/layout/LAYOUT_REPORT.md: rr 3/2"
+V2,"5 Placement (V2, per-rail selective)",any: 0->1 event,n/a,UNMEASURED,the 0->1 control was run on netlist hierarchy domains only; not on layout-derived domains (needs b3cell + L2 DEFs)
+V5,"1 Synthesis flow (stem flip, full word)",stored spike,n/a,UNMEASURED,no spike netlist for V5 exists (B3_REPORT)
+V5,"1 Synthesis flow (stem flip, full word)",apt0.33 plain,3,MEASURED,B3 matrix_T6.jsonl + rerun here (v5/apt_plain.rep.json)
+V5,"1 Synthesis flow (stem flip, full word)",apt0.33 opt,3,MEASURED,"measured here: v5/apt_opt.json, product CLI --max-flips 3"
+V5,"1 Synthesis flow (stem flip, full word)",apt plain +opt_merge,1,MEASURED,measured here: v5/apt_plain_merge.json
+V5,"1 Synthesis flow (stem flip, full word)",conda0.38 plain,3,MEASURED,"measured here: eda yosys 0.38, v5/conda_plain.json"
+V5,"1 Synthesis flow (stem flip, full word)",conda0.38 opt,3,MEASURED,measured here: v5/conda_opt.json
+V5,2 Consumer bits (stem),full word,3,MEASURED,"measured here, apt plain V5, product CLI --consumer-bits / --goal-out boot_ok"
+V5,2 Consumer bits (stem),4-bit 0x0F,2,MEASURED,"measured here, apt plain V5, product CLI --consumer-bits / --goal-out boot_ok"
+V5,2 Consumer bits (stem),accept flag boot_ok,1,MEASURED,"measured here, apt plain V5, product CLI --consumer-bits / --goal-out boot_ok"
+V5,3 Counting rule,stem,3,MEASURED,"measured here, B1 faultpack branch_flip on apt plain V5 (data/br.out)"
+V5,3 Counting rule,fanout branch,3,MEASURED,"measured here, B1 faultpack branch_flip on apt plain V5 (data/br.out)"
+V5,4 Fault model (word goal),stem flip,3,MEASURED,"B3 stem_flip row, reproduced in data/ctrl.jsonl"
+V5,4 Fault model (word goal),rail 1->0,>3,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist; B3 rail_any (all/half/unions/cone)"
+V5,4 Fault model (word goal),rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist; rise_all/half/unions/cone, min"
+V5,4 Fault model (word goal),either polarity,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist; both_any = union of both event families, one polarity per event"
+V5,4 Fault model (word goal),selective 1->0 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist; B3 dip_subset bound"
+V5,4 Fault model (word goal),selective 0->1 subset,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist"
+V5,4b boot_ok goal,rail 1->0,>3,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist"
+V5,4b boot_ok goal,rail 0->1 CONTROL,1,SIMULATED,"data/pol.jsonl (b3pol.py = B3 engine copy + 0->1 events), T=6 cap 3 z3 60 s; apt0.33 plain netlist"
+V5,"5 Placement (V2, per-rail selective)",base,n/a,UNMEASURED,no placed layout for V5
+V5,"5 Placement (V2, per-rail selective)",spread v8,n/a,UNMEASURED,no placed layout for V5
+V5,"5 Placement (V2, per-rail selective)",rr (diff. rails),n/a,UNMEASURED,no placed layout for V5
+V5,"5 Placement (V2, per-rail selective)",any: 0->1 event,n/a,UNMEASURED,the 0->1 control was run on netlist hierarchy domains only; not on layout-derived domains (needs b3cell + L2 DEFs)

@@ -1,0 +1,10 @@
+PASS 390_light_default: scrollWidth 390 (viewport 390), page height 2297, console clean, min font 13 px, targets<44 none
+PASS 390_dark_flag: scrollWidth 390 (viewport 390), page height 2297, console clean, min font 13 px, targets<44 none
+PASS 390_light_notmeasured: scrollWidth 390 (viewport 390), page height 2540, console clean, min font 13 px, targets<44 none
+PASS 390_light_predict: scrollWidth 390 (viewport 390), page height 2344, console clean, min font 13 px, targets<44 none
+PASS 1366_light_default: scrollWidth 1366 (viewport 1366), page height 1101, console clean, min font 13 px, targets<44 none
+PASS 1366_dark_plain: scrollWidth 1366 (viewport 1366), page height 1101, console clean, min font 13 px, targets<44 none
+PASS 1366_light_mask: scrollWidth 1366 (viewport 1366), page height 1241, console clean, min font 13 px, targets<44 none
+PASS 1366_light_big: scrollWidth 1366 (viewport 1366), page height 1121, console clean, min font 13 px, targets<44 none
+PASS 1366_dark_big_predict: scrollWidth 1366 (viewport 1366), page height 1066, console clean, min font 13 px, targets<44 none
+PASS 1920_light_big: scrollWidth 1920 (viewport 1920), page height 1222, console clean, min font 13 px, targets<44 none

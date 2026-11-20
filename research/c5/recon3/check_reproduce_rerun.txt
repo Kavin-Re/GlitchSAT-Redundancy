@@ -1,0 +1,9 @@
+36/36 rows match (engine re-run); 0 row(s) FAILED; 0 problem(s) in total
+What this run can and cannot tell you (TAMPER-EVIDENCE):
+  DETECTED   : accidental or one-sided edits: summary vs per-run file vs input hash (first 16 hex only) vs expected file; duplicate / missing / extra rows;
+               (with --rerun) results or expected values that the engine in this tree does not reproduce.
+  NOT DETECTED: a coordinated edit of several files in the same tree (summary + per-run files + recorded hashes); an edited engine
+               (scripts/glitchsat.py) or scripts/synth.sh, unless its SHA-256 is compared with a copy you trust (the built-in ENGINE_MANIFEST lives in this tree too);
+               an edited RTL/netlist that keeps the same verdicts; a changed model; tool-version differences.
+  Coordinated edits are only caught by comparing against an EXTERNAL copy (a signed tag, release notes, a fresh checkout of a pinned commit, a manifest hash kept elsewhere).
+  --rerun means: 'this engine, on this tree, with these tool versions, reproduces the table'. Nothing more.

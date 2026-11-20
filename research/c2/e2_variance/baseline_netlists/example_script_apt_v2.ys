@@ -1,0 +1,14 @@
+read_verilog /tmp/work_e2/rtl_keep_on/v2.v
+hierarchy -top v2
+proc
+opt_clean
+techmap
+opt_clean
+abc -g AND,OR,XOR,MUX
+opt_clean
+setattr -mod -unset keep_hierarchy *
+flatten
+opt_clean
+techmap
+opt_clean
+write_json /tmp/work_e2/nl/apt0.33__v2__plain__abc_then_flatten__default__nomerge__keep_on/r1.json

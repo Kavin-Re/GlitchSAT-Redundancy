@@ -1,0 +1,10 @@
+# 4-bit PIN lock example: the real PIN is 0xA (legitimate_value = 10); goal = unlock == 1 with a wrong PIN.
+[faults]
+max_flips = 1
+cycles = 4
+[attacker]
+input = "code"
+legitimate_value = 10
+[property]
+output = "unlock"
+bad_value = 1

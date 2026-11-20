@@ -1,0 +1,37 @@
+# EXAMPLE ONLY: never run on GitHub, not linted, not enabled. Copy to .github/workflows/ yourself if you want it.
+# What it does: install the tool, analyze a Yosys JSON netlist that your build produced, upload the SARIF so findings show in
+# the repository's "Code scanning" tab (GitHub code scanning must be available for your repo; private repos need GitHub Advanced Security).
+# Exit codes of the tool: 0 no attack within the bound, 1 attack found, 2 solver unknown, 3 input/config error, 4 internal error.
+name: faultbound-check
+on:
+  pull_request:
+permissions:
+  contents: read
+  security-events: write      # needed by upload-sarif
+jobs:
+  fault-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install ./product           # or: pip install <path-or-index-of-the-package>
+      # Replace build/netlist.json and threat.toml with your own. The netlist path should be inside the repo so that the SARIF
+      # location resolves. Without `continue-on-error`, exit 1/2/3/4 fails the job after the SARIF is uploaded (next step has `if: always()`).
+      - name: analyze
+        run: faultbound-wt analyze build/netlist.json --config threat.toml --report fb.json --report fb.sarif --report fb.junit.xml
+      - name: upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: fb.sarif
+          category: faultbound
+      - name: keep reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: faultbound-reports
+          path: |
+            fb.json
+            fb.sarif
+            fb.junit.xml

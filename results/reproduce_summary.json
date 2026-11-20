@@ -1,0 +1,578 @@
+{
+  "label": "MEASURED",
+  "cycles": 6,
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= <=3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "rows": [
+    {
+      "design": "v0",
+      "netlist": "rtl/plain",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.02,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/plain",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "$abc$206$new_n17_",
+          1
+        ]
+      ],
+      "runtime_s": 0.227,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/plain",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "$abc$206$new_n16_",
+          0
+        ]
+      ],
+      "runtime_s": 0.265,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/plain",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "$flatten\\c.$abc$196$new_n11_",
+          1
+        ]
+      ],
+      "runtime_s": 0.246,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/plain",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.064,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/plain",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.378,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/plain",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.428,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/plain",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.414,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/plain",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.071,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/plain",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.324,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/plain",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 2,
+      "faults": [
+        [
+          "$abc$275$new_n58_",
+          0
+        ],
+        [
+          "$abc$275$new_n74_",
+          0
+        ]
+      ],
+      "runtime_s": 0.548,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/plain",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 2,
+      "faults": [
+        [
+          "$abc$275$new_n74_",
+          0
+        ],
+        [
+          "$abc$275$new_n58_",
+          4
+        ]
+      ],
+      "runtime_s": 0.426,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/opt",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.014,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/opt",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "boot_word[0]",
+          3
+        ]
+      ],
+      "runtime_s": 0.162,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/opt",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "$abc$195$new_n15_",
+          3
+        ]
+      ],
+      "runtime_s": 0.216,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "rtl/opt",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "boot_word[0]",
+          3
+        ]
+      ],
+      "runtime_s": 0.231,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/opt",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.058,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/opt",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.31,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/opt",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.258,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "rtl/opt",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.258,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/opt",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.06,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/opt",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.437,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/opt",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 2,
+      "faults": [
+        [
+          "$abc$314$new_n68_",
+          0
+        ],
+        [
+          "$abc$314$new_n52_",
+          1
+        ]
+      ],
+      "runtime_s": 0.362,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "rtl/opt",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 2,
+      "faults": [
+        [
+          "$abc$314$new_n52_",
+          0
+        ],
+        [
+          "$abc$314$new_n68_",
+          0
+        ]
+      ],
+      "runtime_s": 0.761,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "spike/given-netlist",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.015,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "spike/given-netlist",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "st[0]",
+          5
+        ]
+      ],
+      "runtime_s": 0.073,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "spike/given-netlist",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "st[1]",
+          0
+        ]
+      ],
+      "runtime_s": 0.08,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v0",
+      "netlist": "spike/given-netlist",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n16_",
+          1
+        ]
+      ],
+      "runtime_s": 0.079,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "spike/given-netlist",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.051,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "spike/given-netlist",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.339,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "spike/given-netlist",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.281,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v1",
+      "netlist": "spike/given-netlist",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 1,
+      "faults": [
+        [
+          "ok",
+          1
+        ]
+      ],
+      "runtime_s": 0.34,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "spike/given-netlist",
+      "k": 0,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.042,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "spike/given-netlist",
+      "k": 1,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 0.257,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "spike/given-netlist",
+      "k": 2,
+      "cycles": 6,
+      "verdict": "NO_ATTACK_UP_TO_BOUND",
+      "min_faults": null,
+      "faults": [],
+      "runtime_s": 1.178,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    },
+    {
+      "design": "v2",
+      "netlist": "spike/given-netlist",
+      "k": 3,
+      "cycles": 6,
+      "verdict": "ATTACK_FOUND",
+      "min_faults": 3,
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "runtime_s": 5.139,
+      "honest_key_boots": true,
+      "label": "MEASURED"
+    }
+  ]
+}

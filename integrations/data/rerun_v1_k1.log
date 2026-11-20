@@ -1,0 +1,21 @@
+/tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+--------------------------------------------------------------------------------
+2026-11-19 19:18:08.795990: Starting FI Injector for fault model v1_cycle1_flip with 1 simultaneous faults.
+[36m(pid=9524)[0m /tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+[36m(pid=9524)[0m   import pkg_resources
+Injecting 53 faults...
+[36m(pid=10038)[0m /tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.[32m [repeated 4x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=10038)[0m   import pkg_resources[32m [repeated 4x across cluster][0m
+Found 1 (1.89%) effective combinational faults, 0 (0.0%) effective sequential faults, and 52 ineffective faults.
+Circuit size of the whole circuit: 86.0 GE and of the analyzed target graph: 80.0 GE.
+--------------------------------------------------------------------------------
+RESULT model=v1_cycle1_flip k=1 total_fault_sets=53 effective=1 ineffective=52
+  EFFECTIVE: ok[386:parse_blif$280] stage=stage_1 NAND2_X1
+RUNTIME_s 29.5
+[36m(pid=10041)[0m /tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.[32m [repeated 3x across cluster][0m
+[36m(pid=10041)[0m   import pkg_resources[32m [repeated 3x across cluster][0m
+
+real	0m45.037s
+user	0m4.866s
+sys	0m0.534s

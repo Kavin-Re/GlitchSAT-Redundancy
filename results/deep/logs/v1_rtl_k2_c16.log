@@ -1,0 +1,4 @@
+CMD: python3 -I /home/user/project/results/deep/run_one.py /home/user/project/results/deep/work/nl/v1_rtl.json v1 2 16 /home/user/project/results/deep/json/v1_rtl_k2_c16.json
+v1 ATTACK_FOUND min 1 wall 2.06 [('ok', 1)] honest True
+
+wall_s=2.25

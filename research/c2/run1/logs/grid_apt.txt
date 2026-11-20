@@ -1,0 +1,9 @@
+v0apt_ne1_nc1_nopt.cnf vars 394 clauses 2239 SAT 0.005s encode=.052356271s design=v0 ne=1 nc=1 nopt
+v0apt_ne2_nc1_nopt.cnf vars 504 clauses 2353 SAT 0.002s encode=.020304034s design=v0 ne=2 nc=1 nopt
+v0apt_ne1_nc2_nopt.cnf vars 402 clauses 2272 SAT 0.001s encode=.040234234s design=v0 ne=1 nc=2 nopt
+v1apt_ne1_nc1_nopt.cnf vars 1030 clauses 6528 SAT 0.008s encode=.062755221s design=v1 ne=1 nc=1 nopt
+v1apt_ne2_nc1_nopt.cnf vars 1355 clauses 6079 SAT 0.007s encode=.063731399s design=v1 ne=2 nc=1 nopt
+v1apt_ne1_nc2_nopt.cnf vars 1038 clauses 6556 SAT 0.003s encode=.057682039s design=v1 ne=1 nc=2 nopt
+v2apt_ne1_nc1_nopt.cnf vars 1159 clauses 7530 UNSAT 0.014s encode=.201469032s design=v2 ne=1 nc=1 nopt
+v2apt_ne2_nc1_nopt.cnf vars 1469 clauses 7286 SAT 0.010s encode=.065243150s design=v2 ne=2 nc=1 nopt
+v2apt_ne1_nc2_nopt.cnf vars 1167 clauses 7558 SAT 0.019s encode=.073385454s design=v2 ne=1 nc=2 nopt
