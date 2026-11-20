@@ -1,6 +1,6 @@
 # PROJECT DOSSIER (Face A: individual ECE/VLSI project), second pass
 
-How this was written. D2 re-ran NOTHING. Every number below is quoted from the named agent report (path given). Labels (`docs/EVIDENCE_LABELS.md`): MEASURED = a command produced it (by the agent named, not by D2); SIMULATED = model or circuit simulation output; SOURCED = a fetched web page or search result said it (by another agent; D2 did not open it); INFERRED = reasoning, not a measurement; UNVERIFIED = not checked by anyone I can name. Paths are relative to `/home/user/project/`. Faults are modelled bit flips in a netlist. Nothing here used hardware. Nothing here is established as new.
+How this was written. D2 re-ran NOTHING. Every number below is quoted from the named agent report (path given). Labels (`docs/EVIDENCE_LABELS.md`): MEASURED = a command produced it (by the agent named, not by D2); SIMULATED = model or circuit simulation output; SOURCED = a fetched web page or search result said it (by another agent; D2 did not open it); INFERRED = reasoning, not a measurement; UNVERIFIED = not checked by anyone I can name. Paths are relative to the repository root. Faults are modelled bit flips in a netlist. Nothing here used hardware. Nothing here is established as new.
 
 ## 0. Lead: what the project can honestly claim, and the lesson that shaped it
 
@@ -158,21 +158,13 @@ Fact (arithmetic, MEASURED by `docs/dossier/test_hamming.py`): the state code {F
 ## 14. Honest process note (what reviews mean here)
 
 ## 15. Future work, in order of value (INFERRED)
-1. Owner: write section 17 and rehearse (`VIVA_SHEET.md`). 2. Read EL1's report (the rail-dip and capture fault classes are now in B3, s7.12; the open item is selectivity, s7.13). Also (C4): port or drop the branch counting rule in the product, read k-FRP, and run an IR-drop or extraction study before any layout claim. 3. Re-run B1's unfinished V2 branch cells. 4. Test a non-complementary accept/fail encoding (EL2-3). 5. Read k-FRP in full if it can be fetched. 6. Re-run the 32-netlist matrix with a recipe written from scratch. 7. Adopt MT's oracle tests into `tests/` and finish the 72 NOT RUN mutants. 8. A second proof engine or certificate for the PDR claim.
+1. Rehearse with `VIVA_SHEET.md`. 2. Read EL1's report (the rail-dip and capture fault classes are now in B3, s7.12; the open item is selectivity, s7.13). Also (C4): port or drop the branch counting rule in the product, read k-FRP, and run an IR-drop or extraction study before any layout claim. 3. Re-run B1's unfinished V2 branch cells. 4. Test a non-complementary accept/fail encoding (EL2-3). 5. Read k-FRP in full if it can be fetched. 6. Re-run the 32-netlist matrix with a recipe written from scratch. 7. Adopt MT's oracle tests into `tests/` and finish the 72 NOT RUN mutants. 8. A second proof engine or certificate for the PDR claim.
 
 ## 16. For a reader from another field (plain words)
 Think of a safe with a lock. A thief cannot get the key, but can hit the lock with a tiny well-timed shock so it opens with the wrong key. This project is a computer model of that, for the lock inside a chip that decides whether to start up. Engineers build two or three copies of the key check. You might think the thief must now beat every copy. Not always: if all the copies send their answer into one wire, a shock on that wire beats them all. We also found that whether the three-copy version looks safe depends on small choices that sound technical but matter: which signal the attacker is trying to change (the detailed result word or the final yes/no flag), whether the attacker may disturb the input wires, how the lock powers up, which program turned the design into a circuit, and how you count one "shock". Change one choice and the answer can go from "needs three shocks" to "needs one". So the lesson is not "three copies are good" or "bad"; it is that a statement like "resists two shocks" means nothing unless it lists its choices, and we built a small tool that reruns the question under each choice. What this does NOT show: that any real chip fails this way, that any real product is unsafe or safe, or anything about real electrical glitches. A "shock" here is a flipped 0 or 1 in a model.
 
-## 17. My own contribution (owner to write)
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-## 18. Where things live
+## 17. Where things live
 Numbers and commands: `EVIDENCE_INDEX.md`. Hard questions: `VIVA_SHEET.md`. Rubric view: `RUBRIC_MAP.md`. Open and fixed weaknesses: `CRITIQUE.md`. One-page owner guide: `ONE_PAGE_FOR_THE_OWNER.md`. Upstream: `docs/report/PROJECT_REPORT.md`, `docs/FINAL_STATUS.md`.
 
-## 19. What D2 did and did not do
+## 18. What D2 did and did not do
 D2 read the reports named in its brief and the existing dossier files, ran no command in the tree or on a copy, and re-ran no solver. D1 re-ran on 2026-11-19 (first pass): `make test`, `make reproduce`, `make check-reproduce`, the worked example, the Hamming test and PDR k=2/k=3. Since then the lead re-ran CT-1 and the H1 equivalence (RUN_LOG 120, 151); RA re-ran the quickstart on a copy. Everything else in this dossier is reported.

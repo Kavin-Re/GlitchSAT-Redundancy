@@ -31,7 +31,7 @@ def example_dir():
 
 
 def build_parser():
-    ap = _Parser(prog="faultbound-wt", description="Bounded modelled bit-flip analysis of a Yosys netlist (working title TBD).")
+    ap = _Parser(prog="faultbound-wt", description="Bounded modelled bit-flip analysis of a Yosys netlist (GlitchSAT).")
     ap.add_argument("--version", action="version", version=__version__)
     sp = ap.add_subparsers(dest="cmd", required=True)
     a = sp.add_parser("analyze", help="search for a bounded bit-flip attack",

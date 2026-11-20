@@ -2,7 +2,7 @@
 
 Plain summary: the six documents in `docs/report/` were updated to the final state of the project. Checks (a) to (d) were done and are recorded here. Tool builds: Yosys 0.33, iverilog 12.0, z3-solver 5.4.1, LibreOffice (soffice) for slide rendering, SymbiYosys from the `formal` env.
 
-## (a) Every command in DEMO_5MIN.md, run in a fresh shell (`env -i`, minimal PATH, from `/home/user/project`)
+## (a) Every command in DEMO_5MIN.md, run in a fresh shell (`env -i`, minimal PATH, from the repository root)
 | Command | Result |
 |---|---|
 | `make test` | PASS: 10 passed in 20.2 s (at review time; now 189 passed (2 skipped), re-measured by RECON6 on the unpacked bundle 2026-11-20; 133 at RECON3/RECON4) |

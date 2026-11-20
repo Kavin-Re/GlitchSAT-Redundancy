@@ -1,84 +1,161 @@
-# Project (working title TBD)
+# GlitchSAT: How Many Glitches Does Redundancy Stop?
 
+**Bounded SAT-Based Fault Analysis of Redundant Boot Checks**
 
-## What this is (plain words; same text as the explainer, `docs/wow/explainer.html`)
-- **Built:** a computer check that finds the fewest modelled glitches (bit flips) that fool a toy lock design with redundant guard copies.
-- **Found:** how many it takes depends on exactly how the lock is wired, how it is built by synthesis, and how you count (1, 2 or 3 flips for the same design).
-- **Not done:** nothing physical was tested; no novelty claim. Open `docs/wow/explainer.html` first (5 minutes, no jargon).
+Repository name: GlitchSAT-Redundancy.
 
-## Try it (open in a browser; offline, no install; toy designs, modelled flips only)
-- [Verdict Dial](docs/wow/dial.html): flip four switches and watch one measured number go 3 -> 2 -> 1 -> 0; predict first, every digit cites its source row.
-- [Solver Replay](docs/wow/theatre.html): the solver's own witnesses replayed in gate-level simulation; V1 opens with one flipped wire, V2 needs three (`?kiosk=1` loops).
-- [264 builders](docs/wow/wall.html): one blueprint, 264 synthesis settings, 152 distinct netlists, minimum flips 1, 2 or 3 per tile (`?kiosk=1` loops).
-- [Explainer](docs/wow/explainer.html) and [game](docs/wow/game.html): five minutes, no jargon.
-- [Dashboard](dashboard/index.html): every measured run, with a Scope tab.
-- [Coding view](docs/comms/CODING_VIEW.md): the same results read as codes (distance, waterfall, bursts, decoders). Stage script: `docs/DEMO_3MIN.md`.
+A model-only university project. No hardware was used, nothing physical was measured, and no novelty is claimed (see [Limitations](#limitations)).
 
-## The problem (working statement P3; owner decides wording: `docs/dossier/PROBLEM_STATEMENT_EVOLUTION.md`)
-Given a gate-level netlist and the bits a consumer actually checks, report how many single-cycle flips defeat a redundant boot decision, which nets the supposed copies share, and how that answer changes with synthesis build, counting rule and scope.
+## What this is, in plain words
 
-## One glance (MEASURED; modelled single-cycle bit flips, 6 cycles, k <= 3, toy 8-bit designs; nothing physical)
-Minimum flips the solver needs to make V2 (triplicated check) accept a wrong input. V1 is duplicated, V0 naive.
+A secure-boot check compares an input against a key and decides "boot" or "do not boot". A fault-injection attacker
+tries to disturb the circuit (a voltage or clock glitch) so that a wrong input is accepted. The usual defence is
+redundancy: do the comparison two or three times.
 
-| Goal / consumer (V2) | Flips | Source |
+This project asks one question about that defence: **what is the smallest number of single-cycle bit flips that makes
+the circuit accept a wrong input, and how much does that number depend on the assumptions behind it?**
+
+- **Built:** a small solver, `scripts/glitchsat.py`. It reads a gate-level netlist (Yosys JSON), unrolls it for a fixed
+  number of clock cycles, allows at most *k* flips of gate outputs or flip-flop outputs, and asks the SMT solver z3
+  whether a wrong input can reach the "boot" value. It then lowers *k* until no attack remains, which gives the minimum.
+- **Studied:** three toy 8-bit designs in `rtl/`: V0 (one compare), V1 (two compare copies joined by one AND gate),
+  V2 (three compare copies, each owning separate bits of the result word).
+- **Found:** copies that share one wire do not help (V1 falls to one flip on the shared net `ok`). The triplicated V2
+  needs 3 flips in exactly one setting and 1 or 2 in the others. The answer moves with the attack goal, the number of
+  bits the consumer checks, the power-up state, the synthesis flow and the counting rule.
+
+The result is a sensitivity table, not a security claim: "V2 resists 2 flips" is true only with all of its qualifiers.
+
+## Results at a glance
+
+All rows are MEASURED (a command in this repository produced them; labels are defined in
+[`docs/EVIDENCE_LABELS.md`](docs/EVIDENCE_LABELS.md)) unless a row says otherwise. Common bounds: modelled single-cycle
+bit flips, 6 clock cycles, at most 3 flips, toy 8-bit designs.
+
+**Baseline** (`make reproduce`, 36 rows in [`results/reproduce_summary.json`](results/reproduce_summary.json), goal: the
+8-bit word `boot_word` equals the accept value `0x96` while the input is not the key):
+
+| Design | Stored reference netlist | `rtl/*.v` re-synthesized (apt Yosys 0.33, flows `plain` and `opt`) |
 |---|---|---|
-| Full 8-bit word, stored netlist | **3** | `research/c2/b2_scope/B2_REPORT.md`, `research/c3/m1/M1_REPORT.md` |
-| Full 8-bit word, `rtl/v2.v` re-synthesized with apt Yosys 0.33 (85 gates). Not a version effect: the stored netlist is also Yosys 0.33 (68 gates, another flow). Cause: the armed word 0xCC differs from 0x96 only in bits of 2 of the 3 copies. Over the 8 `--synth-sweep` flows: 2 1 1 2 2 2 2 2; re-encoded `rtl/v2e.v` (0xA5): 3 1 1 3 3 3 3 3; conda 0.38 (83 gates) gives 3 on the plain flow and 2 on three other flows. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. | **2** | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md` |
-| Consumer that checks only 4 bits (stored netlist) | 1 to 3 (28 / 36 / 4 of 68 masks need 1 / 2 / 3); M1 figures: rechecked by M1b with two engines: no cell changed (0 of 1785; research/c4/m1b/M1B_REPORT.md) | `research/c3/m1/m1_all_masks.csv` |
-| Accept flag `boot_ok`; or input nets as fault sites; or arbitrary non-accepting power-up | **1** | B2 matrix (360 cells) |
-| V1 and V0, every known-power-up scope cell tried (0 with arbitrary power-up: no reset modelled) | **1** (V1 needs 2 in 31 of 264 re-synthesis configs) | B2, E2 |
-| V2 over 264 solved synthesis configurations | 1 in 180, 2 in 60, 3 in 24 (of 264 solved configs; 152 distinct netlists: 94/38/20) | `research/c2/e2_variance/E2_REPORT.md` |
-| Rail-dip events, a negative-control row (SIMULATED basis, bound T=6, 3 events; toy designs, no extraction) | In our model a 1->0 rail event does not break V1, V2 or V5 within the bound, but a 0->1 event on the three compare copies breaks V2 and V5 with one event: survival depends on polarity, not on triplication. The domain is the netlist hierarchy, not a physical rail; the physical track is closed (no extraction; selectivity unproven; spread layouts failed LVS 4/4). Details and sources: `research/c5/ledger/LEDGER.md`, `docs/report/PROJECT_REPORT.md`. | `research/c4/b3/B3_REPORT.md`, `research/c5/ledger/LEDGER_REPORT.md`, `research/c5/anchor/RAIL_RECONCILIATION.md`, `research/c4/layout/LAYOUT_REPORT.md` |
+| V0, naive | 1 flip | 1 flip |
+| V1, duplicated | 1 flip (the shared net `ok`) | 1 flip |
+| V2, triplicated | **3 flips** (no attack with 2 or fewer) | **2 flips** |
 
-So: copies that share one wire do not help (V1 breaks with one flip on `ok`), and "V2 resists 2 flips" is true only in one narrow cell (full word, input nets not fault sites, known power-up, stored netlist). Never quote it without those qualifiers. All numbers come from one solver on small toy designs written by agents, under modelled fault rules that are not shown to be physical.
+**How the V2 number moves when one assumption changes:**
 
-Redundancy-survival ledger (every cell labelled MEASURED / SIMULATED / UNMEASURED; `research/c5/ledger/LEDGER.md`). V1 and V2 tie in every rail-event ledger row and differ only in the stem-flip and fanout-count rows (table 'What triplication bought', `docs/report/PROJECT_REPORT.md`); triplication buys one extra gate under a selective event (2 vs 3 gates).
+| Setting (V2) | Minimum flips | Source |
+|---|---|---|
+| Full 8-bit word, stored netlist | **3** | [`research/c2/b2_scope/B2_REPORT.md`](research/c2/b2_scope/B2_REPORT.md), [`research/c3/m1/M1_REPORT.md`](research/c3/m1/M1_REPORT.md) |
+| Full 8-bit word, `rtl/v2.v` re-synthesized with apt Yosys 0.33 (85 gates; the stored netlist is also Yosys 0.33, 68 gates, another flow, so this is not a version effect) | **2** | [`docs/report/WHY_TWO_FLIPS.md`](docs/report/WHY_TWO_FLIPS.md), [`research/c6/p01/P01_REPORT.md`](research/c6/p01/P01_REPORT.md) |
+| Consumer that checks only 4 of the 8 bits (stored netlist) | 1 to 3 (28 / 36 / 4 of 68 masks need 1 / 2 / 3) | [`research/c3/m1/m1_all_masks.csv`](research/c3/m1/m1_all_masks.csv) |
+| Goal is the accept flag `boot_ok`; or input nets are fault sites; or arbitrary non-accepting power-up state | **1** | scope matrix, 360 cells: [`research/c2/b2_scope/B2_REPORT.md`](research/c2/b2_scope/B2_REPORT.md) |
+| Synthesis flow: 864 configurations in total (3 Yosys builds x 3 designs x 96 option sets); V2 over its 264 solved configurations | 1 in 180, 2 in 60, 3 in 24 (152 distinct netlists: 94 / 38 / 20) | [`research/c2/e2_variance/E2_REPORT.md`](research/c2/e2_variance/E2_REPORT.md) |
+| Counting rule, 32 re-synthesized netlists: a flipped net counts once (headline rule) vs. once per gate that reads it | holds against 2 flips on 6 of 32 vs. 32 of 32 | [`research/c3/r22/R22_REPORT.md`](research/c3/r22/R22_REPORT.md), [`research/c3/rep/REP_REPORT.md`](research/c3/rep/REP_REPORT.md) |
 
-<img src="docs/report/ledger.png" alt="redundancy survival ledger" width="520">
+For comparison, V0 and V1 need 1 flip in every known-power-up setting tried, except that V1 needs 2 in 31 of the 264
+re-synthesis configurations.
 
-**Redundancy is a code** (MEASURED, `results/comms/distance_sweep.csv`, `research/c6/p11/P11_REPORT.md`; toy design, modelled flips, observed not a theorem, nothing new). The state words F0, CC, 96, 69 are codewords of the textbook Reed-Muller code RM(1,3) (distance 4), and the copies are a repetition code. Over 19 codebooks: with only the state flops as fault sites the minimum equals the distance to the nearest non-accept word in 15 of 15 codebooks with distance <= 6; with all nets it never exceeds that (19 of 19), and it stays at about one flip per comparator copy. Failed predictions, kept: (a) 'flops-only = idle-to-accept distance' fails where a fail word is nearer; (c) 3 of 16 three-copy codebooks sit at 2, not 3, on the project flow; word order matters under ABC (F0 then CC gives 2, CC then F0 gives 3); the mechanism was not dissected. More: `docs/comms/CODING_VIEW.md`, `docs/report/WHY_TWO_FLIPS.md`.
+Why V2 can fall to 2: the "armed" state word `0xCC` differs from the accept word `0x96` only in bits owned by 2 of the
+3 compare copies. The encoding sets that floor; the synthesis flow decides whether the floor is reached, and a flow
+that merges the copies gives 1 ([`docs/report/WHY_TWO_FLIPS.md`](docs/report/WHY_TWO_FLIPS.md)).
 
-<img src="docs/comms/staircase.png" alt="flips needed against code distance: flops only and all nets" width="420">
+Never quote "V2 resists 2 flips" without its qualifiers: full word, input nets not fault sites, known power-up, stored
+netlist, 6 cycles.
 
+Further results (rail-dip event models, layout geometry, a structural predictor, a coding-theory reading of the state
+words) are summarised with their limits in [`docs/FINAL_STATUS.md`](docs/FINAL_STATUS.md) and
+[`docs/report/PROJECT_REPORT.md`](docs/report/PROJECT_REPORT.md). Every headline number and its source row is listed in
+[`docs/NUMBERS.md`](docs/NUMBERS.md).
 
+## How much to trust the numbers
 
-## Status and cautions
+- **Checked by a second method (MEASURED):** a separate gate-level simulator that does not use z3
+  ([`validation/`](validation/VALIDATION.md)) agrees with the solver on the stored netlists: every single flip, and
+  every pair of flips for V2 at 6 cycles (103,740 sets, none succeeds). The solver's attacks also replay in Icarus
+  Verilog (`make replay`). A second solver (boolector) and SymbiYosys bounded checks agree
+  ([`formal/FORMAL.md`](formal/FORMAL.md)).
+- **What those checks cover:** they share the same fault model, so they test the encoding, not whether the model
+  matches a real glitch.
+- **Solver only, no second engine:** rail-event rows at 6 cycles with 3 events, and all rows for the extra design V5.
+- **One unbounded result:** ABC PDR reports that the stored V2 netlist has no attack with 2 or fewer flips for any
+  number of cycles (word goal). It is tool-reported, covers one netlist and was not replicated by a second tool.
 
-**Safety status:** RT2 (`research/c5/rt2/RT2_REPORT.md`) found a HIGH command-execution bug (the module name or Verilog path was pasted into a Yosys command). Agents H2 and H3 fixed it in the product, `scripts/synth.sh` and `glitchsat.py check`; the lead re-tested it with a canary file on 2026-11-19 22:42 UTC (rejected, exit 3, no file created). The GitHub Action's two shell steps were run locally in a clean venv (MEASURED by the lead, 2026-11-20; the `uses:` steps and the SARIF upload cannot run off GitHub, so nothing ran on GitHub), and the Dockerfile was built and run locally only after adding the sandbox proxy's CA to a COPY of it (shipped Dockerfile unchanged; not built on a normal network). Until a human has reviewed the fix, still do not run the Verilog path or the Action on untrusted input. Other RT2 findings: `docs/dossier/CRITIQUE.md` (RT2-N1 to N14).
+## How to run
 
-## Which numbers rest on what (MEASURED; sources in `docs/FINAL_STATUS.md`)
-- **Independent anchor:** the 36 reproduce rows (second simulator, `validation/VALIDATION.md`); M1's 255 consumer masks (brute force, T=4, k<=2, 255 of 255 agree).
-- **z3 alone, no second engine:** the B3 rail-dip rows at T=6 with k=3 events, and every V5 row. Brute-force anchors now exist (agent ANCHOR, z3-free simulator, `research/c5/anchor/`): V2 spike stem flips (k<=2 none at T=4; 182 attacking triples at k=3), V2 apt pairs (3 attacking pairs at k=2), B3 rail models (32 rows, T=4, k<=2, all agree with z3) and selective sets (22 sets of size 3, none of size 1 or 2). Still z3-only: T=6 rail events at k=3, and V5.
+Three commands that need only Python 3 and z3 (`pip install z3-solver`); they use the stored netlists:
 
-## Counting rule
-Headline rule: a flip of a net (stem) is one fault, however many gates read it (matches FIRMER's per-gate counting; `research/c3/r22/R22_REPORT.md`). Counting a fanout-f net as f faults is a stress test. Neither rule is shown physical. Under stem = 1, V2 holds against 2 flips on 6 of 32 re-synthesized netlists; under fanout counting on 32 of 32. Measured by agent DA, replicated by agent REP on 64 of 64 rows with one reused recipe list (one recipe, not independent designs; `research/c3/rep/REP_REPORT.md`). 6/32 (REP, one recipe family) and E2's 180/60/24 are counts in different grids, not comparable rates (ANCHOR N5: on 24 REP/E2 netlist pairs the minimum flips agree 24 of 24).
-
-## What this is, and what it is not
-- A reproducible fault-injection analysis toolkit (solver, dashboard, flow-demo layouts, a small CLI in `product/`) and a specimen showing how a redundancy verdict moves with scope, consumer width, synthesis and counting rule.
-- **Synthesis dependence is not new:** Previously shown by SYNFI (arXiv 2205.04775, SOURCED): faults needed dropped 3->2 after Yosys FSM recoding and 4->2 after register merging; `set_dont_touch` restored 4. Our E2 replicates the effect on a toy design across 864 synthesis configs and adds a keep-attribute axis (`(* keep *)` changed no verdict). Counting conventions of other tools: `docs/report/COUNTING_CONVENTIONS.md`.
-- **No novelty claim**: nothing established as new. Prior art: SYNFI, FIRMER, k-FRP, CLEAVE, FIVER, uArchiFI (`docs/PRIOR_ART.md`; k-FRP and FIVER full texts unread). Third-party tools: uArchiFI run on 9 of 9 cells, same minimum flips as ours (one tool, three toy designs; not a validation; counting unit matters); k-FRP built but answers a different question; FIVER not built or run (RUN2, measured). Derived code stays local in `third_party_derived/`, never in a bundle.
-- Model only: no chip, hardware, physical glitch, fabrication, sign-off or deployed-product finding.
-- **Not proven:** that any design is secure (bounds are 6 cycles, k <= 3; `>3` is not "secure"); the one unbounded proof (ABC PDR, V2 spike, k <= 2) is one netlist and not replicated; no counting rule is physical; whether a real supply dip can choose which gates fall; the predictor (below) is not validated.
-- **Consumer-mask rule:** The consumer-mask rule is the minimum of Hamming distance to idle states and the number of comparator copies touched: known-style cut/Hamming reasoning, not a discovery; exact on spike V2 (255/255), 187/255 on apt (DA3).
-- Structural predictor (`research/c4/pre/`, research script): exact on 150 of 163 fresh toy cells (92%), against 62% for always predicting 1 and 83% for the sound lower bound alone; LEDGER: 71 of 71 on a stratified sample of the same E2 family, 4 of 6 on fresh RTLs (wrong on the voter designs V2m and V5); 58% on cells needing 2+ flips; 1.4x slower than the solver. A heuristic with a sound lower bound; the solver stays the reference. The old 928/928 is near-duplicate cells. DA3's 155 is unreconciled and was not reproduced: a recount of `research/c4/ver/heldout.csv` gives 144 (raw string match and the `est` column), 148 for the `pred` column with '>3' read as 4, 150 after the two x-init corrections (NUMBERS.md); 150 stands.
-
-## Shipped tool vs research (status)
-- In `product/`: consumer bits, goal output, input sites, power-up modes, scope sweep, width sweep, timeout (PS4, PS5). **Not shipped:** branch counting rule, per-cycle attacker input (TODO `config.py`), predictor.
-- Layout (`layout/`) needs a separate EDA install; not in CI. Dockerfile built and run locally only (sandbox-CA copy, not on a normal network); GitHub Action's shell steps run locally only (not on GitHub: `actions/setup-python` and the SARIF upload untested). A dependency-confusion bug in the Action's default `package-path` was found and fixed by running it.
-- Open: layout-based selectivity study (L2 done: spread layouts raise the radius to 11 to 18 um but a die-wide selective dip still costs 1 and LVS fails 4 of 4; `research/c4/l2/`); faster at-most-k encoding applied by T3 (`--amk counter`, default; `research/c4/t3/`).
-- **Product safety:** RT2 (`research/c5/rt2/RT2_REPORT.md`, MEASURED) found a HIGH command-execution bug (the top name or Verilog path was pasted into a Yosys command). H2 and H3 fixed it in the product, `scripts/synth.sh` and `glitchsat.py check`; the lead re-tested it with a canary file on 2026-11-19 22:42 UTC (rejected, exit 3, no file created; MEASURED). The GitHub Action's two shell steps were run locally in a clean venv (MEASURED by the lead, 2026-11-20; the `uses:` steps and the SARIF upload cannot run off GitHub, so nothing ran on GitHub), and the Dockerfile was built and run locally only after adding the sandbox proxy's CA to a COPY of it (shipped Dockerfile unchanged; not built on a normal network). Yosys itself is not sandboxed. Until a human has reviewed the fix, still do not run the Verilog path or the Action on untrusted input. Other findings: `docs/dossier/CRITIQUE.md` (RT2-N1 to RT2-N14). `product/README.md` is not edited here.
-
-## Quick start (Linux; verified by agent RA, counts by RECON on a copy, 2026-11-19)
 ```
-sudo apt-get install -y yosys iverilog          # tested with yosys 0.33, iverilog 12.0
+python3 scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6
+python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 2 --cycles 6
+python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6 --goal-out boot_ok --goal-value 1
+```
+
+Expected: the first finds a 1-flip attack on the shared net `ok`; the second prints `NO_ATTACK_UP_TO_BOUND`; the third
+finds a 1-flip attack on `boot_ok`. Each run prints its bound.
+
+Full reproduction (Linux; tested with Yosys 0.33 and Icarus Verilog 12.0, the versions `apt` provides on Ubuntu 24.04):
+
+```
+sudo apt-get install -y yosys iverilog
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r ci/requirements-ci.txt           # z3-solver, pytest
-make check-tools && make test                   # 189 passed, 2 skipped with `pip install ./product[test]`, no numpy, no browser (quote your own count)
-make reproduce && make check-reproduce          # V0/V1/V2 sweeps (~25 s), 36/36 rows
+make check-tools && make test
+make reproduce && make check-reproduce          # V0/V1/V2 sweeps, about 25 s, 36 of 36 rows
+make validate                                   # z3-free simulator, single flips, 6 cycles
 ```
-`make reproduce` and `make test` rewrite `results/` and `tb/`: run them on a copy. Product tests (`pip install ./product[test]`): 324 passed. Mutation score of the tests (REPORTED, not re-run): root 72.5% (50/69), product 67.6% (50/74). The apt 0.33 and conda 0.38 builds give different V2 netlists (85 vs 83 combinational gates; a build or flow difference changes the netlist, not the underlying weakness, `docs/report/WHY_TWO_FLIPS.md`), so CI on another Yosys may not reproduce `ci/expected_reproduce.json`. `make help` lists targets.
 
-## Where things are
-- `START.md` first path; `docs/OWNER_DERIVATION_SHEET.md` pencil derivations; `docs/dossier/` dossier, viva sheet, evidence index, critique; `docs/edu/` classroom kit; `docs/wow/` explainer and game.
-- `rtl/` designs, `reference/spike_netlists/`, `scripts/glitchsat.py` solver, `formal/`, `results/`, `dashboard/` (now with a Scope tab), `layout/`, `product/`, `research/` reports. Run log: `handoff/CONTINUATION/RUN_LOG.md`.
-- Every number carries one label (MEASURED, SIMULATED, ESTIMATED, ILLUSTRATIVE, UNVERIFIED): `docs/EVIDENCE_LABELS.md`. Licence: undecided (`LICENSE_CHOICE.md`).
+- `make reproduce` and `make test` rewrite files under `results/` and `tb/`; `git status` shows what changed.
+- `ci/expected_reproduce.json` was recorded with Yosys 0.33. Another Yosys build can produce a different V2 netlist and
+  so a different (still correct) minimum; `make check-reproduce` then fails and needs a human look.
+- Test counts as last recorded: root `pytest tests` 189 passed, 2 skipped; product tests 324 passed after
+  `pip install ./product[test]`. Counts change when tests are added: run `make test` and quote your own.
+- `make help` lists all targets. The same steps run in GitHub Actions: `.github/workflows/ci.yml`.
+
+To look without installing anything, open in a browser: [`docs/wow/explainer.html`](docs/wow/explainer.html) (five
+minutes, no jargon), [`docs/wow/dial.html`](docs/wow/dial.html) (four switches move the measured number 3 -> 2 -> 1 -> 0),
+[`docs/wow/theatre.html`](docs/wow/theatre.html) (solver witnesses replayed gate by gate),
+[`docs/wow/wall.html`](docs/wow/wall.html) (the 264 synthesis configurations) and
+[`dashboard/index.html`](dashboard/index.html) (every measured run).
+
+## Repository map
+
+| Path | Contents |
+|---|---|
+| `rtl/` | The designs: `v0.v`, `v1.v`, `v2.v`, and variants `v2e.v`, `v2c.v`, `v2_secded.v` |
+| `reference/spike_netlists/` | The stored gate-level netlists behind the headline rows |
+| `scripts/` | `glitchsat.py` (solver), `synth.sh` (Yosys flow), `reproduce.py`, `replay.py`, `check_numbers.py` |
+| `tests/`, `ci/` | Engine tests; expected reproduce table and its checker |
+| `validation/`, `formal/` | z3-free simulator and second-solver checks; SymbiYosys and ABC runs |
+| `results/` | Outputs of `make reproduce` and the deeper sweeps |
+| `dashboard/`, `docs/wow/` | Offline HTML dashboard and explainers |
+| `docs/` | [`START.md`](START.md) points here first. [`docs/report/PROJECT_REPORT.md`](docs/report/PROJECT_REPORT.md) is the full report, [`docs/FINAL_STATUS.md`](docs/FINAL_STATUS.md) the status with every bound, [`docs/NUMBERS.md`](docs/NUMBERS.md) the number register, [`docs/PRIOR_ART.md`](docs/PRIOR_ART.md) related work, [`docs/dossier/`](docs/dossier/) the dossier, critique and viva sheet, [`docs/edu/`](docs/edu/) a classroom kit |
+| `research/` | One folder per experiment or review (`c2` to `c6` are successive rounds). Reports use short codenames; [`docs/GLOSSARY.md`](docs/GLOSSARY.md) maps each codename to a plain description and its folder |
+| `product/` | `faultbound-wt`, a small command-line packaging of the same engine with scope options (separate from the study's claims) |
+| `layout/`, `real_designs/`, `integrations/` | sky130 flow-demonstration layouts (not signed off, never fabricated), two outside designs tried, adapters for other tools |
+
+## Limitations
+
+- **Model only.** Faults are modelled single-cycle bit flips in a netlist. No chip, glitcher, measurement, fabrication
+  or sign-off. The layouts are flow demonstrations.
+- **Toy scale and bounded.** 8-bit designs of under 100 gates; bounds are 6 cycles and at most 3 flips. "No attack up
+  to the bound" is not "secure".
+- **Not novel.** SYNFI, FIRMER, k-FRP, CLEAVE, FIVER and uArchiFI cover the method, and SYNFI already showed that
+  synthesis changes the number of faults needed (3 -> 2 and 4 -> 2; SOURCED from the paper). This project replicates
+  that effect on a toy design and adds teaching material ([`docs/PRIOR_ART.md`](docs/PRIOR_ART.md); the k-FRP and
+  FIVER full texts were not read).
+- **Counting rule is a convention.** One flipped net counts as one fault however many gates read it. Neither this rule
+  nor the per-reader alternative has been shown to be physical.
+- **Assumptions inside the headline number.** Known power-up state, constant attacker input that is never the key,
+  input and clock nets not fault sites, goal is the full 8-bit word. Changing any one of the first, third or fourth
+  drops V2 to 1 flip.
+- **Running on untrusted input.** The solver calls Yosys on the Verilog file it is given, and Yosys is not sandboxed.
+  File and module names are validated before they reach Yosys (`scripts/synth.sh`, `product/`), but do not run the
+  Verilog path or the GitHub Action on files you do not trust. Details: [`docs/FINAL_STATUS.md`](docs/FINAL_STATUS.md),
+  [`docs/dossier/CRITIQUE.md`](docs/dossier/CRITIQUE.md).
+- **Some referenced material is not in this repository** (folders named `handoff/`, `compare/`, `numerics_audit/` and
+  `formal/runs/` in older reports). Statements that rest only on those are marked UNVERIFIED in the reports.
+
+## Licence
+
+Apache License 2.0 (SPDX: Apache-2.0); see [`LICENSE`](LICENSE) and [`NOTICE.md`](NOTICE.md). Copyright 2026 Kavin K K. The decision is recorded in [`LICENSE_CHOICE.md`](LICENSE_CHOICE.md). Third-party material: [`THIRD_PARTY.md`](THIRD_PARTY.md),
+[`NOTICE.md`](NOTICE.md).

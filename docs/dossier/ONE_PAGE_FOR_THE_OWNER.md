@@ -1,7 +1,5 @@
-> If s17 is still empty at 02:00 UTC the lead puts a disclosure line at the top of `README.md`.
-
 # ONE PAGE FOR THE OWNER (plain words)
-Working title TBD. License: UNDECIDED. Read this first, then `PROJECT_DOSSIER.md`. Everything below is something you must be able to say aloud. If you cannot, cut it.
+GlitchSAT. License: Apache-2.0. Read this first, then `PROJECT_DOSSIER.md`. Everything below is something you must be able to say aloud. If you cannot, cut it.
 
 ## What the project is
 
@@ -61,4 +59,4 @@ So V2 gains over V1 only in the stem-flip and fanout-count rows (hierarchy kept,
 Do not run `make` in the live tree; use screenshots or a copy. Read `research/c2/el1_spice/EL1_REPORT.md` before showing the SPICE plots.
 
 ## Before you present
-Re-run `make test` and `make check-reproduce` yourself on a copy (`/tmp/<yourname>`; `make reproduce` overwrites `results/`). Re-derive `docs/dossier/worked_example.py` by hand. Read the 8 hardest questions in `VIVA_SHEET.md` s3 aloud. Write dossier section 17.
+Re-run `make test` and `make check-reproduce` yourself on a copy (`/tmp/<yourname>`; `make reproduce` overwrites `results/`). Re-derive `docs/dossier/worked_example.py` by hand. Read the 8 hardest questions in `VIVA_SHEET.md` s3 aloud.

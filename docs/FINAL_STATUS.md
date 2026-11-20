@@ -81,8 +81,7 @@ Supermarket-attack thesis (false as stated; the big attacks were IT-layer), runt
 
 ## Reproduce
 ```
-cd /home/user/project
-cp -r /home/user/project /tmp/proj_copy && cd /tmp/proj_copy   # run checks on a COPY: they rewrite results/ and tb/
+# from the repository root; the checks rewrite files under results/ and tb/ (use a copy or a clean git checkout)
 make test && make check-reproduce      # engine (needs yosys, z3)
 cd dashboard && python3 build.py     # rebuild dashboard from results/
 sh layout/v_designs/flow_patched/all.sh   # layout flow (needs the micromamba env above)

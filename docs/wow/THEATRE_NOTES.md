@@ -1,6 +1,6 @@
 # Solver Replay Theatre: 3-minute stage script
 
-License: UNDECIDED. Working title TBD. For the owner to edit and time aloud.
+License: Apache-2.0. GlitchSAT. For the owner to edit and time aloud.
 
 Page: `docs/wow/theatre.html` (offline, one file). Keys: Space or Right = next step, Left = back, R = reset, P = play.
 Booth loop: open `theatre.html?kiosk=1`. Every number on screen comes from `docs/wow/witness.json`

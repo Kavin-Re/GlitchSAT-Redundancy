@@ -1,7 +1,8 @@
 # Notice
 
-Project: fault-injection analysis toolkit (working title TBD).
-Copyright holder and licence: NOT DECIDED (see `LICENSE_CHOICE.md`). No `LICENSE` file exists; all rights reserved by default.
+Project: GlitchSAT: How Many Glitches Does Redundancy Stop? (Bounded SAT-Based Fault Analysis of Redundant Boot Checks).
+Copyright 2026 Kavin K K
+Licence: Apache License 2.0 (see `LICENSE`; decision recorded in `LICENSE_CHOICE.md`). Third-party files listed below keep their own licences.
 
 This repository does not include or redistribute the source of the external tools it drives (yosys, iverilog, verilator, z3, OpenROAD, magic, netgen, KLayout, graphviz) or the SkyWater sky130 PDK. They are installed separately and run as separate programs. See `THIRD_PARTY.md`.
 

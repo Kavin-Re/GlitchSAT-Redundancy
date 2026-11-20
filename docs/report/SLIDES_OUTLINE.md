@@ -1,7 +1,8 @@
 # Slides outline (24 slides: 14 main + 10 appendix; slides 13 and 14 added by agent INT; slides 5, 6, 7, 10, 11 added and old slides 5 to 9 moved to appendix A6 to A10 by agent INT2a, 2026-11-20)
-Working title TBD. Licence UNDECIDED. Generated from `docs/report/SLIDES.pptx` (built by `research/c4/pres/build_deck.py`); the speaker notes are the exact words to say. Every number is from `docs/NUMBERS.md` (2.95 um, 15 um and the L2 spread-layout facts are from `research/c4/layout/LAYOUT_REPORT.md` and `research/c4/l2/L2_REPORT.md`, not yet rows in NUMBERS.md). Faults are modelled bit flips on toy designs; nothing physical; nothing established as new.
+GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built by `research/c4/pres/build_deck.py`); the speaker notes are the exact words to say. Every number is from `docs/NUMBERS.md` (2.95 um, 15 um and the L2 spread-layout facts are from `research/c4/layout/LAYOUT_REPORT.md` and `research/c4/l2/L2_REPORT.md`, not yet rows in NUMBERS.md). Faults are modelled bit flips on toy designs; nothing physical; nothing established as new.
 
-## 1. Which redundant copies really protect a decision?   (about 41 words)
+## 1. GlitchSAT: How Many Glitches Does Redundancy Stop?   (about 41 words)
+- Bounded SAT-Based Fault Analysis of Redundant Boot Checks.
 - Given a netlist and the bits a consumer checks: how many modelled flips defeat a redundant boot decision, and which nets do the copies share?
 - Three guards on one wire are really one guard.
 - Speaker notes (say this):

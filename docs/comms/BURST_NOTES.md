@@ -1,6 +1,6 @@
 # Burst errors against random errors: the complementary code's blind spot
 
-License: UNDECIDED. Working title TBD. Every number below is SIMULATED: modelled events on toy netlists, bounded to 6 clock cycles, from `results/comms/burst.csv` (script `scripts/comms/burst_sweep.py`). Textbook coding theory measured on toy designs; nothing established as new.
+License: Apache-2.0. GlitchSAT. Every number below is SIMULATED: modelled events on toy netlists, bounded to 6 clock cycles, from `results/comms/burst.csv` (script `scripts/comms/burst_sweep.py`). Textbook coding theory measured on toy designs; nothing established as new.
 
 ## In plain words
 

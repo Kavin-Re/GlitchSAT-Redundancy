@@ -1,5 +1,5 @@
 # Poster text (one page)
-Working title TBD.
+GlitchSAT.
 
 ## Picture: how one shared wire can beat three guards
 
