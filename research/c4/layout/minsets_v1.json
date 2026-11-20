@@ -1,0 +1,231 @@
+{
+ "design": "v1",
+ "label": "MEASURED geometry; set enumeration = z3 verdicts (SIMULATED fault model, T=6, one cell-level subset dip event); enumeration limited to <=4 cells and 400 sets",
+ "minimal_sets": {
+  "word": [
+   {
+    "cells": [
+     "_29_"
+    ],
+    "n": 1,
+    "cycles": [
+     0
+    ],
+    "example_sig": 0,
+    "r_um": 0.0,
+    "centre": [
+     14.72,
+     9.52
+    ],
+    "bbox_w_h": [
+     1.84,
+     2.72
+    ],
+    "rows": [
+     1
+    ],
+    "vpwr_rails": [
+     8.16
+    ],
+    "others_in_circle": 0,
+    "flops_in_circle": 0,
+    "copy_members": []
+   },
+   {
+    "cells": [
+     "c1/_2_",
+     "c2/_2_"
+    ],
+    "n": 2,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 1.642,
+    "centre": [
+     21.85,
+     19.04
+    ],
+    "bbox_w_h": [
+     5.98,
+     5.44
+    ],
+    "rows": [
+     4,
+     5
+    ],
+    "vpwr_rails": [
+     19.04
+    ],
+    "others_in_circle": 0,
+    "flops_in_circle": 0,
+    "copy_members": [
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "cells": [
+     "c1/_3_",
+     "c2/_3_"
+    ],
+    "n": 2,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 11.693,
+    "centre": [
+     15.64,
+     20.4
+    ],
+    "bbox_w_h": [
+     22.08,
+     13.6
+    ],
+    "rows": [
+     3,
+     7
+    ],
+    "vpwr_rails": [
+     13.6,
+     24.48
+    ],
+    "others_in_circle": 25,
+    "flops_in_circle": 7,
+    "copy_members": [
+     "c1",
+     "c2"
+    ]
+   }
+  ],
+  "ok": [
+   {
+    "cells": [
+     "_29_"
+    ],
+    "n": 1,
+    "cycles": [
+     0
+    ],
+    "example_sig": 203,
+    "r_um": 0.0,
+    "centre": [
+     14.72,
+     9.52
+    ],
+    "bbox_w_h": [
+     1.84,
+     2.72
+    ],
+    "rows": [
+     1
+    ],
+    "vpwr_rails": [
+     8.16
+    ],
+    "others_in_circle": 0,
+    "flops_in_circle": 0,
+    "copy_members": []
+   },
+   {
+    "cells": [
+     "_22_",
+     "_23_"
+    ],
+    "n": 2,
+    "cycles": [
+     0
+    ],
+    "example_sig": 199,
+    "r_um": 6.801,
+    "centre": [
+     26.335,
+     13.6
+    ],
+    "bbox_w_h": [
+     1.84,
+     16.32
+    ],
+    "rows": [
+     0,
+     5
+    ],
+    "vpwr_rails": [
+     8.16,
+     19.04
+    ],
+    "others_in_circle": 6,
+    "flops_in_circle": 1,
+    "copy_members": []
+   },
+   {
+    "cells": [
+     "c1/_2_",
+     "c2/_2_"
+    ],
+    "n": 2,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 1.642,
+    "centre": [
+     21.85,
+     19.04
+    ],
+    "bbox_w_h": [
+     5.98,
+     5.44
+    ],
+    "rows": [
+     4,
+     5
+    ],
+    "vpwr_rails": [
+     19.04
+    ],
+    "others_in_circle": 0,
+    "flops_in_circle": 0,
+    "copy_members": [
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "cells": [
+     "c1/_3_",
+     "c2/_3_"
+    ],
+    "n": 2,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 11.693,
+    "centre": [
+     15.64,
+     20.4
+    ],
+    "bbox_w_h": [
+     22.08,
+     13.6
+    ],
+    "rows": [
+     3,
+     7
+    ],
+    "vpwr_rails": [
+     13.6,
+     24.48
+    ],
+    "others_in_circle": 25,
+    "flops_in_circle": 7,
+    "copy_members": [
+     "c1",
+     "c2"
+    ]
+   }
+  ]
+ }
+}

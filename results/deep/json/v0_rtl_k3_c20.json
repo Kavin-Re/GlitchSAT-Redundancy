@@ -1,0 +1,65 @@
+{
+  "label": "MEASURED",
+  "tool": "glitchsat.py",
+  "design": "results/deep/work/nl/v0_rtl.json",
+  "design_sha256_16": "4e14fde6febd8697",
+  "top": "v0",
+  "synth_flow": "given-netlist",
+  "verdict": "ATTACK_FOUND",
+  "bound": {
+    "max_faults": 3,
+    "cycles": 20,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 20"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 20 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "netlist": {
+    "gates": 25,
+    "flops": 2
+  },
+  "honest_key_boots_fault_free": true,
+  "model": {
+    "sites_total": 540,
+    "sites_modelled": 505,
+    "reduce": "full",
+    "build_s": 0.152,
+    "solve_s": 0.592,
+    "minimize_s": 0.103
+  },
+  "runtime_s": {
+    "synth": 0.0,
+    "solve_and_minimize": 0.872
+  },
+  "netlist_json": "results/deep/work/nl/v0_rtl.json",
+  "min_faults": 1,
+  "faults": [
+    {
+      "net": "st[0]",
+      "net_id": 20,
+      "cycle": 18,
+      "kind": "flop_Q"
+    }
+  ],
+  "attacker_input": {
+    "sig": "0xE3"
+  },
+  "attacker_input_raw": {
+    "sig": 227
+  },
+  "explanation": {
+    "summary": "SINGLE POINT OF FAILURE: the state register bit `st[0]` can be flipped for one cycle (cycle 18) and the state/output word then reads as the accept value.",
+    "fix_pattern": "Encode state with Hamming distance greater than the fault budget (e.g. sparse one-hot-ish codes), add a parity/redundant shadow register compared every cycle, and make illegal codes latch a sticky FAIL state.",
+    "fault_details": [
+      {
+        "net": "st[0]",
+        "cycle": 18,
+        "kind": "flip-flop Q",
+        "gate": "DFF",
+        "input_bits_in_fanin_cone": 0,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      }
+    ]
+  }
+}

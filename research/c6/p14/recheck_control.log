@@ -1,0 +1,4 @@
+2026-11-20T05:25:37Z
+any-net control, cap 3: 3 flip_$flatten\c0.$auto$simplemap.cc:240:simplemap_eqne$241[5]@1,flip_$flatten\c1.$auto$simplemap.cc:240:simplemap_eqne$241[5]@1,flip_$flatten\c2.$auto$simplemap.cc:240:simplemap_eqne$241[5]@1;sig=E3 gates 143 wall_s 58.5
+witness replays in z3-free simulator: True
+2026-11-20T05:26:35Z

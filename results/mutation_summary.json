@@ -1,0 +1,78 @@
+{
+  "seed": 1,
+  "rtl_level": {
+    "baseline_min_faults": 3,
+    "rows": [
+      {
+        "mutant": "share_c1_with_c0",
+        "baseline_min_faults": 3,
+        "mutant_min_faults": 2,
+        "verdict": "ATTACK_FOUND",
+        "caught": true,
+        "explanation": "MINIMUM ATTACK COST = 2 faults (`c0.m`@1, `c2.m`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 2 coordinated single-cycle flips (spanning 1 distinct cycle(s)).",
+        "label": "MEASURED",
+        "bound": {
+          "k": 3,
+          "cycles": 6
+        }
+      },
+      {
+        "mutant": "share_c2_with_c1",
+        "baseline_min_faults": 3,
+        "mutant_min_faults": 2,
+        "verdict": "ATTACK_FOUND",
+        "caught": true,
+        "explanation": "MINIMUM ATTACK COST = 2 faults (`c0.m`@1, `c1.m`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 2 coordinated single-cycle flips (spanning 1 distinct cycle(s)).",
+        "label": "MEASURED",
+        "bound": {
+          "k": 3,
+          "cycles": 6
+        }
+      },
+      {
+        "mutant": "single_decision_net",
+        "baseline_min_faults": 3,
+        "mutant_min_faults": 1,
+        "verdict": "ATTACK_FOUND",
+        "caught": true,
+        "explanation": "SINGLE POINT OF FAILURE: one OR gate output, net `word[0]`, combines 8 input bits of `sig` (the redundant checks converge here) and alone drives 8 of 8 bits of `boot_word`. Flipping it for ONE cycle (cycle 1) makes a wrong `sig` look valid, even though the checks upstream are duplicated.",
+        "label": "MEASURED",
+        "bound": {
+          "k": 3,
+          "cycles": 6
+        }
+      }
+    ]
+  },
+  "netlist_level_on_spike_netlist": {
+    "baseline_min_faults": 3,
+    "rows": [
+      {
+        "mutant": "netlist_share_c1_with_c0",
+        "baseline_min_faults": 3,
+        "mutant_min_faults": 2,
+        "verdict": "ATTACK_FOUND",
+        "caught": true,
+        "explanation": "MINIMUM ATTACK COST = 2 faults (`c0.m`@1, `$flatten\\c2.$abc$251$new_n13_`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 2 coordinated single-cycle flips (spanning 1 distinct cycle(s)).",
+        "label": "MEASURED",
+        "bound": {
+          "k": 3,
+          "cycles": 6
+        }
+      },
+      {
+        "mutant": "netlist_share_c2_with_c1",
+        "baseline_min_faults": 3,
+        "mutant_min_faults": 2,
+        "verdict": "ATTACK_FOUND",
+        "caught": true,
+        "explanation": "MINIMUM ATTACK COST = 2 faults (`c0.m`@1, `$flatten\\c1.$abc$251$new_n16_`@1). No single net decides, but the faults found hit independent redundant copies; the attacker needs 2 coordinated single-cycle flips (spanning 1 distinct cycle(s)).",
+        "label": "MEASURED",
+        "bound": {
+          "k": 3,
+          "cycles": 6
+        }
+      }
+    ]
+  }
+}

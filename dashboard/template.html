@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fault-Injection Boot Dashboard</title>
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--fg:#1c1c1e;--mute:#62666d;--line:#d9d9d4;--bad:#c62828;--badbg:#fdecea;--good:#1b7a3a;--goodbg:#e6f4ea;--acc:#2456c9;--wire:#555;
+--mea:#1b7a3a;--sim:#2456c9;--est:#9a6700;--ill:#7a3fa0;--onacc:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#111214;--card:#1b1c1f;--fg:#ececec;--mute:#a0a4ab;--line:#33353a;--bad:#ff6b66;--badbg:#3a1b1a;--good:#58c47a;--goodbg:#14301f;--acc:#7aa2ff;--wire:#9aa0a8;--mea:#58c47a;--sim:#7aa2ff;--est:#e0b050;--ill:#c79bf0;--onacc:#111}}
+:root[data-theme=dark]{--onacc:#111;--bg:#111214;--card:#1b1c1f;--fg:#ececec;--mute:#a0a4ab;--line:#33353a;--bad:#ff6b66;--badbg:#3a1b1a;--good:#58c47a;--goodbg:#14301f;--acc:#7aa2ff;--wire:#9aa0a8;--mea:#58c47a;--sim:#7aa2ff;--est:#e0b050;--ill:#c79bf0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:0 16px 48px}
+header{padding:24px 0 8px;display:flex;gap:12px;justify-content:space-between;align-items:flex-start}
+h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.25rem;margin:36px 0 4px}h3{font-size:1rem;margin:0 0 6px}
+.sub{color:var(--mute);margin:0}
+button{font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--acc)}button[aria-pressed=true]{border-color:var(--acc);background:var(--acc);color:var(--onacc)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.badge{display:inline-block;font:600 .78rem/1 system-ui;letter-spacing:.04em;padding:3px 6px;border-radius:4px;border:1px solid currentColor;vertical-align:middle;white-space:nowrap}
+.b-MEASURED{color:var(--mea)}.b-SIMULATED{color:var(--sim)}.b-ESTIMATED{color:var(--est)}.b-ILLUSTRATIVE{color:var(--ill)}.b-UNMEASURED{color:var(--ill)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.kpi{display:flex;gap:16px;flex-wrap:wrap}.kpi div{min-width:110px}.kpi b{display:block;font-size:1.4rem}
+.bad{color:var(--bad)}.good{color:var(--good)}
+.note{color:var(--mute);font-size:.92rem}
+#schem,#schem2,#chart{overflow-x:auto}#schem svg,#schem2 svg,#chart svg{min-width:600px}
+details.card summary{cursor:pointer;font-weight:600}dl{margin:8px 0 0}dt{font-weight:600;margin-top:8px}dd{margin:0 0 0 0;color:var(--mute)}
+ul.tight{margin:6px 0 0 18px;padding:0}ul.tight li{margin:4px 0}
+svg{width:100%;height:auto;display:block}svg text{fill:var(--fg);font:14px system-ui,sans-serif}
+.g{fill:var(--card);stroke:var(--wire);stroke-width:1.5}.w{stroke:var(--wire);stroke-width:1.5;fill:none}
+.flt{stroke:var(--bad);stroke-width:3}.fltfill{fill:var(--badbg);stroke:var(--bad);stroke-width:3}
+.tl{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}
+.cy{flex:1 1 44px;min-width:44px;border:1px solid var(--line);border-radius:6px;padding:6px 2px;text-align:center;font-size:.9rem;cursor:pointer;background:var(--card);color:var(--fg)}
+.cy.hit{border-color:var(--bad);background:var(--badbg)}.cy.cur{outline:2px solid var(--acc)}
+.reveal{border-radius:10px;padding:14px;margin-top:8px;font-weight:600}
+.reveal.lock{background:var(--goodbg);color:var(--good)}.reveal.pwn{background:var(--badbg);color:var(--bad)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.tw{overflow-x:auto}
+code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:.9em}
+.banner{border-left:4px solid var(--est);padding:8px 12px;background:var(--card);border-radius:6px;margin:12px 0}
+</style></head><body><main>
+<header><div><h1>Breaking and fixing a secure-boot FSM with faults</h1>
+<p class="sub">A solver finds the smallest set of bit-flips (one wire, one clock tick) that makes a chip boot with the wrong key. It then tests whether adding copies of the check helps, in these example designs only.</p></div>
+<button id="theme" aria-label="Toggle theme">Theme</button></header>
+<section class="card" id="result"><h2 style="margin-top:0">Result first</h2>
+<ul class="tight">
+<li><b>Found (measured):</b> flipping one wire for one clock tick breaks V0, and also V1, even though V1 has duplicated checks, because both copies end in one shared wire (<code>ok</code>). V2 (three copies, each driving its own result bits) held against 1 and 2 flips on one netlist, and 3 flips broke it.</li>
+<li><b>Depends on the tool:</b> the same V2 source gave an 85-gate netlist (2 flips break it) with Yosys 0.33, and an 83-gate netlist (no 2-flip attack) with Yosys 0.38 and with Yosys 0.52 (Docker, H5) on the plain flow. That is not a version effect (the stored netlist is also Yosys 0.33): Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. Always name the netlist hash and flow (<code>docs/report/WHY_TWO_FLIPS.md</code>).</li>
+<li><b>NOT shown:</b> real glitches or real chips, other designs or tools, or any general claim that a design is secure. Faults here are modelled bit flips.</li>
+</ul></section>
+<details class="card"><summary>Words used on this page</summary><dl>
+<dt>Flip (fault)</dt><dd>One wire inside the chip is inverted for one clock tick. This models a glitch; it is not a physical measurement.</dd>
+<dt>k</dt><dd>The number of flips the attacker is allowed.</dd>
+<dt>T (cycles)</dt><dd>How many clock ticks after reset the solver looks at. "Up to T=6" means nothing beyond 6 ticks was checked.</dd>
+<dt>Netlist</dt><dd>The chip described as a list of gates and wires, after the tool has turned the source code into logic. Different tool builds can give different netlists.</dd>
+<dt>Attack found / no attack found</dt><dd>The solver (a SAT solver) found, or could not find, a set of at most k flips that boots with the wrong key within T ticks. "No attack found" is a proof only within those limits.</dd>
+<dt>Unbounded proof</dt><dd>A proof that holds for any number of ticks. Only one exists here: V2 on one netlist, up to 2 flips.</dd>
+<dt>Layout, GDS, DRC, LVS</dt><dd>Layout is the drawing of the chip's metal and transistors (GDS is its file format). DRC checks the drawing against manufacturing rules. LVS checks that the drawing matches the gate list.</dd>
+<dt>MEASURED, SIMULATED, ESTIMATED, ILLUSTRATIVE</dt><dd>How each number was obtained: a command ran here; a simulation; a model; or a drawing that only explains.</dd>
+</dl></details>
+<div class="banner" id="src"></div>
+<div class="banner" id="safety" role="note"><b>Product safety notice:</b> RT2 found a HIGH command-execution bug (research/c5/rt2/RT2_REPORT.md, MEASURED); H2/H3 fixed it and the lead re-tested it with a canary on 2026-11-19 22:42 UTC (rejected, exit 3, no file). The GitHub Action's two shell steps were run locally only (not on GitHub) and the Dockerfile was built and run locally only with a proxy-CA copy (not on a normal network). Until a human has reviewed the fix, still do not run the Verilog path or the Action on untrusted input.</div>
+
+<h2>Act 1: Break it</h2>
+<p class="sub">Pick a design. The red marker is the single flipped wire (a gate output or a flip-flop) the solver found.</p>
+<div class="tabs" id="tabs"></div>
+<div id="act1body">
+<div class="card">
+ <div class="kpi" id="kpi"></div>
+</div>
+<div class="card"><h3>Compare / decision logic <span class="badge b-ILLUSTRATIVE">ILLUSTRATIVE</span></h3>
+ <div id="schem"></div>
+ <p class="note">Illustrative schematic: it shows the structure that matters (where the compares meet), not the real netlist. The faulted net name and cycle come from the solver.</p></div>
+<div class="card"><h3>Cycle timeline</h3>
+ <div class="tl" id="tl"></div><div id="tlmsg" class="note"></div>
+ <p class="note">Click a cycle. The fault is applied for one cycle only. The attacker input is held constant.</p></div>
+<div class="card"><h3>Boot with the wrong key</h3>
+ <button id="boot">Boot with wrong key</button>
+ <div id="reveal" aria-live="polite"></div>
+ <p class="note" id="revnote"></p></div>
+<div class="card" id="expl"></div>
+</div>
+<div id="scopeview" hidden></div>
+
+<h2>Act 2: Try a fix (V2)</h2>
+<div class="card" id="fix"></div>
+<div class="card"><h3>V2 structure <span class="badge b-ILLUSTRATIVE">ILLUSTRATIVE</span></h3><div id="schem2"></div>
+<p class="note">Illustrative. Three independent compare copies each drive their own bits of the result word, so no single wire carries the decision. An attacker has to corrupt all three copies.</p></div>
+
+<h2>Act 3: Prove it, within a bound</h2>
+<div class="banner"><b>Bounded, not unbounded. Read this first.</b><ul class="tight">
+<li>"No attack found up to T cycles" means: with at most k flips, nothing breaks it within T cycles of reset. It says nothing about later cycles or more flips (V2 breaks at k=3).</li>
+<li><b>One exception (measured, SymbiYosys with ABC PDR):</b> on the spike netlist, V2 has no attack with up to 2 flips for any number of cycles. This covers that fault model and that netlist only.</li>
+<li><b>Independent check (measured):</b> a separate simulator and a second solver agree on the spike netlists: every single flip for V0, V1 and V2, and all 2-flip sets for V2 (46,056 at T=4; 103,740 at T=6). It uses the same fault model, so it checks the solver, not the model. Details: validation/VALIDATION.md.</li></ul></div>
+<div class="card"><h3>k vs verdict vs bound vs runtime</h3>
+<div class="tw"><table id="tbl"></table></div>
+<p class="note">Scope of every row: result word as the goal (not the accept flag, which falls to 1 flip), spike netlists, known power-up state, input nets not fault sites, modelled bit flips only, bounded.</p></div>
+<div class="card"><h3>Solver runtime vs cycle bound T (log scale) <span class="badge b-MEASURED">MEASURED</span></h3>
+<div id="chart"></div>
+<p class="note" id="chartnote"></p></div>
+<p class="note">Evidence labels: MEASURED = a command here produced it; SIMULATED = from simulation; ESTIMATED = from a model; ILLUSTRATIVE = drawn to explain, not a result. See docs/EVIDENCE_LABELS.md.</p>
+<section class="card" id="engine"></section>
+<section class="card" id="act4"><h2>Act 4: Lay it out</h2>
+<p>The same V1 design taken through a real open-source flow (Yosys, OpenROAD, magic, sky130 process kit) to a GDS layout. The red box marks the cell that drives the net <code>ok</code>, the single point of failure from Act 1.</p>
+<img src="../layout/v_designs/out_patched/v1_zoom_ok.png" alt="Zoomed sky130 layout of V1 with the shared AND cell that drives net ok boxed in red" style="max-width:100%;height:auto;border:1px solid #888;border-radius:6px">
+<p class="note"><b>MEASURED (flow results):</b> 35 cells, 399 um2 placed at 77%, setup slack +7.05 ns at 10 ns (post-route estimate), router DRC 0 violations, netgen LVS "Circuits match uniquely" (layout vs powered reference netlist, tap and filler cells ignored by the setup). <b>Not claimed clean:</b> magic still reports errors inside standard-cell and filler definitions (PDK cell GDS under this rule deck); an antenna check found 0 violations and nothing is off the 5 nm grid (layout/verify/VERIFY.md; not signoff). The standard-cell errors are false positives of checking a cell without tap cells (tested for one cell only). <b>ANNOTATION:</b> the red box is found by net name in the post-synthesis netlist; the solver's fault model ran on a different, generic gate netlist. <b>No silicon was made;</b> this is a layout, and the faults are modelled, not physical glitches. Details: layout/v_designs/out_patched/RESULT.md.</p></section>
+</main>
+<script>
+/*DATA*/
+const $=id=>document.getElementById(id);
+const B=l=>`<span class="badge b-${l}">${l}</span>`;
+const NS='http://www.w3.org/2000/svg';
+const RT=r=>r==null?'n/a':(r<1?r.toFixed(2):r.toFixed(r<10?2:1))+' s';
+const ev=d=>DATA.live?d.evidence:'MEASURED';
+$('src').innerHTML=`<b>Where the numbers come from:</b> <code>results/reproduce_summary.json</code> (6 cycles) and <code>results/deep/sweep_main.json</code> (8 to 20 cycles). Every number is MEASURED by a command in this project; the schematics are ILLUSTRATIVE.`;
+try{const t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+$('theme').onclick=()=>{const dark=document.documentElement.dataset.theme?document.documentElement.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+ const n=dark?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+
+const EXPL={
+ v0:{why:'The whole check is one chain of plain gates ending in a single decision net. Flipping one gate in that chain at the right cycle makes the "key matches" output true for any key.',fix:'Do not let one wire decide. Duplicate the check at minimum (that is V1), but see why that alone fails.'},
+ v1:{why:'The two compares are duplicated and the encoding is sparse, which looks safe. But both compare results are ANDed through one shared net, <code>ok</code>. One flipped gate on that net defeats both copies at once, so the redundancy bought nothing.',fix:'Redundancy only helps if the copies stay independent all the way to the decision. Add a third copy, let each copy drive its own bits of the result, and never merge copies through a single shared net.'},
+ v2:{why:'No single flip, and no pair of flips, got through within the bound (and on this netlist a formal proof covers any number of cycles). The smallest attacks the solver found use three flips (for example all three compare outputs, or two compare gates plus one bit of the output word).',fix:'Make three copies of the compare and let each copy drive its own bits of the result word, so no single wire decides. An attacker then has to corrupt all three copies (3 flips). This held against up to 2 flips on the netlist checked, and it is not immunity.'}};
+const SCOPE_NOTE='Result word only (8-bit boot_word, known power-up, input nets not fault sites); the accept flag boot_ok falls to 1 flip. Modelled bit flips only, nothing physical.';
+let cur='v0',cycle=1;
+const names=Object.keys(DATA.designs);
+function keepFocus(box,build){const a=document.activeElement;const i=a&&box.contains(a)?[...box.children].indexOf(a):-1;build();if(i>=0&&box.children[i])box.children[i].focus()}
+function tabs(){keepFocus($('tabs'),()=>{$('tabs').innerHTML='';[['v0',DATA.designs.v0.name],['v1',DATA.designs.v1.name],['v2',DATA.designs.v2.name],['scope','Scope']].forEach(([k,nm])=>{if(k==='scope'&&!DATA.scope)return;const b=document.createElement('button');b.textContent=nm;b.setAttribute('aria-pressed',k===cur);b.onclick=()=>{cur=k;draw()};$('tabs').appendChild(b)})})}
+function gate(x,y,w,h,label,cls){return `<rect class="${cls||'g'}" x="${x}" y="${y}" width="${w}" height="${h}" rx="6"/><text x="${x+w/2}" y="${y+h/2+4}" text-anchor="middle">${label}</text>`}
+function ln(a,b,c,d,cls){return `<path class="${cls||'w'}" d="M${a} ${b} L${c} ${d}"/>`}
+function schem(k,d){
+ const f=d.faults[0]; const fn=f?f[0]:''; let s='';
+ if(k==='v0'){
+  s+=ln(60,50,110,50)+ln(60,110,110,110)+gate(110,30,110,40,'compare bits')+gate(110,90,110,40,'compare bits');
+  s+=ln(220,50,270,70)+ln(220,110,270,90)+gate(270,60,110,40,'AND chain')+ln(380,80,450,80)
+   +gate(450,50,90,60,'gate '+esc(fn),'fltfill')+ln(540,80,600,80)+gate(600,55,90,50,'boot_ok')+
+   `<text x="495" y="130" text-anchor="middle" style="fill:var(--bad)">flipped here</text>`;
+  s+=`<text x="10" y="54">sig</text><text x="10" y="114">key</text>`;
+ }else{
+  s+=`<text x="10" y="54">sig</text><text x="10" y="144">key</text>`+ln(60,50,110,50)+ln(60,140,110,140)
+   +gate(110,25,110,40,'compare A')+gate(110,115,110,40,'compare B')
+   +ln(220,45,290,80)+ln(220,135,290,100)+ln(290,90,330,90)
+   +`<rect class="fltfill" x="330" y="65" width="120" height="50" rx="6"/><text x="390" y="87" text-anchor="middle">AND net</text><text x="390" y="104" text-anchor="middle">'${esc(fn)}'</text>`
+   +ln(450,90,520,90)+gate(520,65,90,50,'boot_ok')+`<text x="390" y="140" text-anchor="middle" style="fill:var(--bad)">one shared net: one flip defeats both</text>`;
+ }
+ return `<svg viewBox="0 0 700 170" role="img" aria-label="Illustrative schematic of ${k} decision logic">${s}</svg>`}
+function schem2(){let s=`<text x="10" y="94">sig</text>`;
+ for(let i=0;i<3;i++){const y=15+i*55;s+=ln(40,90,90,y+20)+gate(90,y,110,40,'compare '+'ABC'[i])+ln(200,y+20,270,90)}
+ s+=gate(270,65,100,50,'per-bit select')+ln(370,90,430,50)+ln(370,90,430,130)+gate(430,30,110,40,'word half 0')+gate(430,110,110,40,'word half 1')+ln(540,50,600,90)+ln(540,130,600,90)+gate(600,65,90,50,'boot_ok');
+ return `<svg viewBox="0 0 700 180" role="img" aria-label="Illustrative schematic of V2">${s}</svg>`}
+function esc(s){return String(s).replace(/[<&>]/g,c=>({'<':'&lt;','&':'&amp;','>':'&gt;'}[c]))}
+function draw(){
+ tabs();const isScope=cur==='scope'&&DATA.scope;$('act1body').hidden=!!isScope;$('scopeview').hidden=!isScope;
+ if(isScope){scopeView();return}
+ if(cur==='scope')cur='v0';
+ const d=DATA.designs[cur],f=d.faults[0];
+ $('kpi').innerHTML=`<div><span class="note">Verdict</span><b class="bad">${d.verdict}</b>${B(ev(d))}${cur==='v2'?`<span class="note" style="display:block">${SCOPE_NOTE}</span>`:''}</div>
+  <div><span class="note">Flips needed</span><b>${d.faults.length||('more than '+d.k)}</b>${B(ev(d))}</div>
+  <div><span class="note">Fault</span><b style="font-size:1rem">${f?esc(f[0])+' @ cycle '+f[1]:'n/a'}</b>${B(ev(d))}</div>
+  <div><span class="note">Attacker input</span><b>${d.sig==null?'n/a':'sig='+d.sig}</b>${B(ev(d))}</div>
+  <div><span class="note">Solver time</span><b>${RT(d.runtime)}</b>${d.runtime==null?'':B(ev(d))}</div>
+  <div><span class="note">Bound</span><b>T=${d.T}</b><span class="note">bounded, not unbounded</span></div>`;
+ $('schem').innerHTML=cur==='v2'?schem2():schem(cur,d);
+ const fc=f?f[1]:-1;if(cycle>d.T||cycle<0)cycle=Math.max(fc,0);
+ keepFocus($('tl'),()=>{$('tl').innerHTML='';for(let c=0;c<=Math.min(d.T,12);c++){const b=document.createElement('button');b.className='cy'+(c===fc?' hit':'')+(c===cycle?' cur':'');b.innerHTML=`c${c}${c===fc?'<br>FLIP':''}`;b.onclick=()=>{cycle=c;draw()};$('tl').appendChild(b)}});
+ $('tlmsg').innerHTML=!f?`No flip at any cycle gets V2 to boot with a wrong key (up to 2 flips, on this netlist). ${B(ev(d))}`:cycle===fc?`Cycle ${cycle}: the solver flips <code>${esc(f?f[0]:'')}</code>. The FSM sees "key OK" and advances to boot.`:`Cycle ${cycle}: no fault. The FSM behaves normally with a wrong key. ${B(ev(d))}`;
+ $('reveal').innerHTML='';$('revnote').textContent='';
+ const e=EXPL[cur];$('expl').innerHTML=`<h3>Why it went wrong</h3><p>${d.explanation||e.why}</p><h3>The fix pattern</h3><p>${e.fix}</p>`;
+}
+$('boot').onclick=()=>{const d=DATA.designs[cur],f=d.faults[0];
+ if(!f){$('reveal').innerHTML=`<div class="reveal lock">With up to 2 flips anywhere: still LOCKED. No attack found up to T=${d.T} (and none for any number of cycles on this netlist, by the formal proof).</div>`;$('revnote').innerHTML=`Result from the solver's model of this netlist. ${B(ev(d))} Not a measurement on silicon.`;return}
+ $('reveal').innerHTML=`<div class="reveal lock">Step 1, no fault: wrong key sig=${d.sig==null?'?':d.sig} gives LOCKED.</div><div class="reveal pwn">Step 2, one flip of ${esc(f?f[0]:'')} at cycle ${f?f[1]:'?'}: boot_ok = 1. BOOTED with the wrong key.</div>`;
+ $('revnote').innerHTML=`Result from the solver's model of this netlist, up to T=${d.T} cycles. ${B(ev(d))} Not a measurement on silicon.`};
+
+function fix(){const d=DATA.designs.v2;
+ $('fix').innerHTML=`<div class="kpi"><div><span class="note">Verdict</span><b class="good">${d.verdict}</b>${B(ev(d))}<span class="note" style="display:block">${SCOPE_NOTE}</span></div>
+ <div><span class="note">Bound</span><b>T=${d.T} cycles</b><span class="note">bounded, not unbounded</span></div>
+ <div><span class="note">Longest solve</span><b>${RT(d.runtime)}</b>${B(ev(d))}</div></div>
+ <h3 style="margin-top:12px">Why it works</h3><p>${d.explanation||EXPL.v2.why}</p><h3>The fix pattern</h3><p>${EXPL.v2.fix}</p>
+ <p class="note">Limits: at k=3 the solver finds an attack on V2, so this is resistance to 1 and 2 faults, not immunity.</p><p class="note" style="border-left:4px solid #b26a00;padding-left:8px"><b>Important caveat (measured):</b> this result holds for the <b>specific netlist from the spike</b>. Building V2 from its source file with Yosys 0.33 gives a different, 85-gate netlist, and on that one the smallest attack is <b>2 flips</b>, because the tool shares logic between result bits. Building it with Yosys 0.38 gave an 83-gate netlist with <b>no</b> 2-flip attack. So the answer depends on the exact netlist the tool produces: always name the tool build. Details: docs/ENGINE_STATUS.md, formal/FORMAL.md.</p>`;
+ $('schem2').innerHTML=schem2()}
+
+function table(){const rows=DATA.rows.slice().sort((a,b)=>a[0]<b[0]?-1:a[0]>b[0]?1:a[2]-b[2]||a[1]-b[1]);
+ let h='<tr><th>Design</th><th>k faults</th><th>Bound T</th><th>Result</th><th>Solver time</th><th>Evidence</th></tr>';
+ rows.forEach(r=>{const un=String(r[3]).toLowerCase().startsWith('unsat');const n=DATA.designs[r[0]]?DATA.designs[r[0]].name.split(' ')[0]:r[0];
+  h+=`<tr><td>${n}</td><td>${r[2]}</td><td>${r[1]}</td><td class="${un?'good':'bad'}">${un?`No attack found up to T=${r[1]}`:'Attack found'}</td><td>${RT(r[4])}</td><td>${B('MEASURED')}</td></tr>`});
+ $('tbl').innerHTML=h}
+
+function chart(){const W=700,H=300,m={l:52,r:12,t:12,b:40};
+ const rows=DATA.rows.filter(r=>r[4]!=null&&r[4]>0);const xs=[...new Set(rows.map(r=>r[1]))];
+ const xmin=Math.min(...xs),xmax=Math.max(...xs);const X=t=>m.l+(t-xmin)/(xmax-xmin||1)*(W-m.l-m.r);
+ const lo=Math.floor(Math.log10(Math.min(...rows.map(r=>r[4])))),hi=Math.ceil(Math.log10(Math.max(...rows.map(r=>r[4]))));
+ const Y=v=>m.t+(1-(Math.log10(v)-lo)/(hi-lo||1))*(H-m.t-m.b);
+ let s='';for(let p=lo;p<=hi;p++){const y=Y(10**p);s+=`<path d="M${m.l} ${y}H${W-m.r}" stroke="var(--line)"/><text x="${m.l-6}" y="${y+4}" text-anchor="end">${p>=0?10**p:(10**p)}s</text>`}
+ xs.forEach(t=>s+=`<text x="${X(t)}" y="${H-20}" text-anchor="middle">${t}</text>`);
+ s+=`<text x="${(W+m.l)/2}" y="${H-4}" text-anchor="middle">cycle bound T</text>`;
+ const series=[['v2',2,'V2, k=2 (no attack found)','var(--good)','0'],['v2',3,'V2, k=3 (attack found)','var(--bad)','5 4'],['v1',1,'V1, k=1 (attack found)','var(--acc)','2 3']];let lx=m.l+8;
+ series.forEach(([dz,k,lab,col,da],i)=>{const pts=rows.filter(r=>r[0]===dz&&r[2]===k).sort((a,b)=>a[1]-b[1]);if(!pts.length)return;
+  s+=`<polyline fill="none" stroke="${col}" stroke-width="2.5" stroke-dasharray="${da}" points="${pts.map(r=>X(r[1])+','+Y(r[4])).join(' ')}"/>`;
+  pts.forEach(r=>s+=`<circle cx="${X(r[1])}" cy="${Y(r[4])}" r="4" fill="${col}"><title>${lab}, T=${r[1]}: ${RT(r[4])}</title></circle>`);
+  s+=`<line x1="${lx}" x2="${lx+22}" y1="${m.t+10+i*16}" y2="${m.t+10+i*16}" stroke="${col}" stroke-width="2.5" stroke-dasharray="${da}"/><text x="${lx+28}" y="${m.t+14+i*16}">${lab}</text>`});
+ $('chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Runtime versus cycle bound">${s}</svg>`;
+ $('chartnote').textContent='Solver time for V2 (spike netlist, no attack up to 2 flips) grows roughly 2 to 3 times for every 4 extra cycles (about 294 s at 20 cycles). Where an attack exists the solver stops at the first one, so those times are noisy. All times are from the deep sweep (docs/DEEP_RESULTS.md).'}
+
+function scopeView(){const S=DATA.scope,el=$('scopeview');const nm={v0:'V0',v1:'V1',v2:'V2'};
+ const t=(head,rows)=>'<div class="tw"><table><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</table></div>';
+ const n=v=>v===null||v===undefined?'?':(typeof v==='string'?v:String(v));
+ let h='<p class="note" id="demolinks"><b>Try the live demos:</b> <a href="../docs/wow/dial.html" style="display:inline-block;min-height:44px;line-height:44px;margin-right:12px">Verdict Dial</a><a href="../docs/wow/theatre.html" style="display:inline-block;min-height:44px;line-height:44px;margin-right:12px">Solver Replay</a><a href="../docs/wow/wall.html" style="display:inline-block;min-height:44px;line-height:44px">264 builders</a></p>'; h+='<div class="card"><h3>Scope: how the V2 answer changes with the question asked '+B('MEASURED')+'</h3><p class="note">Minimum number of modelled bit flips found (stored spike netlists, plus the apt Yosys 0.33 re-synthesis of V2; 6 cycles, attacker input held constant, at most 3 flips; "&gt;3" = none up to 3). Source: <code>'+S.src.b2+'</code>. Only the first row is the claim "V2 holds up to 2 flips"; every other row changes one assumption and V2 drops to 1 flip or fewer.</p>'
+  +t(['Question asked','V0 spike','V1 spike','V2 spike','V2 apt-0.33 (re-synthesised)'],S.b2.map(r=>[r.label,n(r.v0),n(r.v1),n(r.v2),n(r.v2apt)]))
+  +'<p class="note"><b>Read this:</b> the 3 is a statement about the 8-bit result word only, with a known power-up state and input nets that are not fault sites. The accept flag boot_ok falls to 1 flip. The numbers are from a model of bit flips; nothing here is physical.</p></div>';
+ h+='<div class="card"><h3>Flips vs consumer width '+B('MEASURED')+'</h3><p class="note">V2 spike, minimum flips if the consumer reads only the lowest n bits of the result word. Source: <code>'+S.src.m1+'</code> (also what <code>faultbound-wt --sweep-widths</code> prints, research/c4/ps5/PS5_REPORT.md). 0 at n=1 means the idle state already matches those bits. Result-word goal, known power-up, input nets not fault sites.</p>'
+  +t(['lowest n bits'].concat(S.widths.map(w=>w[0])),[['min flips'].concat(S.widths.map(w=>w[1]))])+'</div>';
+ h+='<div class="card"><h3>Variance across synthesis choices '+B('MEASURED')+'</h3><p class="note">Number of solved configurations (of '+S.e2.total+' per design incl. unsupported; solved shown) by the minimum flips found, goal = result word, 6 cycles, known init, k up to 3. Source: <code>'+S.src.e2+'</code> (864 configs: 3 Yosys builds x 3 designs x 96 flow/ABC/merge/keep choices; engine-unsupported netlists excluded, not counted as safe).</p>'
+  +t(['Design','min 1 flip','min 2 flips','min 3 flips','solved','not readable by engine'],S.e2.rows.map(r=>[nm[r.d],r.c1,r.c2,r.c3,r.solved,r.unsup]))
+  +'<p class="note"><b>V2: 180 / 60 / 24 of '+S.e2.rows[2].solved+' solved configs; '+S.e2.distinct.n+' distinct netlists: '+S.e2.distinct.c.join('/')+'</b> ('+B('MEASURED')+', <code>'+S.src.e2+'</code>; distinct-netlist count from research/c5/da3/DA3_REPORT.md; verdicts never differ within a distinct netlist, so the config count overstates how many different netlists there are).</p><p class="note">V2 gives 1, 2 or 3 flips depending on the tool choices; no run ever exceeded 3 for V2 (V1 never above 2, V0 never above 1). Only a minority of V2 configurations (24 of '+S.e2.rows[2].solved+') keep three independent compare copies.</p></div>';
+ h+='<div class="card"><h3>Supply-dip (rail) event model: survival depends on polarity '+B('SIMULATED')+'</h3><p class="note">Basis: circuit-level SPICE simulation (ngspice, sky130 cells; research/c2/el1_spice/EL1_REPORT.md): the simulation supports <b>1-to-0 only</b>, for supply dips; it does not support a 0-to-1 event. B3 turned the 1-to-0 reading into a solver event ("one rail event forces gates to 0"), solved up to 3 events, result word, 6 cycles. "Domain" means a netlist hierarchy group, not a physical rail. Minimum events found, source: <code>'+S.src.b3+'</code> (solver result MEASURED; the model basis is SIMULATED, not silicon).</p>'
+  +t(['Event model'].concat(S.rail.cols),S.rail.rows.map(r=>[r.label].concat(r.vals)))
+  +'<p class="note"><b>Reconciled statement</b> (research/c5/anchor/RAIL_RECONCILIATION.md, research/c5/ledger/LEDGER.md; '+B('SIMULATED')+'): in our model a 1-to-0 rail event does not break V1, V2 or V5 within the bound (&gt;3 events, a bounded result, not a proof), but a <b>0-to-1</b> event on the three compare copies breaks V2 and V5 with <b>one event</b> (V1 and V0 too), so survival depends on polarity, not on triplication. Selectivity (events that reach just the three copies) also costs 1. The domain is the netlist hierarchy, not a physical rail; physical track closed (no extraction, selectivity unproven; L2 spread layouts failed LVS 4/4 by a known filler flow bug). The SPICE basis supports 1-to-0 for supply dips only. Bounded: 6 cycles, 3 events, toy designs; nothing physical was tested.</p></div>';
+ h+='<div class="card"><h3>Counting rule and synthesis sweep '+B('MEASURED')+'</h3><ul class="tight"><li><b>Counting rule</b> (<code>--count-rule</code>, '+S.counting.src+'): spike V2 word, minimum flips under stem / fanout_pins / fanout_gates = <b>'+S.counting.spike.join(' / ')+'</b>. With input nets as fault sites on: stem <b>'+S.counting.inputs.stem+'</b>, fanout_pins <b>'+S.counting.inputs.fanout_pins+'</b> (an input net feeds several pins, so the rule changes the number).</li><li><b>Synthesis sweep</b> (<code>faultbound-wt analyze rtl/v2.v --synth-sweep</code>, Yosys 0.33, '+S.synth.src+'): <b>'+S.synth.plain[0]+' gates, '+S.synth.plain[1]+' flips</b>; with <code>opt_merge</code>: <b>'+S.synth.merge[0]+' gates, '+S.synth.merge[1]+' flip</b>.</li></ul></div>';
+ if(S.ledger){const L=S.ledger,LB=l=>'<span class="badge b-'+l+'">'+l+'</span>';
+  h+='<div class="card"><h3>Redundancy survival ledger: 4 designs x 5 stages (stage 4 has a 4b boot_ok sub-table)</h3><p class="note">'+B('MEASURED')+' '+B('SIMULATED')+' '+B('UNMEASURED')+' Cell = minimum number of modelled events (single-cycle bit flips or rail events), 6 cycles, at most 3 events, goal = result word; "&gt;3" = no attack found up to 3 (a bound, not "secure"). Each cell carries its label: MEASURED (a command produced it), SIMULATED (a modelled rail, dip or placement event, not physical), UNMEASURED (not run: n/a). Source: <code>'+L.src+'</code> (per-cell sources are in that file; picture: research/c5/ledger/ledger.png).</p>';
+  L.stages.forEach(st=>{h+='<div class="tw"><table><caption style="text-align:left;font-weight:600;padding:6px 8px">'+st.name+'</caption><tr><th scope="col">Design</th>'+st.cols.map(c=>'<th scope="col">'+c+'</th>').join('')+'</tr>'+st.rows.map(r=>'<tr><th scope="row">'+r.d+'</th>'+r.cells.map(c=>'<td>'+c[0]+' '+LB(c[1])+'</td>').join('')+'</tr>').join('')+'</table></div>'});
+  h+='<p class="note">The placement stage exists only for V2 (and V1 base): V0 and V5 have no placed layout. The 0-to-1 control was run on netlist hierarchy domains only, not on layout-derived domains.</p></div>'}
+ el.innerHTML=h}
+draw();fix();table();chart();engineTable();
+
+function engineTable(){const E=DATA.engine;const el=$('engine');if(!E||!E.rows){el.style.display='none';return}
+ const nets={'spike/given-netlist':'spike netlist','rtl/plain':'re-synthesized from RTL (plain)','rtl/opt':'re-synthesized from RTL (opt)'};
+ const dn={v0:'V0 naive',v1:'V1 duplicated',v2:'V2 triplicated'};
+ let h='<h2>Engine re-run: the same designs, three synthesis routes</h2><p class="note">'+B('MEASURED')+' Engine results, '+E.cycles+' cycles, single-cycle bit flips on gate outputs and flop Q. "Min faults" is the smallest attack the solver found. <b>Bounded, not unbounded.</b> Source: results/reproduce_summary.json.</p><div class="tw"><table><tr><th>Design</th><th>Netlist</th><th>k=1</th><th>k=2</th><th>k=3</th></tr>';
+ ['v0','v1','v2'].forEach(d=>Object.keys(nets).forEach(n=>{
+  const cell=k=>{const r=E.rows.find(x=>x.design===d&&x.netlist===n&&x.k===k);if(!r)return'-';
+   return r.verdict==='ATTACK_FOUND'?`<span class="bad">attack, min ${r.min_faults} fault${r.min_faults>1?'s':''}</span>`:'<span class="good">no attack</span>'};
+  h+=`<tr><td>${dn[d]}</td><td>${nets[n]}</td><td>${cell(1)}</td><td>${cell(2)}</td><td>${cell(3)}</td></tr>`}));
+ h+='</table></div><p class="note"><b>Read the V2 rows:</b> on the spike netlist V2 resists up to 2 faults for the result word (the accept flag boot_ok falls to 1 flip); built from its source with Yosys 0.33 (this machine) it falls to 2, because synthesis shares logic across the result word; built with Yosys 0.38 (plain flow) it gave a different netlist with no 2-flip attack. The weakness is the encoding (the armed word touches 2 of 3 copies; re-encoded rtl/v2e.v gives 3 on 6 of 8 flows); a build or flow difference changes the netlist, not the weakness. A countermeasure that looks safe in RTL depends on how the tool maps it.</p>';
+ el.innerHTML=h}
+</script></body></html>

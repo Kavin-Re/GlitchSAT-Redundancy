@@ -1,0 +1,40 @@
+v2_apt033_flat {'gates': 51, 'flops': 8, 'compare_nets': {'sig': (1, 1)}}
+v2_apt033_opt {'gates': 81, 'flops': 8, 'compare_nets': {'sig': (3, 3)}}
+v2_apt033_plain {'gates': 85, 'flops': 8, 'compare_nets': {'sig': (3, 3)}}
+v2_conda038_opt {'gates': 78, 'flops': 8, 'compare_nets': {'sig': (3, 3)}}
+v2_conda038_plain {'gates': 83, 'flops': 8, 'compare_nets': {'sig': (3, 3)}}
+v4_apt033_flat {'gates': 105, 'flops': 16, 'compare_nets': {'sig': (1, 1)}}
+v4_apt033_opt {'gates': 101, 'flops': 16, 'compare_nets': {'sig': (1, 1)}}
+v4_apt033_plain {'gates': 118, 'flops': 16, 'compare_nets': {'sig': (1, 1)}}
+v4_conda038_opt {'gates': 110, 'flops': 16, 'compare_nets': {'sig': (1, 1)}}
+v4_conda038_plain {'gates': 111, 'flops': 16, 'compare_nets': {'sig': (1, 1)}}
+v4b_apt033_flat {'gates': 111, 'flops': 16, 'compare_nets': {'sig': (1, 1)}}
+v4b_apt033_opt {'gates': 116, 'flops': 16, 'compare_nets': {'sig': (2, 2)}}
+v4b_apt033_plain {'gates': 128, 'flops': 16, 'compare_nets': {'sig': (2, 2)}}
+v4b_conda038_opt {'gates': 111, 'flops': 16, 'compare_nets': {'sig': (2, 2)}}
+v4b_conda038_plain {'gates': 121, 'flops': 16, 'compare_nets': {'sig': (2, 2)}}
+v5_apt033_flat {'gates': 55, 'flops': 8, 'compare_nets': {'sig': (1, 1)}}
+v5_apt033_opt {'gates': 188, 'flops': 9, 'compare_nets': {'sig': (3, 69)}}
+v5_apt033_plain {'gates': 208, 'flops': 9, 'compare_nets': {'sig': (3, 69)}}
+v5_conda038_opt {'gates': 190, 'flops': 9, 'compare_nets': {'sig': (3, 69)}}
+v5_conda038_plain {'gates': 183, 'flops': 9, 'compare_nets': {'sig': (3, 69)}}
+v6_apt033_flat {'gates': 94, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6_apt033_opt {'gates': 86, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6_apt033_plain {'gates': 78, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6_conda038_opt {'gates': 84, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6_conda038_plain {'gates': 98, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6b_apt033_flat {'gates': 80, 'flops': 16, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6b_apt033_opt {'gates': 86, 'flops': 16, 'compare_nets': {'s1': (2, 2), 's2': (2, 2), 'sig': (0, 0)}}
+v6b_apt033_plain {'gates': 78, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6b_conda038_opt {'gates': 84, 'flops': 16, 'compare_nets': {'s1': (2, 2), 's2': (2, 2), 'sig': (0, 0)}}
+v6b_conda038_plain {'gates': 98, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6bh_apt033_flat {'gates': 100, 'flops': 16, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6bh_apt033_opt {'gates': 107, 'flops': 16, 'compare_nets': {'s1': (2, 2), 's2': (2, 2), 'sig': (0, 0)}}
+v6bh_apt033_plain {'gates': 108, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6bh_conda038_opt {'gates': 66, 'flops': 16, 'compare_nets': {'s1': (2, 2), 's2': (2, 2), 'sig': (0, 0)}}
+v6bh_conda038_plain {'gates': 94, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6h_apt033_flat {'gates': 115, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6h_apt033_opt {'gates': 107, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6h_apt033_plain {'gates': 108, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6h_conda038_opt {'gates': 66, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}
+v6h_conda038_plain {'gates': 94, 'flops': 24, 'compare_nets': {'s1': (1, 1), 's2': (1, 1), 'sig': (0, 0)}}

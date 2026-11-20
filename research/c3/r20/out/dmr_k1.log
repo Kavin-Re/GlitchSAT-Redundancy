@@ -1,0 +1,2 @@
+sbox_dmr: NO_ATTACK_UP_TO_BOUND  (k<=1, cycles=4, reduce=full)  solve=62.382s
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.

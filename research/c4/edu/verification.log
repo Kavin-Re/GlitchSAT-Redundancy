@@ -1,0 +1,319 @@
+# verification.log. Run 2026-11-19T21:02:11Z in a COPY of the project at /tmp/work_edu (never in the tree).
+# yosys: Yosys 0.33 (git sha1 2584903a060); python: Python 3.13.18; z3-solver: 5.4.1; faultbound-wt: 0.0.1.dev0
+# Output is filtered to the verdict line, minimum attack, netlist sha line and exit code; label of every number: MEASURED (this log).
+
+$ faultbound-wt analyze reference/spike_netlists/v0.json --top v0 --config product/src/faultbound_wt/examples/threat.toml --max-flips 1
+v0: ATTACK_FOUND  (<= 1 flips, 6 cycles; 18 gates, 2 flops; 0.092s)
+  minimum attack: st[0]@5
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac; tool version 0.0.1.dev0
+[exit code 1; 0.3 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v0.json --top v0 --config product/src/faultbound_wt/examples/threat.toml --max-flips 2
+v0: ATTACK_FOUND  (<= 2 flips, 6 cycles; 18 gates, 2 flops; 0.084s)
+  minimum attack: st[1]@0
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac; tool version 0.0.1.dev0
+[exit code 1; 0.2 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v0.json --top v0 --config product/src/faultbound_wt/examples/threat.toml --max-flips 3
+v0: ATTACK_FOUND  (<= 3 flips, 6 cycles; 18 gates, 2 flops; 0.12s)
+  minimum attack: st[1]@0
+  scope: bounds: max_flips=3, cycles=6, timeout_ms=none
+  scope: netlist sha256 103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac; tool version 0.0.1.dev0
+[exit code 1; 0.4 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v1.json --top v1 --config product/src/faultbound_wt/examples/threat.toml --max-flips 1
+v1: ATTACK_FOUND  (<= 1 flips, 6 cycles; 58 gates, 8 flops; 0.319s)
+  minimum attack: ok@1
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc; tool version 0.0.1.dev0
+[exit code 1; 0.6 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v1.json --top v1 --config product/src/faultbound_wt/examples/threat.toml --max-flips 2
+v1: ATTACK_FOUND  (<= 2 flips, 6 cycles; 58 gates, 8 flops; 0.411s)
+  minimum attack: ok@1
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc; tool version 0.0.1.dev0
+[exit code 1; 0.6 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v1.json --top v1 --config product/src/faultbound_wt/examples/threat.toml --max-flips 3
+v1: ATTACK_FOUND  (<= 3 flips, 6 cycles; 58 gates, 8 flops; 0.362s)
+  minimum attack: ok@1
+  scope: bounds: max_flips=3, cycles=6, timeout_ms=none
+  scope: netlist sha256 84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc; tool version 0.0.1.dev0
+[exit code 1; 0.6 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 1
+v2: NO_ATTACK_UP_TO_BOUND  (<= 1 flips, 6 cycles; 68 gates, 8 flops; 0.337s)
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec; tool version 0.0.1.dev0
+[exit code 0; 0.7 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 2
+v2: NO_ATTACK_UP_TO_BOUND  (<= 2 flips, 6 cycles; 68 gates, 8 flops; 1.898s)
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec; tool version 0.0.1.dev0
+[exit code 0; 2.2 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 3
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 11.854s)
+  minimum attack: word[0]@1, $flatten\c1.$abc$251$new_n14_@1, $flatten\c2.$abc$251$new_n14_@1
+  MINIMUM ATTACK COST = 3 flips (`word[0]`@1, `$flatten\c1.$abc$251$new_n14_`@1, `$flatten\c2.$abc$251$new_n14_`@1), on 3 distinct net(s) in 1 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6).
+  scope: bounds: max_flips=3, cycles=6, timeout_ms=none
+  scope: netlist sha256 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec; tool version 0.0.1.dev0
+[exit code 1; 12.1 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v2.json v2 --mask 0xFF
+netlist_sha256: 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec
+mask: 0xFF  rule: unit  cycles: 6
+min_cost: 3
+flips: 30@1, 77@1, 84@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 30:3, 77:1, 84:1
+[exit code 0; 3.0 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v2.json v2 --mask 0x0F
+netlist_sha256: 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec
+mask: 0x0F  rule: unit  cycles: 6
+min_cost: 2
+flips: 13@0, 14@0
+flip net ids and their fanout cost (sink pins incl. output-port bits): 13:4, 14:5
+[exit code 0; 0.3 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v2.json v2 --mask 0x1B
+netlist_sha256: 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec
+mask: 0x1B  rule: unit  cycles: 6
+min_cost: 1
+flips: 13@0
+flip net ids and their fanout cost (sink pins incl. output-port bits): 13:4
+[exit code 0; 0.3 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v2.json v2 --mask 0x4E
+netlist_sha256: 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec
+mask: 0x4E  rule: unit  cycles: 6
+min_cost: 3
+flips: 13@0, 14@0, 18@0
+flip net ids and their fanout cost (sink pins incl. output-port bits): 13:4, 14:5, 18:4
+[exit code 0; 1.7 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v1.json v1 --mask 0x0F
+netlist_sha256: 84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc
+mask: 0x0F  rule: unit  cycles: 6
+min_cost: 1
+flips: 45@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 45:5
+[exit code 0; 0.2 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v0.json v0 --mask 0x0F
+netlist_sha256: 103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac
+mask: 0x0F  rule: unit  cycles: 6
+min_cost: 1
+flips: 29@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 29:1
+[exit code 0; 0.3 s]
+
+$ product/scripts/yosys_flow.sh rtl/v2.v v2 edu_work/v2_plain.json
+yosys: Yosys 0.33 (git sha1 2584903a060)
+netlist: edu_work/v2_plain.json
+netlist_sha256: f954078f944ab7a2c58845dbbfc399e13d179de8547df7b51c1f402aafff72c5
+[exit code 0; 0.3 s]
+
+$ docs/edu/tools/synth_merge.sh rtl/v2.v v2 edu_work/v2_merge.json
+yosys: Yosys 0.33 (git sha1 2584903a060)
+netlist: edu_work/v2_merge.json
+netlist_sha256: d776226e610a16fa4710854251e86a76b193a1067bc7ba0a067d9e592ad8cdac
+[exit code 0; 0.3 s]
+
+$ faultbound-wt analyze edu_work/v2_plain.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 1
+v2: NO_ATTACK_UP_TO_BOUND  (<= 1 flips, 6 cycles; 85 gates, 8 flops; 0.363s)
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 f954078f944ab7a2c58845dbbfc399e13d179de8547df7b51c1f402aafff72c5; tool version 0.0.1.dev0
+[exit code 0; 0.7 s]
+
+$ faultbound-wt analyze edu_work/v2_plain.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 2
+v2: ATTACK_FOUND  (<= 2 flips, 6 cycles; 85 gates, 8 flops; 0.623s)
+  minimum attack: $abc$275$new_n58_@0, $abc$275$new_n74_@0
+  MINIMUM ATTACK COST = 2 flips (`$abc$275$new_n58_`@0, `$abc$275$new_n74_`@0), on 2 distinct net(s) in 1 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6).
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 f954078f944ab7a2c58845dbbfc399e13d179de8547df7b51c1f402aafff72c5; tool version 0.0.1.dev0
+[exit code 1; 0.9 s]
+
+$ faultbound-wt analyze edu_work/v2_merge.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 1
+v2: ATTACK_FOUND  (<= 1 flips, 6 cycles; 63 gates, 8 flops; 0.496s)
+  minimum attack: $flatten\c0.$abc$265$new_n16_@1
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 d776226e610a16fa4710854251e86a76b193a1067bc7ba0a067d9e592ad8cdac; tool version 0.0.1.dev0
+[exit code 1; 0.8 s]
+
+$ faultbound-wt analyze edu_work/v2_merge.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 2
+v2: ATTACK_FOUND  (<= 2 flips, 6 cycles; 63 gates, 8 flops; 0.462s)
+  minimum attack: $flatten\c0.$abc$265$new_n12_@1
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 d776226e610a16fa4710854251e86a76b193a1067bc7ba0a067d9e592ad8cdac; tool version 0.0.1.dev0
+[exit code 1; 0.7 s]
+
+$ python3 docs/edu/tools/edu_scope.py edu_work/v2_plain.json v2 --rule unit
+netlist_sha256: f954078f944ab7a2c58845dbbfc399e13d179de8547df7b51c1f402aafff72c5
+mask: 0xFF  rule: unit  cycles: 6
+min_cost: 2
+flips: 51@0, 67@0
+flip net ids and their fanout cost (sink pins incl. output-port bits): 51:3, 67:2
+[exit code 0; 0.8 s]
+
+$ python3 docs/edu/tools/edu_scope.py edu_work/v2_plain.json v2 --rule fanout
+netlist_sha256: f954078f944ab7a2c58845dbbfc399e13d179de8547df7b51c1f402aafff72c5
+mask: 0xFF  rule: fanout  cycles: 6
+min_cost: 3
+flips: 80@1, 89@1, 99@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 80:1, 89:1, 99:1
+[exit code 0; 0.9 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v2.json v2 --rule unit
+netlist_sha256: 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec
+mask: 0xFF  rule: unit  cycles: 6
+min_cost: 3
+flips: 30@1, 77@1, 84@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 30:3, 77:1, 84:1
+[exit code 0; 2.9 s]
+
+$ python3 docs/edu/tools/edu_scope.py reference/spike_netlists/v2.json v2 --rule fanout
+netlist_sha256: 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec
+mask: 0xFF  rule: fanout  cycles: 6
+min_cost: 3
+flips: 66@1, 73@1, 80@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 66:1, 73:1, 80:1
+[exit code 0; 0.6 s]
+
+$ python3 docs/edu/tools/edu_scope.py edu_work/v2_merge.json v2 --rule fanout
+netlist_sha256: d776226e610a16fa4710854251e86a76b193a1067bc7ba0a067d9e592ad8cdac
+mask: 0xFF  rule: fanout  cycles: 6
+min_cost: 1
+flips: 78@1
+flip net ids and their fanout cost (sink pins incl. output-port bits): 78:1
+[exit code 0; 0.2 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v0.json --top mini0 --config docs/edu/starter_designs/mini.toml --max-flips 1
+mini0: ATTACK_FOUND  (<= 1 flips, 6 cycles; 33 gates, 4 flops; 0.258s)
+  minimum attack: c.m@1
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 5a46ec6cf0bb0b538768ee0b320b95eb2570344ba4a9f5163c65ad3fd47716da; tool version 0.0.1.dev0
+[exit code 1; 0.5 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v0.json --top mini0 --config docs/edu/starter_designs/mini.toml --max-flips 2
+mini0: ATTACK_FOUND  (<= 2 flips, 6 cycles; 33 gates, 4 flops; 0.319s)
+  minimum attack: $flatten\c.$abc$186$new_n7_@1
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 5a46ec6cf0bb0b538768ee0b320b95eb2570344ba4a9f5163c65ad3fd47716da; tool version 0.0.1.dev0
+[exit code 1; 0.6 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v1.json --top mini1 --config docs/edu/starter_designs/mini.toml --max-flips 1
+mini1: ATTACK_FOUND  (<= 1 flips, 6 cycles; 39 gates, 4 flops; 0.364s)
+  minimum attack: ok@1
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 b3b890dad575aa43a4dfe6063ed337f0dc140b3d57fb662e299b7cef4b04f550; tool version 0.0.1.dev0
+[exit code 1; 0.7 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v1.json --top mini1 --config docs/edu/starter_designs/mini.toml --max-flips 2
+mini1: ATTACK_FOUND  (<= 2 flips, 6 cycles; 39 gates, 4 flops; 0.314s)
+  minimum attack: ok@1
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 b3b890dad575aa43a4dfe6063ed337f0dc140b3d57fb662e299b7cef4b04f550; tool version 0.0.1.dev0
+[exit code 1; 0.5 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v2.json --top mini2 --config docs/edu/starter_designs/mini.toml --max-flips 1
+mini2: NO_ATTACK_UP_TO_BOUND  (<= 1 flips, 6 cycles; 45 gates, 4 flops; 0.285s)
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b; tool version 0.0.1.dev0
+[exit code 0; 0.5 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v2.json --top mini2 --config docs/edu/starter_designs/mini.toml --max-flips 2
+mini2: ATTACK_FOUND  (<= 2 flips, 6 cycles; 45 gates, 4 flops; 0.292s)
+  minimum attack: boot_word[2]@1, $abc$199$new_n35_@4
+  MINIMUM ATTACK COST = 2 flips (`boot_word[2]`@1, `$abc$199$new_n35_`@4), on 2 distinct net(s) in 2 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6).
+  scope: bounds: max_flips=2, cycles=6, timeout_ms=none
+  scope: netlist sha256 dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b; tool version 0.0.1.dev0
+[exit code 1; 0.5 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v2.v --top mini2 --config docs/edu/starter_designs/mini.toml --max-flips 1
+mini2: NO_ATTACK_UP_TO_BOUND  (<= 1 flips, 6 cycles; 45 gates, 4 flops; 0.313s)
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b; tool version 0.0.1.dev0
+[exit code 0; 0.8 s]
+
+$ docs/edu/tools/synth_merge.sh docs/edu/starter_designs/mini_v2.v mini2 edu_work/mini2_merge.json
+yosys: Yosys 0.33 (git sha1 2584903a060)
+netlist: edu_work/mini2_merge.json
+netlist_sha256: b07856cfdcda94d691afc3c71ee6cbc5a47116c59862654994a0fd3343d4adff
+[exit code 0; 0.2 s]
+
+$ faultbound-wt analyze edu_work/mini2_merge.json --top mini2 --config docs/edu/starter_designs/mini.toml --max-flips 1
+mini2: ATTACK_FOUND  (<= 1 flips, 6 cycles; 33 gates, 4 flops; 0.284s)
+  minimum attack: c0.m@1
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 b07856cfdcda94d691afc3c71ee6cbc5a47116c59862654994a0fd3343d4adff; tool version 0.0.1.dev0
+[exit code 1; 0.6 s]
+
+$ faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --config docs/edu/starter_designs/v2_bootok.toml --max-flips 1
+v2: ATTACK_FOUND  (<= 1 flips, 6 cycles; 68 gates, 8 flops; 0.304s)
+  minimum attack: boot_ok@1
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec; tool version 0.0.1.dev0
+[exit code 1; 0.6 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v2.json --top mini2 --config docs/edu/starter_designs/mini_bootok.toml --max-flips 1
+mini2: ATTACK_FOUND  (<= 1 flips, 6 cycles; 45 gates, 4 flops; 0.372s)
+  minimum attack: boot_ok@0
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b; tool version 0.0.1.dev0
+[exit code 1; 0.7 s]
+
+$ faultbound-wt analyze docs/edu/starter_designs/mini_v2.json --top mini2 --config edu_work/bad.toml --max-flips 1
+error: CONFIGURATION PROBLEM: the honest input does not reach the goal in the fault-free design. With `sig` = 7 (legitimate_value) and no flips, `boot_word` never equals 9 within 6 cycles. The legitimate_value, the goal output/value, the cycle count or the res
+  scope: bounds: max_flips=1, cycles=6, timeout_ms=none
+  scope: netlist sha256 dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b; tool version 0.0.1.dev0
+[exit code 3; 0.4 s]
+
+$ faultbound-wt analyze product/examples/pin_lock/pin.v --top pin --config product/examples/pin_lock/pin.toml
+pin: ATTACK_FOUND  (<= 1 flips, 4 cycles; 25 gates, 3 flops; 0.05s)
+  minimum attack: $abc$624$new_n32_@1
+  scope: bounds: max_flips=1, cycles=4, timeout_ms=none
+  scope: netlist sha256 0dda1a103a4bfbd8b1efdfded7ce45bfd232eda79080aa36cf83228048163016; tool version 0.0.1.dev0
+[exit code 1; 0.5 s]
+
+$ faultbound-wt analyze product/examples/pin_lock/pin_async.v --top pina --config product/examples/pin_lock/pin.toml
+error: unsupported or malformed netlist: cell $auto$ff.cc:266:slice$99 has type $_DFF_PP0_, which this tool does not model; supported: ['$_AND_', '$_MUX_', '$_NOT_', '$_OR_', '$_XOR_'] + $_DFF_P_ (plain rising-edge flop). This is a flop with an ASYNCHRONOUS re
+[exit code 3; 0.5 s]
+
+$ product/scripts/yosys_flow.sh docs/edu/starter_designs/mini_v0.v mini0 edu_work/regen_mini0.json
+yosys: Yosys 0.33 (git sha1 2584903a060)
+netlist: edu_work/regen_mini0.json
+netlist_sha256: 5a46ec6cf0bb0b538768ee0b320b95eb2570344ba4a9f5163c65ad3fd47716da
+[exit code 0; 0.2 s]
+mini_v0.json identical on regeneration
+
+$ product/scripts/yosys_flow.sh docs/edu/starter_designs/mini_v1.v mini1 edu_work/regen_mini1.json
+yosys: Yosys 0.33 (git sha1 2584903a060)
+netlist: edu_work/regen_mini1.json
+netlist_sha256: b3b890dad575aa43a4dfe6063ed337f0dc140b3d57fb662e299b7cef4b04f550
+[exit code 0; 0.3 s]
+mini_v1.json identical on regeneration
+
+$ product/scripts/yosys_flow.sh docs/edu/starter_designs/mini_v2.v mini2 edu_work/regen_mini2.json
+yosys: Yosys 0.33 (git sha1 2584903a060)
+netlist: edu_work/regen_mini2.json
+netlist_sha256: dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b
+[exit code 0; 0.3 s]
+mini_v2.json identical on regeneration
+5a46ec6cf0bb0b538768ee0b320b95eb2570344ba4a9f5163c65ad3fd47716da  docs/edu/starter_designs/mini_v0.json
+b3b890dad575aa43a4dfe6063ed337f0dc140b3d57fb662e299b7cef4b04f550  docs/edu/starter_designs/mini_v1.json
+dc7cee2528f36b3999ccccb27e73d467a70544ac1004230a5af51dd314aa808b  docs/edu/starter_designs/mini_v2.json
+c65a4eab90f42961a84614e216e7e8beb7fe97013f946a4569e50858fe9cb547  docs/edu/starter_designs/mini_v0.v
+023907c3b947dc2aaa7aea07b995b8a72aadb21f462a8c8264c83e06ff31fd02  docs/edu/starter_designs/mini_v1.v
+cd9735f9e293ebac2140c92d779298b4462e0ae351a42781c04edc1c6424b35f  docs/edu/starter_designs/mini_v2.v
+
+## Appended manually after the main run: shipped CLI --consumer-bits (product/ re-copied and re-installed in /tmp/work_edu)
+$ faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --config product/src/faultbound_wt/examples/threat.toml --max-flips 3 --consumer-bits MASK
+mask 0xFF: ATTACK_FOUND, MINIMUM ATTACK COST = 3 flips (10.8 s)
+mask 0x0F: ATTACK_FOUND, MINIMUM ATTACK COST = 2 flips (1.2 s)
+mask 0x4E: ATTACK_FOUND, MINIMUM ATTACK COST = 3 flips (1.9 s)
+mask 0x1B: ATTACK_FOUND at k<=3 (0.4 s); cost line not captured; edu_scope.py gave 1

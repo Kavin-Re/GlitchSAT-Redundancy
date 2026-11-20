@@ -1,0 +1,7 @@
+v1: 63 sites (8 flops, 55 gates), T=6
+k=0: attacking sigs: 0 honest KEY boots: 1
+k=1 successful (cycle,site,#sig values,examples): 4 of 378 (site,cycle) pairs; all 255 non-key sigs covered exhaustively
+   (1, '$abc$306$new_n47_', 3, [211, 227, 243])
+   (1, '$abc$306$new_n49_', 3, [3, 67, 131])
+   (1, '$abc$306$new_n53_', 3, [192, 193, 194])
+   (1, '$abc$306$new_n55_', 3, [199, 203, 207])

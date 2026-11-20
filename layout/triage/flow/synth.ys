@@ -1,0 +1,8 @@
+read_verilog design/ct_cmp.v
+synth -top ct_cmp -flatten
+dfflibmap -liberty /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -dont_use *lpflow* -dont_use *probe* -dont_use *lpflow* -liberty /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+hilomap -singleton -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+opt_clean -purge
+tee -o out/stat.txt stat -liberty /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr -noexpr -nohex -nodec out/ct_cmp_net.v

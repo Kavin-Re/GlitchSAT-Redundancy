@@ -1,0 +1,3 @@
+v2 T=6 k=2 EXHAUSTIVE: 71253 fault sets x 255 sigs; successful sets=1266; 10s
+   [(0, '$abc$310$new_n26_'), (1, '$abc$310$new_n47_')] sigs: 3
+   [(0, '$abc$310$new_n26_'), (1, '$abc$310$new_n49_')] sigs: 3

@@ -1,0 +1,30 @@
+CELL sky130_fd_sc_hd__a21bo_1 2xnwell.4 8xLU.3 7xLU.2
+CELL sky130_fd_sc_hd__a21boi_0 2xnwell.4 6xLU.3 5xLU.2
+CELL sky130_fd_sc_hd__a21o_1 2xnwell.4 6xLU.3 5xLU.2
+CELL sky130_fd_sc_hd__a22o_1 2xnwell.4 9xLU.3 7xLU.2
+CELL sky130_fd_sc_hd__a2bb2oi_1 2xnwell.4 7xLU.3 6xLU.2
+CELL sky130_fd_sc_hd__and2_0 2xnwell.4 5xLU.3 4xLU.2
+CELL sky130_fd_sc_hd__and4_1 2xnwell.4 7xLU.3 7xLU.2
+CELL sky130_fd_sc_hd__and4_2 2xnwell.4 8xLU.3 8xLU.2
+CELL sky130_fd_sc_hd__clkbuf_4 2xnwell.4 6xLU.3 6xLU.2
+CELL sky130_fd_sc_hd__decap_3 2xnwell.4 2xLU.3 2xLU.2
+CELL sky130_fd_sc_hd__dfxtp_1 2xnwell.4 17xLU.3 20xLU.2
+CELL sky130_fd_sc_hd__fill_1 2xnwell.4
+CELL sky130_fd_sc_hd__fill_2 2xnwell.4
+CELL sky130_fd_sc_hd__fill_4 2xnwell.4
+CELL sky130_fd_sc_hd__fill_8 2xnwell.4
+CELL sky130_fd_sc_hd__inv_1 2xnwell.4 2xLU.3 2xLU.2
+CELL sky130_fd_sc_hd__mux2_1 2xnwell.4 9xLU.3 8xLU.2
+CELL sky130_fd_sc_hd__nand2_1 2xnwell.4 3xLU.3 3xLU.2
+CELL sky130_fd_sc_hd__nand2b_1 2xnwell.4 5xLU.3 5xLU.2
+CELL sky130_fd_sc_hd__nand3_1 2xnwell.4 4xLU.3 4xLU.2
+CELL sky130_fd_sc_hd__nand3b_1 2xnwell.4 6xLU.3 6xLU.2
+CELL sky130_fd_sc_hd__nand4_1 2xnwell.4 5xLU.3 5xLU.2
+CELL sky130_fd_sc_hd__nand4bb_1 2xnwell.4 9xLU.3 9xLU.2
+CELL sky130_fd_sc_hd__nor2_1 2xnwell.4 3xLU.3 3xLU.2
+CELL sky130_fd_sc_hd__nor4_1 2xnwell.4 5xLU.3 5xLU.2
+CELL sky130_fd_sc_hd__nor4bb_1 2xnwell.4 12xLU.3 8xLU.2
+CELL sky130_fd_sc_hd__nor4bb_2 2xnwell.4 15xLU.3 13xLU.2
+CELL sky130_fd_sc_hd__o21a_1 2xnwell.4 5xLU.3 6xLU.2
+CELL sky130_fd_sc_hd__o21ai_0 2xnwell.4 4xLU.3 4xLU.2
+CELL sky130_fd_sc_hd__tapvpwrvgnd_1 

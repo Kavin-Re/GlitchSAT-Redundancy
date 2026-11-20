@@ -1,0 +1,1508 @@
+{
+ "design": "v2_wi",
+ "label": "MEASURED geometry (DEF + LEF); radius results are for disc centres chosen optimally per triple",
+ "copies": {
+  "c0": [
+   "c0/_2_",
+   "c0/_3_",
+   "c0/_4_"
+  ],
+  "c1": [
+   "c1/_2_",
+   "c1/_3_",
+   "c1/_4_"
+  ],
+  "c2": [
+   "c2/_2_",
+   "c2/_3_",
+   "c2/_4_"
+  ]
+ },
+ "triples": [
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_2_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 4.575,
+   "centre": [
+    23.0,
+    10.88
+   ],
+   "r_boxes_um": 2.733,
+   "bbox_um": [
+    18.86,
+    5.44,
+    27.14,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    8.28,
+    10.88
+   ],
+   "bbox_area_um2": 90.086,
+   "rows": [
+    0,
+    2,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88,
+    16.32
+   ],
+   "others_in_circle": 5,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 6,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.3,
+    2.3,
+    2.759
+   ],
+   "tap_same_row_um": [
+    2.3,
+    2.3,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    2.3,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_2_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 6.704,
+   "centre": [
+    18.63,
+    8.663
+   ],
+   "r_boxes_um": 5.079,
+   "bbox_um": [
+    11.5,
+    5.44,
+    27.14,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    15.64,
+    10.88
+   ],
+   "bbox_area_um2": 170.163,
+   "rows": [
+    0,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    16.32
+   ],
+   "others_in_circle": 11,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 15,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    2.3,
+    2.3,
+    0.92
+   ],
+   "tap_same_row_um": [
+    2.3,
+    2.3,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    2.3,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_2_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 4.69,
+   "centre": [
+    22.08,
+    10.413
+   ],
+   "r_boxes_um": 2.896,
+   "bbox_um": [
+    17.94,
+    5.44,
+    27.14,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    9.2,
+    10.88
+   ],
+   "bbox_area_um2": 100.096,
+   "rows": [
+    0,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    16.32
+   ],
+   "others_in_circle": 7,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 8,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.3,
+    2.3,
+    3.68
+   ],
+   "tap_same_row_um": [
+    2.3,
+    2.3,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    2.3,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_3_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 5.347,
+   "centre": [
+    17.635,
+    10.749
+   ],
+   "r_boxes_um": 3.478,
+   "bbox_um": [
+    13.34,
+    5.44,
+    24.84,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    11.5,
+    10.88
+   ],
+   "bbox_area_um2": 125.12,
+   "rows": [
+    0,
+    2,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88,
+    16.32
+   ],
+   "others_in_circle": 8,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 10,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    2.3,
+    0.92,
+    2.759
+   ],
+   "tap_same_row_um": [
+    2.3,
+    0.92,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    0.92,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_3_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 5.979,
+   "centre": [
+    16.56,
+    10.88
+   ],
+   "r_boxes_um": 4.043,
+   "bbox_um": [
+    11.5,
+    5.44,
+    23.0,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    11.5,
+    10.88
+   ],
+   "bbox_area_um2": 125.12,
+   "rows": [
+    0,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    16.32
+   ],
+   "others_in_circle": 9,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 11,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    2.3,
+    0.92,
+    0.92
+   ],
+   "tap_same_row_um": [
+    2.3,
+    0.92,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    0.92,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_3_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 5.343,
+   "centre": [
+    17.48,
+    10.88
+   ],
+   "r_boxes_um": 3.428,
+   "bbox_um": [
+    13.34,
+    5.44,
+    23.0,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    9.66,
+    10.88
+   ],
+   "bbox_area_um2": 105.101,
+   "rows": [
+    0,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    16.32
+   ],
+   "others_in_circle": 7,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 9,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    2.3,
+    0.92,
+    3.68
+   ],
+   "tap_same_row_um": [
+    2.3,
+    0.92,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    0.92,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_4_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 4.086,
+   "centre": [
+    21.16,
+    10.88
+   ],
+   "r_boxes_um": 2.747,
+   "bbox_um": [
+    18.86,
+    5.44,
+    24.84,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    5.98,
+    10.88
+   ],
+   "bbox_area_um2": 65.062,
+   "rows": [
+    0,
+    2,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88,
+    16.32
+   ],
+   "others_in_circle": 3,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 3,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.3,
+    1.38,
+    2.759
+   ],
+   "tap_same_row_um": [
+    2.3,
+    1.38,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    1.38,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_4_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 5.988,
+   "centre": [
+    16.79,
+    10.634
+   ],
+   "r_boxes_um": 4.17,
+   "bbox_um": [
+    11.5,
+    5.44,
+    23.0,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    11.5,
+    10.88
+   ],
+   "bbox_area_um2": 125.12,
+   "rows": [
+    0,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    16.32
+   ],
+   "others_in_circle": 10,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 11,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    2.3,
+    1.38,
+    0.92
+   ],
+   "tap_same_row_um": [
+    2.3,
+    1.38,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    1.38,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_2_",
+    "c1/_4_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 4.189,
+   "centre": [
+    20.24,
+    10.828
+   ],
+   "r_boxes_um": 2.735,
+   "bbox_um": [
+    17.94,
+    5.44,
+    23.0,
+    16.32
+   ],
+   "bbox_w_h_um": [
+    5.06,
+    10.88
+   ],
+   "bbox_area_um2": 55.053,
+   "rows": [
+    0,
+    3
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    16.32
+   ],
+   "others_in_circle": 5,
+   "others_in_circle_flops": 1,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.3,
+    1.38,
+    3.68
+   ],
+   "tap_same_row_um": [
+    2.3,
+    1.38,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.3,
+    1.38,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_2_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 2.953,
+   "centre": [
+    23.92,
+    9.52
+   ],
+   "r_boxes_um": 1.389,
+   "bbox_um": [
+    20.7,
+    5.44,
+    27.14,
+    13.6
+   ],
+   "bbox_w_h_um": [
+    6.44,
+    8.16
+   ],
+   "bbox_area_um2": 52.55,
+   "rows": [
+    0,
+    1,
+    2
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 1,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    0.92,
+    2.3,
+    2.759
+   ],
+   "tap_same_row_um": [
+    0.92,
+    2.3,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    2.3,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_2_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 6.44,
+   "centre": [
+    18.63,
+    6.8
+   ],
+   "r_boxes_um": 5.29,
+   "bbox_um": [
+    11.5,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    15.64,
+    5.44
+   ],
+   "bbox_area_um2": 85.082,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 8,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 8,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    0.92,
+    2.3,
+    0.92
+   ],
+   "tap_same_row_um": [
+    0.92,
+    2.3,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    2.3,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_2_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 3.032,
+   "centre": [
+    22.08,
+    7.304
+   ],
+   "r_boxes_um": 1.684,
+   "bbox_um": [
+    17.94,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    9.2,
+    5.44
+   ],
+   "bbox_area_um2": 50.048,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 2,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    0.92,
+    2.3,
+    3.68
+   ],
+   "tap_same_row_um": [
+    0.92,
+    2.3,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    2.3,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_3_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 5.26,
+   "centre": [
+    18.971,
+    8.603
+   ],
+   "r_boxes_um": 4.417,
+   "bbox_um": [
+    13.34,
+    5.44,
+    24.84,
+    13.6
+   ],
+   "bbox_w_h_um": [
+    11.5,
+    8.16
+   ],
+   "bbox_area_um2": 93.84,
+   "rows": [
+    0,
+    1,
+    2
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 7,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 7,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    0.92,
+    0.92,
+    2.759
+   ],
+   "tap_same_row_um": [
+    0.92,
+    0.92,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    0.92,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_3_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 6.133,
+   "centre": [
+    18.17,
+    8.16
+   ],
+   "r_boxes_um": 5.29,
+   "bbox_um": [
+    11.5,
+    5.44,
+    24.84,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    13.34,
+    5.44
+   ],
+   "bbox_area_um2": 72.57,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 7,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 6,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    0.92,
+    0.92,
+    0.92
+   ],
+   "tap_same_row_um": [
+    0.92,
+    0.92,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    0.92,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_3_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 5.24,
+   "centre": [
+    19.09,
+    8.16
+   ],
+   "r_boxes_um": 4.417,
+   "bbox_um": [
+    13.34,
+    5.44,
+    24.84,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    11.5,
+    5.44
+   ],
+   "bbox_area_um2": 62.56,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 5,
+   "others_in_circle_flops": 1,
+   "others_in_bbox": 5,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    0.92,
+    0.92,
+    3.68
+   ],
+   "tap_same_row_um": [
+    0.92,
+    0.92,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    0.92,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_4_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 2.806,
+   "centre": [
+    22.08,
+    9.52
+   ],
+   "r_boxes_um": 1.36,
+   "bbox_um": [
+    20.24,
+    5.44,
+    24.84,
+    13.6
+   ],
+   "bbox_w_h_um": [
+    4.6,
+    8.16
+   ],
+   "bbox_area_um2": 37.536,
+   "rows": [
+    0,
+    1,
+    2
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 1,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 1,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    0.92,
+    1.38,
+    2.759
+   ],
+   "tap_same_row_um": [
+    0.92,
+    1.38,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    1.38,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_4_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 6.133,
+   "centre": [
+    18.17,
+    8.16
+   ],
+   "r_boxes_um": 5.29,
+   "bbox_um": [
+    11.5,
+    5.44,
+    24.84,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    13.34,
+    5.44
+   ],
+   "bbox_area_um2": 72.57,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 7,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 6,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    0.92,
+    1.38,
+    0.92
+   ],
+   "tap_same_row_um": [
+    0.92,
+    1.38,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    1.38,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_3_",
+    "c1/_4_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 2.872,
+   "centre": [
+    21.62,
+    8.16
+   ],
+   "r_boxes_um": 1.684,
+   "bbox_um": [
+    17.94,
+    5.44,
+    24.84,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    6.9,
+    5.44
+   ],
+   "bbox_area_um2": 37.536,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 1,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 2,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    0.92,
+    1.38,
+    3.68
+   ],
+   "tap_same_row_um": [
+    0.92,
+    1.38,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    0.92,
+    1.38,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_2_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 2.953,
+   "centre": [
+    23.92,
+    9.52
+   ],
+   "r_boxes_um": 1.36,
+   "bbox_um": [
+    20.7,
+    5.44,
+    27.14,
+    13.6
+   ],
+   "bbox_w_h_um": [
+    6.44,
+    8.16
+   ],
+   "bbox_area_um2": 52.55,
+   "rows": [
+    0,
+    1,
+    2
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 1,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.76,
+    2.3,
+    2.759
+   ],
+   "tap_same_row_um": [
+    2.76,
+    2.3,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    2.3,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_2_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 7.033,
+   "centre": [
+    19.09,
+    8.16
+   ],
+   "r_boxes_um": 6.013,
+   "bbox_um": [
+    11.5,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    15.64,
+    5.44
+   ],
+   "bbox_area_um2": 85.082,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 11,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 8,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    2.76,
+    2.3,
+    0.92
+   ],
+   "tap_same_row_um": [
+    2.76,
+    2.3,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    2.3,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_2_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 3.708,
+   "centre": [
+    22.54,
+    8.16
+   ],
+   "r_boxes_um": 2.3,
+   "bbox_um": [
+    17.94,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    9.2,
+    5.44
+   ],
+   "bbox_area_um2": 50.048,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 3,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.76,
+    2.3,
+    3.68
+   ],
+   "tap_same_row_um": [
+    2.76,
+    2.3,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    2.3,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_3_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 6.133,
+   "centre": [
+    20.01,
+    8.16
+   ],
+   "r_boxes_um": 5.06,
+   "bbox_um": [
+    13.34,
+    5.44,
+    27.14,
+    13.6
+   ],
+   "bbox_w_h_um": [
+    13.8,
+    8.16
+   ],
+   "bbox_area_um2": 112.608,
+   "rows": [
+    0,
+    1,
+    2
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 8,
+   "others_in_circle_flops": 1,
+   "others_in_bbox": 10,
+   "others_in_bbox_flops": 2,
+   "nearest_tap_um": [
+    2.76,
+    0.92,
+    2.759
+   ],
+   "tap_same_row_um": [
+    2.76,
+    0.92,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    0.92,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_3_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 7.033,
+   "centre": [
+    19.09,
+    8.16
+   ],
+   "r_boxes_um": 6.013,
+   "bbox_um": [
+    11.5,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    15.64,
+    5.44
+   ],
+   "bbox_area_um2": 85.082,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 11,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 8,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    2.76,
+    0.92,
+    0.92
+   ],
+   "tap_same_row_um": [
+    2.76,
+    0.92,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    0.92,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_3_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 6.133,
+   "centre": [
+    20.01,
+    8.16
+   ],
+   "r_boxes_um": 5.06,
+   "bbox_um": [
+    13.34,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    13.8,
+    5.44
+   ],
+   "bbox_area_um2": 75.072,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 8,
+   "others_in_circle_flops": 1,
+   "others_in_bbox": 7,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    2.76,
+    0.92,
+    3.68
+   ],
+   "tap_same_row_um": [
+    2.76,
+    0.92,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    0.92,
+    3.68
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_4_",
+    "c2/_2_"
+   ],
+   "r_centres_um": 2.972,
+   "centre": [
+    23.028,
+    9.28
+   ],
+   "r_boxes_um": 1.483,
+   "bbox_um": [
+    20.24,
+    5.44,
+    27.14,
+    13.6
+   ],
+   "bbox_w_h_um": [
+    6.9,
+    8.16
+   ],
+   "bbox_area_um2": 56.304,
+   "rows": [
+    0,
+    1,
+    2
+   ],
+   "vpwr_rails": [
+    8.16,
+    13.6
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 2,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.76,
+    1.38,
+    2.759
+   ],
+   "tap_same_row_um": [
+    2.76,
+    1.38,
+    9.66
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    1.38,
+    2.759
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_4_",
+    "c2/_3_"
+   ],
+   "r_centres_um": 7.033,
+   "centre": [
+    19.09,
+    8.16
+   ],
+   "r_boxes_um": 6.013,
+   "bbox_um": [
+    11.5,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    15.64,
+    5.44
+   ],
+   "bbox_area_um2": 85.082,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 11,
+   "others_in_circle_flops": 2,
+   "others_in_bbox": 8,
+   "others_in_bbox_flops": 1,
+   "nearest_tap_um": [
+    2.76,
+    1.38,
+    0.92
+   ],
+   "tap_same_row_um": [
+    2.76,
+    1.38,
+    0.92
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    1.38,
+    0.92
+   ]
+  },
+  {
+   "cells": [
+    "c0/_4_",
+    "c1/_4_",
+    "c2/_4_"
+   ],
+   "r_centres_um": 3.708,
+   "centre": [
+    22.54,
+    8.16
+   ],
+   "r_boxes_um": 2.3,
+   "bbox_um": [
+    17.94,
+    5.44,
+    27.14,
+    10.88
+   ],
+   "bbox_w_h_um": [
+    9.2,
+    5.44
+   ],
+   "bbox_area_um2": 50.048,
+   "rows": [
+    0,
+    1
+   ],
+   "vpwr_rails": [
+    8.16
+   ],
+   "vgnd_rails": [
+    5.44,
+    10.88
+   ],
+   "others_in_circle": 3,
+   "others_in_circle_flops": 0,
+   "others_in_bbox": 4,
+   "others_in_bbox_flops": 0,
+   "nearest_tap_um": [
+    2.76,
+    1.38,
+    3.68
+   ],
+   "tap_same_row_um": [
+    2.76,
+    1.38,
+    3.68
+   ],
+   "tap_same_vpwr_rail_um": [
+    2.76,
+    1.38,
+    3.68
+   ]
+  }
+ ]
+}

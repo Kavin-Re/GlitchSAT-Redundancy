@@ -1,0 +1,145 @@
+yosys,design,armed_const,xor_with_96,groups_touched,variant,netlist_sha256,gates,flops,min_flips,witness
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,plain,f3fe962135ab92ca0e8735755ccdc6685a928e8fbf21a9cb88d88b8cfd33481f,85,8,2,$abc$275$new_n58_@0;$abc$275$new_n74_@0
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,plain_opt_merge,39e2acfefb033ec97b39a24746afe543196b34cb993bbb4102c9266d8604b174,63,8,1,c0.m@1
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,flatten_before_abc,9e8254100a076b9c473bfd28651ee021ea8c6b322eda457d4ff502cb9f3749a9,71,8,1,$abc$313$new_n54_@1
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,abc_fast,9454bf79b733b22561d551171ae83fed68255618476427d699e7fff9c0731b5a,88,8,2,$abc$277$new_n66_@0;$abc$277$new_n73_@0
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,abc_no_mux,f3fe962135ab92ca0e8735755ccdc6685a928e8fbf21a9cb88d88b8cfd33481f,85,8,2,$abc$275$new_n58_@0;$abc$275$new_n74_@0
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,opt_flow,b2517bdf9163be2cf4e2e4f894ef8bcaaf6e40ac566f5a6117f4756ed46eb096,81,8,2,$abc$314$new_n68_@0;$abc$314$new_n52_@2
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,plain_keep_off,eef1c78d899bae42fc2ef188b3f3e49e02156590f47f9996491d56f94bca3115,83,8,2,$abc$275$new_n50_@0;$abc$275$new_n66_@0
+Yosys 0.33 (git sha1 2,v2,CC,5A,2,opt_flow_keep_off,7fe9c3dc373e7094d4a940b7e9e1f78ab074741e79cb574601523ec1cea59dfe,81,8,2,$abc$314$new_n66_@0;$abc$314$new_n50_@4
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,plain,35624e332d92a675ef81215c3265fd8693422e8f3b595cec2c486bbd0b19d647,89,8,3,$abc$275$new_n65_@1;$abc$275$new_n72_@2;$procmux$10.Y[2]@2
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,plain_opt_merge,0e40518544c2b818c8de7358db20264c94505338a4b4e9131a56e6bf0cde4f61,66,8,1,c0.m@1
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,flatten_before_abc,84a98cf96a66d387892b796d584437587bf53c5b66588b4f3e77fda0a6a2b519,74,8,1,$abc$313$new_n61_@1
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,abc_fast,11fa10cfe04a20c931aaba3671a05ad57626165aa6789872e5fdb0af6334f7a9,91,8,3,$abc$277$new_n56_@4;$abc$277$new_n71_@4;boot_word[2]@5
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,abc_no_mux,35624e332d92a675ef81215c3265fd8693422e8f3b595cec2c486bbd0b19d647,89,8,3,$abc$275$new_n65_@1;$abc$275$new_n72_@2;$procmux$10.Y[2]@2
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,opt_flow,a8f04391c319ce8c62cc2a266693e83845484ec6a5bb98ed7664a026718f9fac,85,8,3,boot_word[0]@1;$abc$314$new_n67_@4;boot_word[5]@5
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,plain_keep_off,30ff2f34a4add4ed21013f91333336f045c10a4733a183b71c1a5c5d665a5141,87,8,3,boot_word[0]@1;$abc$275$new_n64_@3;boot_word[5]@4
+Yosys 0.33 (git sha1 2,v2e,A5,33,3,opt_flow_keep_off,acd9196e7d79ca5abd5bf4fee154b8e3157d9a29ce0787654ea68992731fc09a,85,8,3,c2.m@1;$abc$314$new_n30_@1;$flatten\c1.$abc$304$new_n17_@1
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,plain,fd588f1e0aa970fb46b7dab5791acb2a54d3aededdd56c4f043de7bd678900de,88,8,3,$abc$275$new_n57_@1;c1.m@1;$flatten\c2.$abc$265$new_n13_@1
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,plain_opt_merge,1dfae87e426ec4fc9430064d509ec162799de6cd2b9464d5e1b11cc4e5967afa,65,8,1,$flatten\c0.$abc$265$new_n16_@1
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,flatten_before_abc,9ee66402dfadb023cac931069d9080d2138353b447c5446a7206a627c34d391b,74,8,1,word[3]@1
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,abc_fast,d27ea2d2f12139b93cf1145c808a0ae527bd1c748455b9fad79e9c1d5da74f7f,89,8,3,$abc$277$new_n70_@0;$procmux$10.Y[2]@0;$abc$277$new_n75_@0
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,abc_no_mux,fd588f1e0aa970fb46b7dab5791acb2a54d3aededdd56c4f043de7bd678900de,88,8,3,$abc$275$new_n57_@1;c1.m@1;$flatten\c2.$abc$265$new_n13_@1
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,opt_flow,f3721851d4b000ee8c4a3f693000adea7718b887aa9450619f1b7bc12ad7a6db,88,8,3,$abc$314$new_n75_@0;$abc$314$auto$rtlil.cc:2609:MuxGate$303@3;boot_word[2]@4
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,plain_keep_off,629c8d733112c1d78cfdb84f61e4408fa48ac24574edcf0aab7bf4046c227c75,86,8,3,$abc$275$new_n69_@0;boot_word[2]@1;boot_word[7]@5
+Yosys 0.33 (git sha1 2,v2c5a,5A,CC,3,opt_flow_keep_off,84b44fe8c2cda75a83835d6a9fd3b5745c7ddef23fcbf2f6a45dbcb8a7b4587a,88,8,3,$abc$314$new_n73_@0;boot_word[2]@5;boot_word[7]@5
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,plain,13f6ba78c4879db8f6042a0c60fadfc1ec757dcc03b0e30ec637e9bf299f6ef2,86,8,3,$abc$275$new_n69_@0;$abc$275$new_n58_@3;boot_word[2]@5
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,plain_opt_merge,f7eec351068737dacad8b1b9d062f92a58ab74607d3db52e29b47c0be3e500f4,63,8,1,c0.m@1
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,flatten_before_abc,879306abf1f55e8cb9373a41f1a2b6ce433698d170f65203d50c7c9a9e9cb8a0,71,8,1,$abc$313$new_n55_@1
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,abc_fast,01bb1d4ffd728d87983f582d47ceb117ac24415d2b926da77fb66572f340019f,89,8,3,$abc$277$new_n55_@2;$abc$277$new_n66_@2;$procmux$10.Y[2]@3
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,abc_no_mux,13f6ba78c4879db8f6042a0c60fadfc1ec757dcc03b0e30ec637e9bf299f6ef2,86,8,3,$abc$275$new_n69_@0;$abc$275$new_n58_@3;boot_word[2]@5
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,opt_flow,366e9297a59acecb41478dd7499339b4b79f1f5ee92443e3cba0919f2dfebf40,82,8,3,boot_word[5]@1;$abc$314$new_n52_@1;$abc$314$auto$rtlil.cc:2609:MuxGate$287@1
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,plain_keep_off,f87de96c37d73bf9aecd38ff35b560fa4718752ad426864b7433bd9abdf24139,84,8,3,c0.m@1;c1.m@1;$flatten\c2.$abc$265$new_n12_@1
+Yosys 0.33 (git sha1 2,v2c3c,3C,AA,3,opt_flow_keep_off,0ed608aff4b4e2f019c2518b7f271a72bd2e381b29afb434293b27b785788d02,82,8,3,c0.m@1;$flatten\c1.$abc$304$new_n13_@1;$flatten\c2.$abc$304$new_n12_@1
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,plain,0698610afceece961ef77f86f9be9063ef5c1810f369cf56da89918cb9d154eb,91,8,2,$abc$275$new_n73_@0;$abc$275$new_n79_@4
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,plain_opt_merge,dbcded95d124d103655e49cf43384770211c4b5b4c4420e977d32ef7042b63ff,69,8,1,c0.m@1
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,flatten_before_abc,5f8222a5252eea201efc1cd422405aeb350a28ff0305469ff18ddfbf77786252,78,8,1,word[3]@1
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,abc_fast,50ef1d46e284b777f6f33c103ae536b994ff1a4082aa373ba311686ab0f88106,88,8,3,c0.m@1;c2.m@1;$flatten\c1.$abc$265$new_n12_@1
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,abc_no_mux,0698610afceece961ef77f86f9be9063ef5c1810f369cf56da89918cb9d154eb,91,8,2,$abc$275$new_n73_@0;$abc$275$new_n79_@4
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,opt_flow,f64ee6ffc9d55d1fca656bd87f3ffd1c62526db965a2970dee4161092b797635,,,unsupported,
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,plain_keep_off,6e46beb785982607f4bc0424e0a6e1150dd2ac3b367bf79e2a655bf52d0b28f9,88,8,2,$abc$275$new_n64_@0;$abc$275$new_n70_@4
+Yosys 0.33 (git sha1 2,v2cbb,BB,2D,2,opt_flow_keep_off,9e9e484c7f0167658d1a1ffc7c2c4419d7fae0f22e1ea32316e73c88edaa9a59,,,unsupported,
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,plain,8abc2d133ecbc531325822e011a4653a3908964e361858d3221305cf3e135e82,89,8,2,$abc$275$new_n71_@0;$abc$275$new_n73_@0
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,plain_opt_merge,b16c5091afc5f6297d2200df5e478d8c2f8e0bbf7ee6d63c8379257e70965827,67,8,1,$flatten\c0.$abc$265$new_n13_@1
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,flatten_before_abc,efd104c76a823c32536b7a70413db04ca80584268e3ca89e1c3f42195042b3d9,76,8,1,$abc$313$new_n56_@1
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,abc_fast,3e02a2989adc143ad3b426a75699b6462090f01daac0882b142d5ca857300453,90,8,2,$abc$277$new_n70_@0;$abc$277$new_n72_@0
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,abc_no_mux,8abc2d133ecbc531325822e011a4653a3908964e361858d3221305cf3e135e82,89,8,2,$abc$275$new_n71_@0;$abc$275$new_n73_@0
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,opt_flow,6c9425dd91adb07f03188dc3b1c015ea08303a190bd81e72b909f32d8c1aab76,,,unsupported,
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,plain_keep_off,3abd739c19ad9c4fdc74f520e72776a99d723cb892c7a242746a22659ad44b32,87,8,2,$abc$275$new_n63_@0;$abc$275$new_n65_@0
+Yosys 0.33 (git sha1 2,v2c4d,4D,DB,2,opt_flow_keep_off,f99c8104449ef9f76c22fba616fe32629f44e08e65c585bb272416c0d0c5d0f7,,,unsupported,
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,plain,11f1ced3135595b1b8f79581be7d7eede496e0b8b1d24f300348963d8472afd9,85,8,2,$abc$275$new_n65_@0;$abc$275$new_n68_@2
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,plain_opt_merge,ab4200f654f19be124705c0623389660c03d84002234b7fa4d0eb8a25d1316f8,63,8,1,c0.m@1
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,flatten_before_abc,1331793290f6b3377eb4c25202943eceb73a46cccf7d63269f7688fb2ea14d85,70,8,1,word[3]@1
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,abc_fast,e20b8e70104fbcdb718dca93917f46a8ec300ef45d3eb2942e0e94b6aaaed9f1,88,8,2,$abc$277$new_n67_@0;$abc$277$new_n69_@0
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,abc_no_mux,11f1ced3135595b1b8f79581be7d7eede496e0b8b1d24f300348963d8472afd9,85,8,2,$abc$275$new_n65_@0;$abc$275$new_n68_@2
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,opt_flow,67a521026fc8a3be3723368544ad29ffab1069aaa4c74fdcb6505b28271cde85,,,unsupported,
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,plain_keep_off,d0be2400f648944b2507f15cc89678d4af44ee2ad03ec0d90aae5c532cf9d32b,83,8,2,$abc$275$new_n57_@0;$abc$275$new_n60_@1
+Yosys 0.33 (git sha1 2,v2c0f,0F,99,2,opt_flow_keep_off,340adf5a8228214955fcfd6dba8ba8e8829f5b5930569e5c25ffceadc65bbd5d,,,unsupported,
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,plain,03e0ce610864d17f8dcc0d936aa8a1bc40dcd4d92604352ad26ec7358343a12f,81,8,1,$abc$275$new_n56_@0
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,plain_opt_merge,14b69b82f6dbd04db4a751b182f4327a8a25abd2e04f4cefed2a7e596bf6821c,59,8,1,$abc$275$new_n56_@0
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,flatten_before_abc,9e6bee56474fa86cf2dd559cfffccaa501f010e142514560edf275498db6da85,69,8,1,$abc$313$new_n72_@0
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,abc_fast,1b2447952897da0f5c7f4282c8c0f5bb79cbc6d23cd213e6220c3348d4330773,88,8,1,$abc$277$new_n68_@0
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,abc_no_mux,03e0ce610864d17f8dcc0d936aa8a1bc40dcd4d92604352ad26ec7358343a12f,81,8,1,$abc$275$new_n56_@0
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,opt_flow,027affcf0e263e90c9cc0029319d370dd046f6886b9022c55e6323c11b2e6faa,,,unsupported,
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,plain_keep_off,5017f9b7ec6cbff38649a460b7d0c1837d600226caf4eca9a696ac2bffcca4f4,79,8,1,$abc$275$new_n48_@0
+Yosys 0.33 (git sha1 2,v2c04,04,92,1,opt_flow_keep_off,72f711f3df73eb298d8656bc17ea3b20239e63c36853573c10599714c1eecba7,,,unsupported,
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,plain,48c0edb8743bcb373e736028235738bef50b97404fdfa25b51d7bbe75d3a811e,82,8,1,$abc$275$new_n71_@0
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,plain_opt_merge,e65f1e418343e5da5c559b1e755f7a50070ea94cab9b4a742feeb1a923f2d2c8,60,8,1,c0.m@1
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,flatten_before_abc,f6ed6d7952ee3b34413cef6761834eb8161e063914effd6a189cf731e6a5593c,69,8,1,$abc$313$new_n60_@1
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,abc_fast,8be17e786624c433f6d5f35c42b9f509e995e0f74ed502547c90de23218cc306,86,8,2,boot_word[2]@1;boot_word[5]@3
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,abc_no_mux,48c0edb8743bcb373e736028235738bef50b97404fdfa25b51d7bbe75d3a811e,82,8,1,$abc$275$new_n71_@0
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,opt_flow,6b3db55e72674da2bd123f3673352cfe4a1e4dee4b4f98364f899045ac74ccd2,,,unsupported,
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,plain_keep_off,f11d1a380d0fb5ac15c4cf5921906c6dd92ce09e1b9076fb5398f93c2ebaff97,79,8,1,$abc$275$new_n62_@0
+Yosys 0.33 (git sha1 2,v2cb2,B2,24,1,opt_flow_keep_off,07f201eaa79e6dd11e45c334ef142833eb13cf4b21c17481dae255bf0f65c740,,,unsupported,
+Yosys 0.38+92 (git sha,v2,CC,5A,2,plain,32b82842f5a98c7cdcb45788b1745d54761fbc99c1f982f082224cfc292edc24,83,8,3,boot_word[6]@1;$abc$275$new_n59@4;boot_word[3]@5
+Yosys 0.38+92 (git sha,v2,CC,5A,2,plain_opt_merge,c689f8844368fe4ad8e389964693f3d32f9eec3e6b27f69e180383119c60fc59,61,8,1,$flatten\c0.$abc$265$new_n14@1
+Yosys 0.38+92 (git sha,v2,CC,5A,2,flatten_before_abc,6721e412e353d55f334c93184e4160eef4e1a2ad4c12de891d123983a9d51319,69,8,1,$abc$316$new_n50@1
+Yosys 0.38+92 (git sha,v2,CC,5A,2,abc_fast,b0f2f2c1a88fb9719b2d7f18a87a7f308cd73c9ee955a3cd1154e71524b49eb9,88,8,2,$abc$277$new_n66@0;$abc$277$new_n73@0
+Yosys 0.38+92 (git sha,v2,CC,5A,2,abc_no_mux,712815721fda08a7a80808a6a604c0144126df9f0f32a1e791666ea57c01a731,84,8,3,boot_word[3]@1;$abc$275$new_n80@1;$abc$275$new_n59@3
+Yosys 0.38+92 (git sha,v2,CC,5A,2,opt_flow,ad324005c08f7d4f38dcb28f05e24ef60514ba2a8711aff48c4f082dce60b2c1,78,8,2,$abc$314$new_n65@0;$abc$314$new_n51@4
+Yosys 0.38+92 (git sha,v2,CC,5A,2,plain_keep_off,ba1148e4dbcb1900072188fcc6713c9394edd483b19ac42802e8cfb0b196f61f,79,8,3,c2.m@1;c1.m@1;$flatten\c0.$abc$265$new_n17@1
+Yosys 0.38+92 (git sha,v2,CC,5A,2,opt_flow_keep_off,7b6fc88c8d112f9a261002289d52e95b6ace4faf99026305538a09d9d7d55b6f,80,8,2,$abc$314$new_n65@0;$abc$314$new_n49@4
+Yosys 0.38+92 (git sha,v2e,A5,33,3,plain,53556f017d4d38ba1aa2421e1b068801854019d18568f40c7f1f19645b6551b1,81,8,3,$abc$275$new_n69@0;boot_word[0]@1;boot_word[5]@1
+Yosys 0.38+92 (git sha,v2e,A5,33,3,plain_opt_merge,ef0acbe554ecb442424f1372e437e740095bd6b0b85843e1c724a219273b257f,60,8,1,$flatten\c0.$abc$265$new_n17@1
+Yosys 0.38+92 (git sha,v2e,A5,33,3,flatten_before_abc,edfc09e6f8a17fa5ff822b7bd7797a65575df0e1bdd96e5fa9186d93919f8414,70,8,1,word[0]@1
+Yosys 0.38+92 (git sha,v2e,A5,33,3,abc_fast,b77e019f4526d42799534951d0919a9d1fba7b19f60d21fbac6c718061eddc4e,91,8,3,$abc$277$new_n59@0;$abc$277$new_n71@0;boot_word[2]@1
+Yosys 0.38+92 (git sha,v2e,A5,33,3,abc_no_mux,e69f78d59d35c66c5190a165b26c2fa54b9cba917caf31f7274a29aedc71584f,85,8,3,boot_word[0]@1;$procmux$10.Y[5]@3;$abc$275$new_n70@4
+Yosys 0.38+92 (git sha,v2e,A5,33,3,opt_flow,fcfd2203648aa3b582f29dd469fd502b0fdbe7e01de1db3f47b0b5fa6de013f3,76,8,3,boot_word[0]@1;$abc$314$new_n59@3;boot_word[5]@4
+Yosys 0.38+92 (git sha,v2e,A5,33,3,plain_keep_off,b939e5064833dd4b2acb39ddc744318280af32de0768ff08ad5e61ad180f2877,83,8,3,boot_word[5]@1;$abc$275$new_n65@4;boot_word[0]@5
+Yosys 0.38+92 (git sha,v2e,A5,33,3,opt_flow_keep_off,42e7f022d1688558aa841f8d62a1cb0590cc303250bfc49fb6e609f8093ea2dd,77,8,3,$abc$314$new_n59@0;$abc$314$new_n55@3;boot_word[5]@5
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,plain,3daddb02c0fb51ef1b7ce2af951221a9b10c196f59e47b997e37a258ea0da7cc,88,8,3,c2.m@1;c1.m@1;$flatten\c0.$abc$265$new_n17@1
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,plain_opt_merge,6fc96be66a6b3ffdd6f48717b6726c09129b5173f8e24a696481ed5d604f4dc2,66,8,1,$flatten\c0.$abc$265$new_n13@1
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,flatten_before_abc,b864d347b088dcd30a402cb5230725b6660817aa9e168b172d2d37949375d92f,67,8,1,$abc$316$new_n51@1
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,abc_fast,2a12f45cf2a7b80ec159bd709ff2e7d1b285f02b199fc8581e5c5c9865282bbe,89,8,3,$abc$277$new_n57@4;$abc$277$new_n70@4;boot_word[2]@5
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,abc_no_mux,87e40371f9bf9116318fa391d1ebd8161568d67a5a10e47182fc5985199abe99,89,8,3,$abc$275$new_n51@1;$abc$275$new_n56@2;$abc$275$new_n74@2
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,opt_flow,6807195bd09567686c4d194a0cbed8cc6e7223ae5ebb5acabb550dbeec9956c1,77,8,3,$abc$314$new_n62@0;$abc$314$auto$rtlil.cc:2693:MuxGate$283@4;boot_word[7]@5
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,plain_keep_off,0c499148274babd0742d03e7acc2d47fa854c37adbc3ce8079bcee811143cc4f,86,8,3,c2.m@1;$flatten\c0.$abc$265$new_n13@1;$abc$275$new_n50@4
+Yosys 0.38+92 (git sha,v2c5a,5A,CC,3,opt_flow_keep_off,6927e4b09f2044cf40e8879e65298628e4a8c476f9f9ced5bb032b38156a7a5b,77,8,3,$abc$314$new_n60@0;$abc$314$new_n57@3;boot_word[7]@5
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,plain,db034ecb9cc885de139f1ae881e8817b94c9a4adf80ae24fda857a68bb934201,79,8,3,boot_word[5]@1;$abc$275$new_n60@2;boot_word[3]@4
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,plain_opt_merge,59d6c49f7e5bda69250e3eb1eae124bad1dbb866813678de51e4d6b8bd8cb401,58,8,1,$flatten\c0.$abc$265$new_n17@1
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,flatten_before_abc,226c63c089fd330bcbcbaee0880a9da4e3af9f2a945028d90b7e7db405b0f3eb,71,8,1,$abc$316$new_n56@1
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,abc_fast,45ed51c39f1da9fb23cdccf40a8261c86fadf909088b2d21a9a3fe1557f2d635,89,8,3,$abc$277$new_n55@3;$abc$277$new_n66@3;boot_word[2]@5
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,abc_no_mux,e318d5e2605ba82f42e9d9f3ad35b287c4674fe31cfe50fafe9812790fddeada,83,8,3,$abc$275$new_n60@0;boot_word[5]@3;boot_word[3]@5
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,opt_flow,1cb43ebfdf78614926f63e60b539dcc7e425630ccac86a097937be73b705293b,78,8,3,boot_word[3]@1;boot_word[5]@2;$abc$314$new_n53@2
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,plain_keep_off,37be8a12b602f112160b35f4c3d61cfb1e1874a9194dc7a81707de0fb489c4ee,79,8,3,$abc$275$new_n54@0;boot_word[5]@2;$procmux$10.Y[3]@3
+Yosys 0.38+92 (git sha,v2c3c,3C,AA,3,opt_flow_keep_off,93bc7bb2c03a3ce3e9c69af3804eb8b5aa2cc4f426d0ec4453f316236d326718,80,8,3,$abc$314$new_n52@0;boot_word[3]@1;boot_word[5]@1
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,plain,214315b4a3ec691657d0b58b24d9ca8460a29457f01e05054a4f92902f93be5a,83,8,3,$abc$275$new_n65@0;boot_word[2]@5;boot_word[5]@5
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,plain_opt_merge,0d05f00903714e69c53434b2fcb0187e950fa8ff52542368e809280c9cca23ca,61,8,1,c0.m@1
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,flatten_before_abc,0f16f0c7d82d4c3c4e808c8346198dec8df561e2854957df151557fe334158c7,70,8,1,word[0]@1
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,abc_fast,6c775549cff07835689d6a7301e3621dd9c8415f623dea69818269cd40a14eb9,88,8,3,$abc$277$new_n57@2;$abc$277$new_n70@2;boot_word[2]@3
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,abc_no_mux,214315b4a3ec691657d0b58b24d9ca8460a29457f01e05054a4f92902f93be5a,83,8,3,$abc$275$new_n65@0;boot_word[2]@5;boot_word[5]@5
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,opt_flow,fd1d8ef6135109640301891b773c72da50126f44032d9e373e127fda96f45547,,,unsupported,
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,plain_keep_off,2bce37746e14e8c4b75b9477f2a30b0a88fe0d9d04b15944fcbade1ba43cb9a0,81,8,3,$abc$275$new_n57@0;boot_word[5]@3;boot_word[2]@5
+Yosys 0.38+92 (git sha,v2cbb,BB,2D,2,opt_flow_keep_off,411c0a131addd21ad972fd311fac778cd1725f57c8bd5ccf1ac02ce653681ef1,,,unsupported,
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,plain,b3ffbe1bc372e8a333b120aa7baf57873495eadc6a5ea3d9939bde313a177cdf,88,8,3,$abc$275$new_n70@0;$abc$275$new_n72@0;$abc$275$new_n84@0
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,plain_opt_merge,b13835785215464a3ba2f6395fd1e9aac4072a7d8980432ff86a347545c17bae,67,8,1,$flatten\c0.$abc$265$new_n11@1
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,flatten_before_abc,791f245ab4802f08c209c2000de768130b0bdfbff54280066c4d95ce34cb03c1,76,8,1,$abc$316$new_n60@1
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,abc_fast,e60f046afd454cf0ac002454b1139fef8bf88e173f32d6eccbaec22884054927,90,8,2,$abc$277$new_n70@0;$abc$277$new_n72@0
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,abc_no_mux,b3ffbe1bc372e8a333b120aa7baf57873495eadc6a5ea3d9939bde313a177cdf,88,8,3,$abc$275$new_n70@0;$abc$275$new_n72@0;$abc$275$new_n84@0
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,opt_flow,e7a061495ccd94470f725b0fce3a5ddf45be1662095af8199f7fd23ff96d4037,,,unsupported,
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,plain_keep_off,442db419cd64a9e984b87aea62648e8bfa8d5103528d55a8f9cf1cc6dd2ad872,86,8,3,$abc$275$new_n62@0;$abc$275$new_n64@0;$abc$275$new_n76@0
+Yosys 0.38+92 (git sha,v2c4d,4D,DB,2,opt_flow_keep_off,81cd3371c55e0e03202c7e1b5b83d4f7c9166f06de82c5e2bc7f50188dc21afe,,,unsupported,
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,plain,b69fba57612ba9ad8b6e261ec6aedae60aee666196933cae0fc045ec0a9de02e,83,8,2,$abc$275$new_n61@0;$abc$275$new_n64@2
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,plain_opt_merge,161582b159f81d680c5c0baff702870a32707115b0cdb45bc460d91318403274,62,8,1,$flatten\c0.$abc$265$new_n14@1
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,flatten_before_abc,2794922a2c763053053f5d7988e2115882d9088aa5b7d326abedb448a655fc44,69,8,1,$abc$316$new_n57@1
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,abc_fast,5a94663a8d23dbc0566912297e9740f322439ec078cbb274efbc421281c8408a,88,8,2,$abc$277$new_n67@0;$abc$277$new_n69@0
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,abc_no_mux,b69fba57612ba9ad8b6e261ec6aedae60aee666196933cae0fc045ec0a9de02e,83,8,2,$abc$275$new_n61@0;$abc$275$new_n64@2
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,opt_flow,4e8dceaaa9dcc1a27fc0ee8e9e4853bc04d38cb6bfd0e8ff5410706108159b47,,,unsupported,
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,plain_keep_off,22c280efdd947dc889e741cabf1e1e6faecd2350770c2e658c29122f0b79d766,80,8,2,$abc$275$new_n52@0;$abc$275$new_n55@2
+Yosys 0.38+92 (git sha,v2c0f,0F,99,2,opt_flow_keep_off,6f8cbf8eb2ee568a84fe5f1c8007bedea372b5d0cc682510e2cf4ddc644183a7,,,unsupported,
+Yosys 0.38+92 (git sha,v2c04,04,92,1,plain,64b1b2566a61543e0404f63a16630b98e55e23c8db73ab85d788d826db65e724,82,8,1,$abc$275$new_n55@0
+Yosys 0.38+92 (git sha,v2c04,04,92,1,plain_opt_merge,cd96d72216b56ff870f6570e8da5814701928e627f928cb405482df14cd9fead,60,8,1,$flatten\c0.$abc$265$new_n17@1
+Yosys 0.38+92 (git sha,v2c04,04,92,1,flatten_before_abc,daff504e4629e68946507d3021d4ac7dd6e0f1fa4828504f5b67317836750526,70,8,1,$abc$316$new_n58@1
+Yosys 0.38+92 (git sha,v2c04,04,92,1,abc_fast,6f7bc7f4e9a329116707f16382edcf82493db2ab64cc6c6a42c8a97535145c3e,88,8,1,$abc$277$new_n68@0
+Yosys 0.38+92 (git sha,v2c04,04,92,1,abc_no_mux,64b1b2566a61543e0404f63a16630b98e55e23c8db73ab85d788d826db65e724,82,8,1,$abc$275$new_n55@0
+Yosys 0.38+92 (git sha,v2c04,04,92,1,opt_flow,16a434cd0b1e83b77af37f554125ad15b1026f3e66732a3a555e1c995906a808,,,unsupported,
+Yosys 0.38+92 (git sha,v2c04,04,92,1,plain_keep_off,578822e1f3dbd2cf86e8cb7eb6d6925690c1af55157803844f0211813e0ab772,80,8,1,$abc$275$new_n47@0
+Yosys 0.38+92 (git sha,v2c04,04,92,1,opt_flow_keep_off,eb20385a40caa5fef408106c6f724e74b645bae4bf5510f61fc5cc4c3967dae0,,,unsupported,
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,plain,02e90315ce2bb34109868195775d132843d156f9b462d10bd8efeb8ee0793aed,78,8,2,$procmux$10.Y[5]@0;boot_word[2]@5
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,plain_opt_merge,d95aea7304f35a4c36c4f21e00a2e7c32261b65bdc89a4f2ba0259d911b17bb9,56,8,1,c0.m@1
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,flatten_before_abc,6cb5ef7d74f878a3ba0d309cd60cca659c2357b4a84cb609d551894a7ba9c203,65,8,1,word[0]@1
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,abc_fast,1db6003b30aefe6b198b8d506539bd07f35050d3f084f5ec4f12ad3f921e739f,86,8,2,boot_word[5]@1;boot_word[2]@4
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,abc_no_mux,02e90315ce2bb34109868195775d132843d156f9b462d10bd8efeb8ee0793aed,78,8,2,$procmux$10.Y[5]@0;boot_word[2]@5
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,opt_flow,2178fc67d6db70745141028aa541205181fe413062803cdda8b692981271922c,,,unsupported,
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,plain_keep_off,ec4322aaa6640925e0db25b626477b2061b1d7895a43c17e0d27c29a55d6f5d1,76,8,2,boot_word[2]@1;$procmux$10.Y[5]@1
+Yosys 0.38+92 (git sha,v2cb2,B2,24,1,opt_flow_keep_off,4781aea5420c58d76df33fff25b39185ea782eeb4ceaf13b959d3ff3d640aedb,,,unsupported,

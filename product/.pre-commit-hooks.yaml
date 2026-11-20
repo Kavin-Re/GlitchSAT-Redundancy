@@ -1,0 +1,13 @@
+# LOCAL USE ONLY: never published, never run by a hosting service.
+# Hook definition for pre-commit (https://pre-commit.com). It runs `faultbound-wt-hook`, which calls
+# `faultbound-wt analyze <file> <args...>` once per matching netlist and exits with the worst exit code
+# (0 none, 1 attack, 2 unknown, 3 input error, 4 internal).
+# NOTE: pre-commit expects this file at the ROOT of a hook repository; here it lives in product/ - copy it or use a `repo: local` entry (see QUICKSTART).
+- id: faultbound-wt
+  name: faultbound-wt bounded fault check (modelled bit flips)
+  description: Runs the bounded bit-flip analysis on committed Yosys JSON netlists. Not a security proof.
+  entry: faultbound-wt-hook
+  language: python
+  files: '\.json$'
+  pass_filenames: true
+  args: ['--config', 'threat.toml']

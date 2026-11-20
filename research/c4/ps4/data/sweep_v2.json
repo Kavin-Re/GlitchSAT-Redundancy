@@ -1,0 +1,223 @@
+{
+  "schema": "faultbound-wt-sweep/1",
+  "label": "MEASURED (this run; tool)",
+  "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+  "top": "v2",
+  "command": "faultbound-wt analyze src/faultbound_wt/examples/v2.json --config src/faultbound_wt/examples/threat.toml --max-flips 3 --scope-sweep --sweep-masks 0x0F,0x6A --sweep-out /tmp/work_ps4/sweep_v2.json",
+  "tool_version": "0.0.1.dev0",
+  "bounds": {
+    "max_flips": 3,
+    "cycles": 6,
+    "cell_timeout_ms": 120000
+  },
+  "count_rule": "stem",
+  "columns": [
+    {
+      "input_sites": "none",
+      "init": "known"
+    },
+    {
+      "input_sites": "all",
+      "init": "known"
+    },
+    {
+      "input_sites": "none",
+      "init": "arbitrary"
+    },
+    {
+      "input_sites": "all",
+      "init": "arbitrary"
+    }
+  ],
+  "goals": [
+    "boot_word==0x96",
+    "boot_word bits 0xF",
+    "boot_word bits 0x6A",
+    "boot_ok==1"
+  ],
+  "cells": [
+    {
+      "goal": "boot_word==0x96",
+      "input_sites": "none",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "3",
+      "min_faults": 3,
+      "runtime_s": 16.735,
+      "faults": [
+        "word[0]@1",
+        "$flatten\\c1.$abc$251$new_n14_@1",
+        "$flatten\\c2.$abc$251$new_n14_@1"
+      ]
+    },
+    {
+      "goal": "boot_word==0x96",
+      "input_sites": "all",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.674,
+      "faults": [
+        "c0.a[4]@1"
+      ]
+    },
+    {
+      "goal": "boot_word==0x96",
+      "input_sites": "none",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.512,
+      "faults": []
+    },
+    {
+      "goal": "boot_word==0x96",
+      "input_sites": "all",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.592,
+      "faults": []
+    },
+    {
+      "goal": "boot_word bits 0xF",
+      "input_sites": "none",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "2",
+      "min_faults": 2,
+      "runtime_s": 1.627,
+      "faults": [
+        "$auto$rtlil.cc:2609:MuxGate$302@0",
+        "boot_word[1]@3"
+      ]
+    },
+    {
+      "goal": "boot_word bits 0xF",
+      "input_sites": "all",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.617,
+      "faults": [
+        "c0.a[2]@1"
+      ]
+    },
+    {
+      "goal": "boot_word bits 0xF",
+      "input_sites": "none",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.612,
+      "faults": []
+    },
+    {
+      "goal": "boot_word bits 0xF",
+      "input_sites": "all",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.614,
+      "faults": []
+    },
+    {
+      "goal": "boot_word bits 0x6A",
+      "input_sites": "none",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "3",
+      "min_faults": 3,
+      "runtime_s": 4.814,
+      "faults": [
+        "boot_word[1]@0",
+        "boot_word[5]@0",
+        "boot_word[6]@0"
+      ]
+    },
+    {
+      "goal": "boot_word bits 0x6A",
+      "input_sites": "all",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.64,
+      "faults": [
+        "c0.a[7]@1"
+      ]
+    },
+    {
+      "goal": "boot_word bits 0x6A",
+      "input_sites": "none",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.578,
+      "faults": []
+    },
+    {
+      "goal": "boot_word bits 0x6A",
+      "input_sites": "all",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.654,
+      "faults": []
+    },
+    {
+      "goal": "boot_ok==1",
+      "input_sites": "none",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.595,
+      "faults": [
+        "boot_ok@2"
+      ]
+    },
+    {
+      "goal": "boot_ok==1",
+      "input_sites": "all",
+      "init": "known",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.618,
+      "faults": [
+        "boot_ok@5"
+      ]
+    },
+    {
+      "goal": "boot_ok==1",
+      "input_sites": "none",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.586,
+      "faults": []
+    },
+    {
+      "goal": "boot_ok==1",
+      "input_sites": "all",
+      "init": "arbitrary",
+      "verdict": "ATTACK_FOUND",
+      "cost": "0",
+      "min_faults": 0,
+      "runtime_s": 0.628,
+      "faults": []
+    }
+  ],
+  "runtime_s": 32.927,
+  "note": "cell = minimum number of flips found (exact when no '<='), '>k' = no attack with <= k flips within the cycle bound, 'unknown' = solver timeout in that cell (NOT 'no attack'). bounded result under this model; not a proof of security. Faults are modelled bit flips."
+}

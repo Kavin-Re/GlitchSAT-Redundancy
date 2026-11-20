@@ -1,0 +1,16 @@
+# MEASURED by agent P13a 2026-11-20: faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --max-flips 3 --cycles 6 [--consumer-bits M | --goal-out boot_ok --accept-value 1]
+## --consumer-bits 0x03
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 0.162s)
+  minimum attack: boot_word[1]@0
+  SINGLE POINT OF FAILURE: the state register bit `boot_word[1]` flipped for one cycle (cycle 0) is enough to reach the goal value on `boot_word` (reaches 8/8 goal bits). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96 on bits 0x3 only, known power-up state; a bounded result for this toy model, not a proof of security]
+## --consumer-bits 0x0F
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 0.183s)
+  minimum attack: boot_word[2]@0, boot_word[1]@3
+  MINIMUM ATTACK COST = 2 flips (`boot_word[2]`@0, `boot_word[1]`@3), on 2 distinct net(s) in 2 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96 on bits 0xF only, known power-up state; a bounded result for this toy model, not a proof of security]
+## --consumer-bits 0x4E
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 0.141s)
+  minimum attack: boot_word[3]@1, boot_word[1]@2, boot_word[6]@2
+  MINIMUM ATTACK COST = 3 flips (`boot_word[3]`@1, `boot_word[1]`@2, `boot_word[6]`@2), on 3 distinct net(s) in 2 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96 on bits 0x4E only, known power-up state; a bounded result for this toy model, not a proof of security]
+## --goal-out boot_ok --accept-value 1
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 0.162s)
+  minimum attack: boot_ok@4

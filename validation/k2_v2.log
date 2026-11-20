@@ -1,0 +1,2 @@
+v2 T=4 k=2 EXHAUSTIVE: 46056 fault sets x 255 sigs; successful sets=0; 6s
+v2 T=6 k=2 EXHAUSTIVE: 103740 fault sets x 255 sigs; successful sets=0; 17s

@@ -1,0 +1,97 @@
+### pip_install_product :: /tmp/bundle_verify_venv/bin/python -m pip install -q ./product[test] pytest z3-solver pyyaml
+### pip_install_product rc=0
+### pip_install_ci_requirements :: /tmp/bundle_verify_venv/bin/python -m pip install -q -r ci/requirements-ci.txt
+### pip_install_ci_requirements rc=0
+### check_reproduce :: /tmp/bundle_verify_venv/bin/python ci/check_reproduce.py
+36/36 rows match (summary + per-run files + input hashes; engine NOT re-run); 0 row(s) FAILED; 0 problem(s) in total
+What this run can and cannot tell you (TAMPER-EVIDENCE):
+  DETECTED   : accidental or one-sided edits: summary vs per-run file vs input hash (first 16 hex only) vs expected file; duplicate / missing / extra rows;
+               (with --rerun) results or expected values that the engine in this tree does not reproduce.
+  NOT DETECTED: a coordinated edit of several files in the same tree (summary + per-run files + recorded hashes); an edited engine
+               (scripts/glitchsat.py) or scripts/synth.sh, unless its SHA-256 is compared with a copy you trust (the built-in ENGINE_MANIFEST lives in this tree too);
+               an edited RTL/netlist that keeps the same verdicts; a changed model; tool-version differences.
+  Coordinated edits are only caught by comparing against an EXTERNAL copy (a signed tag, release notes, a fresh checkout of a pinned commit, a manifest hash kept elsewhere).
+  --rerun means: 'this engine, on this tree, with these tool versions, reproduces the table'. Nothing more.
+### check_reproduce rc=0
+### check_reproduce_rerun :: /tmp/bundle_verify_venv/bin/python ci/check_reproduce.py --rerun
+36/36 rows match (engine re-run); 0 row(s) FAILED; 0 problem(s) in total
+What this run can and cannot tell you (TAMPER-EVIDENCE):
+  DETECTED   : accidental or one-sided edits: summary vs per-run file vs input hash (first 16 hex only) vs expected file; duplicate / missing / extra rows;
+               (with --rerun) results or expected values that the engine in this tree does not reproduce.
+  NOT DETECTED: a coordinated edit of several files in the same tree (summary + per-run files + recorded hashes); an edited engine
+               (scripts/glitchsat.py) or scripts/synth.sh, unless its SHA-256 is compared with a copy you trust (the built-in ENGINE_MANIFEST lives in this tree too);
+               an edited RTL/netlist that keeps the same verdicts; a changed model; tool-version differences.
+  Coordinated edits are only caught by comparing against an EXTERNAL copy (a signed tag, release notes, a fresh checkout of a pinned commit, a manifest hash kept elsewhere).
+  --rerun means: 'this engine, on this tree, with these tool versions, reproduces the table'. Nothing more.
+### check_reproduce_rerun rc=0
+### pytest_tests :: /tmp/bundle_verify_venv/bin/python -m pytest tests -q -p no:cacheprovider
+........................................................................ [ 54%]
+.............................................................            [100%]
+133 passed in 14.93s
+### pytest_tests rc=0
+### pytest_product_tests :: /tmp/bundle_verify_venv/bin/python -m pytest product/tests -q -p no:cacheprovider
+........................................................................ [ 23%]
+........................................................................ [ 46%]
+........................................................................ [ 69%]
+........................................................................ [ 92%]
+......................                                                   [100%]
+310 passed in 80.00s (0:01:19)
+### pytest_product_tests rc=0
+### check_numbers :: /tmp/bundle_verify_venv/bin/python scripts/check_numbers.py
+check_numbers: 52 files scanned, 2 STALE, 17 HISTORICAL (rules: 34)
+kind | row        | file                               | line  | found                              | should be                      | owner
+STAL | T.root.133 | esearch/c4/review/QA_SIM_REPORT.md | 209   | 99 root                            | 133 passed (root, RECON3; 99 + | QA agent
+STAL | T.prod.310 | esearch/c4/review/QA_SIM_REPORT.md | 209   | 139 product                        | 310 passed, 310 collected (pro | QA agent
+HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 133 passed (10 only as history | LEAD (F2/docs)
+HIST | T.root.133 | docs/ENGINE_STATUS.md              | 71    | 99 passed                          | 133 passed (root, RECON3; 99 + | LEAD (F2/docs)
+HIST | T.prod.310 | docs/ENGINE_STATUS.md              | 71    | 139 + 1                            | 310 passed, 310 collected (pro | LEAD (F2/docs)
+HIST | T.root.133 | docs/FINAL_STATUS.md               | 59    | 99 passed                          | 133 passed (root, RECON3; 99 + | LEAD
+HIST | T.prod.310 | docs/FINAL_STATUS.md               | 59    | 139 + 1                            | 310 passed, 310 collected (pro | LEAD
+HIST | T.root.133 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 99 passed                          | 133 passed (root, RECON3; 99 + | DOSSIER agent (D2)
+HIST | T.prod.310 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 139 + 1                            | 310 passed, 310 collected (pro | DOSSIER agent (D2)
+HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 133 passed (10 only as history | DOSSIER agent (D2)
+HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
+HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 133 passed (10 only as history | REPORT agent (F2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 133 passed (10 only as history | REPORT agent (F2)
+HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT agent (F2)
+HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT agent (F2)
+HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 133 passed (10 only as history | REPORT agent (F2)
+HIST | T.root.133 | esearch/c4/review/QA_SIM_REPORT.md | 268   | 99 root                            | 133 passed (root, RECON3; 99 + | QA agent
+HIST | T.prod.310 | esearch/c4/review/QA_SIM_REPORT.md | 268   | 139 product                        | 310 passed, 310 collected (pro | QA agent
+### check_numbers rc=1
+### start_cmd1_v1_k1 :: /tmp/bundle_verify_venv/bin/python scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6
+v1: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.093s
+  min faults: 1 [('ok', 1)] input {'sig': '0xC7'}
+  SINGLE POINT OF FAILURE: one AND gate output, net `ok`, combines 8 input bits of `sig` (the redundant checks converge here) and alone drives 8 of 8 bits of `boot_word`. Flipping it for ONE cycle (cycle 1) makes a wrong `sig` look valid, even though the checks upstream are duplicated.
+  FIX: Do not let any one net decide. Split the decision across independent bits: give each redundant check its own disjoint group of result-word bits (no shared AND/OR of the checks), use a sparse result encoding with Hamming distance > fault budget, and make the final accept require all groups to agree bit-by-bit.
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+### start_cmd1_v1_k1 rc=0
+### start_cmd2_v2_k2 :: /tmp/bundle_verify_venv/bin/python scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 2 --cycles 6
+v2: NO_ATTACK_UP_TO_BOUND  (k<=2, cycles=6, reduce=full)  solve=0.119s
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+### start_cmd2_v2_k2 rc=0
+### start_cmd3_v2_boot_ok :: /tmp/bundle_verify_venv/bin/python scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6 --goal-out boot_ok --goal-value 1
+v2: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.109s
+  min faults: 1 [('boot_ok', 3)] input {'sig': '0x43'}
+  SINGLE POINT OF FAILURE: gate output `boot_ok` (AND), flipped for one cycle at cycle 3, reaches 1/1 bits of `boot_ok` and is enough to reach the accept value.
+  FIX: Duplicate the logic that feeds this net and keep the copies independent (no shared gate), then compare/decide per bit instead of through one net.
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+### start_cmd3_v2_boot_ok rc=0
+### dashboard_build :: /tmp/bundle_verify_venv/bin/python dashboard/build.py
+wrote index.html; live = True
+### dashboard_build rc=0
+
+PASS  pip_install_product
+PASS  pip_install_ci_requirements
+PASS  check_reproduce
+PASS  check_reproduce_rerun
+PASS  pytest_tests
+PASS  pytest_product_tests
+FAIL  check_numbers (rc=1)
+PASS  start_cmd1_v1_k1
+PASS  start_cmd2_v2_k2
+PASS  start_cmd3_v2_boot_ok
+PASS  dashboard_build
+PASS  dashboard_index_unchanged
+PASS  no_forbidden_paths_in_zip

@@ -1,0 +1,208 @@
+
+Circuit 1 cell sky130_fd_pr__nfet_01v8 and Circuit 2 cell sky130_fd_pr__nfet_01v8 are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__nfet_01v8         |Circuit 2: sky130_fd_pr__nfet_01v8         
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__nfet_01v8 and sky130_fd_pr__nfet_01v8 are equivalent.
+
+Circuit 1 cell sky130_fd_pr__pfet_01v8_hvt and Circuit 2 cell sky130_fd_pr__pfet_01v8_hvt are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_hvt is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_hvt is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__pfet_01v8_hvt     |Circuit 2: sky130_fd_pr__pfet_01v8_hvt     
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__pfet_01v8_hvt and sky130_fd_pr__pfet_01v8_hvt are equivalent.
+
+Circuit 1 cell sky130_fd_pr__special_nfet_01v8 and Circuit 2 cell sky130_fd_pr__special_nfet_01v8 are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_01v8 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_01v8 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__special_nfet_01v8 |Circuit 2: sky130_fd_pr__special_nfet_01v8 
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__special_nfet_01v8 and sky130_fd_pr__special_nfet_01v8 are equivalent.
+Flattening unmatched subcell sky130_fd_sc_hd__inv_1 in circuit ct_cmp (1)(21 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__nor2b_1 in circuit ct_cmp (1)(5 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__xnor2_1 in circuit ct_cmp (1)(8 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__xor2_1 in circuit ct_cmp (1)(4 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__o22ai_1 in circuit ct_cmp (1)(7 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__nor2_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__nand2b_1 in circuit ct_cmp (1)(1 instance)
+Flattening unmatched subcell sky130_fd_sc_hd__nor4_1 in circuit ct_cmp (1)(1 instance)
+Flattening unmatched subcell sky130_fd_sc_hd__o2bb2ai_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__a211oi_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__nand2_1 in circuit ct_cmp (1)(1 instance)
+Flattening unmatched subcell sky130_fd_sc_hd__a2111oi_0 in circuit ct_cmp (1)(5 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__a221o_1 in circuit ct_cmp (1)(3 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__nand4_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__nand3_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__o221ai_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__dfrtp_1 in circuit ct_cmp (1)(2 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__tapvpwrvgnd_1 in circuit ct_cmp (1)(19 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__clkbuf_4 in circuit ct_cmp (1)(3 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__fill_4 in circuit ct_cmp (1)(27 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__fill_1 in circuit ct_cmp (1)(22 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__fill_2 in circuit ct_cmp (1)(12 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__decap_3 in circuit ct_cmp (1)(12 instances)
+Flattening unmatched subcell sky130_fd_sc_hd__fill_8 in circuit ct_cmp (1)(20 instances)
+
+Class ct_cmp_flat (0):  Merged 40 parallel devices.
+Class ct_cmp (1):  Merged 40 parallel devices.
+Subcircuit summary:
+Circuit 1: ct_cmp_flat                     |Circuit 2: ct_cmp                          
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__nfet_01v8 (269->249)         |sky130_fd_pr__nfet_01v8 (269->249)         
+sky130_fd_pr__pfet_01v8_hvt (277->257)     |sky130_fd_pr__pfet_01v8_hvt (277->257)     
+sky130_fd_pr__special_nfet_01v8 (8)        |sky130_fd_pr__special_nfet_01v8 (8)        
+Number of devices: 514                     |Number of devices: 514                     
+Number of nets: 320 **Mismatch**           |Number of nets: 326 **Mismatch**           
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: ct_cmp_flat                     |Circuit 2: ct_cmp                          
+
+---------------------------------------------------------------------------------------
+Net: VPWR                                  |Net: VPWR                                  
+  sky130_fd_pr__pfet_01v8_hvt/(1|3) = 181  |  sky130_fd_pr__pfet_01v8_hvt/(1|3) = 176  
+  sky130_fd_pr__pfet_01v8_hvt/4 = 257      |  sky130_fd_pr__pfet_01v8_hvt/4 = 257      
+  sky130_fd_pr__nfet_01v8/2 = 10           |  sky130_fd_pr__nfet_01v8/2 = 1            
+  sky130_fd_pr__nfet_01v8/4 = 249          |                                           
+  sky130_fd_pr__nfet_01v8/(1|3) = 180      |                                           
+  sky130_fd_pr__pfet_01v8_hvt/2 = 10       |                                           
+  sky130_fd_pr__special_nfet_01v8/4 = 8    |                                           
+                                           |                                           
+(no matching net)                          |Net: a[26]                                 
+                                           |  sky130_fd_pr__pfet_01v8_hvt/2 = 2        
+                                           |  sky130_fd_pr__nfet_01v8/2 = 2            
+                                           |                                           
+(no matching net)                          |Net: _055_                                 
+                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 1        
+                                           |  sky130_fd_pr__pfet_01v8_hvt/(1|3) = 1    
+                                           |  sky130_fd_pr__pfet_01v8_hvt/2 = 2        
+                                           |  sky130_fd_pr__nfet_01v8/2 = 2            
+                                           |                                           
+(no matching net)                          |Net: _053_                                 
+                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 1        
+                                           |  sky130_fd_pr__pfet_01v8_hvt/(1|3) = 1    
+                                           |  sky130_fd_pr__pfet_01v8_hvt/2 = 2        
+                                           |  sky130_fd_pr__nfet_01v8/2 = 2            
+                                           |                                           
+(no matching net)                          |Net: _026_                                 
+                                           |  sky130_fd_pr__pfet_01v8_hvt/(1|3) = 3    
+                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 1        
+                                           |  sky130_fd_pr__pfet_01v8_hvt/2 = 1        
+                                           |  sky130_fd_pr__nfet_01v8/2 = 1            
+                                           |                                           
+(no matching net)                          |Net: VGND                                  
+                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 177      
+                                           |  sky130_fd_pr__nfet_01v8/4 = 249          
+                                           |  sky130_fd_pr__special_nfet_01v8/4 = 8    
+                                           |  sky130_fd_pr__pfet_01v8_hvt/2 = 1        
+                                           |                                           
+(no matching net)                          |Net: b[0]                                  
+                                           |  sky130_fd_pr__pfet_01v8_hvt/2 = 2        
+                                           |  sky130_fd_pr__nfet_01v8/2 = 2            
+---------------------------------------------------------------------------------------
+Netlists do not match.
+
+Subcircuit pins:
+Circuit 1: ct_cmp_flat                     |Circuit 2: ct_cmp                          
+-------------------------------------------|-------------------------------------------
+VPWR                                       |b[0] **Mismatch**                          
+b[4]                                       |b[4]                                       
+a[16]                                      |a[16]                                      
+b[10]                                      |b[10]                                      
+b[8]                                       |b[8]                                       
+b[31]                                      |b[31]                                      
+b[19]                                      |b[19]                                      
+b[14]                                      |b[14]                                      
+b[30]                                      |b[30]                                      
+a[21]                                      |a[21]                                      
+b[25]                                      |b[25]                                      
+b[13]                                      |b[13]                                      
+b[17]                                      |b[17]                                      
+a[7]                                       |a[7]                                       
+a[22]                                      |a[22]                                      
+en                                         |en                                         
+b[9]                                       |b[9]                                       
+a[6]                                       |a[6]                                       
+b[3]                                       |b[3]                                       
+a[24]                                      |a[24]                                      
+b[5]                                       |b[5]                                       
+b[27]                                      |b[27]                                      
+b[18]                                      |b[18]                                      
+b[20]                                      |b[20]                                      
+a[17]                                      |a[17]                                      
+match                                      |match                                      
+fault                                      |fault                                      
+a[19]                                      |a[19]                                      
+a[10]                                      |a[10]                                      
+a[0]                                       |a[0]                                       
+a[4]                                       |a[4]                                       
+a[31]                                      |a[31]                                      
+a[8]                                       |a[8]                                       
+a[14]                                      |a[14]                                      
+a[30]                                      |a[30]                                      
+a[12]                                      |a[12]                                      
+a[2]                                       |a[2]                                       
+a[11]                                      |a[11]                                      
+a[23]                                      |a[23]                                      
+b[23]                                      |b[23]                                      
+b[2]                                       |b[2]                                       
+b[12]                                      |b[12]                                      
+b[11]                                      |b[11]                                      
+b[15]                                      |b[15]                                      
+b[28]                                      |b[28]                                      
+b[29]                                      |b[29]                                      
+b[1]                                       |b[1]                                       
+a[1]                                       |a[1]                                       
+a[29]                                      |a[29]                                      
+a[28]                                      |a[28]                                      
+a[15]                                      |a[15]                                      
+rst_n                                      |rst_n                                      
+clr_fault                                  |clr_fault                                  
+b[24]                                      |b[24]                                      
+b[7]                                       |b[7]                                       
+b[21]                                      |b[21]                                      
+a[13]                                      |a[13]                                      
+a[9]                                       |a[9]                                       
+a[5]                                       |a[5]                                       
+a[3]                                       |a[3]                                       
+a[18]                                      |a[18]                                      
+a[20]                                      |a[20]                                      
+b[22]                                      |a[25] **Mismatch**                         
+a[25]                                      |b[22] **Mismatch**                         
+b[16]                                      |b[16]                                      
+b[26]                                      |b[26]                                      
+a[27]                                      |a[27]                                      
+b[6]                                       |b[6]                                       
+clk                                        |clk                                        
+(no matching pin)                          |a[26]                                      
+(no matching pin)                          |VPWR                                       
+(no matching pin)                          |VGND                                       
+---------------------------------------------------------------------------------------
+Cell pin lists for ct_cmp_flat and ct_cmp altered to match.
+Device classes ct_cmp_flat and ct_cmp are equivalent.
+
+Final result: Top level cell failed pin matching.

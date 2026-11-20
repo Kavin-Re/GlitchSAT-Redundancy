@@ -1,0 +1,9 @@
+v0 rtl word K=1 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v0 rtl word K=2 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v0 rtl word K=3 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v1 rtl word K=1 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v1 rtl word K=2 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v1 rtl word K=3 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v2 rtl word K=1 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v2 rtl word K=2 : sites_wires=0 ##   0:00:00  Status: PASSED 
+v2 rtl word K=3 : sites_wires=0 ##   0:00:00  Status: PASSED 

@@ -1,0 +1,397 @@
+timestamp 0
+version 8.3
+tech sky130A
+style ngspice()
+scale 1000 1 500000
+resistclasses 4400000 2200000 950000 3050000 120000 197000 114000 191000 120000 197000 114000 191000 48200 319800 2000000 48200 48200 12800 125 125 47 47 29 5
+parameters sky130_fd_pr__special_nfet_01v8 l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sky130_fd_pr__nfet_01v8 l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sky130_fd_pr__special_pfet_01v8_hvt l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sky130_fd_pr__pfet_01v8_hvt l=l w=w a1=as p1=ps a2=ad p2=pd
+port "uio_in[7]" 18 2608 0 2636 97 m2
+port "uio_in[6]" 17 2424 0 2452 97 m2
+port "uio_in[5]" 16 2240 0 2268 97 m2
+port "uio_in[4]" 15 2056 0 2084 97 m2
+port "uio_in[3]" 14 1872 0 1900 97 m2
+port "uio_in[2]" 13 1688 0 1716 97 m2
+port "uio_in[1]" 12 1504 0 1532 97 m2
+port "uio_in[0]" 11 1320 0 1348 97 m2
+port "ui_in[7]" 10 1136 0 1164 97 m2
+port "ui_in[6]" 9 952 0 980 97 m2
+port "ui_in[5]" 8 768 0 796 97 m2
+port "ui_in[4]" 7 584 0 612 97 m2
+port "rst_n" 2 400 0 428 97 m2
+port "ena" 1 216 0 244 97 m2
+port "clk" 0 32 0 60 97 m2
+port "uo_out[7]" 42 2056 4267 2084 4364 m2
+port "uo_out[6]" 41 2608 4267 2636 4364 m2
+port "uo_out[5]" 40 1872 4267 1900 4364 m2
+port "uo_out[4]" 39 2976 4267 3004 4364 m2
+port "uo_out[3]" 38 2792 4267 2820 4364 m2
+port "uo_out[2]" 37 1504 4267 1532 4364 m2
+port "uio_out[7]" 34 1320 4267 1348 4364 m2
+port "uio_out[6]" 33 2424 4267 2452 4364 m2
+port "uio_out[5]" 32 2240 4267 2268 4364 m2
+port "uio_out[4]" 31 1136 4267 1164 4364 m2
+port "uio_out[3]" 30 0 38 160 98 m3
+port "uio_out[2]" 29 0 310 160 370 m3
+port "uio_out[1]" 28 0 582 160 642 m3
+port "uio_out[0]" 27 0 854 160 914 m3
+port "uio_oe[7]" 26 0 1126 160 1186 m3
+port "uio_oe[6]" 25 0 1398 160 1458 m3
+port "uio_oe[5]" 24 0 1670 160 1730 m3
+port "uio_oe[4]" 23 0 1942 160 2002 m3
+port "uio_oe[3]" 22 0 2214 160 2274 m3
+port "uio_oe[2]" 21 0 2486 160 2546 m3
+port "uio_oe[1]" 20 0 2758 160 2818 m3
+port "uio_oe[0]" 19 0 3030 160 3090 m3
+port "uo_out[0]" 35 3160 4267 3188 4364 m2
+port "uo_out[1]" 36 1688 4267 1716 4364 m2
+port "ui_in[2]" 5 0 3574 160 3634 m3
+port "ui_in[0]" 3 0 4118 160 4178 m3
+port "ui_in[3]" 6 0 3302 160 3362 m3
+port "ui_in[1]" 4 0 3846 160 3906 m3
+port "VPWR" 43 2102 2180 2222 2300 m5
+node "uio_in[7]" 0 32.7843 2608 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[6]" 0 17.6224 2424 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[5]" 0 17.6224 2240 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[4]" 0 17.6224 2056 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[3]" 0 16.4678 1872 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[2]" 0 16.5503 1688 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[1]" 0 17.6224 1504 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uio_in[0]" 0 17.6224 1320 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "ui_in[7]" 0 17.6224 1136 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "ui_in[6]" 0 17.6224 952 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "ui_in[5]" 0 17.6224 768 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "ui_in[4]" 0 17.9137 584 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "rst_n" 0 17.9751 400 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "ena" 0 17.9751 216 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "clk" 0 33.1817 32 0 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2716 250 0 0 0 0 0 0 0 0
+node "uo_out[7]" 221 3857.84 2056 4267 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 27072 756 0 0 32240 828 104912 6950 144856 10128 413256 13894 0 0 0 0 0 0
+equiv "uo_out[7]" "uo_out[6]"
+equiv "uo_out[7]" "uo_out[5]"
+equiv "uo_out[7]" "uo_out[4]"
+equiv "uo_out[7]" "uo_out[3]"
+equiv "uo_out[7]" "uo_out[2]"
+equiv "uo_out[7]" "uio_out[7]"
+equiv "uo_out[7]" "uio_out[6]"
+equiv "uo_out[7]" "uio_out[5]"
+equiv "uo_out[7]" "uio_out[4]"
+equiv "uo_out[7]" "uio_out[3]"
+equiv "uo_out[7]" "uio_out[2]"
+equiv "uo_out[7]" "uio_out[1]"
+equiv "uo_out[7]" "uio_out[0]"
+equiv "uo_out[7]" "uio_oe[7]"
+equiv "uo_out[7]" "uio_oe[6]"
+equiv "uo_out[7]" "uio_oe[5]"
+equiv "uo_out[7]" "uio_oe[4]"
+equiv "uo_out[7]" "uio_oe[3]"
+equiv "uo_out[7]" "uio_oe[2]"
+equiv "uo_out[7]" "uio_oe[1]"
+equiv "uo_out[7]" "uio_oe[0]"
+equiv "uo_out[7]" "_2_.LO"
+node "a_2275_1935#" 514 0 2275 1935 rmp 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 864 210 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_2137_1935#" 514 0 2137 1935 rmp 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 864 210 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "_2_.HI" 142 436.709 2137 1944 p 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20256 614 0 0 30888 802 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_2137_2767#" 730 0.18021 2137 2767 pdif 0 0 0 0 0 0 0 0 0 0 10800 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_2041_2767#" 597 0 2041 2767 pdif 0 0 0 0 0 0 0 0 0 0 13200 532 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_1957_2767#" 730 0 1957 2767 pdif 0 0 0 0 0 0 0 0 0 0 10800 508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "uo_out[0]" 1936 1428.7 3160 4267 m2 0 0 0 0 0 0 0 0 14040 736 10236 504 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 26982 1514 32624 2286 36088 2572 0 0 0 0 0 0 0 0
+equiv "uo_out[0]" "_0_.Y"
+node "uo_out[1]" 2099 718.705 1688 4267 m2 0 0 0 0 0 0 0 0 6760 364 29600 1096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 49988 1928 17168 1182 36088 2572 0 0 0 0 0 0 0 0
+equiv "uo_out[1]" "_1_.Y"
+node "a_1162_3087#" 223 5.29164 1162 3087 ndif 0 0 0 0 0 0 0 0 9100 400 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_1062_3087#" 223 3.97479 1062 3087 ndif 0 0 0 0 0 0 0 0 9100 400 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_954_3087#" 200 4.08393 954 3087 ndif 0 0 0 0 0 0 0 0 10140 416 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "ui_in[2]" 1756 600.706 0 3574 m3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 32766 2158 0 0 25650 1126 43516 3064 23628 1590 54816 1946 0 0 0 0 0 0
+equiv "ui_in[2]" "_0_.B"
+equiv "ui_in[2]" "_1_.B_N"
+node "a_1591_2770#" 1722 162.912 1591 2770 pdif 0 0 0 0 0 0 0 0 4368 272 4368 272 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16644 1112 0 0 44130 2462 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_1769_3087#" 1453 215.952 1769 3087 ndif 0 0 0 0 0 0 0 0 4368 272 4340 272 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 19680 1204 0 0 15712 916 0 0 0 0 0 0 0 0 0 0 0 0
+node "ui_in[0]" 1817 1021.41 0 4118 m3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 34146 2250 0 0 19606 942 33668 2322 35052 2406 85005 2948 0 0 0 0 0 0
+equiv "ui_in[0]" "_0_.A"
+equiv "ui_in[0]" "_1_.A_N"
+node "a_1232_2741#" 1332 239.025 1232 2741 p 0 0 0 0 0 0 0 0 7308 342 7308 342 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 21132 1248 0 0 42078 1782 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_763_2767#" 1622 372.502 763 2767 pdif 0 0 0 0 0 0 0 0 4368 272 4368 272 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 16644 1112 0 0 44426 2172 0 0 0 0 0 0 0 0 0 0 0 0
+node "ui_in[3]" 1709 445.268 0 3302 m3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 32082 2134 0 0 14992 744 22320 1550 14108 910 65856 2314 0 0 0 0 0 0
+equiv "ui_in[3]" "_0_.C_N"
+equiv "ui_in[3]" "_1_.C"
+node "ui_in[1]" 1511 653.99 0 3846 m3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 30012 1948 0 0 7328 488 32708 2292 29340 1998 60336 2130 0 0 0 0 0 0
+equiv "ui_in[1]" "_0_.D_N"
+equiv "ui_in[1]" "_1_.D"
+node "VPWR" 33198 18018.6 2102 2180 m5 0 0 0 0 3522784 14712 0 0 17850 1254 135421 6522 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 121264 3764 0 0 563046 17862 582912 12528 59136 1616 42240 1544 727040 5184 971520 6712 0 0
+equiv "VPWR" "FILLER_3_30.VPB"
+equiv "VPWR" "FILLER_3_30.VPWR"
+equiv "VPWR" "TAP_2.VPWR"
+equiv "VPWR" "FILLER_3_22.VPB"
+equiv "VPWR" "FILLER_3_22.VPWR"
+equiv "VPWR" "_0_.VPWR"
+equiv "VPWR" "_0_.VPB"
+equiv "VPWR" "FILLER_3_18.VPB"
+equiv "VPWR" "FILLER_3_18.VPWR"
+equiv "VPWR" "_1_.VPWR"
+equiv "VPWR" "_1_.VPB"
+equiv "VPWR" "FILLER_3_0.VPB"
+equiv "VPWR" "FILLER_3_0.VPWR"
+equiv "VPWR" "FILLER_2_30.VPB"
+equiv "VPWR" "FILLER_2_30.VPWR"
+equiv "VPWR" "TAP_1.VPWR"
+equiv "VPWR" "FILLER_2_22.VPB"
+equiv "VPWR" "FILLER_2_22.VPWR"
+equiv "VPWR" "FILLER_2_20.VPB"
+equiv "VPWR" "FILLER_2_20.VPWR"
+equiv "VPWR" "FILLER_2_16.VPB"
+equiv "VPWR" "FILLER_2_16.VPWR"
+equiv "VPWR" "FILLER_2_8.VPB"
+equiv "VPWR" "FILLER_2_8.VPWR"
+equiv "VPWR" "FILLER_2_0.VPB"
+equiv "VPWR" "FILLER_2_0.VPWR"
+equiv "VPWR" "FILLER_1_31.VPB"
+equiv "VPWR" "FILLER_1_31.VPWR"
+equiv "VPWR" "FILLER_0_30.VPB"
+equiv "VPWR" "FILLER_0_30.VPWR"
+equiv "VPWR" "TAP_0.VPWR"
+equiv "VPWR" "FILLER_1_27.VPB"
+equiv "VPWR" "FILLER_1_27.VPWR"
+equiv "VPWR" "FILLER_0_22.VPB"
+equiv "VPWR" "FILLER_0_22.VPWR"
+equiv "VPWR" "FILLER_0_20.VPB"
+equiv "VPWR" "FILLER_0_20.VPWR"
+equiv "VPWR" "_2_.VPWR"
+equiv "VPWR" "_2_.VPB"
+equiv "VPWR" "FILLER_1_19.VPB"
+equiv "VPWR" "FILLER_1_19.VPWR"
+equiv "VPWR" "FILLER_0_16.VPB"
+equiv "VPWR" "FILLER_0_16.VPWR"
+equiv "VPWR" "FILLER_1_8.VPB"
+equiv "VPWR" "FILLER_1_8.VPWR"
+equiv "VPWR" "FILLER_1_0.VPB"
+equiv "VPWR" "FILLER_1_0.VPWR"
+equiv "VPWR" "FILLER_0_8.VPB"
+equiv "VPWR" "FILLER_0_8.VPWR"
+equiv "VPWR" "FILLER_0_0.VPB"
+equiv "VPWR" "FILLER_0_0.VPWR"
+substrate "FILLER_3_30.VNB" 0 0 845 3087 ndif 0 0 0 0 0 0 0 0 86680 4686 10710 834 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 146544 4166 0 0 571352 22896 874368 18792 0 0 0 0 0 0 0 0 0 0
+equiv "FILLER_3_30.VNB" "FILLER_3_22.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_3_30.VGND"
+equiv "FILLER_3_30.VNB" "TAP_2.VGND"
+equiv "FILLER_3_30.VNB" "_0_.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_3_22.VGND"
+equiv "FILLER_3_30.VNB" "_0_.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_3_18.VNB"
+equiv "FILLER_3_30.VNB" "_1_.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_3_18.VGND"
+equiv "FILLER_3_30.VNB" "_1_.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_3_0.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_30.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_3_0.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_2_22.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_30.VGND"
+equiv "FILLER_3_30.VNB" "TAP_1.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_2_20.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_22.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_2_16.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_20.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_2_8.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_16.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_2_0.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_8.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_1_31.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_2_0.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_0_30.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_1_31.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_1_27.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_0_30.VGND"
+equiv "FILLER_3_30.VNB" "TAP_0.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_0_22.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_1_27.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_0_20.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_0_22.VGND"
+equiv "FILLER_3_30.VNB" "_2_.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_0_20.VGND"
+equiv "FILLER_3_30.VNB" "_2_.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_1_19.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_0_16.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_1_19.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_1_8.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_0_16.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_1_0.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_1_8.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_0_8.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_1_0.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_0_0.VNB"
+equiv "FILLER_3_30.VNB" "FILLER_0_8.VGND"
+equiv "FILLER_3_30.VNB" "FILLER_0_0.VGND"
+cap "_2_.HI" "uo_out[7]" 123.318
+cap "ena" "clk" 22.4537
+cap "uio_in[4]" "VPWR" 0.235856
+cap "ui_in[5]" "VPWR" 0.235856
+cap "a_2137_2767#" "a_1591_2770#" 0.32009
+cap "uio_in[2]" "uo_out[7]" 0.0217189
+cap "VPWR" "a_763_2767#" 176.31
+cap "VPWR" "a_2041_2767#" 8.36723
+cap "ui_in[0]" "_2_.HI" 1.0743
+cap "ui_in[2]" "_2_.HI" 0.399122
+cap "VPWR" "uo_out[7]" 1214.81
+cap "a_2137_2767#" "uo_out[7]" 0.0836579
+cap "a_1062_3087#" "a_763_2767#" 12.6174
+cap "uo_out[1]" "ui_in[3]" 73.1006
+cap "ui_in[0]" "VPWR" 339.149
+cap "a_1232_2741#" "VPWR" 254.749
+cap "ui_in[2]" "VPWR" 800.738
+cap "ui_in[1]" "ui_in[3]" 807.352
+cap "uio_in[5]" "VPWR" 0.235856
+cap "ui_in[7]" "VPWR" 0.235856
+cap "a_954_3087#" "ui_in[3]" 2.4075
+cap "ui_in[0]" "a_2137_2767#" 1.11103
+cap "ui_in[2]" "a_2137_2767#" 14.4397
+cap "a_1062_3087#" "uo_out[7]" 1.99238
+cap "uo_out[1]" "a_1769_3087#" 3.19448
+cap "ui_in[1]" "a_1769_3087#" 116.865
+cap "a_1591_2770#" "uo_out[0]" 198.683
+cap "ui_in[5]" "ui_in[4]" 22.4537
+cap "a_1062_3087#" "ui_in[0]" 0.185873
+cap "a_2041_2767#" "uo_out[0]" 2.73734
+cap "uio_in[4]" "uio_in[3]" 22.4537
+cap "uio_in[2]" "uio_in[1]" 22.4537
+cap "VPWR" "a_1957_2767#" 4.23065
+cap "uio_in[0]" "VPWR" 0.235856
+cap "ui_in[4]" "uo_out[7]" 0.432348
+cap "uo_out[1]" "a_1162_3087#" 8.59794
+cap "uo_out[7]" "uo_out[0]" 52.4278
+cap "ui_in[1]" "a_1162_3087#" 2.23949
+cap "VPWR" "ui_in[3]" 194.2
+cap "VPWR" "uio_in[1]" 0.235856
+cap "uio_in[3]" "uo_out[7]" 0.0169801
+cap "a_2041_2767#" "a_1591_2770#" 9.52831
+cap "ui_in[0]" "uo_out[0]" 70.895
+cap "ui_in[2]" "uo_out[0]" 73.0417
+cap "VPWR" "a_1769_3087#" 85.4952
+cap "uo_out[7]" "a_1591_2770#" 3.63002
+cap "a_1062_3087#" "ui_in[3]" 4.39589
+cap "uo_out[1]" "ui_in[1]" 325.308
+cap "ui_in[5]" "uo_out[7]" 0.177667
+cap "a_954_3087#" "uo_out[1]" 1.67195
+cap "a_763_2767#" "uo_out[7]" 34.3586
+cap "uo_out[7]" "a_2041_2767#" 0.716362
+cap "a_954_3087#" "ui_in[1]" 4.17636
+cap "ui_in[0]" "a_1591_2770#" 34.1573
+cap "ui_in[2]" "a_1591_2770#" 203.535
+cap "a_1232_2741#" "a_1591_2770#" 164.998
+cap "VPWR" "a_1162_3087#" 0.630647
+cap "a_1957_2767#" "uo_out[0]" 8.8716
+cap "uio_in[5]" "uio_in[4]" 22.4537
+cap "ui_in[2]" "a_763_2767#" 132.559
+cap "ui_in[0]" "a_763_2767#" 2.55869
+cap "rst_n" "ui_in[4]" 22.4537
+cap "ui_in[0]" "a_2041_2767#" 2.20982
+cap "ui_in[2]" "a_2041_2767#" 17.2505
+cap "a_1232_2741#" "a_763_2767#" 47.4914
+cap "ui_in[3]" "uo_out[0]" 0.565758
+cap "ui_in[6]" "VPWR" 0.235856
+cap "ui_in[2]" "uo_out[7]" 93.2994
+cap "ui_in[0]" "uo_out[7]" 576.226
+cap "a_1232_2741#" "uo_out[7]" 7.88266
+cap "uo_out[0]" "a_1769_3087#" 126.064
+cap "ui_in[7]" "uo_out[7]" 0.0587294
+cap "uio_in[7]" "uio_in[6]" 22.4537
+cap "a_1957_2767#" "a_1591_2770#" 12.5215
+cap "uo_out[1]" "VPWR" 365.118
+cap "uio_in[6]" "VPWR" 0.235856
+cap "VPWR" "ui_in[1]" 133.716
+cap "ui_in[2]" "ui_in[0]" 655.582
+cap "a_1232_2741#" "ui_in[0]" 237.345
+cap "a_954_3087#" "VPWR" 0.472531
+cap "ui_in[2]" "a_1232_2741#" 54.1611
+cap "ui_in[3]" "a_1591_2770#" 125.241
+cap "ena" "uo_out[7]" 18.001
+cap "VPWR" "_2_.HI" 104.325
+cap "ui_in[3]" "a_763_2767#" 159.453
+cap "a_1591_2770#" "a_1769_3087#" 97.3047
+cap "uo_out[1]" "a_1062_3087#" 2.71039
+cap "uo_out[7]" "a_1957_2767#" 0.261959
+cap "a_1062_3087#" "ui_in[1]" 2.93836
+cap "uio_in[2]" "VPWR" 1.56217
+cap "uio_in[0]" "uo_out[7]" 0.0398246
+cap "rst_n" "uo_out[7]" 3.78909
+cap "ui_in[3]" "uo_out[7]" 495.143
+cap "uo_out[7]" "uio_in[1]" 0.0287505
+cap "ui_in[2]" "a_1957_2767#" 3.11428
+cap "ui_in[0]" "a_1957_2767#" 1.42392
+cap "uio_in[7]" "VPWR" 0.174297
+cap "uio_in[0]" "ui_in[7]" 22.4537
+cap "ui_in[2]" "ui_in[3]" 334.147
+cap "uo_out[7]" "a_1769_3087#" 1.17549
+cap "ui_in[0]" "ui_in[3]" 354.508
+cap "a_1232_2741#" "ui_in[3]" 37.5083
+cap "VPWR" "a_2137_2767#" 3.88092
+cap "uo_out[1]" "uo_out[0]" 40.1597
+cap "ui_in[1]" "uo_out[0]" 4.80627
+cap "a_763_2767#" "a_1162_3087#" 6.65725
+cap "ui_in[0]" "a_1769_3087#" 34.7345
+cap "ui_in[2]" "a_1769_3087#" 10.9897
+cap "rst_n" "ena" 22.4537
+cap "a_1062_3087#" "VPWR" 0.624234
+cap "_2_.HI" "uo_out[0]" 0.033148
+cap "a_1162_3087#" "uo_out[7]" 1.40706
+cap "ui_in[5]" "ui_in[6]" 22.4537
+cap "uo_out[1]" "a_1591_2770#" 15.7289
+cap "ui_in[1]" "a_1591_2770#" 31.7212
+cap "uio_in[0]" "uio_in[1]" 22.4537
+cap "uio_in[2]" "uio_in[3]" 22.4537
+cap "ui_in[0]" "a_1162_3087#" 1.43921
+cap "uo_out[1]" "a_763_2767#" 145.865
+cap "ui_in[1]" "a_763_2767#" 102.939
+cap "ui_in[4]" "VPWR" 0.061405
+cap "uo_out[7]" "clk" 16.1516
+cap "a_954_3087#" "a_763_2767#" 13.9683
+cap "ui_in[6]" "uo_out[7]" 0.0949364
+cap "VPWR" "uo_out[0]" 199.719
+cap "VPWR" "uio_in[3]" 1.62254
+cap "ui_in[3]" "a_1769_3087#" 22.3333
+cap "uo_out[1]" "uo_out[7]" 167.664
+cap "ui_in[1]" "uo_out[7]" 192.927
+cap "a_954_3087#" "uo_out[7]" 0.601558
+cap "ui_in[6]" "ui_in[7]" 22.4537
+cap "uo_out[1]" "a_1232_2741#" 158.847
+cap "uo_out[1]" "ui_in[2]" 92.007
+cap "uo_out[1]" "ui_in[0]" 162.857
+cap "a_1232_2741#" "ui_in[1]" 21.6751
+cap "ui_in[2]" "ui_in[1]" 633.656
+cap "ui_in[0]" "ui_in[1]" 339.642
+cap "VPWR" "a_1591_2770#" 366.676
+cap "uio_in[5]" "uio_in[6]" 22.4537
+device msubckt sky130_fd_pr__nfet_01v8 3483 1135 3484 1136 l=118 w=110 "FILLER_3_30.VNB" "VPWR" 236 0 "FILLER_3_30.VNB" 0 0 "FILLER_3_30.VNB" 220 5720,324
+device msubckt sky130_fd_pr__pfet_01v8_hvt 3483 1411 3484 1412 l=118 w=174 "VPWR" "FILLER_3_30.VNB" 236 0 "VPWR" 0 0 "VPWR" 348 9048,452
+device devres sky130_fd_pr__res_generic_po 2275 1935 2276 1936 9 96 "a_2275_1935#" 0 0 "FILLER_3_30.VNB" 96 20256,614 "uo_out[7]" 96 27072,756
+device devres sky130_fd_pr__res_generic_po 2137 1935 2138 1936 9 96 "a_2137_1935#" 0 0 "_2_.HI" 96 20256,614 "VPWR" 96 27072,756
+device msubckt sky130_fd_pr__nfet_01v8 3483 2223 3484 2224 l=118 w=110 "FILLER_3_30.VNB" "VPWR" 236 0 "FILLER_3_30.VNB" 0 0 "FILLER_3_30.VNB" 220 5720,324
+device msubckt sky130_fd_pr__pfet_01v8_hvt 3483 2499 3484 2500 l=118 w=174 "VPWR" "FILLER_3_30.VNB" 236 0 "VPWR" 0 0 "VPWR" 348 9048,452
+device msubckt sky130_fd_pr__pfet_01v8_hvt 3483 2767 3484 2768 l=118 w=174 "VPWR" "FILLER_3_30.VNB" 236 0 "VPWR" 0 0 "VPWR" 348 9048,452
+device msubckt sky130_fd_pr__pfet_01v8_hvt 2379 2767 2380 2768 l=118 w=174 "VPWR" "FILLER_3_30.VNB" 236 0 "VPWR" 0 0 "VPWR" 348 9048,452
+device msubckt sky130_fd_pr__pfet_01v8_hvt 2191 2767 2192 2768 l=30 w=200 "VPWR" "ui_in[0]" 60 0 "a_2137_2767#" 200 5400,254 "VPWR" 200 10400,504
+device msubckt sky130_fd_pr__pfet_01v8_hvt 2107 2767 2108 2768 l=30 w=200 "VPWR" "ui_in[2]" 60 0 "a_2041_2767#" 200 6600,266 "a_2137_2767#" 200 5400,254
+device msubckt sky130_fd_pr__pfet_01v8_hvt 2011 2767 2012 2768 l=30 w=200 "VPWR" "a_1591_2770#" 60 0 "a_1957_2767#" 200 5400,254 "a_2041_2767#" 200 6600,266
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1927 2767 1928 2768 l=30 w=200 "VPWR" "a_1769_3087#" 60 0 "uo_out[0]" 200 10236,504 "a_1957_2767#" 200 5400,254
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1643 2770 1644 2771 l=30 w=84 "VPWR" "ui_in[3]" 60 0 "a_1591_2770#" 84 4368,272 "VPWR" 84 4904,264
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1420 2767 1421 2768 l=30 w=84 "VPWR" "ui_in[0]" 60 0 "VPWR" 84 4368,272 "a_1232_2741#" 84 7308,342
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1740 2883 1741 2884 l=30 w=84 "VPWR" "ui_in[1]" 60 0 "VPWR" 84 4904,264 "a_1769_3087#" 84 4340,272
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1232 2767 1233 2768 l=30 w=200 "VPWR" "a_1232_2741#" 60 0 "uo_out[1]" 200 7000,270 "VPWR" 200 10400,504
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1132 2767 1133 2768 l=30 w=200 "VPWR" "a_763_2767#" 60 0 "VPWR" 200 7000,270 "uo_out[1]" 200 7000,270
+device msubckt sky130_fd_pr__pfet_01v8_hvt 1032 2767 1033 2768 l=30 w=200 "VPWR" "ui_in[3]" 60 0 "uo_out[1]" 200 7800,278 "VPWR" 200 7000,270
+device msubckt sky130_fd_pr__pfet_01v8_hvt 924 2767 925 2768 l=30 w=200 "VPWR" "ui_in[1]" 60 0 "VPWR" 200 7030,279 "uo_out[1]" 200 7800,278
+device msubckt sky130_fd_pr__pfet_01v8_hvt 815 2767 816 2768 l=30 w=84 "VPWR" "ui_in[2]" 60 0 "a_763_2767#" 84 4368,272 "VPWR" 84 7030,279
+device msubckt sky130_fd_pr__nfet_01v8 3483 3107 3484 3108 l=118 w=110 "FILLER_3_30.VNB" "VPWR" 236 0 "FILLER_3_30.VNB" 0 0 "FILLER_3_30.VNB" 220 5720,324
+device msubckt sky130_fd_pr__nfet_01v8 2379 3107 2380 3108 l=118 w=110 "FILLER_3_30.VNB" "VPWR" 236 0 "FILLER_3_30.VNB" 0 0 "FILLER_3_30.VNB" 220 5720,324
+device msubckt sky130_fd_pr__nfet_01v8 2191 3087 2192 3088 l=30 w=130 "FILLER_3_30.VNB" "ui_in[0]" 60 0 "uo_out[0]" 130 3510,184 "FILLER_3_30.VNB" 130 6760,364
+device msubckt sky130_fd_pr__nfet_01v8 2107 3087 2108 3088 l=30 w=130 "FILLER_3_30.VNB" "ui_in[2]" 60 0 "FILLER_3_30.VNB" 130 4290,196 "uo_out[0]" 130 3510,184
+device msubckt sky130_fd_pr__nfet_01v8 2011 3087 2012 3088 l=30 w=130 "FILLER_3_30.VNB" "a_1591_2770#" 60 0 "uo_out[0]" 130 3510,184 "FILLER_3_30.VNB" 130 4290,196
+device msubckt sky130_fd_pr__nfet_01v8 1927 3087 1928 3088 l=30 w=130 "FILLER_3_30.VNB" "a_1769_3087#" 60 0 "FILLER_3_30.VNB" 130 6760,364 "uo_out[0]" 130 3510,184
+device msubckt sky130_fd_pr__nfet_01v8 1739 3087 1740 3088 l=30 w=84 "FILLER_3_30.VNB" "ui_in[1]" 60 0 "FILLER_3_30.VNB" 84 2436,142 "a_1769_3087#" 84 4368,272
+device msubckt sky130_fd_pr__nfet_01v8 1651 3087 1652 3088 l=30 w=84 "FILLER_3_30.VNB" "ui_in[3]" 60 0 "a_1591_2770#" 84 4368,272 "FILLER_3_30.VNB" 84 2436,142
+device msubckt sky130_fd_pr__nfet_01v8 1420 3133 1421 3134 l=30 w=84 "FILLER_3_30.VNB" "ui_in[0]" 60 0 "FILLER_3_30.VNB" 84 4368,272 "a_1232_2741#" 84 7308,342
+device msubckt sky130_fd_pr__nfet_01v8 1232 3087 1233 3088 l=30 w=130 "FILLER_3_30.VNB" "a_1232_2741#" 60 0 "a_1162_3087#" 130 4550,200 "uo_out[1]" 130 6760,364
+device msubckt sky130_fd_pr__nfet_01v8 1132 3087 1133 3088 l=30 w=130 "FILLER_3_30.VNB" "a_763_2767#" 60 0 "a_1062_3087#" 130 4550,200 "a_1162_3087#" 130 4550,200
+device msubckt sky130_fd_pr__nfet_01v8 1032 3087 1033 3088 l=30 w=130 "FILLER_3_30.VNB" "ui_in[3]" 60 0 "a_954_3087#" 130 5070,208 "a_1062_3087#" 130 4550,200
+device msubckt sky130_fd_pr__nfet_01v8 924 3087 925 3088 l=30 w=130 "FILLER_3_30.VNB" "ui_in[1]" 60 0 "FILLER_3_30.VNB" 130 4790,209 "a_954_3087#" 130 5070,208
+device msubckt sky130_fd_pr__nfet_01v8 815 3087 816 3088 l=30 w=84 "FILLER_3_30.VNB" "ui_in[2]" 60 0 "a_763_2767#" 84 4368,272 "FILLER_3_30.VNB" 84 4790,209

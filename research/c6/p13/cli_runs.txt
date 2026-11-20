@@ -1,0 +1,29 @@
+# MEASURED by agent P13a: faultbound-wt analyze reference/spike_netlists/<d>.json --top <d> --max-flips 3 --cycles 6 (venv /tmp/work_p13/venv, pip install ./product)
+## v1
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v1: ATTACK_FOUND  (<= 3 flips, 6 cycles; 58 gates, 8 flops; 0.142s)
+  minimum attack: ok@1
+  SINGLE POINT OF FAILURE: one AND gate output, net `ok`, has 8 bit(s) of `sig` in its fan-in cone and reaches 8 of 8 bits of `boot_word`; STRUCTURE: its direct fan-in nets `c1.m` and `c2.m` are distinct sub-circuits that depend on the same input bits (parallel checks that this gate recombines). Flipping it for ONE cycle (cycle 1) is enough to reach the goal value. [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+  scope: goal: output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..5, while `sig` != 0xC3
+  scope: inputs: every input port except the clock `clk` is a free value chosen by the solver and held CONSTANT for the whole run (free inputs here: sig); `sig` must differ from legitimate_value; input ports are NOT fault sites; the clock is implicit (one rising edge per cycle) and is not modelled as a signal
+  scope: init state: all 8 flops start at a known value: 8 from an explicit Yosys `init` attribute, 0 default to 0; no reset sequence is simulated and unknown (x) power-up state is not modelled
+  scope: options: goal_output=boot_word, accept_value=0x96, consumer_bits=all, input_sites=none, init=known, count_rule=stem (flip of a net counts once for all its fanout)
+  scope: fault model: one fault = one flip of one net (gate output or flop Q; kinds allowed: gate/flop) at one cycle; a flip is XORed onto the net for that cycle only and propagates through all its fanout (counts as 1); flips of the same net in different cycles count separately; at most max_flips faults in total over all cycles; no stuck-at, multi-bit, timing or voltage effects
+  scope: bounds: max_flips=3, cycles=6, timeout_ms=none
+  scope: netlist sha256 84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc; tool version 0.0.1.dev0
+  scope: bounded result under this model; not a proof of security.
+## v2
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 0.232s)
+  minimum attack: c2.m@1, c0.m@1, $flatten\c1.$abc$251$new_n16_@1
+  MINIMUM ATTACK COST = 3 flips (`c2.m`@1, `c0.m`@1, `$flatten\c1.$abc$251$new_n16_`@1), on 3 distinct net(s) in 1 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+  scope: goal: output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..5, while `sig` != 0xC3
+  scope: inputs: every input port except the clock `clk` is a free value chosen by the solver and held CONSTANT for the whole run (free inputs here: sig); `sig` must differ from legitimate_value; input ports are NOT fault sites; the clock is implicit (one rising edge per cycle) and is not modelled as a signal
+  scope: init state: all 8 flops start at a known value: 8 from an explicit Yosys `init` attribute, 0 default to 0; no reset sequence is simulated and unknown (x) power-up state is not modelled
+  scope: options: goal_output=boot_word, accept_value=0x96, consumer_bits=all, input_sites=none, init=known, count_rule=stem (flip of a net counts once for all its fanout)
+  scope: fault model: one fault = one flip of one net (gate output or flop Q; kinds allowed: gate/flop) at one cycle; a flip is XORed onto the net for that cycle only and propagates through all its fanout (counts as 1); flips of the same net in different cycles count separately; at most max_flips faults in total over all cycles; no stuck-at, multi-bit, timing or voltage effects
+  scope: bounds: max_flips=3, cycles=6, timeout_ms=none
+  scope: netlist sha256 289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec; tool version 0.0.1.dev0
+  scope: bounded result under this model; not a proof of security.

@@ -1,0 +1,34 @@
+{
+  "label": "MEASURED",
+  "tool": "glitchsat.py",
+  "design": "reference/spike_netlists/v0.json",
+  "design_sha256_16": "103ad03e40a5994d",
+  "top": "v0",
+  "synth_flow": "given-netlist",
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "bound": {
+    "max_faults": 0,
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 6"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 0 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "netlist": {
+    "gates": 18,
+    "flops": 2
+  },
+  "honest_key_boots_fault_free": true,
+  "model": {
+    "sites_total": 120,
+    "sites_modelled": 106,
+    "reduce": "full",
+    "build_s": 0.012,
+    "solve_s": 0.001
+  },
+  "runtime_s": {
+    "synth": 0.0,
+    "solve_and_minimize": 0.015
+  },
+  "netlist_json": "reference/spike_netlists/v0.json"
+}

@@ -1,0 +1,186 @@
+Netgen 1.5.272 compiled on Tue Mar  5 23:16:53 UTC 2024
+Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+Reading netlist file out/v2_ext.spice
+Call to undefined subcircuit sky130_fd_pr__pfet_01v8_hvt
+Creating placeholder cell definition.
+Call to undefined subcircuit sky130_fd_pr__nfet_01v8
+Creating placeholder cell definition.
+Call to undefined subcircuit sky130_fd_pr__special_nfet_01v8
+Creating placeholder cell definition.
+Reading netlist file out/v2_pnr.v
+Warning:  A case-insensitive file has been read and so the	verilog file must be treated case-insensitive to match.
+Creating placeholder cell definition for module sky130_fd_sc_hd__inv_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__nand2_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__nand4bb_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__nor4_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__nor4bb_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__nor2_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__and4_2.
+Creating placeholder cell definition for module sky130_fd_sc_hd__a21o_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__and4_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__nand4_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__a2bb2oi_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__a22o_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__a21boi_0.
+Creating placeholder cell definition for module sky130_fd_sc_hd__mux2_1.
+Creating placeholder cell definition for module sky130_fd_sc_hd__dfxtp_1.
+Warning:  Cell sky130_fd_sc_hd__tapvpwrvgnd_1 has no pins
+Creating placeholder cell definition for module sky130_fd_sc_hd__tapvpwrvgnd_1.
+Note:  Implicit pin (no pins) in instance TAP_0 of sky130_fd_sc_hd__tapvpwrvgnd_1 in cell v2
+Warning:  Cell sky130_fd_sc_hd__tapvpwrvgnd_1 has no pins
+Note:  Implicit pin (no pins) in instance TAP_1 of sky130_fd_sc_hd__tapvpwrvgnd_1 in cell v2
+Warning:  Cell sky130_fd_sc_hd__tapvpwrvgnd_1 has no pins
+Note:  Implicit pin (no pins) in instance TAP_2 of sky130_fd_sc_hd__tapvpwrvgnd_1 in cell v2
+Warning:  Cell sky130_fd_sc_hd__tapvpwrvgnd_1 has no pins
+Note:  Implicit pin (no pins) in instance TAP_3 of sky130_fd_sc_hd__tapvpwrvgnd_1 in cell v2
+Warning:  Cell sky130_fd_sc_hd__tapvpwrvgnd_1 has no pins
+Note:  Implicit pin (no pins) in instance TAP_4 of sky130_fd_sc_hd__tapvpwrvgnd_1 in cell v2
+Creating placeholder cell definition for module sky130_fd_sc_hd__clkbuf_4.
+
+Reading setup file /tmp/mm_root/envs/eda/share/pdk/sky130A/libs.tech/netgen/sky130A_setup.tcl
+
+Model sky130_fd_pr__nfet_01v8 pin 1 == 3
+No property mult found for device sky130_fd_pr__nfet_01v8
+No property sa found for device sky130_fd_pr__nfet_01v8
+No property sb found for device sky130_fd_pr__nfet_01v8
+No property sd found for device sky130_fd_pr__nfet_01v8
+No property nf found for device sky130_fd_pr__nfet_01v8
+No property nrd found for device sky130_fd_pr__nfet_01v8
+No property nrs found for device sky130_fd_pr__nfet_01v8
+No property area found for device sky130_fd_pr__nfet_01v8
+No property perim found for device sky130_fd_pr__nfet_01v8
+No property topography found for device sky130_fd_pr__nfet_01v8
+Model sky130_fd_pr__pfet_01v8_hvt pin 1 == 3
+No property mult found for device sky130_fd_pr__pfet_01v8_hvt
+No property sa found for device sky130_fd_pr__pfet_01v8_hvt
+No property sb found for device sky130_fd_pr__pfet_01v8_hvt
+No property sd found for device sky130_fd_pr__pfet_01v8_hvt
+No property nf found for device sky130_fd_pr__pfet_01v8_hvt
+No property nrd found for device sky130_fd_pr__pfet_01v8_hvt
+No property nrs found for device sky130_fd_pr__pfet_01v8_hvt
+No property area found for device sky130_fd_pr__pfet_01v8_hvt
+No property perim found for device sky130_fd_pr__pfet_01v8_hvt
+No property topography found for device sky130_fd_pr__pfet_01v8_hvt
+Model sky130_fd_pr__special_nfet_01v8 pin 1 == 3
+No property mult found for device sky130_fd_pr__special_nfet_01v8
+No property sa found for device sky130_fd_pr__special_nfet_01v8
+No property sb found for device sky130_fd_pr__special_nfet_01v8
+No property sd found for device sky130_fd_pr__special_nfet_01v8
+No property nf found for device sky130_fd_pr__special_nfet_01v8
+No property nrd found for device sky130_fd_pr__special_nfet_01v8
+No property nrs found for device sky130_fd_pr__special_nfet_01v8
+No property area found for device sky130_fd_pr__special_nfet_01v8
+No property perim found for device sky130_fd_pr__special_nfet_01v8
+No property topography found for device sky130_fd_pr__special_nfet_01v8
+Comparison output logged to file out/v2_lvs.rpt
+Logging to file "out/v2_lvs.rpt" enabled
+Circuit sky130_fd_sc_hd__a2bb2oi_1 contains no devices.
+Circuit sky130_fd_sc_hd__nand4_1 contains no devices.
+Circuit sky130_fd_sc_hd__nor2_1 contains no devices.
+Circuit sky130_fd_sc_hd__and4_1 contains no devices.
+Circuit sky130_fd_sc_hd__nor4_1 contains no devices.
+Circuit sky130_fd_sc_hd__a21o_1 contains no devices.
+Circuit sky130_fd_sc_hd__nand2_1 contains no devices.
+Circuit sky130_fd_sc_hd__dfxtp_1 contains no devices.
+Circuit sky130_fd_sc_hd__clkbuf_4 contains no devices.
+Circuit sky130_fd_sc_hd__nand4bb_1 contains no devices.
+Circuit sky130_fd_sc_hd__and4_2 contains no devices.
+Circuit sky130_fd_sc_hd__nor4bb_1 contains no devices.
+Circuit sky130_fd_sc_hd__inv_1 contains no devices.
+Circuit sky130_fd_sc_hd__mux2_1 contains no devices.
+Circuit sky130_fd_sc_hd__a21boi_0 contains no devices.
+Circuit sky130_fd_sc_hd__a22o_1 contains no devices.
+
+Contents of circuit 1:  Circuit: 'out/v2'
+Circuit out/v2 contains 39 device instances.
+  Class: sky130_fd_sc_hd__a21o_1 instances:   2
+  Class: sky130_fd_sc_hd__a2bb2oi_1 instances:   2
+  Class: sky130_fd_sc_hd__dfxtp_1 instances:   8
+  Class: sky130_fd_sc_hd__nand4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_2 instances:   1
+  Class: sky130_fd_sc_hd__inv_1 instances:   2
+  Class: sky130_fd_sc_hd__clkbuf_4 instances:   3
+  Class: sky130_fd_sc_hd__a21boi_0 instances:   1
+  Class: sky130_fd_sc_hd__nand2_1 instances:   4
+  Class: sky130_fd_sc_hd__mux2_1 instances:   1
+  Class: sky130_fd_sc_hd__nand4bb_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4bb_1 instances:   1
+  Class: sky130_fd_sc_hd__a22o_1 instances:   2
+  Class: sky130_fd_sc_hd__nor2_1 instances:   2
+Circuit contains 55 nets.
+Contents of circuit 2:  Circuit: 'v2'
+Circuit v2 contains 44 device instances.
+  Class: sky130_fd_sc_hd__a21o_1 instances:   2
+  Class: sky130_fd_sc_hd__a2bb2oi_1 instances:   2
+  Class: sky130_fd_sc_hd__dfxtp_1 instances:   8
+  Class: sky130_fd_sc_hd__nand4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_2 instances:   1
+  Class: sky130_fd_sc_hd__inv_1 instances:   2
+  Class: sky130_fd_sc_hd__clkbuf_4 instances:   3
+  Class: sky130_fd_sc_hd__a21boi_0 instances:   1
+  Class: sky130_fd_sc_hd__nand2_1 instances:   4
+  Class: sky130_fd_sc_hd__mux2_1 instances:   1
+  Class: sky130_fd_sc_hd__nand4bb_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4bb_1 instances:   1
+  Class: sky130_fd_sc_hd__a22o_1 instances:   2
+  Class: sky130_fd_sc_hd__tapvpwrvgnd_1 instances:   5
+  Class: sky130_fd_sc_hd__nor2_1 instances:   2
+Circuit contains 209 nets, and 2 disconnected pins.
+
+Circuit was modified by parallel/series device merging.
+New circuit summary:
+
+Contents of circuit 1:  Circuit: 'out/v2'
+Circuit out/v2 contains 39 device instances.
+  Class: sky130_fd_sc_hd__a21o_1 instances:   2
+  Class: sky130_fd_sc_hd__a2bb2oi_1 instances:   2
+  Class: sky130_fd_sc_hd__dfxtp_1 instances:   8
+  Class: sky130_fd_sc_hd__nand4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_2 instances:   1
+  Class: sky130_fd_sc_hd__inv_1 instances:   2
+  Class: sky130_fd_sc_hd__clkbuf_4 instances:   3
+  Class: sky130_fd_sc_hd__a21boi_0 instances:   1
+  Class: sky130_fd_sc_hd__nand2_1 instances:   4
+  Class: sky130_fd_sc_hd__mux2_1 instances:   1
+  Class: sky130_fd_sc_hd__nand4bb_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4bb_1 instances:   1
+  Class: sky130_fd_sc_hd__a22o_1 instances:   2
+  Class: sky130_fd_sc_hd__nor2_1 instances:   2
+Circuit contains 55 nets.
+Contents of circuit 2:  Circuit: 'v2'
+Circuit v2 contains 40 device instances.
+  Class: sky130_fd_sc_hd__a21o_1 instances:   2
+  Class: sky130_fd_sc_hd__a2bb2oi_1 instances:   2
+  Class: sky130_fd_sc_hd__dfxtp_1 instances:   8
+  Class: sky130_fd_sc_hd__nand4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_1 instances:   1
+  Class: sky130_fd_sc_hd__and4_2 instances:   1
+  Class: sky130_fd_sc_hd__inv_1 instances:   2
+  Class: sky130_fd_sc_hd__clkbuf_4 instances:   3
+  Class: sky130_fd_sc_hd__a21boi_0 instances:   1
+  Class: sky130_fd_sc_hd__nand2_1 instances:   4
+  Class: sky130_fd_sc_hd__mux2_1 instances:   1
+  Class: sky130_fd_sc_hd__nand4bb_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4_1 instances:   4
+  Class: sky130_fd_sc_hd__nor4bb_1 instances:   1
+  Class: sky130_fd_sc_hd__a22o_1 instances:   2
+  Class: sky130_fd_sc_hd__tapvpwrvgnd_1 instances:   1
+  Class: sky130_fd_sc_hd__nor2_1 instances:   2
+Circuit contains 209 nets, and 2 disconnected pins.
+
+Circuit 1 contains 39 devices, Circuit 2 contains 40 devices. *** MISMATCH ***
+Circuit 1 contains 55 nets,    Circuit 2 contains 205 nets. *** MISMATCH ***
+
+
+Final result: 
+Top level cell failed pin matching.
+
+Logging to file "out/v2_lvs.rpt" disabled
+LVS Done.

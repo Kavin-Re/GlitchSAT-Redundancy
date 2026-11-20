@@ -1,0 +1,656 @@
+******* Circuit Stats ********
+Cells size: 2959
+Sigs size: 3093
+Inputs size: 130
+Ouputs size: 65
+Registers size: 305
+Nets size: 6299
+******* Partition info ********
+Number of partitions: 305
+Largest partitions: (0: 1) (1: 1) (2: 1) (3: 1) (4: 1) (5: 1) (6: 1) (7: 1) (8: 1) (9: 1) 
+
+********************************************************************************
+                    Procedure 1 -- Build partitions
+********************************************************************************
+--------------------------------------------------------------------------------
+Partitioning for 0/305 faulty partitions,
+1/2654 combinational faults at initial state,
+and 0/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 1: 2.509 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-1.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/305 faulty partitions,
+0/2654 combinational faults at initial state,
+and 0/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 2: 0.326 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-2.json`
+--------------------------------------------------------------------------------
+Partitioning for 0/305 faulty partitions,
+2/2654 combinational faults at initial state,
+and 0/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 3: 5.756 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-3.json`
+--------------------------------------------------------------------------------
+Partitioning for 0/305 faulty partitions,
+1/2654 combinational faults at initial state,
+and 1/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 4: 0.0 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-4.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/305 faulty partitions,
+1/2654 combinational faults at initial state,
+and 0/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 5: 4.3 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-5.json`
+--------------------------------------------------------------------------------
+Partitioning for 1/305 faulty partitions,
+0/2654 combinational faults at initial state,
+and 1/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 6: 0.1 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-6.json`
+--------------------------------------------------------------------------------
+Partitioning for 2/305 faulty partitions,
+0/2654 combinational faults at initial state,
+and 0/0 combinational faults in the following clock cycles.
+--------------------------------------------------------------------------------
+  Optimize 64 faults in partitions
+  Optimize 320 faults in comb logic
+
+  Running solver 7: 0.695 s ->  UNSAT
+  Partitioning finished with 305 partitions.
+  Write partitioning in file `out/skinny_red3/partitioning-7.json`
+=> Procedure 1 verification time: 13.328 s
+
+********************************************************************************
+                    Procedure 2 -- Check output integrity
+********************************************************************************
+  Optimize 235 faults in partitions
+  Optimize 2649 faults in comb logic
+--------------------------------------------------------------------------------
+Check output integrity for 1/305 faulty partitions,
+0/2654 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 
+
+  Running solver 7: SAT 0.2 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 219 ( 137 ) 
+Corrupted outputs: 137 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 219 
+
+  Running solver 8: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 221 ( 154 ) 
+Corrupted outputs: 154 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 221 219 
+
+  Running solver 9: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 275 ( 157 ) 
+Corrupted outputs: 157 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 275 221 219 
+
+  Running solver 10: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 297 ( 133 ) 
+Corrupted outputs: 133 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 275 221 297 219 
+
+  Running solver 11: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 299 ( 140 ) 
+Corrupted outputs: 140 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 275 299 221 297 219 
+
+  Running solver 12: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 301 ( 153 ) 
+Corrupted outputs: 153 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 301 275 299 221 297 219 
+
+  Running solver 13: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 303 ( 160 ) 
+Corrupted outputs: 160 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 303 301 275 299 221 297 219 
+
+  Running solver 14: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 57 ( 141 ) 
+Corrupted outputs: 141 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 57 303 301 275 299 221 297 219 
+
+  Running solver 15: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 60 ( 139 ) 
+Corrupted outputs: 139 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 60 57 303 301 275 299 221 297 219 
+
+  Running solver 16: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 61 ( 138 ) 
+Corrupted outputs: 138 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 61 60 57 303 301 275 299 221 297 219 
+
+  Running solver 17: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 66 ( 195 ) 
+Corrupted outputs: 195 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 66 61 60 57 303 301 275 299 221 297 219 
+
+  Running solver 18: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 73 ( 194 ) 
+Corrupted outputs: 194 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 66 61 73 60 57 303 301 275 299 221 297 219 
+
+  Running solver 19: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 74 ( 193 ) 
+Corrupted outputs: 193 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 66 74 61 73 60 57 303 301 275 299 221 297 219 
+
+  Running solver 20: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 75 ( 192 ) 
+Corrupted outputs: 192 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 75 297 221 299 275 301 303 57 60 73 61 219 74 66 
+
+  Running solver 21: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 79 ( 191 ) 
+Corrupted outputs: 191 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 79 75 297 221 299 275 301 303 57 60 73 61 219 74 66 
+
+  Running solver 22: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 84 ( 159 ) 
+Corrupted outputs: 159 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 84 79 75 297 221 299 275 301 303 57 60 73 61 219 74 66 
+
+  Running solver 23: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 87 ( 158 ) 
+Corrupted outputs: 158 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 87 84 79 75 297 221 299 275 301 303 57 60 73 61 219 74 66 
+
+  Running solver 24: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 88 ( 156 ) 
+Corrupted outputs: 156 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 88 87 84 79 75 297 221 299 275 301 303 57 60 73 61 219 74 66 
+
+  Running solver 25: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 89 ( 155 ) 
+Corrupted outputs: 155 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 88 87 84 79 75 297 221 299 275 301 303 57 89 60 73 61 219 74 66 
+
+  Running solver 26: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 91 ( 152 ) 
+Corrupted outputs: 152 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 91 88 87 84 79 75 297 221 299 275 301 303 57 89 60 73 61 219 74 66 
+
+  Running solver 27: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 92 ( 162 ) 
+Corrupted outputs: 162 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 92 91 88 87 84 79 75 297 221 299 275 301 303 57 89 60 73 61 219 74 66 
+
+  Running solver 28: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 93 ( 151 ) 
+Corrupted outputs: 151 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 93 92 91 88 87 84 79 75 297 221 299 275 301 303 57 89 60 73 61 219 74 66 
+
+  Running solver 29: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 94 ( 150 ) 
+Corrupted outputs: 150 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 93 92 91 88 87 84 79 75 94 297 221 299 275 301 303 57 89 60 73 61 219 74 66 
+
+  Running solver 30: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 96 ( 149 ) 
+Corrupted outputs: 149 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 93 92 91 88 87 84 79 75 94 297 221 96 299 275 301 303 57 89 60 73 61 219 74 66 
+
+  Running solver 31: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 100 ( 146 ) 
+Corrupted outputs: 146 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 93 92 91 88 87 84 79 75 94 297 221 96 299 275 301 100 303 57 89 60 73 61 219 74 66 
+
+  Running solver 32: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 103 ( 145 ) 
+Corrupted outputs: 145 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 93 92 91 88 87 84 79 75 94 297 221 96 299 275 301 100 303 57 89 60 73 61 103 219 74 66 
+
+  Running solver 33: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 106 ( 148 ) 
+Corrupted outputs: 148 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 106 93 92 91 88 87 84 79 75 94 297 221 96 299 275 301 100 303 57 89 60 73 61 103 219 74 66 
+
+  Running solver 34: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 111 ( 147 ) 
+Corrupted outputs: 147 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 111 106 93 92 91 88 87 84 79 75 94 297 221 96 299 275 301 100 303 57 89 60 73 61 103 219 74 66 
+
+  Running solver 35: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 112 ( 161 ) 
+Corrupted outputs: 161 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 112 111 106 93 92 91 88 87 84 79 75 94 297 221 96 299 275 301 100 303 57 89 60 73 61 103 219 74 66 
+
+  Running solver 36: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 113 ( 132 ) 
+Corrupted outputs: 132 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 113 66 74 219 73 60 89 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 37: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 116 ( 142 ) 
+Corrupted outputs: 142 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 113 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 38: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 118 ( 143 ) 
+Corrupted outputs: 143 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 118 113 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 39: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 121 ( 144 ) 
+Corrupted outputs: 144 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 121 118 113 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 40: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 125 ( 163 ) 
+Corrupted outputs: 163 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 41: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 128 ( 164 ) 
+Corrupted outputs: 164 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 42: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 129 ( 165 ) 
+Corrupted outputs: 165 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 43: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 131 ( 166 ) 
+Corrupted outputs: 166 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 44: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 135 ( 167 ) 
+Corrupted outputs: 167 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 45: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 137 ( 168 ) 
+Corrupted outputs: 168 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 46: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 138 ( 169 ) 
+Corrupted outputs: 169 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 138 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 47: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 140 ( 170 ) 
+Corrupted outputs: 170 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 140 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 138 79 84 87 88 91 92 93 106 111 112 
+
+  Running solver 48: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 146 ( 171 ) 
+Corrupted outputs: 171 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 140 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 138 79 84 146 87 88 91 92 93 106 111 112 
+
+  Running solver 49: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 147 ( 135 ) 
+Corrupted outputs: 135 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 140 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 138 79 84 146 87 147 88 91 92 93 106 111 112 
+
+  Running solver 50: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 149 ( 172 ) 
+Corrupted outputs: 172 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 149 140 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 138 79 84 146 87 147 88 91 92 93 106 111 112 
+
+  Running solver 51: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 151 ( 173 ) 
+Corrupted outputs: 173 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 149 140 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 275 299 96 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 52: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 157 ( 174 ) 
+Corrupted outputs: 174 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 149 140 137 135 131 129 128 121 118 113 125 66 74 219 73 60 89 116 57 303 100 301 157 275 299 96 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 53: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 160 ( 175 ) 
+Corrupted outputs: 175 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 149 140 137 135 131 129 128 121 118 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 54: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 162 ( 176 ) 
+Corrupted outputs: 176 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 149 140 137 135 131 129 128 121 118 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 55: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 164 ( 177 ) 
+Corrupted outputs: 177 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 164 149 140 137 135 131 129 128 121 118 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 56: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 166 ( 178 ) 
+Corrupted outputs: 178 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 166 164 149 140 137 135 131 129 128 121 118 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 57: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 168 ( 179 ) 
+Corrupted outputs: 179 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 168 166 164 149 140 137 135 131 129 128 121 118 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 111 112 
+
+  Running solver 58: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 170 ( 180 ) 
+Corrupted outputs: 180 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 168 166 164 149 140 137 135 131 129 128 121 118 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 59: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 172 ( 181 ) 
+Corrupted outputs: 181 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 168 166 164 149 140 137 135 131 129 128 121 118 172 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 60: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 173 ( 136 ) 
+Corrupted outputs: 136 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 173 168 166 164 149 140 137 135 131 129 128 121 118 172 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 61: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 176 ( 182 ) 
+Corrupted outputs: 182 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 176 173 168 166 164 149 140 137 135 131 129 128 121 118 172 113 125 66 74 160 219 73 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 62: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 178 ( 183 ) 
+Corrupted outputs: 183 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 176 173 168 166 164 149 140 137 135 131 129 128 121 118 172 113 125 66 74 160 219 73 178 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 63: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 182 ( 184 ) 
+Corrupted outputs: 184 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 182 176 173 168 166 164 149 140 137 135 131 129 128 121 118 172 113 125 66 74 160 219 73 178 60 89 116 57 303 100 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 64: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 183 ( 185 ) 
+Corrupted outputs: 185 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 182 176 173 168 166 164 149 140 137 135 131 129 128 121 118 172 113 125 66 74 160 219 73 178 60 89 116 57 303 100 183 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 65: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 188 ( 186 ) 
+Corrupted outputs: 186 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 182 176 173 168 166 164 149 140 137 135 131 188 129 128 121 118 172 113 125 66 74 160 219 73 178 60 89 116 57 303 100 183 301 157 275 299 96 162 103 221 61 297 94 75 138 79 84 146 87 147 88 91 151 92 93 106 170 111 112 
+
+  Running solver 66: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 190 ( 187 ) 
+Corrupted outputs: 187 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 67: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 191 ( 188 ) 
+Corrupted outputs: 188 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 68: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 192 ( 189 ) 
+Corrupted outputs: 189 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 69: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 193 ( 190 ) 
+Corrupted outputs: 190 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 193 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 70: SAT 0.0 s
+Faulty comb gates at clock cycle 0: 
+Faulty partitions (initial): 212 ( 134 ) 
+Corrupted outputs: 134 
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 212 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 193 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 71: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 0/305 faulty partitions,
+1/2654 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 212 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 193 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 71: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 2/305 faulty partitions,
+0/2654 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 212 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 193 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 71: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 1/305 faulty partitions,
+1/2654 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 212 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 193 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 71: UNSAT 0.0 s
+--------------------------------------------------------------------------------
+Check output integrity for 0/305 faulty partitions,
+2/2654 combinational faults
+--------------------------------------------------------------------------------
+
+Enumerate exploitable faults: 
+Enumerate exploitable partitions: 212 192 191 190 112 111 106 93 151 91 88 147 87 146 84 79 138 75 170 297 94 221 103 162 96 275 157 301 183 100 57 116 89 60 178 73 92 219 160 74 193 66 125 113 299 172 118 121 128 129 61 188 131 135 137 140 149 164 166 168 173 303 176 182 
+
+  Running solver 71: UNSAT 0.0 s
+=> Procedure 2 verification time: 0.70 s

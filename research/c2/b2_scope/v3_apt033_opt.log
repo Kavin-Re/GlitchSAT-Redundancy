@@ -1,0 +1,10 @@
+apt033_opt boot_word honest key boots fault-free: ATTACK_FOUND
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': False, 'init': 'known', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 71.5} [('ca0.a[7]', 3), ('cb0.a[7]', 3), ('ca0.a[7]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': False, 'init': 'known', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 74.9} [('ca0.a[7]', 2), ('ca0.a[5]', 3), ('ca0.a[4]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': False, 'init': 'free_nongoal', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 58.8} [('ca0.a[0]', 2), ('ca0.a[0]', 4), ('cb0.a[0]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': False, 'init': 'free_nongoal', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 33.1} [('ca0.a[5]', 4), ('cb0.a[4]', 4), ('cc0.a[6]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': False, 'init': 'free', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 33.8} [('ca0.a[1]', 2), ('ca0.a[1]', 4), ('cb0.a[1]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': False, 'init': 'free', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 23.7} [('ca0.a[6]', 2), ('ca0.a[6]', 4), ('cb0.a[7]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': True, 'init': 'known', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 15.9} [('sig[5]', 1), ('sig[5]', 2), ('sig[5]', 3)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': True, 'init': 'known', 'free_input': True, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 28.6} [('sig[7]', 1), ('sig[1]', 3), ('cb0.a[7]', 4)]
+{'netlist': 'apt033_opt', 'goal': 'boot_word', 'input_sites': True, 'init': 'free_nongoal', 'free_input': False, 'verdict': 'ATTACK_FOUND', 'min_cost': 3, 'cost_gt': None, 'secs': 9.5} [('rst', 0), ('rst', 1), ('rst', 2)]

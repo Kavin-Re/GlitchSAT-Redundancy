@@ -1,0 +1,65 @@
+{
+  "label": "MEASURED",
+  "tool": "glitchsat.py",
+  "design": "results/deep/work/nl/v1_spike.json",
+  "design_sha256_16": "84730fa7b5e3dbef",
+  "top": "v1",
+  "synth_flow": "given-netlist",
+  "verdict": "ATTACK_FOUND",
+  "bound": {
+    "max_faults": 2,
+    "cycles": 8,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 8"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 8 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "netlist": {
+    "gates": 58,
+    "flops": 8
+  },
+  "honest_key_boots_fault_free": true,
+  "model": {
+    "sites_total": 528,
+    "sites_modelled": 435,
+    "reduce": "full",
+    "build_s": 0.108,
+    "solve_s": 0.636,
+    "minimize_s": 0.109
+  },
+  "runtime_s": {
+    "synth": 0.0,
+    "solve_and_minimize": 0.865
+  },
+  "netlist_json": "results/deep/work/nl/v1_spike.json",
+  "min_faults": 1,
+  "faults": [
+    {
+      "net": "ok",
+      "net_id": 45,
+      "cycle": 1,
+      "kind": "gate_output"
+    }
+  ],
+  "attacker_input": {
+    "sig": "0xC1"
+  },
+  "attacker_input_raw": {
+    "sig": 193
+  },
+  "explanation": {
+    "summary": "SINGLE POINT OF FAILURE: one AND gate output, net `ok`, combines 8 input bits of `sig` (the redundant checks converge here) and alone drives 8 of 8 bits of `boot_word`. Flipping it for ONE cycle (cycle 1) makes a wrong `sig` look valid, even though the checks upstream are duplicated.",
+    "fix_pattern": "Do not let any one net decide. Split the decision across independent bits: give each redundant check its own disjoint group of result-word bits (no shared AND/OR of the checks), use a sparse result encoding with Hamming distance > fault budget, and make the final accept require all groups to agree bit-by-bit.",
+    "fault_details": [
+      {
+        "net": "ok",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "AND",
+        "input_bits_in_fanin_cone": 8,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      }
+    ]
+  }
+}

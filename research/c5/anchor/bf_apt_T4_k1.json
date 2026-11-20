@@ -1,0 +1,1 @@
+{"netlist": "v2_apt033.json", "model": "stem_flip", "T": 4, "K": 1, "n_events_per_cycle": 93, "combos_total": 373, "attacking_by_size": {"0": 0, "1": 0}, "combos_by_size": {"0": 1, "1": 372}, "min_cost": null, "secs": 0.1, "ok_attacking_by_size": {"0": 0, "1": 4}, "witness": []}

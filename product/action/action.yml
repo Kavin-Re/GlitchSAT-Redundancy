@@ -1,0 +1,69 @@
+# UNTESTED ON GITHUB (actions/setup-python and the code-scanning SARIF upload never ran). The two shell steps were run locally in a clean venv (lead, 2026-11-20): found and fixed a dependency-confusion bug in the default package-path; analysis on spike V2 gave ATTACK_FOUND exit 1, SARIF 2.1.0, badge JSON; bad inputs all exit 3. Never published.
+# Composite action wrapping faultbound-wt. Usage (from a workflow, local path):
+#   - uses: ./product/action
+#     with: { netlist: build/netlist.json, config: threat.toml }
+# The calling job needs `permissions: security-events: write` for the SARIF upload.
+name: faultbound-wt check
+description: Bounded modelled bit-flip check of a Yosys JSON netlist; uploads SARIF. Not a proof of security.
+inputs:
+  netlist: { description: "Path to the Yosys JSON netlist (or .v with top)", required: true }
+  config: { description: "Threat-model TOML path", required: true }
+  top: { description: "Top module (Verilog or multi-module JSON)", required: false, default: "" }
+  max-flips: { description: "Override faults.max_flips (empty = use config)", required: false, default: "" }
+  cycles: { description: "Override faults.cycles (empty = use config)", required: false, default: "" }
+  package-path: { description: "Path of the faultbound package to pip install", required: false, default: "product" }
+  python-version: { description: "Python version", required: false, default: "3.12" }
+  sarif-file: { description: "SARIF output path", required: false, default: "faultbound.sarif" }
+  upload-sarif: { description: "Upload SARIF to code scanning (true/false)", required: false, default: "true" }
+outputs:
+  exit-code:
+    description: "faultbound-wt exit code: 0 none, 1 attack, 2 unknown, 3 input error, 4 internal"
+    value: ${{ steps.run.outputs.exit_code }}
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: install
+      shell: bash
+      env:
+        PKG: ${{ inputs.package-path }}   # H2 (N1): inputs reach the shell ONLY through env vars, never by ${{ }} text substitution inside `run:`
+      run: |
+        case "$PKG" in -*|"") echo "error: package-path must not be empty or start with '-'" >&2; exit 3;; esac
+        # A bare name such as `product` would be read by pip as a PyPI package name (dependency-confusion risk and a wrong install): force a local path.
+        case "$PKG" in /*|./*|../*) ;; *) PKG="./$PKG";; esac
+        [ -f "$PKG/pyproject.toml" ] || { echo "error: package-path '$PKG' is not a local directory with a pyproject.toml" >&2; exit 3; }
+        pip install -- "$PKG"
+    - name: analyze
+      id: run
+      shell: bash
+      env:
+        NETLIST: ${{ inputs.netlist }}
+        CONFIG: ${{ inputs.config }}
+        TOP: ${{ inputs.top }}
+        MAXF: ${{ inputs.max-flips }}
+        CYC: ${{ inputs.cycles }}
+        SARIF: ${{ inputs.sarif-file }}
+      run: |
+        # H2 (N1): all values come from env vars (set by the runner, not pasted into this script) and are passed as ONE argv element each,
+        # in --opt=value form (a value starting with '-' cannot become an option); the netlist goes after `--`. No eval, no unquoted expansion.
+        for v in "$MAXF" "$CYC"; do
+          case "$v" in ""|*[!0-9]*) [ -z "$v" ] || { echo "error: max-flips and cycles must be non-negative integers" >&2; echo "exit_code=3" >> "$GITHUB_OUTPUT"; exit 3; };; esac
+        done
+        args=(analyze "--config=$CONFIG" "--report=$SARIF" --report=faultbound.json --badge=faultbound-badge.json)
+        [ -n "$TOP" ] && args+=("--top=$TOP")
+        [ -n "$MAXF" ] && args+=("--max-flips=$MAXF")
+        [ -n "$CYC" ] && args+=("--cycles=$CYC")
+        args+=(-- "$NETLIST")
+        set +e
+        faultbound-wt "${args[@]}"
+        code=$?
+        echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+        exit $code
+    - name: upload SARIF
+      if: always() && inputs.upload-sarif == 'true' && hashFiles(inputs.sarif-file) != ''
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ inputs.sarif-file }}
+        category: faultbound

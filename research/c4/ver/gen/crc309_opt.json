@@ -1,0 +1,303 @@
+{
+  "creator": "Yosys 0.33 (git sha1 2584903a060)",
+  "modules": {
+    "t309": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/tmp/work_ver/gen/crc309.v:1.1-9.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "sig": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6 ]
+        },
+        "boot_word": {
+          "direction": "output",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+        "$abc$188$auto$blifparse.cc:386:parse_blif$189": {
+          "hide_name": 1,
+          "type": "$_NOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$188$auto$blifparse.cc:386:parse_blif$190": {
+          "hide_name": 1,
+          "type": "$_NOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$abc$188$auto$blifparse.cc:386:parse_blif$191": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 9 ],
+            "B": [ 12 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$abc$188$auto$blifparse.cc:386:parse_blif$192": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "B": [ 14 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$abc$188$auto$blifparse.cc:386:parse_blif$193": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13 ],
+            "B": [ 15 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$167": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:7.3-7.46"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 16 ],
+            "Q": [ 7 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$168": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:4.3-4.34"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 3 ],
+            "Q": [ 14 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$169": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:4.3-4.34"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 4 ],
+            "Q": [ 12 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$170": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:4.3-4.34"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 5 ],
+            "Q": [ 10 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$171": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:4.3-4.34"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 6 ],
+            "Q": [ 8 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$188$new_n6_": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$188$new_n7_": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$abc$188$new_n8_": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$188$new_n9_": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "boot_word": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:1.54-1.63"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:1.19-1.22"
+          }
+        },
+        "crc$func$/tmp/work_ver/gen/crc309.v:6$3.c": {
+          "hide_name": 0,
+          "bits": [ "x", "x", "x", "x" ],
+          "attributes": {
+            "nosync": "00000000000000000000000000000001",
+            "src": "/tmp/work_ver/gen/crc309.v:5.59-5.60"
+          }
+        },
+        "crc$func$/tmp/work_ver/gen/crc309.v:6$3.d": {
+          "hide_name": 0,
+          "bits": [ "x", "x", "x", "x" ],
+          "attributes": {
+            "nosync": "00000000000000000000000000000001",
+            "src": "/tmp/work_ver/gen/crc309.v:5.34-5.35"
+          }
+        },
+        "crc$func$/tmp/work_ver/gen/crc309.v:6$3.i": {
+          "hide_name": 0,
+          "bits": [ "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x" ],
+          "signed": 1,
+          "attributes": {
+            "nosync": "00000000000000000000000000000001",
+            "src": "/tmp/work_ver/gen/crc309.v:5.46-5.47"
+          }
+        },
+        "m": {
+          "hide_name": 0,
+          "bits": [ 16 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:6.8-6.9"
+          }
+        },
+        "o": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "init": "0",
+            "src": "/tmp/work_ver/gen/crc309.v:3.13-3.14"
+          }
+        },
+        "sig": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc309.v:1.36-1.39"
+          }
+        },
+        "w": {
+          "hide_name": 0,
+          "bits": [ 14, 12, 10, 8 ],
+          "attributes": {
+            "init": "0000",
+            "src": "/tmp/work_ver/gen/crc309.v:2.13-2.14"
+          }
+        }
+      }
+    }
+  }
+}

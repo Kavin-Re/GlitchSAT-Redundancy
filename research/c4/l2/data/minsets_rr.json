@@ -1,0 +1,310 @@
+{
+ "design": "v2",
+ "label": "MEASURED geometry; set enumeration = z3 verdicts (SIMULATED fault model, T=6, one cell-level subset dip event); enumeration limited to <=4 cells and 400 sets",
+ "minimal_sets": {
+  "word": [
+   {
+    "cells": [
+     "_16_",
+     "c0/_2_",
+     "c1/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 15.793,
+    "centre": [
+     12.19,
+     21.76
+    ],
+    "bbox_w_h": [
+     21.16,
+     32.64
+    ],
+    "rows": [
+     0,
+     6,
+     11
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     35.36
+    ],
+    "others_in_circle": 29,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "_16_",
+     "c0/_3_",
+     "c1/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 15.303,
+    "centre": [
+     14.03,
+     21.76
+    ],
+    "bbox_w_h": [
+     18.4,
+     32.64
+    ],
+    "rows": [
+     0,
+     6,
+     11
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     35.36
+    ],
+    "others_in_circle": 28,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_2_",
+     "c1/_2_",
+     "c2/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 20.098,
+    "centre": [
+     18.86,
+     23.12
+    ],
+    "bbox_w_h": [
+     27.6,
+     35.36
+    ],
+    "rows": [
+     0,
+     6,
+     12
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     40.8
+    ],
+    "others_in_circle": 31,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_3_",
+     "c1/_3_",
+     "c2/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 20.098,
+    "centre": [
+     22.54,
+     23.12
+    ],
+    "bbox_w_h": [
+     24.84,
+     35.36
+    ],
+    "rows": [
+     0,
+     6,
+     12
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     40.8
+    ],
+    "others_in_circle": 31,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   }
+  ],
+  "ok": [
+   {
+    "cells": [
+     "_16_",
+     "c0/_2_",
+     "c1/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 15.793,
+    "centre": [
+     12.19,
+     21.76
+    ],
+    "bbox_w_h": [
+     21.16,
+     32.64
+    ],
+    "rows": [
+     0,
+     6,
+     11
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     35.36
+    ],
+    "others_in_circle": 29,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "_16_",
+     "c0/_3_",
+     "c1/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 15.303,
+    "centre": [
+     14.03,
+     21.76
+    ],
+    "bbox_w_h": [
+     18.4,
+     32.64
+    ],
+    "rows": [
+     0,
+     6,
+     11
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     35.36
+    ],
+    "others_in_circle": 28,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_2_",
+     "c1/_2_",
+     "c2/_2_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 3,
+    "r_um": 20.098,
+    "centre": [
+     18.86,
+     23.12
+    ],
+    "bbox_w_h": [
+     27.6,
+     35.36
+    ],
+    "rows": [
+     0,
+     6,
+     12
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     40.8
+    ],
+    "others_in_circle": 31,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   },
+   {
+    "cells": [
+     "c0/_3_",
+     "c1/_3_",
+     "c2/_3_"
+    ],
+    "n": 3,
+    "cycles": [
+     1
+    ],
+    "example_sig": 192,
+    "r_um": 20.098,
+    "centre": [
+     22.54,
+     23.12
+    ],
+    "bbox_w_h": [
+     24.84,
+     35.36
+    ],
+    "rows": [
+     0,
+     6,
+     12
+    ],
+    "vpwr_rails": [
+     8.16,
+     24.48,
+     40.8
+    ],
+    "others_in_circle": 31,
+    "flops_in_circle": 8,
+    "copy_members": [
+     "c0",
+     "c1",
+     "c2"
+    ]
+   }
+  ]
+ }
+}

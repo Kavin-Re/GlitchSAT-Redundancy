@@ -1,0 +1,33 @@
+# MEASURED by agent P13a 2026-11-20 on /tmp/work_p13 copy: python3 docs/dossier/test_hamming.py /tmp/work_p13 <netlist> <top> 6 (z3, T=6, k searched 0..8, known init, goal boot_word==0x96, stem flips)
+### reference/spike_netlists/v1.json v1
+code words: ['0xf0', '0xcc', '0x96', '0x69']
+pairwise Hamming distances: {('0xf0', '0xcc'): 4, ('0xf0', '0x96'): 4, ('0xf0', '0x69'): 4, ('0xcc', '0x96'): 4, ('0xcc', '0x69'): 4, ('0x96', '0x69'): 8}
+min distance of code: 4
+NOTE: V0 has only 2 state flops (different encoding), so the 4-bit-distance argument does not apply to V0.
+state-flop-Q only: min flips = 4
+all sites (gate outputs + all flop Q): min flips = 1
+gate outputs only: min flips = 1
+### reference/spike_netlists/v2.json v2
+code words: ['0xf0', '0xcc', '0x96', '0x69']
+pairwise Hamming distances: {('0xf0', '0xcc'): 4, ('0xf0', '0x96'): 4, ('0xf0', '0x69'): 4, ('0xcc', '0x96'): 4, ('0xcc', '0x69'): 4, ('0x96', '0x69'): 8}
+min distance of code: 4
+NOTE: V0 has only 2 state flops (different encoding), so the 4-bit-distance argument does not apply to V0.
+state-flop-Q only: min flips = 4
+all sites (gate outputs + all flop Q): min flips = 3
+gate outputs only: min flips = 3
+### research/c4/b3_inputs/nl/v2_apt033.json v2
+code words: ['0xf0', '0xcc', '0x96', '0x69']
+pairwise Hamming distances: {('0xf0', '0xcc'): 4, ('0xf0', '0x96'): 4, ('0xf0', '0x69'): 4, ('0xcc', '0x96'): 4, ('0xcc', '0x69'): 4, ('0x96', '0x69'): 8}
+min distance of code: 4
+NOTE: V0 has only 2 state flops (different encoding), so the 4-bit-distance argument does not apply to V0.
+state-flop-Q only: min flips = 4
+all sites (gate outputs + all flop Q): min flips = 2
+gate outputs only: min flips = 2
+### research/c4/b3_inputs/nl/v1_apt033.json v1
+code words: ['0xf0', '0xcc', '0x96', '0x69']
+pairwise Hamming distances: {('0xf0', '0xcc'): 4, ('0xf0', '0x96'): 4, ('0xf0', '0x69'): 4, ('0xcc', '0x96'): 4, ('0xcc', '0x69'): 4, ('0x96', '0x69'): 8}
+min distance of code: 4
+NOTE: V0 has only 2 state flops (different encoding), so the 4-bit-distance argument does not apply to V0.
+state-flop-Q only: min flips = 4
+all sites (gate outputs + all flop Q): min flips = 1
+gate outputs only: min flips = 1

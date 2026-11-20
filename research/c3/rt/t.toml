@@ -1,0 +1,9 @@
+[faults]
+max_flips = 0
+cycles = 2
+[attacker]
+input = "sig"
+legitimate_value = 3
+[property]
+output = "boot_word"
+bad_value = 1

@@ -1,0 +1,57 @@
+{"design": "V0", "T": 4, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.02}
+{"design": "V0", "T": 4, "k": 1, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 0.02, "min_faults": 1, "faults": [[3, "st[0]"]], "inputs": {"sig": "0x28"}}
+{"design": "V0", "T": 4, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.01}
+{"design": "V0", "T": 4, "k": 1, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.03, "min_faults": 1, "faults": [[3, "st[0]"]], "inputs": ["0x4", "0x0", "0x0", "0x3c"]}
+{"design": "V0", "T": 4, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.01, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c"]}
+{"design": "V0", "T": 6, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.02}
+{"design": "V0", "T": 6, "k": 1, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 0.08, "min_faults": 1, "faults": [[5, "st[0]"]], "inputs": {"sig": "0x4"}}
+{"design": "V0", "T": 6, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.02}
+{"design": "V0", "T": 6, "k": 1, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.1, "min_faults": 1, "faults": [[5, "st[0]"]], "inputs": ["0xc0", "0x0", "0x0", "0x0", "0x0", "0x3c"]}
+{"design": "V0", "T": 6, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.02, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c", "0x3c", "0x3c"]}
+{"design": "V0", "T": 8, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.02}
+{"design": "V0", "T": 8, "k": 1, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 0.25, "min_faults": 1, "faults": [[0, "st[1]"]], "inputs": {"sig": "0xe3"}}
+{"design": "V0", "T": 8, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.02}
+{"design": "V0", "T": 8, "k": 1, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.21, "min_faults": 1, "faults": [[0, "st[1]"]], "inputs": ["0x0", "0x0", "0xe3", "0x0", "0x8", "0x0", "0x0", "0x3c"]}
+{"design": "V0", "T": 8, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.02, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c", "0x3c", "0x3c", "0x3c", "0x3c"]}
+{"design": "V1", "T": 4, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.03}
+{"design": "V1", "T": 4, "k": 1, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 0.27, "min_faults": 1, "faults": [[1, "ok"]], "inputs": {"sig": "0xc7"}}
+{"design": "V1", "T": 4, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.03}
+{"design": "V1", "T": 4, "k": 1, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.33, "min_faults": 1, "faults": [[1, "ok"]], "inputs": ["0xe7", "0x20", "0xc1", "0x3c"]}
+{"design": "V1", "T": 4, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.03, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c"]}
+{"design": "V1", "T": 6, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.06}
+{"design": "V1", "T": 6, "k": 1, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 0.35, "min_faults": 1, "faults": [[1, "ok"]], "inputs": {"sig": "0xc0"}}
+{"design": "V1", "T": 6, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.07}
+{"design": "V1", "T": 6, "k": 1, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.36, "min_faults": 1, "faults": [[1, "ok"]], "inputs": ["0xd7", "0x43", "0xe2", "0xd0", "0x3", "0x3c"]}
+{"design": "V1", "T": 6, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.06, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c", "0x3c", "0x3c"]}
+{"design": "V1", "T": 8, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.12}
+{"design": "V1", "T": 8, "k": 1, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 0.53, "min_faults": 1, "faults": [[1, "ok"]], "inputs": {"sig": "0x3"}}
+{"design": "V1", "T": 8, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.08}
+{"design": "V1", "T": 8, "k": 1, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.37, "min_faults": 1, "faults": [[1, "ok"]], "inputs": ["0x0", "0xc0", "0x0", "0xc0", "0x24", "0xe3", "0xc2", "0x3c"]}
+{"design": "V1", "T": 8, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.08, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c", "0x3c", "0x3c", "0x3c", "0x3c"]}
+{"design": "V2", "T": 4, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.03}
+{"design": "V2", "T": 4, "k": 1, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.3}
+{"design": "V2", "T": 4, "k": 2, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.43}
+{"design": "V2", "T": 4, "k": 3, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 1.98, "min_faults": 3, "faults": [[1, "c2.m"], [1, "c1.m"], [1, "$flatten\\c0.$abc$251$new_n13_"]], "inputs": {"sig": "0xdb"}}
+{"design": "V2", "T": 4, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.03}
+{"design": "V2", "T": 4, "k": 1, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.36}
+{"design": "V2", "T": 4, "k": 2, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.41}
+{"design": "V2", "T": 4, "k": 3, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 0.71, "min_faults": 3, "faults": [[1, "$flatten\\c0.$abc$251$new_n14_"], [1, "$flatten\\c1.$abc$251$new_n14_"], [1, "$flatten\\c2.$abc$251$new_n14_"]], "inputs": ["0x3", "0xc0", "0x3", "0x3c"]}
+{"design": "V2", "T": 4, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.03, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c"]}
+{"design": "V2", "T": 6, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.05}
+{"design": "V2", "T": 6, "k": 1, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.34}
+{"design": "V2", "T": 6, "k": 2, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 1.37}
+{"design": "V2", "T": 6, "k": 3, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 4.56, "min_faults": 3, "faults": [[1, "c1.m"], [1, "$flatten\\c0.$abc$251$new_n15_"], [1, "$flatten\\c2.$abc$251$new_n15_"]], "inputs": {"sig": "0x3"}}
+{"design": "V2", "T": 6, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.05}
+{"design": "V2", "T": 6, "k": 1, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.33}
+{"design": "V2", "T": 6, "k": 2, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 1.37}
+{"design": "V2", "T": 6, "k": 3, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 2.52, "min_faults": 3, "faults": [[1, "c0.m"], [1, "$flatten\\c1.$abc$251$new_n14_"], [1, "$flatten\\c2.$abc$251$new_n16_"]], "inputs": ["0xe3", "0xc0", "0xd3", "0xe4", "0xc0", "0x3c"]}
+{"design": "V2", "T": 6, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.06, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c", "0x3c", "0x3c"]}
+{"design": "V2", "T": 8, "k": 0, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.08}
+{"design": "V2", "T": 8, "k": 1, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.47}
+{"design": "V2", "T": 8, "k": 2, "mode": "const", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 6.73}
+{"design": "V2", "T": 8, "k": 3, "mode": "const", "verdict": "ATTACK_FOUND", "runtime_s": 13.6, "min_faults": 3, "faults": [[1, "c1.m"], [1, "$flatten\\c0.$abc$251$new_n15_"], [1, "$flatten\\c2.$abc$251$new_n15_"]], "inputs": {"sig": "0x3"}}
+{"design": "V2", "T": 8, "k": 0, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.09}
+{"design": "V2", "T": 8, "k": 1, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 0.5}
+{"design": "V2", "T": 8, "k": 2, "mode": "free_never", "verdict": "NO_ATTACK_UP_TO_BOUND", "runtime_s": 6.26}
+{"design": "V2", "T": 8, "k": 3, "mode": "free_never", "verdict": "ATTACK_FOUND", "runtime_s": 14.16, "min_faults": 3, "faults": [[1, "$flatten\\c0.$abc$251$new_n13_"], [1, "$flatten\\c1.$abc$251$new_n12_"], [1, "$flatten\\c2.$abc$251$new_n11_"]], "inputs": ["0xe3", "0xd3", "0xe3", "0xeb", "0xd7", "0x0", "0x3", "0x3c"]}
+{"design": "V2", "T": 8, "k": 0, "mode": "free_hit", "verdict": "ATTACK_FOUND", "runtime_s": 0.09, "min_faults": 0, "faults": [], "inputs": ["0x0", "0xc3", "0x3c", "0x3c", "0x3c", "0x3c", "0x3c", "0x3c"]}

@@ -1,0 +1,5 @@
+URL: https://raw.githubusercontent.com/alexforencich/verilog-uart/master/rtl/uart_tx.v
+Commit/hash: branch master, NOT pinned (UNVERIFIED revision).
+Licence: MIT per the file header (Copyright 2014-2017 Alex Forencich); no separate LICENSE file fetched (404 at /master/LICENSE).
+Date fetched: 2026-11-19
+e9559ddebf124f8fbface06bf7091296baa78c7acab95a36b40a919663349d34  designs/verilog_uart_tx/uart_tx.v

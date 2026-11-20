@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three guards, one wire</title>
+<!-- Single file, offline, no tracking, no external resources. License: UNDECIDED. Working title TBD. -->
+<style>
+:root{--bg:#fbfaf7;--ink:#1b1f24;--mute:#454f5a;--line:#c9cfd6;--card:#fff;--chip:#fff;--btn:#1f4e9c;--btnink:#fff;--link:#1f4e9c;--focus:#1f4e9c;
+--red:#b3261e;--redline:#b3261e;--redbg:#fde3e1;--green:#17653a;--greenbg:#e1f3e8;--shut:#17653a;--open:#b3261e;--wire:#4a5560;
+--banner:#fff4d6;--bannerink:#3d2b00;--bannerline:#8a6100}
+@media (prefers-color-scheme:dark){:root{--bg:#12161b;--ink:#eceff3;--mute:#b4bdc7;--line:#3b4551;--card:#1b2128;--chip:#1b2128;--btn:#8ab4ff;--btnink:#0b1220;--link:#9bbfff;--focus:#ffd84d;
+--red:#ff9a90;--redline:#ff8a80;--redbg:#3a1a18;--green:#7fd9a2;--greenbg:#16301f;--shut:#1f7a47;--open:#c62828;--wire:#9aa5b1;
+--banner:#3a2e0b;--bannerink:#ffe9a8;--bannerline:#b88a1c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+@media (min-width:900px){.wrap{max-width:920px}}
+.toy{background:var(--banner);border-bottom:2px solid var(--bannerline);color:var(--bannerink);padding:8px 16px;font-size:16px;text-align:center}
+section{padding:28px 0 26px;border-bottom:1px solid var(--line)}
+h1{font-size:1.9rem;line-height:1.15;margin:.15em 0 .25em}
+h2{font-size:1.4rem;line-height:1.25;margin:0 0 .4em}
+.kick{color:var(--mute);font-size:16px;text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin:0}
+p{margin:.55em 0}
+.big{font-size:1.15rem}
+code{overflow-wrap:anywhere;font-size:16px}
+svg{display:block;width:100%;height:auto;max-width:400px;margin:8px auto 4px}
+svg text{font-family:inherit;font-size:17px;fill:var(--ink)}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 6px 10px}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.fring{fill:none;stroke:transparent;stroke-width:3}
+.node:focus-visible .fring{stroke:var(--focus)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+button,.go{font:inherit;font-size:1rem;min-height:48px;min-width:48px;padding:8px 18px;border-radius:10px;border:2px solid var(--btn);background:var(--btn);color:var(--btnink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+button.alt{background:transparent;color:var(--link)}
+.cap{font-size:1.05rem;font-weight:600;text-align:center;min-height:3.2em;margin:2px 4px}
+.ctl{text-align:center;margin-top:8px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.oh{background:var(--redbg);border-left:6px solid var(--red);padding:10px 14px;border-radius:6px;margin:14px 0}
+.good{background:var(--greenbg);border-left:6px solid var(--green);padding:10px 14px;border-radius:6px;margin:14px 0}
+.bank{border:2px solid var(--ink);border-radius:10px;padding:12px 14px;margin:14px 0;font-weight:600}
+.note{font-size:16px;color:var(--mute)}
+a{color:var(--link)}
+ul{padding-left:1.2em;margin:.4em 0}li{margin:.4em 0}
+.pair{display:grid;grid-template-columns:1fr;gap:14px;margin-top:10px}
+@media (min-width:900px){.split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}.split>.fig,.split>div>.fig{margin-top:6px}svg{max-width:440px}.ev{columns:1}}
+.pair h3{font-size:1.1rem;margin:0 0 2px;text-align:center}
+.pair .flipcount{font-weight:700;text-align:center;margin:0 0 4px}
+details{margin:12px 0}
+summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:600}
+.ev{font-size:16px}
+.ev h3{font-size:1.05rem;margin:.9em 0 .2em}
+.ev table,.ev tbody,.ev tr,.ev td{display:block;width:100%}
+.ev tr.h{display:none}
+.ev tr{border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:8px 0}
+.ev td{padding:3px 0;overflow-wrap:anywhere}
+.ev td::before{content:attr(data-l) ": ";font-weight:700}
+.tog{display:grid;grid-template-columns:1fr;gap:10px;margin:8px 0}
+@media (min-width:640px){.tog{grid-template-columns:1fr 1fr}}
+.tog button{min-height:64px;flex-direction:column;line-height:1.25;text-align:center;padding:8px 14px;font-weight:600}
+.tog button small{display:block;font-weight:400;font-size:15px}
+.tog button[aria-pressed=true]{background:var(--btn);color:var(--btnink);box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--btn)}
+.tog button[aria-pressed=false]{background:transparent;color:var(--link)}
+.pickhint{text-align:center;font-weight:600;margin:10px 0 0}
+.quote{border-left:6px solid var(--btn);background:var(--card);border-radius:6px;padding:12px 16px;margin:16px 0;font-size:1.2rem;line-height:1.4;font-weight:600}
+.quote small{display:block;font-size:15px;font-weight:400;color:var(--mute);margin-top:4px}
+.who{font-size:1.05rem;margin:.6em 0}
+.cnt{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:10px 12px;margin:14px 0}
+.cnt h3{margin:0 0 4px;font-size:1.1rem}
+.cnt .out{font-weight:600;min-height:3.4em;margin:6px 2px}
+.res{border:1px solid var(--line);border-radius:10px;background:var(--card);margin:12px 0;padding:4px 12px}
+.res div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.res div:first-child{border-top:0}
+.res b{white-space:nowrap}@media (max-width:260px){.res b{white-space:normal;text-align:right}}
+.hero{display:grid;grid-template-columns:1fr;gap:8px 32px;grid-template-areas:"txt" "fig" "ctl";margin-top:6px}
+.h-txt{grid-area:txt}.h-fig{grid-area:fig}.h-ctl{grid-area:ctl}
+@media (min-width:900px){.hero{grid-template-columns:1fr 1fr;grid-template-areas:"txt fig" "ctl fig";grid-template-rows:auto 1fr}}
+.h-fig .fig,.h-ctl{min-width:0}
+.state{display:inline-flex;align-items:center;min-height:48px;font-weight:700;padding:4px 12px;border-radius:10px;border:2px dashed var(--ink);background:var(--card)}
+.state.on{background:var(--redbg);border-style:solid;border-color:var(--red)}
+.pre{font-size:16px;color:var(--mute);margin:6px 0}
+.drawn{border:2px dashed var(--ink);border-radius:10px;background:var(--banner);color:var(--bannerink);padding:8px 12px;margin:10px 0;font-size:16px}
+.meas{border:2px solid var(--green);border-radius:12px;padding:6px 14px 12px;margin:22px 0 10px;background:var(--card)}
+.meas h3{margin:.5em 0 .2em;font-size:1.15rem}
+.res .rt{flex:1 0 100%;font-size:15px;font-style:normal;color:var(--mute);font-weight:400}
+.res div{flex-wrap:wrap}
+.scope{border:2px solid var(--ink);border-radius:10px;padding:12px 14px;margin:16px 0}
+.scope h3{margin:0 0 4px;font-size:1.1rem}
+.honest{border:2px solid var(--ink);border-radius:10px;padding:12px 14px;font-size:16px;margin-top:16px}
+@media (prefers-reduced-motion:no-preference){.flow{stroke-dasharray:7 5;animation:dash 1.2s linear infinite}@keyframes dash{to{stroke-dashoffset:-24}}.doorbox{transition:fill .4s}}
+.flow{stroke-dasharray:7 5}
+@media (prefers-reduced-motion:reduce){.flow{animation:none}}
+
+.tag{display:inline-block;font-size:13px;line-height:1.3;font-weight:700;padding:1px 8px;border-radius:999px;border:1.5px solid var(--ink);white-space:normal;vertical-align:baseline}
+.tag.tp{border-style:dashed;background:var(--banner);color:var(--bannerink)}
+.tag.me{background:var(--greenbg);color:var(--ink)}
+.skip{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+.askq{font-size:1.5rem;line-height:1.2;font-weight:700;margin:.2em 0 .3em;color:var(--link)}
+.scopeline{border:2px solid var(--ink);border-radius:10px;padding:8px 12px;margin:8px 0;font-size:16px}
+.ask{border:2px solid var(--btn);border-radius:12px;background:var(--card);padding:12px 14px;margin:18px 0 4px}
+.ask h2{font-size:1.25rem;margin:0 0 4px}
+.ask ol{margin:.3em 0;padding-left:1.3em}.ask li{margin:.45em 0}
+.ask .note{margin:.4em 0 0}.qa{display:block;font-size:16px;color:var(--mute);margin:.25em 0 0}.qa b{color:var(--ink)}
+@media (max-width:600px){h1{font-size:1.45rem}.askq{font-size:1.3rem}.scopeline{padding:6px 10px;font-size:15px;margin:6px 0}.big{font-size:1.05rem;margin:.3em 0}body{font-size:17px;line-height:1.45}.scope li{margin:.25em 0}.scope{padding:10px 12px}.oh,.good{padding:8px 12px;margin:10px 0}.ask{padding:10px 12px}svg{max-width:262px}section{padding:16px 0 14px}.cap{min-height:2.3em;font-size:1rem}.fig{padding:4px 4px 6px}h1{font-size:1.7rem}}
+
+.why{font-size:1.05rem;margin:10px 0;padding:8px 12px;border-left:6px solid var(--btn);background:var(--card)}
+.proj{border:2px solid var(--ink);border-radius:10px;background:var(--card);padding:6px 12px;margin:6px 0}
+.proj h2{font-size:1.05rem;margin:0 0 2px}.proj p{margin:.2em 0;font-size:16px;line-height:1.35}
+.tagline{margin:6px 0;font-size:14px}
+.friend{border:2px solid var(--btn);border-radius:12px;background:var(--card);padding:12px 14px;margin:16px 0}
+.friend h3{margin:0 0 4px;font-size:1.1rem}.fq{font-weight:600;margin:.6em 0 .4em}
+@media (max-width:600px){.toy{padding:4px 10px;font-size:14px}h1{font-size:1.35rem;margin:.1em 0}.askq{font-size:1.15rem;margin:.1em 0}.proj{padding:4px 10px;margin:4px 0}.proj p{font-size:15px;line-height:1.3;margin:.1em 0}.proj h2{font-size:1rem}.hero{gap:4px}.hero .big{font-size:1rem;margin:.1em 0;line-height:1.35}.hero svg{max-width:215px}.hero .fig{padding:2px}.h-ctl .ctl{gap:6px}.state{font-size:14px;min-height:44px}.hero button{min-height:44px;padding:4px 14px}.hero .cap{min-height:1.4em;margin:0}.hero .pre{margin:2px 0}}
+</style>
+</head>
+<body>
+<div class="toy"><b>A small model, checked on a computer.</b> Nothing physical. </div>
+<main>
+
+<section id="s0"><div class="wrap">
+<h1>Picture: how one shared wire can beat three guards</h1>
+<div class="proj" id="proj"><h2>What this project is</h2>
+<p><b>Built:</b> a computer check that finds the fewest glitches that fool a lock design.</p>
+<p><b>Found:</b> how many it takes depends on exactly how the lock is wired and how you count.</p>
+<p><b>Not done:</b> nothing physical was tested.</p></div>
+<div class="proj" id="tryLive" style="margin:10px 0"><h2>Try the live versions</h2>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="go" href="dial.html">Verdict Dial</a><a class="go" href="theatre.html">Solver Replay</a><a class="go" href="wall.html">264 builders</a></div></div>
+<p class="askq">Where do the copies meet?</p>
+<div class="hero">
+<div class="h-txt"><p class="big">A lock has three guards. All three send their answer down <b>one shared wire</b>. A <b>flip</b> is a glitch that turns one 0 into 1, or one 1 into 0, for one clock tick.</p></div>
+<div class="h-fig"><p class="tag tp" style="display:block;text-align:center;margin:0 0 4px;font-size:14px">Picture, not computed: a drawing, not a result</p><div class="fig"><div data-fig="hero" id="herofig"></div></div></div>
+<div class="h-ctl">
+<div class="ctl" style="justify-content:flex-start"><button data-btn="hero" id="herobtn" aria-pressed="false">Flip the shared wire</button><span class="state" id="herostate" role="status" aria-live="polite">Shared wire: NOT flipped. Door shut.</span></div>
+<p class="pre" id="hero-pre">Tap the button. The drawing above will change.</p>
+<div class="oh" id="hero-oh" hidden><b>In this picture (a drawing, not a result): one flip, three guards beaten.</b> Here the copies meet at one point, so they act as one.</div>
+<p class="tagline note">Nothing above is a measurement. The measured results are in the green boxes further down.</p></div>
+</div>
+<p class="why"><b>Why you might care:</b> any device that protects a decision with several guards can be fooled if the guards share one wire. This page shows how to check, with a drawing, a small measured result, and three questions for a supplier.</p>
+<p class="quote"><small style="margin:0 0 4px">An analogy, not a result:</small>Three people signing with one shared signature are one approval, not three.</p>
+<p class="scopeline"><b>Model only.</b> A small model checked on a computer. Nothing physical, no real product.</p>
+<p class="pre" style="margin:2px 0">Words used here: <b>flip</b> = a glitch that turns one 0 into 1 or one 1 into 0 for one clock tick; <b>result word</b> = the lock&rsquo;s 8 lights (its main answer); <b>accept flag</b> = the separate &ldquo;accepted&rdquo; light.</p>
+<p><a class="skip" href="game.html">Skip to the game</a></p>
+
+<div class="ask" id="ask"><h2>What to ask a supplier</h2>
+<ol>
+<li><b>Where do the redundant copies meet?</b> Copies that end in one shared point count as one.
+<span class="qa"><b>Good answer:</b> they name the exact place and show the copies stay separate until there, or that place is protected on its own.<br><b>Worrying answer:</b> &ldquo;it is redundant&rdquo; with no place named.</span></li>
+<li><b>How do you count a fault?</b> A flip on a wire that feeds many places: one fault or many?
+<span class="qa"><b>Good answer:</b> they say which, and can show results under both ways of counting.<br><b>Worrying answer:</b> one number, and no word on how it was counted.</span></li>
+<li><b>What is checked at the end?</b> The finished wiring, not only the plan, and which output.
+<span class="qa"><b>Good answer:</b> they name the finished wiring and the outputs checked, including any &ldquo;accepted&rdquo; light.<br><b>Worrying answer:</b> only the design plan was checked, or only one output.</span></li>
+</ol>
+<p class="note">For anyone told &ldquo;we have a backup.&rdquo; Drawn from a small model; tests no supplier. These are prompts, not a pass/fail standard.</p><p><b>Show your supplier this page.</b></p></div>
+</div></section>
+
+<section id="s1"><div class="wrap">
+<h2>What giving each guard its own wire showed</h2>
+<div class="good"><span class="tag tp">Picture, not computed</span> In the picture each guard has its own wire, so it takes <b>3 flips</b>, one per guard, not 1.</div>
+<div class="meas" style="margin:10px 0"><span class="tag me">Measured, not drawn</span> On the project&rsquo;s small three-guard design the computer check found <b>3 flips</b> for the result word. <span class="note">(One caveat covers every number on this page; it is stated once, in the green box below.)</span></div>
+</div></section>
+
+<section id="s2"><div class="wrap">
+<p class="kick">In the designs we tested (one recipe family)</p>
+<h2>Same design, built two ways: 2 flips or 3</h2>
+<p>A building program turns a design on paper into real wiring. We did that to the same three-guard design and got two wirings. A program then searched for the fewest flips that open the door. <b>Pick a wiring and try it.</b> The drawings below are pictures only; the measured numbers are in the green box underneath.</p>
+<p class="pickhint" id="pickhint">Choose a wiring:</p>
+<div class="tog" role="group" aria-label="Choose a wiring"><button data-pick="tool1" aria-pressed="true">Wiring A<small>every guard keeps its own wire (illustration of the structure, not a result)</small></button><button data-pick="tool2" aria-pressed="false">Wiring B<small>the builder joined some wires together (illustration of the structure, not a result)</small></button></div>
+<div class="split"><div><div class="fig"><div data-fig="tool1" id="pickfig"></div></div>
+<div class="drawn"><span class="tag tp">Drawing only, not a result</span> The two joined wires in Wiring B are an illustration. Which of the 8 lights each one feeds was not checked. Only the count (2 flips) was measured, in the box further down.</div>
+<div class="ctl"><button data-btn="pick">Flip the next wire</button><button class="alt" data-all="pick">Show the fewest flips</button><button class="alt" data-reset="pick">Start over</button></div></div>
+<div>
+<details class="cnt" id="cntd" open><summary>Why the counting matters: try it <span class="tag tp" style="margin-left:8px">Toy picture</span></summary>
+<p>A joined wire can feed many places at once. Flip it and several places see the wrong value together. So: is that <b>one</b> fault or <b>several</b>?</p>
+<div class="tog" role="group" aria-label="Choose how to count"><button data-count="1" aria-pressed="true">Count a wire as 1</button><button data-count="2" aria-pressed="false">Count 1 per place it feeds</button></div>
+<div id="cntfig"></div>
+<p class="out" id="cntout" aria-live="polite"></p></details>
+</div></div>
+<div class="meas"><h3>Computer results <span class="tag me">Measured, not drawn</span></h3>
+<p class="note">Fewest flips that open the door, counting each wire once. <b>Caveat for every number on this page:</b> each result is for the lock&rsquo;s 8-light answer only (the &ldquo;result word&rdquo;). The separate &ldquo;accepted&rdquo; flag, if it is the goal, falls to 1 flip.</p>
+<div class="res" aria-label="Fewest flips that open the door, counting each wire once">
+<div><span>Original wiring</span><b>3 flips</b><em class="rt">Measured.</em></div>
+<div><span>Wiring A (wires kept separate)</span><b>3 flips</b><em class="rt">Measured.</em></div>
+<div><span>Wiring B (two wires joined)</span><b>2 flips</b><em class="rt">Measured count only. Which lights the two wires feed is not measured.</em></div>
+<div><span>All 32 rebuilds of the design</span><b>2 in 26, 3 in 6</b><em class="rt">Measured. One recipe, not 32 independent designs.</em></div>
+</div>
+<p class="note"><b>Measured on one small design family:</b> the 32 rebuilds come from one recipe (2 building-program versions x 2 settings of the flow x 8 optimiser settings), so they are 32 variants of one design, not 32 independent designs. 26 needed 2 flips and 6 needed 3. A second agent re-ran the same recipe list and every row matched. Each wire counted as one flip. Up to 3 flips, 6 clock ticks.</p></div>
+<div class="oh"><b>How you count changes who looks safe.</b> Count a wire once: 26 of 32 rebuilds needed only 2 flips. Count it once per place it feeds: all 32 needed 3 flips <span class="tag me">Measured on small toy designs, one recipe, re-run once</span> In the sources we read, we did not find a check of which counting matches real hardware. Flips on only some branches of a wire were not tested.</div>
+</div></section>
+
+<section id="s2b"><div class="wrap">
+<h2>What the guard&rsquo;s boss actually checks matters</h2>
+<p><span class="tag me">Measured by a computer check on a small design</span> The 3-flip result holds only if whatever reads the result looks at <b>all 8 lights</b>. A reader that checks only some of them can be fooled with 1 or 2 flips.</p>
+<div class="res" aria-label="Fewest flips by what the reader checks">
+<div><span>Reader checks the full 8-light word</span><b>3 flips</b><em class="rt">2 on another build of the same design.</em></div>
+<div><span>Reader checks only 4 lights</span><b>1 or 2 flips</b><em class="rt">Typically 1 or 2 (4 of 68 such readers still needed 3).</em></div>
+<div><span>Reader checks the accept flag alone</span><b>1 flip</b><em class="rt">Same as the earlier accept-flag result.</em></div>
+</div>
+<p class="note">Small toy design, up to 3 flips, 6 clock ticks; a model, not a real product. Source: research/c3/m1/M1_REPORT.md (all 255 reader patterns solved on the spike design).</p>
+</div></section>
+
+<section id="s3"><div class="wrap">
+<p class="kick">Take away</p>
+<h2>Ask: where do the copies meet?</h2>
+<p>Three people signing with one shared signature are one approval, not three.</p>
+<div class="scope"><h3>What we did, and where it holds</h3>
+<p><b>A small model, checked on a computer. Nothing physical.</b> No real product was tested or shown weak.</p>
+<ul>
+<li>We only asked whether the lock&rsquo;s <b>main answer</b> (the 8 lights) can be forced (see the caveat in the green box).</li>
+<li>We assumed we know <b>what the lock looks like when it is first switched on</b>. Change any one of these assumptions and the 2-or-3 result stops applying: </li>
+<li>We did <b>not let the attacker change the code going in</b>. Only wires inside the lock can flip.</li>
+<li><b>Direction of the glitch.</b> A power dip makes outputs fall (1 to 0). A push the other way (0 to 1) breaks even the guarded designs in our model. Which is realistic depends on the attack; we did not decide that.</li>
+<li>Up to 3 flips tried. &ldquo;3&rdquo; means 3 worked and 2 did not. Nothing is said about 4 or more.</li>
+</ul></div>
+<div class="friend" id="friend"><h3>Tell a friend</h3>
+<p class="note">Two ways to say it. Tap copy, then paste into a message or email.</p>
+<p class="fq" id="fq10">Copies that meet at one point may count as one.</p>
+<button type="button" class="alt" data-copy="fq10">Copy the 10-word version</button>
+<p class="fq" id="fq25">In a computer model, how many glitches fool a lock depends on where its backup copies meet and how you count; nothing physical was tested.</p>
+<button type="button" class="alt" data-copy="fq25">Copy the 25-word version</button>
+<p class="note" id="copymsg" role="status" aria-live="polite"></p></div>
+<p><a class="go" href="game.html">Play: break the lock</a></p>
+
+<details class="ev" id="evd"><summary>Evidence for engineers</summary>
+<h3>Labels</h3>
+<p>MEASURED = produced by the project's solver (z3) from the files named here (shown on the pages as &ldquo;measured by a computer check on small designs&rdquo;). ILLUSTRATIVE = the pictures and the toy on these pages (shown as &ldquo;toy picture, drawn, not computed&rdquo;). The headline sentence &ldquo;three guards on one wire are really one guard&rdquo; is a toy picture; the nearest measured result is V1 (two checks, one shared wire <code>ok</code>): 1 flip, equal to V0 (one check): 1 flip. Solver results are bounded: at most 3 modelled single-cycle bit flips of gate or flop outputs, 6 clock cycles, one constant attacker input that differs from the key, goal = result word only. &ldquo;No attack found&rdquo; means none up to that bound, not &ldquo;secure&rdquo;.</p>
+<h3>Mapping from the pictures to the project designs</h3>
+<table>
+<tr class="h"><th>Picture</th><th>Design</th><th>Fewest flips</th></tr>
+<tr><td data-l="Picture">One guard, no backup</td><td data-l="Design">V0 naive, any of 3 netlists</td><td data-l="Fewest flips (MEASURED)">1</td></tr>
+<tr><td data-l="Picture">Two guards, one shared wire</td><td data-l="Design">V1 duplicated compare, AND into net <code>ok</code> at cycle 1</td><td data-l="Fewest flips (MEASURED)">1</td></tr>
+<tr><td data-l="Picture">Three guards, own wires; and Wiring A</td><td data-l="Design">V2 triplicated: spike netlist <code>reference/spike_netlists/v2.json</code> (min 3); and re-synthesized from <code>rtl/v2.v</code> with conda Yosys 0.38+92 (83 gates, plain flow only; docs/ENGINE_STATUS.md, formal/FORMAL.md)</td><td data-l="Fewest flips (MEASURED)">3</td></tr>
+<tr><td data-l="Picture">Wiring B</td><td data-l="Design">V2 re-synthesized from <code>rtl/v2.v</code> with apt Yosys 0.33 (plain flow 85 gates, opt flow 81 gates; both give the 2-flip attack)</td><td data-l="Fewest flips (MEASURED)">2</td></tr>
+<tr><td data-l="Picture">Three guards, one shared wire (first picture)</td><td data-l="Design">No project design and no solver run: toy only (ILLUSTRATIVE)</td><td data-l="Fewest flips">1 in the toy</td></tr>
+</table>
+<h3>Sources and caveats</h3>
+<ul>
+<li>Sources: <code>results/reproduce_summary.json</code>, <code>results/reproduce/*.json</code>, <code>docs/ENGINE_STATUS.md</code>. Recheck with <code>python3 docs/wow/check_game_answers.py</code>.</li>
+<li>The 2-flip attack on the apt 0.33 netlist is two gates, at cycle 0, that each feed several result-word bits (shared logic from ABC). The picture draws this as two joined wires: that is an ILLUSTRATION. No cited result says the two wires cover all 8 lights (research/c2/b2_scope reports only the minimum 2; research/c3/m1 has RTL and a script, no per-bit result), so which bits are covered is UNVERIFIED.</li>
+<li>Counting rule: each flip counts as one regardless of fanout. 32 re-synthesized V2 netlists (2 Yosys builds x 2 flows x 8 ABC settings): 26 needed 2 flips and 6 needed 3 (MEASURED by agent DA, <code>research/c2/devils_advocate/DA_CYCLE1.md</code>; re-run by agent REP from the same recipe list, 64 of 64 rows agree, <code>research/c3/rep/REP_REPORT.md</code>; the 32 are one recipe, not independent designs). If a net costs one flip per gate input, flop input and output bit it feeds (per pin), all 32 need 3. When a wire shared by several pins counts once, 26 of 32 need 2. Toy 8-bit designs, 6 cycles, up to 3 flips. Flips of only some branches of a wire were NOT tested. Neither rule is shown to be physical. REP shared the recipe list with DA, so it is not fully independent. Not found in the sources we read: any check of which counting matches real hardware.</li>
+<li>Goal is the 8-bit result word only: with the accept flag <code>boot_ok</code> as goal, V2 falls to 1 flip (CT-1, docs/dossier/CRITIQUE.md). Start state known, input nets not fault sites (a time-varying input check on the stored netlist only: research/c2/e1_timevarying).</li>
+<li>Synthesis dependence was previously shown by SYNFI (faults needed dropped 3 to 2 after FSM recoding and 4 to 2 after register merging; <code>set_dont_touch</code> restored 4); our E2 replicates the effect on a toy design across 864 synthesis configs and a keep-attribute axis. Supply-dip rows (SIMULATED basis): under B3's 1-to-0-only rail model V1, V2 and V5 survive within the bound (V0 does not under a cone event), but a 0->1 event on the three compare copies breaks V2 and V5 with one event (V1 and V0 too): survival depends on polarity, not on triplication; SPICE supports 1-to-0 for supply dips, EM literature reportedly describes set-to-1 (UNVERIFIED, snippet level); the domain is the netlist hierarchy, not a physical rail; physical track closed (no extraction, selectivity unproven; L2 spread layouts failed LVS 4/4 by a known filler flow bug); a selective event costs 1. E2 split: 180/60/24 of 264 solved configs (152 distinct netlists: 94/38/20).</li>
+<li>Conda 0.38+92 was not run for the opt flow. Real netlists have 58 to 85 gates; the pictures show only the wires that matter.</li>
+<li>No hardware, no physical glitching: faults are modelled bit flips. Not yet tested by real people. No tracking, works offline. Working title TBD; licence undecided.</li>
+</ul>
+</details>
+</div></section>
+</main>
+
+<script type="application/json" id="claims">{"shared_wire_flips":1,"own_wires_flips":3,"tool1_flips":3,"tool2_flips":2,"label":"ILLUSTRATIVE pictures; counts checked by docs/wow/check_game_answers.py against the game toy model and results/"}</script>
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a){var v=a[k];if(typeof v==='string'&&v.indexOf('var(')===0)e.style.setProperty(k,v);else e.setAttribute(k,v)}if(p)p.appendChild(e);return e}
+var W=320;function cx(n,i){return W*(i+.5)/n}
+var SPEC={
+ hero:{checks:3,nodes:[{id:'j',x:160,label:'shared wire'}],need:['j'],links:[[0,'j'],[1,'j'],[2,'j']],cap0:'Three guards all say no. Door shut.',cap1:'Shared wire flipped: door opens. Three guards ignored. 1 flip.'},
+ own:{checks:3,nodes:[{id:'p',x:cx(3,0),label:'wire 1'},{id:'q',x:cx(3,1),label:'wire 2'},{id:'r',x:cx(3,2),label:'wire 3'}],need:['p','q','r'],links:[[0,'p'],[1,'q'],[2,'r']],cap0:'Each guard has its own wire. Door shut.',cap:function(n,t){return n<t?n+' of 3 wires flipped. Door still shut.':'All 3 wires flipped. Door opens. 3 flips needed.'}},
+ tool1:{checks:3,nodes:[{id:'p',x:cx(3,0),label:'wire 1'},{id:'q',x:cx(3,1),label:'wire 2'},{id:'r',x:cx(3,2),label:'wire 3'}],need:['p','q','r'],links:[[0,'p'],[1,'q'],[2,'r']],cap0:'Wiring A, nothing flipped. Door shut. Tap a wire.',cap:function(n,t){return n<t?'Wiring A: '+n+' of 3 wires flipped. Door still shut.':'Wiring A: all 3 wires flipped. Door opens. 3 flips.'}},
+ tool2:{checks:3,nodes:[{id:'x',x:80,label:'wire X'},{id:'y',x:240,label:'wire Y'}],need:['x','y'],links:[[0,'x'],[1,'x'],[1,'y'],[2,'y']],cap0:'Wiring B, nothing flipped. Door shut. Tap a wire.',cap:function(n,t){return n<t?'Wiring B: '+n+' of 2 wires flipped. Door still shut.':'Wiring B: both joined wires flipped. Door opens. 2 flips.'}}
+};
+function build(host,key){
+  var s=SPEC[key],st={flipped:{}};
+  if(s.pre)s.pre.forEach(function(i){st.flipped[i]=true});
+  host.innerHTML='';
+  var svg=el('svg',{viewBox:'0 0 320 330',role:'img','aria-label':'Diagram: '+s.checks+' guards feeding '+s.nodes.length+' wire'+(s.nodes.length>1?'s':'')+' into a door'},host);
+  var cap=document.createElement('p');cap.className='cap';cap.setAttribute('aria-live','polite');host.appendChild(cap);
+  host._st=st;host._spec=s;
+  host._draw=function(){
+    svg.innerHTML='';
+    var n=s.checks;
+    el('rect',{x:100,y:4,width:120,height:28,rx:6,fill:'var(--chip)',stroke:'var(--wire)'},svg);
+    el('text',{x:160,y:24,'text-anchor':'middle'},svg).textContent='wrong code';
+    for(var i=0;i<n;i++){var x=cx(n,i);
+      el('line',{x1:160,y1:32,x2:x,y2:54,stroke:'var(--wire)','stroke-width':2},svg);
+      el('rect',{x:x-45,y:54,width:90,height:40,rx:8,fill:'var(--chip)',stroke:'var(--ink)','stroke-width':2},svg);
+      el('text',{x:x,y:80,'text-anchor':'middle'},svg).textContent='guard '+'ABC'[i];}
+    var fc=0;s.need.forEach(function(id){if(st.flipped[id])fc++});
+    var open=fc===s.need.length;
+    s.links.forEach(function(l){var nd=s.nodes.filter(function(q){return q.id===l[1]})[0],x=cx(n,l[0]);
+      el('line',{class:'flow',x1:x,y1:94,x2:nd.x,y2:134,stroke:'var(--wire)','stroke-width':3},svg)});
+    s.nodes.forEach(function(nd){el('line',{class:'flow',x1:nd.x,y1:226,x2:160,y2:258,stroke:st.flipped[nd.id]?'var(--redline)':'var(--wire)','stroke-width':3},svg)});
+    s.nodes.forEach(function(nd){var on=!!st.flipped[nd.id];
+      var g=el('g',{class:s.noflip?'':'node',tabindex:s.noflip?-1:0,role:s.noflip?'img':'button','aria-label':nd.label+(on?' says YES (flipped)':' says no')+(s.noflip?'':'. Press to flip.')},svg);
+      el('circle',{cx:nd.x,cy:160,r:34,fill:'transparent'},g);
+      el('circle',{class:'fring',cx:nd.x,cy:160,r:31},g);
+      el('circle',{cx:nd.x,cy:160,r:24,fill:on?'var(--open)':'var(--chip)',stroke:'var(--ink)','stroke-width':on?4:2},g);
+      var t=el('text',{x:nd.x,y:166,'text-anchor':'middle','font-weight':700},g);t.textContent=on?'YES':'no';t.style.fill=on?'#fff':'var(--ink)';
+      var w=nd.label.length*9.4+14;
+      el('rect',{x:nd.x-w/2,y:196,width:w,height:28,rx:5,fill:'var(--chip)',stroke:'var(--line)'},g);
+      el('text',{x:nd.x,y:216,'text-anchor':'middle'},g).textContent=nd.label;
+      if(!s.noflip){var f=function(e){if(e.type==='keydown'&&e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();st.flipped[nd.id]=!st.flipped[nd.id];host._draw();if(e.type==='keydown'){svg.querySelectorAll('.node')[s.nodes.indexOf(nd)].focus()}};
+        g.addEventListener('click',f);g.addEventListener('keydown',f)}});
+    el('rect',{class:'doorbox',x:50,y:258,width:220,height:50,rx:10,fill:open?'var(--open)':'var(--shut)'},svg);
+    var dt=el('text',{x:160,y:289,'text-anchor':'middle','font-weight':700},svg);dt.textContent=open?'DOOR OPEN':'DOOR SHUT';dt.style.fill='#fff';
+    cap.textContent=s.cap?(fc===0?s.cap0:s.cap(fc,s.need.length)):(open?s.cap1:s.cap0);
+  };
+  host._draw();
+}
+Array.prototype.forEach.call(document.querySelectorAll('[data-fig]'),function(h){build(h,h.getAttribute('data-fig'))});
+function advance(h){var s=h._spec,st=h._st;
+  if(s.need.length===1){st.flipped[s.need[0]]=!st.flipped[s.need[0]]}
+  else{var nx=s.need.filter(function(id){return !st.flipped[id]})[0];if(nx)st.flipped[nx]=true;else st.flipped={}}
+  h._draw()}
+var pf=document.getElementById('pickfig');
+function fig(k){return k==='pick'?pf:document.querySelector('[data-fig="'+k+'"]')}
+function heroSync(){var h=fig('hero'),on=!!h._st.flipped.j,b=document.getElementById('herobtn'),st=document.getElementById('herostate');
+ b.textContent=on?'Put the wire back':'Flip the shared wire';b.setAttribute('aria-pressed',on);
+ st.textContent=on?'Shared wire: FLIPPED. Door open.':'Shared wire: NOT flipped. Door shut.';st.className='state'+(on?' on':'');
+ document.getElementById('hero-oh').hidden=!on;document.getElementById('hero-pre').hidden=on;
+ }
+function heroScroll(){var h=fig('hero'),on=!!h._st.flipped.j,b=document.getElementById('herobtn');
+ var f=document.querySelector('.h-fig .fig').getBoundingClientRect(),o=(on?document.getElementById('hero-oh'):b).getBoundingClientRect();
+ var over=o.bottom-(window.innerHeight-8),room=f.top-8;
+ if(over>0||f.top<0){window.scrollBy(0,over>0?Math.min(over,Math.max(room,0)):f.top-8)}}
+(function(){var hf=fig('hero'),d0=hf._draw;hf._draw=function(){d0();heroSync()};hf._draw()})();
+Array.prototype.forEach.call(document.querySelectorAll('[data-btn]'),function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-btn'),h=fig(k);h._done=1;advance(h);if(k==='hero')heroScroll()})});
+Array.prototype.forEach.call(document.querySelectorAll('[data-reset]'),function(b){b.addEventListener('click',function(){var h=fig(b.getAttribute('data-reset'));h._st.flipped={};h._draw()})});
+var picks=document.querySelectorAll('[data-pick]');
+Array.prototype.forEach.call(document.querySelectorAll('[data-all]'),function(b){b.addEventListener('click',function(){var h=fig(b.getAttribute('data-all'));h._st.flipped={};h._spec.need.forEach(function(i){h._st.flipped[i]=true});h._draw()})});
+Array.prototype.forEach.call(picks,function(b){b.addEventListener('click',function(){build(pf,b.getAttribute('data-pick'));Array.prototype.forEach.call(picks,function(o){o.setAttribute('aria-pressed',o===b)})})});
+var cf=document.getElementById('cntfig'),co=document.getElementById('cntout'),cb=document.querySelectorAll('[data-count]');
+function drawCount(mode){cf.innerHTML='';
+ var v=el('svg',{viewBox:'0 0 320 150',role:'img','aria-label':'One joined wire feeding three places; a flip reaches all three'},cf);
+ el('rect',{x:110,y:4,width:100,height:30,rx:6,fill:'var(--chip)',stroke:'var(--wire)'},v);el('text',{x:160,y:25,'text-anchor':'middle'},v).textContent='joined wire';
+ for(var i=0;i<3;i++){var x=60+i*100;el('line',{x1:160,y1:34,x2:x,y2:84,stroke:'var(--redline)','stroke-width':3},v);
+  el('circle',{cx:x,cy:104,r:18,fill:'var(--unlit-c,#2a3038)',stroke:'var(--ink)','stroke-width':2},v);}
+ el('text',{x:160,y:146,'text-anchor':'middle'},v).textContent='one joined wire feeds 3 places';
+ co.textContent=mode==='1'?'Counted as 1 flip. Wiring B then needs only 2 flips and looks weaker than Wiring A (3 flips).':'Counted once per place it feeds. Wiring B then needs 3 flips, the same as A. (In the measured results below, all 32 rebuilds needed 3 this way.)';}
+Array.prototype.forEach.call(cb,function(b){b.addEventListener('click',function(){Array.prototype.forEach.call(cb,function(o){o.setAttribute('aria-pressed',o===b)});drawCount(b.getAttribute('data-count'))})});
+drawCount('1');
+var evd=document.getElementById('evd');if(evd&&window.innerWidth>=900)evd.open=true;
+
+})();
+
+(function(){var m=document.getElementById('copymsg');Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'),function(b){b.addEventListener('click',function(){var t=document.getElementById(b.getAttribute('data-copy')).textContent,ok=false;
+ function done(){m.textContent=ok?'Copied.':'Could not copy here: select the sentence above and copy it by hand.'}
+ try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){ok=true;done()},function(){fb()});return}}catch(e){}
+ fb();
+ function fb(){try{var r=document.createRange();r.selectNodeContents(document.getElementById(b.getAttribute('data-copy')));var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);ok=document.execCommand('copy')}catch(e){ok=false}done()}})})})();
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+PASS dial.json has one cell for each of the 432 control combinations
+PASS 94 measured cells, 338 not measured (every one checked against its source row)
+PASS scope matrix: constant-input and fresh-input rows agree in all 180 pairs (dial shows the constant-input row)
+PASS V2 plain re-build: matrix.jsonl and sweep_rows.csv (Yosys 0.33, plain) give the same digit
+PASS V2e note matches the 8 source rows: Measured 3 in 6 of 8 recipes on Yosys 0.33; 2 merging recipes stay at 1.
+PASS stage path stored -> re-built -> accept flag -> any power-up reads [3, 2, 1, 0]
+PASS data inlined in dial.html equals dial.json
+PASS 'safe' appears only as 'Not "safe"' (1 use)
+PASS page has the 'What we did NOT show' panel and the words 'not measured'
+PASS page loads no external resource
+PASS [390 px] page offers exactly the 432 checked combinations
+PASS [390 px] digit on screen equals the source row in all 432 combinations (94 digits, 338 'not measured')
+PASS [390 px] no horizontal scroll in any combination
+PASS [390 px] default shows 3
+PASS [390 px] clicking and arrow keys walk 3 -> 2 -> 1 -> 0
+PASS [390 px] predict first hides digit, reason and source until a guess; reveal shows the measured 1
+PASS [390 px] F switches to big-screen mode, no horizontal scroll
+PASS [390 px] no console errors or warnings 
+PASS [1366 px] page offers exactly the 432 checked combinations
+PASS [1366 px] digit on screen equals the source row in all 432 combinations (94 digits, 338 'not measured')
+PASS [1366 px] no horizontal scroll in any combination
+PASS [1366 px] default shows 3
+PASS [1366 px] clicking and arrow keys walk 3 -> 2 -> 1 -> 0
+PASS [1366 px] predict first hides digit, reason and source until a guess; reveal shows the measured 1
+PASS [1366 px] F switches to big-screen mode, no horizontal scroll
+PASS [1366 px] no console errors or warnings 
+PASS motion allowed: digit counts ['2', '1', '0'] and lands on the measured 0
+467 checks passed, 0 failed

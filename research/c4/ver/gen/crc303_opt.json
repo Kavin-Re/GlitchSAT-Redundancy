@@ -1,0 +1,170 @@
+{
+  "creator": "Yosys 0.33 (git sha1 2584903a060)",
+  "modules": {
+    "t303": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/tmp/work_ver/gen/crc303.v:1.1-8.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "sig": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6 ]
+        },
+        "boot_word": {
+          "direction": "output",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+        "$abc$101$auto$blifparse.cc:386:parse_blif$102": {
+          "hide_name": 1,
+          "type": "$_NOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$101$auto$blifparse.cc:386:parse_blif$103": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "B": [ 9 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$96": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:6.3-6.46"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 11 ],
+            "Q": [ 7 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$97": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:4.3-4.34"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 3 ],
+            "Q": [ 10 ]
+          }
+        },
+        "$auto$ff.cc:266:slice$98": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:4.3-4.34"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 2 ],
+            "D": [ 4 ],
+            "Q": [ 8 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$101$new_n4_": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "boot_word": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:1.54-1.63"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:1.19-1.22"
+          }
+        },
+        "m": {
+          "hide_name": 0,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:5.8-5.9"
+          }
+        },
+        "o": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "init": "0",
+            "src": "/tmp/work_ver/gen/crc303.v:3.13-3.14"
+          }
+        },
+        "sig": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "/tmp/work_ver/gen/crc303.v:1.36-1.39"
+          }
+        },
+        "w": {
+          "hide_name": 0,
+          "bits": [ 10, 8, "x", "x" ],
+          "attributes": {
+            "init": "xx00",
+            "src": "/tmp/work_ver/gen/crc303.v:2.13-2.14"
+          }
+        }
+      }
+    }
+  }
+}

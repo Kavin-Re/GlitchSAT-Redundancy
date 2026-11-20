@@ -1,0 +1,172 @@
+{
+  "schema": "faultbound-wt-synthsweep/1",
+  "label": "MEASURED (this run; tool)",
+  "source_sha256": "29efc62bc59c021903ebae6edb50b9fc29349d78b3931e25f4b4366082b1c965",
+  "top": "v2c04",
+  "yosys": "Yosys 0.33 (git sha1 2584903a060)",
+  "command": "faultbound-wt analyze v2c04.v --top v2c04 --max-flips 3 --cycles 6 --synth-sweep --sweep-out out/sweep_apt_v2c04.json",
+  "tool_version": "0.0.1.dev0",
+  "count_rule": "stem",
+  "scope": {
+    "input_sites": "none",
+    "init": "known",
+    "consumer_bits": "all",
+    "goal": "boot_word == 0x96",
+    "count_rule": "stem"
+  },
+  "bounds": {
+    "max_flips": 3,
+    "cycles": 6,
+    "cell_timeout_ms": 120000
+  },
+  "template": "read_verilog {src}\nhierarchy -top {top}\n{pre}\n{abc}\n{post}\nwrite_json {out}\n",
+  "variants": [
+    {
+      "name": "plain",
+      "description": "project flow (scripts/synth.sh plain): map each module with abc, THEN flatten, no opt_merge",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nproc\nopt_clean\ntechmap\nopt_clean\nabc -g AND,OR,XOR,MUX\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "03e0ce610864d17f8dcc0d936aa8a1bc40dcd4d92604352ad26ec7358343a12f",
+      "gates": 81,
+      "flops": 8,
+      "status": "ok",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.487,
+      "faults": [
+        "$abc$275$new_n56_@0"
+      ]
+    },
+    {
+      "name": "plain_opt_merge",
+      "description": "plain + opt_merge after flatten (identical logic over the same input collapses)",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nproc\nopt_clean\ntechmap\nopt_clean\nabc -g AND,OR,XOR,MUX\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_merge\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "14b69b82f6dbd04db4a751b182f4327a8a25abd2e04f4cefed2a7e596bf6821c",
+      "gates": 59,
+      "flops": 8,
+      "status": "ok",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.589,
+      "faults": [
+        "$abc$275$new_n56_@0"
+      ]
+    },
+    {
+      "name": "flatten_before_abc",
+      "description": "flatten BEFORE abc (abc sees all module copies at once)",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nproc\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nabc -g AND,OR,XOR,MUX\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "9e6bee56474fa86cf2dd559cfffccaa501f010e142514560edf275498db6da85",
+      "gates": 69,
+      "flops": 8,
+      "status": "ok",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.561,
+      "faults": [
+        "$abc$313$new_n72_@0"
+      ]
+    },
+    {
+      "name": "abc_fast",
+      "description": "plain with `abc -fast`",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nproc\nopt_clean\ntechmap\nopt_clean\nabc -fast -g AND,OR,XOR,MUX\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "1b2447952897da0f5c7f4282c8c0f5bb79cbc6d23cd213e6220c3348d4330773",
+      "gates": 88,
+      "flops": 8,
+      "status": "ok",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 1.041,
+      "faults": [
+        "$abc$277$new_n68_@0"
+      ]
+    },
+    {
+      "name": "abc_no_mux",
+      "description": "plain with abc gate set AND,OR,XOR (no MUX)",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nproc\nopt_clean\ntechmap\nopt_clean\nabc -g AND,OR,XOR\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "03e0ce610864d17f8dcc0d936aa8a1bc40dcd4d92604352ad26ec7358343a12f",
+      "status": "ok",
+      "cost": "1",
+      "verdict": "ATTACK_FOUND",
+      "gates": 81,
+      "flops": 8,
+      "min_faults": 1,
+      "runtime_s": 0.487,
+      "faults": [
+        "$abc$275$new_n56_@0"
+      ],
+      "same_netlist_as": "plain"
+    },
+    {
+      "name": "opt_flow",
+      "description": "full Yosys `synth` + dffunmap, then abc and the plain tail (scripts/synth.sh opt)",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nsynth -top v2c04\ndffunmap\nabc -g AND,OR,XOR,MUX\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "027affcf0e263e90c9cc0029319d370dd046f6886b9022c55e6323c11b2e6faa",
+      "status": "engine_unsupported",
+      "cost": "unsupported",
+      "verdict": null,
+      "error": "flop net st: init value 'x111000x' contains 'x' (unknown); the model needs a known power-up state (treating x as 0 would silently hide attacks). Give the flop a 0/1 init."
+    },
+    {
+      "name": "plain_keep_off",
+      "description": "plain, with every `(* keep *)` attribute stripped from the source (keep_hierarchy is kept)",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nproc\nopt_clean\ntechmap\nopt_clean\nabc -g AND,OR,XOR,MUX\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "5017f9b7ec6cbff38649a460b7d0c1837d600226caf4eca9a696ac2bffcca4f4",
+      "gates": 79,
+      "flops": 8,
+      "status": "ok",
+      "verdict": "ATTACK_FOUND",
+      "cost": "1",
+      "min_faults": 1,
+      "runtime_s": 0.536,
+      "faults": [
+        "$abc$275$new_n48_@0"
+      ]
+    },
+    {
+      "name": "opt_flow_keep_off",
+      "description": "opt flow, `(* keep *)` stripped",
+      "source": "built-in",
+      "script": "read_verilog design.v\nhierarchy -top v2c04\nsynth -top v2c04\ndffunmap\nabc -g AND,OR,XOR,MUX\nopt_clean\nsetattr -mod -unset keep_hierarchy *\nflatten\nopt_clean\ntechmap\nopt_clean\nwrite_json netlist.json\n",
+      "yosys_command": "yosys -q -s flow.ys  (run in a directory holding design.v)",
+      "netlist_sha256": "72f711f3df73eb298d8656bc17ea3b20239e63c36853573c10599714c1eecba7",
+      "status": "engine_unsupported",
+      "cost": "unsupported",
+      "verdict": null,
+      "error": "flop net st: init value 'x111000x' contains 'x' (unknown); the model needs a known power-up state (treating x as 0 would silently hide attacks). Give the flop a 0/1 init."
+    }
+  ],
+  "summary": {
+    "line": "verdict changes across 8 variants: min flips ranged 1..1 (at max_flips=3: ATTACK_FOUND in 6, NO_ATTACK_UP_TO_BOUND in 0; 2 not analysed (engine_unsupported)) [no change across the analysed variants]",
+    "changed": false,
+    "min_low": 1,
+    "min_high": 1,
+    "n_variants": 8,
+    "n_attack": 6,
+    "n_no_attack": 0,
+    "n_unknown": 0,
+    "n_not_analysed": 2,
+    "distinct_netlists": 7
+  },
+  "runtime_s": 7.263,
+  "note": "one row = one synthesis flow = one netlist hash; cost = minimum number of flips found (exact when no '<='), '>k' = none within <= k flips and the cycle bound, 'unknown' = solver timeout (NOT 'no attack'), 'unsupported' = the engine cannot read that netlist (no verdict), 'synth-failed' = Yosys error. bounded result under this model; not a proof of security. Faults are modelled bit flips; the variants are a small sample of synthesis choices, not all of them."
+}

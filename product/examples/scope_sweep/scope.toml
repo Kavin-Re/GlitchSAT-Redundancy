@@ -1,0 +1,18 @@
+# Threat model for the bundled spike V2 with every scope option written out (values = the defaults, except where noted).
+# All faults are MODELLED single-cycle bit flips, not physical glitches.
+[faults]
+max_flips = 3
+cycles = 6
+input_sites = "none"     # none | all : "all" makes every primary-input bit (clock excepted) a fault site (spike V2: 3 flips -> 1)
+init = "known"           # known | arbitrary : "arbitrary" = any power-up state, no reset (spike V2: 0 flips, says nothing about faults)
+count_rule = "stem"      # stem | fanout_pins (alias fanout) | fanout_gates; max_flips is a COST budget under the fanout rules; branch is NOT IMPLEMENTED (exit 3)
+
+[attacker]
+input = "sig"
+model = "constant"
+legitimate_value = 0xC3
+
+[property]
+output = "boot_word"     # boot_ok = the single-net flag (1 flip on spike V2)
+bad_value = 0x96         # the accept value
+consumer_bits = "0-3"    # only bits 0..3 of the output are consumed (hex mask 0x0F or list [0,1,2,3] work too); delete the line for all bits

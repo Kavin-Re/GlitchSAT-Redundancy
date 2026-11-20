@@ -1,0 +1,170 @@
+{
+  "schema": "faultbound-wt-report/1",
+  "label": "MEASURED (this run; tool)",
+  "provenance": {
+    "tool": "faultbound-working-title",
+    "tool_version": "0.0.1.dev0",
+    "command": "faultbound-wt analyze conda_opt.json --top v5 --max-flips 3 --cycles 6 --report conda_opt.rep.json --exit-zero",
+    "python": "3.13.18",
+    "z3": "5.4.1",
+    "yosys_on_path": "Yosys 0.33 (git sha1 2584903a060)",
+    "utc": "2026-11-19T22:12:44Z",
+    "input_kind": "yosys-json",
+    "netlist_yosys_creator": "Yosys 0.38+92 (git sha1 84116c9a3, x86_64-conda-linux-gnu-cc 11.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/root/conda-eda/conda-eda/workdir/conda-env/conda-bld/yosys_1708682804602/work=/usr/local/src/conda/yosys-0.38_93_g84116c9a3 -fdebug-prefix-map=/tmp/mm_root/envs/eda=/usr/local/src/conda-prefix -fPIC -Os -fno-merge-constants)",
+    "netlist_path": "conda_opt.json",
+    "netlist_sha256": "5a9e08a96a6423e2aab81803643a7981f11117bf65facafba4de7a116ad3b293",
+    "top": "v5",
+    "netlist_stats": {
+      "gates": 190,
+      "flops": 9,
+      "basis": "gates = combinational cells, flops = $_DFF_P_ (MEASURED from the netlist)"
+    }
+  },
+  "threat_model": {
+    "max_flips": 3,
+    "cycles": 6,
+    "kinds": [
+      "gate",
+      "flop"
+    ],
+    "include": [],
+    "exclude": [],
+    "attacker_input": "sig",
+    "attacker_model": "constant",
+    "legitimate_value": 195,
+    "output": "boot_word",
+    "bad_value": 150,
+    "top": null,
+    "timeout_ms": 0,
+    "defaulted": [
+      "attacker.input",
+      "attacker.legitimate_value",
+      "property.output",
+      "property.bad_value"
+    ],
+    "honest_check": true,
+    "consumer_bits": null,
+    "input_sites": "none",
+    "init": "known",
+    "count_rule": "stem"
+  },
+  "verdict": "ATTACK_FOUND",
+  "scope": {
+    "goal": "output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..5, while `sig` != 0xC3",
+    "input_treatment": "every input port except the clock `clk` is a free value chosen by the solver and held CONSTANT for the whole run (free inputs here: sig); `sig` must differ from legitimate_value; input ports are NOT fault sites; the clock is implicit (one rising edge per cycle) and is not modelled as a signal",
+    "init_state": "all 9 flops start at a known value: 9 from an explicit Yosys `init` attribute, 0 default to 0; no reset sequence is simulated and unknown (x) power-up state is not modelled",
+    "options": {
+      "goal_output": "boot_word",
+      "accept_value": "0x96",
+      "consumer_bits": "all",
+      "input_sites": "none",
+      "init": "known",
+      "count_rule": "stem (flip of a net counts once for all its fanout)"
+    },
+    "fault_model": "one fault = one flip of one net (gate output or flop Q; kinds allowed: gate/flop) at one cycle; a flip is XORed onto the net for that cycle only and propagates through all its fanout (counts as 1); flips of the same net in different cycles count separately; at most max_flips faults in total over all cycles; no stuck-at, multi-bit, timing or voltage effects",
+    "bounds": {
+      "max_flips": 3,
+      "cycles": 6,
+      "solver_timeout_ms": "none"
+    },
+    "netlist_sha256": "5a9e08a96a6423e2aab81803643a7981f11117bf65facafba4de7a116ad3b293",
+    "tool_version": "0.0.1.dev0",
+    "defaulted_config_values": [
+      "attacker.input",
+      "attacker.legitimate_value",
+      "property.output",
+      "property.bad_value"
+    ],
+    "statement": "bounded result under this model; not a proof of security"
+  },
+  "bound": {
+    "max_flips": 3,
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of a gate output or flop Q (MODELLED, not physical)",
+    "attacker_input": "`sig` free, constant over the run, != 0xC3",
+    "property": "attack goal: boot_word == 0x96 at some cycle < 6"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "sites": {
+    "modelled": 958,
+    "of_unfiltered_budget": 1194
+  },
+  "honest_input_reaches_goal_fault_free": true,
+  "config_warnings": [
+    "these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)"
+  ],
+  "runtime_s": 0.671,
+  "min_faults": 3,
+  "faults": [
+    {
+      "net": "c2.m",
+      "net_id": 58,
+      "cycle": 1,
+      "kind": "gate_output",
+      "aliases": [
+        "c2.m",
+        "g[0].a.c",
+        "g[0].b.c",
+        "g[1].a.c"
+      ]
+    },
+    {
+      "net": "c1.m",
+      "net_id": 62,
+      "cycle": 1,
+      "kind": "gate_output",
+      "aliases": [
+        "c1.m",
+        "g[0].a.b",
+        "g[0].b.b",
+        "g[1].a.b"
+      ]
+    },
+    {
+      "net": "$flatten\\c0.$abc$419$new_n11",
+      "net_id": 139,
+      "cycle": 1,
+      "kind": "gate_output",
+      "aliases": [
+        "$flatten\\c0.$abc$419$new_n11"
+      ]
+    }
+  ],
+  "attacker_input_value": {
+    "sig": 227
+  },
+  "explanation": {
+    "summary": "MINIMUM ATTACK COST = 3 flips (`c2.m`@1, `c1.m`@1, `$flatten\\c0.$abc$419$new_n11`@1), on 3 distinct net(s) in 1 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=6). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]",
+    "fix_pattern": "(Generic design pattern, not derived from this netlist.) To raise the cost above 3, the circuit must be changed so that no 3 flips suffice; re-run the tool at a larger bound to check.",
+    "fault_details": [
+      {
+        "net": "c2.m",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "AND",
+        "input_bits_in_fanin_cone": 8,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      },
+      {
+        "net": "c1.m",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "AND",
+        "input_bits_in_fanin_cone": 8,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      },
+      {
+        "net": "$flatten\\c0.$abc$419$new_n11",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "NOT",
+        "input_bits_in_fanin_cone": 2,
+        "goal_bits_reached": 8,
+        "goal_bits_total": 8
+      }
+    ],
+    "scope_line": "modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 6 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security"
+  }
+}

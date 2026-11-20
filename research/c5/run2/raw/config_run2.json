@@ -1,0 +1,137 @@
+{
+ "run2_v0_k1": {
+  "design_path": "/tmp/work_run2/k/v0.json",
+  "design_name": "v0",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 1,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v0_k1"
+ },
+ "run2_v0_k2": {
+  "design_path": "/tmp/work_run2/k/v0.json",
+  "design_name": "v0",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 2,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v0_k2"
+ },
+ "run2_v0_k3": {
+  "design_path": "/tmp/work_run2/k/v0.json",
+  "design_name": "v0",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 3,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v0_k3"
+ },
+ "run2_v1_k1": {
+  "design_path": "/tmp/work_run2/k/v1.json",
+  "design_name": "v1",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 1,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v1_k1"
+ },
+ "run2_v1_k2": {
+  "design_path": "/tmp/work_run2/k/v1.json",
+  "design_name": "v1",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 2,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v1_k2"
+ },
+ "run2_v1_k3": {
+  "design_path": "/tmp/work_run2/k/v1.json",
+  "design_name": "v1",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 3,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v1_k3"
+ },
+ "run2_v2_k1": {
+  "design_path": "/tmp/work_run2/k/v2.json",
+  "design_name": "v2",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 1,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v2_k1"
+ },
+ "run2_v2_k2": {
+  "design_path": "/tmp/work_run2/k/v2.json",
+  "design_name": "v2",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 2,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v2_k2"
+ },
+ "run2_v2_k3": {
+  "design_path": "/tmp/work_run2/k/v2.json",
+  "design_name": "v2",
+  "alert_list": {
+   "alert": [
+    1
+   ]
+  },
+  "exclude_inputs": true,
+  "k": 3,
+  "delay": 0,
+  "increasing_k": false,
+  "optim_atleast2": false,
+  "dump_path": "/tmp/work_run2/k/out/v2_k3"
+ }
+}

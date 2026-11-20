@@ -1,0 +1,353 @@
+{
+ "tag": "v2_033",
+ "missing_in_def": [],
+ "rows": [
+  {
+   "radius_um": 0,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 39,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     1,
+     "c0/_2_"
+    ],
+    [
+     1,
+     "c1/_2_"
+    ],
+    [
+     1,
+     "c2/_4_"
+    ]
+   ],
+   "wall": 1.15
+  },
+  {
+   "radius_um": 1.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 39,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     0,
+     "_35_"
+    ],
+    [
+     1,
+     "_42_"
+    ],
+    [
+     1,
+     "_45_"
+    ]
+   ],
+   "wall": 1.1
+  },
+  {
+   "radius_um": 2.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 37,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     0,
+     "_35_"
+    ],
+    [
+     0,
+     "_37_"
+    ],
+    [
+     1,
+     "_42_"
+    ]
+   ],
+   "wall": 1.26
+  },
+  {
+   "radius_um": 3.5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 37,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     0,
+     "_36_"
+    ],
+    [
+     4,
+     "_45_"
+    ]
+   ],
+   "wall": 1.52
+  },
+  {
+   "radius_um": 5,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 38,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     0,
+     "_22_"
+    ],
+    [
+     0,
+     "_45_"
+    ]
+   ],
+   "wall": 0.66
+  },
+  {
+   "radius_um": 7,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 38,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     0,
+     "_22_"
+    ],
+    [
+     3,
+     "_24_"
+    ]
+   ],
+   "wall": 0.79
+  },
+  {
+   "radius_um": 10,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 39,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     0,
+     "_21_"
+    ],
+    [
+     4,
+     "_47_"
+    ]
+   ],
+   "wall": 0.62
+  },
+  {
+   "radius_um": 15,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 36,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     3,
+     "_19_"
+    ]
+   ],
+   "wall": 0.58
+  },
+  {
+   "radius_um": 25,
+   "flops_flippable": true,
+   "distinct_glitch_discs": 3,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     4,
+     "_19_"
+    ]
+   ],
+   "wall": 0.51
+  },
+  {
+   "radius_um": 0,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 32,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     0,
+     "_31_"
+    ],
+    [
+     0,
+     "_35_"
+    ],
+    [
+     0,
+     "_37_"
+    ]
+   ],
+   "wall": 0.51
+  },
+  {
+   "radius_um": 1.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 32,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     0,
+     "_31_"
+    ],
+    [
+     0,
+     "_35_"
+    ],
+    [
+     0,
+     "_37_"
+    ]
+   ],
+   "wall": 0.49
+  },
+  {
+   "radius_um": 2.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 30,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 3,
+   "events": [
+    [
+     0,
+     "_31_"
+    ],
+    [
+     0,
+     "_35_"
+    ],
+    [
+     0,
+     "_37_"
+    ]
+   ],
+   "wall": 0.59
+  },
+  {
+   "radius_um": 3.5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     0,
+     "_31_"
+    ],
+    [
+     0,
+     "c0/_2_"
+    ]
+   ],
+   "wall": 0.36
+  },
+  {
+   "radius_um": 5,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c0/_3_"
+    ]
+   ],
+   "wall": 0.45
+  },
+  {
+   "radius_um": 7,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 38,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "c1/_3_"
+    ]
+   ],
+   "wall": 0.51
+  },
+  {
+   "radius_um": 10,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 39,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 1,
+   "events": [
+    [
+     1,
+     "_47_"
+    ]
+   ],
+   "wall": 0.36
+  },
+  {
+   "radius_um": 15,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 35,
+   "verdict": "ATTACK_FOUND",
+   "min_events": 2,
+   "events": [
+    [
+     2,
+     "_32_"
+    ],
+    [
+     2,
+     "_40_"
+    ]
+   ],
+   "wall": 0.87
+  },
+  {
+   "radius_um": 25,
+   "flops_flippable": false,
+   "distinct_glitch_discs": 3,
+   "verdict": "NO_ATTACK_UP_TO_BOUND",
+   "min_events": null,
+   "events": [],
+   "wall": 0.43
+  }
+ ],
+ "copy_centroids_um": {
+  "c0": [
+   19.7,
+   23.12,
+   5.91
+  ],
+  "c1": [
+   12.8,
+   22.21,
+   12.64
+  ],
+  "c2": [
+   25.68,
+   15.87,
+   16.38
+  ]
+ },
+ "copy_centroid_dist_um": {
+  "c0-c1": 6.96,
+  "c0-c2": 9.4,
+  "c1-c2": 14.36
+ },
+ "logic_bbox_um": [
+  6.7,
+  6.8,
+  27.4,
+  25.8
+ ]
+}

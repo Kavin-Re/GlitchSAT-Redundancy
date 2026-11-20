@@ -1,0 +1,207 @@
+{
+ "fimodels": {
+  "v1_replay": {
+   "simultaneous_faults": 1,
+   "exclude_auto_fl": [
+    "sig",
+    "clk",
+    "TIE"
+   ],
+   "exclude_cells_graph": [],
+   "stages": {
+    "stage_1": {
+     "inputs": [
+      "$auto$ff.cc:266:slice$105",
+      "$auto$ff.cc:266:slice$106",
+      "$auto$ff.cc:266:slice$107",
+      "$auto$ff.cc:266:slice$108",
+      "$auto$ff.cc:266:slice$109",
+      "$auto$ff.cc:266:slice$110",
+      "$auto$ff.cc:266:slice$111",
+      "$auto$ff.cc:266:slice$112",
+      "TIE0_REG",
+      "TIE1_REG",
+      "sig"
+     ],
+     "outputs": [
+      "$auto$ff.cc:266:slice$105",
+      "$auto$ff.cc:266:slice$106",
+      "$auto$ff.cc:266:slice$107",
+      "$auto$ff.cc:266:slice$108",
+      "$auto$ff.cc:266:slice$109",
+      "$auto$ff.cc:266:slice$110",
+      "$auto$ff.cc:266:slice$111",
+      "$auto$ff.cc:266:slice$112",
+      "TIE0_REG",
+      "TIE1_REG",
+      "$auto$ff.cc:266:slice$105"
+     ],
+     "type": "inout"
+    }
+   },
+   "node_fault_mapping": {
+    "AND2_X1": [
+     "NAND2_X1"
+    ],
+    "OR2_X1": [
+     "NOR2_X1"
+    ],
+    "XOR2_X1": [
+     "XNOR2_X1"
+    ],
+    "INV_X1": [
+     "BUF_X1"
+    ],
+    "MUX2_X1": [
+     "MUXI2_X1"
+    ],
+    "DFF_X1": [],
+    "input": [],
+    "output": []
+   },
+   "fault_locations": {
+    "$abc$255$auto$blifparse.cc:386:parse_blif$280": [
+     "stage_1"
+    ]
+   },
+   "output_values": {
+    "$auto$ff.cc:266:slice$105": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$106": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$107": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$108": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$109": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$110": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$111": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$112": {
+     "O": {
+      "0": 0
+     }
+    }
+   },
+   "input_values": {
+    "$auto$ff.cc:266:slice$105": {
+     "D": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$106": {
+     "D": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$107": {
+     "D": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$108": {
+     "D": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$109": {
+     "D": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$110": {
+     "D": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$111": {
+     "D": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$112": {
+     "D": {
+      "0": 1
+     }
+    },
+    "TIE0_REG": {
+     "D": {
+      "0": 0
+     }
+    },
+    "TIE1_REG": {
+     "D": {
+      "0": 1
+     }
+    },
+    "sig": {}
+   },
+   "alert_values": {},
+   "output_fault_values": {
+    "$auto$ff.cc:266:slice$105": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$106": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$107": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$108": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$109": {
+     "O": {
+      "0": 1
+     }
+    },
+    "$auto$ff.cc:266:slice$110": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$111": {
+     "O": {
+      "0": 0
+     }
+    },
+    "$auto$ff.cc:266:slice$112": {
+     "O": {
+      "0": 1
+     }
+    }
+   }
+  }
+ }
+}

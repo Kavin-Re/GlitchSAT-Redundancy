@@ -1,0 +1,35 @@
+== symbiyosys
+  Version             Build            
+ ───────────────────────────────────────
+  0.0.0_0074_g091222b 20201202_112618  
+
+== yosys-smtbmc
+Using Flat Repodata for conda-forge/noarch                                                      ✔ Starting
+Using Flat Repodata for conda-forge/noarch                                                ✔ Done (1.3 sec)
+Parsing Packages' Records                                                                 ✔ Done (3.5 sec)
+No entries matching "yosys-smtbmc" found
+== boolector
+Using Flat Repodata for conda-forge/noarch                                                      ✔ Starting
+Using Flat Repodata for conda-forge/noarch                                                ✔ Done (1.3 sec)
+Parsing Packages' Records                                                                 ✔ Done (4.1 sec)
+No entries matching "boolector" found
+== yices
+Using Flat Repodata for conda-forge/noarch                                                      ✔ Starting
+Using Flat Repodata for conda-forge/noarch                                                ✔ Done (1.0 sec)
+Parsing Packages' Records                                                                 ✔ Done (3.4 sec)
+No entries matching "yices" found
+== abc
+Using Flat Repodata for conda-forge/noarch                                                      ✔ Starting
+Using Flat Repodata for conda-forge/noarch                                                ✔ Done (1.3 sec)
+Parsing Packages' Records                                                                 ✔ Done (3.5 sec)
+No entries matching "abc" found
+== yosys
+  ...                (164 hidden versions)          ...
+  0.20_43_g1c36f4cc2 20220811_123320_py37              
+  0.20_42_g556d008ed 20220811_123320_py37              
+
+== z3
+Using Flat Repodata for conda-forge/noarch                                                      ✔ Starting
+Using Flat Repodata for conda-forge/noarch                                                ✔ Done (1.1 sec)
+Parsing Packages' Records                                                                 ✔ Done (3.3 sec)
+No entries matching "z3" found

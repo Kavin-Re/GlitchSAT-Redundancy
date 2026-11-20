@@ -1,0 +1,4 @@
+apt v2: v2: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)  solve=0.191s   min faults: 2 [('$abc$275$new_n74_', 0), ('$abc$275$new_n58_', 2)] input {'sig': '0xC0'} 
+conda v2: v2: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)  solve=0.206s   min faults: 3 [('$abc$275$new_n55', 1), ('$abc$275$new_n59', 4), ('boot_word[2]', 5)] input {'sig': '0xC1'} 
+apt v2e: v2e: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)  solve=0.199s   min faults: 3 [('$abc$275$new_n57_', 0), ('$abc$275$new_n72_', 3), ('boot_word[2]', 5)] input {'sig': '0x00'} 
+conda v2e: v2e: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)  solve=0.226s   min faults: 3 [('boot_word[0]', 1), ('boot_word[5]', 3), ('$abc$275$new_n69', 4)] input {'sig': '0xC0'} 

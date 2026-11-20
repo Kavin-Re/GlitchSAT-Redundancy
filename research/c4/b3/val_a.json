@@ -1,0 +1,101 @@
+[
+ {
+  "design": "v0",
+  "model": "stem_flip",
+  "T": 4,
+  "kmax": 2,
+  "z3": "1",
+  "brute": 1,
+  "tried": 3,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "rail_all",
+  "T": 4,
+  "kmax": 2,
+  "z3": ">2",
+  "brute": ">2",
+  "tried": 11,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "rail_half",
+  "T": 4,
+  "kmax": 2,
+  "z3": ">2",
+  "brute": ">2",
+  "tried": 11,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "rail_unions",
+  "T": 4,
+  "kmax": 2,
+  "z3": ">2",
+  "brute": ">2",
+  "tried": 79,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "rail_cone",
+  "T": 4,
+  "kmax": 2,
+  "z3": "1",
+  "brute": 1,
+  "tried": 15,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "reset_one",
+  "T": 4,
+  "kmax": 2,
+  "z3": "1",
+  "brute": 1,
+  "tried": 22,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "early_one",
+  "T": 4,
+  "kmax": 2,
+  "z3": ">2",
+  "brute": ">2",
+  "tried": 37,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "early_all",
+  "T": 4,
+  "kmax": 2,
+  "z3": ">2",
+  "brute": ">2",
+  "tried": 11,
+  "agree": true,
+  "secs": 0.0
+ },
+ {
+  "design": "v0",
+  "model": "hold_one",
+  "T": 4,
+  "kmax": 2,
+  "z3": ">2",
+  "brute": ">2",
+  "tried": 22,
+  "agree": true,
+  "secs": 0.0
+ }
+]

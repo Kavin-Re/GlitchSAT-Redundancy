@@ -1,0 +1,41 @@
+* NGSPICE file created from door_flat.ext - technology: sky130A
+
+.subckt door_flat clk ena rst_n ui_in[4] ui_in[5] ui_in[6] ui_in[7] uio_in[0] uio_in[1]
++ uio_in[2] uio_in[3] uio_in[4] uio_in[5] uio_in[6] uio_in[7] uo_out[0] uo_out[1]
++ uo_out[7] ui_in[1] ui_in[3] ui_in[0] VPWR ui_in[2]
+X0 uo_out[1] ui_in[1] VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.195 pd=1.39 as=0.17575 ps=1.395 w=1 l=0.15
+R0 FILLER_3_30.VNB uo_out[7] sky130_fd_pr__res_generic_po w=0.48 l=0.045
+X1 VPWR FILLER_3_30.VNB VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.2262 pd=2.26 as=3.385525 ps=32.61 w=0.87 l=0.59
+X2 VPWR ui_in[0] a_2137_2767# VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.135 ps=1.27 w=1 l=0.15
+X3 uo_out[1] a_1232_2741# a_1162_3087# FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.11375 ps=1 w=0.65 l=0.15
+X4 a_1769_3087# ui_in[1] FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.1092 pd=1.36 as=0.0609 ps=0.71 w=0.42 l=0.15
+X5 VPWR FILLER_3_30.VNB VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.2262 pd=2.26 as=0 ps=0 w=0.87 l=0.59
+X6 a_1769_3087# ui_in[1] VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.1085 pd=1.36 as=0.1226 ps=1.32 w=0.42 l=0.15
+X7 a_2137_2767# ui_in[2] a_2041_2767# VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.135 pd=1.27 as=0.165 ps=1.33 w=1 l=0.15
+X8 VPWR ui_in[3] a_1591_2770# VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.1226 pd=1.32 as=0.1092 ps=1.36 w=0.42 l=0.15
+X9 a_1232_2741# ui_in[0] FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.1827 pd=1.71 as=0.1092 ps=1.36 w=0.42 l=0.15
+X10 VPWR ui_in[2] a_763_2767# VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.17575 pd=1.395 as=0.1092 ps=1.36 w=0.42 l=0.15
+X11 FILLER_3_30.VNB VPWR FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.143 pd=1.62 as=2.167 ps=23.43 w=0.55 l=0.59
+X12 a_1162_3087# a_763_2767# a_1062_3087# FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.11375 pd=1 as=0.11375 ps=1 w=0.65 l=0.15
+X13 FILLER_3_30.VNB a_1591_2770# uo_out[0] FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.10725 pd=0.98 as=0.08775 ps=0.92 w=0.65 l=0.15
+X14 uo_out[0] a_1769_3087# FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.169 ps=1.82 w=0.65 l=0.15
+X15 VPWR a_1232_2741# uo_out[1] VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.175 ps=1.35 w=1 l=0.15
+X16 VPWR FILLER_3_30.VNB VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.2262 pd=2.26 as=0 ps=0 w=0.87 l=0.59
+X17 a_1062_3087# ui_in[3] a_954_3087# FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.11375 pd=1 as=0.12675 ps=1.04 w=0.65 l=0.15
+X18 FILLER_3_30.VNB VPWR FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.143 pd=1.62 as=0 ps=0 w=0.55 l=0.59
+X19 a_954_3087# ui_in[1] FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.12675 pd=1.04 as=0.11975 ps=1.045 w=0.65 l=0.15
+X20 uo_out[1] a_763_2767# VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.175 pd=1.35 as=0.175 ps=1.35 w=1 l=0.15
+X21 a_2041_2767# a_1591_2770# a_1957_2767# VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.165 pd=1.33 as=0.135 ps=1.27 w=1 l=0.15
+X22 FILLER_3_30.VNB ui_in[0] uo_out[0] FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.08775 ps=0.92 w=0.65 l=0.15
+X23 VPWR FILLER_3_30.VNB VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.2262 pd=2.26 as=0 ps=0 w=0.87 l=0.59
+X24 FILLER_3_30.VNB ui_in[3] a_1591_2770# FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.0609 pd=0.71 as=0.1092 ps=1.36 w=0.42 l=0.15
+X25 a_1232_2741# ui_in[0] VPWR VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.1827 pd=1.71 as=0.1092 ps=1.36 w=0.42 l=0.15
+X26 a_1957_2767# a_1769_3087# uo_out[0] VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.135 pd=1.27 as=0.2559 ps=2.52 w=1 l=0.15
+X27 FILLER_3_30.VNB VPWR FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.143 pd=1.62 as=0 ps=0 w=0.55 l=0.59
+X28 uo_out[0] ui_in[2] FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.10725 ps=0.98 w=0.65 l=0.15
+X29 FILLER_3_30.VNB VPWR FILLER_3_30.VNB FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.143 pd=1.62 as=0 ps=0 w=0.55 l=0.59
+X30 FILLER_3_30.VNB ui_in[2] a_763_2767# FILLER_3_30.VNB sky130_fd_pr__nfet_01v8 ad=0.11975 pd=1.045 as=0.1092 ps=1.36 w=0.42 l=0.15
+X31 VPWR ui_in[3] uo_out[1] VPWR sky130_fd_pr__pfet_01v8_hvt ad=0.175 pd=1.35 as=0.195 ps=1.39 w=1 l=0.15
+R1 _2_.HI VPWR sky130_fd_pr__res_generic_po w=0.48 l=0.045
+.ends
+

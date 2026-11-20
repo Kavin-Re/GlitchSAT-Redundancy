@@ -1,0 +1,9 @@
+liberty-parser==0.0.29
+Mako==1.4.3
+networkx==3.7
+numpy==2.5.5
+protobuf==7.36.2
+python-sat==1.9.dev24
+ray==2.60.0
+setuptools==80.10.2
+sympy==1.14.0

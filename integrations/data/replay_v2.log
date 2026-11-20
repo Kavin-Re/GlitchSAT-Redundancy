@@ -1,0 +1,17 @@
+/tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+--------------------------------------------------------------------------------
+2026-11-19 19:19:28.817937: Starting FI Injector for fault model v2_replay_solver_set with 3 simultaneous faults.
+[36m(pid=11734)[0m /tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+[36m(pid=11734)[0m   import pkg_resources
+Injecting 3 faults...
+[36m(pid=12093)[0m /tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.[32m [repeated 4x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=12093)[0m   import pkg_resources[32m [repeated 4x across cluster][0m
+Found 3 (100.0%) effective combinational faults, 0 (0.0%) effective sequential faults, and 0 ineffective faults.
+Circuit size of the whole circuit: 98.0 GE and of the analyzed target graph: 89.33 GE.
+--------------------------------------------------------------------------------
+RESULT model=v2_replay_solver_set k=3 total_fault_sets=1 effective=1 ineffective=0
+  EFFECTIVE: net66[386:parse_blif$252] stage=stage_1 NOR2_X1 + net73[386:parse_blif$252] stage=stage_1 NOR2_X1 + net80[386:parse_blif$252] stage=stage_1 NOR2_X1
+RUNTIME_s 14.4
+[36m(pid=12094)[0m /tmp/work_in/synfi_src/helpers.py:17: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.[32m [repeated 3x across cluster][0m
+[36m(pid=12094)[0m   import pkg_resources[32m [repeated 3x across cluster][0m

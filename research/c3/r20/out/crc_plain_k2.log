@@ -1,0 +1,5 @@
+bootcrc: ATTACK_FOUND  (k<=2, cycles=4, reduce=full)  solve=0.061s
+  min faults: 1 [('$flatten\\u.$abc$12373$new_n46_', 2)] input {'sig': '0x7F'}
+  SINGLE POINT OF FAILURE: gate output `$flatten\u.$abc$12373$new_n46_` (XOR), flipped for one cycle at cycle 2, reaches 1/1 bits of `ok` and is enough to reach the accept value.
+  FIX: Duplicate the logic that feeds this net and keep the copies independent (no shared gate), then compare/decide per bit instead of through one net.
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.

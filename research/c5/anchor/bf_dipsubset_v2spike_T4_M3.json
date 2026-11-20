@@ -1,0 +1,1 @@
+{"netlist": "v2_spike.json", "T": 4, "max_sites": 3, "events_tried": 292904, "attacking_sets_by_size": {"0": 0, "1": 0, "2": 0, "3": 22}, "secs": 92.3, "first_witnesses": {"3": [[1, ["word[0]", "$flatten\\c1.$abc$251$new_n10_", "$flatten\\c2.$abc$251$new_n10_"]], [1, ["word[0]", "$flatten\\c1.$abc$251$new_n10_", "$flatten\\c2.$abc$251$new_n12_"]]]}}

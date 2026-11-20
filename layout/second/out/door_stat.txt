@@ -1,0 +1,20 @@
+
+8. Printing statistics.
+
+=== door ===
+
+   Number of wires:                  8
+   Number of wire bits:             43
+   Number of public wires:           8
+   Number of public wire bits:      43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     sky130_fd_sc_hd__conb_1         1
+     sky130_fd_sc_hd__nand4bb_1      1
+     sky130_fd_sc_hd__nor4bb_1       1
+
+   Chip area for module '\door': 25.024000
+     of which used for sequential elements: 0.000000 (0.00%)
+

@@ -1,0 +1,604 @@
+[
+ {
+  "id": "flip_and",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.7",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "flip_and",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "3.4",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "no_flop_sites",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "14.6",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "no_gate_sites",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "9.5",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "no_gate_sites",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "3.1",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "k_plus1",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "6.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "flip_or",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "40.2",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "k_plus1",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "3.2",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "k_minus1",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.5",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "k_minus1",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "3.6",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "drop_atmost",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "3.5",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "drop_atmost",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.7",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "flip_or",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "62.0",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "no_flop_sites",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "85.2",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "min_off",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "55.9",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "min_bound2",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "44.4",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "min_off",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "77.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "min_bound2",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "64.9",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "min_nopop_brk",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "48.2",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "min_nopop_brk",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "71.7",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "temporal_off2",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "26.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "temporal_off2",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "8.5",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "temporal_off1",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "31.7",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "hits_or",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.1",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "hits_or",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.8",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "goal_shift",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "0.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "goal_shift",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.4",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "goal_invert",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "0.8",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "goal_invert",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.4",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "temporal_off1",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "65.4",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "coi_nolast",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "21.1",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "first_cycle_only",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "first_cycle_only",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.3",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "key_eq",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "key_eq",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.8",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "last_cycle_only",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "19.1",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "skip_badonly",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.2",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "skip_badonly",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.5",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "fixed_in_neg",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.4",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "fixed_in_neg",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "honest_invert",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.1",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "honest_invert",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.4",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "coi_nolast",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "30.5",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "honest_badonly",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "3.4",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "honest_badonly",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.0",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "and_to_or",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.8",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "and_to_or",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.0",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "or_to_and",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "2.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "or_to_and",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.0",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "last_cycle_only",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "46.6",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "honest_nofix",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "39.8",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "xor_to_and",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "32.3",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "honest_nofix",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "58.2",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "not_dropped",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "2.1",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "xor_to_and",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "45.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "not_dropped",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.9",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "mux_swap",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.6",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "xor_to_or",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "40.3",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "xor_to_or",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "57.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "mux_sel_inv",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "0.9",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "init_all_zero",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.6",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "init_all_zero",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "3.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "mux_swap",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "92.7",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "init_bit_inv",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "4.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "mux_sel_inv",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "95.9",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "init_bit_inv",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.2",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "state_hold",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "2.0",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "state_hold",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "4.6",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "init_default1",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "72.8",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "cycles_minus1",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "28.7",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "init_default1",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "97.2",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "cycles_minus1",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "63.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "simp_off",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "61.0",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "simp_off",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "59.2",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "simp_always",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "57.1",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "simp_always",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "39.8",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "dist_goal_none",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "17.7",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "fanin_incl_y",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "1.7",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "fanin_incl_y",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "1.0",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "dist_noinc",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "39.6",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "dist_goal_none",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "41.4",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "multidrv_off",
+  "suite": "product",
+  "status": "KILLED",
+  "secs": "28.6",
+  "file": "product/src/faultbound_wt/_engine.py"
+ },
+ {
+  "id": "dist_noinc",
+  "suite": "root",
+  "status": "SURVIVED",
+  "secs": "83.7",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "multidrv_off",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "59.3",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "inport_drv_off",
+  "suite": "root",
+  "status": "KILLED",
+  "secs": "60.7",
+  "file": "scripts/glitchsat.py"
+ },
+ {
+  "id": "inport_drv_off",
+  "suite": "product",
+  "status": "SURVIVED",
+  "secs": "54.4",
+  "file": "product/src/faultbound_wt/_engine.py"
+ }
+]

@@ -1,0 +1,61 @@
+## Determinism
+configs 864 raw-identical x3: 864 canon-identical x3: 864
+
+## min flips distribution by design x build
+v0 apt0.33 {'1': 88, 'ENGINE_UNSUPPORTED': 8}
+v0 conda-formal0.38 {'1': 88, 'ENGINE_UNSUPPORTED': 8}
+v0 conda-eda0.38 {'1': 88, 'ENGINE_UNSUPPORTED': 8}
+v1 apt0.33 {'1': 77, '2': 11, 'ENGINE_UNSUPPORTED': 8}
+v1 conda-formal0.38 {'1': 78, '2': 10, 'ENGINE_UNSUPPORTED': 8}
+v1 conda-eda0.38 {'1': 78, '2': 10, 'ENGINE_UNSUPPORTED': 8}
+v2 apt0.33 {'1': 60, '2': 24, '3': 4, 'ENGINE_UNSUPPORTED': 8}
+v2 conda-formal0.38 {'1': 60, '2': 18, '3': 10, 'ENGINE_UNSUPPORTED': 8}
+v2 conda-eda0.38 {'1': 60, '2': 18, '3': 10, 'ENGINE_UNSUPPORTED': 8}
+
+## V2 min flips by factor value (all builds)
+V2 build apt0.33 {'1': 60, '2': 24, '3': 4, 'ENGINE_UNSUPPORTED': 8}
+V2 build conda-eda0.38 {'1': 60, '2': 18, '3': 10, 'ENGINE_UNSUPPORTED': 8}
+V2 build conda-formal0.38 {'1': 60, '2': 18, '3': 10, 'ENGINE_UNSUPPORTED': 8}
+V2 flow opt {'1': 84, '2': 36, 'ENGINE_UNSUPPORTED': 24}
+V2 flow plain {'1': 96, '2': 24, '3': 24}
+V2 order abc_then_flatten {'1': 78, '2': 36, '3': 18, 'ENGINE_UNSUPPORTED': 12}
+V2 order flatten_then_abc {'1': 102, '2': 24, '3': 6, 'ENGINE_UNSUPPORTED': 12}
+V2 abc AND_OR {'1': 36, '2': 8, '3': 4}
+V2 abc default {'1': 36, '2': 8, '3': 4}
+V2 abc dff {'1': 48}
+V2 abc fast {'1': 12, '2': 36}
+V2 abc noMUX {'1': 36, '2': 8, '3': 4}
+V2 abc noabc {'1': 12, '3': 12, 'ENGINE_UNSUPPORTED': 24}
+V2 merge nomerge {'1': 60, '2': 48, '3': 24, 'ENGINE_UNSUPPORTED': 12}
+V2 merge opt_merge {'1': 120, '2': 12, 'ENGINE_UNSUPPORTED': 12}
+V2 keep keep_off {'1': 90, '2': 30, '3': 12, 'ENGINE_UNSUPPORTED': 12}
+V2 keep keep_on {'1': 90, '2': 30, '3': 12, 'ENGINE_UNSUPPORTED': 12}
+
+## V1
+V1 build apt0.33 {'1': 77, '2': 11, 'ENGINE_UNSUPPORTED': 8}
+V1 build conda-eda0.38 {'1': 78, '2': 10, 'ENGINE_UNSUPPORTED': 8}
+V1 build conda-formal0.38 {'1': 78, '2': 10, 'ENGINE_UNSUPPORTED': 8}
+V1 flow opt {'1': 101, '2': 19, 'ENGINE_UNSUPPORTED': 24}
+V1 flow plain {'1': 132, '2': 12}
+V1 order abc_then_flatten {'1': 125, '2': 7, 'ENGINE_UNSUPPORTED': 12}
+V1 order flatten_then_abc {'1': 108, '2': 24, 'ENGINE_UNSUPPORTED': 12}
+V1 abc AND_OR {'1': 45, '2': 3}
+V1 abc default {'1': 47, '2': 1}
+V1 abc dff {'1': 48}
+V1 abc fast {'1': 24, '2': 24}
+V1 abc noMUX {'1': 45, '2': 3}
+V1 abc noabc {'1': 24, 'ENGINE_UNSUPPORTED': 24}
+V1 merge nomerge {'1': 113, '2': 19, 'ENGINE_UNSUPPORTED': 12}
+V1 merge opt_merge {'1': 120, '2': 12, 'ENGINE_UNSUPPORTED': 12}
+V1 keep keep_off {'1': 113, '2': 19, 'ENGINE_UNSUPPORTED': 12}
+V1 keep keep_on {'1': 120, '2': 12, 'ENGINE_UNSUPPORTED': 12}
+
+## cross-build disagreements (same flow/order/abc/merge/keep, different min_flips or canon sha)
+VERDICT-DIFF ('v1', 'opt', 'abc_then_flatten', 'default', 'nomerge', 'keep_off') {'apt0.33': 2, 'conda-eda0.38': 1, 'conda-formal0.38': 1}
+VERDICT-DIFF ('v2', 'plain', 'abc_then_flatten', 'AND_OR', 'nomerge', 'keep_off') {'apt0.33': 2, 'conda-eda0.38': 3, 'conda-formal0.38': 3}
+VERDICT-DIFF ('v2', 'plain', 'abc_then_flatten', 'AND_OR', 'nomerge', 'keep_on') {'apt0.33': 2, 'conda-eda0.38': 3, 'conda-formal0.38': 3}
+VERDICT-DIFF ('v2', 'plain', 'abc_then_flatten', 'default', 'nomerge', 'keep_off') {'apt0.33': 2, 'conda-eda0.38': 3, 'conda-formal0.38': 3}
+VERDICT-DIFF ('v2', 'plain', 'abc_then_flatten', 'default', 'nomerge', 'keep_on') {'apt0.33': 2, 'conda-eda0.38': 3, 'conda-formal0.38': 3}
+VERDICT-DIFF ('v2', 'plain', 'abc_then_flatten', 'noMUX', 'nomerge', 'keep_off') {'apt0.33': 2, 'conda-eda0.38': 3, 'conda-formal0.38': 3}
+VERDICT-DIFF ('v2', 'plain', 'abc_then_flatten', 'noMUX', 'nomerge', 'keep_on') {'apt0.33': 2, 'conda-eda0.38': 3, 'conda-formal0.38': 3}
+groups 288 with differing min_flips 7 with differing canonical netlist 288

@@ -1,0 +1,117 @@
+item                             | page | source | status | source file
+scope b2 row0 v0                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row0 v1                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row0 v2                 | 3 | 3 | OK | b2_scope/matrix.jsonl
+scope b2 row0 v2apt              | 2 | 2 | OK | b2_scope/matrix.jsonl
+scope b2 row1 v0                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row1 v1                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row1 v2                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row1 v2apt              | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row2 v0                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row2 v1                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row2 v2                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row2 v2apt              | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row3 v0                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row3 v1                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row3 v2                 | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row3 v2apt              | 1 | 1 | OK | b2_scope/matrix.jsonl
+scope b2 row4 v0                 | 0 | 0 | OK | b2_scope/matrix.jsonl
+scope b2 row4 v1                 | 0 | 0 | OK | b2_scope/matrix.jsonl
+scope b2 row4 v2                 | 0 | 0 | OK | b2_scope/matrix.jsonl
+scope b2 row4 v2apt              | 0 | 0 | OK | b2_scope/matrix.jsonl
+width n=1                        | 0 | 0 | OK | PS5_REPORT.md / M1 csv
+width n=2                        | 1 | 1 | OK | PS5_REPORT.md / M1 csv
+width n=3                        | 1 | 1 | OK | PS5_REPORT.md / M1 csv
+width n=4                        | 2 | 2 | OK | PS5_REPORT.md / M1 csv
+width n=5                        | 2 | 2 | OK | PS5_REPORT.md / M1 csv
+width n=6                        | 3 | 3 | OK | PS5_REPORT.md / M1 csv
+width n=7                        | 3 | 3 | OK | PS5_REPORT.md / M1 csv
+width n=8                        | 3 | 3 | OK | PS5_REPORT.md / M1 csv
+e2 v0 min1/2/3                   | (264, 0, 0) | (264, 0, 0) | OK | E2_REPORT.md table 3
+e2 v1 min1/2/3                   | (233, 31, 0) | (233, 31, 0) | OK | E2_REPORT.md table 3
+e2 v2 min1/2/3                   | (180, 60, 24) | (180, 60, 24) | OK | E2_REPORT.md table 3
+width n=1 vs csv                 | 0 | 0 | OK | m1_all_masks.csv
+width n=2 vs csv                 | 1 | 1 | OK | m1_all_masks.csv
+width n=3 vs csv                 | 1 | 1 | OK | m1_all_masks.csv
+width n=4 vs csv                 | 2 | 2 | OK | m1_all_masks.csv
+width n=5 vs csv                 | 2 | 2 | OK | m1_all_masks.csv
+width n=6 vs csv                 | 3 | 3 | OK | m1_all_masks.csv
+width n=7 vs csv                 | 3 | 3 | OK | m1_all_masks.csv
+width n=8 vs csv                 | 3 | 3 | OK | m1_all_masks.csv
+rail stem_flip v0                | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail stem_flip v1                | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail stem_flip v2                | 3 | 3 | OK | b3/matrix_T6.jsonl
+rail stem_flip v2_apt033         | 2 | 2 | OK | b3/matrix_T6.jsonl
+rail stem_flip v5_apt033         | 3 | 3 | OK | b3/matrix_T6.jsonl
+rail rail_all v0                 | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_all v1                 | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_all v2                 | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_all v2_apt033          | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_all v5_apt033          | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_half v0                | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_half v1                | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_half v2                | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_half v2_apt033         | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_half v5_apt033         | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_cone v0                | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail rail_cone v1                | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_cone v2                | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_cone v2_apt033         | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail rail_cone v5_apt033         | >3 | >3 | OK | b3/matrix_T6.jsonl
+rail dip_subset v0               | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail dip_subset v1               | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail dip_subset v2               | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail dip_subset v2_apt033        | 1 | 1 | OK | b3/matrix_T6.jsonl
+rail dip_subset v5_apt033        | 1 | 1 | OK | b3/matrix_T6.jsonl
+engine v0 rtl/plain k1           | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v0 rtl/plain k2           | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v0 rtl/plain k3           | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 rtl/plain k1           | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 rtl/plain k2           | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 rtl/plain k3           | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v2 rtl/plain k1           | ('NO_ATTACK_UP_TO_BOUND', None) | ('NO_ATTACK_UP_TO_BOUND', None) | OK | reproduce_summary.json
+engine v2 rtl/plain k2           | ('ATTACK_FOUND', 2) | ('ATTACK_FOUND', 2) | OK | reproduce_summary.json
+engine v2 rtl/plain k3           | ('ATTACK_FOUND', 2) | ('ATTACK_FOUND', 2) | OK | reproduce_summary.json
+engine v0 rtl/opt k1             | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v0 rtl/opt k2             | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v0 rtl/opt k3             | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 rtl/opt k1             | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 rtl/opt k2             | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 rtl/opt k3             | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v2 rtl/opt k1             | ('NO_ATTACK_UP_TO_BOUND', None) | ('NO_ATTACK_UP_TO_BOUND', None) | OK | reproduce_summary.json
+engine v2 rtl/opt k2             | ('ATTACK_FOUND', 2) | ('ATTACK_FOUND', 2) | OK | reproduce_summary.json
+engine v2 rtl/opt k3             | ('ATTACK_FOUND', 2) | ('ATTACK_FOUND', 2) | OK | reproduce_summary.json
+engine v0 spike/given-netlist k1 | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v0 spike/given-netlist k2 | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v0 spike/given-netlist k3 | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 spike/given-netlist k1 | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 spike/given-netlist k2 | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v1 spike/given-netlist k3 | ('ATTACK_FOUND', 1) | ('ATTACK_FOUND', 1) | OK | reproduce_summary.json
+engine v2 spike/given-netlist k1 | ('NO_ATTACK_UP_TO_BOUND', None) | ('NO_ATTACK_UP_TO_BOUND', None) | OK | reproduce_summary.json
+engine v2 spike/given-netlist k2 | ('NO_ATTACK_UP_TO_BOUND', None) | ('NO_ATTACK_UP_TO_BOUND', None) | OK | reproduce_summary.json
+engine v2 spike/given-netlist k3 | ('ATTACK_FOUND', 3) | ('ATTACK_FOUND', 3) | OK | reproduce_summary.json
+curve v0 k1 T6 runtime           | 0.073 | 0.073 | OK | reproduce_summary.json
+curve v1 k1 T6 runtime           | 0.339 | 0.339 | OK | reproduce_summary.json
+curve v2 k2 T6 runtime           | 1.178 | 1.178 | OK | reproduce_summary.json
+curve v2 k3 T6 runtime           | 5.139 | 5.139 | OK | reproduce_summary.json
+curve v2 k3 T8 runtime           | 44.854 | 44.854 | OK | deep/sweep_main.json
+curve v2 k3 T10 runtime          | 67.917 | 67.917 | OK | deep/sweep_main.json
+curve v2 k3 T12 runtime          | 48.115 | 48.115 | OK | deep/sweep_main.json
+curve v2 k3 T16 runtime          | 188.012 | 188.012 | OK | deep/sweep_main.json
+curve v2 k3 T20 runtime          | 474.438 | 474.438 | OK | deep/sweep_main.json
+curve v2 k2 T8 runtime           | 11.658 | 11.658 | OK | deep/sweep_main.json
+curve v2 k2 T10 runtime          | 55.363 | 55.363 | OK | deep/sweep_main.json
+curve v2 k2 T12 runtime          | 53.306 | 53.306 | OK | deep/sweep_main.json
+curve v2 k2 T16 runtime          | 150.074 | 150.074 | OK | deep/sweep_main.json
+curve v2 k2 T20 runtime          | 293.507 | 293.507 | OK | deep/sweep_main.json
+curve v1 k1 T8 runtime           | 0.699 | 0.699 | OK | deep/sweep_main.json
+curve v1 k1 T10 runtime          | 0.851 | 0.851 | OK | deep/sweep_main.json
+curve v1 k1 T12 runtime          | 0.681 | 0.681 | OK | deep/sweep_main.json
+curve v1 k1 T16 runtime          | 1.515 | 1.515 | OK | deep/sweep_main.json
+curve v1 k1 T20 runtime          | 2.025 | 2.025 | OK | deep/sweep_main.json
+curve v0 k1 T8 runtime           | 0.326 | 0.326 | OK | deep/sweep_main.json
+curve v0 k1 T10 runtime          | 0.523 | 0.523 | OK | deep/sweep_main.json
+curve v0 k1 T12 runtime          | 0.285 | 0.285 | OK | deep/sweep_main.json
+curve v0 k1 T16 runtime          | 1.029 | 1.029 | OK | deep/sweep_main.json
+curve v0 k1 T20 runtime          | 1.333 | 1.333 | OK | deep/sweep_main.json
+115 checked, 0 mismatches

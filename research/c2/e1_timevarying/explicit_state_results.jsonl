@@ -1,0 +1,4 @@
+{"netlist": "reference/spike_netlists/v1.json", "top": "v1", "K": 1, "goal_hit_reachable": true, "at_cycle": 2, "fixpoint_reached": false, "cycles_explored": 3, "reachable_state_used_pairs": 32, "sites": 66, "seconds": 0.1}
+{"netlist": "reference/spike_netlists/v2.json", "top": "v2", "K": 1, "goal_hit_reachable": false, "at_cycle": null, "fixpoint_reached": true, "cycles_explored": 3, "reachable_state_used_pairs": 33, "sites": 76, "seconds": 0.1}
+{"netlist": "reference/spike_netlists/v2.json", "top": "v2", "K": 2, "goal_hit_reachable": false, "at_cycle": null, "fixpoint_reached": true, "cycles_explored": 3, "reachable_state_used_pairs": 141, "sites": 76, "seconds": 3.6}
+{"netlist": "reference/spike_netlists/v2.json", "top": "v2", "K": 3, "goal_hit_reachable": true, "at_cycle": 2, "fixpoint_reached": false, "cycles_explored": 3, "reachable_state_used_pairs": 344, "sites": 76, "seconds": 108.5}

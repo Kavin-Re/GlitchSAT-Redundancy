@@ -1,0 +1,50 @@
+V0 slope 0.984 dmin 1 lead/est@1e-3 1.019
+   0.001 45282 elig True P2 in P4viol False S/est 1.006 ci 0.0106974 0.0108954
+   0.00177828 80121 elig True P2 in P4viol False S/est 1.001 ci 0.0189715 0.0192338
+   0.00316228 140512 elig True P2 in P4viol False S/est 0.996 ci 0.0333287 0.0336733
+   0.00562341 242041 elig True P2 OUT P4viol False S/est 0.991 ci 0.0574841 0.0579307
+   0.01 405234 elig True P2 OUT P4viol False S/est 0.972 ci 0.0963327 0.0968984
+   0.0177828 653425 elig True P2 OUT P4viol False S/est 0.883 ci 0.155442 0.156136
+   0.0316228 972509 elig True P2 OUT P4viol False S/est 0.646 ci 0.23146 0.232268
+   0.0562341 1313611 elig True P2 OUT P4viol False S/est 0.256 ci 0.312745 0.313633
+   0.1 1601938 elig True P2 OUT P4viol False S/est 0.024 ci 0.381467 0.382397
+V1 slope 0.881 dmin 1 lead/est@1e-3 1.043
+   0.001 4022 elig True P2 in P4viol False S/est 0.988 ci 0.000929524 0.000989007
+   0.00177828 6829 elig True P2 in P4viol False S/est 0.988 ci 0.0015898 0.00166721
+   0.00316228 11095 elig True P2 in P4viol False S/est 0.982 ci 0.00259632 0.00269487
+   0.00562341 17644 elig True P2 OUT P4viol False S/est 0.877 ci 0.00414494 0.00426906
+   0.01 24421 elig True P2 OUT P4viol False S/est 0.654 ci 0.00574983 0.00589569
+   0.0177828 29536 elig True P2 OUT P4viol False S/est 0.270 ci 0.00696213 0.00712242
+   0.0316228 30199 elig True P2 OUT P4viol False S/est 0.029 ci 0.00711931 0.00728138
+   0.0562341 33055 elig False P2 OUT P4viol False S/est 0.000 ci 0.00779652 0.00796601
+   0.1 40232 elig False P2 OUT P4viol False S/est 0.000 ci 0.009499 0.00968579
+V2-stored slope 3.003 dmin 3 lead/est@1e-3 1.163
+   0.001 172 elig True P2 in P4viol False S/est 0.861 ci 5.8882e-08 7.98579e-08
+   0.00177828 202 elig True P2 OUT P4viol False S/est 0.579 ci 3.93846e-07 5.21507e-07
+   0.00316228 174 elig True P2 OUT P4viol False S/est 0.447 ci 1.87104e-06 2.53303e-06
+   0.00562341 196 elig True P2 OUT P4viol False S/est 0.195 ci 1.15476e-05 1.53571e-05
+   0.01 223 elig False P2 OUT P4viol False S/est 0.073 ci 4.64178e-05 6.06223e-05
+   0.0177828 1025 elig False P2 OUT P4viol False S/est 0.008 ci 0.000229647 0.000259808
+   0.0316228 3845 elig False P2 OUT P4viol False S/est 0.000 ci 0.000887983 0.000946149
+   0.0562341 11386 elig False P2 OUT P4viol False S/est 0.000 ci 0.00266506 0.00276489
+   0.1 25211 elig False P2 OUT P4viol False S/est 0.000 ci 0.00593702 0.00608521
+V2-apt slope 2.137 dmin 2 lead/est@1e-3 1.007
+   0.001 200 elig True P2 in P4viol False S/est 1.006 ci 2.58149e-06 3.42312e-06
+   0.00177828 214 elig True P2 in P4viol False S/est 0.908 ci 8.45986e-06 1.11114e-05
+   0.00316228 256 elig True P2 OUT P4viol False S/est 0.644 ci 3.07354e-05 3.94216e-05
+   0.00562341 488 elig True P2 OUT P4viol False S/est 0.357 ci 0.000106254 0.000127143
+   0.01 1662 elig True P2 OUT P4viol False S/est 0.101 ci 0.000377432 0.000415767
+   0.0177828 5080 elig True P2 OUT P4viol False S/est 0.009 ci 0.00117811 0.00124492
+   0.0316228 12270 elig False P2 OUT P4viol False S/est 0.000 ci 0.00287393 0.00297755
+   0.0562341 23004 elig False P2 OUT P4viol False S/est 0.000 ci 0.00541412 0.00555572
+   0.1 33352 elig False P2 OUT P4viol False S/est 0.000 ci 0.00786696 0.0080372
+V2e slope 2.971 dmin 3 lead/est@1e-3 1.170
+   0.001 171 elig True P2 OUT P4viol False S/est 0.796 ci 5.36735e-07 7.28601e-07
+   0.00177828 179 elig True P2 OUT P4viol False S/est 0.573 ci 3.11947e-06 4.20488e-06
+   0.00316228 181 elig True P2 OUT P4viol False S/est 0.358 ci 1.6487e-05 2.21862e-05
+   0.00562341 375 elig True P2 OUT P4viol False S/est 0.167 ci 8.05861e-05 9.89297e-05
+   0.01 1514 elig True P2 OUT P4viol False S/est 0.042 ci 0.000343013 0.000379614
+   0.0177828 5136 elig False P2 OUT P4viol False S/est 0.003 ci 0.00119128 0.00125845
+   0.0316228 13153 elig False P2 OUT P4viol False S/est 0.000 ci 0.00308264 0.00318989
+   0.0562341 25027 elig False P2 OUT P4viol False S/est 0.000 ci 0.00589342 0.00604107
+   0.1 36202 elig False P2 OUT P4viol False S/est 0.000 ci 0.00854292 0.00872021

@@ -1,0 +1,177 @@
+⚠ Shard Index for litex-hub/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for litex-hub/linux-64                                                      ✔ Starting
+Using Flat Repodata for litex-hub/linux-64                                                ✔ Done (0.1 sec)
+⚠ Shard Index for litex-hub/noarch not available, falling back to flat repodata
+Using Flat Repodata for litex-hub/noarch                                                        ✔ Starting
+Using Flat Repodata for litex-hub/noarch                                                  ✔ Done (0.0 sec)
+Fetch Shard Index for conda-forge/linux-64                                                      ⧖ Starting
+Fetch Shard Index for conda-forge/linux-64                                                ✔ Done (0.3 sec)
+Fetch Shard Index for conda-forge/noarch                                                        ⧖ Starting
+Fetch Shard Index for conda-forge/noarch                                                  ✔ Done (0.6 sec)
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                    ✔ Done (15.4 sec)
+Parsing Packages' Records                                                                ✔ Done (16.9 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (2.1 sec)
+
+Transaction
+
+  Prefix: /tmp/mm_root2/envs/eda
+
+  Updating specs:
+
+   - openroad
+   - magic
+   - netgen
+   - yosys
+   - open_pdks.sky130a
+
+
+  Package                          Version  Build                 Channel          Size
+─────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+─────────────────────────────────────────────────────────────────────────────────────────
+
+  + _openmp_mutex                      4.5  20_gnu                conda-forge      29kB
+  + boost-cpp                       1.76.0  h312852a_1            conda-forge      18MB
+  + bzip2                            1.0.8  hda65f42_10           conda-forge     258kB
+  + ca-certificates             2026.10.23  hbd8a1cb_0            conda-forge     130kB
+  + cairo                           1.16.0  h6cf1ce9_1008         conda-forge       2MB
+  + expat                            2.9.0  hd2095e1_0            conda-forge     153kB
+  + fontconfig                      2.14.2  h14ed4e7_0            conda-forge     272kB
+  + freetype                        2.12.1  h267a509_2            conda-forge     635kB
+  + icu                               68.2  h9c3ff4c_0            conda-forge      14MB
+  + ld_impl_linux-64                2.46.1  bootstrap_ha15bf96_3  conda-forge     745kB
+  + libexpat                         2.9.0  hd2095e1_0            conda-forge      79kB
+  + libffi                           3.4.6  h2dba641_1            conda-forge      57kB
+  + libgcc                          16.2.0  ha9f2e26_7            conda-forge       1MB
+  + libgcc-ng                       16.2.0  h69a702a_7            conda-forge      29kB
+  + libglib                         2.80.2  hf974151_0            conda-forge       4MB
+  + libgomp                         16.2.0  he0feb66_7            conda-forge     641kB
+  + libiconv                          1.18  h0cb94f2_3            conda-forge     789kB
+  + liblzma                          5.8.3  hb03c661_1            conda-forge     113kB
+  + liblzma-devel                    5.8.3  hb03c661_1            conda-forge     492kB
+  + libnsl                           2.0.1  hb9d3cd8_1            conda-forge      34kB
+  + libpng                          1.6.43  h2797004_0            conda-forge     288kB
+  + libsqlite                       3.46.0  hde9e2c9_0            conda-forge     865kB
+  + libstdcxx                       16.2.0  h934c35e_7            conda-forge       7MB
+  + libstdcxx-ng                    16.2.0  hdf11a46_7            conda-forge      29kB
+  + libuuid                         2.42.4  hcfc3c73_1            conda-forge      36kB
+  + libxcb                          1.17.0  hb83e432_3            conda-forge     399kB
+  + libzlib                         1.2.13  h4ab18f5_6            conda-forge      62kB
+  + magic               8.3.464_0_gcb73ebf  20240223_100318       litex-hub         5MB
+  + ncurses                            6.6  hdb14827_1            conda-forge     911kB
+  + netgen              1.5.272_0_g178af5f  20240223_100318       litex-hub       792kB
+  + open_pdks.sky130a   1.0.471_0_g97d0844  20240223_100318       litex-hub         1GB
+  + openroad           2.0_3175_gf12e2f474  20220317_162926       litex-hub        23MB
+  + openssl                          3.6.5  h781a0a9_0            conda-forge       3MB
+  + pcre2                            10.43  hcad00b1_0            conda-forge     951kB
+  + pixman                          0.46.4  h54a6638_3            conda-forge     377kB
+  + pthread-stubs                      0.4  h7cc23a3_1004         conda-forge      10kB
+  + python                          3.7.12  hf930737_100_cpython  conda-forge      60MB
+  + python_abi                         3.7  4_cp37m               conda-forge       6kB
+  + readline                           8.3  hd6e31c0_1            conda-forge     349kB
+  + sqlite                          3.46.0  h6d4b2fc_0            conda-forge     860kB
+  + tk                              8.6.13  noxft_h4845f30_101    conda-forge       3MB
+  + xorg-libice                      1.1.2  h280c20c_0            conda-forge      63kB
+  + xorg-libsm                       1.2.6  h0d788c3_1            conda-forge      31kB
+  + xorg-libx11                     1.8.14  hb83e432_0            conda-forge     847kB
+  + xorg-libxau                     1.0.12  h7cc23a3_2            conda-forge      19kB
+  + xorg-libxdmcp                    1.1.5  h7cc23a3_2            conda-forge      23kB
+  + xorg-libxext                     1.3.7  h7cc23a3_1            conda-forge      53kB
+  + xorg-libxrender                 0.9.13  h7cc23a3_0            conda-forge      35kB
+  + xz                               5.8.3  ha02ee65_1            conda-forge      24kB
+  + xz-gpl-tools                     5.8.3  ha02ee65_1            conda-forge      40kB
+  + xz-tools                         5.8.3  hb03c661_1            conda-forge      96kB
+  + yosys               0.38_93_g84116c9a3  20240223_100318_py37  litex-hub        12MB
+  + zlib                            1.2.13  h4ab18f5_6            conda-forge      93kB
+  + zstd                             1.5.6  ha6fb4c9_0            conda-forge     555kB
+
+  Summary:
+
+  Install: 54 packages
+
+  Total download: 1GB
+
+─────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking open_pdks.sky130a-1.0.471_0_g97d0844-20240223_100318
+Linking libgomp-16.2.0-he0feb66_7
+Linking python_abi-3.7-4_cp37m
+Linking ld_impl_linux-64-2.46.1-bootstrap_ha15bf96_3
+Linking _openmp_mutex-4.5-20_gnu
+Linking libgcc-16.2.0-ha9f2e26_7
+Linking xorg-libxau-1.0.12-h7cc23a3_2
+Linking xorg-libxdmcp-1.1.5-h7cc23a3_2
+Linking xorg-libice-1.1.2-h280c20c_0
+Linking libnsl-2.0.1-hb9d3cd8_1
+Linking libffi-3.4.6-h2dba641_1
+Linking libiconv-1.18-h0cb94f2_3
+Linking libexpat-2.9.0-hd2095e1_0
+Linking libuuid-2.42.4-hcfc3c73_1
+Linking pthread-stubs-0.4-h7cc23a3_1004
+Linking ncurses-6.6-hdb14827_1
+Linking bzip2-1.0.8-hda65f42_10
+Linking liblzma-5.8.3-hb03c661_1
+Linking libstdcxx-16.2.0-h934c35e_7
+Linking libgcc-ng-16.2.0-h69a702a_7
+Linking expat-2.9.0-hd2095e1_0
+Linking xorg-libsm-1.2.6-h0d788c3_1
+Linking libxcb-1.17.0-hb83e432_3
+Linking readline-8.3-hd6e31c0_1
+Linking xz-tools-5.8.3-hb03c661_1
+Linking xz-gpl-tools-5.8.3-ha02ee65_1
+Linking liblzma-devel-5.8.3-hb03c661_1
+Linking pixman-0.46.4-h54a6638_3
+Linking libstdcxx-ng-16.2.0-hdf11a46_7
+Linking libzlib-1.2.13-h4ab18f5_6
+Linking xorg-libx11-1.8.14-hb83e432_0
+Linking xz-5.8.3-ha02ee65_1
+Linking icu-68.2-h9c3ff4c_0
+Linking libsqlite-3.46.0-hde9e2c9_0
+Linking libpng-1.6.43-h2797004_0
+Linking pcre2-10.43-hcad00b1_0
+Linking zstd-1.5.6-ha6fb4c9_0
+Linking tk-8.6.13-noxft_h4845f30_101
+Linking zlib-1.2.13-h4ab18f5_6
+Linking xorg-libxrender-0.9.13-h7cc23a3_0
+Linking xorg-libxext-1.3.7-h7cc23a3_1
+Linking sqlite-3.46.0-h6d4b2fc_0
+Linking freetype-2.12.1-h267a509_2
+Linking libglib-2.80.2-hf974151_0
+Linking boost-cpp-1.76.0-h312852a_1
+Linking fontconfig-2.14.2-h14ed4e7_0
+Linking cairo-1.16.0-h6cf1ce9_1008
+Linking ca-certificates-2026.10.23-hbd8a1cb_0
+Linking netgen-1.5.272_0_g178af5f-20240223_100318
+Linking magic-8.3.464_0_gcb73ebf-20240223_100318
+Linking openssl-3.6.5-h781a0a9_0
+Linking python-3.7.12-hf930737_100_cpython
+Linking yosys-0.38_93_g84116c9a3-20240223_100318_py37
+Linking openroad-2.0_3175_gf12e2f474-20220317_162926
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate eda
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n eda mycommand
+
+Requirement already satisfied: klayout in /usr/local/lib/python3.13/site-packages (0.30.13)
+Requirement already satisfied: z3-solver in /usr/local/lib/python3.13/site-packages (5.4.1.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+env ready: /tmp/mm_root2/envs/eda ; then: sh layout/v_designs/flow_patched/all.sh
+
+real	6m36.059s
+user	5m26.046s
+sys	0m11.534s
+EXIT 0

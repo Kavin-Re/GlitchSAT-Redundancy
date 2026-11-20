@@ -1,0 +1,4 @@
+  incl. hangs: T2 52/69 (75.4%) -> T3 52/69 (75.4%)
+root: runs=69 rerun_on_counter=54 killed T2=50 (72.5%) -> T3=50 (72.5%); lost=[]; gained=[]
+  incl. hangs: T2 49/74 (66.2%) -> T3 52/74 (70.3%)
+product: runs=74 rerun_on_counter=51 killed T2=47 (63.5%) -> T3=50 (67.6%); lost=[]; gained=['temporal_off1', 'simp_always', 'timeout_off']

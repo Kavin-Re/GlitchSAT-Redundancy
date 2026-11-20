@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "License: UNDECIDED. Documentation copy only: the authoritative checker is integrations/campaign.py (validate). Our own neutral format, not a third-party tool's native format.",
+  "title": "fault-campaign/0.1",
+  "type": "object",
+  "required": ["schema", "label", "generator", "design", "fault_sets"],
+  "properties": {
+    "schema": {"const": "fault-campaign/0.1"},
+    "label": {"enum": ["MEASURED", "SIMULATED", "ESTIMATED", "ILLUSTRATIVE", "UNVERIFIED"]},
+    "generator": {"type": "object", "required": ["tool"], "properties": {"tool": {"type": "string", "minLength": 1}, "version": {"type": "string"}, "command": {"type": "string"}}},
+    "design": {"type": "object", "required": ["name"], "properties": {"name": {"type": "string", "minLength": 1}, "top": {"type": "string"}, "netlist_file": {"type": "string"}, "netlist_sha256": {"type": "string", "minLength": 64, "maxLength": 64}, "synth_flow": {"type": "string"}, "yosys": {"type": "object"}}},
+    "threat_model": {"type": "object", "properties": {"max_faults": {"type": "integer", "minimum": 0}, "cycles": {"type": "integer", "minimum": 0}, "fault_model": {"type": "string"}, "attacker_input": {"type": "string"}, "goal": {"type": "string"}}},
+    "verdict": {"enum": ["ATTACK_FOUND", "NO_ATTACK_UP_TO_BOUND", "UNKNOWN", "NOT_RUN"]},
+    "notes": {"type": "string"},
+    "fault_sets": {"type": "array", "items": {
+      "type": "object", "required": ["id", "faults"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1}, "label": {"type": "string"}, "source": {"type": "string"},
+        "effective": {"type": ["boolean", "null"]},
+        "faults": {"type": "array", "minItems": 1, "items": {
+          "type": "object", "required": ["target", "cycle", "type"],
+          "properties": {
+            "target": {"type": "object", "required": ["kind", "name"], "properties": {"kind": {"enum": ["net", "cell", "flop_q", "port"]}, "name": {"type": "string", "minLength": 1}, "id": {"type": "integer"}}},
+            "cycle": {"type": "integer", "minimum": 0},
+            "type": {"enum": ["bit_flip", "set", "reset", "stuck_at_0", "stuck_at_1", "gate_replace"]},
+            "replacement": {"type": "string"},
+            "duration": {"type": "integer", "minimum": 1}
+          }}}}}}
+  }
+}

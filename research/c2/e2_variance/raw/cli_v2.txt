@@ -1,0 +1,18 @@
+apt k=1: v2: NO_ATTACK_UP_TO_BOUND  (k<=1, cycles=6, reduce=full)  solve=0.436s
+apt k=1:   BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs
+apt k=2: v2: ATTACK_FOUND  (k<=2, cycles=6, reduce=full)  solve=0.502s
+apt k=2:   min faults: 2 [('$abc$275$new_n58_', 0), ('$abc$275$new_n74_', 0)] input {'sig': '0x03'}
+apt k=3: v2: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)  solve=0.439s
+apt k=3:   min faults: 2 [('$abc$275$new_n58_', 0), ('$abc$275$new_n74_', 0)] input {'sig': '0x03'}
+formal k=1: Traceback (most recent call last):
+formal k=1:   File "/tmp/work_e2/scripts/glitchsat.py", line 13, in <module>
+formal k=2: Traceback (most recent call last):
+formal k=2:   File "/tmp/work_e2/scripts/glitchsat.py", line 13, in <module>
+formal k=3: Traceback (most recent call last):
+formal k=3:   File "/tmp/work_e2/scripts/glitchsat.py", line 13, in <module>
+formal k=1: v2: NO_ATTACK_UP_TO_BOUND  (k<=1, cycles=6, reduce=full)  solve=0.378s
+formal k=1:   BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It say
+formal k=2: v2: NO_ATTACK_UP_TO_BOUND  (k<=2, cycles=6, reduce=full)  solve=2.397s
+formal k=2:   BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It say
+formal k=3: v2: ATTACK_FOUND  (k<=3, cycles=6, reduce=full)  solve=2.548s
+formal k=3:   min faults: 3 [('$abc$275$new_n59', 0), ('$procmux$10.Y[6]', 0), ('boot_word[3]', 1)] input {'sig': '0x03'}

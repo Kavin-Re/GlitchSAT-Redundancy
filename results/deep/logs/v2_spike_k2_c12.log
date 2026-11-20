@@ -1,0 +1,4 @@
+CMD: python3 -I results/deep/run_one.py results/deep/work/nl/v2_spike.json v2 2 12 results/deep/json/v2_spike_k2_c12.json
+v2 NO_ATTACK_UP_TO_BOUND min None wall 53.46 [] honest True
+
+wall_s=53.64

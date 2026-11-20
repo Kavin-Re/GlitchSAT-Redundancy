@@ -1,0 +1,72 @@
+{
+  "schema": "fault-campaign/0.1",
+  "label": "MEASURED",
+  "generator": {
+    "tool": "glitchsat.py",
+    "command": "python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 3 --cycles 6"
+  },
+  "design": {
+    "name": "v2 triplicated (spike netlist)",
+    "top": "v2",
+    "netlist_file": "reference/spike_netlists/v2.json",
+    "synth_flow": "given-netlist",
+    "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+    "yosys": {
+      "version": "0.33",
+      "plus_commits": 0,
+      "git_sha1": "2584903a060",
+      "version_string": "0.33",
+      "major_minor": "0.33",
+      "channel_hint": "unknown (banner has no compiler field)"
+    }
+  },
+  "threat_model": {
+    "max_faults": 3,
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 6"
+  },
+  "verdict": "ATTACK_FOUND",
+  "fault_sets": [
+    {
+      "id": "min_attack_set",
+      "label": "minimum attack set, 3 fault(s)",
+      "faults": [
+        {
+          "target": {
+            "kind": "net",
+            "name": "$flatten\\c0.$abc$251$new_n10_",
+            "id": 66
+          },
+          "cycle": 1,
+          "type": "bit_flip",
+          "duration": 1
+        },
+        {
+          "target": {
+            "kind": "net",
+            "name": "$flatten\\c1.$abc$251$new_n10_",
+            "id": 73
+          },
+          "cycle": 1,
+          "type": "bit_flip",
+          "duration": 1
+        },
+        {
+          "target": {
+            "kind": "net",
+            "name": "$flatten\\c2.$abc$251$new_n10_",
+            "id": 80
+          },
+          "cycle": 1,
+          "type": "bit_flip",
+          "duration": 1
+        }
+      ],
+      "effective": true,
+      "source": "solver witness"
+    }
+  ],
+  "notes": "MEASURED with glitchsat.py in this session on the stated netlist; modelled bit flips, bounded verdict. BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults."
+}

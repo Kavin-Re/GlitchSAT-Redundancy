@@ -1,0 +1,136 @@
+# Clean-install test 2026-11-19T15:59:23Z. Copy of project excluding handoff/ layout/ compare/ (353 MB venv) results/work .venv __pycache__ tb/generated; results/reproduce* and results/logs deleted first.
+# Dir: <scratch>/clean_install/p. Commands are the README quickstart lines verbatim; the 'sudo apt-get' line was NOT run (yosys 0.33 / iverilog 12.0 already installed; no sudo here).
+# Each command runs in its own shell with the venv activated, as a user typing the lines would.
+
+$ sudo apt-get install -y yosys iverilog        
+[SKIPPED: system tools already installed]
+
+$ python3 -m venv .venv && . .venv/bin/activate
+Python 3.13.18
+/tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/.venv/bin/python
+[exit 0]
+
+$ pip install -r ci/requirements-ci.txt         
+Collecting z3-solver==5.4.1.0 (from -r ci/requirements-ci.txt (line 1))
+  Using cached z3_solver-5.4.1.0-py3-none-manylinux_2_27_x86_64.whl.metadata (777 bytes)
+Collecting pytest>=8 (from -r ci/requirements-ci.txt (line 2))
+  Using cached pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting iniconfig>=2 (from pytest>=8->-r ci/requirements-ci.txt (line 2))
+  Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=24 (from pytest>=8->-r ci/requirements-ci.txt (line 2))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.6 (from pytest>=8->-r ci/requirements-ci.txt (line 2))
+  Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pygments>=2.15 (from pytest>=8->-r ci/requirements-ci.txt (line 2))
+  Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Using cached z3_solver-5.4.1.0-py3-none-manylinux_2_27_x86_64.whl (38.6 MB)
+Using cached pytest-9.2.0-py3-none-any.whl (411 kB)
+Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Installing collected packages: z3-solver, pygments, pluggy, packaging, iniconfig, pytest
+
+Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-9.2.0 z3-solver-5.4.1.0
+[exit 0]
+
+$ make check-tools                              
+tools OK: Yosys 0.33 (git sha1 2584903a060) / Icarus Verilog version 12.0 (stable) () / z3 5.4.1
+[exit 0]
+
+$ make test                                     
+mkdir -p results/logs
+set -o pipefail; python3 -m pytest -q tests 2>&1 | tee results/logs/pytest.log
+..........                                                               [100%]
+10 passed in 22.35s
+[exit 0]
+
+$ make reproduce                                
+mkdir -p results/logs
+set -o pipefail; python3 scripts/reproduce.py 2>&1 | tee results/logs/reproduce.log
+{'design': 'v0', 'netlist': 'rtl/plain', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.03, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/plain', 'k': 1, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('st[0]', 4)], 'runtime_s': 0.228, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/plain', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('boot_word[0]', 1)], 'runtime_s': 0.227, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/plain', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('$abc$206$new_n16_', 0)], 'runtime_s': 0.35, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/plain', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.055, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/plain', 'k': 1, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.313, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/plain', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.408, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/plain', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.466, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/plain', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.063, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/plain', 'k': 1, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.366, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/plain', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 2, 'faults': [('$abc$275$new_n58_', 0), ('$abc$275$new_n74_', 0)], 'runtime_s': 0.602, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/plain', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 2, 'faults': [('$abc$275$new_n58_', 0), ('$abc$275$new_n74_', 0)], 'runtime_s': 0.609, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/opt', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.015, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/opt', 'k': 1, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('st[1]', 0)], 'runtime_s': 0.203, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/opt', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('$abc$195$auto$rtlil.cc:2609:MuxGate$184', 3)], 'runtime_s': 0.285, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'rtl/opt', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('$abc$195$new_n9_', 0)], 'runtime_s': 0.232, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/opt', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.044, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/opt', 'k': 1, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.328, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/opt', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.316, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'rtl/opt', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.417, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/opt', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.062, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/opt', 'k': 1, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.324, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/opt', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 2, 'faults': [('$abc$314$new_n68_', 0), ('$abc$314$new_n52_', 4)], 'runtime_s': 0.614, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'rtl/opt', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 2, 'faults': [('$abc$314$new_n68_', 0), ('$abc$314$new_n52_', 4)], 'runtime_s': 0.591, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'spike/given-netlist', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.013, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'spike/given-netlist', 'k': 1, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('st[0]', 5)], 'runtime_s': 0.07, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'spike/given-netlist', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('c.m', 1)], 'runtime_s': 0.073, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v0', 'netlist': 'spike/given-netlist', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('st[0]', 2)], 'runtime_s': 0.076, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'spike/given-netlist', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.046, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'spike/given-netlist', 'k': 1, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.284, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'spike/given-netlist', 'k': 2, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.322, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v1', 'netlist': 'spike/given-netlist', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 1, 'faults': [('ok', 1)], 'runtime_s': 0.364, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'spike/given-netlist', 'k': 0, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.05, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'spike/given-netlist', 'k': 1, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 0.297, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'spike/given-netlist', 'k': 2, 'cycles': 6, 'verdict': 'NO_ATTACK_UP_TO_BOUND', 'min_faults': None, 'faults': [], 'runtime_s': 1.261, 'honest_key_boots': True, 'label': 'MEASURED'}
+{'design': 'v2', 'netlist': 'spike/given-netlist', 'k': 3, 'cycles': 6, 'verdict': 'ATTACK_FOUND', 'min_faults': 3, 'faults': [('$flatten\\c0.$abc$251$new_n13_', 1), ('$flatten\\c1.$abc$251$new_n12_', 1), ('$flatten\\c2.$abc$251$new_n10_', 1)], 'runtime_s': 7.294, 'honest_key_boots': True, 'label': 'MEASURED'}
+[exit 0]
+
+$ make check-reproduce                         
+python3 ci/check_reproduce.py
+36/36 rows match
+[exit 0]
+
+$ make replay                                   
+mkdir -p tb/generated
+python3 scripts/replay.py results/reproduce/v0_rtl_plain_k1.json
+{
+ "faulted": {
+  "goal_hit_cycle": 4,
+  "raw": "VCD info: dumpfile /tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v0_rtl_plain_k1_faulted.vcd opened for output.\nREPLAY run_faults=1 goal_hit_cycle=4 boot_word=96 input=d3\n/tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v0_rtl_plain_k1_tb_faulted.v:17: $finish called at 59 (1s)",
+  "vcd": "tb/generated/v0_rtl_plain_k1_faulted.vcd"
+ },
+ "faultfree": {
+  "goal_hit_cycle": -1,
+  "raw": "VCD info: dumpfile /tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v0_rtl_plain_k1_faultfree.vcd opened for output.\nREPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=d3\n/tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v0_rtl_plain_k1_tb_faultfree.v:17: $finish called at 59 (1s)",
+  "vcd": "tb/generated/v0_rtl_plain_k1_faultfree.vcd"
+ },
+ "agrees_with_solver": true
+}
+python3 scripts/replay.py results/reproduce/v1_rtl_plain_k1.json
+{
+ "faulted": {
+  "goal_hit_cycle": 2,
+  "raw": "VCD info: dumpfile /tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v1_rtl_plain_k1_faulted.vcd opened for output.\nREPLAY run_faults=1 goal_hit_cycle=2 boot_word=96 input=c2\n/tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v1_rtl_plain_k1_tb_faulted.v:17: $finish called at 59 (1s)",
+  "vcd": "tb/generated/v1_rtl_plain_k1_faulted.vcd"
+ },
+ "faultfree": {
+  "goal_hit_cycle": -1,
+  "raw": "VCD info: dumpfile /tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v1_rtl_plain_k1_faultfree.vcd opened for output.\nREPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=c2\n/tmp/-home-user/cb9ab564-6882-50a3-98d5-475030f93bb0/scratchpad/clean_install/p/tb/generated/v1_rtl_plain_k1_tb_faultfree.v:17: $finish called at 59 (1s)",
+  "vcd": "tb/generated/v1_rtl_plain_k1_faultfree.vcd"
+ },
+ "agrees_with_solver": true
+}
+[exit 0]
+
+$ make dashboard                                
+python3 dashboard/build.py
+wrote index.html; live = False
+[exit 0]
+
+# Extra (not README quickstart; nightly-tier targets, same clean copy, same venv)
+# make validate: exit 0 (0.2 s). make mutate: exit 0 (8 s). make bench: exit 0 (106 s).
+# verilator --lint-only -Wall -Wno-fatal on each rtl/*.v: exit 0, 1 warning per file (informational).
+# Result: every README quickstart step passed; no README/script fix was needed except changing the
+# README line to `make check-reproduce` (new Makefile target) before this run.
+# Not tested: the apt-get line (no sudo here), GitHub Actions itself (never run on GitHub; workflows only PyYAML-parsed).

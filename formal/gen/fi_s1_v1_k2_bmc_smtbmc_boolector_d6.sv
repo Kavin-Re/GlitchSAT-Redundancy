@@ -1,0 +1,98 @@
+module fi_v1(input clk, input [7:0] sig, input [65:0] flip);
+  reg [7:0] sig_q; reg started = 0; reg [15:0] used = 0;
+  reg r12 = 1'b0;
+  reg r13 = 1'b0;
+  reg r14 = 1'b0;
+  reg r15 = 1'b0;
+  reg r16 = 1'b1;
+  reg r17 = 1'b1;
+  reg r18 = 1'b1;
+  reg r19 = 1'b1;
+  wire n12 = r12 ^ flip[0];
+  wire n13 = r13 ^ flip[1];
+  wire n14 = r14 ^ flip[2];
+  wire n15 = r15 ^ flip[3];
+  wire n16 = r16 ^ flip[4];
+  wire n17 = r17 ^ flip[5];
+  wire n18 = r18 ^ flip[6];
+  wire n19 = r19 ^ flip[7];
+  wire n20 = (~n17) ^ flip[8];
+  wire n21 = (~n14) ^ flip[9];
+  wire n22 = (~n15) ^ flip[10];
+  wire n23 = (~n18) ^ flip[11];
+  wire n24 = (~n13) ^ flip[12];
+  wire n25 = (~n16) ^ flip[13];
+  wire n26 = (~n12) ^ flip[14];
+  wire n27 = (n19 & n26) ^ flip[15];
+  wire n28 = (n18 & n24) ^ flip[16];
+  wire n29 = (n27 & n28) ^ flip[17];
+  wire n30 = (n20 & n14) ^ flip[18];
+  wire n31 = (n15 & n25) ^ flip[19];
+  wire n32 = (n30 & n31) ^ flip[20];
+  wire n33 = (n29 & n32) ^ flip[21];
+  wire n34 = (~n33) ^ flip[22];
+  wire n35 = (n22 & n16) ^ flip[23];
+  wire n36 = (n17 & n21) ^ flip[24];
+  wire n37 = (n35 & n36) ^ flip[25];
+  wire n38 = (n29 & n37) ^ flip[26];
+  wire n39 = (n33 | n38) ^ flip[27];
+  wire n40 = (n23 & n13) ^ flip[28];
+  wire n41 = (n27 & n40) ^ flip[29];
+  wire n42 = (n30 & n35) ^ flip[30];
+  wire n11 = (n41 & n42) ^ flip[31];
+  wire n45 = (n43 & n44) ^ flip[32];
+  wire n46 = (~n45) ^ flip[33];
+  wire n47 = (n39 ? n55 : n12) ^ flip[34];
+  wire n48 = (n39 ? n56 : n13) ^ flip[35];
+  wire n49 = (n39 ? n57 : n14) ^ flip[36];
+  wire n50 = (n39 ? n58 : n15) ^ flip[37];
+  wire n51 = (n39 ? n59 : n16) ^ flip[38];
+  wire n52 = (n39 ? n60 : n17) ^ flip[39];
+  wire n53 = (n39 ? n61 : n18) ^ flip[40];
+  wire n54 = (n39 ? n62 : n19) ^ flip[41];
+  wire n55 = (n34 ? 1'b0 : n46) ^ flip[42];
+  wire n56 = (n34 ? 1'b0 : n45) ^ flip[43];
+  wire n57 = (n34 ? 1'b1 : n45) ^ flip[44];
+  wire n58 = (n34 ? 1'b1 : n46) ^ flip[45];
+  wire n59 = (n34 ? 1'b0 : n45) ^ flip[46];
+  wire n60 = (n34 ? 1'b0 : n46) ^ flip[47];
+  wire n61 = (n34 ? 1'b1 : n46) ^ flip[48];
+  wire n62 = (n34 ? 1'b1 : n45) ^ flip[49];
+  wire n63 = (sig[2] | sig[3]) ^ flip[50];
+  wire n64 = (sig[4] | sig[5]) ^ flip[51];
+  wire n65 = (n63 | n64) ^ flip[52];
+  wire n66 = (~n65) ^ flip[53];
+  wire n67 = (sig[0] & sig[1]) ^ flip[54];
+  wire n68 = (sig[6] & sig[7]) ^ flip[55];
+  wire n69 = (n67 & n68) ^ flip[56];
+  wire n43 = (n66 & n69) ^ flip[57];
+  wire n70 = (sig[2] | sig[3]) ^ flip[58];
+  wire n71 = (sig[4] | sig[5]) ^ flip[59];
+  wire n72 = (n70 | n71) ^ flip[60];
+  wire n73 = (~n72) ^ flip[61];
+  wire n74 = (sig[0] & sig[1]) ^ flip[62];
+  wire n75 = (sig[6] & sig[7]) ^ flip[63];
+  wire n76 = (n74 & n75) ^ flip[64];
+  wire n44 = (n73 & n76) ^ flip[65];
+  always @(posedge clk) begin
+    r12 <= n47;
+    r13 <= n48;
+    r14 <= n49;
+    r15 <= n50;
+    r16 <= n51;
+    r17 <= n52;
+    r18 <= n53;
+    r19 <= n54;
+  end
+  wire [7:0] boot_word = {n19, n18, n17, n16, n15, n14, n13, n12};
+  wire [15:0] this = flip[0] + flip[1] + flip[2] + flip[3] + flip[4] + flip[5] + flip[6] + flip[7] + flip[8] + flip[9] + flip[10] + flip[11] + flip[12] + flip[13] + flip[14] + flip[15] + flip[16] + flip[17] + flip[18] + flip[19] + flip[20] + flip[21] + flip[22] + flip[23] + flip[24] + flip[25] + flip[26] + flip[27] + flip[28] + flip[29] + flip[30] + flip[31] + flip[32] + flip[33] + flip[34] + flip[35] + flip[36] + flip[37] + flip[38] + flip[39] + flip[40] + flip[41] + flip[42] + flip[43] + flip[44] + flip[45] + flip[46] + flip[47] + flip[48] + flip[49] + flip[50] + flip[51] + flip[52] + flip[53] + flip[54] + flip[55] + flip[56] + flip[57] + flip[58] + flip[59] + flip[60] + flip[61] + flip[62] + flip[63] + flip[64] + flip[65];
+  always @(posedge clk) begin started <= 1; used <= used + this; sig_q <= sig; end
+`ifdef FORMAL
+  always @* begin
+    assume(sig != 8'hC3);
+    if (started) assume(sig == sig_q);
+    assume(used + this <= 2);
+    assert(boot_word != 8'h96);
+  end
+`endif
+endmodule

@@ -1,0 +1,15 @@
+# Custom synthesis flows for `faultbound-wt analyze v2.v --top v2 --synth-sweep --synth-variants variants.toml`.
+# Each [[variant]]: name (required); extends = a built-in variant whose unset fields are inherited (default "plain");
+# pre / abc / post = Yosys commands separated by ';'  (the template adds read_verilog, hierarchy -top and write_json); strip_keep = remove (* keep *) from the source.
+# Allow-list (H2): each step may only use the fixed commands and options listed in QUICKSTART 4c (proc, opt*, flatten, techmap without -map, synth, abc [-fast] [-g ...], the keep_hierarchy setattr); anything else (exec, shell, plugin, script, write_*, extra reads, abc -script) is refused with exit 3. Custom variants files remain trusted input.
+[[variant]]
+name = "fast_then_merge"
+description = "abc -fast, then opt_merge after flatten"
+abc = "abc -fast -g AND,OR,XOR,MUX"
+post = "opt_clean; setattr -mod -unset keep_hierarchy *; flatten; opt_clean; techmap; opt_merge; opt_clean"
+
+[[variant]]
+name = "flatten_first_keep_off"
+description = "flatten before abc, with (* keep *) stripped"
+extends = "flatten_before_abc"
+strip_keep = true

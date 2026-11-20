@@ -1,0 +1,4 @@
+CMD: python3 -I results/deep/run_one.py results/deep/work/nl/v2_rtl.json v2 1 10 results/deep/json/v2_rtl_k1_c10.json
+v2 NO_ATTACK_UP_TO_BOUND min None wall 1.2 [] honest True
+
+wall_s=1.38

@@ -1,0 +1,46 @@
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v2: NO_ATTACK_UP_TO_BOUND  (<= 2 flips, 4 cycles; 68 gates, 8 flops; 0.152s)
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+  scope: goal: output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..3, while `sig` != 0xC3
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "product/src/faultbound_wt/cli.py", line 239, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "product/src/faultbound_wt/cli.py", line 230, in main
+    print(_safe(line))
+    ~~~~~^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v2: ATTACK_FOUND  (<= 3 flips, 3 cycles; 68 gates, 8 flops; 0.101s)
+  minimum attack: c2.m@1, word[0]@1, c1.m@1
+  MINIMUM ATTACK COST = 3 flips (`c2.m`@1, `word[0]`@1, `c1.m`@1), on 3 distinct net(s) in 1 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=3). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 3 in 3 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "product/src/faultbound_wt/cli.py", line 239, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "product/src/faultbound_wt/cli.py", line 230, in main
+    print(_safe(line))
+    ~~~~~^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v2: NO_ATTACK_UP_TO_BOUND  (<= 1 flips, 4 cycles; 85 gates, 8 flops; 0.077s)
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.
+  scope: goal: output port `boot_word` equals 0x96 (all bits, combinationally evaluated) at some cycle 0..3, while `sig` != 0xC3
+warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
+v2: ATTACK_FOUND  (<= 2 flips, 4 cycles; 85 gates, 8 flops; 0.12s)
+  minimum attack: $abc$275$new_n74_@0, $abc$275$new_n58_@1
+  MINIMUM ATTACK COST = 2 flips (`$abc$275$new_n74_`@0, `$abc$275$new_n58_`@1), on 2 distinct net(s) in 2 distinct cycle(s). With fewer flips the solver found no attack within the bound (cycles=4). [Scope: modelled single-cycle bit flips of gate/flop nets (input nets are not fault sites), at most 2 in 4 cycles, goal `boot_word` == 0x96, known power-up state; a bounded result for this toy model, not a proof of security]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "product/src/faultbound_wt/cli.py", line 239, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "product/src/faultbound_wt/cli.py", line 230, in main
+    print(_safe(line))
+    ~~~~~^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe

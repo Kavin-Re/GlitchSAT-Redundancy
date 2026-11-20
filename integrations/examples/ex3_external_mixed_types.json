@@ -1,0 +1,62 @@
+{
+  "schema": "fault-campaign/0.1",
+  "label": "ILLUSTRATIVE",
+  "generator": {
+    "tool": "hand-written example of an externally produced fault list"
+  },
+  "design": {
+    "name": "toy_fsm_example",
+    "top": "toy"
+  },
+  "threat_model": {
+    "max_faults": 2,
+    "cycles": 4,
+    "fault_model": "mixed set/reset/stuck, as a list from another tool might use"
+  },
+  "verdict": "UNKNOWN",
+  "fault_sets": [
+    {
+      "id": "ext1",
+      "label": "two faults, different cycles",
+      "effective": null,
+      "source": "made-up values, not from any tool",
+      "faults": [
+        {
+          "target": {
+            "kind": "cell",
+            "name": "u_cmp.g12"
+          },
+          "cycle": 1,
+          "type": "set"
+        },
+        {
+          "target": {
+            "kind": "flop_q",
+            "name": "state_q[3]"
+          },
+          "cycle": 2,
+          "type": "stuck_at_0",
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "id": "ext2",
+      "label": "gate replacement",
+      "effective": null,
+      "source": "made-up values",
+      "faults": [
+        {
+          "target": {
+            "kind": "cell",
+            "name": "u_cmp.g7"
+          },
+          "cycle": 0,
+          "type": "gate_replace",
+          "replacement": "NOR2_X1"
+        }
+      ]
+    }
+  ],
+  "notes": "ILLUSTRATIVE: invented names; demonstrates the schema only."
+}

@@ -1,0 +1,112 @@
+
+Magic 8.3 revision 464 - Compiled on Sat Mar  9 23:18:29 UTC 2024.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Loading "/tmp/d.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: ct_cmp
+Reading "sky130_fd_sc_hd__inv_1".
+Reading "sky130_fd_sc_hd__xor2_1".
+Reading "sky130_fd_sc_hd__xnor2_1".
+Reading "sky130_fd_sc_hd__nand2_1".
+Reading "sky130_fd_sc_hd__tapvpwrvgnd_1".
+CIF file read warning: CIF style sky130(): units rescaled by factor of 5 / 1
+Reading "sky130_fd_sc_hd__nor2b_1".
+Reading "sky130_fd_sc_hd__a2111oi_0".
+Reading "sky130_fd_sc_hd__nor2_1".
+Reading "sky130_fd_sc_hd__o22ai_1".
+Reading "sky130_fd_sc_hd__a221o_1".
+Reading "sky130_fd_sc_hd__a211oi_1".
+Reading "sky130_fd_sc_hd__o221ai_1".
+Reading "sky130_fd_sc_hd__nor4_1".
+Reading "sky130_fd_sc_hd__nand4_1".
+Reading "sky130_fd_sc_hd__nand2b_1".
+Reading "sky130_fd_sc_hd__nand3_1".
+Reading "sky130_fd_sc_hd__clkbuf_4".
+Reading "sky130_fd_sc_hd__o2bb2ai_1".
+Reading "sky130_fd_sc_hd__dfrtp_1".
+Reading "ct_cmp".
+DRC style is now "drc(full)"
+Loading DRC CIF style.
+DRC_COUNT {ct_cmp 30}
+RULE|19|N-well spacing < 1.27um (nwell.2a)
+  BOX 5298 7333 5352 7654
+  BOX 7138 6490 7306 6566
+  BOX 7138 6566 7306 6811
+  BOX 3826 5478 3880 5723
+  BOX 3826 5402 3880 5478
+  BOX 5206 5478 5444 5723
+  BOX 7138 5402 7284 5478
+  BOX 7138 5478 7284 5723
+  BOX 4930 5157 5168 5402
+  BOX 2630 4069 2776 4314
+  BOX 2630 4314 2776 4635
+  BOX 7322 4390 7560 4635
+  BOX 3572 3302 3626 3547
+  BOX 3826 3226 3880 3302
+  BOX 7322 2981 7560 3226
+  BOX 2630 2214 2868 2459
+  BOX 5942 2214 6180 2459
+  BOX 7322 2214 7560 2459
+  BOX 6862 1893 7008 2138
+RULE|7|All nwells must contain metal-connected N+ taps (nwell.4)
+  BOX 5298 7333 5834 7654
+  BOX 3182 6490 3994 6811
+  BOX 1618 5402 2246 5723
+  BOX 2538 5402 3626 5723
+  BOX 1710 4314 2522 4635
+  BOX 1986 4069 2522 4314
+  BOX 1802 3226 3626 3547
+RULE|13|P-diff distance to N-tap must be < 15.0um (LU.3)
+  BOX 3247 6575 3299 6775
+  BOX 3329 6575 3374 6775
+  BOX 3404 6575 3497 6775
+  BOX 3527 6575 3569 6775
+  BOX 3599 6575 3653 6775
+  BOX 3748 6575 3800 6775
+  BOX 3830 6575 3882 6775
+  BOX 1683 5487 1736 5687
+  BOX 1766 5487 1832 5687
+  BOX 1862 5487 1918 5687
+  BOX 1948 5487 2004 5687
+  BOX 2034 5487 2090 5687
+  BOX 2120 5487 2180 5687
+RULE|28|HVI to HVI or LV nwell spacing < 0.7um (hvi.5)
+  BOX 6998 6566 7122 6811
+  BOX 6998 6490 7122 6566
+  BOX 5066 5478 5190 5723
+  BOX 6998 5478 7030 5723
+  BOX 6998 5402 7030 5478
+  BOX 4790 5157 4914 5402
+  BOX 2490 4314 2522 4635
+  BOX 7182 4390 7306 4635
+  BOX 2490 4069 2522 4314
+  BOX 7182 2981 7306 3226
+  BOX 2490 2214 2614 2459
+  BOX 5802 2214 5926 2459
+  BOX 7182 2214 7306 2459
+  BOX 6722 1893 6754 2138
+  BOX 7138 6490 7262 6566
+  BOX 7138 6566 7262 6811
+  BOX 5206 5478 5330 5723
+  BOX 7138 5402 7170 5478
+  BOX 7138 5478 7170 5723
+  BOX 4930 5157 5054 5402
+  BOX 2630 4069 2662 4314
+  BOX 2630 4314 2662 4635
+  BOX 7322 4390 7446 4635
+  BOX 7322 2981 7446 3226
+  BOX 2630 2214 2754 2459
+  BOX 5942 2214 6066 2459
+  BOX 7322 2214 7446 2459
+  BOX 6862 1893 6894 2138

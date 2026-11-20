@@ -1,0 +1,5 @@
+sbox_par2: ATTACK_FOUND  (k<=3, cycles=4, reduce=full)  solve=2.619s
+  min faults: 1 [('A.sboxw[5]', 2)] input {'sig': '0x21'}
+  SINGLE POINT OF FAILURE: the state register bit `A.sboxw[5]` can be flipped for one cycle (cycle 2) and the state/output word then reads as the accept value.
+  FIX: Encode state with Hamming distance greater than the fault budget (e.g. sparse one-hot-ish codes), add a parity/redundant shadow register compared every cycle, and make illegal codes latch a sticky FAIL state.
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 4 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.

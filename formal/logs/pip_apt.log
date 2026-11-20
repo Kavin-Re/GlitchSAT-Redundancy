@@ -1,0 +1,21 @@
+Successfully downloaded pysmt
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+z3-solver (5.4.1.0)
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+pyboolector (3.2.4.38488416565)
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+yices (1.1.6)
+yosys:
+  Installed: 0.33-5build2
+  Candidate: 0.33-5build2
+  Version table:
+ *** 0.33-5build2 500
+        500 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages
+        100 /var/lib/dpkg/status
+boolector:
+  Installed: 1.5.118.6b56be4.121013-1.3
+  Candidate: 1.5.118.6b56be4.121013-1.3
+  Version table:
+ *** 1.5.118.6b56be4.121013-1.3 500
+        500 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages
+        100 /var/lib/dpkg/status

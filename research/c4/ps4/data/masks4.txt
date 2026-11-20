@@ -1,0 +1,11 @@
+{'2': 36, '1': 28, '3': 4, '0': 2}
+0x8D M1 1 got 1 OK 0.8
+0x35 M1 1 got 1 OK 0.9
+0x95 M1 1 got 1 OK 0.8
+0xB4 M1 1 got 1 OK 0.6
+0x2B M1 2 got 2 OK 1.1
+0x2E M1 2 got 2 OK 1.5
+0xE8 M1 2 got 2 OK 1.2
+0x36 M1 2 got 2 OK 0.8
+0x6A M1 3 got 3 OK 3.0
+0x72 M1 3 got 3 OK 4.7

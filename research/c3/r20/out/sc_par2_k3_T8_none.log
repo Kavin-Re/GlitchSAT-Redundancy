@@ -1,0 +1,5 @@
+sbox_par2: ATTACK_FOUND  (k<=3, cycles=8, reduce=none)  solve=6.779s
+  min faults: 1 [('$flatten\\A.$abc$43664$new_n644_', 1)] input {'sig': '0xF7'}
+  SINGLE POINT OF FAILURE: gate output `$flatten\A.$abc$43664$new_n644_` (AND), flipped for one cycle at cycle 1, reaches 4/9 bits of `gout` and is enough to reach the accept value.
+  FIX: Duplicate the logic that feeds this net and keep the copies independent (no shared gate), then compare/decide per bit instead of through one net.
+  BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 8 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.

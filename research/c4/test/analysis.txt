@@ -1,0 +1,92 @@
+## POOLED (all unique cells) (n=928 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 928/928 = 100.00%   C3 within1: 928/928 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 854/854 = 100.00%
+ flags: {'ok': 873, 'uncovered': 1, 'collision': 54}
+## POOLED, E2 weighted by #configs (n=1313 config-weighted)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 1313/1313 = 100.00%   C3 within1: 1313/1313 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 1235/1235 = 100.00%
+ flags: {'ok': 873, 'uncovered': 1, 'collision': 54}
+## E2 (n=407 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 407/407 = 100.00%   C3 within1: 407/407 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 387/387 = 100.00%
+ flags: {'ok': 407}
+## R20 (n=11 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 11/11 = 100.00%   C3 within1: 11/11 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 11/11 = 100.00%
+ flags: {'ok': 10, 'uncovered': 1}
+## M1_V2_apt033 (n=255 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 255/255 = 100.00%   C3 within1: 255/255 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 228/228 = 100.00%
+ flags: {'collision': 27, 'ok': 228}
+## M1_V1_apt033 (n=255 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 255/255 = 100.00%   C3 within1: 255/255 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 228/228 = 100.00%
+ flags: {'collision': 27, 'ok': 228}
+## E2 v0 (n=126 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 126/126 = 100.00%   C3 within1: 126/126 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 126/126 = 100.00%
+ flags: {'ok': 126}
+## E2 v1 (n=129 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 129/129 = 100.00%   C3 within1: 129/129 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 129/129 = 100.00%
+ flags: {'ok': 129}
+## E2 v2 (n=152 cells)
+ C1 lb>solver: 0; est<solver: 0
+ C2 exact: 152/152 = 100.00%   C3 within1: 152/152 = 100.00%
+ C4 pred>=3 & solver==1: 0  (pred>=3 & solver<=2: 0)
+ C5 pred==1 & solver>=2: 0
+ C6 breakable (solver 1..2) recall pred<=2: 132/132 = 100.00%
+ flags: {'ok': 152}
+### confusion POOLED: rows solver, cols pred
+solver\pred     0     1     2     3
+          0    54     0     0     0
+          1     0   684     0     0
+          2     0     0   170     0
+          3     0     0     0    20
+### confusion E2: rows solver, cols pred
+solver\pred     1     2     3
+          1   334     0     0
+          2     0    53     0
+          3     0     0    20
+### confusion R20: rows solver, cols pred
+solver\pred     1     2
+          1    10     0
+          2     0     1
+### confusion M1_V2_apt033: rows solver, cols pred
+solver\pred     0     1     2
+          0    27     0     0
+          1     0   112     0
+          2     0     0   116
+### confusion M1_V1_apt033: rows solver, cols pred
+solver\pred     0     1
+          0    27     0
+          1     0   228
+## FAILURES (pred != solver)
+count 0
+## failure details
+## E2 failures by flow/abc/order/merge
+## predictor time (summed per-cell wall, single process each): total 858.4 s; by group {'E2': 371.5, 'R20': 161.4, 'M1_V2_apt033': 162.5, 'M1_V1_apt033': 163.1}

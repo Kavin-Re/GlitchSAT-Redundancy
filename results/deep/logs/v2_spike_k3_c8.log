@@ -1,0 +1,4 @@
+CMD: python3 -I results/deep/run_one.py results/deep/work/nl/v2_spike.json v2 3 8 results/deep/json/v2_spike_k3_c8.json
+v2 ATTACK_FOUND min 3 wall 45.04 [('$flatten\\c0.$abc$251$new_n12_', 1), ('$flatten\\c1.$abc$251$new_n13_', 1), ('$flatten\\c2.$abc$251$new_n13_', 1)] honest True
+
+wall_s=45.35

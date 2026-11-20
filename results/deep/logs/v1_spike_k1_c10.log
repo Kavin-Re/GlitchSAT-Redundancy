@@ -1,0 +1,4 @@
+CMD: python3 -I results/deep/run_one.py results/deep/work/nl/v1_spike.json v1 1 10 results/deep/json/v1_spike_k1_c10.json
+v1 ATTACK_FOUND min 1 wall 1.02 [('ok', 1)] honest True
+
+wall_s=1.26

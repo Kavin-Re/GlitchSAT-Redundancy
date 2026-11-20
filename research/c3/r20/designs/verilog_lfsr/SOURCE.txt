@@ -1,0 +1,5 @@
+URL: https://raw.githubusercontent.com/alexforencich/verilog-lfsr/master/rtl/lfsr.v
+Commit/hash: branch master, NOT pinned (UNVERIFIED revision).
+Licence: MIT per the file header (Copyright 2016-2023 Alex Forencich); no LICENSE/COPYING file fetched at /master/LICENSE (404), header text only.
+Date fetched: 2026-11-19
+5502c8203b0dfc7246c1a2de93e60c199ded3c1d7840b106350d714f72a9a079  designs/verilog_lfsr/lfsr.v

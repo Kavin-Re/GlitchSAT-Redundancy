@@ -1,0 +1,22 @@
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+    b=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--headless=new','--no-sandbox'])
+    c=b.new_page(viewport={'width':390,'height':844}); errs=[]
+    c.on('console',lambda m:errs.append(m.text) if m.type=='error' else None); c.on('pageerror',lambda e:errs.append(str(e)))
+    c.goto('file://<repo>/docs/wow/game.html')
+    c.click('.tab >> nth=2')
+    nodes=c.locator('.node')
+    nodes.nth(3).click(); print(c.inner_text('#status')[:80])
+    for i in (0,1,2): c.locator('.node').nth(i).click(); print(c.inner_text('#status')[:90], c.inner_text('#used'))
+    c.screenshot(path='shots/game_390_finished.png')
+    c.click('#reset'); print(c.inner_text('#used'))
+    print('errs',errs)
+    c=b.new_page(viewport={'width':390,'height':844}); c.on('pageerror',lambda e:errs.append(str(e)))
+    c.context.grant_permissions(['clipboard-read','clipboard-write'])
+    c.goto('file://<repo>/docs/wow/explainer.html')
+    c.click('#herobtn'); print(c.inner_text('#herostate'))
+    c.click('[data-copy=fq10]'); print(c.inner_text('#copymsg'), c.evaluate('navigator.clipboard.readText()'))
+    c.click('[data-copy=fq25]'); c.wait_for_timeout(200); print(c.evaluate('navigator.clipboard.readText()'))
+    print(len(c.inner_text('#fq10').split()),len(c.inner_text('#fq25').split()))
+    c.locator('#friend').scroll_into_view_if_needed(); c.screenshot(path='shots/explainer_390_friend.png')
+    print(errs)

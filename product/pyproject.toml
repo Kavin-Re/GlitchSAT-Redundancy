@@ -1,0 +1,28 @@
+# Title TBD (working package name only). License: UNDECIDED (owner decision; no LICENSE file, no SPDX field).
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "faultbound-working-title"
+version = "0.0.1.dev0"
+description = "Working title TBD. Bounded fault-injection (bit-flip) analysis of Yosys gate-level netlists with z3. "
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["z3-solver==5.4.1.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pyyaml"]
+
+[project.scripts]
+faultbound-wt = "faultbound_wt.cli:main"
+faultbound-wt-hook = "faultbound_wt.precommit:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+faultbound_wt = ["examples/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

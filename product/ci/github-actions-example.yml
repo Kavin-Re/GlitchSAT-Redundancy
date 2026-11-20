@@ -1,0 +1,16 @@
+# Example only; NEVER RUN (no GitHub run, YAML not linted). Shows the intended CI use.
+name: faultbound-wt
+on: [pull_request]
+jobs:
+  fault-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install ./product
+      # exit code 1 (attack found within the bound) fails the job; 2 = solver unknown; 3 = input error
+      - run: faultbound-wt analyze build/netlist.json --config threat.toml --report fb.json --report fb.sarif --report fb.junit.xml
+      - if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with: { sarif_file: fb.sarif }

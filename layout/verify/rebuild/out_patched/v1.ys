@@ -1,0 +1,9 @@
+read_verilog rtl/v1.v
+hierarchy -top v1
+synth -top v1
+dfflibmap -liberty /tmp/mm_root2/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -dont_use *lpflow* -dont_use *probe* -liberty /tmp/mm_root2/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+hilomap -singleton -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+opt_clean -purge
+tee -o out_patched/v1_stat.txt stat -liberty /tmp/mm_root2/envs/eda/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr -noexpr -nohex -nodec out_patched/v1_net.v

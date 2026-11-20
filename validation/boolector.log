@@ -1,0 +1,5 @@
+v2 4 2 boolector(spike netlist): [btorsmt2] WARNING no 'exit' command at end of '/tmp/q.smt2' unsat  1s
+v2 6 2 boolector(spike netlist): [btorsmt2] WARNING no 'exit' command at end of '/tmp/q.smt2' unsat  2s
+v2 6 3 boolector(spike netlist): [btorsmt2] WARNING no 'exit' command at end of '/tmp/q.smt2' sat  1s
+v1 6 1 boolector(spike netlist): [btorsmt2] WARNING no 'exit' command at end of '/tmp/q.smt2' sat  1s
+v0 6 1 boolector(spike netlist): [btorsmt2] WARNING no 'exit' command at end of '/tmp/q.smt2' sat  0s
