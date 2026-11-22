@@ -8,7 +8,7 @@ Source tags used below (the file the fact comes from):
 Format: each question has the spoken answer (target <= 45 s, about 110 words), sources, then follow-ups (F1..F3) only where the first answer was weak.
 
 ---
-## 1. E1: ECE professor ("show me what YOU understand, derive it, do not cite it")
+## 1. E1: ECE specialist ("show me what YOU understand, derive it, do not cite it")
 
 **E1-1. On the board: why does V1, two compare copies, fall to one flip?**
 "V1 compares the input with the key twice, m1 and m2, but accepts through one AND gate, ok = m1 AND m2, and that one net drives all eight result bits. With a wrong input both compares are zero, so ok is zero and the state goes idle, compare, fail. If I flip the net ok to one for one cycle, at the cycle where the state is compare, the next state is the accept word. The two compares never get a vote. So duplication helps only if the copies do not end in one wire."

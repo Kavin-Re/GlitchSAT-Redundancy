@@ -90,7 +90,7 @@ Voices: THESIS (T, author's defender), ANTITHESIS (A, hostile reviewer), PRODUCT
 
 ### Round 4: Is V3 any better?
 
-**A opens.** V3 costs 3 where measured, which equals V2's best case (B2 limit a). Its table is mostly `?` (NOT RUN), the boot_ok column is not like-for-like because V3's `boot_ok` is an 8-bit code that merely moves the single-net problem to the consumer (limit c), and with arbitrary power-up the cheapest attack is flipping `rst` three times, again 3. A design that costs 3 where V2 costs 1 under input faults was built by an step that knew the V2 failure modes and designed against them; that is overfitting to the test. And it pays 6 comparators and 4 extra flops and 3 cycles of latency.
+**A opens.** V3 costs 3 where measured, which equals V2's best case (B2 limit a). Its table is mostly `?` (NOT RUN), the boot_ok column is not like-for-like because V3's `boot_ok` is an 8-bit code that merely moves the single-net problem to the consumer (limit c), and with arbitrary power-up the cheapest attack is flipping `rst` three times, again 3. A design that costs 3 where V2 costs 1 under input faults was built by a step that knew the V2 failure modes and designed against them; that is overfitting to the test. And it pays 6 comparators and 4 extra flops and 3 cycles of latency.
 
 **T opens.** The claim for V3 is deliberately small and written in B2: in this model the cheapest attack moved from 1 to 3 in the scopes where V2 was 1, and V3 is not shown secure. What it demonstrates is the method working as a design-loop: find the lowest-cost assumption, harden it, re-measure under the same scope matrix. That is the practical use of the toolkit. V3 as a design is an exhibit, not a recommendation.
 

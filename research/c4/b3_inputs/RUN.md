@@ -3,7 +3,7 @@
 | netlist | file | origin |
 |---|---|---|
 | V0, V1, V2 "spike" | `reference/spike_netlists/v{0,1,2}.json` (already in the repo; not copied) | stored spike netlists |
-| V0, V1, V2 apt Yosys 0.33 plain flow | `nl/v0_apt033.json`, `nl/v1_apt033.json`, `nl/v2_apt033.json` | copies of `research/c2/b1_faultmodels/netlists/` (v2_apt033 equal to `research/c4/b3/nl/v2_apt033.json`; sha256 03198073...) |
+| V0, V1, V2 apt Yosys 0.33 plain flow | `nl/v0_apt033.json`, `nl/v1_apt033.json`, `nl/v2_apt033.json` | copies of `research/c2/b1_faultmodels/netlists/` (v2_apt033 equal to `research/c4/b3/nl/v2_apt033.json`; sha256 f954078f...) |
 | V5 apt 0.33 | `nl/v5_apt033.json` | copy of `research/c4/b3/nl/v5_apt033.json` (V5 has no spike netlist) |
 | B3 committed results | `research/c4/b3/matrix_T6.jsonl` (182 cells) | |
 

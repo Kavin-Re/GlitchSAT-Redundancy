@@ -13,7 +13,7 @@ Working title TBD. License: UNDECIDED. Faults are modelled bit flips in toy netl
 | `pytest tests -q` | **98 passed** in 26.7 s |
 | `pytest product/tests --co -q` | 139 tests collected |
 | `pytest product/tests -q` | **138 passed, 1 skipped** in 98.9 s |
-Docs say 10, 30 (root) and 21, 27, 38 (product). Only 98 and 138+1 skipped are current. 38 was a integration step count that no step measured. The history is 10 (first writing) to 30 (RA, after H1 added 20) to 98 (MT and T2 added test_mt_oracle, test_mt_targeted) for the root; 21 (RA) to 27 (PS2) to 139 (PS3, PS4, PS5 and MT added files) for product. These counts will move again whenever an step adds a test, so pages should say "run `make test` and quote your own count" in addition to a dated number.
+Docs say 10, 30 (root) and 21, 27, 38 (product). Only 98 and 138+1 skipped are current. 38 was a integration step count that no step measured. The history is 10 (first writing) to 30 (RA, after H1 added 20) to 98 (MT and T2 added test_mt_oracle, test_mt_targeted) for the root; 21 (RA) to 27 (PS2) to 139 (PS3, PS4, PS5 and MT added files) for product. These counts will move again whenever a step adds a test, so pages should say "run `make test` and quote your own count" in addition to a dated number.
 
 ## 3. 144/163 versus 150/163: which is corrected, and why (MEASURED, recomputed by RECON)
 **150/163 (92.0%) is the corrected audit figure** (VER_REPORT s3.1). 144/163 is a raw string comparison of the `pred` and `solver` columns of `research/c4/ver/heldout.csv` and is not a headline number. The gap is 6 cells:

@@ -1,7 +1,7 @@
 # Review panel W3: chair report
 
 
-Tags: **[F]** = fact the chair checked in a file at about 00:10 UTC (path given). **[F-rep]** = taken from an step report and not re-run by the chair. **[I]** = inference.
+Tags: **[F]** = fact the chair checked in a file at about 00:10 UTC (path given). **[F-rep]** = taken from a step report and not re-run by the chair. **[I]** = inference.
 
 Chair spot-checks done for this report (read-only greps): README.md, START.md, docs/FINAL_STATUS.md, docs/NUMBERS.md, dashboard/index.html and template.html, docs/dossier/PROJECT_DOSSIER.md s17, ci/check_reproduce.py, handoff/CONTINUATION/RUN_LOG.md entries 233-241, the research/c5 listing, and /tmp references in the research/c4 scripts.
 

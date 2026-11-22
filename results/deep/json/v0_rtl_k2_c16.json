@@ -2,7 +2,7 @@
   "label": "MEASURED",
   "tool": "glitchsat.py",
   "design": "results/deep/work/nl/v0_rtl.json",
-  "design_sha256_16": "4e14fde6febd8697",
+  "design_sha256_16": "018b3d96715bdde8",
   "top": "v0",
   "synth_flow": "given-netlist",
   "verdict": "ATTACK_FOUND",

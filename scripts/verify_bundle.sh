@@ -46,11 +46,11 @@ if [ -z "$BAD" ]; then SUMMARY="$SUMMARY\nPASS  no_forbidden_paths_in_zip"; else
 P=/tmp/bundle_verify_paths.txt; : > $P
 unzip -Z1 "$ZIP" | while read -r f; do
   [ -f "$D/$f" ] || continue
-  c=$(grep -I -c -E '/tmp/|<home>' "$D/$f" 2>/dev/null) || true
+  c=$(grep -I -c -E '/tmp/|/home/[^/]+/' "$D/$f" 2>/dev/null) || true
   [ "${c:-0}" -gt 0 ] && echo "$c $f"
 done | sort -k2 > $P
 RUNPATH=$(grep -E ' (scripts|ci|product/src|product/tests|product/scripts|tests|dashboard/build\.py|Makefile|formal/src|validation)(/|$)' $P | wc -l)
 echo -e "$SUMMARY" | tee -a "$LOG"
-echo "files with /tmp or <home>: $(wc -l < $P) (in run path dirs: $RUNPATH); list: $P"
+echo "files with /tmp or /home/<name> paths: $(wc -l < $P) (in run path dirs: $RUNPATH); list: $P"
 echo "fails: $FAILS ; full log $LOG"
 [ "$FAILS" -eq 0 ]

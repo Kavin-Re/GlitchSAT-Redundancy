@@ -27,7 +27,7 @@ The slope guide was also my prior sub-expectation "at or slightly above d_min fo
 | V0 | 103ad03e40a5 | 20 x 4 = 80 | 0xC7 | 11, 730, 23561 | 15, 999, 32244 | 8.2, 581, 19988 |
 | V1 | 84730fa7b5e3 | 66 x 4 = 264 | 0x00 | 1, 211, 21794 | 1, 243, 28033 | 1, 209, 21388 |
 | V2-stored | 289355dc483b | 76 x 4 = 304 | 0xC7 | 0, 0, 80 | 0, 0, 182 | 0, 0, 6.2 |
-| V2-apt | 031980732ade | 93 x 4 = 372 | 0x00 | 0, 3, 1341 | 0, 3, 1777 | 0, 3, 1349 |
+| V2-apt | f954078f944a | 93 x 4 = 372 | 0x00 | 0, 3, 1341 | 0, 3, 1777 | 0, 3, 1349 |
 | V2e | 005b02a5d7a7 | 97 x 4 = 388 | 0xC7 | 0, 0, 734 | 0, 0, 1065 | 0, 0, 543 |
 
 Key = the wrong key with the most minimum-size sets (ties: smallest value). Every one of the 255 wrong keys reaches the minimum in every design, but for V2-stored the count depends strongly on the key (80 at 0xC7, mean 6.2), so the plotted V2-stored curve is that design's worst fixed key, about 13 times above its key-average.

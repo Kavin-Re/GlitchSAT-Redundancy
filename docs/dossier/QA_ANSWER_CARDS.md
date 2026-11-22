@@ -1,7 +1,7 @@
 # QA ANSWER CARDS (40 cards)
-GlitchSAT. License: Apache-2.0. Study aid, not the author's words: say only what you can explain; for anything you cannot, say "I do not know; here is what the file says". Full spoken answers, source tags and follow-ups: `research/c4/qa_sim/QA_SIM_REPORT.md` (card id E1-1 etc. matches). All numbers are for modelled single-cycle flips in toy netlists, T=6, k<=3 unless stated; nothing physical, nothing new. Eight questions in the full report (E1-10, E1-11, E2-4, E2-9, E3-11, E3-12, E4-10, E4-11) have no card; read them there. Cards marked IDK: the honest reply is "I do not know / we did not test that". Cards marked AUTHOR cannot be answered by an step.
+GlitchSAT. License: Apache-2.0. Study aid, not the author's words: say only what you can explain; for anything you cannot, say "I do not know; here is what the file says". Full spoken answers, source tags and follow-ups: `research/c4/qa_sim/QA_SIM_REPORT.md` (card id E1-1 etc. matches). All numbers are for modelled single-cycle flips in toy netlists, T=6, k<=3 unless stated; nothing physical, nothing new. Eight questions in the full report (E1-10, E1-11, E2-4, E2-9, E3-11, E3-12, E4-10, E4-11) have no card; read them there. Cards marked IDK: the honest reply is "I do not know / we did not test that". Cards marked AUTHOR cannot be answered by a step.
 
-## E1: ECE professor (derivations)
+## E1: ECE specialist (derivations)
 **E1-1. Why does V1 (two copies) fall to one flip?**
 - Both compares m1, m2 feed one AND, `ok`; `ok` alone drives all 8 result bits.
 - Flip `ok` for one cycle when the state is "compare": next state is the accept word 0x96.
@@ -175,7 +175,7 @@ Number: **k<=2, 1 netlist**. File: `docs/dossier/QA_SHEET.md` D7. Trap: "formall
 **E3-9. All cross-checks share your fault model; what is verified?**
 - They check the encoding and the code, not the model: own simulator ~2.1M sets 0 disagreements; boolector; 13/13 replays; SymbiYosys 40 pairs; 2040 random runs vs brute force; REP 64/64.
 - Would show me wrong: an independent simulator disagreeing with a stored witness (has not happened).
-- uArchiFI (one third-party tool) gave the same minimum flips on 9 cells of three toy designs through an step-written adapter: not a validation (RUN2). Untested: physical argument that voids the number; a second solver on the mapped netlist.
+- uArchiFI (one third-party tool) gave the same minimum flips on 9 cells of three toy designs through a step-written adapter: not a validation (RUN2). Untested: physical argument that voids the number; a second solver on the mapped netlist.
 Number: **0 disagreements**. File: `validation/VALIDATION.md`. Trap: "independently validated".
 
 **E3-10. Is the structural predictor validated? (No: 150 of 163 fresh cells exact, 92%; the 928/928 pooled figure is near-duplicate cells)**

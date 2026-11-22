@@ -161,7 +161,7 @@ Working title TBD. License: UNDECIDED. Faults are modelled single-cycle bit flip
 
 Purpose: README.md, START.md, docs/FINAL_STATUS.md, docs/report, docs/dossier, docs/explainers, docs/edu, product/QUICKSTART.md and the dashboard quote the same numbers. Quote a number only as it appears here. When a measurement changes, edit THIS file first, then run `python3 scripts/check_numbers.py` to list every page that still carries the old value.
 
-Status labels: MEASURED (a command was run, the output was seen), SIMULATED (SPICE or rail-dip model, not silicon), SOURCED (taken from a cited source, not run), REPORTED (written in an step report, not re-run by RECON), UNVERIFIED. Date = when the value was produced; RECON rows were re-run on a tar copy in /tmp/work_recon on 2026-11-19.
+Status labels: MEASURED (a command was run, the output was seen), SIMULATED (SPICE or rail-dip model, not silicon), SOURCED (taken from a cited source, not run), REPORTED (written in a step report, not re-run by RECON), UNVERIFIED. Date = when the value was produced; RECON rows were re-run on a tar copy in /tmp/work_recon on 2026-11-19.
 
 ## How RECON measured today's test counts
 ```

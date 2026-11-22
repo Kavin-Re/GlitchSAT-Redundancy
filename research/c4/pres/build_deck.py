@@ -142,7 +142,7 @@ tb(s,8.5,5.9,4.4,1.0,"SIMULATED model on MEASURED placement. No extraction, no s
 # ---------- 9 built
 N+=1
 s=new("What we built","What exists",
-"SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 98 tests in the main suite and 138 in the product suite with one skipped, counted on a clean copy. A mutation check killed 29 of 43 sabotaged versions, about 67 percent; that figure comes from an step report and I did not re-run it. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.\n"
+"SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 98 tests in the main suite and 138 in the product suite with one skipped, counted on a clean copy. A mutation check killed 29 of 43 sabotaged versions, about 67 percent; that figure comes from a step report and I did not re-run it. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.\n"
 "",9)
 for i,(num,cap,col) in enumerate([("98","main tests passed",TEAL),("138","product tests passed",TEAL),("67%","mutation score, 29 of 43",AMB)]):
     x=0.9+i*4.0

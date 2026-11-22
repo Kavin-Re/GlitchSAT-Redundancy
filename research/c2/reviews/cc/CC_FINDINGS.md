@@ -60,7 +60,7 @@ Severity: HIGH = a reader is likely to be misled; MEDIUM = inaccurate or stale s
 
 ### CC-2 (MEDIUM) "Independent panel" is a simulated panel
 - Where: FINAL_STATUS.md line 8 ("the independent panel scored it about 6/10").
-- Evidence: the source is handoff/decisions/R3_evaluator_panel.md, written by an step in this workflow. Calling it "independent" suggests human reviewers.
+- Evidence: the source is handoff/decisions/R3_evaluator_panel.md, written by a step in this workflow. Calling it "independent" suggests human reviewers.
 
 ### CC-3 (MEDIUM) The 3/10 and 6/10 scores are attached to the wrong thing
 - Where: PROJECT_REPORT section 10 ("Self-score from the project's own gasp review: 3/10 today, ceiling about 6/10"); FINAL_STATUS "gasp search chair's own honest score: 3/10".

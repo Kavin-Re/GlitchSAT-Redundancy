@@ -37,7 +37,7 @@ No other file was edited. `explainer.html` and `game.html` are untouched (the em
 
 ## Limits and things not done
 - 338 of 432 combinations are "not measured". The merging and V2e builds have one measured cell each (V2, whole word, pins no, known power-up); the 4-light readers only exist for pins no and known power-up. Nothing was run to fill gaps (no solver runs by this step).
-- The reason sentences are an step-written lookup keyed by rule, drawn from B2_REPORT, M1_REPORT and WHY_TWO_FLIPS. They are explanations, not measurements. The "inputs" sentence ("every copy reads the same input pins") fits the stored-netlist witnesses (an input pin of one compare); on V1 re-built the solver's 1-flip witness is the `ok` wire, so there the sentence is looser than the witness.
+- The reason sentences are a step-written lookup keyed by rule, drawn from B2_REPORT, M1_REPORT and WHY_TWO_FLIPS. They are explanations, not measurements. The "inputs" sentence ("every copy reads the same input pins") fits the stored-netlist witnesses (an input pin of one compare); on V1 re-built the solver's 1-flip witness is the `ok` wire, so there the sentence is looser than the witness.
 - Yosys 0.38 rows are not on the dial. Tested in headless Chrome only; no Firefox or Safari, no real phone, no screen reader run (roles: native radios, a polite live region).
 - Not reviewed by a human; wording is a draft for the author.
 

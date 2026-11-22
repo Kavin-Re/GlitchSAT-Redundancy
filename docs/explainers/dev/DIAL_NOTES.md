@@ -39,7 +39,7 @@ V1 opener from the plan ("Dial on V1 (1)"): Lock design -> V1 shows 1 on the sto
 - "V2e back to 3" is true for the plain recipe row shown and for 6 of 8 recipes on Yosys 0.33; say the 2 merging recipes stay at 1.
 - "Not measured" means nobody ran it. Do not guess aloud what it would be (the flag on the merging build "would obviously be 1" is a guess until run).
 - The 0 for "lights 7, 4, 3, 0" is a reader that cannot tell idle from open (the idle codes already match on those lights), not an attack.
-- The reason line under the digit is a plain-language lookup written by an step from B2_REPORT, M1_REPORT and WHY_TWO_FLIPS; the digit is the measurement, the sentence is the explanation.
+- The reason line under the digit is a plain-language lookup written by a step from B2_REPORT, M1_REPORT and WHY_TWO_FLIPS; the digit is the measurement, the sentence is the explanation.
 
 ## Rebuild and check
 
