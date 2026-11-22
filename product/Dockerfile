@@ -1,4 +1,4 @@
-# BUILT AND RUN LOCALLY ONLY (lead, 2026-11-20): the build succeeded only after the sandbox proxy's CA was added to a COPY of this file (the container did not trust the proxy's TLS CA; TLS checking not disabled; this file is unchanged). Not built on a normal network or on GitHub. Image runs as uid 1000; Debian's Yosys here is 0.52 (v2 at <=2 flips: NO_ATTACK, 83 gates; see docs/NUMBERS.md YOSYS.version).
+# BUILT AND RUN LOCALLY ONLY (2026-11-20): the build succeeded only after the sandbox proxy's CA was added to a COPY of this file (the container did not trust the proxy's TLS CA; TLS checking not disabled; this file is unchanged). Not built on a normal network or on GitHub. Image runs as uid 1000; Debian's Yosys here is 0.52 (v2 at <=2 flips: NO_ATTACK, 83 gates; see docs/NUMBERS.md YOSYS.version).
 # Build from the repository root:  docker build -f product/Dockerfile -t faultbound-wt:dev .
 # Run:  docker run --rm -v "$PWD":/work faultbound-wt:dev analyze /work/netlist.json --config /work/threat.toml
 # Yosys comes from Debian's apt (version depends on the base image; the report records it). Pin the base by digest for reproducibility.

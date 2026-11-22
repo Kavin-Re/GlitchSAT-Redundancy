@@ -1,12 +1,12 @@
-# Working package name only (project: GlitchSAT). License: Apache-2.0.
+# GlitchSAT CLI. Distribution name "glitchsat"; the Python module keeps its original name faultbound_wt. License: Apache-2.0.
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "faultbound-working-title"
-version = "0.0.1.dev0"
-description = "GlitchSAT. Bounded fault-injection (bit-flip) analysis of Yosys gate-level netlists with z3. "
+name = "glitchsat"
+version = "0.9.0"
+description = "GlitchSAT: bounded fault-injection (bit-flip) analysis of Yosys gate-level netlists with z3."
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.11"
@@ -16,6 +16,9 @@ dependencies = ["z3-solver==5.4.1.0"]
 test = ["pytest>=8", "pyyaml"]
 
 [project.scripts]
+glitchsat = "faultbound_wt.cli:main"
+glitchsat-hook = "faultbound_wt.precommit:main"
+# older names, kept as aliases so existing scripts, the GitHub Action and the pre-commit hook keep working
 faultbound-wt = "faultbound_wt.cli:main"
 faultbound-wt-hook = "faultbound_wt.precommit:main"
 

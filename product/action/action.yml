@@ -1,4 +1,4 @@
-# UNTESTED ON GITHUB (actions/setup-python and the code-scanning SARIF upload never ran). The two shell steps were run locally in a clean venv (lead, 2026-11-20): found and fixed a dependency-confusion bug in the default package-path; analysis on spike V2 gave ATTACK_FOUND exit 1, SARIF 2.1.0, badge JSON; bad inputs all exit 3. Never published.
+# UNTESTED ON GITHUB (actions/setup-python and the code-scanning SARIF upload never ran). The two shell steps were run locally in a clean venv (2026-11-20): found and fixed a dependency-confusion bug in the default package-path; analysis on spike V2 gave ATTACK_FOUND exit 1, SARIF 2.1.0, badge JSON; bad inputs all exit 3. Never published.
 # Composite action wrapping faultbound-wt. Usage (from a workflow, local path):
 #   - uses: ./product/action
 #     with: { netlist: build/netlist.json, config: threat.toml }

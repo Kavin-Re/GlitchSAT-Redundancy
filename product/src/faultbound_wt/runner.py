@@ -145,7 +145,7 @@ def _analyze(netlist, th, command, top, workdir, on_scope, box):
     if not os.path.isfile(netlist):
         raise InputError(f"no such file: {netlist}")
     top = top or th.top
-    prov = dict(tool="faultbound-working-title", tool_version=__version__, command=command,
+    prov = dict(tool="glitchsat", tool_version=__version__, command=command,
                 python=platform.python_version(), z3=_z3v(), yosys_on_path=yosys_version(),
                 utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     tmp = None
@@ -572,7 +572,7 @@ def timeout_report(netlist, th, timeout_s, partial, command=None, top=None):
         prov, scope = partial["provenance"], partial["scope"]
     else:
         sha = sha256_file(netlist) if os.path.isfile(netlist) else "unavailable"
-        prov = dict(tool="faultbound-working-title", tool_version=__version__, command=command, python=platform.python_version(), z3=None,
+        prov = dict(tool="glitchsat", tool_version=__version__, command=command, python=platform.python_version(), z3=None,
                     yosys_on_path=None, utc=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), input_kind="unavailable (timeout)",
                     netlist_path=netlist, netlist_sha256=sha, top=top or "?", netlist_stats=dict(gates="?", flops="?"))
         na = "unavailable: the wall-clock timeout was reached before the netlist was analysed"

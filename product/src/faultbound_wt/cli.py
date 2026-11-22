@@ -1,8 +1,15 @@
-"""Command line: faultbound-wt analyze NETLIST ..."""
+"""GlitchSAT command line: glitchsat analyze NETLIST ... (the older command name faultbound-wt is kept as an alias)."""
 import argparse, os, shlex, signal, sys
 
-from . import __version__, reports, runner
+from . import __version__
 from .config import ConfigError, load, validate, parse_mask
+try:   # the solver modules need z3; --help and --version must work without it
+    from . import reports, runner
+except ModuleNotFoundError as _e:
+    if _e.name != "z3":
+        raise
+    reports = runner = None
+Z3_MISSING = "z3-solver is not installed: pip install z3-solver"
 
 EXIT_OK, EXIT_ATTACK, EXIT_UNKNOWN, EXIT_ERROR, EXIT_INTERNAL = 0, 1, 2, 3, 4
 # H1: 0 = no attack within bound; 1 = attack found (ONLY a verdict ever returns 1); 2 = solver unknown/timeout;
@@ -31,8 +38,12 @@ def example_dir():
 
 
 def build_parser():
-    ap = _Parser(prog="faultbound-wt", description="Bounded modelled bit-flip analysis of a Yosys netlist (GlitchSAT).")
-    ap.add_argument("--version", action="version", version=__version__)
+    invoked = os.path.basename(sys.argv[0]) if sys.argv and sys.argv[0] else ""
+    ap = _Parser(prog=invoked if invoked in ("glitchsat", "faultbound-wt") else "glitchsat",
+                 description="GlitchSAT CLI: bounded analysis of modelled single-cycle bit flips in a Yosys gate-level netlist. "
+                             "It reports the smallest number of flips that makes the netlist accept a wrong input, within the stated "
+                             "bounds; a result is not a proof of security.")
+    ap.add_argument("--version", action="version", version=f"GlitchSAT CLI {__version__}")
     sp = ap.add_subparsers(dest="cmd", required=True)
     a = sp.add_parser("analyze", help="search for a bounded bit-flip attack",
                       epilog="exit codes: 0 no attack up to bound; 1 attack found; 2 solver unknown/timeout; 3 usage/input/netlist error; 4 internal error")
@@ -44,7 +55,7 @@ def build_parser():
     a.add_argument("--report", action="append", default=[], metavar="FILE",
                    help="write a report; format from extension: .json | .sarif | .junit.xml (repeatable)")
     a.add_argument("--badge", metavar="FILE", help="write a shields.io endpoint JSON badge (label 'fault check'; message always carries the bound and 'scoped')")
-    g = a.add_argument_group("scope options (PS4; each one is also a config key; the scope block of every report states them)")
+    g = a.add_argument_group("scope options (each one is also a config key; the scope block of every report states them)")
     g.add_argument("--goal-out", metavar="PORT", help="override property.output: the output port the goal is judged on (e.g. boot_word, or boot_ok for the single-net flag)")
     g.add_argument("--accept-value", metavar="N", help="override property.bad_value: the value the goal output must take (int, 0x.. allowed)")
     g.add_argument("--consumer-bits", metavar="MASK", help="only these output bits are consumed: the goal holds when they equal the accept value on those bits only "
@@ -95,6 +106,9 @@ def _main(argv=None):
     if args.cmd == "example-path":
         print(example_dir())
         return EXIT_OK
+    if runner is None:
+        print(f"error: {Z3_MISSING}", file=sys.stderr)
+        return EXIT_ERROR
     command = "faultbound-wt " + " ".join(shlex.quote(x) for x in (argv if argv is not None else sys.argv[1:]))
     try:
         th = load(args.config)
