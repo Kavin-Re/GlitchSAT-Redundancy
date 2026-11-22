@@ -4,6 +4,7 @@ scripts/comms/burst_sweep.py (z3) against its z3-free brute force. All numbers a
 bounded by T=6. Not a real overclock or voltage glitch. 'none' = no attack with any subset of that kind's events within T."""
 import csv, json, os, shutil, sys
 import pytest
+pytest.importorskip('z3', reason='z3-solver is not installed: pip install z3-solver')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'scripts', 'comms'))
 import burst_sweep as bs

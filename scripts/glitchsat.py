@@ -10,8 +10,21 @@ Verdicts are BOUNDED: NO_ATTACK_UP_TO_BOUND means no attack with <=K faults with
 more cycles or more faults.
 """
 import argparse, json, os, re, subprocess, sys, time, hashlib, collections
-from z3 import (Solver, Bool, BoolVal, BitVec, Extract, And, Or, Not, Xor, If, Implies, PbLe, sat, unsat,
-                is_true, simplify, set_param)
+try:   # z3 is imported here but only needed to solve: --help, --version and input checks work without it
+    from z3 import (Solver, Bool, BoolVal, BitVec, Extract, And, Or, Not, Xor, If, Implies, PbLe, sat, unsat,
+                    is_true, simplify, set_param)
+    _Z3_IMPORT_ERROR = None
+except ImportError as _e:
+    _Z3_IMPORT_ERROR = _e
+
+__version__ = '0.9.0'
+Z3_MISSING = 'z3-solver is not installed: pip install z3-solver'
+
+
+def _require_z3():
+    """Raise a one-line ImportError when z3 is missing (instead of a NameError deep inside the model build)."""
+    if _Z3_IMPORT_ERROR is not None:
+        raise ImportError(Z3_MISSING) from _Z3_IMPORT_ERROR
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTE = ("BOUNDED, NOT UNBOUNDED: verdict holds only for <= {k} single-cycle bit-flip faults (gate outputs and flop Q) "
@@ -103,6 +116,7 @@ class Netlist:
                 if isinstance(b, int):
                     self.names.setdefault(b, f"{n}[{i}]" if len(x['bits']) > 1 else n)
         self.init = {}
+        unknown_init = {}   # flop bit id -> (net, init, char) for an x/z init seen at some alias of that bit
         for n, x in m['netnames'].items():
             iv = x['attributes'].get('init')
             if iv:
@@ -111,10 +125,14 @@ class Netlist:
                 for i, b in enumerate(reversed(iv)):
                     if b not in '01':
                         if x['bits'][i] in self.driver_cell and any(x['bits'][i] == q for _, _, q in self.dffs):
-                            raise NetlistError(f"flop net {n}: init value {iv!r} contains {b!r} (unknown); the model needs a known power-up state "
-                                               "(treating x as 0 would silently hide attacks). Give the flop a 0/1 init.")
+                            unknown_init.setdefault(x['bits'][i], (n, iv, b))
                         continue
                     self.init[x['bits'][i]] = (b == '1')
+        # one flop bit can sit at several net names/positions: an x at one alias yields to a known value at another
+        for bit, (n, iv, b) in unknown_init.items():
+            if bit not in self.init:
+                raise NetlistError(f"flop net {n}: init value {iv!r} contains {b!r} (unknown); the model needs a known power-up state "
+                                   "(treating x as 0 would silently hide attacks). Give the flop a 0/1 init.")
         self.qs = [q for _, _, q in self.dffs]
         for q in self.qs:
             self.init.setdefault(q, False)
@@ -176,6 +194,7 @@ class Netlist:
 # ---------------------------------------------------------------- model + solve
 def build(nl, N, goal_out='boot_word', goal_value=0x96, attack_in='sig', key=0xC3,
           reduce='full', bad_only=True, fixed_in=None):
+    _require_z3()
     ports = nl.ports
     if goal_out not in ports or ports[goal_out].get('direction') != 'output':
         raise NetlistError(f"goal output {goal_out!r} is not an output port (outputs: {[p for p, v in ports.items() if v.get('direction') == 'output']})")
@@ -486,21 +505,40 @@ def run_check(verilog, top, k, N, out=None, reduce='full', goal_out='boot_word',
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0], epilog='exit codes: 0 verdict printed (NO_ATTACK_UP_TO_BOUND or ATTACK_FOUND: read the text); 2 solver unknown/timeout; 3 usage/input/netlist error; 4 internal error')
-    sp = ap.add_subparsers(dest='cmd', required=True)
-    c = sp.add_parser('check', help='bounded attack search')
-    c.add_argument('verilog'); c.add_argument('--top', required=True)
-    c.add_argument('--k', type=int, required=True, help='max number of faults'); c.add_argument('--cycles', type=int, required=True)
-    c.add_argument('--out'); c.add_argument('--reduce', choices=['none', 'coi', 'full'], default='full')
-    c.add_argument('--goal-out', default='boot_word'); c.add_argument('--goal-value', type=lambda x: int(x, 0), default=0x96)
-    c.add_argument('--attack-input', default='sig'); c.add_argument('--key', type=lambda x: int(x, 0), default=0xC3)
-    c.add_argument('--timeout-ms', type=int, default=0)
-    c.add_argument('--amk', choices=['counter', 'legacy'], default=None, help='at-most-k encoding: counter (default; Sinz sequential counter + assumptions, T3/R27) or legacy (PbLe)')
-    c.add_argument('--flow', choices=['plain', 'opt'], default='plain', help='synthesis flow (see scripts/synth.sh)')
+    ap = argparse.ArgumentParser(prog='glitchsat.py',
+        description='GlitchSAT engine: find the minimum number of modelled single-cycle bit flips that make a gate-level '
+                    'netlist accept a wrong input, within a fixed number of clock cycles. Results are bounded, not proofs.',
+        epilog='exit codes: 0 verdict printed (NO_ATTACK_UP_TO_BOUND or ATTACK_FOUND: read the text); 2 solver unknown/timeout; '
+               '3 usage/input/netlist error (including z3 not installed); 4 internal error. '
+               'Example: python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 2 --cycles 6')
+    ap.add_argument('--version', action='version', version=f'GlitchSAT engine (scripts/glitchsat.py) {__version__}')
+    sp = ap.add_subparsers(dest='cmd', required=True, metavar='COMMAND')
+    c = sp.add_parser('check', help='bounded attack search: smallest number of flips (up to --k) that reaches the goal',
+                      description='Bounded attack search on one netlist. Faults are modelled single-cycle bit flips of gate outputs '
+                                  'and flip-flop outputs; the attacker input is free, held constant and never equal to --key.')
+    c.add_argument('verilog', metavar='NETLIST', help='Yosys JSON netlist (.json, e.g. reference/spike_netlists/v2.json) or Verilog (.v; needs yosys on PATH)')
+    c.add_argument('--top', required=True, help='name of the top module inside NETLIST (e.g. v2)')
+    c.add_argument('--k', type=int, required=True, help='largest number of flips the attacker may use (the fault budget)')
+    c.add_argument('--cycles', type=int, required=True, help='number of clock cycles to unroll; the goal must be reached before this many cycles')
+    c.add_argument('--out', metavar='FILE', help='also write the full result as JSON to FILE')
+    c.add_argument('--reduce', choices=['none', 'coi', 'full'], default='full',
+                   help='which fault sites to model: none = every site; coi = only sites in the goal\'s cone of influence; '
+                        'full = coi plus a timing filter (a flip must be able to reach the goal in time). Default full')
+    c.add_argument('--goal-out', default='boot_word', metavar='PORT', help='output port the attacker wants to control (default boot_word)')
+    c.add_argument('--goal-value', type=lambda x: int(x, 0), default=0x96, metavar='N', help='value the goal port must show (default 0x96, the accept word)')
+    c.add_argument('--attack-input', default='sig', metavar='PORT', help='input port the attacker chooses (default sig)')
+    c.add_argument('--key', type=lambda x: int(x, 0), default=0xC3, metavar='N', help='the legitimate key; the attacker input must differ from it (default 0xC3)')
+    c.add_argument('--timeout-ms', type=int, default=0, metavar='MS', help='solver time limit in milliseconds; 0 = no limit (default). A timeout gives exit 2, never "no attack"')
+    c.add_argument('--amk', choices=['counter', 'legacy'], default=None,
+                   help='how "at most k flips" is encoded for the solver: counter (default; sequential counter with assumptions) '
+                        'or legacy (pseudo-Boolean PbLe constraint)')
+    c.add_argument('--flow', choices=['plain', 'opt'], default='plain', help='Yosys synthesis flow for Verilog input (see scripts/synth.sh); ignored for .json netlists')
     a = ap.parse_args()
+    if _Z3_IMPORT_ERROR is not None:
+        print(f'error: {Z3_MISSING}', file=sys.stderr); sys.exit(EXIT_INPUT_ERROR)
     try:
         r = run_check(a.verilog, a.top, a.k, a.cycles, a.out, a.reduce, a.goal_out, a.goal_value, a.attack_input, a.key, a.timeout_ms, flow=a.flow, amk=a.amk)
-    except NetlistError as e:   # H1: distinct, loud failure (exit 3); 0 = verdict printed (attack or no attack, see text), 2 = solver unknown
+    except NetlistError as e:   # distinct, loud failure (exit 3); 0 = verdict printed (attack or no attack, see text), 2 = solver unknown
         print(f'error: {_safe(str(e))}', file=sys.stderr); sys.exit(EXIT_INPUT_ERROR)
     except (RecursionError, KeyError, IndexError, TypeError) as e:
         print(f'internal error ({type(e).__name__}: {_safe(str(e))}); no verdict', file=sys.stderr); sys.exit(EXIT_INTERNAL_ERROR)

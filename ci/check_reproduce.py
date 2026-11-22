@@ -23,9 +23,16 @@ manifest is inside this same file/tree, so it is evidence only against someone w
 import argparse, hashlib, json, os, sys, tempfile
 here = os.path.dirname(os.path.abspath(__file__)); root = os.path.dirname(here)
 EXIT_OK, EXIT_MISMATCH, EXIT_INPUT, EXIT_ENGINE_ERROR = 0, 1, 3, 4
-# SHA-256 of the engine files that --rerun executes (H2). Regenerate deliberately with --print-engine-manifest after a reviewed engine change.
+# SHA-256 of the engine files that --rerun executes. Regenerate deliberately with --print-engine-manifest after a reviewed engine change.
+# History of the scripts/glitchsat.py entry: 1ad037ef... was the file right after the synth-via-sh / neutral-explanation change
+# (docs/NUMBERS.md P08.glitchsat). The published tree carried 91ba5309... instead, so --rerun warned. No copy of the 1ad037ef file
+# survives, so that later edit could not be traced line by line; the P08 behaviour (sh synth.sh, neutral multi-fault text) is present.
+# Current value: the 2026-11-20 CLI change (z3 imported lazily so --help works without it, help text on every option, --version);
+# the model build, solver calls and printed output are unchanged. Re-confirm with `--rerun` (36/36) on a machine with z3 and yosys.
+# Then (2026-11-21) the flop-init merge in Netlist.__init__: an x at one alias of a flop bit yields to a known 0/1 at another alias (3a66dcac... before).
+# Only netlists that were rejected before parse differently; every other parsed netlist is identical (tests/test_netlist_init_alias.py).
 ENGINE_MANIFEST = {
-    'scripts/glitchsat.py': '1ad037ef07e23c2aabcea75b87a99616591957bd61ed8e0b80abae6b737a9f3c',
+    'scripts/glitchsat.py': 'b38bbe735a055a750c08471b2336dcaa63dd747b2a0831a0431f21d9eef3387d',
     'scripts/synth.sh': '99686d4e22780650bbeb8829ea9d2dd6b8bb30422af27d82a6ae2aa4f14af6fc',
 }
 ROW_TAGS = ('MISMATCH', 'MISSING ROW', 'RERUN MISMATCH', 'RERUN ERROR')   # tags whose second field is a row key: that row FAILED

@@ -1,6 +1,7 @@
 """glitchsat.Netlist skips $scopeinfo (Yosys >= 0.38) and gives the same verdict; unknown cells still error."""
 import copy, json, os, sys
 import pytest
+pytest.importorskip('z3', reason='z3-solver is not installed: pip install z3-solver')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
 import glitchsat as g

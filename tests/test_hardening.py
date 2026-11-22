@@ -2,6 +2,7 @@
 Netlists are hand-built Yosys-JSON (2-bit input `sig`, key 3, 2-bit `boot_word`)."""
 import json, os, subprocess, sys
 import pytest
+pytest.importorskip('z3', reason='z3-solver is not installed: pip install z3-solver')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
 import glitchsat as g
