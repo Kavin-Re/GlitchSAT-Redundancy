@@ -1,4 +1,4 @@
-# MEASURED by agent P13a 2026-11-20 on /tmp/work_p13 copy: python3 docs/dossier/test_hamming.py /tmp/work_p13 <netlist> <top> 6 (z3, T=6, k searched 0..8, known init, goal boot_word==0x96, stem flips)
+# MEASURED by step P13a 2026-11-20 on /tmp/work_p13 copy: python3 docs/dossier/test_hamming.py /tmp/work_p13 <netlist> <top> 6 (z3, T=6, k searched 0..8, known init, goal boot_word==0x96, stem flips)
 ### reference/spike_netlists/v1.json v1
 code words: ['0xf0', '0xcc', '0x96', '0x69']
 pairwise Hamming distances: {('0xf0', '0xcc'): 4, ('0xf0', '0x96'): 4, ('0xf0', '0x69'): 4, ('0xcc', '0x96'): 4, ('0xcc', '0x69'): 4, ('0x96', '0x69'): 8}

@@ -1,6 +1,6 @@
 import asyncio,sys
 from playwright.async_api import async_playwright
-ROOT="file://<repo>/docs/wow/"
+ROOT="file://<repo>/docs/explainers/"
 async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch(executable_path='/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell',args=['--no-sandbox'])

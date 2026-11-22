@@ -1,5 +1,5 @@
 # PS4 report: scope options in the shipped product
-Agent PS4, 2026-11-19. Faults are MODELLED single-cycle bit flips on toy netlists; nothing here is a hardware or security statement. Every number is MEASURED with the command shown unless marked. Work copy `/tmp/work_ps4/p` (tar-pipe copy), applied to the tree only after it passed. `make` was not run in the tree. Backups of the 7 changed existing files: `research/c4/ps4/backup/`.
+Step PS4, 2026-11-19. Faults are MODELLED single-cycle bit flips on toy netlists; nothing here is a hardware or security statement. Every number is MEASURED with the command shown unless marked. Work copy `/tmp/work_ps4/p` (tar-pipe copy), applied to the tree only after it passed. `make` was not run in the tree. Backups of the 7 changed existing files: `research/c4/ps4/backup/`.
 
 ## What was built (product/src/faultbound_wt)
 | option (CLI / TOML key) | behaviour | engine origin |

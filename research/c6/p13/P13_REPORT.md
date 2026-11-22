@@ -1,6 +1,6 @@
 # P13a report: coding-theory chapter (claims and wording)
 
-License: UNDECIDED. Working title TBD. Faults are modelled bit flips; nothing physical; nothing established as new. Work copy: `/tmp/work_p13/` (venv with `pip install ./product`). No file outside my scope was edited; the edits in section 3 are for a later agent to apply.
+License: UNDECIDED. Working title TBD. Faults are modelled bit flips; nothing physical; nothing established as new. Work copy: `/tmp/work_p13/` (venv with `pip install ./product`). No file outside my scope was edited; the edits in section 3 are for a later step to apply.
 
 ## 1. What was done (all MEASURED here unless labelled)
 - `docs/comms/test_rm13.py` (copy `docs/dossier/test_rm13.py`): 16 tests, **16 passed** (`test_output.txt`, both copies). Facts checked: RM(1,3) = span{FF,0F,33,55}, n=8, k=4, d=4, weight enumerator 1 + 14z^4 + z^8; F0, CC, 96, 69, C3 are all members under the stated LSB-first truth-table convention **and** under MSB-first (RM(1,3) is invariant under bit reversal), so no word had to be dropped; state-code distances 4,4,4,4,4,8; 0x69 xor 0xFF = 0x96; CC xor 96 = 0x5A touches only copy groups m0, m1.
@@ -15,7 +15,7 @@ License: UNDECIDED. Working title TBD. Faults are modelled bit flips; nothing ph
 - V2m (per-bit vote) all-nets 2 = d - t for a [3,1,3] repetition code with t=1 correction (M1 s5): consistent with the plan's E-C3 prediction, one row only.
 - Not done: P11 codebook sweep (cells "pending P11"), burst measurement (pending P14), random-channel numbers (P12). `results/comms/distance_sweep.csv` did not exist at the time of writing.
 
-## 3. Edits for a later agent to apply
+## 3. Edits for a later step to apply
 
 ### 3a. PROJECT_DOSSIER.md section 12
 Replace the last sentence "Communication engineering: not applicable beyond Hamming-distance state encoding." with:
@@ -25,13 +25,13 @@ Also change "D1 re-run" in s12 to "D1, re-run by P13a 2026-11-20, `research/c6/p
 ### 3b. EVIDENCE_MAP.md row 7 (Analysis)
 Append to Evidence: "`docs/comms/CODING_VIEW.md`, `docs/comms/test_rm13.py`". Append to Strength: "coding view: state code is a subset of RM(1,3) (tested); fault-capacity table separates code distance (flops-only 4) from decoder ceiling (all nets 1 to 3); narrow consumers read as punctured codes (masked distance matches CLI on 3 masks and bounds M1 on 255/255)". Append to Gap: "codebook sweep (P11), burst run (P14), random channel (P12) pending; textbook material, no new theory". Estimate: leave at 6 until P11 lands (do not raise on this alone). If the criteria include a communication-engineering row, map it to CODING_VIEW and replace any "not applicable".
 
-### 3c. OWNER_DERIVATION_SHEET.md: add question 6 (leave answer blank)
+### 3c. DERIVATION_SHEET.md: add question 6 (leave answer blank)
 ```
 ## 6. The state code is a Reed-Muller code: what does its distance buy?
 - Question: show that F0, CC, 96, 69 are codewords of RM(1,3) (span of FF, 0F, 33, 55; bit i of the byte = f(binary(i))). What is the minimum distance d? Predict the flips needed if only the 8 state flops may flip, and say why V1 needs only 1 flip when every net may flip.
 - Data: `rtl/v1.v`, `rtl/v2.v`; `docs/comms/CODING_VIEW.md`.
-- Hand steps: (leave for the owner)
-- Expected answer: (leave for the owner; the agent's check values are in `research/c6/p13/hamming_runs.txt` and `docs/comms/test_rm13.py`)
+- Hand steps: (leave for the author)
+- Expected answer: (leave for the author; the step's check values are in `research/c6/p13/hamming_runs.txt` and `docs/comms/test_rm13.py`)
 - Check against: `python3 -m pytest -q docs/comms/test_rm13.py`; `python3 docs/dossier/test_hamming.py <copy> reference/spike_netlists/v1.json v1 6`.
 - My derivation: ______
 ```

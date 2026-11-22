@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 import json
-R='docs/wow/'
+R='docs/explainers/'
 out={}
 with sync_playwright() as p:
     b=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--no-sandbox','--headless=new'])

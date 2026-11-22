@@ -1,6 +1,6 @@
 # BP REPORT: Big Picture / aim higher
-Agent BP, 2026-11-19 ~20:45 UTC. Read-only review; this is the only file written. Nothing was run. Working title TBD; licence UNDECIDED. Simulated judgement, not a human opinion.
-Labels: [S: file] = sourced from a project file (named); [I] = my inference, not measured. Files read: handoff/CONTINUATION/{AGENT_RULES,COUNCIL,CHECKPOINT}.md, README.md, docs/FINAL_STATUS.md, docs/dossier/PROJECT_DOSSIER.md, research/c3/{ds,bc,fp,m1,r20,r21,r22,r23,r24}/*_REPORT.md (BC/FP/DS/R21-R24 in part: first ~5 KB each plus tails), research/c2/{b2_scope/B2,e2_variance/E2}_REPORT.md. Not fully read: the middle of DS, BC rows 13+, FP's 30 questions, R21 V4-V6 section.
+Step BP, 2026-11-19 ~20:45 UTC. Read-only review; this is the only file written. Nothing was run. Working title TBD; licence UNDECIDED. Simulated judgement, not a human opinion.
+Labels: [S: file] = sourced from a project file (named); [I] = my inference, not measured. Files read: handoff/CONTINUATION/{PROCESS_RULES,REVIEW PANEL,CHECKPOINT}.md, README.md, docs/FINAL_STATUS.md, docs/dossier/PROJECT_DOSSIER.md, research/c3/{ds,bc,fp,m1,r20,r21,r22,r23,r24}/*_REPORT.md (BC/FP/DS/R21-R24 in part: first ~5 KB each plus tails), research/c2/{b2_scope/B2,e2_variance/E2}_REPORT.md. Not fully read: the middle of DS, BC rows 13+, FP's 30 questions, R21 V4-V6 section.
 Clock: now ~20:45 UTC 19 Nov; no NEW work after 04:30 UTC; wrap-up 05:30 UTC = 11:00 IST 20 Nov [S: CHECKPOINT]. About 7.8 h of work time remain.
 
 ## 1. What this project really is (5 lines)
@@ -22,7 +22,7 @@ Honest gap between where we are and "wow": the data are about toy designs we wro
 - Product CLI with SARIF/JUnit/exit codes, Dockerfile and GH Action already drafted but never run [S: R24 sec 0, 4; product/ listing].
 **Build in 6 h (tonight, feasible before 04:30 UTC):** a `structure` pass over the Yosys JSON: for each declared copy group, compute the fan-in cone of each result bit; list shared gates, their fanout, and the single-flip "dominator" nets (nets whose flip alone can change all consumer bits). Output a table and a plain-English sentence. Wire the M1 mask machinery into the product CLI as `--consumer-bits 0x0F` (the per-mask solve is a few seconds; 255 masks x 6 designs ran) and emit the "cost vs consumer width" curve. Add the figure `m1_flips_vs_mask.png` to the front page. [I: effort estimate]
 **Build in 24 h:** consumer given as a small expression over nets (not just a mask: "ok = AND of bits 0..3", "alarm silent"); declared-copy-group annotation (comments or TOML); validation harness: structural prediction vs solver on all 864 E2 netlists x selected masks, reported as agreement rate; run on 3 third-party designs already fetched by R20 (CRC compare, sbox DMR, UART) so the demo is not only our toys [S: R20 designs exist].
-**Build in 72 h:** scale work (cone-of-influence slicing and flop-only unrolling so 200-2000 gate designs run k=3), a CI badge showing the scoped verdict (never "secure"), a worked tutorial on one real Tiny Tapeout or OpenTitan-lite block (needs sv2v path; R20 flags this as a blocker), PyPI/Docker publication if the owner decides on name/licence.
+**Build in 72 h:** scale work (cone-of-influence slicing and flop-only unrolling so 200-2000 gate designs run k=3), a CI badge showing the scoped verdict (never "secure"), a worked tutorial on one real Tiny Tapeout or OpenTitan-lite block (needs sv2v path; R20 flags this as a blocker), PyPI/Docker publication if the author decides on name/licence.
 **Risk:** (1) structural prediction may not match the solver (logic masking, reconvergent paths): then the linter degrades to "solver wrapper with a nice report" [I]; (2) overlap with SYNFI/k-FRP "per-output fault effect" reporting is probably larger than we know, as k-FRP full text is still unread [S: R23]; (3) 72 h scale target may fail (k=3 on 2040 gates did not finish) [S: R20].
 **Why it impresses:**
 - (a) ECE evaluator: a sharp, testable statement with a validation table (prediction vs exact solve), a negative result stated up front, and a clean separation of model from measurement. It is checkable in one afternoon.
@@ -54,17 +54,17 @@ Honest gap between where we are and "wow": the data are about toy designs we wro
 
 ### Day-by-day plan
 **Tonight, to 04:30 UTC (about 7.5 h; deliverable at 05:30 UTC = 11:00 IST). Prioritise, not breadth.**
-- H0-1: decide the front-page story with the owner's own words in mind: "Redundancy verdicts are properties of (netlist, consumer, counting rule); this tool measures all three." Re-order README so M1's width-vs-flips curve is first, V2 "resists 2 flips" is last and scoped.
+- H0-1: decide the front-page story with the author's own words in mind: "Redundancy verdicts are properties of (netlist, consumer, counting rule); this tool measures all three." Re-order README so M1's width-vs-flips curve is first, V2 "resists 2 flips" is last and scoped.
 - H1-4: build the `structure` pass (shared gates among declared copy groups, dominator nets) and the `--consumer-bits` option in product/; test on V0/V1/V2 spike plus apt/conda re-syntheses; compare structural report with M1's observation that apt-0.33 V2 gives 2 for the full word (shared AND fanout 3 + OR fanout 2 [S: E2 sec 4]).
 - H4-5.5: the ONE experiment below, first version on the existing E2 netlists (data already exist).
 - H5.5-6.5: the Hamming-distance lever on V2 (C-slice), measured with the mask harness; report whichever way it goes.
-**11:00 IST deliverable (05:30 UTC):** 1 page (front door), 1 figure (flips vs consumer width), 1 table (V2 verdict by netlist/consumer), the linter output on two designs, a scoped-claim paragraph, a Q&A sheet with the owner's own answers. No new claims after 04:30 UTC.
-**Day 2 (to ~+24 h after tonight):** validation harness at scale (prediction vs solver on 864 netlists and 3 R20 designs); consumer expressions; Docker with pinned Yosys; actually run the GH Action in a scratch repo (owner has to create it; R24 #2); cocotb/pytest-friendly API (R24 #5).
-**Day 3 (+72 h):** scale slicing and a runtime curve; one realistic third-party block as the tutorial; read the k-FRP full text through an allowed route or via the artifact readme and add a precise "difference from k-FRP" paragraph; a lab handout (R24) with the web demo "flip a net" if the dashboard owner decision allows [S: R24 sec 5; dashboard restyling is forbidden without the owner, AGENT_RULES].
-**Beyond:** (i) a short note/poster "scope tuples for fault-injection claims"; (ii) offer the linter to an open hardware project via an issue only after the owner decides licence and name; (iii) only then consider C's rewriter or B's leaderboard.
+**11:00 IST deliverable (05:30 UTC):** 1 page (front door), 1 figure (flips vs consumer width), 1 table (V2 verdict by netlist/consumer), the linter output on two designs, a scoped-claim paragraph, a Q&A sheet with the author's own answers. No new claims after 04:30 UTC.
+**Day 2 (to ~+24 h after tonight):** validation harness at scale (prediction vs solver on 864 netlists and 3 R20 designs); consumer expressions; Docker with pinned Yosys; actually run the GH Action in a scratch repo (author has to create it; R24 #2); cocotb/pytest-friendly API (R24 #5).
+**Day 3 (+72 h):** scale slicing and a runtime curve; one realistic third-party block as the tutorial; read the k-FRP full text through an allowed route or via the artifact readme and add a precise "difference from k-FRP" paragraph; a lab handout (R24) with the web demo "flip a net" if the dashboard author decision allows [S: R24 sec 5; dashboard restyling is forbidden without the author, PROCESS_RULES].
+**Beyond:** (i) a short note/poster "scope tuples for fault-injection claims"; (ii) offer the linter to an open hardware project via an issue only after the author decides licence and name; (iii) only then consider C's rewriter or B's leaderboard.
 
 ### Kill-list (stop doing)
-1. More critic/persona/devil's-advocate waves that re-find known issues; the register has ~60+ rows and 235 .md files [S: BC rows 8, 11-12; CHECKPOINT]. Cap at one more targeted wave after the new feature exists.
+1. More reviewer/persona/devil's-advocate waves that re-find known issues; the register has ~60+ rows and 235 .md files [S: BC rows 8, 11-12; CHECKPOINT]. Cap at one more targeted wave after the new feature exists.
 2. V3 hardening and any new "V-number" designs; V3 is unfinished and not shown secure [S: B2; DS F7].
 3. k>=4 or longer-cycle sweeps on the toy V2 (already to 20 cycles for k<=3, no change) [S: FINAL_STATUS next steps].
 4. Layout polishing and further sky130 renders (DRC/LVS caveats stay; no relation to the fault verdicts) [S: FINAL_STATUS; BC row 5].
@@ -88,9 +88,9 @@ Runtime: hours, because solver results already exist [S: E2 raw/solve_by_canon_s
 5. "The structural predictor was tuned on the data it is tested on." [I] Only answerable with the pre-registered held-out protocol above; do it and publish failures.
 6. "The 'fix' (Hamming distance) is textbook, and your own voting experiment made things worse." [S: M1 sec 5] Say so first; the fixer is a verified suggestion with a bound, not a theorem.
 7. "Bounded k<=3, T=6 is not security." [S: FINAL_STATUS; DS Q7] Every output line carries the bound and the hash; the word "secure" is never printed.
-9. "Single-agent, unreplicated numbers (DA 6/32, CT-5 PDR)." [S: BC; DS F6, F9] Use E2/M1 numbers that have raw data and a second implementation (bf.py agrees on 255/255 masks at T=4) and say the rest is unreplicated.
+9. "Single-step, unreplicated numbers (DA 6/32, CT-5 PDR)." [S: BC; DS F6, F9] Use E2/M1 numbers that have raw data and a second implementation (bf.py agrees on 255/255 masks at T=4) and say the rest is unreplicated.
 10. "Where is the external win?" [S: FINAL_STATUS "Not achieved"] Nothing external exists. Do not fake one; Option A's third-party designs and a pointer to SYNFI's counter are the honest substitute.
 
 ## 5. Not done / limits of this review
 - I ran nothing; every number is quoted from the cited reports and was not re-checked.
-- Effort estimates (6/24/72 h) are my inference [I] and assume the owner's account has capacity left and the toolchain (yosys 0.33, z3) is as recorded.
+- Effort estimates (6/24/72 h) are my inference [I] and assume the author's account has capacity left and the toolchain (yosys 0.33, z3) is as recorded.

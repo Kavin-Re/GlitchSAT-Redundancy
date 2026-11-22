@@ -5,7 +5,7 @@ Files: product/src/faultbound_wt/_engine.py, scripts/glitchsat.py (same rejectio
 
 ## Verification (tree)
 - ci/check_reproduce.py --rerun: 36/36 rows match, 0 failed. It prints ONE WARNING: glitchsat.py differs from ENGINE_MANIFEST.
-  NEW sha256 scripts/glitchsat.py = 78ecea0813051f2a6e962cf6c42983afd34754245b99651f026bef6df45cfe40 (old 0747950d...77cd). synth.sh unchanged (99686d4e...6af27d82a6ae2aa4f14af6fc as before). check_reproduce.py NOT edited: lead must update the manifest (or revert the glitchsat.py change, which is not needed for the Docker path).
+  NEW sha256 scripts/glitchsat.py = 78ecea0813051f2a6e962cf6c42983afd34754245b99651f026bef6df45cfe40 (old 0747950d...77cd). synth.sh unchanged (99686d4e...6af27d82a6ae2aa4f14af6fc as before). check_reproduce.py NOT edited: integration step must update the manifest (or revert the glitchsat.py change, which is not needed for the Docker path).
 - root tests: 136 pass in the work copy (incl. 3 new); tree: 134 passed, 2 skipped (conda Yosys on PATH). product tests (pip install ./product[test]): 324 passed in copy; 314 passed, 10 skipped in tree run.
 - New tests: scopeinfo-bearing netlist gives identical stats/drivers (product) and same verdict NO_ATTACK_UP_TO_BOUND (glitchsat); unknown type `$mystery` errors; `$scopeinfo` with an output port still errors.
 - Note (pre-existing, not changed): glitchsat.py accepts an unknown cell type that has a `Y` output at load time (product engine rejects it).

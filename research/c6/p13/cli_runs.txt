@@ -1,4 +1,4 @@
-# MEASURED by agent P13a: faultbound-wt analyze reference/spike_netlists/<d>.json --top <d> --max-flips 3 --cycles 6 (venv /tmp/work_p13/venv, pip install ./product)
+# MEASURED by step P13a: faultbound-wt analyze reference/spike_netlists/<d>.json --top <d> --max-flips 3 --cycles 6 (venv /tmp/work_p13/venv, pip install ./product)
 ## v1
 warning: these config values were NOT set and the built-in defaults are in use: attacker.input (default `sig`), attacker.legitimate_value (default 0xC3), property.output (default `boot_word`), property.bad_value (default 0x96) (a wrong default legitimate_value makes the honest input fail; check them)
 v1: ATTACK_FOUND  (<= 3 flips, 6 cycles; 58 gates, 8 flops; 0.142s)

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Screenshots of docs/wow/dial.html with headless Chrome. No tracing.
+"""Screenshots of docs/explainers/dial.html with headless Chrome. No tracing.
 Usage: python3 research/c6/p40/shoot.py   (writes research/c6/p40/shots/*.png and prints console errors / scroll widths)"""
 import os, sys
 from playwright.sync_api import sync_playwright
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
-URL = "file://" + os.path.join(ROOT, "docs/wow/dial.html"); OUT = os.path.join(HERE, "shots"); os.makedirs(OUT, exist_ok=True)
+URL = "file://" + os.path.join(ROOT, "docs/explainers/dial.html"); OUT = os.path.join(HERE, "shots"); os.makedirs(OUT, exist_ok=True)
 SHOTS = [  # name, width, height, scheme, hash, full_page
     ("390_light_default", 390, 844, "light", "", True),
     ("390_dark_flag", 390, 844, "dark", "#v2.flag.stored.no.known", True),

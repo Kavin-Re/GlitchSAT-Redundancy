@@ -15,4 +15,4 @@ Changed files (originals in research/c5/h4/backup/): product/src/faultbound_wt/c
 | `python3 ci/check_reproduce.py --rerun` | 36/36 rows match, 0 FAILED (exit 0) |
 | `python3 scripts/check_numbers.py` | 52 files scanned, 0 STALE, 15 HISTORICAL (exit 0; run on the copy, before docs say 321, so the 310 figure was not flagged by rule) |
 
-Exit codes 0-4 and report schema keys unchanged. Not done: README/START/FINAL_STATUS still say 310 (docs are the lead's). Tree has no product/build or egg-info (egg-info exists only in the /tmp copy). check_numbers must be re-run after docs change to 321.
+Exit codes 0-4 and report schema keys unchanged. Not done: README/START/FINAL_STATUS still say 310 (docs are the integration step's). Tree has no product/build or egg-info (egg-info exists only in the /tmp copy). check_numbers must be re-run after docs change to 321.

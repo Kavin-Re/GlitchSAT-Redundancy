@@ -54,4 +54,4 @@ python3 -m pytest -q test_faultpack.py
 - Matrix gaps: branch_flip, stem_or_branch_flip, input_branch_flip on V2 (all netlists) and on the re-synthesized V0/V1 columns; not run to completion.
 - Exhaustive validation only at T=4, cost <= 2, mostly V0/V1. Matrix is T=6 only; cap 3, so ">3" is not "secure".
 - The model semantics (what a "set", "hold", "cone" means) are my modelling choices; none is calibrated to a layout, supply network or clock tree. Fault sites on clk/reset: none. Time-varying `sig` is not modelled beyond the input-fault rows. No physical claim; nothing established as new.
-- Stored matrix numbers come from a re-run of interrupted jobs; the earlier agent's partial files were reused for code only.
+- Stored matrix numbers come from a re-run of interrupted jobs; the earlier step's partial files were reused for code only.

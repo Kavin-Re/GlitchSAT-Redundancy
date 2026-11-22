@@ -26,4 +26,4 @@ Resolved fact used everywhere: the same `scripts/synth.sh` gives 85 gates (40 AN
 ## Not changed (on purpose)
 - `docs/report/REVIEW_NOTES.md` still contains the old "FORMAL.md says both gave 83 gates" remark: it is a dated record of an earlier review.
 - `docs/DEEP_RESULTS.md` already held the correct growth wording; used as the reference.
-- Dashboard items (R2 ranked 1-3, 12) are the lead's.
+- Dashboard items (R2 ranked 1-3, 12) are the integration step's.

@@ -17,7 +17,7 @@ Netlists: (A) the spike's `work/v{0,1,2}.json` (what the solver used; keep_hiera
 | V2 (A) | 1 | exhaustive, 456 | 0 | UNSAT | yes |
 | V2 (A) | 2 | exhaustive T=4 (46,056 sets) and T=6 (103,740 sets) | 0 | UNSAT | yes |
 | V2 (A) | 3 | exhaustive T=3 (1,949,476 sets): 182 attacks; exhaustive for the slice "all 3 faults in cycle 1" at T=6 (70,300 sets): 182 attacks (e.g. word[0] + c1/c2 compare nets @1, sig 3 etc.) | SAT | yes |
-| V2 (A) | 3 | NOT exhaustive over all cycle combinations at T=6 (C(456,3)=15.7M not run) | | | |
+| V2 (A) | 3 | exhaustive over all cycle combinations at T=6: C(456,3) = 15,699,320 triples (`--reduce none`); 182 attacks, all in cycle 1 (reference netlist `reference/spike_netlists/v2.json`; placed V2 has 22) | SAT | yes |
 | V0/V1/V2 (A) | - | replay of all 13 SAT witnesses in `work/*_results.json` | 13/13 CONFIRMED (`replay.log`) | | yes |
 | boolector (A, my smt.py encoding) | | V2 T=4 k<=2 / V2 T=6 k<=2: **unsat**; V2 T=6 k<=3: sat; V1 T=6 k<=1: sat; V0 T=6 k<=1: sat (`boolector.log`, 0-2 s) | | | yes (second solver, re-encoding) |
 

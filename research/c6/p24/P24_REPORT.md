@@ -6,15 +6,15 @@ Work done in a copy (`/tmp/work_p24`), then only the files listed below were cop
 ## Files written
 | file | what |
 |---|---|
-| `scripts/export_e2_wall.py` | reads `research/c2/e2_variance/raw/matrix.csv` (288 V2 rows) and `research/c6/p01/sweep_rows.csv`; writes `docs/wow/e2_wall.json` and the copy embedded in `wall.html`. Deterministic, no timestamp. |
-| `docs/wow/e2_wall.json` | 288 tiles (264 solved + 24 without verdict), 152 netlists, cause table, V2/V2e block. Option fields, gates, flops, min flips, canonical sha (16 hex), csv line. |
-| `docs/wow/wall.html` | the standalone page (about 161 kB with data; no network, no libraries). |
-| `docs/wow/check_wall.py` | 42 checks: recount from the source with its own code, JSON against source row by row, page against JSON, wording and caveats. |
-| `docs/wow/WALL_NOTES.md` | 90-second presenter script. |
+| `scripts/export_e2_wall.py` | reads `research/c2/e2_variance/raw/matrix.csv` (288 V2 rows) and `research/c6/p01/sweep_rows.csv`; writes `docs/explainers/e2_wall.json` and the copy embedded in `wall.html`. Deterministic, no timestamp. |
+| `docs/explainers/e2_wall.json` | 288 tiles (264 solved + 24 without verdict), 152 netlists, cause table, V2/V2e block. Option fields, gates, flops, min flips, canonical sha (16 hex), csv line. |
+| `docs/explainers/wall.html` | the standalone page (about 161 kB with data; no network, no libraries). |
+| `docs/explainers/dev/check_wall.py` | 42 checks: recount from the source with its own code, JSON against source row by row, page against JSON, wording and caveats. |
+| `docs/explainers/dev/WALL_NOTES.md` | 90-second presenter script. |
 | `research/c6/p24/shoot.py`, `shots/` | headless-Chrome test and 28 screenshots; `shots/shoot_log.txt` is its output. |
 
 ## Numbers (MEASURED: row counts of the source files; recomputed here, not copied)
-Command: `python3 scripts/export_e2_wall.py && python3 docs/wow/check_wall.py` (ALL PASS, 0 failed).
+Command: `python3 scripts/export_e2_wall.py && python3 docs/explainers/dev/check_wall.py` (ALL PASS, 0 failed).
 - 288 V2 rows, 264 SOLVED, 24 ENGINE_UNSUPPORTED (no verdict).
 - Per setting, min flips 1 / 2 / 3 = 180 / 60 / 24. Matches E2_REPORT section 3 and NUMBERS `E2.v2.min`.
 - 152 distinct `sha256_canon`; no netlist has two verdicts; per netlist 94 / 38 / 20. Matches DA3 A2 and NUMBERS `DA3.E2.distinct`.
@@ -44,8 +44,8 @@ All verdicts are bounded: goal `boot_word == 0x96`, 6 cycles, at most 3 modelled
 - Wall tiles are 27 px at 1366 x 768 so that the whole wall fits one screen; that is under 44 px. They are reachable by keyboard and are 57 px on a 390 px phone. Control buttons are all at least 44 px.
 - Colour-blind safety rests on shape and digit; I did not run a colour-vision simulator. The amber tile has low contrast against the light background (its dark digit does not).
 - Not tested: Firefox, Safari, a real phone, a real projector, a screen reader. Only headless Chrome.
-- `check_wall.py` is not wired into `make test` or `scripts/check_numbers.py`, and the page is not linked from any other page: those files are outside my scope (lead).
+- `check_wall.py` is not wired into `make test` or `scripts/check_numbers.py`, and the page is not linked from any other page: those files are outside my scope (integration step).
 - The page was not embedded in `explainer.html`.
 - "The cause" is an association between options and verdicts in this grid plus E2's structural note; it is not a per-netlist causal analysis. The 12 `abc -dff` one-flip settings stay unexplained, and 6 flatten-first settings still need 3.
-- Observation for the lead: `WHY_TWO_FLIPS.md` lists plain-flow hashes `214a2987 / 152aad31` for V2, while `sweep_rows.csv` has `f3fe9621 / 32b82842` for the same rows. The min-flip rows agree. I used the csv and did not investigate the hash difference.
+- Observation for the integration step: `WHY_TWO_FLIPS.md` lists plain-flow hashes `214a2987 / 152aad31` for V2, while `sweep_rows.csv` has `f3fe9621 / 32b82842` for the same rows. The min-flip rows agree. I used the csv and did not investigate the hash difference.
 - Nothing established as new. No hardware claim.

@@ -1,5 +1,5 @@
 # R21: Fault-injection countermeasures in real designs, and candidate V4-V6
-Agent R21, 2026-11-19. License: UNDECIDED. Title: working title TBD.
+Step R21, 2026-11-19. License: UNDECIDED. Title: working title TBD.
 Method: 8 WebSearch (standard) + 1 WebFetch of the OpenTitan guideline page. Labels: SOURCED = a fetched page or search-result text said it (URL given); SNIPPET = search summary only; UNVERIFIED = my knowledge or inference, no source seen. No full papers read, nothing run, no tool cloned. Nothing here is claimed as new. All fault costs below are EXPECTED under the glitchsat model (modelled single-cycle bit flips of gate outputs and flop Q, T=6, input nets not sites, known init); none is measured. All RTL is UNTESTED.
 No host was blocked this round.
 

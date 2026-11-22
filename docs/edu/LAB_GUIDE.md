@@ -36,7 +36,7 @@ Tool set (updated by EDU2, 2026-11-19). **Every exercise uses the shipped CLI** 
 No class has run this. The times below are the author's estimate of reading and typing time plus measured solver time (MEASURED, `research/c4/edu2/verification.log`: V2 at 3 flips 8 s; the whole lab's solver time is about 1 minute). Expect to adjust after one real session; please record your own times.
 | Min | Block | What happens | Instructor |
 |---|---|---|---|
-| 0-10 | Setup and story | Students run setup. Open `docs/wow/explainer.html` (3 min, "Three guards, one wire"); state the scope sentence above. | Put "model only" on the board. Collect setup problems. |
+| 0-10 | Setup and story | Students run setup. Open `docs/explainers/explainer.html` (3 min, "Three guards, one wire"); state the scope sentence above. | Put "model only" on the board. Collect setup problems. |
 | 10-20 | Ex 1 | Predict V0/V1/V2 minimum flips, then run (V2 with 3 flips takes about 8 s). | Ask for predictions as a show of hands before anyone runs. |
 | 20-30 | Ex 2 | Consumer width with `--consumer-bits`: 0xFF, 0x0F, 0x1B, 0x4E. | Let students guess which 4-bit mask is cheapest. |
 | 30-42 | Ex 3 | Re-synthesise V2 two ways (project recipe vs plus `opt_merge`). | The surprise block: same RTL, 2 flips vs 1 flip. |
@@ -46,14 +46,14 @@ No class has run this. The times below are the author's estimate of reading and 
 | 73-80 | Ex 6 | Which asset? Accept flag vs word; config sanity exit code 3. | |
 | 80-86 | Ex 7 (extension) | `--sweep-widths` curve on V2 (0,1,1,2,2,3,3,3). | Run the V2 command first on a projector (18 s). |
 | 86-94 | Ex 8 (extension) | `--scope-sweep` table; discussion question 8a. | Let pairs argue before you give the model answer. |
-| 94-100 | Debrief | Three-sentence summary per student; `docs/wow/game.html` as optional follow-up. | Discussion questions in the Instructor notes. |
+| 94-100 | Debrief | Three-sentence summary per student; `docs/explainers/game.html` as optional follow-up. | Discussion questions in the Instructor notes. |
 
 Cut list if time is short: Ex 7 and 8 are extensions (20 extra points, run as homework or as a board demo); then the lab is about 86 minutes (ESTIMATE; drop the Ex 7-8 rows). Further: drop Ex 6 and the second half of Ex 2 (keep 0xFF and 0x0F); Ex 4 can be a board demo.
 
 ## Materials
 - Worksheet `docs/edu/WORKSHEET.md` (students). Answer key `docs/edu/ANSWER_KEY.md` and `docs/edu/INSTRUCTOR_NOTES.md` (instructor only).
 - Starter designs `docs/edu/starter_designs/` (3 Verilog files, netlists, threat configs, `MANIFEST.md` with Yosys version and sha256).
-- Background (optional reading): `README.md` one-glance table; `docs/OWNER_DERIVATION_SHEET.md` (pencil derivations of the same numbers); `research/c3/m1/M1_REPORT.md`, `research/c2/e2_variance/E2_REPORT.md`.
+- Background (optional reading): `README.md` one-glance table; `docs/DERIVATION_SHEET.md` (pencil derivations of the same numbers); `research/c3/m1/M1_REPORT.md`, `research/c2/e2_variance/E2_REPORT.md`.
 
 ## Safety and honesty rules for the class
 - Say "modelled flip", never "glitch" or "hack". No exercise concerns a real product.

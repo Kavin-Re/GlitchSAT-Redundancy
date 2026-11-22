@@ -1,6 +1,6 @@
 # R2: Fault-injection / fault-resistance verification tool landscape (as of 2026-11-19)
 
-Evidence labels: OPENED = I fetched the primary page this session (fetch tool returns a model-summarised view, not raw text). SEARCH-ONLY = seen only in search snippets (treat as UNVERIFIED in detail). Anything not listed was not checked. No tool was installed or run.
+Evidence labels: OPENED = I fetched the primary page this run (fetch tool returns a model-summarised view, not raw text). SEARCH-ONLY = seen only in search snippets (treat as UNVERIFIED in detail). Anything not listed was not checked. No tool was installed or run.
 
 ## 1. Open-source tools
 

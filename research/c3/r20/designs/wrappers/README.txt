@@ -1,1 +1,1 @@
-Wrappers w_*.v are written by agent R20 (own code), not third-party.
+Wrappers w_*.v are written by step R20 (own code), not third-party.

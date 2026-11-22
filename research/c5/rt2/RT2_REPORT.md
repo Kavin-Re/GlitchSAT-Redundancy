@@ -25,7 +25,7 @@ Files here: `fuzz_amk.py` (differential fuzz + oracle + witness replay), `mk_net
 | N7 | `--consumer-bits "0-100000000"` burns CPU for minutes (unbounded range loop, big-int mask) | LOW-MED (DoS) | MEASURED |
 | N8 | Counter encoding sized by `k`, not by number of fault sites: `--max-flips 500` takes 54 s, 3000 times out; no cap | LOW-MED (perf DoS) | MEASURED |
 | N9 | `--timeout-s`: killed worker leaves its grandchild `yosys` running (ppid 1, uncapped) and a `/tmp/fbwt_*` dir; parent SIGKILL/SIGTERM orphans the worker and leaks `/tmp/fbwt_w_*` | LOW-MED | MEASURED |
-| N10 | Verilog input + any later error (bad port, config error) leaks `/tmp/fbwt_*` (tmp dir not removed on exceptions) | LOW | MEASURED (8 left-overs from earlier agents + 1 mine) |
+| N10 | Verilog input + any later error (bad port, config error) leaks `/tmp/fbwt_*` (tmp dir not removed on exceptions) | LOW | MEASURED (8 left-overs from earlier steps + 1 mine) |
 | N11 | Sweep CSV: net/port names starting with `=` are not neutralised (formula injection) | LOW | MEASURED |
 | N12 | Verilog path with a space fails (`Can't open input file 'v/my'`) | LOW (functional) | MEASURED |
 | N13 | `--rerun` on a mismatched top crashes with a traceback and exit 1 (= EXIT_MISMATCH) | LOW | MEASURED |

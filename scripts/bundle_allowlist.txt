@@ -1,31 +1,30 @@
 # Allow-list for scripts/make_bundle.sh. Paths are relative to the project root.
 # Sections: [A] review kit, [B-include] full tree, [EXCLUDE] applies to B (and A), [PII] secret/PII scan.
 # A line "src => dest" in [A] stores src under dest in the zip (used for the slides PDF, which lives in research/).
-# Files in [A] that are missing are reported as MISSING (a warning, not a failure) so the lead sees what is absent.
-# Nothing here names the owner. Add the owner's name/email to [PII] locally if you want the scan to catch them.
+# Files in [A] that are missing are reported as MISSING (a warning, not a failure) so the integration step sees what is absent.
+# Nothing here names the author. Add the author's name/email to [PII] locally if you want the scan to catch them.
 
 [A]
 README.md
 START.md
-docs/dossier/ONE_PAGE_FOR_THE_OWNER.md
+docs/dossier/ONE_PAGE_KEY_POINTS.md
 docs/dossier/QA_SHEET.md
 docs/dossier/QA_ANSWER_CARDS.md
 docs/dossier/PROJECT_DOSSIER.md
 docs/dossier/EVIDENCE_MAP.md
-docs/dossier/AI_USE_DISCLOSURE_DRAFT.md
 docs/dossier/PROBLEM_STATEMENT_EVOLUTION.md
-docs/OWNER_DERIVATION_SHEET.md
+docs/DERIVATION_SHEET.md
 docs/report/ONE_PAGE_SUMMARY.md
 docs/report/DEMO_5MIN.md
 docs/report/SLIDES.pptx
 docs/report/SLIDES.pdf
 docs/report/ledger.png
-docs/wow/explainer.html
-docs/wow/game.html
-docs/wow/index.html
-docs/wow/dial.html
-docs/wow/theatre.html
-docs/wow/wall.html
+docs/explainers/explainer.html
+docs/explainers/game.html
+docs/explainers/index.html
+docs/explainers/dial.html
+docs/explainers/theatre.html
+docs/explainers/wall.html
 dashboard/index.html
 docs/comms/CODING_VIEW.md
 docs/report/WHY_TWO_FLIPS.md
@@ -60,7 +59,7 @@ integrations
 real_designs
 # explicit (already covered by the directory entries above; listed so a later narrowing of those cannot drop them)
 docs/comms
-docs/wow
+docs/explainers
 docs/report/WHY_TWO_FLIPS.md
 docs/report/SLIDES.pdf
 results/comms
@@ -77,7 +76,7 @@ research/c6
 
 [EXCLUDE]
 # keep: path prefixes exempt from dir:/glob: exclusions (the size cap still applies). Small documentation screenshots only.
-keep:docs/wow/shots
+keep:docs/explainers/dev/shots
 # directory names (any depth)
 dir:third_party_derived
 dir:compare
@@ -124,7 +123,7 @@ maxbytes:3145728
 # name|regex  (python re, case-insensitive). Any hit in a text file of the staging tree fails the build.
 linkedin|linkedin\.com
 email|[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.(com|org|net|edu|ca|in|io|gov|de|uk|co|ac|info|eu|fr|ch|se|nl|jp|cn)\b
-openai_style_key|\bsk-[A-Za-z0-9_-]{20,}
+sk_style_api_key|\bsk-[A-Za-z0-9_-]{20,}
 github_token|\bgh[pousr]_[A-Za-z0-9]{30,}
 github_pat|github_pat_[A-Za-z0-9_]{30,}
 aws_key|\bAKIA[0-9A-Z]{16}\b
@@ -138,6 +137,5 @@ key_assign|\b(api[_-]?key|secret|passwd|password|token)\b\s*[:=]\s*['"][A-Za-z0-
 claire@yosyshq.com
 security@opentitan.org
 developer.example.org
-noreply@anthropic.com
 @example.com
 @example.org

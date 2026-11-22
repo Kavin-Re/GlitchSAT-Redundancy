@@ -1,5 +1,5 @@
 # DA3 report: Devil's advocate + inversion, wave 2
-Agent DA3, 2026-11-19. Nothing in the tree was edited; all re-runs on copies in `/tmp/work_da3/` (tree copy `p/`, scripts `a.py c.py g.py gs_alt.py`, B3 copy `b3/`). Labels: **VERIFIED** = I ran or recomputed it this session (command named); **READ** = taken from a project file, not re-run; **INFERRED** = my reasoning. All solver numbers are bounded (T=6 cycles, k<=3), modelled bit flips on toy designs; nothing physical. Wave-1 items (DA2: decoder width, PDR vacuity, SYNFI agreement, layout merge, product probes, counting-as-tautology) are not repeated.
+Step DA3, 2026-11-19. Nothing in the tree was edited; all re-runs on copies in `/tmp/work_da3/` (tree copy `p/`, scripts `a.py c.py g.py gs_alt.py`, B3 copy `b3/`). Labels: **VERIFIED** = I ran or recomputed it this run (command named); **READ** = taken from a project file, not re-run; **INFERRED** = my reasoning. All solver numbers are bounded (T=6 cycles, k<=3), modelled bit flips on toy designs; nothing physical. Wave-1 items (DA2: decoder width, PDR vacuity, SYNFI agreement, layout merge, product probes, counting-as-tautology) are not repeated.
 
 ## Part 1. Attacks on the current claims
 
@@ -62,12 +62,12 @@ Agent DA3, 2026-11-19. Nothing in the tree was edited; all re-runs on copies in 
 | A7 | predictor 92% | YES | sound lb 83%, heuristic +9 points, failed own bar |
 | A8 | P3 verdict-belongs-to | PARTLY | reporting convention, not a refutable finding |
 
-## Part 2. Inversion: how to guarantee the owner fails the review tomorrow
+## Part 2. Inversion: how to guarantee the author fails the review tomorrow
 Status: YES following now, PARTLY, NO. Evidence in the right column is VERIFIED unless marked READ/INFERRED.
 
 | # | Recipe | Now | Evidence | Fix tonight |
 |---|---|---|---|---|
-| 1 | Go in unable to re-derive anything (s17 "My own contribution" empty; owner has not re-derived) | YES | `PROJECT_DOSSIER.md` l.170 "owner to write"; README says owner has not reviewed | Do ONE unaided derivation (the mask rule in the form `min(Hamming, copies touched)` on a 4-bit mask, 15 min on paper) and write 5 lines in s17 about it. This is the single highest-value action. |
+| 1 | Go in unable to re-derive anything (s17 "My own contribution" empty; author has not re-derived) | YES | `PROJECT_DOSSIER.md` l.170 "author to write"; README says author has not reviewed | Do ONE unaided derivation (the mask rule in the form `min(Hamming, copies touched)` on a 4-bit mask, 15 min on paper) and write 5 lines in s17 about it. This is the single highest-value action. |
 | 2 | Recite "the mask rule" as a discovery | YES (README/dossier call it "rule", "exact 255/255") | A1 | Rehearse the answer: "it is a Hamming distance plus a cut count, exact on one netlist, fails on re-synthesis (68/255)". Edit wording in the Q&A sheet. |
 | 3 | Quote 92% and "180/60/24" without baselines | YES | A2, A7; README table | Quote 94/38/20 per distinct netlist; quote "always-1 gets 62%, lower bound alone 83%". |
 | 4 | Let the reviewer find a claim that is truer for the unprotected design (B3) | PARTLY | A4: V0 also `>3` under rail_all | Add "V0 also survives whole-rail" to the B3 row; never say "V2 resists dips". |
@@ -78,7 +78,7 @@ Status: YES following now, PARTLY, NO. Evidence in the right column is VERIFIED 
 | 9 | Not know the weakest slide (one netlist, T=6, k<=3, `>3` is not secure; PDR proof is one netlist, k<=2, not replicated) | PARTLY | README lists them but they are paragraphs | Memorise 4 limits: toy 8-bit, T=6/k<=3, one PDR netlist, no physical test. |
 | 10 | Cannot demo or reproduce live | PARTLY | START.md commands work on a copy; commands rewrite `results/`, `tb/` | Pre-run the three START.md commands on a fresh copy tonight, keep the output on screen; never run `make reproduce` in the tree. Have `scope-sweep` output (A3 command above) ready as the 4x4 table. |
 
-Count: YES 3 (1, 2, 3), PARTLY 6, NO 1. If the owner does fixes 1 to 3 only, the review risk drops most (INFERRED).
+Count: YES 3 (1, 2, 3), PARTLY 6, NO 1. If the author does fixes 1 to 3 only, the review risk drops most (INFERRED).
 
 ## Not done / limits
 - Did not re-run L2/OpenROAD or SPICE (tools not in this env); A5 is read-only evidence.

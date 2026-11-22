@@ -153,9 +153,9 @@ TEXT_FIXES = [
  ('The standard-cell errors are false positives of checking a cell without tap cells (tested for one cell only).',
   'The standard-cell errors are tap-dependent rules (nwell.4, LU.2, LU.3): clean in context for one cell (dfxtp_1); the other cell types were not tested in context; the layout is not claimed DRC-clean.'),
  ('So the answer depends on the exact netlist the tool produces: always name the tool build.',
-  'On a third netlist (validation flow B, hierarchy stripped) the same V2 falls to a single flip (4 of 378 single-flip sites at 6 cycles; validation/VALIDATION.md). So the answer depends on the exact netlist the tool produces, and on counting a flip of a shared net as one fault (a 32-netlist re-synthesis matrix from one recipe: V2 held against 2 flips on 6 of 32; first in research/c2/devils_advocate/DA_CYCLE1.md and replicated on 64 of 64 rows by a second agent, research/c3/rep/REP_REPORT.md). It is not a version effect (the spike netlist is also Yosys 0.33): the armed word 0xCC touches only 2 of the 3 copies, so encoding sets the floor at 2 and the flow decides whether it is reached (docs/report/WHY_TWO_FLIPS.md). Always name the netlist hash and flow.'),
+  'On a third netlist (validation flow B, hierarchy stripped) the same V2 falls to a single flip (4 of 378 single-flip sites at 6 cycles; validation/VALIDATION.md). So the answer depends on the exact netlist the tool produces, and on counting a flip of a shared net as one fault (a 32-netlist re-synthesis matrix from one recipe: V2 held against 2 flips on 6 of 32; first in research/c2/devils_advocate/DA_CYCLE1.md and replicated on 64 of 64 rows by an independent re-run, research/c3/rep/REP_REPORT.md). It is not a version effect (the spike netlist is also Yosys 0.33): the armed word 0xCC touches only 2 of the 3 copies, so encoding sets the floor at 2 and the flow decides whether it is reached (docs/report/WHY_TWO_FLIPS.md). Always name the netlist hash and flow.'),
  ('<li><b>Found (measured):</b> flipping one wire',
-  '<li><b>Scope of every V2 statement:</b> on the stored spike netlist, with the goal being the 8-bit result word, input nets not treated as fault sites, a known power-up state and a constant non-key attacker input, no set of at most 2 flips reaches the word. The accept output <code>boot_ok</code> itself can be flipped with 1 flip (MEASURED, re-run by the lead). Treating input nets as fault sites reduces the minimum to 1 (MEASURED in the B2 scope matrix, research/c2/b2_scope/B2_REPORT.md). The apt Yosys 0.33 re-synthesis (85 gates) has a 2-flip attack; the conda 0.38 one (83 gates) did not.</li>\n<li><b>Found (measured):</b> flipping one wire'),
+  '<li><b>Scope of every V2 statement:</b> on the stored spike netlist, with the goal being the 8-bit result word, input nets not treated as fault sites, a known power-up state and a constant non-key attacker input, no set of at most 2 flips reaches the word. The accept output <code>boot_ok</code> itself can be flipped with 1 flip (MEASURED, re-checked). Treating input nets as fault sites reduces the minimum to 1 (MEASURED in the scope matrix, research/c2/b2_scope/B2_REPORT.md). The apt Yosys 0.33 re-synthesis (85 gates) has a 2-flip attack; the conda 0.38 one (83 gates) did not.</li>\n<li><b>Found (measured):</b> flipping one wire'),
  ("V2 has no attack with up to 2 flips for any number of cycles. This covers that fault model and that netlist only.",
   "V2 has no attack on the 8-bit result word with up to 2 flips for any number of cycles. This covers that fault model, that netlist, that goal (the accept flag boot_ok falls to 1 flip), a known power-up state, input nets that are not fault sites and a constant attacker input only."),
  ("No single flip, and no pair of flips, got through within the bound (and on this netlist a formal proof covers any number of cycles).",
@@ -165,7 +165,16 @@ TEXT_FIXES = [
  ("(and none for any number of cycles on this netlist, by the formal proof).",
   "(and none for any number of cycles on this netlist, by the formal proof, for the result-word goal only; the accept flag boot_ok falls to 1 flip)."),
  ("<b>Important caveat (measured):</b> this result holds for the <b>specific netlist from the spike</b>.",
-  "<b>Important caveat (measured):</b> this result holds for the <b>specific netlist from the spike</b>, for the 8-bit result word as the goal (the accept output boot_ok falls to 1 flip), with input nets not treated as fault sites (treating input nets as fault sites reduces the minimum to 1 (MEASURED, B2 scope matrix)) and a known power-up state."),
+  "<b>Important caveat (measured):</b> this result holds for the <b>specific netlist from the spike</b>, for the 8-bit result word as the goal (the accept output boot_ok falls to 1 flip), with input nets not treated as fault sites (treating input nets as fault sites reduces the minimum to 1 (MEASURED, scope matrix)) and a known power-up state."),
+]
+TEXT_FIXES += [
+ # page review 2026-11-20: no process codenames, no "prove" wording, the safety notice lives in SECURITY.md
+ (tpl[tpl.index('<div class="banner" id="safety"'):tpl.index('</div>', tpl.index('<div class="banner" id="safety"')) + 6],
+  '<div class="banner" id="safety" role="note"><b>Running on your own files:</b> the Verilog path calls Yosys, which is not sandboxed; '
+  'only analyse files you trust. Details: <code>SECURITY.md</code> in the repository.</div>'),
+ ('<h2>Act 3: Prove it, within a bound</h2>', '<h2>Act 3: Check it, within a bound</h2>'),
+ ('that makes a chip boot with the wrong key.', 'that makes a toy boot-lock model accept the wrong key.'),
+ ('with Yosys 0.38 and with Yosys 0.52 (Docker, H5) on the plain flow.', 'with Yosys 0.38 and with Yosys 0.52 (Docker) on the plain flow.'),
 ]
 for _old, _new in TEXT_FIXES:
     assert tpl.count(_old) == 1, ("TEXT_FIXES: expected exactly one match", _old[:60], tpl.count(_old))
@@ -182,5 +191,7 @@ def _clean(o, key=None):
     return o
 def _script_json(o):
     return json.dumps(o).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+tpl = tpl.replace("a formal proof covers", "an unbounded model-checker result (ABC PDR, tool-reported, not independently replicated) covers").replace(
+    "by the formal proof", "by an unbounded model-checker result (ABC PDR, tool-reported)")
 (here/"index.html").write_text(tpl.replace("/*DATA*/", "const DATA = " + _script_json(_clean(data)) + ";"))
 print("wrote index.html; live =", data["live"])

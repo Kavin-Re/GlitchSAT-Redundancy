@@ -30,7 +30,7 @@ rep('README.md',
 # ---------- FINAL_STATUS ----------
 rep('docs/FINAL_STATUS.md',
  "The difference tracks the tool build (apt Yosys 0.33 versus conda Yosys 0.38+92); the reason inside ABC or Yosys was not analysed (a hypothesis, not a located cause; see also the synthesis-recipe and counting-rule bullet above).",
- "CORRECTED 2026-11-20 (agent P01a, `research/c6/p01/P01_REPORT.md`, `docs/report/WHY_TWO_FLIPS.md`; the earlier text called this a Yosys-build/version effect, which was an error): the stored netlist's header also reads Yosys 0.33, so stored-vs-apt is a flow/source difference (one mux per bit, 68 gates). The root cause is the encoding: the armed word 0xCC differs from 0x96 in bits {1,3,4,6}, owned by only two of the three comparator copies, so two flips of next-state stems can turn the cycle-0 load of CC into 96. Re-encoding that one constant to 0xA5 (`rtl/v2e.v`) gives 3 1 1 3 3 3 3 3 over the 8 `--synth-sweep` flows (v2: 2 1 1 2 2 2 2 2; MEASURED, apt 0.33, re-verified by the lead 2026-11-20); the 1s are flows that merge the copies (opt_merge / flatten before ABC), which no encoding fixes. " + S)
+ "CORRECTED 2026-11-20 (step P01a, `research/c6/p01/P01_REPORT.md`, `docs/report/WHY_TWO_FLIPS.md`; the earlier text called this a Yosys-build/version effect, which was an error): the stored netlist's header also reads Yosys 0.33, so stored-vs-apt is a flow/source difference (one mux per bit, 68 gates). The root cause is the encoding: the armed word 0xCC differs from 0x96 in bits {1,3,4,6}, owned by only two of the three comparator copies, so two flips of next-state stems can turn the cycle-0 load of CC into 96. Re-encoding that one constant to 0xA5 (`rtl/v2e.v`) gives 3 1 1 3 3 3 3 3 over the 8 `--synth-sweep` flows (v2: 2 1 1 2 2 2 2 2; MEASURED, apt 0.33, re-verified at integration 2026-11-20); the 1s are flows that merge the copies (opt_merge / flatten before ABC), which no encoding fixes. " + S)
 rep('docs/FINAL_STATUS.md',
  "Yosys version dependence (H5, 2026-11-20, MEASURED): the same V2 source at <=2 flips gives an attack with apt Yosys 0.33 (85 gates) but no attack with conda 0.38 and Docker/Debian 0.52 (83 gates each); verdicts belong to a netlist hash and tool build.",
  "Build differences (H5, 2026-11-20, MEASURED): on the plain flow at <=2 flips apt Yosys 0.33 (85 gates) gives an attack, conda 0.38 and Docker/Debian 0.52 (83 gates each) do not; but conda 0.38 gives 2 on three other flows (P01a), so this is not a version immunity. Verdicts belong to a netlist hash and flow.")
@@ -89,7 +89,7 @@ rep('docs/dossier/QA_SHEET.md',
 rep('docs/dossier/QA_SHEET.md',
  "| \"I do not know the exact cause. Synthesis is deterministic,",
  "| \"The gate counts differ by flow and build; the 2-flip weakness is the encoding: the armed word touches only two of three copies, and re-encoding it gives 3 on 6 of 8 flows (WHY_TWO_FLIPS.md). Synthesis is deterministic,")
-rep('docs/dossier/ONE_PAGE_FOR_THE_OWNER.md',
+rep('docs/dossier/ONE_PAGE_KEY_POINTS.md',
  "why two Yosys versions disagree (we do not know the exact cause).",
  "the exact tool change behind 85 vs 83 gates (unknown). Corrected 2026-11-20: the 2-vs-3 flips is not a version effect but the encoding (`docs/report/WHY_TWO_FLIPS.md`).")
 

@@ -7,14 +7,14 @@ Reads (read-only):
   research/c2/e2_variance/raw/matrix.csv   864 rows; the 288 V2 rows are used
   research/c6/p01/sweep_rows.csv           v2 / v2e rows on the 8 project flows
 Writes:
-  docs/wow/e2_wall.json                    the data file
-  docs/wow/wall.html                       only the embedded copy of the data, between the
+  docs/explainers/e2_wall.json                    the data file
+  docs/explainers/wall.html                       only the embedded copy of the data, between the
                                            <script type="application/json" id="wall-data"> tags
                                            (skipped if the page does not exist; --no-embed to skip)
 
 Every number is MEASURED by the E2 / P01 runs (bounded: goal boot_word == 0x96, 6 cycles,
 at most 3 modelled single-cycle bit flips, one toy design). This script only counts rows.
-The output is deterministic (no timestamp), so docs/wow/check_wall.py can re-derive it.
+The output is deterministic (no timestamp), so docs/explainers/dev/check_wall.py can re-derive it.
 
 Usage: python3 scripts/export_e2_wall.py [--root DIR] [--no-embed]
 """
@@ -28,8 +28,8 @@ import sys
 
 MATRIX = "research/c2/e2_variance/raw/matrix.csv"
 SWEEP = "research/c6/p01/sweep_rows.csv"
-OUT_JSON = "docs/wow/e2_wall.json"
-OUT_HTML = "docs/wow/wall.html"
+OUT_JSON = "docs/explainers/e2_wall.json"
+OUT_HTML = "docs/explainers/wall.html"
 
 # display order of the option values (also the tile order inside a group)
 BUILDS = ["apt0.33", "conda-formal0.38", "conda-eda0.38"]

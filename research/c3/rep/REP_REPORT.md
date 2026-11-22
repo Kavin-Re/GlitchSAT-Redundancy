@@ -1,10 +1,10 @@
 # REP_REPORT: independent replication of "V2 holds in 6/32 netlists (unit counting) vs 32/32 (fanout counting)"
-License: UNDECIDED. Working title TBD. Written 2026-11-19 by agent REP. All faults are MODELLED single-cycle bit flips, toy 8-bit designs, N = 6 cycles. Nothing physical.
+License: UNDECIDED. Working title TBD. Written 2026-11-19 by step REP. All faults are MODELLED single-cycle bit flips, toy 8-bit designs, N = 6 cycles. Nothing physical.
 
 ## Verdict: REPLICATED, 64 of 64 rows agree (MEASURED here). One caveat on independence below.
 
 ## 1. Origin (found)
-- Single source: agent DA, `research/c2/devils_advocate/DA_CYCLE1.md` rows E1 and E3; raw data `experiments/results.txt` (unit weight) and `experiments/matrix.txt` (unit and fanout-weighted), generator `experiments/gen.sh`, weighted solver `experiments/weighted.py`. README line 5, `docs/FINAL_STATUS.md` ("not re-run by me") and `dashboard/build.py` repeat it. `research/c2/e2_variance/` (agent E2) has scripts only, no results, so it is not a second measurement.
+- Single source: step DA, `research/c2/devils_advocate/DA_CYCLE1.md` rows E1 and E3; raw data `experiments/results.txt` (unit weight) and `experiments/matrix.txt` (unit and fanout-weighted), generator `experiments/gen.sh`, weighted solver `experiments/weighted.py`. README line 5, `docs/FINAL_STATUS.md` ("not re-run by me") and `dashboard/build.py` repeat it. `research/c2/e2_variance/` (step E2) has scripts only, no results, so it is not a second measurement.
 - The original netlists (`/tmp/work_da/...`) no longer exist, so netlist hashes cannot be compared with the original; I compare gate counts and min-cost values per row instead.
 
 ## 2. The 32 netlists (V2; plus the 32 V1 companions, 64 total)
@@ -37,4 +37,4 @@ I did NOT test "per-branch with partial branch flips allowed" (cheaper than fano
 ## 6. What this does and does not show
 - Shows: the numbers are reproducible with an independent loop and independent weighted-cardinality code on the same recipe. The 6/32 versus 32/32 swing is a pure counting-rule effect (same 32 netlists).
 - Does not show: that either rule is physical (that is BC row 3's objection and stays open); anything beyond N = 6, k <= 3, these two designs, these two Yosys builds; the original's own netlist hashes; the partial-branch rule. "Holds against 2 flips" is a BOUNDED statement for 6 cycles, not a proof.
-- Wording suggestion for README line 5: "6 of 32 under stem=1, 32 of 32 under fanout-weighted counting (MEASURED by agent DA, independently replicated by agent REP, `research/c3/rep/`)", keeping the bound (N=6, k<=3).
+- Wording suggestion for README line 5: "6 of 32 under stem=1, 32 of 32 under fanout-weighted counting (MEASURED by step DA, independently replicated by step REP, `research/c3/rep/`)", keeping the bound (N=6, k<=3).

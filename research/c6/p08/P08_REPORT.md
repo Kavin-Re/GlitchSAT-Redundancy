@@ -10,4 +10,4 @@ Changes: scripts/glitchsat.py only (backup: research/c6/p08/backup/scripts/glitc
 ## sha256 scripts/glitchsat.py
 old 78ecea0813051f2a6e962cf6c42983afd34754245b99651f026bef6df45cfe40
 new 1ad037ef07e23c2aabcea75b87a99616591957bd61ed8e0b80abae6b737a9f3c
-Lead: update ENGINE_MANIFEST in ci/check_reproduce.py (not edited here).
+Integration: update ENGINE_MANIFEST in ci/check_reproduce.py (not edited here).

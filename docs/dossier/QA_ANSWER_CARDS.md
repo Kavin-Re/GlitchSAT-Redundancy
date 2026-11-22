@@ -1,18 +1,18 @@
 # QA ANSWER CARDS (40 cards)
-GlitchSAT. License: Apache-2.0. Study aid, not the owner's words: say only what you can explain; for anything you cannot, say "I do not know; here is what the file says". Full spoken answers, source tags and follow-ups: `research/c4/qa_sim/QA_SIM_REPORT.md` (card id E1-1 etc. matches). All numbers are for modelled single-cycle flips in toy netlists, T=6, k<=3 unless stated; nothing physical, nothing new. Eight questions in the full report (E1-10, E1-11, E2-4, E2-9, E3-11, E3-12, E4-10, E4-11) have no card; read them there. Cards marked IDK: the honest reply is "I do not know / we did not test that". Cards marked OWNER cannot be answered by an agent.
+GlitchSAT. License: Apache-2.0. Study aid, not the author's words: say only what you can explain; for anything you cannot, say "I do not know; here is what the file says". Full spoken answers, source tags and follow-ups: `research/c4/qa_sim/QA_SIM_REPORT.md` (card id E1-1 etc. matches). All numbers are for modelled single-cycle flips in toy netlists, T=6, k<=3 unless stated; nothing physical, nothing new. Eight questions in the full report (E1-10, E1-11, E2-4, E2-9, E3-11, E3-12, E4-10, E4-11) have no card; read them there. Cards marked IDK: the honest reply is "I do not know / we did not test that". Cards marked AUTHOR cannot be answered by an step.
 
 ## E1: ECE professor (derivations)
 **E1-1. Why does V1 (two copies) fall to one flip?**
 - Both compares m1, m2 feed one AND, `ok`; `ok` alone drives all 8 result bits.
 - Flip `ok` for one cycle when the state is "compare": next state is the accept word 0x96.
 - Fix direction: give each copy disjoint output bits (that is V2).
-Number: **1** flip. File: `docs/OWNER_DERIVATION_SHEET.md` s1 (run `glitchsat check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6`). Trap: saying "two copies are redundant so it is safe".
+Number: **1** flip. File: `docs/DERIVATION_SHEET.md` s1 (run `glitchsat check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6`). Trap: saying "two copies are redundant so it is safe".
 
 **E1-2. Derive the 3 for V2, full word.**
 - Wrong input gives word 0x69, the complement of 0x96: all 8 bits wrong.
 - Copies own bit groups {0,3,6}, {1,4,7}, {2,5}; one flip of a copy's compare fixes its whole group; three copies = 3.
 - Direct route (state flops): 0xF0 vs 0x96 and 0xCC vs 0x96 differ in 4 bits, so 4; minimum is 3.
-Number: **3** (full word, stored netlist), apt-0.33 build **2**. File: `OWNER_DERIVATION_SHEET.md` s2. Trap: quoting 3 without "full word, inputs not attackable, known power-up".
+Number: **3** (full word, stored netlist), apt-0.33 build **2**. File: `DERIVATION_SHEET.md` s2. Trap: quoting 3 without "full word, inputs not attackable, known power-up".
 
 **E1-3. Mask 0x0F and 0x4E: how many flips?**
 - Rule: min of (direct bits differing from 0x96 in idle/compare states) and (flip a set of copies: one per copy plus one per masked bit no chosen copy owns).
@@ -24,7 +24,7 @@ Number: **2 and 3** (0x03 gives 1, 0xFF gives 3). File: `research/c3/m1/m1_all_m
 - Each gate: out = f(inputs) XOR flip; copy the circuit once per cycle (bounded model checking), link flops to next cycle.
 - Goal clause: result word = 0x96 in some cycle while input != key; "at most K flips" is a cardinality constraint; z3 gives witness or UNSAT.
 - Minimum: tighten K until UNSAT.
-Number: **0, 1** (3-gate example: k=0 UNSAT, k=1 SAT on g3). File: `docs/dossier/worked_example.py`. Trap: OWNER must be able to read `build` in `scripts/glitchsat.py` line by line.
+Number: **0, 1** (3-gate example: k=0 UNSAT, k=1 SAT on g3). File: `docs/dossier/worked_example.py`. Trap: AUTHOR must be able to read `build` in `scripts/glitchsat.py` line by line.
 
 **E1-5. What does UNSAT at k=2 prove?**
 - On THIS netlist file, THIS fault rule, goal and input rule: no set of <=2 flips in 6 cycles reaches the goal.
@@ -59,8 +59,8 @@ Number: **0 of 60**. File: `research/c2/el1_spice/EL1_REPORT.md`. Trap: quoting 
 **E1-12. Reproduce any number in front of me.**
 - Pick the V1 one-flip result: it runs in under a second.
 - Or V2: `--k 2` gives NO_ATTACK, `--k 3` gives min 3 in c0, c1, c2 (about 5 s).
-- OWNER: name the derivation you have actually practised.
-Number: **3** nodes, cycle 1. File: `docs/OWNER_DERIVATION_SHEET.md` (blanks). Trap: OWNER, the sheet is still blank.
+- AUTHOR: name the derivation you have actually practised.
+Number: **3** nodes, cycle 1. File: `docs/DERIVATION_SHEET.md` (blanks). Trap: AUTHOR, the sheet is still blank.
 
 ## E2: VLSI engineer (layout and flow)
 **E2-1. Is it a real chip layout?**
@@ -128,13 +128,13 @@ Number: **36/36** reproduce rows (apt flow only). File: `handoff/CONTINUATION/EN
 - "Three copies resist two faults" means nothing without: what is a fault, which output, how the chip starts, which netlist.
 - I built a tool that reruns the question under each choice and shows which one decides.
 - V2 is the example, not a recommendation; bounded toy simulation; nothing new.
-Number: **1 / 2 / 3** (V2 range). File: `docs/dossier/ONE_PAGE_FOR_THE_OWNER.md`. Trap: leading with "V2 is secure/resists".
+Number: **1 / 2 / 3** (V2 range). File: `docs/dossier/ONE_PAGE_KEY_POINTS.md`. Trap: leading with "V2 is secure/resists".
 
 **E3-2. What is new? Does it break OpenTitan?**
 - Nothing established as new: SYNFI, FIRMER already do formal netlist fault analysis; k-FRP is the closest and is unread.
 - No analysis of OpenTitan or any product.
 - Value: reproducible sensitivity analysis and teaching material.
-Number: **0 novelty claims**. File: `docs/PRIOR_ART.md`. Trap: "first", "novel", "breaks"; OWNER open the 3 key papers.
+Number: **0 novelty claims**. File: `docs/PRIOR_ART.md`. Trap: "first", "novel", "breaks"; AUTHOR open the 3 key papers.
 
 **E3-3. Justify your fault model.**
 - Chosen, not derived: a one-cycle XOR on a gate or flop output (formal-tool convention).
@@ -175,7 +175,7 @@ Number: **k<=2, 1 netlist**. File: `docs/dossier/QA_SHEET.md` D7. Trap: "formall
 **E3-9. All cross-checks share your fault model; what is verified?**
 - They check the encoding and the code, not the model: own simulator ~2.1M sets 0 disagreements; boolector; 13/13 replays; SymbiYosys 40 pairs; 2040 random runs vs brute force; REP 64/64.
 - Would show me wrong: an independent simulator disagreeing with a stored witness (has not happened).
-- uArchiFI (one third-party tool) gave the same minimum flips on 9 cells of three toy designs through an agent-written adapter: not a validation (RUN2). Untested: physical argument that voids the number; a second solver on the mapped netlist.
+- uArchiFI (one third-party tool) gave the same minimum flips on 9 cells of three toy designs through an step-written adapter: not a validation (RUN2). Untested: physical argument that voids the number; a second solver on the mapped netlist.
 Number: **0 disagreements**. File: `validation/VALIDATION.md`. Trap: "independently validated".
 
 **E3-10. Is the structural predictor validated? (No: 150 of 163 fresh cells exact, 92%; the 928/928 pooled figure is near-duplicate cells)**
@@ -189,7 +189,7 @@ Number: **92% overall (always-1 62%, lower bound alone 83%) / 58% on 2+ flips**.
 - Chips check a secret at boot; engineers copy the check so one disturbance cannot fool it.
 - My program finds the fewest one-wire disturbances that fool a circuit: three copies needed 3, but one changed assumption gives 1.
 - So a safety claim must state its assumptions; toy simulation, not a product.
-Number: **3 -> 1**. File: `ONE_PAGE_FOR_THE_OWNER.md`. Trap: jargon; "it makes chips secure".
+Number: **3 -> 1**. File: `ONE_PAGE_KEY_POINTS.md`. Trap: jargon; "it makes chips secure".
 
 **E4-2. Who would use it?**
 - Nobody yet: alpha command-line tool plus teaching material.
@@ -200,13 +200,13 @@ Number: **324 passed** product tests (RECON, 2026-11-20 (RECON5); re-run it). Fi
 **E4-5. Whiteboard: the idea you understand best.**
 - Draw m1, m2 -> AND `ok` -> 8 result bits; flip `ok`; accept.
 - Then V2: three copies, each with its own bit group.
-- OWNER: use only a derivation you have practised.
-Number: **1 then 3**. File: `OWNER_DERIVATION_SHEET.md` s1-2. Trap: drawing without being able to say why 0x69 is the complement.
+- AUTHOR: use only a derivation you have practised.
+Number: **1 then 3**. File: `DERIVATION_SHEET.md` s1-2. Trap: drawing without being able to say why 0x69 is the complement.
 
 **E4-6. What went wrong; what would you not repeat?**
 - Several claims died: supermarket monitor, a known headline, "V2 resists 2 flips"; the predictor looked 928/928 but is a heuristic.
 - Lesson: every number carries its scope and a label.
-- OWNER: add what you learned.
+- AUTHOR: add what you learned.
 
 **E4-7. How reproducible, how long?**
 - On a copy: headline commands seconds; `make reproduce` about 25 s; `make check-reproduce` vs 36 expected rows.
@@ -215,7 +215,7 @@ Number: **1 then 3**. File: `OWNER_DERIVATION_SHEET.md` s1-2. Trap: drawing with
 Number: **36 rows, ~25 s**. File: `START.md`. Trap: running make in the live tree.
 
 **E4-8. How good is the testing?**
-- Root tests all pass; docs say 30, my copy ran 98 this session (tests were added later) - re-run and quote your own.
+- Root tests all pass; docs say 30, my copy ran 98 this run (tests were added later) - re-run and quote your own.
 - Mutation testing: about two thirds to three quarters of one-line breakages caught (root 72.5%, 50 of 69; product 67.6%, 50 of 74; reported, 10 product runs never run).
 - Do not say "well tested"; all checks share the fault model.
 Number: **189 passed, 2 skipped** (re-run it) / **72.5% root, 67.6% product** mutation score. File: `research/c3/t2/T2_REPORT.md`, `research/c4/t3/T3_REPORT.md`. Trap: repeating an old test count (the docs once said 30) without checking.
@@ -230,7 +230,7 @@ Number: **2040 gates, 46 s**. File: `research/c3/r20/R20_REPORT.md`. Trap: "scal
 - Licence: Apache-2.0 (decided 2026-11-20). `third_party_derived/` holds adapted third-party code (CLEAVE no licence file; uArchiFI LGPL-2.1): keep out of any bundle (the Apache-2.0 licence covers only this project's own files).
 - Responsible-use text drafted; nothing sent externally.
 
-## Coding view and encoding root cause (added by agent INT, 2026-11-20; cards C-1 to C-8 from `research/c6/p13/P13_REPORT.md`)
+## Coding view and encoding root cause (added by step INT, 2026-11-20; cards C-1 to C-8 from `research/c6/p13/P13_REPORT.md`)
 
 **C-1. Is there any communications content in this project?**
 - The state words are codewords of RM(1,3) [8,4,4], and the copied comparators are repetition codes.
@@ -284,7 +284,7 @@ Number: **4 of 4** (MEASURED). File: `docs/comms/CODING_VIEW.md` "Limits".
 - The machine loads the armed word 0xCC at cycle 0; 0xCC xor 0x96 = 0x5A, bits {1,3,4,6}, owned by copies m1 and m0 only.
 - On this netlist one net moves bits {1,4} and another moves {3,6}: two flips turn the load of CC into 96.
 - Encoding sets the floor (2 copies touched => 2); the synthesis flow decides whether the floor is reached.
-Number: **2 1 1 2 2 2 2 2 over 8 flows** (MEASURED, P01a; re-verified by the lead 2026-11-20). File: `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`. Trap: "it is a Yosys version effect" (the stored netlist is also Yosys 0.33; that wording was an error, now corrected).
+Number: **2 1 1 2 2 2 2 2 over 8 flows** (MEASURED, P01a; re-verified at integration 2026-11-20). File: `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`. Trap: "it is a Yosys version effect" (the stored netlist is also Yosys 0.33; that wording was an error, now corrected).
 
 **ENC-2. Does re-encoding fix it?**
 - Changing only the armed constant to 0xA5 (xor 96 = bits 0,1,4,5, all three copies) gives 3 on 6 of 8 flows.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export the data behind docs/wow/theatre.html (Solver Replay Theatre).
+"""Export the data behind docs/explainers/theatre.html (Solver Replay Theatre).
 
 What it does, in order (nothing is typed in by hand; every value below comes from a tool run):
   1. runs the project solver CLI  `scripts/glitchsat.py check`  on the STORED netlists reference/spike_netlists/v1.json
@@ -10,12 +10,12 @@ What it does, in order (nothing is typed in by hand; every value below comes fro
   3. replays the honest key (0xC3, no faults) with the same bench. replay.py only accepts ATTACK_FOUND-shaped files, so
      the honest-key STIMULUS file is built here (empty fault list, sig = key). It is a stimulus, not a solver result;
   4. parses the VCD files into per-signal change lists and per-tick samples;
-  5. writes docs/wow/witness.json and inlines the same JSON into docs/wow/theatre.html (between the data markers).
+  5. writes docs/explainers/witness.json and inlines the same JSON into docs/explainers/theatre.html (between the data markers).
 
 All solver and simulator work files go to a temporary directory. Nothing under results/ or tb/ is written.
 Faults are MODELLED single-tick bit flips in a gate-level simulation of a toy design. No hardware is involved.
 
-Usage: python3 scripts/export_witness.py [--out docs/wow/witness.json] [--page docs/wow/theatre.html] [--no-embed]
+Usage: python3 scripts/export_witness.py [--out docs/explainers/witness.json] [--page docs/explainers/theatre.html] [--no-embed]
 """
 import argparse, hashlib, json, os, re, shutil, subprocess, sys, tempfile
 
@@ -142,8 +142,8 @@ def do_replay(tmp, result_path, tag, fault_ids, which=('faulted', 'faultfree')):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
-    ap.add_argument('--out', default=os.path.join(ROOT, 'docs', 'wow', 'witness.json'))
-    ap.add_argument('--page', default=os.path.join(ROOT, 'docs', 'wow', 'theatre.html'))
+    ap.add_argument('--out', default=os.path.join(ROOT, 'docs', 'explainers', 'witness.json'))
+    ap.add_argument('--page', default=os.path.join(ROOT, 'docs', 'explainers', 'theatre.html'))
     ap.add_argument('--no-embed', action='store_true'); ap.add_argument('--keep', action='store_true', help='keep the temp dir')
     a = ap.parse_args()
     tmp = tempfile.mkdtemp(prefix='p21_witness_')

@@ -1,10 +1,10 @@
 # Real-design attempt: report
 
-Saved by the lead session from the real-design hunter's hand-back (the agent could not write this file itself). Numbers are as reported by that agent and stored in `fsm_results.json` in this folder. Status of the underlying files: present on disk (fsm.v, wrapper.v, glitchsat_adapted.py, fsm5.json, fsm_results.json); untrusted downloads are under `work/`.
+Saved at integration session from the real-design hunter's hand-back (the step could not write this file itself). Numbers are as reported by that step and stored in `fsm_results.json` in this folder. Status of the underlying files: present on disk (fsm.v, wrapper.v, glitchsat_adapted.py, fsm5.json, fsm_results.json); untrusted downloads are under `work/`.
 
 ## Design used
 - Tiny Hardware Authentication Engine (one-time-password unlock FSM), https://github.com/raghul-g1322/tiny_hardware_authentication_tto (a Tiny Tapeout-style hobby design, not a widely deployed one).
-- Licence: Apache-2.0 (LICENSE file confirmed by the agent). Plain Verilog.
+- Licence: Apache-2.0 (LICENSE file confirmed by the step). Plain Verilog.
 - Fetched from `main` via raw.githubusercontent.com on 2026-11-19. **No commit hash was pinned** (UNVERIFIED which revision).
 - FSM: IDLE -> GENERATE_OTP -> ENTER_OTP -> UNLOCK; `unlock <= 1` only when `otp == user_otp`.
 - Other candidates seen but not pursued: hi5253/4-Bit-High-Security-Password-System; a "Verilog Keypad Password Lock" (canonical URL not confirmed). OpenTitan and OpenCores JTAG are SystemVerilog or large; no usable sv2v / yosys-slang wheel on PyPI (only pyslang, a parser).

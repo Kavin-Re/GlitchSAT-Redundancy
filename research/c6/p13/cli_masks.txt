@@ -1,4 +1,4 @@
-# MEASURED by agent P13a 2026-11-20: faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --max-flips 3 --cycles 6 [--consumer-bits M | --goal-out boot_ok --accept-value 1]
+# MEASURED by step P13a 2026-11-20: faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --max-flips 3 --cycles 6 [--consumer-bits M | --goal-out boot_ok --accept-value 1]
 ## --consumer-bits 0x03
 v2: ATTACK_FOUND  (<= 3 flips, 6 cycles; 68 gates, 8 flops; 0.162s)
   minimum attack: boot_word[1]@0

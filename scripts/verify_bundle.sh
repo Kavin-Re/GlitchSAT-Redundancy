@@ -29,7 +29,7 @@ step check_reproduce 120 "$PY" ci/check_reproduce.py
 step check_reproduce_rerun 600 "$PY" ci/check_reproduce.py --rerun
 step pytest_tests 900 "$PY" -m pytest tests -q -p no:cacheprovider
 step pytest_product_tests 900 "$PY" -m pytest product/tests -q -p no:cacheprovider
-step wow_checks 120 "$PY" docs/wow/check_hub.py
+step wow_checks 120 "$PY" docs/explainers/dev/check_hub.py
 step check_numbers 300 "$PY" scripts/check_numbers.py
 # the three START.md commands (run inside the unzipped copy)
 step start_cmd1_v1_k1 300 "$PY" scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6
@@ -40,7 +40,7 @@ NEW=$(cd "$D" && sha256sum dashboard/index.html | cut -d' ' -f1)
 if [ "$NEW" = "$(cat /tmp/bundle_verify_index.sha)" ]; then SUMMARY="$SUMMARY\nPASS  dashboard_index_unchanged"
 else SUMMARY="$SUMMARY\nFAIL  dashboard_index_unchanged (sha differs after build.py)"; FAILS=$((FAILS+1)); fi
 # unzip check: forbidden paths
-BAD=$(unzip -Z1 "$ZIP" | grep -E '(^|/)(third_party_derived|compare|backup|shots|dl_repo|venv|__pycache__)/|\.zip$|\.egg-info|\.pyc$|\.(odb|vcd|fst|vvp)$' | grep -v '^docs/wow/shots/' | head)
+BAD=$(unzip -Z1 "$ZIP" | grep -E '(^|/)(third_party_derived|compare|backup|shots|dl_repo|venv|__pycache__)/|\.zip$|\.egg-info|\.pyc$|\.(odb|vcd|fst|vvp)$' | grep -v '^docs/explainers/dev/shots/' | head)
 if [ -z "$BAD" ]; then SUMMARY="$SUMMARY\nPASS  no_forbidden_paths_in_zip"; else SUMMARY="$SUMMARY\nFAIL  forbidden paths: $BAD"; FAILS=$((FAILS+1)); fi
 # absolute-path inventory (in the pristine zip contents, re-extracted so test runs do not add files)
 P=/tmp/bundle_verify_paths.txt; : > $P

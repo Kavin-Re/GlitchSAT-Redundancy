@@ -1,8 +1,8 @@
 # WP6 report: wow persona test, wave 2 (P31 to P36)
-ALL SIX PERSONAS ARE MODEL-SIMULATED READERS, NOT REAL PEOPLE. Simulated readers lean kind; I tried to be harsh, but treat every score as an optimistic upper bound, not a measurement of real readers. Seconds-to-aha are SIMULATED guesses from reading order and layout.
+ALL SIX PERSONAS ARE SIMULATED READERS, NOT REAL PEOPLE. Simulated readers lean kind; I tried to be harsh, but treat every score as an optimistic upper bound, not a measurement of real readers. Seconds-to-aha are SIMULATED guesses from reading order and layout.
 
 ## Method (what was actually done)
-- Pages under test: docs/wow/explainer.html, game.html, poster.md, script_60s.md, README.md (top 20 lines), START.md. No earlier persona or W reports read.
+- Pages under test: docs/explainers/explainer.html, game.html, poster.md, script_60s.md, README.md (top 20 lines), START.md. No earlier persona or W reports read.
 - Rendered with Playwright driving /usr/bin/google-chrome at 390x844 and 1366x800; screenshots in research/c5/wp6/shots/.
 - Really clicked (MEASURED by script, both widths, 0 console/page errors, no horizontal scroll on either page):
   - Hero button "Flip the shared wire": door goes YES/DOOR OPEN, red "Shared wire: FLIPPED. Door open.", callout "one flip, three guards beaten", button becomes "Put the wire back"; second click reverts.
@@ -85,7 +85,7 @@ D5. Explainer measured-vs-toy tags ("Toy picture (drawn, not computed)" next to 
 **Gate (at least 5 of 6 with 7+ on both page scores): FAILED, 4 of 6.** Page "understood" is 6 of 6 at 7+; the miss is "would tell" for the two personas for whom the hero is either obvious (P34) or the game is not a game (P36).
 
 ## README top 20 lines (all six)
-Mean 4.5 of 10 (3,4,5,8,3,4). Only the adjacent-field engineer understands the project. The top 20 lines are the problem sentence plus a dense table of flip counts in jargon (netlist, re-synthesized, masks, boot_ok, scope cell). Non-experts cannot say what the project is for. The pages succeed where the README fails: the README gives no link to docs/wow/explainer.html in its first 20 lines (not seen there) and no one-line plain-language "what this is".
+Mean 4.5 of 10 (3,4,5,8,3,4). Only the adjacent-field engineer understands the project. The top 20 lines are the problem sentence plus a dense table of flip counts in jargon (netlist, re-synthesized, masks, boot_ok, scope cell). Non-experts cannot say what the project is for. The pages succeed where the README fails: the README gives no link to docs/explainers/explainer.html in its first 20 lines (not seen there) and no one-line plain-language "what this is".
 
 ## Trend vs earlier rounds
 Round 5 (P1 to P6) passed 5 of 6 narrowly (per the task statement; I did not read the records). This round is 4 of 6 on a new, deliberately harder panel (two adjacent or non-lay readers, a game-oriented reader). Direction: slightly worse on the gate, not comparable like-for-like (different personas, one tester, and simulated readers). Stable: the "understood" score holds (all six 7+), the quotable sentence and supplier box worked for 5 of 6. Weak spot: "would tell", i.e. the hero is trivial to experts and the game is thin for game-minded readers. Not a significant regression, but it does not support "passes comfortably".
@@ -95,7 +95,7 @@ Gate not met (4 of 6). The explainer communicates; the retell value is limited b
 
 ## Top three fixes
 1. Game round logic: lock the board once the lock has opened (or show the win state sticky and do not let a later tap show a green "still holds"), and give the win a distinct colour/message; show the drawing above the fold on desktop and phone. (D1, D2)
-2. Put a plain-language 2-line "what this project is" plus a link to docs/wow/explainer.html at the very top of README.md, above the table; move the jargon table below the fold.
+2. Put a plain-language 2-line "what this project is" plus a link to docs/explainers/explainer.html at the very top of README.md, above the table; move the jargon table below the fold.
 3. Make the hero work in the first phone screen (shrink intro text so the button and the drawing are visible without scrolling, tighten to one result tag); put the supplier box's question 3 (finished wiring, which outputs) with the 2-vs-3 finding earlier, since experts find that the real "wow".
 
 Limits: simulated readers only; one run each; seconds-to-aha are guesses; no real device or rain; screenshot review at two widths only.

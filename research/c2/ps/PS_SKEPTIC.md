@@ -31,7 +31,7 @@ CI behaviour
 - Deterministic report content apart from timestamps and runtimes (so golden tests are possible).
 
 Docs honesty
-- README quickstart that works verbatim; limits section; no license claim (owner decision pending); no "secure" wording.
+- README quickstart that works verbatim; limits section; no license claim (author decision pending); no "secure" wording.
 
 ## 3. What I would still not trust after Phase 2 (predictions, to be checked in the build report)
 - Cell-library netlists (only the generic gate set is supported).

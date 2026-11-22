@@ -1,5 +1,5 @@
 # MT report: do the test suites catch a broken solver?
-All numbers MEASURED on a COPY (/tmp/work_mt/lite, built from /tmp/work_mt/proj; nothing run in the tree). Machine was heavily loaded by other agents, so the run was **cut off by the 40-minute cap: 86 of 158 mutant runs completed (72 not run)**. Not-run mutants are listed as NOT RUN, not counted.
+All numbers MEASURED on a COPY (/tmp/work_mt/lite, built from /tmp/work_mt/proj; nothing run in the tree). Machine was heavily loaded by other steps, so the run was **cut off by the 40-minute cap: 86 of 158 mutant runs completed (72 not run)**. Not-run mutants are listed as NOT RUN, not counted.
 
 ## Commands
 - Copy: `tar cf - --exclude=work --exclude=dl ... . | tar xf -` into /tmp/work_mt/proj; a light tree /tmp/work_mt/lite (tests scripts rtl reference ci results product Makefile) used for mutants.

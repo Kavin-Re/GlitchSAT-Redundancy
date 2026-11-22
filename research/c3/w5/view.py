@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-B="file://<repo>/docs/wow/"
+B="file://<repo>/docs/explainers/"
 with sync_playwright() as p:
     br=p.chromium.launch(executable_path="/usr/bin/google-chrome",args=["--no-sandbox"],headless=True)
     for nm,w,h in [("390",390,844),("320",320,640)]:

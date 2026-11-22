@@ -1,8 +1,8 @@
 # QA_SIM_REPORT: four simulated reviewers, 48 questions, weakest 10, 5-minute outline, one-command falsifiers
 
 Source tags used below (the file the fact comes from):
-- [ONE_PAGE] docs/dossier/ONE_PAGE_FOR_THE_OWNER.md; [B2] research/c2/b2_scope/B2_REPORT.md; [M1] research/c3/m1/M1_REPORT.md; [E2] research/c2/e2_variance/E2_REPORT.md and raw/matrix.csv; [REP] research/c3/rep/REP_REPORT.md; [R22] research/c3/r22/R22_REPORT.md
-- [EL1] research/c2/el1_spice/EL1_REPORT.md; [B3] research/c4/b3/B3_REPORT.md; [VER] research/c4/ver/VER_REPORT.md; [CO] research/c4/council/COUNCIL_W1.md
+- [ONE_PAGE] docs/dossier/ONE_PAGE_KEY_POINTS.md; [B2] research/c2/b2_scope/B2_REPORT.md; [M1] research/c3/m1/M1_REPORT.md; [E2] research/c2/e2_variance/E2_REPORT.md and raw/matrix.csv; [REP] research/c3/rep/REP_REPORT.md; [R22] research/c3/r22/R22_REPORT.md
+- [EL1] research/c2/el1_spice/EL1_REPORT.md; [B3] research/c4/b3/B3_REPORT.md; [VER] research/c4/ver/VER_REPORT.md; [CO] research/c4/review_panel/PANEL_W1.md
 - [LAY] layout/verify/VERIFY.md and layout/v_designs/out_patched/RESULT.md; [README] README.md
 
 Format: each question has the spoken answer (target <= 45 s, about 110 words), sources, then follow-ups (F1..F3) only where the first answer was weak.
@@ -44,7 +44,7 @@ F1 "Which rule is physical?" -> see E3-6. I do not claim one is.
 
 **E1-8. Why does merging identical compare cones drop V2 to one flip?**
 "The three compares are the same function of the same input. If synthesis merges identical cells, the three become one net, and that one net drives all eight bits: that is V1 again, so one flip. The RTL is unchanged; only the netlist differs, so a verdict belongs to one netlist hash. In the E2 matrix, V2 rows with opt_merge give 1."
-Sources: [ODS] 4, [E2]. OpenTitan guideline R21 (agent snippet) says synthesis may optimise redundancy away [DOS] 11 (SNIPPET).
+Sources: [ODS] 4, [E2]. OpenTitan guideline R21 (step snippet) says synthesis may optimise redundancy away [DOS] 11 (SNIPPET).
 
 **E1-9. In your SPICE runs a supply dip only pulls outputs low. Why, and what did NOT happen?**
 "My reading, not a measurement: a high gate output is held up by the pull-up transistors from the rail, so when the rail sags the output sags with it; a low output is held by pull-downs to ground, and in the simulation ground is not dipped, so low stays low. What the data say: in 60 dip points the stored flop value never flipped, even at 0 V for 3 ns; a clock runt of 1.3 V in the typical corner made the flop capture its input. It is ngspice on sky130 cells, simulation, not silicon."
@@ -171,7 +171,7 @@ Sources: [ONE_PAGE], [VS] s0.
 
 **E4-2. Who would use this?**
 "Honestly: nobody uses it yet. It is an alpha command-line tool plus teaching material. A designer would run it on their own post-synthesis netlist and read the answer as a lower bound on attacker effort under the stated model. The scope options that make the project's point are not yet in the shipped tool, only in research scripts, and per-cycle input is a TODO."
-Sources: [DOS] 9, [CO] risk 3, README 'Not in the shipped tool'. R24 (agent searches) found hardware projects mostly gate on scripts; I did not read it.
+Sources: [DOS] 9, [CO] risk 3, README 'Not in the shipped tool'. R24 (step searches) found hardware projects mostly gate on scripts; I did not read it.
 
 
 
@@ -197,13 +197,13 @@ Sources: [DOS] 7.6, [VS] FP23. **[IDK]** beyond that.
 Sources: [VS] s4, [CO] s5-6.
 
 **E4-11. Which skills does this show on a CV?**
-Source: file inventory; no claim on the owner's ability.
+Source: file inventory; no claim on the author's ability.
 
 **E4-12. Licence, third-party code, ethics?**
 
 ---
-## 5. The weakest 10 answers: where the owner is most exposed, and what to do before presenting
-Ranked by (likelihood reviewers ask) x (damage if the owner cannot answer unaided). Each has one action: practise a derivation, learn a number, or drop a claim.
+## 5. The weakest 10 answers: where the author is most exposed, and what to do before presenting
+Ranked by (likelihood reviewers ask) x (damage if the author cannot answer unaided). Each has one action: practise a derivation, learn a number, or drop a claim.
 
 2. **E1-1, E1-2, E1-12 unaided derivations.** Exposure: derivations sheet is blank; E1 will ask for the board. *Action (practise):* derivation 1 (V1 shared `ok`) and derivation 2 (V2 = 3 via complements and three bit groups; direct route 4). Number: **3** (V2 full word), **4** (direct route).
 3. **E3-6 / E1-7 counting rule.** Exposure: the 6/32 versus 32/32 swing looks like a rescue; no rule is shown physical. *Action (claim to drop):* never say 'stem is physically right' or 'V2 holds in 32/32'. Number: **6 of 32 vs 32 of 32**, same netlists, only the rule differs. Practise the 3-gate fanout example.
@@ -213,13 +213,13 @@ Ranked by (likelihood reviewers ask) x (damage if the owner cannot answer unaide
 7. **E2-2, E2-3 DRC/LVS honesty.** Exposure: 'magic reports errors in library cells' sounds like unclean layout; the LVS reference is built from the same netlist; the door-lock design failed top-level LVS. *Action (claim to drop):* never say 'DRC clean' or 'verified'; say 'router 0; top cell lists none; cell-definition rules are context false positives from one flip-flop test'. Number: **422 vs 422** devices (V1, netgen match). File: layout/verify/VERIFY.md.
 8. **E3-5 B3 rail-dip result.** Exposure: 'V2 survives rail dips' sounds like a security result; it flips to 1 if one event can choose gates (3 gates, one per copy). *Action (claim to drop):* do not say 'survives rail dips' without 'bounded, whole-rail/hierarchy/cone domains only, selectivity unknown'. Number: **>3 under rail models; 1 under dip_subset (3 gates)**. Also not brute-force validated for V2/V5. UPDATE (FIX3): wording now carries the polarity result: under B3's 1-to-0-only rail model V1, V2 and V5 survive within the bound (V0 does not under a cone event), but a rail-wide 0-to-1 event on the three copies costs 1 event on V2 and V5 (and on V1, V0): survival depends on polarity, not on triplication; SPICE supports 1-to-0 for supply dips, EM literature reports set-to-1; selectivity is unproven; the domain is netlist hierarchy, not a physical rail. V2/V5 rail rows now have T=4, k<=2 brute-force anchors (ANCHOR); T=6 k=3 and V5 are still z3 only.
 9. **E3-8 / E3-9 'independent validation' and the unbounded proof.** Exposure: it is tool-reported, uncertified, one netlist; cross-checks share the model. *Action (claim to drop):* remove 'unbounded proof' and the word 'independent' from your talk. Number: **k <= 2, one netlist, no certificate**.
-10. **E3-2 novelty and prior-art.** Exposure: prior-art text was written by agents from snippets; k-FRP and FIVER unread; a reviewer who knows SYNFI will ask what is different. *Action:* open SYNFI and FIRMER abstracts and one k-FRP summary yourself and learn what each does in one sentence; keep 'nothing established as new'. Number: **0 papers claimed new**; name 3 tools (SYNFI, FIRMER, k-FRP).
+10. **E3-2 novelty and prior-art.** Exposure: prior-art text was written by steps from snippets; k-FRP and FIVER unread; a reviewer who knows SYNFI will ask what is different. *Action:* open SYNFI and FIRMER abstracts and one k-FRP summary yourself and learn what each does in one sentence; keep 'nothing established as new'. Number: **0 papers claimed new**; name 3 tools (SYNFI, FIRMER, k-FRP).
 Near misses: E4-8 test count is stale in the docs (30 vs 98 on my copy): re-run and quote your own; E2-12 several environments are not rebuildable from the bundle.
 
 ## 6. 5-minute spoken outline (total 300 s; reads about 700 words)
 | t | Seconds | Say | Evidence on screen |
 |---|---|---|---|
-| 0:00 | 30 | Question: if a secure-boot check is copied, does that help against a disturbed wire? Define a fault: one flipped wire for one clock tick, in a model. | docs/wow/explainer.html hero (screenshot) |
+| 0:00 | 30 | Question: if a secure-boot check is copied, does that help against a disturbed wire? Define a fault: one flipped wire for one clock tick, in a model. | docs/explainers/explainer.html hero (screenshot) |
 | 0:30 | 45 | V0 and V1 fall to one flip: V1's two copies end in one shared wire `ok`. Derive on the board (E1-1). | worked 3-gate picture |
 | 1:15 | 75 | V2 with disjoint output bits needs 3 flips: derive (complement 0x69, three groups). Then the catch: change the goal to the accept flag, or allow input faults, or arbitrary start state and it is 1. | B2 scope table; command `glitchsat check v2.json --k 2` then `--k 3` (or screenshot) |
 | 2:30 | 45 | Width of the consumer: 4-bit reader typically 1 or 2; mask 0x0F is 2, 0x4E is 3. Same design, different build: 1, 2 or 3 (180/60/24). Say you do not know the exact 85 versus 83 cause. | M1 CSV rows; E2 counts |
@@ -227,7 +227,7 @@ Near misses: E4-8 test count is stale in the docs (30 vs 98 on my copy): re-run 
 | 3:55 | 30 | How checked and what is not claimed: other tools agree but share the model; rail-dip, SPICE, layout are simulations and a flow demo; no hardware, no novelty, V2 not recommended. | EL1 plot / B3 matrix |
 
 ## 7. Claims in the repo a reviewer could falsify with one command
-Run on a copy only: `mkdir /tmp/c && cd <repo> && tar --exclude=handoff --exclude=layout --exclude=research --exclude=.git -cf - . | (cd /tmp/c && tar xf -)`, then `cd /tmp/c`. (`make reproduce` and `make test` rewrite results/ and tb/.) Results marked [RE-RAN] I ran this session; others UNVERIFIED by me.
+Run on a copy only: `mkdir /tmp/c && cd <repo> && tar --exclude=handoff --exclude=layout --exclude=research --exclude=.git -cf - . | (cd /tmp/c && tar xf -)`, then `cd /tmp/c`. (`make reproduce` and `make test` rewrite results/ and tb/.) Results marked [RE-RAN] I ran this run; others UNVERIFIED by me.
 | # | Claim (where) | Command (from the copy unless a research path) | Expected | Status |
 |---|---|---|---|---|
 | 1 | V1 falls to 1 flip on `ok` (README) | `python3 scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6` | ATTACK_FOUND, net `ok` | [RE-RAN] matches |
@@ -239,7 +239,7 @@ Run on a copy only: `mkdir /tmp/c && cd <repo> && tar --exclude=handoff --exclud
 | 7 | Hamming: state-only min 4, all sites 3 (DOS s12) | `python3 docs/dossier/test_hamming.py /tmp/c reference/spike_netlists/v2.json v2` | 4 and 3 | [RE-RAN] matches |
 | 8 | 3-gate example: k=0 unsat, k=1 sat (DOS s5) | `python3 docs/dossier/worked_example.py` | k=0 None, k=1 SAT | [RE-RAN] matches |
 | 9 | Old root-test count in README, ONE_PAGE, EVIDENCE_MAP (the docs then said 30) | `python3 -m pytest -q tests` | docs said an older count | [RE-RAN] FALSIFIED as a count: all root tests passed, the tests directory had grown since the docs were written. Verdict (all pass) holds; the number in the docs was out of date (history at FIX3 time: 99 root and 139 product + 1 skipped; current 133 and 310 per NUMBERS.md). |
-| 10 | 36/36 reproduce rows (DOS s8) | `make reproduce && make check-reproduce` then `python3 ci/check_reproduce.py --rerun` | 36/36 | UNVERIFIED by me this session |
+| 10 | 36/36 reproduce rows (DOS s8) | `make reproduce && make check-reproduce` then `python3 ci/check_reproduce.py --rerun` | 36/36 | UNVERIFIED by me this run |
 | 11 | Predictor 92% exact on fresh cells (VER) | `python3 -c "import csv;h=list(csv.DictReader(open('research/c4/ver/heldout.csv')));print(sum(x['pred']==x['solver'] for x in h),len(h))"` | VER: 150 of 163 | [RE-RAN] the raw string comparison gives a lower count than VER's (VER applies the corrected x-init reruns, rerun_x.py, and caps >3 at 4). RECONCILED (FIX3, 2026-11-19): raw match count 144; with '>3' read as 4: 148; plus the 2 x-init corrections: 150 (NUMBERS.md, `heldout` check). Quote 150/163 (92%) with baselines always-1 62% and lower bound alone 83% (DA3). |
 | 12 | Predictor lb sound; no false-safe (VER s3.1) | `cd research/c4/ver && python3 -I resample.py` (about 30 min of solver time per VER) | 60/60 reproduce | UNVERIFIED by me, too slow |
 | 13 | B3: V2/V5 survive rail models, break with dip_subset (B3 report) | `python3 -c "import json;[print({k:v for k,v in r.items() if k in ('design','model','goal','min','status')}) for r in map(json.loads,open('research/c4/b3/matrix_T6.jsonl'))]" \| head -50` (key names UNVERIFIED: print one row first) | >3 for rail models, 1 for dip_subset | UNVERIFIED by me; rows are stored data, solver scripts `research/c4/b3/run_cells.py` need a work dir `/tmp/work_b3` |
@@ -255,4 +255,4 @@ Reviewers will most easily find: #9 (stale count), #11 (two different figures), 
 - Did not read PROJECT_DOSSIER sections 14 to 19, THREAT_MODEL_ONE_PAGE, SE_REPORT, R22, DS or FP reports in full; the facts about them come from the Q&A sheet and dossier summaries. Layout facts: read VERIFY.md and RESULT.md heads only.
 - Did not re-run make reproduce, PDR, sby, SPICE, layout, B3 or VER resample (time and conda envs).
 - Spoken answers are my wording from the files, not rehearsed; word counts are estimates (about 110 words per 45 s).
-- The physical reason for 1-to-0 sag (E1-9) and the 'false positive' reading of magic's library-cell errors (E2-2, from VERIFY.md's own conclusion) are explanations to check with the owner's electronics knowledge.
+- The physical reason for 1-to-0 sag (E1-9) and the 'false positive' reading of magic's library-cell errors (E2-2, from VERIFY.md's own conclusion) are explanations to check with the author's electronics knowledge.

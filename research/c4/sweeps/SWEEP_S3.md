@@ -89,14 +89,14 @@ Build or cite:
 - Add the ne/nc split and the gate-class restriction as columns in COUNTING_CONVENTIONS.md. Add SYNFI's "no unrolling" caveat.
 - Report any bound we state with its unit (stem versus gate), total versus per-cycle budget, and polarity set. Where useful, run a set and reset variant alongside the flip variant.
 - Use ISO 26262 terms in any safety write-up: a shared decision net or rail event is a dependent failure initiator or common cause failure with a coupling factor, and redundancy gives no dual-point credit for it. Define how a safety goal violation is detected in our toolkit. A what-if fault run on a shared element maps onto the DFA verification step.
-- Cite papers and link repos. Reimplement from the published method. Keep the uArchiFI-derived file separable under LGPL-2.1 with its header. Keep the firmer_cleave folder private or remove it before publication (owner decision). Pin the rIC3 commit used.
+- Cite papers and link repos. Reimplement from the published method. Keep the uArchiFI-derived file separable under LGPL-2.1 with its header. Keep the firmer_cleave folder private or remove it before publication (author decision). Pin the rIC3 commit used.
 
 ## 4. Not verified or blocked
 
 - k-FRP: fault unit, counting rule for k, cycle model, licence and limits are all unread. The identification is SNIPPET.
 - FIVER: counting unit and cycle model. Only the abstract was read.
 - FIRMER: the last 50k of 150k characters of the arXiv HTML were not read. The abstract says the two slow benchmarks take about 35 min, while the intro reportedly says 31 and 35 min; this is unresolved. The CHES PDF was not text-extractable.
-- uArchiFI: whether a runtime-loaded Yosys plugin counts as linking (legal, owner's call). The README does not state whether a multi-fanout signal counts once.
+- uArchiFI: whether a runtime-loaded Yosys plugin counts as linking (legal, author's call). The README does not state whether a multi-fanout signal counts once.
 - rIC3: GPL-3.0 and non-commercial claims are SNIPPET. Only master was read.
 - CLEAVE and VerFI licences: raw LICENSE returned 404. Branch and filename guesses may be wrong. FIRMER, k-FRP and FIVER repositories were not found.
 - Polarity: Ordas 2017 and the laser SRAM items are SNIPPET because the HAL pages returned Anubis access-denied pages (not worked around). KU Leuven returned HTTP 504 once. COSADE 2014, FDTC-derived slides beyond the Moro deck and the TCHES voltage-glitch paper were not read. No multiplicity data and no supply or clock glitch polarity data.
@@ -104,7 +104,7 @@ Build or cite:
 - Standards: all SPFM, LFM, beta and HFT numbers are unverified. ISO 26262-5, -9, -10 and IEC 61508-2, -6 are paywalled. Annex D questions and Table D.5 not seen. The SINTEF beta report returned 403. No source found on a shared voter or shared supply in a 1oo2 setting.
 - eprint 2024/247 PDF returned 403, not worked around. Whether the TCHES article page may be fetched needs a check against the project rules first.
 
-## 5. Next-round searches from the critic
+## 5. Next-round searches from the reviewer
 
 1. "TCHES 2024 fault-resistant partitioning k-FRP fault model gate-level counting" (and the artifact page a27).
 2. "voltage glitch fault polarity measured microcontroller 0-to-1 1-to-0 bit-set bit-reset".

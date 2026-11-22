@@ -39,25 +39,25 @@ Copied third-party design files (Apache-2.0, listed at the bottom) are in the fo
 `compare/synfi_run/src` (SYNFI clone; licence read from `compare/synfi_run/src/LICENSE`: Apache-2.0) and `compare/synfi_run/venv` (about 353 MB of pip packages, own licences). Excluded by `.gitignore` for the venv; keep the SYNFI licence and notices if the src clone is published.
 
 
-## `third_party_derived/` (local only; NOT part of any shipped bundle; owner decides)
-This folder is not covered by the statements above and its status is an open OWNER decision (`research/c3/se/SE_REPORT.md` s2). It holds:
+## `third_party_derived/` (local only; NOT part of any shipped bundle; author decides)
+This folder is not covered by the statements above and its status is an open AUTHOR decision (`research/c3/se/SE_REPORT.md` s2). It holds:
 | Path | What | Licence status |
 |---|---|---|
 | `third_party_derived/firmer_cleave/` (`fm_model.py`, `fm_export_nl.py`, `fm_nl_check.py`, tests) | z3 re-implementation of the FIRMER/CLEAVE checks. Header says no code copied, re-implemented from the papers and from reading the C++ | origin S3L-official/CLEAVE (commit 0b9f052) has NO licence file; whether reading the C++ makes this derived is unclear (UNVERIFIED) |
 | `third_party_derived/firmer_cleave/patches/FIRMER_extend_build_fix.patch` | a patch against the CLEAVE source | origin has NO licence file; a patch against it is a derived work of unlicensed code (highest exposure) |
-| `third_party_derived/uarchifi_kfrp_fiver/uarchifi_plugin/fault_rtlil.cc` | modified copy (build fix for Yosys 0.38) of the CEA-LIST/uArchiFI file | LGPL-2.1 (`LICENSE-LGPL-2.1.txt` kept; header "2026 CEA"); owner must accept LGPL obligations |
-It must be excluded from any public or submitted bundle until the owner decides (see `scripts/make_bundle.sh`).
+| `third_party_derived/uarchifi_kfrp_fiver/uarchifi_plugin/fault_rtlil.cc` | modified copy (build fix for Yosys 0.38) of the CEA-LIST/uArchiFI file | LGPL-2.1 (`LICENSE-LGPL-2.1.txt` kept; header "2026 CEA"); the author must accept LGPL obligations |
+It must be excluded from any public or submitted bundle until the author decides (see `scripts/make_bundle.sh`).
 
 
 ## Licences of the compared tools (S3 sweep; 2026-11-20; read from raw LICENSE files, `research/c4/sweeps/SWEEP_S3.md` s2.3)
 | Tool | Licence read | Status in this folder |
 |---|---|---|
 | SYNFI (lowRISC) | Apache-2.0 (per-file headers not checked) | local clone `compare/synfi_run/src`; keep LICENSE and notices if published |
-| uArchiFI (CEA-LIST) | LGPL-2.1 | modified `fault_rtlil.cc` in `third_party_derived/` (local only); whether a runtime-loaded Yosys plugin counts as linking is unresolved (owner decision) |
+| uArchiFI (CEA-LIST) | LGPL-2.1 | modified `fault_rtlil.cc` in `third_party_derived/` (local only); whether a runtime-loaded Yosys plugin counts as linking is unresolved (author decision) |
 | PROLEAD | BSD-3-Clause | no code in this project |
 | rIC3 | BSD-3-Clause on current master (older snippets say GPL-3.0 with a possible non-commercial notice) | pin the commit actually used before quoting a licence |
 | FIRMER / CLEAVE | NOT established (no licence file found at S3L-official/CLEAVE commit 0b9f052; a raw fetch returned 404, which does not prove absence) | re-implemented in `third_party_derived/` (local only) |
 | VerFI (emsec) | NOT established (raw LICENSE returned 404) | not used |
 | k-FRP (CEA-LIST/Fault-Resistant-Partitioning @75929f60) | Apache-2.0 (established by RUN2) | built and run locally; derived files (config, run script) in `third_party_derived/uarchifi_kfrp_fiver/` (local only, never in a bundle) |
 | FIVER (Chair-for-Security-Engineering/FIVER @176a1db7) | custom NON-COMMERCIAL licence (established by RUN2): do not redistribute | not built, not run; nothing derived from it |
-`third_party_derived/` stays local and is never part of a bundle (`scripts/make_bundle.sh`); whether to keep, remove or publish it is the owner's decision.
+`third_party_derived/` stays local and is never part of a bundle (`scripts/make_bundle.sh`); whether to keep, remove or publish it is the author's decision.

@@ -4,7 +4,7 @@ E[:] = json.load(open(ROOT/'research/c6/int/edits_log.json'))
 O='docs/report/SLIDES_OUTLINE.md'
 rep(O, "  > SAY: I do not know the exact reason two Yosys versions disagree. I only know that it happens and that a verdict belongs to one exact netlist file. This is measured, bounded, toy designs.",
  "  > SAY: I used to say two Yosys versions disagree. That was wrong: the stored netlist was made by the same Yosys 0.33. The real cause is the encoding, which I show on slide 'Why 2 and not 3?'. Encoding sets the floor; the synthesis flow decides whether the floor is reached. A build or flow difference changes the netlist, not the underlying weakness. This is measured, bounded, toy designs.")
-rep(O, "# Slides outline (16 slides: 12 main + 4 appendix)", "# Slides outline (19 slides: 14 main + 5 appendix; slides 13 and 14 added by agent INT, 2026-11-20)")
+rep(O, "# Slides outline (16 slides: 12 main + 4 appendix)", "# Slides outline (19 slides: 14 main + 5 appendix; slides 13 and 14 added by step INT, 2026-11-20)")
 new_slides = """## 13. Redundancy is a code   (added by INT)
 - Picture: `docs/comms/staircase.png` (flips needed against code distance; flops only and all nets).
 - The state words are codewords of a textbook code (distance 4); the copies are a repetition code.
@@ -22,7 +22,7 @@ new_slides = """## 13. Redundancy is a code   (added by INT)
 - Table, 8 synthesis flows, apt Yosys 0.33: v2 (armed 0xCC, 2 copies) 2 1 1 2 2 2 2 2; v2e (armed 0xA5, 3 copies) 3 1 1 3 3 3 3 3.
 - The 1s are flows that merge the copies (opt_merge, flatten before ABC): no encoding fixes those.
 - Encoding sets the floor; the synthesis flow decides whether it is reached.
-- MEASURED by agent P01a, re-run by the lead 2026-11-20: `docs/report/WHY_TWO_FLIPS.md`, `rtl/v2e.v`. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.
+- MEASURED by step P01a, re-run at integration 2026-11-20: `docs/report/WHY_TWO_FLIPS.md`, `rtl/v2e.v`. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.
 - Speaker notes (say this):
   > SAY: Earlier I blamed the Yosys version for V2 needing three flips on one netlist and two on another. That was wrong, and a fresh-eyes review caught it: both netlists come from Yosys 0.33.
   > SAY: The real reason is in the encoding. Before the key check, the machine loads the armed word CC. CC and the accept word 96 differ in four bits, and those four bits belong to only two of the three comparator copies. So an attacker does not need to fool all three copies: two flips at the moment CC is loaded are enough, if the netlist has one shared net per copy.

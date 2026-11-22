@@ -32,7 +32,7 @@ Stem rule, goal `boot_word == 0x96`, T=6, k<=3, known init. Eight flows in `--sy
 | 04 | 1 | 1 1 1 1 1 u 1 u | same | 03e0ce61 / 64b1b256 |
 | CC, stored | 2 | 3 (as stored) | - | 289355dc |
 
-Plain-flow hashes are the `research/c6/p01/sweep_rows.csv` values (rows 2, 10, 42, 58 and 74, 82, 114, 130; the lead's own sweep also gave f3fe962135ab92ca for v2); an earlier version of this table listed the `synth.sh` builds in `research/c6/p01/netlist_sha256.txt` (214a2987 / 152aad31, 005b02a5 / a2aa7119, f8328dd0 / 71f4547e, b96bd545 / 5749a181), which have the same minimum flips but different hashes because the netlist sha256 depends on the Yosys working directory (source paths are embedded in the netlist), corrected by agent INT2a, 2026-11-20.
+Plain-flow hashes are the `research/c6/p01/sweep_rows.csv` values (rows 2, 10, 42, 58 and 74, 82, 114, 130; the integration step's own sweep also gave f3fe962135ab92ca for v2); an earlier version of this table listed the `synth.sh` builds in `research/c6/p01/netlist_sha256.txt` (214a2987 / 152aad31, 005b02a5 / a2aa7119, f8328dd0 / 71f4547e, b96bd545 / 5749a181), which have the same minimum flips but different hashes because the netlist sha256 depends on the Yosys working directory (source paths are embedded in the netlist), corrected by step INT2a, 2026-11-20.
 
 Not shown: 5A, 3C (3 copies; all 3 off the merging flows), BB, 0F (2 copies; 2 or 3), B2 (1 copy; 1 or 2). Full hashes and all 144 rows: `research/c6/p01/netlist_sha256.txt`, `sweep_rows.csv`.
 

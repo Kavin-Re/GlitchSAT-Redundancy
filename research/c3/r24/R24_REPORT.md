@@ -1,9 +1,9 @@
 # R24: Adoption, education and positioning
-Agent R24, 2026-11-19. License: UNDECIDED. Title: working title TBD. Extends (does not repeat) research/c1/R1_users_needs.md, R2_tool_landscape.md, c3/r23. Method: about 11 WebSearch plus 2 WebFetch calls (standard mode), plus reading product/ in this repo. Nothing was installed or run; no tool was run. Labels: SOURCED (URL + title, 2026 access; "SOURCED-SNIPPET" = search-result text only, page not opened), OPENED (page fetched this session), INFERENCE (my reasoning, not evidence), UNVERIFIED. Not done: no survey of real users exists; no forum threads found; Tiny Tapeout template workflow files and OpenTitan's current CI were not opened (only search summaries). One fetch (Piraeus CDS206 lab2 PDF) returned HTTP 503 and was not retried by other means.
+Step R24, 2026-11-19. License: UNDECIDED. Title: working title TBD. Extends (does not repeat) research/c1/R1_users_needs.md, R2_tool_landscape.md, c3/r23. Method: about 11 WebSearch plus 2 WebFetch calls (standard mode), plus reading product/ in this repo. Nothing was installed or run; no tool was run. Labels: SOURCED (URL + title, 2026 access; "SOURCED-SNIPPET" = search-result text only, page not opened), OPENED (page fetched this run), INFERENCE (my reasoning, not evidence), UNVERIFIED. Not done: no survey of real users exists; no forum threads found; Tiny Tapeout template workflow files and OpenTitan's current CI were not opened (only search summaries). One fetch (Piraeus CDS206 lab2 PDF) returned HTTP 503 and was not retried by other means.
 
 ## 0. What the product already has (read from the repo, MEASURED by reading, not re-run)
 - `product/` package `faultbound-wt` (pip, z3-solver only dependency, Python >=3.11). `analyze` takes a Yosys JSON netlist OR a `.v` file with `--top` (calls yosys itself): so "Verilog-direct input" ALREADY EXISTS (cli.py lines 35-39; QUICKSTART step 4). Reports: JSON, SARIF, JUnit via repeated `--report`. Exit codes 0/1/2/3/4. TOML threat config. Bundled examples (v0/v1/v2 JSON, `pin_lock`). `product/examples/github-actions-sarif.yml` exists but has never been run.
-- Missing for adoption: no Dockerfile, no composite GitHub Action (`action.yml`), no pre-commit hook, no cocotb/pytest hook, no Yosys plugin, no PyPI release, no badge, no example repo, no license (owner decision).
+- Missing for adoption: no Dockerfile, no composite GitHub Action (`action.yml`), no pre-commit hook, no cocotb/pytest hook, no Yosys plugin, no PyPI release, no badge, no example repo, no license (author decision).
 
 ## 1. Adoption: how open-hardware projects run checks in CI today
 
@@ -81,20 +81,20 @@ Extra option: a "reproduce a published weakness class" exercise is NOT proposed,
   (Also avoid: implying OpenTitan or any named project endorses or uses it.)
 
 ## 4. The 8 smallest changes to product/ that raise adoption most
-(effort S ~ hours, M ~ a day, L ~ multi-day. All proposals only; I edited nothing outside research/c3/r24/. A change touching the tool needs the lead; effort figures are ESTIMATED.)
+(effort S ~ hours, M ~ a day, L ~ multi-day. All proposals only; I edited nothing outside research/c3/r24/. A change touching the tool needs the integration step; effort figures are ESTIMATED.)
 | # | Change | Effort | Why / dependency |
 |---|---|---|---|
 | 1 | A tested `yosys -p` one-liner and shell script `examples/synth_and_check.sh` (read_verilog, `synth -top`, flatten, `write_json`, then `analyze`), with Yosys version printed into the report; document in QUICKSTART as the primary path. Verilog-direct already exists, so this is documentation plus a test | S | Gets 80% of the "Yosys plugin" value with none of the C++/embedding cost |
-| 2 | Run and fix the existing GitHub Actions workflow in a scratch repo/fork (needs the owner; I cannot do outward actions), then wrap it as a composite `action.yml` (inputs: netlist, config, report paths; outputs: exit code) | M | A workflow that has never run is a credibility gap. Needs a fresh public repo; owner decision |
+| 2 | Run and fix the existing GitHub Actions workflow in a scratch repo/fork (needs the author; I cannot do outward actions), then wrap it as a composite `action.yml` (inputs: netlist, config, report paths; outputs: exit code) | M | A workflow that has never run is a credibility gap. Needs a fresh public repo; author decision |
 | 3 | `Dockerfile` pinning Yosys version + Python + the package (and a `docker run` line in the QUICKSTART) | S | Removes version drift (0.33 vs 0.38 gave different verdicts); uArchiFI users already accept Docker. Image size/licence of base: check |
 | 4 | Two small example repos/dirs: (a) TMR lock with Makefile; (b) Tiny Tapeout-style layout with a cocotb test beside the fault check. Each runs in <1 min with known expected verdicts | M | Examples drive installs; pin_lock exists as seed. Do not ship TaMaRa/TMRX outputs until verified to parse |
 | 5 | `pytest`/cocotb-friendly Python API: `faultbound_wt.analyze(netlist, config) -> Result` with `assert result.no_attack`, plus an example test file | S to M | Python API is probably already internal (runner.py); wrapping is small. cocotb users already write Python tests. Real cocotb hook (reading a simulator netlist) would be L; not needed |
 | 6 | `.pre-commit-hooks.yaml` entry running `analyze` on changed netlist/config pairs | S | Cheap; low demand evidence (INFERENCE); only for teams that commit netlists |
 | 7 | Badge: shields-style JSON endpoint or a README snippet that shows the scoped verdict ("no attack <= k=2, T=6, sha 1a2b...") from the JSON report; never a bare "secure" badge | S | Visibility; the text must carry bound and hash to avoid overclaiming. Risk: badges invite misreading; keep bound in the label |
-| 8 | Input hardening for real-world netlists: friendlier errors and a documented cell-mapping hook for non-plain cells (e.g. Yosys `abc -g` to simple gates; note for sky130 netlists from Tiny Tapeout: re-synthesize the RTL with `synth` instead of reading the mapped one), plus a PyPI release under a real name | M | The biggest practical failure in the first 10 minutes will be an unsupported cell; PyPI name and licence are owner decisions |
+| 8 | Input hardening for real-world netlists: friendlier errors and a documented cell-mapping hook for non-plain cells (e.g. Yosys `abc -g` to simple gates; note for sky130 netlists from Tiny Tapeout: re-synthesize the RTL with `synth` instead of reading the mapped one), plus a PyPI release under a real name | M | The biggest practical failure in the first 10 minutes will be an unsupported cell; PyPI name and licence are author decisions |
 Not recommended now: VS Code extension (L, no demand evidence found), native Yosys plugin (L; the one-liner in #1 covers most of it), SARIF-only focus (already done).
 
-## 5. Open questions for the lead
-- Does `faultbound-wt` accept the output of `tamara_tmr` / TMRX after `synth; abc -g AND,XOR,MUX`? Cheapest next step (needs the plugin built; not allowed this session: third-party tools not to be run).
+## 5. Open questions for the integration step
+- Does `faultbound-wt` accept the output of `tamara_tmr` / TMRX after `synth; abc -g AND,XOR,MUX`? Cheapest next step (needs the plugin built; not allowed this run: third-party tools not to be run).
 - Is the Python API stable enough to publish (#5)?
-- Owner: licence, name, PyPI publication, public example repo, and whether the dashboard should get an interactive flip-a-net mode for teaching.
+- Author: licence, name, PyPI publication, public example repo, and whether the dashboard should get an interactive flip-a-net mode for teaching.

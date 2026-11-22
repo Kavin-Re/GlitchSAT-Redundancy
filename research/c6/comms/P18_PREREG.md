@@ -18,7 +18,7 @@ Product CLI, stem rule, init known, inputs not fault sites, T=6, k up to 4, apt 
 
 ## Predictions (plain flow, goal boot_word == 0x96 unless stated)
 
-Note: the task brief suggested "flops-only rises" for v2_secded. I do NOT predict that; I predict the opposite, and register it as my own.
+Note: the work plan suggested "flops-only rises" for v2_secded. I do NOT predict that; I predict the opposite, and register it as my own.
 
 | design | sites | predicted min | reason |
 |---|---|---|---|
@@ -33,7 +33,7 @@ Note: the task brief suggested "flops-only rises" for v2_secded. I do NOT predic
 
 ## Falsifiers
 
-- v2_secded flops-only != 3: the d - t argument is wrong for this circuit (4 or more would mean the task brief's "rises" reading is right and mine is wrong).
+- v2_secded flops-only != 3: the d - t argument is wrong for this circuit (4 or more would mean the work plan's "rises" reading is right and mine is wrong).
 - v2_secded all-nets >= 3: "the decoder is shared attack surface" fails for this decoder. All-nets = 1 is inside my range but misses my point prediction; I will report it as a point miss.
 - v2c flops-only != 4, or v2c all-nets (boot_word) != v2's measured value in the same run: the "consumer check does not change the word goal" claim is wrong.
 - any all-nets boot_ok minimum > 1: the "1-bit verdict" claim is wrong.

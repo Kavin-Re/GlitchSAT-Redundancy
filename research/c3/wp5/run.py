@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 import os
-P='file://<repo>/docs/wow/'
+P='file://<repo>/docs/explainers/'
 out='research/c3/wp5/shots/'
 with sync_playwright() as p:
     b=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--no-sandbox'])

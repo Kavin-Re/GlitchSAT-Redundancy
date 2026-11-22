@@ -5,7 +5,7 @@ import os, re, sys, glob, shutil
 root, bk = sys.argv[1], sys.argv[2]
 dry = "--dry" in sys.argv
 files = []
-for g in ["README.md", "START.md", "docs/*.md", "docs/report/*.md", "docs/dossier/*.md", "docs/wow/*.md", "docs/edu/*.md"]:
+for g in ["README.md", "START.md", "docs/*.md", "docs/report/*.md", "docs/dossier/*.md", "docs/explainers/*.md", "docs/edu/*.md"]:
     files += glob.glob(os.path.join(root, g))
 skip = {"docs/NUMBERS.md", "docs/report/FIX_LOG.md", "docs/report/WORDING_FLAGS.md"}
 MUT = ("root `tests/` 72.5% (50 of 69 runs), product 67.6% (50 of 74 runs; T2 had 65.8% over 79 runs before T3 and "

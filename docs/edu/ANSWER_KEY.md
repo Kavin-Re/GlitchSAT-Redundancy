@@ -1,6 +1,6 @@
 # Answer key (instructor only)
 
-*Every number below was produced by the command shown, re-run in a copy of the project (`/tmp/work_edu2/p`, Yosys 0.33, z3-solver 5.4.1, shipped faultbound-wt 0.0.1.dev0 installed with `pip install ./product[test]`) on 2026-11-19 (agent EDU2); raw output in `research/c4/edu2/verification.log` (earlier run: `research/c4/edu/verification.log`). All commands use the shipped CLI except Exercise 4 rule B (research wrapper `edu_scope.py`). Label for all numbers: MEASURED, modelled single-cycle bit flips, 6 cycles, bounded, not a proof of security. Nothing physical.*
+*Every number below was produced by the command shown, re-run in a copy of the project (`/tmp/work_edu2/p`, Yosys 0.33, z3-solver 5.4.1, shipped faultbound-wt 0.0.1.dev0 installed with `pip install ./product[test]`) on 2026-11-19 (step EDU2); raw output in `research/c4/edu2/verification.log` (earlier run: `research/c4/edu/verification.log`). All commands use the shipped CLI except Exercise 4 rule B (research wrapper `edu_scope.py`). Label for all numbers: MEASURED, modelled single-cycle bit flips, 6 cycles, bounded, not a proof of security. Nothing physical.*
 
 Shorthand as in the worksheet (`REF`, `CFG`, `D`, `T`). Net names and cycle numbers in a minimum attack can differ between runs and solver versions when several minimum attacks exist; **grade the number, not the net name**, except where a name is stated (`ok`, `boot_ok`).
 

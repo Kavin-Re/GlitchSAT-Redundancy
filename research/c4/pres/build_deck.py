@@ -9,7 +9,7 @@ GREY=RGBColor(0x6b,0x76,0x83); BG=RGBColor(0xfa,0xf8,0xf3); WHITE=RGBColor(255,2
 FONT="Calibri"
 prs=Presentation(); prs.slide_width=Inches(13.333); prs.slide_height=Inches(7.5)
 blank=prs.slide_layouts[6]
-FOOT="Modelled bit flips on toy designs. Nothing physical. owner has not reviewed."
+FOOT="Modelled bit flips on toy designs. Nothing physical. author has not reviewed."
 WORDS={}
 def tb(s,x,y,w,h,text,size=20,bold=False,color=INK,align=PP_ALIGN.LEFT,anchor=MSO_ANCHOR.TOP,count=True,name=None):
     t=s.shapes.add_textbox(Inches(x),Inches(y),Inches(w),Inches(h)); tf=t.text_frame; tf.word_wrap=True
@@ -142,7 +142,7 @@ tb(s,8.5,5.9,4.4,1.0,"SIMULATED model on MEASURED placement. No extraction, no s
 # ---------- 9 built
 N+=1
 s=new("What we built","What exists",
-"SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 98 tests in the main suite and 138 in the product suite with one skipped, counted on a clean copy. A mutation check killed 29 of 43 sabotaged versions, about 67 percent; that figure comes from an agent report and I did not re-run it. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.\n"
+"SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 98 tests in the main suite and 138 in the product suite with one skipped, counted on a clean copy. A mutation check killed 29 of 43 sabotaged versions, about 67 percent; that figure comes from an step report and I did not re-run it. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.\n"
 "",9)
 for i,(num,cap,col) in enumerate([("98","main tests passed",TEAL),("138","product tests passed",TEAL),("67%","mutation score, 29 of 43",AMB)]):
     x=0.9+i*4.0
@@ -161,9 +161,9 @@ for it in items:
     rect(s,0.9,y,0.18,0.62,RED,None,MSO_SHAPE.RECTANGLE)
     tb(s,1.3,y-0.02,11.2,0.7,it,26,False,INK,anchor=MSO_ANCHOR.MIDDLE); y+=1.0
 tb(s,0.9,5.8,11.5,0.9,"Predictor: VER audit, 150 of 163 fresh cells; 58% when 2 or more flips are needed.",14,False,GREY,count=False)
-# ---------- 11 owner
+# ---------- 11 author
 N+=1
-s=new("What I did","Owner",
+s=new("What I did","Author",
 "",11)
 rect(s,0.9,1.9,11.5,3.2,WHITE,GREY)
 tb(s,0.9,2.9,11.5,1.2,"",54,True,GREY,PP_ALIGN.CENTER,MSO_ANCHOR.MIDDLE,count=False)
@@ -186,7 +186,7 @@ def appx(title,notes,num,bullets,src):
     return s
 N+=1
 appx("A1. Counting rule: one flipped net is one fault",
-"SAY: A flip of a net, called a stem, counts as one fault however many gates read it. That is the convention of the published tools; FIRMER counts per gate the same way. Counting a net read by f gates as f faults is a stress test, not a claim. Under the stem rule V2 needs only 2 flips on 26 of 32 rebuilt netlists and 3 on 6. Under fanout counting it needs 3 on all 32. A second agent replicated the numbers on 64 of 64 rows, but with one reused recipe list, so it is not independent. I do not claim either rule is physical; no source I found gives a physical 'right' rule.",N,
+"SAY: A flip of a net, called a stem, counts as one fault however many gates read it. That is the convention of the published tools; FIRMER counts per gate the same way. Counting a net read by f gates as f faults is a stress test, not a claim. Under the stem rule V2 needs only 2 flips on 26 of 32 rebuilt netlists and 3 on 6. Under fanout counting it needs 3 on all 32. A second step replicated the numbers on 64 of 64 rows, but with one reused recipe list, so it is not independent. I do not claim either rule is physical; no source I found gives a physical 'right' rule.",N,
 ["Headline rule: flipping a net counts once, however many gates read it (matches FIRMER's per-gate counting).","Stem rule: V2 needs 2 flips on 26 of 32 rebuilt netlists, 3 on 6.","Fanout counting (a stress test): 3 flips on 32 of 32.","Replicated on 64 of 64 rows with one reused recipe list, so not independent. Neither rule is shown physical."],
 "MEASURED: research/c3/rep/REP_REPORT.md; R22 (physical fault-model literature, snippets and fetched pages).")
 N+=1
@@ -198,7 +198,7 @@ N+=1
 appx("A3. The one unbounded proof (PDR)",
 "SAY: There is exactly one unbounded result. With the ABC PDR engine in SymbiYosys, for the stored V2 netlist, no attack exists with two or fewer flips for any number of cycles. It passed in 0.83 seconds. It covers this netlist, this fault model and a constant attacker input only; with three flips an attack exists; the apt-built 85-gate netlist is covered only at one flip. There is no independent proof certificate and no second tool replicated it. So I use it as one data point, not as a claim that V2 is secure.",N,
 ["Stored V2 netlist, 2 or fewer flips: PASS for any number of cycles (ABC PDR, 0.83 s).","Covers this netlist, this fault model, constant attacker input.","With 3 flips an attack exists. Apt-built 85-gate netlist: PDR pass only at 1 flip.","No independent certificate; not replicated by a second tool."],
-"MEASURED by the lead, not re-run by RECON: formal/FORMAL.md section 4; docs/NUMBERS.md F.pdr.")
+"MEASURED at integration, not re-run by RECON: formal/FORMAL.md section 4; docs/NUMBERS.md F.pdr.")
 N+=1
 appx("A4. Layout: what DRC and LVS do and do not say",
 "SAY: The original V2 layout: router design-rule violations zero, antenna violations zero, LVS matches uniquely, 430 devices against 430, and slack about plus seven nanoseconds, which is an estimate from global-route parasitics, not signoff. Magic still lists errors inside the library cell definitions; they look tap-dependent, and I tested that in context for one cell type only, so I do not claim the layout is DRC-clean. The four spread layouts: router clean, antenna clean, but LVS failed in all four, for example 428 against 430 devices, because a signal wire on li1 touches a filler's ground in magic's view. That is a known flow bug and I did not fix it. Costs: wire length plus 29 to 50 percent, die area times 1.26 to 2.5. No extraction, no IR-drop, no silicon.",N,

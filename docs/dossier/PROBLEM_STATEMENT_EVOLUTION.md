@@ -1,11 +1,11 @@
-# Problem statement: evolution record (owner gave free rein on 2026-11-19; every version is kept so the owner can revert)
-Status: DRAFT written by the lead agent during the overnight run. The owner decides which version to present. All versions are scope-limited, model-only (no physical test), and make no novelty claim.
+# Problem statement: evolution record (author gave free rein on 2026-11-19; every version is kept so the author can revert)
+Status: DRAFT written at integration step during the overnight run. The author decides which version to present. All versions are scope-limited, model-only (no physical test), and make no novelty claim.
 
 ## P0 (original): supermarket cyberattacks -> a hardware circuit
 Dropped earlier: no evidence it could be built or defended as electronics.
 
 ## P1: "Does redundancy protect a boot decision against glitches?" (V0/V1/V2 + solver)
-Headline was "V2 resists 2 flips". Collapsed under critics (CT-1, DA2, B2): the number depends on goal, input treatment, power-up state, netlist, and consumer width.
+Headline was "V2 resists 2 flips". Collapsed under reviewers (CT-1, DA2, B2): the number depends on goal, input treatment, power-up state, netlist, and consumer width.
 
 ## P2 (pivot S2, 2026-11-19): "Verdicts depend on how a fault is counted and on the exact netlist and scope"
 Weak alone: DS judged it close to a tautology unless a counting rule is justified; R22 found no physical justification for any single rule.
@@ -14,10 +14,10 @@ Weak alone: DS judged it close to a tautology unless a counting rule is justifie
 One-sentence form: Given a gate-level netlist and the bits a consumer actually checks, report how many single-cycle flips defeat it, which nets the supposed copies share, and how that answer changes with synthesis build, fault-counting rule and scope.
 Why this is the stronger problem: it names a user (a designer adding redundancy), an input (netlist + consumer bits), an output (cost + shared nets + scope block), and a measurable question.
 Evidence already in hand (reported, see each report): M1 consumer-mask rule (min of Hamming distance to idle states and comparator copies touched; known-style cut/Hamming reasoning, not a discovery) exact on spike V2 (255/255) but 187/255 on apt re-synthesis (68 mismatches); E2 V2 min 1/2/3 in 180/60/24 of 264 solved configs (94/38/20 over 152 distinct netlists, DA3); B2 360-cell scope matrix; REP replicated 6/32 vs 32/32; R20 six real designs; V456 countermeasure patterns (only V5 beats V2 in the apt flow, V6 refuted).
-Open test (BP's ONE experiment, being run by agents PRE then TEST): a pre-registered structural predictor, no solver, tested on held-out netlists. If it passes, P3 becomes "a linter with a validated predictor"; if it fails, P3 is stated as "a solver-backed scope reporter" (smaller claim).
+Open test (BP's ONE experiment, being run by steps PRE then TEST): a pre-registered structural predictor, no solver, tested on held-out netlists. If it passes, P3 becomes "a linter with a validated predictor"; if it fails, P3 is stated as "a solver-backed scope reporter" (smaller claim).
 What P3 is NOT: not a vulnerability finding, not a security proof, not physical validation, not new as a method (prior art: SYNFI, FIRMER, k-FRP, CLEAVE, FIVER, uArchiFI).
 
-## Decision rule for the owner
+## Decision rule for the author
 Present P3 if the PRE/TEST result passes or is clearly reported either way; present P2 plus the scope table if time is short. Never present P1.
 
 ## UPDATE 21:07 UTC (after PRE/TEST/VER): result of BP's ONE experiment

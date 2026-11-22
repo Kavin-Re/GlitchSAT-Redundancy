@@ -4,10 +4,10 @@ License: UNDECIDED. Working title TBD. Nothing established as new.
 
 ## Files written
 - `scripts/export_witness.py`: runs the solver, replays the witnesses, parses VCD, writes the data, inlines it into the page.
-- `docs/wow/witness.json`: the data (7 frames, about 39 kB). Re-running the export gave a byte-identical file (checked once, same machine).
-- `docs/wow/theatre.html`: the page (one file, offline, no external resources). `?kiosk=1` loops.
-- `docs/wow/check_theatre.py`: the checker. `python3 docs/wow/check_theatre.py --browser` -> 149 passed, 0 failed (work copy, 2026-11-20).
-- `docs/wow/THEATRE_NOTES.md`: 3-minute stage script.
+- `docs/explainers/witness.json`: the data (7 frames, about 39 kB). Re-running the export gave a byte-identical file (checked once, same machine).
+- `docs/explainers/theatre.html`: the page (one file, offline, no external resources). `?kiosk=1` loops.
+- `docs/explainers/dev/check_theatre.py`: the checker. `python3 docs/explainers/dev/check_theatre.py --browser` -> 149 passed, 0 failed (work copy, 2026-11-20).
+- `docs/explainers/dev/THEATRE_NOTES.md`: 3-minute stage script.
 - `research/c6/p21/shots/step{1..5}_{390,1366}.png`: screenshots written by the checker (`--shots`).
 
 ## What was replayed (all on the STORED netlists, 6 ticks, key 0xC3)
@@ -49,18 +49,18 @@ the checker): faulted runs reach the goal, fault-free runs do not, honest key op
 no external resources; required and banned wording. B (headless Chrome, 390 and 1366 px): no console errors, no
 horizontal scroll, text >= 12 px, controls >= 44 px, keyboard operation, reduced motion, kiosk loop, on-screen digits.
 
-## Limits and things that differ from the brief
+## Limits and things that differ from the plan
 - The V2 3-flip witness differs from the one stored in `results/reproduce_summary.json` (that row lists
   `$flatten\c0...new_n16_`, `c1...new_n15_`, `c2...new_n15_`; today's run returns `c2.m`, `word[0]`, `c1.m`). Same
   count (3), same tick (1), one net per copy in both. The checker compares verdict and count, not net names, for V2.
 - The accept-flag result has no row in `reproduce_summary.json`; it is checked against the fresh solver run and
   against `research/c2/b2_scope/matrix.jsonl` (row v2, spike, boot_ok: 1).
-- The enhancement plan also lists v0 and the apt-built V2 netlist; the task brief asked for V1 and V2 stored netlists
+- The enhancement plan also lists v0 and the apt-built V2 netlist; the work plan asked for V1 and V2 stored netlists
   only, so those are not in the theatre. The 2-flip fresh-build result is quoted in the caveat panel, not replayed.
 - The accept flag of V1 was not run separately; the page says "not measured here".
 - The product CLI (`faultbound-wt`) was not used; no venv was created.
-- Not done: adding the checker to `make test` (Makefile is the lead's file). Suggested line:
-  `$(PY) docs/wow/check_theatre.py` (about 10 s; `--browser` adds about 25 s and needs playwright + Chrome).
+- Not done: adding the checker to `make test` (Makefile is the integration step's file). Suggested line:
+  `$(PY) docs/explainers/dev/check_theatre.py` (about 10 s; `--browser` adds about 25 s and needs playwright + Chrome).
 - Not done: a link from `explainer.html` or the dashboard (not my files).
 - No human has watched the page; the 3-minute script is untimed.
 - Bounded results only: at most 3 flips, 6 ticks, one stored netlist per design, modelled single-tick flips. No hardware.

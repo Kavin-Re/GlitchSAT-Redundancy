@@ -1,6 +1,6 @@
 # Instructor notes
 
-*Not reviewed by the project owner. Licence Apache-2.0. Model-only lab; nothing physical; nothing here is established as new (prior art: SYNFI, FIRMER, k-FRP, CLEAVE, FIVER, uArchiFI; `docs/PRIOR_ART.md`).*
+*Not reviewed by the project author. Licence Apache-2.0. Model-only lab; nothing physical; nothing here is established as new (prior art: SYNFI, FIRMER, k-FRP, CLEAVE, FIVER, uArchiFI; `docs/PRIOR_ART.md`).*
 
 ## Before class (about 25 minutes)
 1. Do the whole lab once in a copy (`docs/edu/LAB_GUIDE.md` setup). The slowest command is V2 at `--max-flips 3`, about 8 s here (MEASURED once, EDU2 copy; ESTIMATED for your machine).
@@ -36,8 +36,8 @@
 - Time: Ex 7 plus Ex 8 add about 15 minutes; they are extensions (20 extra points) and can be homework.
 
 ## Link to the wow page and the game
-- `docs/wow/explainer.html` ("Three guards, one wire", toy-labelled page): use it as the 3-minute opening. It makes the V1 idea visual before the CLI numbers. Exercise 1a is its text in numbers.
-- Companion docs: `docs/wow/script_90s.md`, `docs/wow/poster.md`. Check them for current wording before reuse (not reviewed for this kit).
+- `docs/explainers/explainer.html` ("Three guards, one wire", toy-labelled page): use it as the 3-minute opening. It makes the V1 idea visual before the CLI numbers. Exercise 1a is its text in numbers.
+- Companion docs: `docs/explainers/talk/script_90s.md`, `docs/explainers/talk/poster.md`. Check them for current wording before reuse (not reviewed for this kit).
 
 ## Pitfalls
 - **Verdicts belong to a netlist hash and build.** The same `rtl/v2.v` gives 85 gates on apt Yosys 0.33 (2 flips) and 83 gates on a conda 0.38 build (3 flips) in the project's own measurement (`research/c2/e2_variance/E2_REPORT.md`, `README.md`). H5 also measured 83 gates and no 2-flip attack on Yosys 0.52 (Docker, plain flow). Do not teach this as a version effect (corrected 2026-11-20, `docs/report/WHY_TWO_FLIPS.md`): Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. Conda 0.38 gives 2 on three other flows. This kit could only run 0.33, so the 83-gate case is not re-measured here. Tell students to copy the hash prefix next to every number.

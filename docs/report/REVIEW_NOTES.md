@@ -27,9 +27,9 @@ Kept: strong evaluated project, not novel, no hardware, modelled faults, layouts
 
 ## Open points I could not settle
 1. Why two syntheses of the same Verilog differ. Note a detail: FORMAL.md says Yosys 0.33 and 0.38 both gave the 83-gate netlist, but `scripts/synth.sh` on this machine (Yosys 0.33) gave 85 gates (40 AND, 25 OR, 20 NOT). The 83-gate netlist was not re-created here.
-2. The dashboard and `docs/FINAL_STATUS.md`/`README.md` (owned by the lead) may still say "SymbiYosys not installed" or "antenna not run"; I did not check or edit them. `ci/README.md` also still says SymbiYosys is not installed anywhere in the project.
+2. The dashboard and `docs/FINAL_STATUS.md`/`README.md` (owned at integration) may still say "SymbiYosys not installed" or "antenna not run"; I did not check or edit them. `ci/README.md` also still says SymbiYosys is not installed anywhere in the project.
 3. The door-lock numbers are the worker's report (I checked slack and device/net counts against its logs, not the LVS "port errors" wording).
 4. Not re-run: layout flow, validation exhaustive runs, depth sweep, fuzzing, numerics, browser view of the dashboard.
 
 
-Later note (2026-11-19 about 19:30 UTC, F1): the line above that says "Kept: strong evaluated project" is superseded; PROJECT_REPORT now says "reproducible, independently cross-checked teaching project on toy designs" (finding CC-1 in `research/c2/critics/cc/CC_FINDINGS.md`; fix log `research/c2/f1/F1_FIX_LOG.md`).
+Later note (2026-11-19 about 19:30 UTC, F1): the line above that says "Kept: strong evaluated project" is superseded; PROJECT_REPORT now says "reproducible, independently cross-checked teaching project on toy designs" (finding CC-1 in `research/c2/reviews/cc/CC_FINDINGS.md`; fix log `research/c2/f1/F1_FIX_LOG.md`).

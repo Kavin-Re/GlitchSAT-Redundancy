@@ -45,7 +45,7 @@ Per group: E2 1/2/3 = 334/53/20 all diagonal; R20 1:10, 2:1; M1 V2 0/1/2 = 27/11
 None (0 cells with pred != solver). Low-confidence correct result: sbox_dmr T4 (solver 2) had no verified combination (`est` None, flag `uncovered`), so pred = lb+1 = 2 was right by the fallback, not by a verified witness. This is the only uncovered cell; it is the only cell in the corpus with solver 2 on a non-toy-size netlist, so the evidence that the lb+1 fallback is reliable is one data point (UNVERIFIED beyond it).
 
 ## Runtime (MEASURED, but not a controlled benchmark)
-Predictor: per-cell wall time in `cells_*.csv` (`pred_s`), pure Python, 2-4 processes in parallel on a 4-core box, so times are inflated by contention. Solver: times recorded in the original runs (E2 `solve_s`, M1 `s`, R20 `runtime_s.solve_and_minimize`), on the original agents' machines/load, z3 incl. minimisation.
+Predictor: per-cell wall time in `cells_*.csv` (`pred_s`), pure Python, 2-4 processes in parallel on a 4-core box, so times are inflated by contention. Solver: times recorded in the original runs (E2 `solve_s`, M1 `s`, R20 `runtime_s.solve_and_minimize`), on the original steps' machines/load, z3 incl. minimisation.
 | group | predictor (sum) | solver (sum) | ratio |
 |---|---|---|---|
 | E2 (407 netlists) | 371.5 s | 2729.5 s | ~7.3x faster |

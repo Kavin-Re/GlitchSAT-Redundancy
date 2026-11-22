@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-R='docs/wow/'
+R='docs/explainers/'
 with sync_playwright() as p:
     b=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--no-sandbox','--headless=new'])
     for w,h,tag in [(390,844,'m'),(1366,768,'d')]:

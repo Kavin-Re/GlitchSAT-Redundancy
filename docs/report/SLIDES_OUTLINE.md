@@ -1,4 +1,4 @@
-# Slides outline (24 slides: 14 main + 10 appendix; slides 13 and 14 added by agent INT; slides 5, 6, 7, 10, 11 added and old slides 5 to 9 moved to appendix A6 to A10 by agent INT2a, 2026-11-20)
+# Slides outline (24 slides: 14 main + 10 appendix; slides 13 and 14 added by step INT; slides 5, 6, 7, 10, 11 added and old slides 5 to 9 moved to appendix A6 to A10 by step INT2a, 2026-11-20)
 GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built by `research/c4/pres/build_deck.py`); the speaker notes are the exact words to say. Every number is from `docs/NUMBERS.md` (2.95 um, 15 um and the L2 spread-layout facts are from `research/c4/layout/LAYOUT_REPORT.md` and `research/c4/l2/L2_REPORT.md`, not yet rows in NUMBERS.md). Faults are modelled bit flips on toy designs; nothing physical; nothing established as new.
 
 ## 1. GlitchSAT: How Many Glitches Does Redundancy Stop?   (about 41 words)
@@ -55,36 +55,36 @@ GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built 
   > SAY: So 'V2 resists two flips' is only true in one narrow cell: full word, inputs not attackable, known power-up state, stored netlist. I never say it without those qualifiers. Measured by the 360-cell scope matrix and the 255-mask table; all bounded at six cycles and three flips.
 
 ## 5. One lock, four questions: 3, 2, 1, 0   (added by INT2a, 2026-11-20)
-- Picture: `research/c6/p40/shots/1366_light_big.png` (screenshot of `docs/wow/dial.html`).
+- Picture: a screenshot of `docs/explainers/dial.html` (the original screenshot file is not kept in the repository).
 - Stored netlist, whole word: 3
 - Re-built (plain recipe, same Yosys 0.33): 2
 - Reader = accept flag: 1
 - Any power-up state: 0
 - Predict first: the room guesses before the digit shows.
-- MEASURED: each digit copies one row (matrix.jsonl lines 241, 265, 277, 281). Screenshot: V2e build, also 3. 94 of 432 combinations measured; the rest say "not measured". docs/wow/dial.html; check_dial.py --browser 467 passed.
+- MEASURED: each digit copies one row (matrix.jsonl lines 241, 265, 277, 281). Screenshot: V2e build, also 3. 94 of 432 combinations measured; the rest say "not measured". docs/explainers/dial.html; check_dial.py --browser 467 passed.
 - Speaker notes (say this):
   > SAY: This is the Verdict Dial. The digit is the fewest modelled flips the solver needed to open the toy lock with a wrong key. Before each reveal I ask you to guess.
   > SAY: The stored netlist with the whole word read needs 3. I rebuild the same text with the plain recipe of the same Yosys version: 2. I let the next block read only the one-wire accept flag: 1. I let the lock wake up in any state: 0, because the toy has no reset.
   > SAY: Every digit is a copy of one measured row, and the source row is printed under it. Where nobody ran a combination, the dial says not measured. Toy design, modelled flips, 6 ticks, at most 3 flips, nothing physical.
 
 ## 6. See it happen: one flipped wire opens V1   (added by INT2a, 2026-11-20)
-- Picture: `research/c6/int2a/img/theatre_step2_crop.png` (crop of `research/c6/p21/shots/step2_1366.png`, `docs/wow/theatre.html` step 2).
+- Picture: `research/c6/int2a/img/theatre_step2_crop.png` (crop of a screenshot of `docs/explainers/theatre.html` step 2).
 - V1: 1 flip, wire ok at tick 1, wrong key 0xC7; replayed: opens at tick 2.
 - V2: no 1- or 2-flip attack within 6 ticks (456 sites); 3 flips, one wire per copy, opens.
 - Caveat: reader = accept flag: 1 flip again.
-- MEASURED (solver on the stored netlists) + SIMULATED (gate-level replay, iverilog). Schematics hand-drawn. docs/wow/theatre.html; check_theatre.py --browser 149 passed.
+- MEASURED (solver on the stored netlists) + SIMULATED (gate-level replay, iverilog). Schematics hand-drawn. docs/explainers/theatre.html; check_theatre.py --browser 149 passed.
 - Speaker notes (say this):
   > SAY: This is not an animation I drew. The solver names which wire to flip and when; a gate-level simulator replays that answer, and the strips are the recorded signals.
   > SAY: Left, the two-copy lock: both checks say no, but they meet on one wire, ok. One flip at tick 1 and the boot word reads open one tick later. On the three-copy lock the solver found no attack with one or two flips within 6 ticks; with three, one wire per copy, it opens.
   > SAY: One caveat I always show: if the next stage reads only the accept flag, it is one flip again. The small schematics are hand-drawn; the waveforms are from the simulation. Nothing touched hardware.
 
 ## 7. 264 builds of one design: 1, 2 or 3 flips   (added by INT2a, 2026-11-20)
-- Picture: `research/c6/p24/shots/wall_1366_stage3_verdicts.png` (`docs/wow/wall.html`, step 3).
+- Picture: a screenshot of `docs/explainers/wall.html`, step 3 (the original screenshot file is not kept in the repository).
 - 152 distinct netlists: 94 need 1 flip, 38 need 2, 20 need 3.
 - Per setting (264 solved): 180 / 60 / 24.
 - 120 of the 180 one-flip settings use opt_merge.
 - Previously shown by SYNFI; E2 replicates it on a toy design.
-- MEASURED: row counts of research/c2/e2_variance/raw/matrix.csv; one design, 6 cycles, at most 3 flips; settings not independent. docs/wow/wall.html; check_wall.py 42 passed.
+- MEASURED: row counts of research/c2/e2_variance/raw/matrix.csv; one design, 6 cycles, at most 3 flips; settings not independent. docs/explainers/wall.html; check_wall.py 42 passed.
 - Speaker notes (say this):
   > SAY: I gave the same design file to 264 synthesis settings. They built 152 different netlists. Each tile is one netlist, and its colour, shape and digit say how many modelled flips it needs.
   > SAY: Twenty of 152 keep three. Thirty-eight drop to two. Ninety-four open with one. Most of the one-flip settings let the tool merge identical logic, so three copies become one. That is ordinary optimisation, and SYNFI showed this effect before us.
@@ -96,7 +96,7 @@ GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built 
 - Table, 8 synthesis flows, apt Yosys 0.33: v2 (armed 0xCC, 2 copies) 2 1 1 2 2 2 2 2; v2e (armed 0xA5, 3 copies) 3 1 1 3 3 3 3 3.
 - The 1s are flows that merge the copies (opt_merge, flatten before ABC): no encoding fixes those.
 - Encoding sets the floor; the synthesis flow decides whether it is reached.
-- MEASURED by agent P01a, re-run by the lead 2026-11-20: `docs/report/WHY_TWO_FLIPS.md`, `rtl/v2e.v`. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.
+- MEASURED by step P01a, re-run at integration 2026-11-20: `docs/report/WHY_TWO_FLIPS.md`, `rtl/v2e.v`. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.
 - Speaker notes (say this):
   > SAY: Earlier I blamed the Yosys version for V2 needing three flips on one netlist and two on another. That was wrong, and a fresh-eyes review caught it: both netlists come from Yosys 0.33.
   > SAY: The real reason is in the encoding. Before the key check, the machine loads the armed word CC. CC and the accept word 96 differ in four bits, and those four bits belong to only two of the three comparator copies. So an attacker does not need to fool all three copies: two flips at the moment CC is loaded are enough, if the netlist has one shared net per copy.
@@ -162,7 +162,7 @@ GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built 
 - Replicated on 64 of 64 rows with one reused recipe list, so not independent. Neither rule is shown physical.
 - MEASURED: research/c3/rep/REP_REPORT.md; R22 (physical fault-model literature, snippets and fetched pages).
 - Speaker notes (say this):
-  > SAY: A flip of a net, called a stem, counts as one fault however many gates read it. That is the convention of the published tools; FIRMER counts per gate the same way. Counting a net read by f gates as f faults is a stress test, not a claim. Under the stem rule V2 needs only 2 flips on 26 of 32 rebuilt netlists and 3 on 6. Under fanout counting it needs 3 on all 32. A second agent replicated the numbers on 64 of 64 rows, but with one reused recipe list, so it is not independent. I do not claim either rule is physical; no source I found gives a physical 'right' rule.
+  > SAY: A flip of a net, called a stem, counts as one fault however many gates read it. That is the convention of the published tools; FIRMER counts per gate the same way. Counting a net read by f gates as f faults is a stress test, not a claim. Under the stem rule V2 needs only 2 flips on 26 of 32 rebuilt netlists and 3 on 6. Under fanout counting it needs 3 on all 32. A second step replicated the numbers on 64 of 64 rows, but with one reused recipe list, so it is not independent. I do not claim either rule is physical; no source I found gives a physical 'right' rule.
 
 ## 16. A2. Predictor: a quick pre-check, not a verdict   (about 67 words)
 - Fresh toy cells: exact on 150 of 163 (92.0%; always-1 62%, lower bound alone 83%); within one flip on 156 (95.7%). LEDGER: 71/71 on the E2 family sample, 4/6 on fresh RTLs (wrong on V2m, V5).
@@ -177,8 +177,8 @@ GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built 
 - Stored V2 netlist, 2 or fewer flips: PASS for any number of cycles (ABC PDR, 0.83 s).
 - Covers this netlist, this fault model, constant attacker input.
 - With 3 flips an attack exists. Apt-built 85-gate netlist: PDR pass only at 1 flip. (Not a version effect: the stored netlist is also Yosys 0.33. Encoding sets the floor (idle word touches 2 of 3 copies => 2 flips); the synthesis flow decides whether the floor is reached (1 when a flow merges the copies). A build or flow difference changes the netlist, not the underlying weakness. See slide 'Why 2 and not 3?'.)
-- No independent certificate; not replicated by a second tool.
-- MEASURED by the lead, not re-run by RECON: formal/FORMAL.md section 4; docs/NUMBERS.md F.pdr.
+- No proof certificate from a second proof engine; replicated by a second, independent implementation (k=0,1,2 proved for all time, k=3 attack).
+- MEASURED at integration, not re-run by RECON: formal/FORMAL.md section 4; docs/NUMBERS.md F.pdr.
 - Speaker notes (say this):
   > SAY: There is exactly one unbounded result. With the ABC PDR engine in SymbiYosys, for the stored V2 netlist, no attack exists with two or fewer flips for any number of cycles. It passed in 0.83 seconds. It covers this netlist, this fault model and a constant attacker input only; with three flips an attack exists; the apt-built 85-gate netlist is covered only at one flip. There is no independent proof certificate and no second tool replicated it. So I use it as one data point, not as a claim that V2 is secure.
 
@@ -222,11 +222,11 @@ GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built 
   > SAY: Three things came out. One: when the supply dips, every gate with a high output on that rail sags together, and only from one to zero; low outputs stay low. So a dip is a rail-wide, one-way event, not one clean flip. Two: in 60 dip points, even down to zero volts for three nanoseconds, the stored flop value never flipped. Three: a short clock pulse, a runt, makes a flop capture its input at the wrong time, which is a wrong-time capture and not a free flip; the plot shows red where the flop captured wrongly. I do not quote voltages or timings as attack parameters, and I only tested dips up to three nanoseconds.
 
 ## 23. A9. Layout: a 2.95 um dip radius covers the three copies (outline section kept from the earlier title "Layout: the three copies sit within 2.95 um")   (about 35 words)
-- 2.95 um
+- 2.95 um (selective force-to-0 dip model; bit flip: 1.665 um, placed V2 has 22 flip triples, all cycle 1; shot 1.75 um centre rule / 0.25 um overlap rule, ASSUMED)
 - Original: 3 copies, one supply net. / Spread 15 um or more: helps against local events only. / Die-wide selective dip: still 1. / Spread layouts failed LVS. / Rail polarity: 1-to-0 only survives; a 0->1 event on the three compare copies breaks V2 and V5 with one event.
 - SIMULATED model on MEASURED placement. No extraction, no silicon.
 - Speaker notes (say this):
-  > SAY: I placed and routed the toy V2 with the open sky130 flow. This is a flow demonstration, nothing was made. I measured where the three comparator copies landed: the three cells that together are enough to break V2 sit within about 2.95 micrometres of each other, on one supply net. So a local disturbance could reach all three.
+  > SAY: I placed and routed the toy V2 with the open sky130 flow. This is a flow demonstration, nothing was made. I measured where the three comparator copies landed: the three cells that together are enough to break V2 sit within about 2.95 micrometres of each other, on one supply net. So a local disturbance could reach all three. That radius is for a dip that forces only the selected cells to 0; if the event is a bit flip instead, a sufficient triple lies within 1.665 micrometres, and one shot opens V2 from 1.75 micrometres (centre rule) or 0.25 micrometres (overlap rule, assumed). With every cell set to 0 and no selection, no single shot works.
   > SAY: I then tried spreading the copies apart, to 15 micrometres or more. In the model that helps against local events, which then need more events. But a dip over the whole die that can choose which gates fall still costs one event, because the copies are still on the same supply net. And the honest part: all four spread layouts failed the LVS check because of a known flow bug, filler cells shorting a wire. So the spread layouts are an experiment, not a fix. No parasitic extraction, no IR-drop analysis.
 
 ## 24. A10. What we built   (about 26 words)
@@ -239,5 +239,5 @@ GlitchSAT. License: Apache-2.0. Generated from `docs/report/SLIDES.pptx` (built 
 - Solver, and a product CLI with scope sweep, width sweep and timeout.
 - Tests MEASURED on a clean copy (324 product tests, pyyaml installed). Mutation score REPORTED.
 - Speaker notes (say this):
-  > SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 189 tests passing in the main suite, two skipped (no numpy, no browser in the clean install), and 324 in the product suite, counted on a clean copy. A mutation check killed 50 of 69 sabotaged versions of the main engine, about 72 percent, and 50 of 74 for the product, about 68 percent; those figures come from agent reports and I did not re-run them. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.
+  > SAY: What exists is a toolkit. A solver that finds the minimum flips. A command-line product, faultbound-wt, that takes a netlist and says how many flips, which wires, and under which scope; it has a scope sweep, a width sweep and a timeout so it never hangs. There are 189 tests passing in the main suite, two skipped (no numpy, no browser in the clean install), and 324 in the product suite, counted on a clean copy. A mutation check killed 50 of 69 sabotaged versions of the main engine, about 72 percent, and 50 of 74 for the product, about 68 percent; those figures come from step reports and I did not re-run them. Other tools and re-runs agree with the solver, but they share its fault model, so they check the code, not the physics.
 

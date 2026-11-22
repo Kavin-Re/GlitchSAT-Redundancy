@@ -1,6 +1,6 @@
 # DA_CYCLE1: devil's advocate review of the current direction
 
-License: UNDECIDED. Working title TBD. Written 2026-11-19 by the devil's-advocate agent. Labels: MEASURED = I ran it in this session (command/file given); UNVERIFIED = not tested; ESTIMATED = my reasoning/cost guess.
+License: UNDECIDED. Working title TBD. Written 2026-11-19 by the devil's-advocate step. Labels: MEASURED = I ran it in this run (command/file given); UNVERIFIED = not tested; ESTIMATED = my reasoning/cost guess.
 All experiments ran on a COPY: /tmp/work_da/project (apt Yosys 0.33; conda Yosys 0.38+92 from env `formal`, binary /tmp/mm_root/envs/formal/bin/yosys; z3 5.4.1). Scripts and raw outputs are copied to `research/c2/devils_advocate/experiments/`. Nothing in results/ or any project file was touched. All faults are modelled bit flips on toy 8-bit designs; N = 6 cycles unless stated; nothing physical.
 
 ## 0. Experiment results first (they change the argument)
@@ -34,8 +34,8 @@ Caveats on all of the above (ESTIMATED importance): the same three project-autho
 ### ALT-C. Education tool only (drop product face and layout)
 - What changes: ship the dashboard plus a 3-design lab sheet ("break V0, V1, V2 in your browser/CLI, then re-synthesize with one changed ABC flag and watch V2 break") with expected answers from E1/E2 as the exercise; remove SARIF/JUnit/pip-CLI/threat-config items and layout work from the plan.
 - Evidence that would favour it: R1 says the strongest demand evidence is education (UNSW labs use Yosys JSON; OPENED/SNIPPET per R1); no practitioner demand evidence found (R1 caveat); reviewer weighting in A4 item 6; E1/E2 give a ready-made exercise whose answer a student can verify in 10 minutes.
-- Cheapest experiment (<=1 h): hand the 1-page lab to one person unfamiliar with the project (the owner or a colleague) and time how long reproduce-and-explain takes; UNVERIFIED whether the owner has a test subject. Cost LOW (reuses existing artefacts); product value is deliberately small.
-- Risk: gives up the pip-CLI / CI product ambition the owner stated ("like a product as well").
+- Cheapest experiment (<=1 h): hand the 1-page lab to one person unfamiliar with the project (the author or a colleague) and time how long reproduce-and-explain takes; UNVERIFIED whether the author has a test subject. Cost LOW (reuses existing artefacts); product value is deliberately small.
+- Risk: gives up the pip-CLI / CI product ambition the author stated ("like a product as well").
 
 ### ALT-D. Smaller sharper claim: "ordering holds, thresholds do not"
 - What changes: stop claiming any binary "V2 resists 2 flips"; claim only: across 64 synthesis variants the ranking V0 <= V1 < V2 never reversed (E1: 32 of 32) while the absolute threshold moved between 2 and 3; give the matrix as the central table. Treat the PDR proof as a footnote about one netlist.
@@ -48,7 +48,7 @@ Caveats on all of the above (ESTIMATED importance): the same three project-autho
 - Cheapest experiment (<=1 h): add flop-hold sites (`D <- Q` for one cycle) as extra F variables in a patched `build`, rerun V0/V1/V2. Cost MEDIUM (model design plus validation of the new encoding by a second implementation). Risk: no physical evidence to justify any choice of model; "SPICE bridge" cannot settle it.
 
 ### ALT-F (for completeness). Switch project identity to the CMSIS numerics audit ("CertBound")
-- Not recommended: the headline finding (sqrt_q15 7.15 LSB) is already known upstream (STATE.md), the audit is a generic-C build, and the owner never chose it. Listed only because the lead made a reversible decision about it.
+- Not recommended: the headline finding (sqrt_q15 7.15 LSB) is already known upstream (STATE.md), the audit is a generic-C build, and the author never chose it. Listed only because the integration step made a reversible decision about it.
 
 ## 2. The 10 most damaging attacks on the current claims and plan (ranked)
 
@@ -73,7 +73,7 @@ Reasoning:
 - Product face: keep only what is nearly free (pip install, JSON report, one CLI that records tool build and recipe). Cut SARIF/JUnit/threat-model breadth until a named consumer exists; spend the hours on the weighting-sensitivity table (new column in every verdict), flop-hold fault model, and the sky130-mapped netlist solve (A4 items 3, 5, 6).
 - Layout: stop polishing; reuse existing layout only as the "resistance versus area" row.
 
-What would change this recommendation to PIVOT: (i) if a 4th and 5th design (voted copies, parity state) show the ordering V1 < V2 failing under both weightings, then drop "ranking" and keep only provenance (ALT-A as the whole product); (ii) if the owner (not agents) says the project is graded mostly on teaching, go ALT-C; (iii) if the full-paper read finds that uArchiFI/FIRMER already report min-fault attack sets with synthesis-sensitivity, drop any differentiation claim and describe the work purely as an independent reproduction with a teaching goal.
+What would change this recommendation to PIVOT: (i) if a 4th and 5th design (voted copies, parity state) show the ordering V1 < V2 failing under both weightings, then drop "ranking" and keep only provenance (ALT-A as the whole product); (ii) if the author (not steps) says the project is graded mostly on teaching, go ALT-C; (iii) if the full-paper read finds that uArchiFI/FIRMER already report min-fault attack sets with synthesis-sensitivity, drop any differentiation claim and describe the work purely as an independent reproduction with a teaching goal.
 
 Cheapest actions to carry out (each <=1 h, ESTIMATED): add the fanout-weighted second column to `reproduce` output; run the solver on the sky130-mapped V2 netlist; add the flat-flow netlists to the expected-results table and state the collapse; re-word the README sentence as two mechanisms (kept shared net in V1; optimiser-created shared stems in V2); keep "for a constant attacker input" on the PDR proof but note E5.
 

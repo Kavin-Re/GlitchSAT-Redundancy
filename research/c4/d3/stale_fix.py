@@ -4,23 +4,23 @@ import sys, pathlib
 root = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "<repo>")
 T = ("98 passed (root `pytest tests`) and 138 passed, 1 skipped (`product/tests` after `pip install ./product[test]`), "
      "MEASURED by RECON on a copy 2026-11-19; counts move when tests are added: run `make test` and quote your own, see `docs/NUMBERS.md`")
-DA = "replicated by agent REP on 64 of 64 rows with one recipe list (`research/c3/rep/REP_REPORT.md`)"
+DA = "replicated by step REP on 64 of 64 rows with one recipe list (`research/c3/rep/REP_REPORT.md`)"
 E = [
 ("docs/ENGINE_STATUS.md",
  "(30 tests, ~29 s, all pass as of RA's 2026-11-19 re-run; it was 10 tests before the H1 hardening tests; product tests: 27 pass after `pip install ./product[test]`)",
  "(98 passed in 26.7 s and product tests 138 passed, 1 skipped in 98.9 s after `pip install ./product[test]`: MEASURED by RECON on a copy, 2026-11-19; history: 10 tests at first writing, 30 per RA, 27 product tests per PS2; run it and quote your own count, `docs/NUMBERS.md`)"),
 ("docs/ENGINE_STATUS.md",
- "MEASURED by that agent, not re-run here): over 32 re-synthesized",
- "MEASURED by that agent and " + DA + "): over 32 re-synthesized"),
-("docs/dossier/AI_USE_DISCLOSURE_DRAFT.md",
+ "MEASURED by that step, not re-run here): over 32 re-synthesized",
+ "MEASURED by that step and " + DA + "): over 32 re-synthesized"),
+("docs/dossier/DISCLOSURE_DRAFT.md",
  "Run `make test` (30 passed, MEASURED by RA)",
  "Run `make test` (98 passed on a copy, 2026-11-19, MEASURED by RECON; quote your own count)"),
 ("docs/dossier/PROJECT_DOSSIER.md",
  "MEASURED on a copy: `pytest tests` 30 passed;",
  "MEASURED on a copy at that time: `pytest tests` 30 passed (now 98, see s9);"),
 ("docs/dossier/PROJECT_DOSSIER.md",
- "The lead re-ran 30 passed and 36/36 on a copy (RUN_LOG entry 151).",
- "The lead re-ran 30 passed (then) and 36/36 on a copy (RUN_LOG entry 151)."),
+ "The integration step re-ran 30 passed and 36/36 on a copy (RUN_LOG entry 151).",
+ "The integration step re-ran 30 passed (then) and 36/36 on a copy (RUN_LOG entry 151)."),
 ("docs/dossier/PROJECT_DOSSIER.md",
  "`make test` 30 passed in 28.7 s;",
  "`make test` 30 passed in 28.7 s at that time (history; today 98 passed, RECON 2026-11-19);"),
@@ -64,20 +64,20 @@ E = [
  "10 passed at that time (now 30)",
  "10 passed at that time (now 98)"),
 ("docs/report/PROJECT_REPORT.md",
- "(`research/c2/devils_advocate/DA_CYCLE1.md`; MEASURED by that agent, not re-run here)",
- "(`research/c2/devils_advocate/DA_CYCLE1.md`; MEASURED by that agent and " + DA + ")"),
+ "(`research/c2/devils_advocate/DA_CYCLE1.md`; MEASURED by that step, not re-run here)",
+ "(`research/c2/devils_advocate/DA_CYCLE1.md`; MEASURED by that step and " + DA + ")"),
 ("docs/report/PROJECT_REPORT.md",
  "`tests/` (30 tests; 10 at first writing)",
  "`tests/` (98 tests today; 10 at first writing, 30 per RA)"),
 ("docs/report/REVIEW_NOTES.md",
  "PASS: 10 passed in 20.2 s (at review time; now 30 passed)",
  "PASS: 10 passed in 20.2 s (at review time; now 98 passed, RECON 2026-11-19)"),
-("docs/wow/W2_REPORT.md",
- "source DA_CYCLE1.md, MEASURED by that agent, not re-run)",
- "source DA_CYCLE1.md, MEASURED by that agent; replicated by REP on 64 of 64 rows, one recipe list)"),
-("docs/wow/W3_REPORT.md",
- "(MEASURED by that agent, not re-run here)",
- "(MEASURED by that agent; replicated by REP on 64 of 64 rows, one recipe list)"),
+("docs/explainers/dev/W2_REPORT.md",
+ "source DA_CYCLE1.md, MEASURED by that step, not re-run)",
+ "source DA_CYCLE1.md, MEASURED by that step; replicated by REP on 64 of 64 rows, one recipe list)"),
+("docs/explainers/dev/W3_REPORT.md",
+ "(MEASURED by that step, not re-run here)",
+ "(MEASURED by that step; replicated by REP on 64 of 64 rows, one recipe list)"),
 ]
 bad = 0
 for f, old, new in E:

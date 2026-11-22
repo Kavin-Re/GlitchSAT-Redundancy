@@ -29,7 +29,7 @@ Tool builds behind the numbers: Yosys 0.33 + z3-solver 5.4.1 (solver, sweep, val
 | k=4,5 on V2 spike: min stays 3 | report 6.1, slide 9 | results/deep/sweep_deepk.json | MEASURED | YES for k=4 (min 3 at 4 and 6 cycles); k=5 no |
 | Practical limit about 20 to 22 cycles for k=3 | report 6.1, slide 9 | docs/DEEP_RESULTS.md section 4 | derived from measured times | no (reading of the table) |
 | 40 sby-vs-solver netlist/k pairs, 0 disagreements | report 5, 6.3, summary, slide 7 | formal/FORMAL.md; formal/runs/glitchsat_crosscheck.json | MEASURED | partly: 40 pairs counted in the JSON; "0 disagreements" as stated, not recomputed |
-| PDR proof, V2 spike, k<=2, any number of cycles; k=3 attack | report 6.2, summary, demo, slides 8,10 | formal/FORMAL.md section 4 | MEASURED | YES: re-ran k=2 from a copy: "Property proved", PASS in 0.83 s (the lead also re-ran it) |
+| PDR proof, V2 spike, k<=2, any number of cycles; k=3 attack | report 6.2, summary, demo, slides 8,10 | formal/FORMAL.md section 4 | MEASURED | YES: re-ran k=2 from a copy: "Property proved", PASS in 0.83 s (the integration step also re-ran it) |
 | 10 clauses on 10 of 35 flops (k=2 invariant) | slide 8 notes | formal/FORMAL.md | MEASURED | no |
 | 85 gates (40 AND, 25 OR, 20 NOT) on this machine | report 6.4, summary, slide 10 | formal/FORMAL.md, docs/FINAL_STATUS.md | MEASURED | YES: `scripts/synth.sh rtl/v2.v` here gave 40 AND, 25 OR, 20 NOT, 8 flops |
 | 83 gates with 1 MUX in the formal worker's run | report 6.4, slide 10 | formal/FORMAL.md (37 AND, 25 OR, 20 NOT, 1 MUX) | MEASURED by another worker | no (sum checked: 83; netlist not re-created) |
@@ -72,7 +72,7 @@ Tool builds behind the numbers: Yosys 0.33 + z3-solver 5.4.1 (solver, sweep, val
 | CI workflows exist, never ran on GitHub | report 6.7, slide 15 | ci/README.md | statement | YES: `.github/workflows/ci.yml` and `nightly.yml` exist |
 | Clean-install test passed | report 6.7, slide 15 | ci/clean_install_log.txt | MEASURED | YES (log tail: every quickstart step exit 0) |
 | Licence: Apache-2.0 (decided 2026-11-20) | report 6.7, slide 15 | LICENSE, LICENSE_CHOICE.md, NOTICE.md | statement | YES: `LICENSE` (Apache-2.0 text) exists in the project root; `LICENSE_CHOICE.md` records the decision |
-| Validation scripts run from any directory | report 6.7, slide 15 | lead's note | statement | YES: ran `validation/k1.py` with absolute paths from `/tmp`, exit 0 |
+| Validation scripts run from any directory | report 6.7, slide 15 | integration step's note | statement | YES: ran `validation/k1.py` with absolute paths from `/tmp`, exit 0 |
 | Self-score 3/10 now, ceiling about 6/10 | report 10 | docs/FINAL_STATUS.md | the project's own opinion, not a result | no |
 | Prior-art statements (SYNFI, FIRMER, FIVER, CLEAVE, SCFI) | report 8, slide 14 | docs/PRIOR_ART.md; compare/COMPARISON.md | UNVERIFIED (abstract/README level) | no |
 | SYNFI run result | report 8, slide 14 | compare/synfi_run/SYNFI_RESULT.md | agrees with our solver on V0, V1, V2 for a one-cycle transition from a hand-chosen start state (two-cycle chain crashed; re-synthesized V2 not run); V2 triples 182 of 35,990 effective | NO (reported by the SYNFI worker; not re-run by me) |
@@ -81,4 +81,4 @@ Tool builds behind the numbers: Yosys 0.33 + z3-solver 5.4.1 (solver, sweep, val
 Re-checked count: more than 25 rows above were compared with files or re-run. Not verified by this refresh: the layout flow, the dashboard in a browser, fuzzing, the numerics audit, and all prior-art statements.
 
 
-Later note (2026-11-19 about 19:30 UTC, F1): this check pre-dates critic CC (`research/c2/critics/cc/CC_FINDINGS.md`), the devil's-advocate review and the R10 and E1 reports. Several rows here ("self-score 3/10", "V2 resists 2 faults", "possibly new" search framing) are corrected in the documents named in `research/c2/f1/F1_FIX_LOG.md`.
+Later note (2026-11-19 about 19:30 UTC, F1): this check pre-dates reviewer CC (`research/c2/reviews/cc/CC_FINDINGS.md`), the devil's-advocate review and the R10 and E1 reports. Several rows here ("self-score 3/10", "V2 resists 2 faults", "possibly new" search framing) are corrected in the documents named in `research/c2/f1/F1_FIX_LOG.md`.

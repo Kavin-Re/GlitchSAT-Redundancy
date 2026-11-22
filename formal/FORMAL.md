@@ -51,7 +51,7 @@ Non-vacuity of the pdr proofs: same wrapper with `sig == 0xC3`, k=0 gives FAIL u
 ### What is proven, exactly
 - Proven by ABC PDR (sby reports PASS, "Property proved") on `reference/spike_netlists/v2.json` and k = 1 or 2: for **any number of cycles**, with `sig` constant and != 0xC3, no set of at most k single-cycle flips on any gate-output or flop-Q net (any cycles, total over the whole run) makes `boot_word` equal 0x96. Also k=1 on the stored `results/work/v2.json`.
 - Not proven: any statement beyond this fault model (stuck-at, multi-bit/spatial, clock/voltage, non-constant `sig`, or faults on the wrapper's own counter, which is not a fault site); other synthesis results of V2; V2 with k>=3 (a counterexample exists on the spike netlist); V0 and V1 (counterexamples at k=1). The model and wrapper are mine and share semantics with glitchsat; an error in that shared reading of the netlist (my generator is independent code, but written to the same stated model) would not be caught. The wrapper models netlists, not RTL, and not Yosys-vs-RTL equivalence.
-- The k-induction engine could not prove anything without strengthening; PDR did the unbounded work. PDR is trusted as ABC's checked-invariant result (it prints that it verified the invariant); no independent proof certificate was exported.
+- The k-induction engine could not prove anything without strengthening; PDR did the unbounded work. PDR is trusted as ABC's checked-invariant result (it prints that it verified the invariant); no independent proof certificate was exported. The result was replicated by a second, independent implementation (`ext/unbounded`): k = 0, 1, 2 proved for all time and k = 3 attack on the same netlist, matching ABC PDR.
 
 ## 5. Reproduce
 ```

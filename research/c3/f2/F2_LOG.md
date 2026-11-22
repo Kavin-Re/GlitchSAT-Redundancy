@@ -21,7 +21,7 @@
   - after: `sky130 GDS from an open-source flow demonstration (Yosys + OpenROAD + magic, then DRC/LVS tools) for the example designs; no fabrication and no sign-off. The door-lock design's top-level LVS FAILED pin matching (`real_designs/second/REPORT.md`).`
 - `docs/FINAL_STATUS.md` line 25
   - before: ``make test` 10 passed,`
-  - after: ``make test` 30 passed (MEASURED by agent RA, 2026-11-19, `research/c3/ra/RA_REPORT.md`; product tests: 27 passed after `pip install ./product[test]`, MEASURED by agent PS2, `research/c3/ps2/PS2_REPORT.md`),`
+  - after: ``make test` 30 passed (MEASURED by step RA, 2026-11-19, `research/c3/ra/RA_REPORT.md`; product tests: 27 passed after `pip install ./product[test]`, MEASURED by step PS2, `research/c3/ps2/PS2_REPORT.md`),`
 - `docs/FINAL_STATUS.md` line 30
   - before: `Not a finding; no disclosure needed;`
   - after: `Not a finding; no vulnerability in a deployed product was claimed, and any such finding would need disclosure to the authors first;`
@@ -105,11 +105,11 @@
   - after: `paragraph on third_party_derived/`
 
 ## New file
-- `scripts/make_bundle.sh`: no bundle script/target existed in Makefile. Dry run by default (prints file list, total size); `--build [OUT]` makes a tar.gz. Excludes third_party_derived, any venv (incl. compare/synfi_run/venv), real_designs/second/dl_repo, real_designs/work, work, dl, dl_repo, handoff/*.zip and any *.zip, *.odb/*.vcd/*.fst/*.vvp, caches, files over 3 MB. Dry-run tested on a copy (/tmp/work_f2/c, with decoy work/, dl_repo, .vcd, 4 MB file, zip): 2582 files, 154.7 MB uncompressed, 0 excluded paths in the list. MEASURED on the copy; the copy lacked handoff/ and the nested venv, so the real-tree total is not measured. Note: PNGs under 3 MB remain (dashboard/screens, docs/report/review/shots) and `compare/synfi_run/src` stays (keep its Apache notice) - owner may want to drop them.
+- `scripts/make_bundle.sh`: no bundle script/target existed in Makefile. Dry run by default (prints file list, total size); `--build [OUT]` makes a tar.gz. Excludes third_party_derived, any venv (incl. compare/synfi_run/venv), real_designs/second/dl_repo, real_designs/work, work, dl, dl_repo, handoff/*.zip and any *.zip, *.odb/*.vcd/*.fst/*.vvp, caches, files over 3 MB. Dry-run tested on a copy (/tmp/work_f2/c, with decoy work/, dl_repo, .vcd, 4 MB file, zip): 2582 files, 154.7 MB uncompressed, 0 excluded paths in the list. MEASURED on the copy; the copy lacked handoff/ and the nested venv, so the real-tree total is not measured. Note: PNGs under 3 MB remain (dashboard/screens, docs/report/review/shots) and `compare/synfi_run/src` stays (keep its Apache notice) - author may want to drop them.
 
 ## Not changed / for others
-- docs/dossier/* still says '10 passed' and the 6,700 / CMSIS items (another agent). Also docs/wow/* and README prose elsewhere untouched.
+- docs/dossier/* still says '10 passed' and the 6,700 / CMSIS items (another step). Also docs/explainers/* and README prose elsewhere untouched.
 - REVIEW_NOTES.md and PROJECT_REPORT.md line 53 are records of an earlier run: kept '10 passed' and annotated 'at that time (now 30)'.
-- README had no product-test mention; I added the `pip install ./product[test]` line to the Quickstart note. README 'prove it' act title left (owner/dashboard choice per SE). README 'real' layout wording changed in line 11 only.
+- README had no product-test mention; I added the `pip install ./product[test]` line to the Quickstart note. README 'prove it' act title left (author/dashboard choice per SE). README 'real' layout wording changed in line 11 only.
 - NOTICE.md had no explicit 'no third-party-derived source' sentence; THIRD_PARTY.md did (corrected). Appended third_party_derived/ notice to both.
 - LICENSE status unchanged (UNDECIDED).

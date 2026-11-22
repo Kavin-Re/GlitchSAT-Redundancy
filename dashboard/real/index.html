@@ -4,9 +4,10 @@ body{background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;mar
 .tag{display:inline-block;background:#1f7a3a;color:#fff;font-size:12px;font-weight:700;padding:2px 8px;border-radius:4px}
 figure{margin:20px 0;padding:12px;background:var(--card);border:1px solid var(--b);border-radius:8px}
 .s{overflow-x:auto;background:#fff;border-radius:4px}.s img{display:block;height:auto;min-width:700px;width:100%}figcaption{margin-top:8px}b.r{color:var(--red)}</style></head><body>
-<h1>Real gate-level netlists</h1>
+<h1>Gate-level netlists (circuit drawings)</h1>
+<p><b>Toy designs, modelled bit flips, nothing physical; bounded results, not proofs.</b> A netlist is the wiring file a synthesis tool (Yosys) writes: gates and flip-flops (flops, the memory cells). Click a drawing to open it full size.</p>
 <p><span class="tag">MEASURED-FROM-TOOL</span> Not illustrative. Each graph is rendered by Graphviz <code>dot</code> from the Yosys JSON netlist the solver attacked (<code>netlists/*.json</code>). Boxes are flip-flops, ellipses are gates. <b class="r">Red</b> marks the net(s) the SAT fault solver flipped.</p>
-<figure><div class="s"><img src="v0.svg" alt="V0 netlist"></div><figcaption><b>V0</b> (20 cells, 2 flops). Solver breaks it with one flip of gate net <code>new_n13_</code> (in the compare cone) at cycle 1.</figcaption></figure>
-<figure><div class="s"><img src="v1.svg" alt="V1 netlist"></div><figcaption><b>V1</b> (66 cells, 8 flops). Both compares feed one AND, net <code>ok</code>. One flip of <code>ok</code> at cycle 1 breaks the duplicated-compare defence.</figcaption></figure>
-<figure><div class="s"><img src="v2.svg" alt="V2 netlist"></div><figcaption><b>V2</b> (76 cells, 8 flops). Single flips are UNSAT; the solver's first break needs 3 simultaneous flips (red): <code>word[0]</code>, <code>c1 new_n10_</code>, <code>c2 new_n10_</code> at cycle 1.</figcaption></figure>
+<figure><div class="s"><a href="v0.svg"><img src="v0.svg" alt="V0 netlist"></a></div><figcaption><b>V0</b> (20 cells, 2 flops). Solver breaks it with one flip of gate net <code>new_n13_</code> (in the compare cone) at cycle 1.</figcaption></figure>
+<figure><div class="s"><a href="v1.svg"><img src="v1.svg" alt="V1 netlist"></a></div><figcaption><b>V1</b> (66 cells, 8 flops). Both compares feed one AND, net <code>ok</code>. One flip of <code>ok</code> at cycle 1 breaks the duplicated-compare defence.</figcaption></figure>
+<figure><div class="s"><a href="v2.svg"><img src="v2.svg" alt="V2 netlist"></a></div><figcaption><b>V2</b> (76 cells, 8 flops). Single flips are UNSAT; the solver's first break needs 3 simultaneous flips (red): <code>word[0]</code>, <code>c1 new_n10_</code>, <code>c2 new_n10_</code> at cycle 1.</figcaption></figure>
 </body></html>

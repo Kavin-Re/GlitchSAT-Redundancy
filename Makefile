@@ -43,10 +43,10 @@ mutate:
 test:
 	mkdir -p results/logs
 	set -o pipefail; $(PY) -m pytest -q tests 2>&1 | tee results/logs/pytest.log
-	$(PY) docs/wow/check_hub.py
-	$(PY) docs/wow/check_dial.py
-	$(PY) docs/wow/check_wall.py
-	$(PY) docs/wow/check_theatre.py
-	$(PY) docs/wow/check_game_answers.py
+	$(PY) docs/explainers/dev/check_hub.py
+	$(PY) docs/explainers/dev/check_dial.py
+	$(PY) docs/explainers/dev/check_wall.py
+	$(PY) docs/explainers/dev/check_theatre.py
+	$(PY) docs/explainers/dev/check_game_answers.py
 clean:
 	rm -rf results/work results/mutants tb/generated

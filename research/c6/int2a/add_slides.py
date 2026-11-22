@@ -8,7 +8,7 @@ SRC='docs/report/SLIDES.pptx'
 p=Presentation(SRC)
 GREY=RGBColor(107,118,131); DARK=RGBColor(27,36,48)
 blank=p.slides[12].slide_layout
-FOOT='Modelled bit flips on toy designs. Nothing physical. owner has not reviewed.'
+FOOT='Modelled bit flips on toy designs. Nothing physical. author has not reviewed.'
 def tb(s,x,y,w,h,text,size,bold=False,color=DARK):
     t=s.shapes.add_textbox(Emu(x),Emu(y),Emu(w),Emu(h)); tf=t.text_frame; tf.word_wrap=True
     for i,line in enumerate(text.split('\n')):
@@ -31,19 +31,19 @@ X2=7132320; W2=4663440
 s=base('DEMO: VERDICT DIAL','One lock, four questions: 3, 2, 1, 0')
 pic(s,'research/c6/p40/shots/1366_light_big.png',548640,1417320,6400000,4900000)
 tb(s,X2,1417320,W2,3200000,'Stored netlist, whole word: 3\nRe-built (plain recipe, same Yosys 0.33): 2\nReader = accept flag: 1\nAny power-up state: 0\nPredict first: the room guesses before the digit shows.',16)
-tb(s,X2,4846320,W2,1371600,'MEASURED: each digit copies one row (matrix.jsonl lines 241, 265, 277, 281). 94 of 432 combinations measured; the rest say "not measured". docs/wow/dial.html; check_dial.py --browser 467 passed.',12,False,GREY)
+tb(s,X2,4846320,W2,1371600,'MEASURED: each digit copies one row (matrix.jsonl lines 241, 265, 277, 281). 94 of 432 combinations measured; the rest say "not measured". docs/explainers/dial.html; check_dial.py --browser 467 passed.',12,False,GREY)
 notes(s,'SAY: This is the Verdict Dial. The digit is the fewest modelled flips the solver needed to open the toy lock with a wrong key. Before each reveal I ask you to guess.\nSAY: The stored netlist with the whole word read needs 3. I rebuild the same text with the plain recipe of the same Yosys version: 2. I let the next block read only the one-wire accept flag: 1. I let the lock wake up in any state: 0, because the toy has no reset.\nSAY: Every digit is a copy of one measured row, and the source row is printed under it. Where nobody ran a combination, the dial says not measured. Toy design, modelled flips, 6 ticks, at most 3 flips, nothing physical.')
 # B: Solver Replay
 s=base('DEMO: SOLVER REPLAY','See it happen: one flipped wire opens V1')
 pic(s,'research/c6/int2a/img/theatre_step2_crop.png',548640,1417320,6400000,4900000)
 tb(s,X2,1417320,W2,3200000,'V1: 1 flip, wire ok at tick 1, wrong key 0xC7; replayed: opens at tick 2.\nV2: no 1- or 2-flip attack within 6 ticks (456 sites); 3 flips, one wire per copy, opens.\nCaveat: reader = accept flag: 1 flip again.',16)
-tb(s,X2,4846320,W2,1371600,'MEASURED (solver on the stored netlists) + SIMULATED (gate-level replay, iverilog). Schematics hand-drawn. docs/wow/theatre.html; check_theatre.py --browser 149 passed.',12,False,GREY)
+tb(s,X2,4846320,W2,1371600,'MEASURED (solver on the stored netlists) + SIMULATED (gate-level replay, iverilog). Schematics hand-drawn. docs/explainers/theatre.html; check_theatre.py --browser 149 passed.',12,False,GREY)
 notes(s,'SAY: This is not an animation I drew. The solver names which wire to flip and when; a gate-level simulator replays that answer, and the strips are the recorded signals.\nSAY: Left, the two-copy lock: both checks say no, but they meet on one wire, ok. One flip at tick 1 and the boot word reads open one tick later. On the three-copy lock the solver found no attack with one or two flips within 6 ticks; with three, one wire per copy, it opens.\nSAY: One caveat I always show: if the next stage reads only the accept flag, it is one flip again. The small schematics are hand-drawn; the waveforms are from the simulation. Nothing touched hardware.')
 # C: Wall
 s=base('DEMO: SAME BLUEPRINT, MANY BUILDERS','264 builds of one design: 1, 2 or 3 flips')
 pic(s,'research/c6/p24/shots/wall_1366_stage3_verdicts.png',548640,1417320,6400000,4900000)
 tb(s,X2,1417320,W2,3200000,'152 distinct netlists: 94 need 1 flip, 38 need 2, 20 need 3.\nPer setting (264 solved): 180 / 60 / 24.\n120 of the 180 one-flip settings use opt_merge.\nPreviously shown by SYNFI; E2 replicates it on a toy design.',16)
-tb(s,X2,4846320,W2,1371600,'MEASURED: row counts of research/c2/e2_variance/raw/matrix.csv; one design, 6 cycles, at most 3 flips; settings not independent. docs/wow/wall.html; check_wall.py 42 passed.',12,False,GREY)
+tb(s,X2,4846320,W2,1371600,'MEASURED: row counts of research/c2/e2_variance/raw/matrix.csv; one design, 6 cycles, at most 3 flips; settings not independent. docs/explainers/wall.html; check_wall.py 42 passed.',12,False,GREY)
 notes(s,'SAY: I gave the same design file to 264 synthesis settings. They built 152 different netlists. Each tile is one netlist, and its colour, shape and digit say how many modelled flips it needs.\nSAY: Twenty of 152 keep three. Thirty-eight drop to two. Ninety-four open with one. Most of the one-flip settings let the tool merge identical logic, so three copies become one. That is ordinary optimisation, and SYNFI showed this effect before us.\nSAY: Limits: one toy design, the settings are not independent experiments, and a 3 means no attack found with fewer flips within 6 cycles, not safe.')
 # D: Waterfall
 s=base('RESULT: CODING VIEW, RANDOM FLIPS','Under random flips: slope = flips needed, height = how many ways')

@@ -4,7 +4,7 @@ with sync_playwright() as p:
     for name in ['explainer','game']:
         for w,h,t in [(390,844,'phone'),(1366,768,'desk')]:
             pg=b.new_page(viewport={'width':w,'height':h},device_scale_factor=1)
-            pg.goto(f'file://<repo>/docs/wow/{name}.html')
+            pg.goto(f'file://<repo>/docs/explainers/{name}.html')
             pg.wait_for_timeout(800)
             pg.screenshot(path=f'{name}_{t}.png',full_page=True)
             print(name,t,pg.evaluate('[document.documentElement.scrollWidth,document.documentElement.scrollHeight]'))

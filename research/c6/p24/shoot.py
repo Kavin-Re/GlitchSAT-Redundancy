@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Screenshots + console check of docs/wow/wall.html via headless Chrome.
+"""Screenshots + console check of docs/explainers/wall.html via headless Chrome.
 Usage: python3 research/c6/p24/shoot.py [ROOT]   (writes research/c6/p24/shots/*.png and shots/shoot_log.txt)"""
 import os, sys, json
 from playwright.sync_api import sync_playwright
 ROOT = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-URL = "file://" + os.path.join(ROOT, "docs/wow/wall.html")
+URL = "file://" + os.path.join(ROOT, "docs/explainers/wall.html")
 OUT = os.path.join(ROOT, "research/c6/p24/shots"); os.makedirs(OUT, exist_ok=True)
 log = []
 def say(s):

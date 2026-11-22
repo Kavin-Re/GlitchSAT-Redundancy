@@ -1,5 +1,5 @@
 # R23: Prior-art refresh
-Date 2026-11-19. Agent R23. License: UNDECIDED. Title: working title TBD.
+Date 2026-11-19. Step R23. License: UNDECIDED. Title: working title TBD.
 Extends research/c2/r10_prior_art/R10_PRIOR_ART_FULL.md (not repeated). Method: 14 WebSearch/WebFetch calls, mostly search snippets plus a few page fetches. Labels: SOURCED(page read or search-result text, URL given) / SNIPPET (search result text only) / UNVERIFIED. "SOURCED" below means a fetched page or search result said it; I did not read full papers this round. Nothing was run. Nothing is claimed as new.
 
 ## Blocked / not worked around

@@ -1,10 +1,10 @@
 # WP4 report: round-4 persona test (P19 to P24)
 Working title TBD. License: UNDECIDED.
 
-**All six readers are SIMULATED by a language model. None is a real person. Nothing here is user research.** Simulated readers lean kind; I tried to be harsh, but treat every score as ILLUSTRATIVE, not MEASURED.
+**All six readers are SIMULATED. None is a real person. Nothing here is user research.** Simulated readers lean kind; I tried to be harsh, but treat every score as ILLUSTRATIVE, not MEASURED.
 
 ## What was actually run
-Pages read: docs/wow/explainer.html, game.html, poster.md, script_60s.md (plus the rules file). No earlier reports read.
+Pages read: docs/explainers/explainer.html, game.html, poster.md, script_60s.md (plus the rules file). No earlier reports read.
 Method: headless Google Chrome via Playwright (`research/c3/wp4/drive.py`, log `research/c3/wp4/drive_log.txt`), viewports 390x844 and 1366x800, screenshots in `research/c3/wp4/shots/`.
 Clicked: hero button (x2), wiring A/B toggle, "Flip the next wire" x3, "Show the fewest flips", Start over, counting switch (1 vs per place), evidence drawer, and in the game all 6 designs: tapped every wire in order (wrong and right taps), Reset, "Show fewest flips". Results: no console or page errors; no horizontal overflow at 390 or 1366; every game state matched the cards (par 1,1,1,3,3,2); wrong-tap messages were sensible ("Still shut after 2 flips", "opened after 3 flips; fewest is 1", "flips can cancel").
 

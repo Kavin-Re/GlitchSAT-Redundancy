@@ -7,7 +7,7 @@
 - Inside: V0 and V1 at p = 1e-3, 1.8e-3, 3.2e-3; V2-apt at 1e-3 and 1.8e-3; V2-stored at 1e-3 only.
 - V2e fails at every eligible point, including the lowest (series/MC = 0.80 at p = 1e-3).
 - Cause, as anticipated in the pre-registration: the series stops at sets of 3 flips and is a lower bound. With N = 304 to 388 site-cycles, N x p is 0.3 to 0.4 already at p = 1e-3, so larger sets carry 14% to 20% of the probability for the 3-flip designs. At p = 0.1 the series is low by more than ten orders of magnitude and is useless there.
-- The brief's sentence "the exact series matches the Monte Carlo" therefore holds only at the bottom edge of the plotted range, and not at all for V2e. A fair test needs either K >= 4 in the enumerator or p below 1e-3; neither was run.
+- The plan's sentence "the exact series matches the Monte Carlo" therefore holds only at the bottom edge of the plotted range, and not at all for V2e. A fair test needs either K >= 4 in the enumerator or p below 1e-3; neither was run.
 
 ## Predictions against measurements
 | # | prediction | measured | verdict |

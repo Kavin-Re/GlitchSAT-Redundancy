@@ -2,8 +2,8 @@ import json, re
 exec(open('research/c6/int/apply_edits.py').read().split('# ---------- README')[0])
 E[:] = json.load(open(ROOT/'research/c6/int/edits_log.json'))
 files = ['README.md','START.md','docs/ENGINE_STATUS.md','docs/FINAL_STATUS.md','docs/report/CLAIMS_CHECK.md','docs/report/ONE_PAGE_SUMMARY.md',
- 'docs/report/PROJECT_REPORT.md','docs/report/REVIEW_NOTES.md','docs/report/SLIDES_OUTLINE.md','docs/dossier/AI_USE_DISCLOSURE_DRAFT.md',
- 'docs/dossier/CRITIQUE.md','docs/dossier/EVIDENCE_INDEX.md','docs/dossier/ONE_PAGE_FOR_THE_OWNER.md','docs/dossier/PROJECT_DOSSIER.md',
+ 'docs/report/PROJECT_REPORT.md','docs/report/REVIEW_NOTES.md','docs/report/SLIDES_OUTLINE.md','docs/dossier/DISCLOSURE_DRAFT.md',
+ 'docs/dossier/CRITIQUE.md','docs/dossier/EVIDENCE_INDEX.md','docs/dossier/ONE_PAGE_KEY_POINTS.md','docs/dossier/PROJECT_DOSSIER.md',
  'docs/dossier/EVIDENCE_MAP.md','docs/dossier/QA_ANSWER_CARDS.md','docs/dossier/QA_SHEET.md']
 for f in files:
     p = ROOT/f; bk = ROOT/'research/c6/int/backup'/f

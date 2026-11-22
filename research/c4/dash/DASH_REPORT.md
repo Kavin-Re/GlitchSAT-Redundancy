@@ -5,7 +5,7 @@ Work copy /tmp/work_dash; applied to the tree after tests. Backups of the three 
 - Regenerating the OLD build.py/template with the current build.py (before my edits) changed exactly 1 line of index.html (line 106, the embedded `const DATA`): strings now HTML-escaped (`k&lt;=2`, `&#x27;`), `<`, `>`, `&` written as <, >, &. Everything else byte-identical (MEASURED, diff).
 - Final index.html: exactly one `</script>` (the real one), no raw `<` or `>` inside DATA; the template inserts only cleaned strings or esc()d fault names into innerHTML.
 - Headless Chrome (google-chrome, playwright), 390 and 1366 px, all four tabs clicked: 0 console errors, scrollWidth == viewport at both sizes (research/c4/dash/shot.py).
-- ERR_FILE_NOT_FOUND: NOT a missing asset. It is the Act 4 image `../layout/v_designs/out_patched/v1_zoom_ok.png` (relative path), which exists in the tree (1.09 MB). It fails only when index.html is copied away from the project (e.g. /tmp/iso/index.html -> file:///tmp/layout/...). In the tree: no error. Left as is (a self-contained page would need embedding 1 MB; not done, owner choice).
+- ERR_FILE_NOT_FOUND: NOT a missing asset. It is the Act 4 image `../layout/v_designs/out_patched/v1_zoom_ok.png` (relative path), which exists in the tree (1.09 MB). It fails only when index.html is copied away from the project (e.g. /tmp/iso/index.html -> file:///tmp/layout/...). In the tree: no error. Left as is (a self-contained page would need embedding 1 MB; not done, author choice).
 
 ## 2. Data added (new tab "Scope", reuses the tab and card mechanism)
 build.py reads the stored result files at build time (no hand-typed numbers); each block carries its label and source file on the page:

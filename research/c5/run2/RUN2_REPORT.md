@@ -1,6 +1,6 @@
 # RUN2 report: uArchiFI, k-FRP, FIVER on our toy designs
 
-Authorised by the owner's live instruction "run the third party tools" for these three tools only. Everything marked MEASURED was run in this session (commands below); nothing was pushed or published; nothing was written outside `research/c5/run2/` and `third_party_derived/uarchifi_kfrp_fiver/`. Work area: `/tmp/work_run2/` (clones, build, runs). Faults are modelled single-cycle flips on toy netlists; nothing physical.
+Authorised by the author's live instruction "run the third party tools" for these three tools only. Everything marked MEASURED was run in this run (commands below); nothing was pushed or published; nothing was written outside `research/c5/run2/` and `third_party_derived/uarchifi_kfrp_fiver/`. Work area: `/tmp/work_run2/` (clones, build, runs). Faults are modelled single-cycle flips on toy netlists; nothing physical.
 
 ## 0. Headline
 - uArchiFI: built (against Yosys 0.38, not its target 0.61), ran on our designs, and reproduced our minimums on the stored netlists and the apt re-synthesis: V0 1, V1 1, V2 3 (stored) / 2 (apt 0.33), boot_ok 1. Bundled example: model generation MEASURED; its BMC did not finish (see 2.1).

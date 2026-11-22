@@ -20,7 +20,7 @@ Pre-registration: `research/c6/comms/P18_PREREG.md`. MEASURED: product CLI `--sy
 | all four designs | boot_ok | all nets | 1 | 1 |
 | v2 / v2e (reference) | boot_word==0x96 | flops; all nets | none | 4; 2 / 4; 3 |
 
-The task brief suggested flops-only would *rise*; the pre-registration predicted 3.
+The work plan suggested flops-only would *rise*; the pre-registration predicted 3.
 
 ## Negative results
 

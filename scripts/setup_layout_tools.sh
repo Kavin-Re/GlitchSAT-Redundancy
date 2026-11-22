@@ -1,7 +1,7 @@
 #!/bin/sh
-# Layout toolchain install, derived from the route that WORKED in this session (micromamba env from
+# Layout toolchain install, derived from the route that WORKED in this run (micromamba env from
 # conda channels). NOT re-run end-to-end after being written; the commands below are the ones the
-# layout spike agent reported. Takes ~7 minutes and ~12 GB. GitHub release downloads were blocked
+# layout spike step reported. Takes ~7 minutes and ~12 GB. GitHub release downloads were blocked
 # (403) in the session, so this route avoids them. Check /root/.ccr/README.md if the proxy objects.
 set -e
 export MAMBA_ROOT_PREFIX=${MAMBA_ROOT_PREFIX:-/tmp/mm_root}

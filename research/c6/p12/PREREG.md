@@ -18,7 +18,7 @@ Written 2026-11-20T05:10Z (UTC), BEFORE any Monte Carlo run and before my own en
 
 ## Predictions
 - P1 (slope). Least-squares slope of log10(estimate) against log10(p) over the points with p <= 3.2e-3 (the three lowest, where they have >= 20 hits) is within 0.35 of d_min: V0 1, V1 1, V2-stored 3, V2-apt 2, V2e 3. I expect the measured local slope to sit a little BELOW d_min for V0/V1 only if saturation begins, and at or slightly above for the V2 designs if higher-order sets already matter.
-- P2 (series, as posed in the brief). The truncated series S_K(p) = sum_{d<=K} A_d p^d (1-p)^(N-d) lies inside the Monte Carlo 95% interval at every point where MC has >= 20 hits and the series predicts >= 20 hits.
+- P2 (series, as posed in the plan). The truncated series S_K(p) = sum_{d<=K} A_d p^d (1-p)^(N-d) lies inside the Monte Carlo 95% interval at every point where MC has >= 20 hits and the series predicts >= 20 hits.
   My expectation before running: P2 holds only where N x p is small. S_K is a strict LOWER bound on the true probability (it drops all sets larger than K). With N about 300 and p = 1e-3, N p is about 0.3, and if most supersets of an attacking set still attack, S_K is low by up to a factor (1-p)^(N-d_min), about 0.74. So I expect P2 to FAIL for the V2 designs at most or all plotted points, by undershoot, and to fail for every design at p >= 1e-2. I register it anyway as posed; a failure will be reported as a failure.
 - P3 (leading term). A_dmin p^dmin is within a factor 2 of the MC estimate at the lowest plotted point for every design.
 - P4 (bounds). No MC 95% interval lies entirely below S_K (S_K is a lower bound). Any such point means a bug in the simulator or the enumerator.

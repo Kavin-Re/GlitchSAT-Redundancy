@@ -39,7 +39,7 @@ Write your predictions in the first column **before** running anything.
 | 5 | V2, consumer reads bits 0..3 only | ___ (hint: distance from F0 or CC to 96 on those bits) | `faultbound-wt analyze reference/spike_netlists/v2.json --top v2 --max-flips 3 --cycles 6 --consumer-bits 0x0F` | 2 (both flips on state flops) |
 | 6 | V2, consumer reads bits 1,2,3,6 | ___ | same with `--consumer-bits 0x4E` | 3 (all on state flops) |
 
-Reference values are MEASURED by agent P13a on the stored spike netlists, T=6, stem counting, known init (`research/c6/p13/hamming_runs.txt`, `cli_runs.txt`, `cli_masks.txt`); each run takes under a second except the `test_hamming.py` runs (a few seconds to a minute). Exit code 1 means "attack found"; that is the expected result here, not an error.
+Reference values are MEASURED by step P13a on the stored spike netlists, T=6, stem counting, known init (`research/c6/p13/hamming_runs.txt`, `cli_runs.txt`, `cli_masks.txt`); each run takes under a second except the `test_hamming.py` runs (a few seconds to a minute). Exit code 1 means "attack found"; that is the expected result here, not an error.
 
 Questions: (a) Rows 1 and 2 are the same; rows 3 and 4 differ. What changed between the two scopes? (b) In row 3, what does the single flipped net have in common with "a point where all codewords decode alike"? (c) In rows 5 and 6 the cheapest attack uses only flops, unlike row 4. Why? (Answer: a narrow consumer reads a punctured code with smaller distance, so the flop route becomes cheaper than flipping the comparator copies.)
 

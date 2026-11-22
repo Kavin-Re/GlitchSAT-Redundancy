@@ -1,6 +1,6 @@
 import json,sys
 from playwright.sync_api import sync_playwright
-B="docs/wow/"
+B="docs/explainers/"
 sizes=[("390",390,844,2),("1366",1366,800,1),("320",320,640,2),("zoom200",640,400,2),("zoom200phone",195,420,2)]
 res=[]
 with sync_playwright() as p:

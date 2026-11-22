@@ -1,6 +1,6 @@
 # Real-design attempt #2: report
 
-Saved by the lead session from the second-real-design worker's hand-back (the worker could not write this file itself). Numbers are as reported by that worker and are in `door_results.json` in this folder; I have not re-run them.
+Saved at integration session from the second-real-design worker's hand-back (the worker could not write this file itself). Numbers are as reported by that worker and are in `door_results.json` in this folder; I have not re-run them.
 
 ## Design used
 - "Digital Door Lock" (Tiny Tapeout), module `tt_um_rameshwar_door_lock`, https://github.com/Rameshwar-12/Door_lock_system

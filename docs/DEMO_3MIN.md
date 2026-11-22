@@ -1,17 +1,17 @@
 # 3-minute stage demo (zero typing)
 
-built from `docs/wow/DIAL_NOTES.md` (P40), `docs/wow/THEATRE_NOTES.md` (P21) and `docs/wow/WALL_NOTES.md` (P24). License: Apache-2.0. GlitchSAT. Toy designs, modelled single-tick bit flips, nothing physical, nothing established as new.
+built from `docs/explainers/dev/DIAL_NOTES.md` (P40), `docs/explainers/dev/THEATRE_NOTES.md` (P21) and `docs/explainers/dev/WALL_NOTES.md` (P24). License: Apache-2.0. GlitchSAT. Toy designs, modelled single-tick bit flips, nothing physical, nothing established as new.
 
-**Timings are ESTIMATED and UNPILOTED**: nobody has spoken this script aloud with a clock. The owner should time it once and cut words, not beats. The longer version with live commands stays in `docs/report/DEMO_5MIN.md`.
+**Timings are ESTIMATED and UNPILOTED**: nobody has spoken this script aloud with a clock. The author should time it once and cut words, not beats. The longer version with live commands stays in `docs/report/DEMO_5MIN.md`.
 
 ## Before you go on (2 minutes, off stage)
 Open four tabs in one browser window, in this order, then press F11 (full screen). Switch tabs with Ctrl+1 to Ctrl+4; nothing is typed on stage.
 
 | tab | open | prepare |
 |---|---|---|
-| 1 | `docs/wow/dial.html` | Press **F** (big screen) and **P** (predict first). The dial starts on V2, whole word, stored, pins no, known power-up. |
-| 2 | `docs/wow/theatre.html` | Leave it on step 1. Keys: Space next, Left back. |
-| 3 | `docs/wow/wall.html?stage=1` | Press Space once, so it rests on step 2 (grey tiles, no verdicts yet). |
+| 1 | `docs/explainers/dial.html` | Press **F** (big screen) and **P** (predict first). The dial starts on V2, whole word, stored, pins no, known power-up. |
+| 2 | `docs/explainers/theatre.html` | Leave it on step 1. Keys: Space next, Left back. |
+| 3 | `docs/explainers/wall.html?stage=1` | Press Space once, so it rests on step 2 (grey tiles, no verdicts yet). |
 | 4 | `docs/comms/staircase.png` | Only for a communications audience; otherwise skip the last beat. |
 
 Every digit on these pages is a copy of a measured row (MEASURED) or a replay of one (SIMULATED); "not measured" means nobody ran it.
@@ -44,13 +44,13 @@ Beat lengths: 0:20 + 0:15 + 0:20 + 0:15 + 0:15 + 0:20 + 0:25 + 0:15 + 0:20 + 0:1
 - **Dial keys do nothing:** click a switch with the mouse; guesses can be skipped (press **R** only).
 - **Theatre keys do nothing:** use the on-screen Step button or the buttons 1 to 5.
 - **Wall does not step:** a button has focus; click the page background, or press the "Next" button.
-- **Browser gone:** show the screenshots: `research/c6/p40/shots/1366_light_big.png` (dial), `research/c6/p21/shots/step2_1366.png` to `step4_1366.png` (theatre), `research/c6/p24/shots/wall_1366_stage3_verdicts.png` (wall); or the deck slides on the dial, the replay and the wall (`docs/report/SLIDES.pdf`).
+- **Browser gone:** show the deck slides on the dial, the replay and the wall (`docs/report/SLIDES.pdf`).
 
 ## 10-minute booth loop (unattended, with a person nearby)
 Kiosk query strings (both tested by their checkers in headless Chrome only, not on a real booth screen):
-- Screen A: `docs/wow/theatre.html?kiosk=1` (auto-plays the five steps and loops).
-- Screen B: `docs/wow/wall.html?kiosk=1` (steps change every 7 s; add `&theme=dark` in a dark room).
-- Tablet or laptop for visitors: `docs/wow/dial.html` with predict first on (press **P**); let them guess before they reveal.
+- Screen A: `docs/explainers/theatre.html?kiosk=1` (auto-plays the five steps and loops).
+- Screen B: `docs/explainers/wall.html?kiosk=1` (steps change every 7 s; add `&theme=dark` in a dark room).
+- Tablet or laptop for visitors: `docs/explainers/dial.html` with predict first on (press **P**); let them guess before they reveal.
 
 With one screen only: alternate the two kiosk tabs by hand about every 5 minutes (no page switches tabs by itself). A loop of 10 minutes for the person at the booth:
 | minute | screen | say to a visitor who stops |
@@ -59,4 +59,4 @@ With one screen only: alternate the two kiosk tabs by hand about every 5 minutes
 | 5 to 10 | wall kiosk | "Same design, 152 builds; colour = flips needed. Most open with one." |
 | any | dial tablet | "Guess first, then reveal. Every digit names its source row." |
 
-The "Beat the Solver" game (P23) does not exist yet; `docs/wow/game.html` is the older game.
+The "Beat the Solver" game (P23) does not exist yet; `docs/explainers/game.html` is the older game.

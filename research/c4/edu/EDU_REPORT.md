@@ -1,8 +1,8 @@
 # EDU report: classroom kit
-Agent EDU, 2026-11-19. Licence UNDECIDED; title TBD. Model only: modelled single-cycle bit flips; nothing physical; nothing established as new.
+Step EDU, 2026-11-19. Licence UNDECIDED; title TBD. Model only: modelled single-cycle bit flips; nothing physical; nothing established as new.
 
 ## Delivered
-`docs/edu/LAB_GUIDE.md` (outcomes, prerequisites, 5-line setup, 90-minute run sheet), `WORKSHEET.md` (6 exercises, 100 points), `ANSWER_KEY.md`, `INSTRUCTOR_NOTES.md` (misconceptions, discussion questions, links to `docs/wow/explainer.html` and `game.html`, pitfalls, marking scheme), `starter_designs/` (3 Verilog designs `mini_v0..2.v`, their netlist JSON, threat configs, `MANIFEST.md` with Yosys version and sha256), `tools/edu_scope.py`, `tools/synth_merge.sh`. Verification: `research/c4/edu/verification.log` (every command, filtered output, exit code), driver `research/c4/edu/verify_edu.sh`.
+`docs/edu/LAB_GUIDE.md` (outcomes, prerequisites, 5-line setup, 90-minute run sheet), `WORKSHEET.md` (6 exercises, 100 points), `ANSWER_KEY.md`, `INSTRUCTOR_NOTES.md` (misconceptions, discussion questions, links to `docs/explainers/explainer.html` and `game.html`, pitfalls, marking scheme), `starter_designs/` (3 Verilog designs `mini_v0..2.v`, their netlist JSON, threat configs, `MANIFEST.md` with Yosys version and sha256), `tools/edu_scope.py`, `tools/synth_merge.sh`. Verification: `research/c4/edu/verification.log` (every command, filtered output, exit code), driver `research/c4/edu/verify_edu.sh`.
 
 ## Verified (MEASURED, in a copy at /tmp/work_edu, Yosys 0.33, z3 5.4.1, faultbound-wt 0.0.1.dev0, fresh venv `pip install ./product`)
 - Ex1: stored V0 = 1, V1 = 1 (`ok`), V2 = 3 (k=1,2 none, k=3 found in about 12 s). 

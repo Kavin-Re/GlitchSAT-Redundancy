@@ -6,7 +6,7 @@ License: UNDECIDED. Working title TBD. Written 2026-11-20T05:10:46Z (UTC), BEFOR
 - `results/comms/distance_sweep.csv` (P11: random single-flip minima for 19 codebooks) and `research/c6/p11/PREREG.md`.
 - `docs/comms/CODING_VIEW.md` (arithmetic 0x69 xor 0xFF = 0x96; "FAIL holds itself").
 - `research/c4/b3/b3pack.py`, `research/c5/ledger/data/b3pol.py` (rail event semantics I will reuse), `scripts/glitchsat.py`.
-- Reading the generator I noticed that most P11 codebooks, including the stored F0/96 one, use fail word B = ~W. This changed my prediction from the lead's brief (see P2).
+- Reading the generator I noticed that most P11 codebooks, including the stored F0/96 one, use fail word B = ~W. This changed my prediction from the work plan (see P2).
 
 ## Setup (fixed now)
 - Generator: `scripts/comms/distance_sweep.py` (imported read-only): idle I, optional step C, accept W, fail B, grouping 10210210 (copy m0 owns bits {0,3,6} = mask 0x49, m1 {1,4,7} = 0x92, m2 {2,5} = 0x24). Netlists: `synth.sh plain` (yosys 0.33) and the P11 no-ABC structural flow.

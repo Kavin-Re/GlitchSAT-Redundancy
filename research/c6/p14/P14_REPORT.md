@@ -38,8 +38,8 @@ Cells are "predicted / measured". Minimum number of events; "none" = no attack w
 
 ## Failures and deviations (full prominence)
 1. **One engine-control row did not complete.** 2B_95_BEB, structural netlist: my engine's any-net single-flip control returned z3 "unknown" (120 s timeout), so it could not be compared with the product CLI's 3. The row is flagged `ENGINE_CHECK_FAILED: control mismatch` in the CSV and is left that way. Its flop-flip control (6 = CLI 6), brute-force and reduce checks passed. A separate re-run of that one control with a 420 s limit returned 3 in 58.5 s, equal to the CLI's 3, and its witness replayed in the z3-free simulator (`recheck_control.log`). The CSV was not edited after the sweep, so the flag stays.
-2. **I changed the lead's prediction before running.** The brief said the all-flop burst "cannot reach non-complementary accept words". Reading the generator showed that most P11 codebooks, including the stored F0/96 one, use fail word B = ~W, so I pre-registered cost 1 for those. Measured: 1. The original wording would have been falsified on F0_96_stored, 2B_95, A5_A6, fam_d2 and fam_d4 if "non-complementary" is read as idle against accept.
-3. **The brief's 2x2 could not be filled from the listed codebooks.** With P11's fail words, only 00_1F_F8_E7 is burst-robust. I added six codebooks (fixed in PREREG) whose fail word is not the complement.
+2. **I changed the integration step's prediction before running.** The plan said the all-flop burst "cannot reach non-complementary accept words". Reading the generator showed that most P11 codebooks, including the stored F0/96 one, use fail word B = ~W, so I pre-registered cost 1 for those. Measured: 1. The original wording would have been falsified on F0_96_stored, 2B_95, A5_A6, fam_d2 and fam_d4 if "non-complementary" is read as idle against accept.
+3. **The plan's 2x2 could not be filled from the listed codebooks.** With P11's fail words, only 00_1F_F8_E7 is burst-robust. I added six codebooks (fixed in PREREG) whose fail word is not the complement.
 4. **The any-net control's brute force is partial**: plain enumeration up to 2 flips only where z3 said 1 or 2, flop flips up to 2; larger cases rest on z3 against the product CLI. The burst kinds are checked exhaustively (state search over all event subsets).
 5. Not done: no product flag (`--event-model burst`), no lint, no yosys 0.38 run, no per-cycle varying input, no burst restricted to one comparator's gates (only flop groups), T = 6 only.
 
@@ -55,4 +55,4 @@ Cells are "predicted / measured". Minimum number of events; "none" = no attack w
 ## Open questions
 - Which net gives the 1-flip all-nets result for accept 0x00?
 - Would a burst over one comparator's gates (not its flops) change the picture? Not modelled here.
-- Product flag and encoding lint (all-ones difference, global or per group) remain for a later agent.
+- Product flag and encoding lint (all-ones difference, global or per group) remain for a later step.

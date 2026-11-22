@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     br=p.chromium.launch(executable_path="/usr/bin/google-chrome",args=["--no-sandbox"])
     pg=br.new_page(viewport={"width":390,"height":844},reduced_motion="reduce")
-    pg.goto("file://<repo>/docs/wow/explainer.html")
+    pg.goto("file://<repo>/docs/explainers/explainer.html")
     pg.screenshot(path="shots/full390.png",full_page=True)
     from PIL import Image
     im=Image.open("shots/full390.png");h=im.height

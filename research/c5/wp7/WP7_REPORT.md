@@ -1,8 +1,8 @@
 # WP7 report: wow persona test, wave 3 (six new simulated readers)
 
-ALL SIX PERSONAS ARE MODEL-SIMULATED. None is a real person; no real reader saw these pages. Simulated readers lean kind; I tried to score harshly, but these numbers are my model's judgment, not user data. Treat as a smoke test only.
+ALL SIX PERSONAS ARE SIMULATED. None is a real person; no real reader saw these pages. Simulated readers lean kind; I tried to score harshly, but these numbers are my model's judgment, not user data. Treat as a smoke test only.
 
-Pages read: docs/wow/explainer.html, game.html, poster.md, script_60s.md, README.md top 40 lines, START.md head (rules read from AGENT_RULES.md only). No earlier reports read, so trend figures (R5 5/6, WP6 4/6, README 4.5) come from the task brief.
+Pages read: docs/explainers/explainer.html, game.html, poster.md, script_60s.md, README.md top 40 lines, START.md head (rules read from PROCESS_RULES.md only). No earlier reports read, so trend figures (R5 5/6, WP6 4/6, README 4.5) come from the work plan.
 
 ## What I actually did (headless Chrome via playwright, executable /usr/bin/google-chrome, 390 px and 1366 px)
 Scripts and raw output: research/c5/wp7/run.py, game2.py, game3.py, run.json; screenshots in research/c5/wp7/shots/.
@@ -120,7 +120,7 @@ Pass count: **4 of 6** (needs 5). README top mean **4.83** (needs 6).
 
 ## Gate and trend
 - Gate: FAIL on both criteria (4/6 page pass; README mean 4.83 < 6).
-- Trend vs earlier simulated rounds (figures from the brief): R5 5/6 (narrow pass) -> WP6 4/6 -> WP7 4/6: flat at the failing level; README top 4.5 -> 4.83: +0.3, within noise (different personas, simulated). The explainer is not the problem (understood scores 7-9 for all six); the "would tell" scores for the two outsiders at the ends (rider, journalist) and the README are.
+- Trend vs earlier simulated rounds (figures from the plan): R5 5/6 (narrow pass) -> WP6 4/6 -> WP7 4/6: flat at the failing level; README top 4.5 -> 4.83: +0.3, within noise (different personas, simulated). The explainer is not the problem (understood scores 7-9 for all six); the "would tell" scores for the two outsiders at the ends (rider, journalist) and the README are.
 
 ## Verdict
 Pages work technically (every button, copy, round, lock-open tap behaves; no defects of substance). The explainer is understood by all six; the gate fails on motivation to share (rider, journalist) and on the README's opening, which is still written for specialists after line 3. Not a pass.

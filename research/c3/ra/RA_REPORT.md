@@ -43,7 +43,7 @@ Comparison with the stored tree results (MEASURED): the rebuilt `reproduce_summa
 
 ## 3. 25 headline claims traced
 
-Source key: README = README.md, FS = docs/FINAL_STATUS.md, PD = docs/dossier/PROJECT_DOSSIER.md, OP = docs/report/ONE_PAGE_SUMMARY.md, EX = docs/wow/explainer.html.
+Source key: README = README.md, FS = docs/FINAL_STATUS.md, PD = docs/dossier/PROJECT_DOSSIER.md, OP = docs/report/ONE_PAGE_SUMMARY.md, EX = docs/explainers/explainer.html.
 
 | # | Claim (where) | Verdict | Where / actual value |
 |---|---|---|---|
@@ -106,14 +106,14 @@ Totals for items 1-28 above: TRACED 22 (of which 2 are "TRACED to a report, not 
 | Screenshots | `dashboard/screens` 13 MB, `docs/report/review/shots` 32 MB |
 | Files total | 12,928 (including nested venv) |
 | `.md` files | 241 (excluding top-level work/dl/venv trees; 253 counting everything) |
-| Files over 3 MB | 20: 9 are in `compare/synfi_run/venv` (ray, numpy, pysolvers; up to 44 MB); 5 are bundle zips in `handoff/` (29 to 33 MB); `handoff/CONTINUATION/ui_pack/ai_ui_pack_v2.zip` 3.8 MB; `dashboard/screens/desktop2.png` 6.8 MB; 4 PNGs in `docs/report/review/shots/` 6.5 to 6.6 MB each. After excluding venv and zips, 5 PNGs remain over 3 MB, which breaks the "files over 3 MB are excluded" rule in CHECKPOINT.md step 5 unless PNGs are also dropped |
+| Files over 3 MB | 20: 9 are in `compare/synfi_run/venv` (ray, numpy, pysolvers; up to 44 MB); 5 are bundle zips in `handoff/` (29 to 33 MB); one UI design-pack zip in `handoff/` (3.8 MB); `dashboard/screens/desktop2.png` 6.8 MB; 4 PNGs in `docs/report/review/shots/` 6.5 to 6.6 MB each. After excluding venv and zips, 5 PNGs remain over 3 MB, which breaks the "files over 3 MB are excluded" rule in CHECKPOINT.md step 5 unless PNGs are also dropped |
 | `__pycache__` / `*.egg-info` dirs outside venvs | 7 (CHECKPOINT item 4 wanted `product/` clean; I did not check which ones are in `product/`) |
 | Secret patterns (AWS key, private key header, ghp_, github_pat_, xox, sk-, AIza) | 1 file matched, `handoff/CONTINUATION/audit/A3_rules_safety_privacy.md`, and the match is the audit text that lists the patterns, not a secret. `key=value` regex for api_key/secret/password/token with 12+ chars: 0 hits. No `.env`, `id_rsa`, `.pem` files found |
-| Email addresses in the tree (excluding venvs) | `claire@yosyshq.com` 150 hits in Yosys-generated logs under `formal/runs/*/model/*.log` (tool banner, a third-party maintainer, not the owner); `security@opentitan.org` 4 (public contact in an audit text and a SYNFI file); `random@developer.example.org` 2 (placeholder). No owner email found; I did not search for the owner's name because I was not given it |
+| Email addresses in the tree (excluding venvs) | `claire@yosyshq.com` 150 hits in Yosys-generated logs under `formal/runs/*/model/*.log` (tool banner, a third-party maintainer, not the author); `security@opentitan.org` 4 (public contact in an audit text and a SYNFI file); `random@developer.example.org` 2 (placeholder). No author email found; I did not search for the author's name because I was not given it |
 | Licence statements | No `LICENSE` file at the root, by design (`LICENSE_CHOICE.md`, `NOTICE.md`: "all rights reserved by default"; licence UNDECIDED). Third-party licence files present: `compare/synfi_run/src/LICENSE` (Apache-2.0), `real_designs/second/src/LICENSE.apache2`, `real_designs/second/dl_repo/{door,lock2,padlock}/LICENSE`, `third_party_derived/uarchifi_kfrp_fiver/uarchifi_plugin/LICENSE-LGPL-2.1.txt`. `NOTICE.md` lists copied Apache-2.0 designs; `real_designs/second/dl_repo` holds cloned repos (3 LICENSE files) that `NOTICE.md` does not mention by that path |
-| Repos with unclear licence | `third_party_derived/` (excluded from my copy per instructions; 120 KB) is the area flagged as an open owner decision in CHECKPOINT.md |
+| Repos with unclear licence | `third_party_derived/` (excluded from my copy per instructions; 120 KB) is the area flagged as an open author decision in CHECKPOINT.md |
 
-## 6. Recommendations (for the lead; I changed nothing outside `research/c3/ra/`)
+## 6. Recommendations (for the integration step; I changed nothing outside `research/c3/ra/`)
 
 1. Update the test count (10 to 30) in `docs/FINAL_STATUS.md`, `docs/dossier/PROJECT_DOSSIER.md` and `docs/report/ONE_PAGE_SUMMARY.md`, and add the product-test count (21) with the `pip install "./product[test]"` step to the README quickstart.
 2. README should say that make targets write into the tree and that verdicts are tied to Yosys 0.33.

@@ -40,7 +40,7 @@ def owner_of(rel, owners):
     for k in owners:
         if (rel == k or (k.endswith("/") and rel.startswith(k))) and len(k) > len(best):
             best = k
-    return owners.get(best, "LEAD")
+    return owners.get(best, "author")
 
 
 def scan(root, blk):
@@ -146,7 +146,7 @@ VERIFY = [("heldout 144 raw / 150 corrected", v_heldout), ("E2 matrix 180/60/24"
           ("reproduce rows 36", v_repro)]
 
 
-# ---------------- RECON2 additions: recount stored data of the C4 agents (no solver is run)
+# ---------------- RECON2 additions: recount stored data of the C4 steps (no solver is run)
 def v_m1b(root):
     a = os.path.join(root, "research/c4/m1b/m1b_all_masks.csv")
     b = os.path.join(root, "research/c3/m1/m1_all_masks.csv")
@@ -254,13 +254,13 @@ def main():
     else:
         print("check_numbers: %d files scanned, %d STALE, %d HISTORICAL (rules: %d)" % (
             len(files), len(stale), len(hist), len(blk["rules"])))
-        print("%-4s | %-10s | %-34s | %-5s | %-34s | %-30s | %s" % ("kind", "row", "file", "line", "found", "should be", "owner"))
+        print("%-4s | %-10s | %-34s | %-5s | %-34s | %-30s | %s" % ("kind", "row", "file", "line", "found", "should be", "fix by"))
         for h in sorted(hits, key=lambda x: (x["kind"] != "STALE", x["file"], x["line"])):
             print("%-4s | %-10s | %-34s | %-5d | %-34s | %-30s | %s" % (
                 h["kind"][:4], h["id"][:10], h["file"][-34:], h["line"], h["found"][:34], h["should"][:30], h["owner"]))
     if a.md:
         with open(a.md, "w") as f:
-            f.write("| kind | row | file | line | found | should be | owner |\n|---|---|---|---|---|---|---|\n")
+            f.write("| kind | row | file | line | found | should be | fix by |\n|---|---|---|---|---|---|---|\n")
             for h in sorted(hits, key=lambda x: (x["kind"] != "STALE", x["file"], x["line"])):
                 f.write("| %s | %s | `%s` | %d | `%s` | %s | %s |\n" % (
                     h["kind"], h["id"], h["file"], h["line"], h["found"].replace("|", "/"),

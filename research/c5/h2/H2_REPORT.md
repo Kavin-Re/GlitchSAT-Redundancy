@@ -1,4 +1,4 @@
-# H2 hardening report (wave 2). agent H2
+# H2 hardening report (wave 2). step H2
 
 Scope: fix the RT2 findings (research/c5/rt2/RT2_REPORT.md) N1..N14 in `product/src`, the GitHub Action, `product/scripts/yosys_flow.sh`, `ci/check_reproduce.py`, the docs. All work was done on a copy (`/tmp/work_h2/p`, venv `/tmp/work_h2/venv` with z3-solver 5.4.1.0, pytest, pyyaml; package used through `PYTHONPATH=product/src`, so no build/egg-info anywhere). Nothing was run with `make`. Applied to the tree only after the copy passed everything below. Backups of the 12 changed files: `research/c5/h2/backup/` (same relative paths). Labels: MEASURED = I ran it. Faults are modelled bit flips; nothing here is a hardware statement.
 
@@ -50,7 +50,7 @@ MASK = `0x..`, `0b..`, plain decimal (CLI string = TOML int = TOML decimal strin
 Documented maximum `faults.max_flips`/`--max-flips` = 64 (`config.MAX_FLIPS`); 65 or more: exit 3 with a message (`--max-flips 500` and `3000` exit 3 immediately; before: 54 s and a timeout, MEASURED by RT2). At 64 the spike V2 run takes 3.4 s (MEASURED here). The engine counter is also sized by `min(k, number of flip items)`. Test: k=3 vs k=60 gives the same verdict and 3 flips. A cost budget under the fanout rules is capped by the same limit.
 
 ## Not fixed / limits (honest)
-- `scripts/synth.sh`, `scripts/glitchsat.py check x.v --top ...` (the research engine at repo top level, outside my scope) still build a `yosys -p "read_verilog $1; hierarchy -top $2; ..."` string (RT2 INFERRED the same injection there). `ci/check_reproduce.py --rerun` only feeds it fixed repository inputs, but a user passing a hostile `--top` to `glitchsat.py` is still exposed. Needs a fix by the owner of `scripts/`.
+- `scripts/synth.sh`, `scripts/glitchsat.py check x.v --top ...` (the research engine at repo top level, outside my scope) still build a `yosys -p "read_verilog $1; hierarchy -top $2; ..."` string (RT2 INFERRED the same injection there). `ci/check_reproduce.py --rerun` only feeds it fixed repository inputs, but a user passing a hostile `--top` to `glitchsat.py` is still exposed. Needs a fix by the author of `scripts/`.
 - `product/examples/synth_sweep/variants.toml` still has the old comment "Not allowed: shell, plugin, ..." (outside my scope; behaviour is now the allow-list, documented in QUICKSTART 4c). `product/examples/scope_sweep/scope.toml` uses `consumer_bits = "0-3"`: still valid (legacy bit list).
 - A hostile Verilog file can still contain things Yosys's Verilog frontend accepts (e.g. `` `include `` of other readable files); Yosys itself is not sandboxed (no seccomp/chroot/network cut). Only the script text is now fixed.
 - The allow-list is a safety net, not a boundary for the commands on the list; variant files remain trusted input.

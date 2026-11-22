@@ -1,5 +1,5 @@
 # V456: countermeasure example designs V4, V4b, V5, V6 (build and measure)
-Agent V456, 2026-11-19. License: UNDECIDED. Title: working title TBD. Faults are modelled single-cycle bit flips of gate outputs and flop Q (glitchsat model), T=6 cycles, k<=3, goal observed at any cycle; toy designs; no hardware claim; nothing established as new. "MEASURED" = solver output of the command below; ">3" never occurred in any cell. Work dir `/tmp/work_v456/`; copies of tools in `tools/`, raw rows in `data/`.
+Step V456, 2026-11-19. License: UNDECIDED. Title: working title TBD. Faults are modelled single-cycle bit flips of gate outputs and flop Q (glitchsat model), T=6 cycles, k<=3, goal observed at any cycle; toy designs; no hardware claim; nothing established as new. "MEASURED" = solver output of the command below; ">3" never occurred in any cell. Work dir `/tmp/work_v456/`; copies of tools in `tools/`, raw rows in `data/`.
 
 ## 1. Designs (RTL in `rtl/`, same interface and security setting as `rtl/v2.v`: KEY 0xC3, `sig` constant attacker input != KEY, accept word 0x96, power-up via `initial` values, no reset pin)
 | file | idea | note |

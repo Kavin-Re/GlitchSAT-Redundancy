@@ -30,7 +30,7 @@ def base(kicker, title, num):
     s.background.fill.solid(); s.background.fill.fore_color.rgb = bg
     tb(s, 548640, 256032, 8229600, 274320, [kicker], 152400, True, GREY)
     tb(s, 548640, 502920, 11064240, 868680, [title], 406400, True, DARK)
-    tb(s, 548640, 6446520, 10241280, 274320, ['Modelled bit flips on toy designs. Nothing physical. owner has not reviewed.'], 139700, False, GREY)
+    tb(s, 548640, 6446520, 10241280, 274320, ['Modelled bit flips on toy designs. Nothing physical. author has not reviewed.'], 139700, False, GREY)
     tb(s, 10972800, 6446520, 731520, 274320, [str(num)], 139700, False, GREY)
     return s
 
@@ -70,7 +70,7 @@ tb(b, 548640, 4251960, 11064240, 640080, [
 tb(b, 548640, 4892040, 11064240, 640080, [
    'Encoding sets the floor; the synthesis flow decides whether it is reached.'], 279400, True, GREEN)
 tb(b, 548640, 5577840, 11064240, 640080, [
-   'MEASURED by agent P01a, re-run by the lead 2026-11-20: docs/report/WHY_TWO_FLIPS.md, rtl/v2e.v. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.'], 165100, False, GREY)
+   'MEASURED by step P01a, re-run at integration 2026-11-20: docs/report/WHY_TWO_FLIPS.md, rtl/v2e.v. Stem rule, T=6, k<=3, toy design; conda 0.38 gives 3 only on its plain flow.'], 165100, False, GREY)
 b.notes_slide.notes_text_frame.text = (
  "SAY: Earlier I blamed the Yosys version for V2 needing three flips on one netlist and two on another. That was wrong, and a fresh-eyes review caught it: both netlists come from Yosys 0.33.\n"
  "SAY: The real reason is in the encoding. Before the key check, the machine loads the armed word CC. CC and the accept word 96 differ in four bits, and those four bits belong to only two of the three comparator copies. So an attacker does not need to fool all three copies: two flips at the moment CC is loaded are enough, if the netlist has one shared net per copy.\n"

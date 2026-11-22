@@ -1,39 +1,39 @@
 check_numbers: 49 files scanned, 6 STALE, 10 HISTORICAL (rules: 27)
-kind | row        | file                               | line  | found                              | should be                      | owner
-STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 166   | 144/163                            | 150/163 (corrected; 144 is the | QA agent
-STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 209   | 98 tests                           | 99 passed (root, RECON2); 98 o | QA agent
-STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 210   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA agent
-STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 235   | 144/163                            | 150/163 (corrected; 144 is the | QA agent
-STAL | T.root.pas | esearch/c4/review/QA_SIM_REPORT.md | 268   | 30 tests                           | 99 passed (root `pytest tests` | QA agent
-STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 270   | 144 of 163                         | 150/163 (corrected; 144 is the | QA agent
-HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 99 passed (10 only as history  | LEAD (F2/docs)
-HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 99 passed (10 only as history  | DOSSIER agent (D2)
-HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
-HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
-HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 99 passed (10 only as history  | REPORT agent (F2)
-HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 99 passed (10 only as history  | REPORT agent (F2)
-HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT agent (F2)
-HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT agent (F2)
-HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 99 passed (10 only as history  | REPORT agent (F2)
-HIST | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 268   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA agent
+kind | row        | file                               | line  | found                              | should be                      | author
+STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 166   | 144/163                            | 150/163 (corrected; 144 is the | QA step
+STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 209   | 98 tests                           | 99 passed (root, RECON2); 98 o | QA step
+STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 210   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA step
+STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 235   | 144/163                            | 150/163 (corrected; 144 is the | QA step
+STAL | T.root.pas | esearch/c4/review/QA_SIM_REPORT.md | 268   | 30 tests                           | 99 passed (root `pytest tests` | QA step
+STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 270   | 144 of 163                         | 150/163 (corrected; 144 is the | QA step
+HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 99 passed (10 only as history  | author (F2/docs)
+HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 99 passed (10 only as history  | DOSSIER step (D2)
+HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER step (D2)
+HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER step (D2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 99 passed (10 only as history  | REPORT step (F2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 99 passed (10 only as history  | REPORT step (F2)
+HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT step (F2)
+HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT step (F2)
+HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 99 passed (10 only as history  | REPORT step (F2)
+HIST | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 268   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA step
 check_numbers: 49 files scanned, 6 STALE, 10 HISTORICAL (rules: 27)
-kind | row        | file                               | line  | found                              | should be                      | owner
-STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 166   | 144/163                            | 150/163 (corrected; 144 is the | QA agent
-STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 209   | 98 tests                           | 99 passed (root, RECON2); 98 o | QA agent
-STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 210   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA agent
-STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 235   | 144/163                            | 150/163 (corrected; 144 is the | QA agent
-STAL | T.root.pas | esearch/c4/review/QA_SIM_REPORT.md | 268   | 30 tests                           | 99 passed (root `pytest tests` | QA agent
-STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 270   | 144 of 163                         | 150/163 (corrected; 144 is the | QA agent
-HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 99 passed (10 only as history  | LEAD (F2/docs)
-HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 99 passed (10 only as history  | DOSSIER agent (D2)
-HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
-HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
-HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 99 passed (10 only as history  | REPORT agent (F2)
-HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 99 passed (10 only as history  | REPORT agent (F2)
-HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT agent (F2)
-HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT agent (F2)
-HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 99 passed (10 only as history  | REPORT agent (F2)
-HIST | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 268   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA agent
+kind | row        | file                               | line  | found                              | should be                      | author
+STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 166   | 144/163                            | 150/163 (corrected; 144 is the | QA step
+STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 209   | 98 tests                           | 99 passed (root, RECON2); 98 o | QA step
+STAL | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 210   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA step
+STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 235   | 144/163                            | 150/163 (corrected; 144 is the | QA step
+STAL | T.root.pas | esearch/c4/review/QA_SIM_REPORT.md | 268   | 30 tests                           | 99 passed (root `pytest tests` | QA step
+STAL | VER.heldou | esearch/c4/review/QA_SIM_REPORT.md | 270   | 144 of 163                         | 150/163 (corrected; 144 is the | QA step
+HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 99 passed (10 only as history  | author (F2/docs)
+HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 99 passed (10 only as history  | DOSSIER step (D2)
+HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER step (D2)
+HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER step (D2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 99 passed (10 only as history  | REPORT step (F2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 99 passed (10 only as history  | REPORT step (F2)
+HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT step (F2)
+HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT step (F2)
+HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 99 passed (10 only as history  | REPORT step (F2)
+HIST | T.root.99  | esearch/c4/review/QA_SIM_REPORT.md | 268   | 98 passed                          | 99 passed (root, RECON2); 98 o | QA step
 
 --verify (recomputed from stored data files):
   OK   heldout 144 raw / 150 corrected      cells 163 raw 144 corrected 150 (expect 163/144/150)

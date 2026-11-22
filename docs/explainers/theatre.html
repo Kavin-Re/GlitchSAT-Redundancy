@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlitchSAT: Solver Replay Theatre</title>
+<!-- Single file, offline, no tracking, no external resources. License: Apache-2.0. GlitchSAT.
+     The data block near the end is written by scripts/export_witness.py (solver output + parsed VCD of the gate-level replay);
+     docs/explainers/dev/check_theatre.py re-checks it against docs/explainers/witness.json and a fresh run. Do not edit the data by hand.
+     The two small schematics are simplified hand-drawn diagrams; the waveform strips are drawn from the parsed VCD. -->
+<style>
+:root{--bg:#fbfaf7;--ink:#1b1f24;--mute:#454f5a;--line:#c9cfd6;--card:#fff;--btn:#1f4e9c;--btnink:#fff;--link:#1f4e9c;--focus:#1f4e9c;
+--red:#b3261e;--redbg:#fde3e1;--green:#17653a;--greenbg:#e1f3e8;--wire:#4a5560;--band:#e4ecfa;--bus:#eef1f4;
+--banner:#fff4d6;--bannerink:#3d2b00;--bannerline:#8a6100}
+@media (prefers-color-scheme:dark){:root{--bg:#12161b;--ink:#eceff3;--mute:#b4bdc7;--line:#3b4551;--card:#1b2128;--btn:#8ab4ff;--btnink:#0b1220;--link:#9bbfff;--focus:#ffd84d;
+--red:#ff9a90;--redbg:#3a1a18;--green:#7fd9a2;--greenbg:#16301f;--wire:#9aa5b1;--band:#1d2d4a;--bus:#232b34;
+--banner:#3a2e0b;--bannerink:#ffe9a8;--bannerline:#b88a1c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+@media (min-width:900px){.wrap{max-width:1240px}}
+.toy{background:var(--banner);border-bottom:2px solid var(--bannerline);color:var(--bannerink);padding:8px 16px;font-size:15px;text-align:center}
+h1{font-size:1.6rem;line-height:1.15;margin:.5em 0 .1em;text-wrap:balance}
+h2{font-size:1.2rem;line-height:1.25;margin:0 0 .3em}
+h3{font-size:1rem;line-height:1.3;margin:.9em 0 .2em}
+p{margin:.45em 0}
+.kick{color:var(--mute);font-size:14px;text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin:0}
+.sub{font-size:1.05rem;margin:0 0 .4em;max-width:60em}
+code{overflow-wrap:anywhere;font-size:14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+button{font:inherit;font-size:1rem;min-height:48px;min-width:48px;padding:8px 16px;border-radius:10px;border:2px solid var(--btn);background:var(--btn);color:var(--btnink);cursor:pointer;font-weight:600}
+button.alt{background:transparent;color:var(--link)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.note{font-size:14px;color:var(--mute)}
+.tag{display:inline-block;font-size:13px;line-height:1.3;font-weight:700;padding:1px 8px;border-radius:999px;border:1.5px solid var(--ink);white-space:nowrap}
+.tag.hand{border-style:dashed;background:var(--banner);color:var(--bannerink)}
+.tag.meas{background:var(--greenbg)}
+
+/* controls */
+.bar{background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
+@media (min-width:900px) and (min-height:700px){.bar{position:sticky;top:0;z-index:5}}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dots{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.dots button{padding:4px;min-width:48px;background:transparent;color:var(--link)}
+.dots button[aria-current=step]{background:var(--btn);color:var(--btnink)}
+.tick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px;font-size:15px}
+.tick input{flex:1 1 180px;min-width:0;max-width:340px;height:44px;margin:0;accent-color:var(--btn)}
+.cap{margin:12px 0 10px;padding:10px 14px;border-left:5px solid var(--btn);background:var(--card);border-radius:0 10px 10px 0}
+.cap h2{margin:0}
+.cap p{margin:.2em 0 0}
+
+/* stage */
+.stage{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-bottom:16px}
+@media (min-width:900px){.stage{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}}
+.side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 10px;min-width:0}
+.side>header{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:6px}
+.side>header h2{margin:0}
+.side>header span{font-size:15px;color:var(--mute)}
+.verdict{border:2px solid var(--line);border-radius:10px;padding:8px 12px;margin:8px 0;font-weight:600}
+.verdict.none{border-color:var(--green);background:var(--greenbg)}
+.verdict.hit{border-color:var(--red);background:var(--redbg)}
+.verdict small{display:block;font-weight:400;font-size:14px;margin-top:2px}
+.strip{margin:10px 0 4px;min-width:0}
+.strip h3{margin:0 0 2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0;font-size:14px}
+.chip{border:1.5px solid var(--line);border-radius:8px;padding:2px 8px;font-weight:600;font-variant-numeric:tabular-nums}
+.chip.open{border-color:var(--green);background:var(--greenbg)}
+.chip.bad{border-color:var(--red);background:var(--redbg)}
+.result{font-size:15px;font-weight:600;margin:2px 0}
+.result.bad{color:var(--red)}
+.wave{display:block;width:100%;overflow:hidden}
+.wave svg,.schem svg{display:block}
+svg text{font:12px system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:var(--ink)}
+svg .lab{fill:var(--mute)}
+svg .w{fill:none;stroke:var(--wire);stroke-width:1.6}
+svg .busr{fill:var(--bus);stroke:var(--wire);stroke-width:1.2}
+svg .goal{fill:var(--greenbg);stroke:var(--green);stroke-width:1.6}
+svg .goal.bad{fill:var(--redbg);stroke:var(--red)}
+svg .grid{stroke:var(--line);stroke-width:1;stroke-dasharray:2 3}
+svg .band{fill:var(--band)}
+svg .flip{fill:var(--redbg);stroke:var(--red);stroke-width:1.5}
+svg .fliptxt{fill:var(--red);font-weight:700}
+svg .box{fill:var(--card);stroke:var(--wire);stroke-width:1.5}
+svg .hot{stroke:var(--red);stroke-width:4}
+svg .hotbox{stroke:var(--red);stroke-width:3;fill:var(--redbg)}
+svg .hottxt{fill:var(--red);font-weight:700}
+.schem{margin:8px 0 2px}
+.schem svg{width:100%;max-width:440px;height:auto}
+.schem svg text{font-size:13.5px}
+.schem figcaption,.schem .fc{font-size:14px;color:var(--mute);margin-top:2px}
+figure{margin:0}
+.prov{margin-top:10px;border-top:1px dashed var(--line);padding-top:6px;font-size:13px;color:var(--mute);overflow-wrap:anywhere}
+.prov div{margin:1px 0}
+.prov b{color:var(--ink);font-weight:600}
+.prov code{font-size:13px}
+.not{background:var(--card);border:2px solid var(--bannerline);border-radius:14px;padding:12px 16px;margin-bottom:16px}
+.not ul{margin:.3em 0;padding-left:1.2em}
+.not li{margin:.3em 0}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:.4em 0}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+footer{font-size:14px;color:var(--mute);padding:6px 0 28px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){svg .band{transition:x .18s linear,width .18s linear}}
+</style>
+</head>
+<body>
+<div class="toy" role="note"><b>Toy model.</b> A made-up 8-bit lock, modelled bit flips, simulation only. No hardware was glitched. </div>
+<div class="wrap">
+<header>
+<h1>Solver Replay Theatre</h1>
+<p class="sub">What you watch here is a recorded attack found by the solver, replayed in a simulation of the circuit (technically: a <b>replay of the solver's witness in a gate-level simulation</b>): the solver names which wires to flip and when, a simulator replays it, and the strips show the recorded signals. <span class="tag meas">waveforms: from the replay</span> <span class="tag hand">schematics: simplified diagram</span></p>
+</header>
+
+<div class="bar">
+<div class="ctl" role="group" aria-label="Theatre controls">
+<button id="bBack" class="alt" type="button">Back</button>
+<button id="bStep" type="button">Step</button>
+<button id="bPlay" class="alt" type="button" aria-pressed="false">Play</button>
+<button id="bReset" class="alt" type="button">Reset</button>
+<div class="dots" id="dots" role="group" aria-label="Go to step"></div>
+</div>
+<div class="tick"><label for="tick">Clock tick shown: <b id="tickv">0</b></label><input id="tick" type="range" min="0" max="5" step="1" value="0"><span class="note">Keys: Space or → step, ← back, P play, R reset.</span></div>
+</div>
+
+<section class="cap" aria-live="polite"><p class="kick" id="capk"></p><h2 id="capt"></h2><p id="capp"></p></section>
+
+<main>
+<div class="stage" id="stage">
+<section class="side" id="left" aria-labelledby="lh"><header><h2 id="lh">V1: two checks, one shared wire</h2><span>duplicated check, both feed one accept wire <code>ok</code></span></header><div class="body" id="lbody"></div></section>
+<section class="side" id="right" aria-labelledby="rh"><header><h2 id="rh">V2: three copies</h2><span>each copy owns its own bits of the boot word</span></header><div class="body" id="rbody"></div></section>
+</div>
+<section class="not" id="notpanel" hidden aria-labelledby="nh"><h2 id="nh">What we did NOT show</h2><div id="notbody"></div></section>
+</main>
+
+<footer>
+<p>Data: <code>docs/explainers/witness.json</code>, written by <code>python3 scripts/export_witness.py</code> and inlined here unchanged. Words used: a "tick" is one clock cycle; a "flip" is one wire inverted for one tick in the model; "boot word" is the lock's 8-bit state (<span id="codes"></span>); the "accept flag" is the one-bit output <code>boot_ok</code>.</p>
+<p>Nothing here is established as new. License: Apache-2.0. GlitchSAT. Add <code>?kiosk=1</code> to the address for a self-running loop.</p>
+</footer>
+</div>
+
+<script type="application/json" id="witness-data">{"frames":[{"design":"v1","id":"v1_faultfree","kind":"replay","label":"MEASURED (solver output) + SIMULATED (gate-level replay)","netlist_sha256":"84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc","replay":{"command":"python3 scripts/replay.py \u003csolver result JSON> --outdir \u003ctmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)","honest_opens":true,"runs":{"honest":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=2 boot_word=96 input=c3","goal_hit_cycle":2,"run_faults":0,"sig":195,"signals":{"boot_ok":{"changes":[[0,0],[15,1]],"per_tick":[0,0,1,1,1,1],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,150]],"per_tick":[240,204,150,150,150,150],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,195]],"per_tick":[195,195,195,195,195,195],"width":8}},"stimulus":"honest key 0xC3, no faults (stimulus built by export_witness.py)","t_end":59,"vcd_basename":"v1_honest_faultfree.vcd"},"wrong":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=c7","goal_hit_cycle":-1,"run_faults":0,"sig":199,"signals":{"boot_ok":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,105]],"per_tick":[240,204,105,105,105,105],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,199]],"per_tick":[199,199,199,199,199,199],"width":8}},"stimulus":"wrong key 0xC7 (the solver's attacker input), no faults","t_end":59,"vcd_basename":"v1_wrongkey_faultfree.vcd"}},"wrong_stays_shut":true},"side":"left","solver":{"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 0 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 0 --cycles 6","cycles":6,"fault_model":"single-cycle bit flip of any gate output or flop Q","flops":8,"gates":58,"goal":"boot_word == 0x96 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":0,"min_faults":null,"reduce":"full","sites_modelled":313,"sites_total":396,"verdict":"NO_ATTACK_UP_TO_BOUND","verdict_text":"v1: NO_ATTACK_UP_TO_BOUND  (k\u003c=0, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v1.json","step":1,"title":"Fault-free run: honest key opens, wrong key stays shut"},{"design":"v2","id":"v2_faultfree","kind":"replay","label":"MEASURED (solver output) + SIMULATED (gate-level replay)","netlist_sha256":"289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec","replay":{"command":"python3 scripts/replay.py \u003csolver result JSON> --outdir \u003ctmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)","honest_opens":true,"runs":{"honest":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=2 boot_word=96 input=c3","goal_hit_cycle":2,"run_faults":0,"sig":195,"signals":{"boot_ok":{"changes":[[0,0],[15,1]],"per_tick":[0,0,1,1,1,1],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,150]],"per_tick":[240,204,150,150,150,150],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,195]],"per_tick":[195,195,195,195,195,195],"width":8}},"stimulus":"honest key 0xC3, no faults (stimulus built by export_witness.py)","t_end":59,"vcd_basename":"v2_honest_faultfree.vcd"},"wrong":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=d3","goal_hit_cycle":-1,"run_faults":0,"sig":211,"signals":{"boot_ok":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,105]],"per_tick":[240,204,105,105,105,105],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,211]],"per_tick":[211,211,211,211,211,211],"width":8}},"stimulus":"wrong key 0xD3 (the solver's attacker input), no faults","t_end":59,"vcd_basename":"v2_wrongkey_faultfree.vcd"}},"wrong_stays_shut":true},"side":"right","solver":{"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 0 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 0 --cycles 6","cycles":6,"fault_model":"single-cycle bit flip of any gate output or flop Q","flops":8,"gates":68,"goal":"boot_word == 0x96 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":0,"min_faults":null,"reduce":"full","sites_modelled":353,"sites_total":456,"verdict":"NO_ATTACK_UP_TO_BOUND","verdict_text":"v2: NO_ATTACK_UP_TO_BOUND  (k\u003c=0, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v2.json","step":1,"title":"Fault-free run: honest key opens, wrong key stays shut"},{"design":"v1","id":"v1_k1","kind":"replay","label":"MEASURED (solver output) + SIMULATED (gate-level replay)","netlist_sha256":"84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc","replay":{"agrees_with_solver":true,"command":"python3 scripts/replay.py \u003csolver result JSON> --outdir \u003ctmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)","goal_port":"boot_word","goal_value":150,"runs":{"faulted":{"bench_line":"REPLAY run_faults=1 goal_hit_cycle=2 boot_word=96 input=c7","goal_hit_cycle":2,"run_faults":1,"sig":199,"signals":{"boot_ok":{"changes":[[0,0],[15,1]],"per_tick":[0,0,1,1,1,1],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,150]],"per_tick":[240,204,150,150,150,150],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"n45":{"changes":[[0,0],[5,1],[15,0]],"per_tick":[0,1,0,0,0,0],"width":1},"r45":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,199]],"per_tick":[199,199,199,199,199,199],"width":8}},"t_end":59,"vcd_basename":"v1_k1_faulted.vcd"},"faultfree":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=c7","goal_hit_cycle":-1,"run_faults":0,"sig":199,"signals":{"boot_ok":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,105]],"per_tick":[240,204,105,105,105,105],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"n45":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"r45":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,199]],"per_tick":[199,199,199,199,199,199],"width":8}},"t_end":59,"vcd_basename":"v1_k1_faultfree.vcd"}}},"side":"left","solver":{"attacker_input":{"sig":"0xC7"},"attacker_input_raw":{"sig":199},"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6","cycles":6,"explanation":"SINGLE POINT OF FAILURE: one AND gate output, net `ok`, combines 8 input bits of `sig` (the redundant checks converge here) and alone drives 8 of 8 bits of `boot_word`. Flipping it for ONE cycle (cycle 1) makes a wrong `sig` look valid, even though the checks upstream are duplicated.","fault_model":"single-cycle bit flip of any gate output or flop Q","faults":[{"cycle":1,"gate":"AND","is_output_net":[],"kind":"gate_output","net":"ok","net_id":45,"reaches_word_bits":[0,1,2,3,4,5,6,7]}],"flops":8,"gates":58,"goal":"boot_word == 0x96 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":1,"min_faults":1,"reduce":"full","sites_modelled":313,"sites_total":396,"verdict":"ATTACK_FOUND","verdict_text":"v1: ATTACK_FOUND  (k\u003c=1, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v1.json","step":2,"title":"The solver's witness for V1: one flip"},{"design":"v2","id":"v2_k1","kind":"solver_only","label":"MEASURED (solver output)","netlist_sha256":"289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec","side":"right","solver":{"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6","cycles":6,"fault_model":"single-cycle bit flip of any gate output or flop Q","flops":8,"gates":68,"goal":"boot_word == 0x96 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":1,"min_faults":null,"reduce":"full","sites_modelled":353,"sites_total":456,"verdict":"NO_ATTACK_UP_TO_BOUND","verdict_text":"v2: NO_ATTACK_UP_TO_BOUND  (k\u003c=1, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v2.json","step":3,"title":"V2 with at most 1 flip"},{"design":"v2","id":"v2_k2","kind":"solver_only","label":"MEASURED (solver output)","netlist_sha256":"289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec","side":"right","solver":{"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 2 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 2 --cycles 6","cycles":6,"fault_model":"single-cycle bit flip of any gate output or flop Q","flops":8,"gates":68,"goal":"boot_word == 0x96 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":2,"min_faults":null,"reduce":"full","sites_modelled":353,"sites_total":456,"verdict":"NO_ATTACK_UP_TO_BOUND","verdict_text":"v2: NO_ATTACK_UP_TO_BOUND  (k\u003c=2, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v2.json","step":3,"title":"V2 with at most 2 flips"},{"design":"v2","id":"v2_k3","kind":"replay","label":"MEASURED (solver output) + SIMULATED (gate-level replay)","netlist_sha256":"289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec","replay":{"agrees_with_solver":true,"command":"python3 scripts/replay.py \u003csolver result JSON> --outdir \u003ctmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)","goal_port":"boot_word","goal_value":150,"runs":{"faulted":{"bench_line":"REPLAY run_faults=1 goal_hit_cycle=2 boot_word=96 input=d3","goal_hit_cycle":2,"run_faults":1,"sig":211,"signals":{"boot_ok":{"changes":[[0,0],[15,1]],"per_tick":[0,0,1,1,1,1],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,150]],"per_tick":[240,204,150,150,150,150],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"n27":{"changes":[[0,0],[5,1],[15,0]],"per_tick":[0,1,0,0,0,0],"width":1},"n30":{"changes":[[0,1],[5,0],[15,1]],"per_tick":[1,0,1,1,1,1],"width":1},"n65":{"changes":[[0,0],[5,1],[15,0]],"per_tick":[0,1,0,0,0,0],"width":1},"r27":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"r30":{"changes":[[0,1]],"per_tick":[1,1,1,1,1,1],"width":1},"r65":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,211]],"per_tick":[211,211,211,211,211,211],"width":8}},"t_end":59,"vcd_basename":"v2_k3_faulted.vcd"},"faultfree":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=-1 boot_word=69 input=d3","goal_hit_cycle":-1,"run_faults":0,"sig":211,"signals":{"boot_ok":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,105]],"per_tick":[240,204,105,105,105,105],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"n27":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"n30":{"changes":[[0,1]],"per_tick":[1,1,1,1,1,1],"width":1},"n65":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"r27":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"r30":{"changes":[[0,1]],"per_tick":[1,1,1,1,1,1],"width":1},"r65":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,211]],"per_tick":[211,211,211,211,211,211],"width":8}},"t_end":59,"vcd_basename":"v2_k3_faultfree.vcd"}}},"side":"right","solver":{"attacker_input":{"sig":"0xD3"},"attacker_input_raw":{"sig":211},"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 3 --cycles 6","cycles":6,"explanation":"MINIMUM ATTACK COST = 3 faults (`c2.m`@1, `word[0]`@1, `c1.m`@1). No single net decides; the attacker needs 3 coordinated single-cycle flips (spanning 1 distinct cycle(s)). Faults at 3 distinct nets (names listed); this output does not classify whether they sit on independent copies or on a shared decision path; see the consumer-bits and ledger docs.","fault_model":"single-cycle bit flip of any gate output or flop Q","faults":[{"cycle":1,"gate":"AND","is_output_net":[],"kind":"gate_output","net":"c2.m","net_id":27,"reaches_word_bits":[2,5]},{"cycle":1,"gate":"NOT","is_output_net":[],"kind":"gate_output","net":"word[0]","net_id":30,"reaches_word_bits":[0,3,6]},{"cycle":1,"gate":"AND","is_output_net":[],"kind":"gate_output","net":"c1.m","net_id":65,"reaches_word_bits":[1,4,7]}],"flops":8,"gates":68,"goal":"boot_word == 0x96 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":3,"min_faults":3,"reduce":"full","sites_modelled":353,"sites_total":456,"verdict":"ATTACK_FOUND","verdict_text":"v2: ATTACK_FOUND  (k\u003c=3, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v2.json","step":3,"title":"The solver's witness for V2: three flips"},{"design":"v2","id":"v2_flag_k1","kind":"replay","label":"MEASURED (solver output) + SIMULATED (gate-level replay)","netlist_sha256":"289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec","replay":{"agrees_with_solver":true,"command":"python3 scripts/replay.py \u003csolver result JSON> --outdir \u003ctmp>   (iverilog -g2012 + vvp; called from scripts/export_witness.py)","goal_port":"boot_ok","goal_value":1,"runs":{"faulted":{"bench_line":"REPLAY run_faults=1 goal_hit_cycle=3 boot_ok=0 input=43","goal_hit_cycle":3,"run_faults":1,"sig":67,"signals":{"boot_ok":{"changes":[[0,0],[25,1],[35,0]],"per_tick":[0,0,0,1,0,0],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,105]],"per_tick":[240,204,105,105,105,105],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"n11":{"changes":[[0,0],[25,1],[35,0]],"per_tick":[0,0,0,1,0,0],"width":1},"r11":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,67]],"per_tick":[67,67,67,67,67,67],"width":8}},"t_end":59,"vcd_basename":"v2_flag_k1_faulted.vcd"},"faultfree":{"bench_line":"REPLAY run_faults=0 goal_hit_cycle=-1 boot_ok=0 input=43","goal_hit_cycle":-1,"run_faults":0,"sig":67,"signals":{"boot_ok":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"boot_word":{"changes":[[0,240],[5,204],[15,105]],"per_tick":[240,204,105,105,105,105],"width":8},"clk":{"changes":[[0,0],[5,1],[10,0],[15,1],[20,0],[25,1],[30,0],[35,1],[40,0],[45,1],[50,0],[55,1]],"per_tick":[0,0,0,0,0,0],"width":1},"n11":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"r11":{"changes":[[0,0]],"per_tick":[0,0,0,0,0,0],"width":1},"sig":{"changes":[[0,67]],"per_tick":[67,67,67,67,67,67],"width":8}},"t_end":59,"vcd_basename":"v2_flag_k1_faultfree.vcd"}}},"side":"right","solver":{"attacker_input":{"sig":"0x43"},"attacker_input_raw":{"sig":67},"attacker_input_rule":"`sig` free, held constant, != key 0xC3","bound_note":"BOUNDED, NOT UNBOUNDED: verdict holds only for \u003c= 1 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.","command":"python3 scripts/glitchsat.py check reference/spike_netlists/v2.json --top v2 --k 1 --cycles 6 --goal-out boot_ok --goal-value 1","cycles":6,"explanation":"SINGLE POINT OF FAILURE: gate output `boot_ok` (AND), flipped for one cycle at cycle 3, reaches 1/1 bits of `boot_ok` and is enough to reach the accept value.","fault_model":"single-cycle bit flip of any gate output or flop Q","faults":[{"cycle":3,"gate":"AND","is_output_net":["boot_ok"],"kind":"gate_output","net":"boot_ok","net_id":11,"reaches_word_bits":[]}],"flops":8,"gates":68,"goal":"boot_ok == 0x1 at some cycle \u003c 6","honest_key_boots_fault_free":true,"max_faults":1,"min_faults":1,"reduce":"full","sites_modelled":399,"sites_total":456,"verdict":"ATTACK_FOUND","verdict_text":"v2: ATTACK_FOUND  (k\u003c=1, cycles=6, reduce=full)"},"source_file":"reference/spike_netlists/v2.json","step":4,"title":"Caveat: the accept flag of V2 falls to one flip"}],"meta":{"accept_word":150,"cycles":6,"fault_signals":"r\u003cid> = the net as the gate drives it; n\u003cid> = the net after the modelled flip (XOR during the fault tick)","generated_by":"python3 scripts/export_witness.py","key":195,"label":"MEASURED solver output and SIMULATED gate-level replays of modelled bit flips on a toy design. No hardware.","netlists":{"v1":{"file":"reference/spike_netlists/v1.json","flops":8,"gates":58,"sha256":"84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc"},"v2":{"file":"reference/spike_netlists/v2.json","flops":8,"gates":68,"sha256":"289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec"}},"sampling":"tick 0 is sampled at t=1, tick c>=1 at t=10*c; rising clock edges at t=5,15,25,... (scripts/replay.py bench)","state_codes":{"0x69":"shut","0x96":"open","0xCC":"checking","0xF0":"idle"},"state_codes_source":"rtl/v1.v line 8 comment (IDLE F0, CMP CC, BOOT 96, FAIL 69)","tools":{"netlist_creator":{"v1":"Yosys 0.33 (git sha1 2584903a060)","v2":"Yosys 0.33 (git sha1 2584903a060)"},"simulator":"Icarus Verilog version 12.0 (stable) ()","solver":"scripts/glitchsat.py (z3 5.4.1)"},"what":"replay of the solver's witness in a gate-level simulation"}}</script>
+<script>
+(function(){
+"use strict";
+var W=JSON.parse(document.getElementById("witness-data").textContent);
+var F={};(W.frames||[]).forEach(function(f){F[f.id]=f;});
+var N=W.meta.cycles,T=N*10,ACC=W.meta.accept_word;
+var RM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var KIOSK=/[?&]kiosk=1/.test(location.search);
+var step=1,tick=0,playing=false,timer=null,sweep=null,NS=5;
+function $(i){return document.getElementById(i);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function hex(v){return v==null?"x":"0x"+("0"+v.toString(16).toUpperCase()).slice(-2);}
+function stateName(v){return W.meta.state_codes[hex(v)]||"other";}
+function shortNet(n){return n.length>13?"…"+n.slice(-12):n;}
+$("codes").textContent=Object.keys(W.meta.state_codes).map(function(k){return k+" "+W.meta.state_codes[k];}).join(", ");
+
+/* ---------- waveform strip, drawn from the VCD change lists ---------- */
+function valAt(ch,t){var v=null;for(var i=0;i<ch.length;i++){if(ch[i][0]<=t)v=ch[i][1];else break;}return v;}
+function tickWin(c){return[Math.max(0,10*c-5),Math.min(T,10*c+5)];}
+function drawWave(el){
+  var run=el._run,o=el._opt,w=Math.max(260,Math.floor(el.clientWidth)),G=86,R=4,pw=w-G-R;
+  function X(t){return G+pw*t/T;}
+  var rows=[{k:"clk",lab:"clk"},{k:"sig",lab:"key in (sig)",bus:1}];
+  (o.faults||[]).forEach(function(f){rows.push({k:"n"+f.net_id,r:"r"+f.net_id,lab:shortNet(f.net),full:f.net,flt:f});});
+  rows.push({k:"boot_ok",lab:"accept flag",goal:o.goalPort==="boot_ok"});
+  rows.push({k:"boot_word",lab:"boot word",bus:1,goal:o.goalPort==="boot_word"});
+  var RH=30,TOP=20,h=TOP+rows.length*RH+4,s=[];
+  var tw=tickWin(tick);
+  s.push('<svg width="'+w+'" height="'+h+'" role="img" aria-label="'+esc(o.aria)+'">');
+  s.push('<rect class="band" x="'+X(tw[0])+'" y="'+(TOP-2)+'" width="'+(X(tw[1])-X(tw[0]))+'" height="'+(h-TOP)+'"/>');
+  s.push('<text class="lab" x="0" y="12">tick</text>');
+  for(var c=0;c<N;c++){var a=tickWin(c);s.push('<text x="'+((X(a[0])+X(a[1]))/2)+'" y="12" text-anchor="middle"'+(c===tick?' font-weight="700"':' class="lab"')+'>'+c+'</text>');
+    if(c>0)s.push('<line class="grid" x1="'+X(a[0])+'" x2="'+X(a[0])+'" y1="'+(TOP-2)+'" y2="'+h+'"/>');}
+  rows.forEach(function(r,i){
+    var y0=TOP+i*RH+5,y1=y0+RH-11,sg=run.signals[r.k],ch=sg.changes;
+    s.push('<text class="'+(r.flt?"fliptxt":"lab")+'" x="0" y="'+(y1-4)+'">'+esc(r.lab)+(r.full?'<title>'+esc(r.full)+'</title>':'')+'</text>');
+    if(r.flt){ /* mark where the net after the flip (n) differs from what the gate drives (r) */
+      var rc=run.signals[r.r].changes,ts={0:1};ch.concat(rc).forEach(function(e){ts[e[0]]=1;});ts[T]=1;
+      var tl=Object.keys(ts).map(Number).sort(function(p,q){return p-q;});
+      for(var j=0;j<tl.length-1;j++)if(valAt(ch,tl[j])!==valAt(rc,tl[j])){
+        s.push('<rect class="flip" x="'+X(tl[j])+'" y="'+(y0-4)+'" width="'+(X(tl[j+1])-X(tl[j]))+'" height="'+(y1-y0+8)+'" rx="3"/>');
+        s.push('<text class="fliptxt" x="'+(X(tl[j+1])+4)+'" y="'+(y1-4)+'">flip</text>');}
+    }
+    if(r.bus){
+      for(var b=0;b<ch.length;b++){var t0=ch[b][0],t1=b+1<ch.length?ch[b+1][0]:T,v=ch[b][1],x0=X(t0),x1=X(t1);
+        var cls="busr";if(r.goal&&v===ACC)cls="goal"+(o.wrongKey?" bad":"");
+        s.push('<rect class="'+cls+'" x="'+x0+'" y="'+y0+'" width="'+Math.max(1,x1-x0-1)+'" height="'+(y1-y0)+'" rx="3"/>');
+        if(x1-x0>=36)s.push('<text x="'+Math.min((x0+x1)/2,x0+60)+'" y="'+(y1-4)+'" text-anchor="middle">'+hex(v)+'</text>');}
+    }else{
+      var d="",pv=null;
+      for(var q=0;q<ch.length;q++){var yy=ch[q][1]?y0:y1,xx=X(ch[q][0]);d+=(q?" L"+xx+" "+pv+" L":"M")+xx+" "+yy;pv=yy;
+        if(r.goal&&ch[q][1]===1){var xe=X(q+1<ch.length?ch[q+1][0]:T);s.push('<rect class="goal'+(o.wrongKey?" bad":"")+'" x="'+xx+'" y="'+y0+'" width="'+(xe-xx)+'" height="'+(y1-y0)+'"/>');}}
+      d+=" L"+X(T)+" "+pv;s.push('<path class="w" d="'+d+'"/>');
+    }
+  });
+  s.push('</svg>');el.innerHTML=s.join("");
+}
+function chipsHTML(run,o){
+  var bw=run.signals.boot_word.per_tick[tick],fl=run.signals.boot_ok.per_tick[tick],open=bw===ACC,bad=o.wrongKey;
+  return '<span class="chip">tick '+tick+'</span><span class="chip'+(open?(bad?" bad":" open"):"")+'">boot word '+hex(bw)+' = '+stateName(bw)+'</span>'+
+    '<span class="chip'+(fl?(bad?" bad":" open"):"")+'">accept flag '+fl+(fl?" = open":" = shut")+'</span>';
+}
+function strip(run,o){
+  var d=document.createElement("div");d.className="strip";
+  var hit=run.goal_hit_cycle,res;
+  if(hit>=0)res=o.wrongKey?('<p class="result bad">Wrong key, and the '+(o.goalPort==="boot_ok"?"accept flag reads open":"lock opens")+' at tick '+hit+'.</p>'):'<p class="result">Right key: the lock opens at tick '+hit+'.</p>';
+  else res='<p class="result">'+(o.goalPort==="boot_ok"?"Accept flag":"Lock")+' stays shut for all '+N+' ticks.</p>';
+  d.innerHTML='<h3>'+esc(o.title)+'</h3>'+res+'<div class="chips"></div><div class="wave"></div>';
+  var wv=d.querySelector(".wave");wv._run=run;wv._opt=o;d._chips=d.querySelector(".chips");d._run=run;d._opt=o;
+  return d;
+}
+
+/* ---------- simplified diagrams (hand-drawn layout; highlight positions come from the witness data) ---------- */
+function place(design,f){
+  if((f.is_output_net||[]).indexOf("boot_ok")>=0)return"flag";
+  var b=(f.reaches_word_bits||[]).join(",");
+  if(design==="v1")return b==="0,1,2,3,4,5,6,7"?"ok":"other";
+  return{"0,3,6":"c0","1,4,7":"c1","2,5":"c2"}[b]||"other";
+}
+function schematic(design,faults){
+  var hot={},other=[];(faults||[]).forEach(function(f){var p=place(design,f);if(p==="other")other.push(f.net);else hot[p]=f;});
+  function wire(id,d,lx,ly,name){var f=hot[id];return'<path class="w'+(f?" hot":"")+'" d="'+d+'"/>'+(f?'<text class="hottxt" x="'+lx+'" y="'+ly+'">flip '+esc(shortNet(f.net))+'</text>':(name?'<text class="lab" x="'+lx+'" y="'+ly+'">'+name+'</text>':''));}
+  function box(x,y,w,h,t,t2){return'<rect class="box" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="6"/><text x="'+(x+w/2)+'" y="'+(y+h/2+(t2?-3:4))+'" text-anchor="middle">'+t+'</text>'+(t2?'<text class="lab" x="'+(x+w/2)+'" y="'+(y+h/2+12)+'" text-anchor="middle">'+t2+'</text>':'');}
+  var s;
+  if(design==="v1"){
+    s='<svg viewBox="0 0 340 152" role="img" aria-label="Simplified diagram of V1: the key goes to two checks, both feed one wire called ok, which decides the boot word.">'+
+      '<text x="2" y="62">key</text><path class="w" d="M26 58 H44 V34 H58 M44 58 V86 H58"/>'+box(58,18,62,32,"check 1")+box(58,70,62,32,"check 2")+
+      '<path class="w" d="M120 34 H140 V50 H152 M120 86 H140 V68 H152"/>'+box(152,40,44,38,"both?")+
+      wire("ok","M196 59 H250",198,50,"wire ok")+box(250,34,84,50,"state","register")+
+      '<path class="w" d="M292 84 V112"/><text class="lab" x="286" y="103" text-anchor="end">boot word</text>'+
+      box(232,112,102,32,"= 0x96 ?")+wire("flag","M232 128 H160",70,132,"accept flag")+'</svg>';
+  }else{
+    s='<svg viewBox="0 0 340 218" role="img" aria-label="Simplified diagram of V2: the key goes to three separate checks; each check sets its own group of bits of the boot word; a comparison of the boot word drives the accept flag.">'+
+      '<text x="2" y="84">key</text><path class="w" d="M26 80 H40 V30 H52 M40 80 H52 M40 80 V130 H52"/>'+
+      box(52,14,62,32,"check 0")+box(52,64,62,32,"check 1")+box(52,114,62,32,"check 2")+
+      wire("c0","M114 30 H228",120,23,"")+wire("c1","M114 80 H228",120,73,"")+wire("c2","M114 130 H228",120,123,"")+
+      '<rect class="box" x="228" y="8" width="106" height="144" rx="6"/><text x="281" y="24" text-anchor="middle" visibility="hidden">.</text>'+
+      '<text x="281" y="34" text-anchor="middle">bits 0, 3, 6</text><line class="grid" x1="228" x2="334" y1="55" y2="55"/><text x="281" y="84" text-anchor="middle">bits 1, 4, 7</text><line class="grid" x1="228" x2="334" y1="105" y2="105"/><text x="281" y="134" text-anchor="middle">bits 2, 5</text>'+
+      '<text class="lab" x="275" y="170" text-anchor="end">state register = boot word</text>'+
+      '<path class="w" d="M281 152 V182"/>'+box(230,182,104,30,"= 0x96 ?")+wire("flag","M230 197 H150",28,201,"accept flag")+'</svg>';
+  }
+  var fig=document.createElement("figure");fig.className="schem";
+  fig.innerHTML=s+'<figcaption><span class="tag hand">simplified diagram</span> Hand-drawn, not the netlist. Red marks where the solver\'s flip lands'+(other.length?'; not placed on this diagram: <code>'+esc(other.join(", "))+'</code>':'')+'.</figcaption>';
+  return fig;
+}
+
+/* ---------- text blocks ---------- */
+function prov(f){
+  var d=document.createElement("details");d.className="prov";
+  d.innerHTML='<summary>For engineers: source file, netlist hash and commands</summary><div><b>Source file:</b> <code>'+esc(f.source_file)+'</code></div><div><b>Netlist sha256:</b> <code>'+esc(f.netlist_sha256)+'</code></div>'+
+    '<div><b>Solver command:</b> <code>'+esc(f.solver.command)+'</code></div><div><b>Solver said:</b> <code>'+esc(f.solver.verdict_text)+'</code></div>'+
+    (f.replay?'<div><b>Replay:</b> <code>'+esc(f.replay.command)+'</code></div>':'')+'<div>'+esc(f.label)+'</div>';
+  return d;
+}
+function para(html,cls){var p=document.createElement("p");if(cls)p.className=cls;p.innerHTML=html;return p;}
+function sitesText(s){
+  var nets=s.gates+s.flops,t=s.sites_total+' places a flip could go';
+  if(nets*s.cycles===s.sites_total)t+=' ('+nets+' wires × '+s.cycles+' ticks)';
+  return t+'; '+s.sites_modelled+' kept in the solver\'s model after its "'+esc(s.reduce)+'" reduction';
+}
+function flipsList(f){return f.solver.faults.map(function(x){return'<code>'+esc(x.net)+'</code> at tick '+x.cycle;}).join(", ");}
+function witnessBlock(body,f,compact){
+  var s=f.solver,rp=f.replay,o={goalPort:rp.goal_port,faults:s.faults};
+  body.appendChild(para('<span class="verdict hit" style="display:block">Solver: attack found with '+s.min_faults+' flip'+(s.min_faults>1?"s":"")+': '+flipsList(f)+', wrong key '+esc(s.attacker_input.sig)+'.<small>Bound: at most '+s.max_faults+' flip'+(s.max_faults>1?"s":"")+', '+s.cycles+' ticks. Goal: <code>'+esc(s.goal)+'</code>.</small></span>'));
+  body.appendChild(schematic(f.design,s.faults));
+  if(!compact)body.appendChild(strip(rp.runs.faultfree,{title:"Without the flip (same wrong key "+hex(rp.runs.faultfree.sig)+")",goalPort:o.goalPort,faults:o.faults,wrongKey:true,aria:"Recorded signals of the fault-free replay with the wrong key."}));
+  body.appendChild(strip(rp.runs.faulted,{title:"With the flip"+(s.min_faults>1?"s":"")+" (wrong key "+hex(rp.runs.faulted.sig)+")",goalPort:o.goalPort,faults:o.faults,wrongKey:true,aria:"Recorded signals of the faulted replay with the wrong key; the flip is marked."}));
+  body.appendChild(prov(f));
+}
+function faultFreeBlock(body,f,onlyWrong){
+  var r=f.replay.runs;
+  if(!onlyWrong)body.appendChild(strip(r.honest,{title:"Right key "+hex(r.honest.sig)+", no flips",goalPort:"boot_word",wrongKey:false,aria:"Recorded signals with the right key and no flips."}));
+  body.appendChild(strip(r.wrong,{title:"Wrong key "+hex(r.wrong.sig)+", no flips",goalPort:"boot_word",wrongKey:true,aria:"Recorded signals with a wrong key and no flips."}));
+  body.appendChild(para('Solver, 0 flips allowed: <code>'+esc(f.solver.verdict_text)+'</code>. In words: with no flips, no wrong key opened the lock within '+f.solver.cycles+' ticks.',"note"));
+  body.appendChild(prov(f));
+}
+function boundBlock(body,frames){
+  var a=frames[0].solver,b=frames[1].solver,ok=frames.every(function(f){return f.solver.verdict==="NO_ATTACK_UP_TO_BOUND";});
+  if(!ok){body.appendChild(para("Solver output differs from the expected bounded result; see the source lines below.","verdict hit"));}
+  else{var n=b.sites_total;
+    body.appendChild(para('<span class="verdict none" style="display:block">No 1- or 2-flip attack found within '+b.cycles+' ticks.<small>What the solver covered: '+sitesText(b)+'. Arithmetic: '+n+' single places and '+(n*(n-1)/2).toLocaleString("en-US")+' pairs. This is a bounded result for this one stored netlist and this fault model. It says nothing about 3 or more flips or about longer runs.</small></span>'));}
+  frames.forEach(function(f){body.appendChild(prov(f));});
+}
+
+/* ---------- steps ---------- */
+var CAP=[null,
+ ["Step 1 of 5","No flips: the lock works as designed","Both locks run in the simulator with no flips. The right key opens them at tick 2. A wrong key leaves them shut."],
+ ["Step 2 of 5","V1: one flip opens it","The solver names one wire and one tick. The simulator replays it with a wrong key. Left side: watch the wire <code>ok</code> and then the boot word."],
+ ["Step 3 of 5","V2: nothing found with 1 or 2 flips, then 3 flips open it","Right side: the solver's bounded result first, then its three-flip witness replayed with a wrong key."],
+ ["Step 4 of 5","Caveat: the accept flag is one wire too","If whatever comes next reads only the one-bit accept flag of V2, the solver finds a one-flip attack on that flag. The boot word itself stays shut."],
+ ["Step 5 of 5","What we did NOT show","Read this panel before quoting any number from this page."]];
+function render(){
+  var L=$("lbody"),R=$("rbody");L.innerHTML="";R.innerHTML="";
+  $("capk").textContent=CAP[step][0];$("capt").textContent=CAP[step][1];$("capp").innerHTML=CAP[step][2];
+  $("notpanel").hidden=step!==5;
+  if(step===1){faultFreeBlock(L,F.v1_faultfree);faultFreeBlock(R,F.v2_faultfree);}
+  else if(step===2){witnessBlock(L,F.v1_k1);
+    R.appendChild(para("V2 has not been attacked yet in this step. Shown for comparison: its wrong-key run with no flips.","note"));faultFreeBlock(R,F.v2_faultfree,true);}
+  else if(step===3){L.appendChild(para("From step 2, for comparison.","note"));witnessBlock(L,F.v1_k1,true);
+    boundBlock(R,[F.v2_k1,F.v2_k2]);witnessBlock(R,F.v2_k3);}
+  else if(step===4){L.appendChild(para("V1 already falls to one flip of <code>ok</code> (step 2). The accept flag of V1 was not run separately for this page: not measured here.","note"));witnessBlock(L,F.v1_k1,true);
+    R.appendChild(para("Here the solver's goal is the accept flag: <code>"+esc(F.v2_flag_k1.solver.goal)+"</code>. The flag reads open only during the tick of the flip."));witnessBlock(R,F.v2_flag_k1);}
+  else{summary(L,R);notPanel();}
+  layout();
+  var d=$("dots").children;for(var i=0;i<d.length;i++){if(i+1===step)d[i].setAttribute("aria-current","step");else d[i].removeAttribute("aria-current");}
+  $("bBack").disabled=step===1;$("bStep").disabled=step===NS&&!KIOSK;
+}
+function summary(L,R){
+  var a=F.v1_k1.solver,b=F.v2_k3.solver,c=F.v2_flag_k1.solver,k2=F.v2_k2.solver;
+  L.appendChild(para("<b>V1, stored netlist.</b> Fewest flips the solver found to open the lock with a wrong key: <b>"+a.min_faults+"</b> ("+flipsList(F.v1_k1)+"). Replayed in simulation: the lock opened at tick "+F.v1_k1.replay.runs.faulted.goal_hit_cycle+"."));
+  L.appendChild(schematic("v1",a.faults));L.appendChild(prov(F.v1_k1));
+  R.appendChild(para("<b>V2, stored netlist.</b> "+(k2.verdict==="NO_ATTACK_UP_TO_BOUND"?"No 1- or 2-flip attack found within "+k2.cycles+" ticks. ":"")+"Fewest flips found for the boot word: <b>"+b.min_faults+"</b> ("+flipsList(F.v2_k3)+"). For the accept flag alone: <b>"+c.min_faults+"</b> ("+flipsList(F.v2_flag_k1)+")."));
+  R.appendChild(schematic("v2",b.faults.concat(c.faults)));R.appendChild(prov(F.v2_k3));R.appendChild(prov(F.v2_flag_k1));
+}
+function notPanel(){
+  var b=F.v2_k3.solver;
+  $("notbody").innerHTML='<ul>'+
+  '<li><b>No hardware.</b> Every flip here is a modelled bit flip in a gate-level simulation of a toy 8-bit lock. Nothing was glitched on a chip, and nothing here says such a flip can be done on a real one.</li>'+
+  '<li><b>No result beyond the bound.</b> "No 1- or 2-flip attack found within '+b.cycles+' ticks" is exactly that. We did not show that V2 resists 3 flips (it does not: step 3), nor anything about longer runs on this page.</li>'+
+  '<li><b>One stored netlist per design.</b> <code>'+esc(F.v1_k1.source_file)+'</code> and <code>'+esc(F.v2_k3.source_file)+'</code>. A fresh build of the same V2 source in this project needs only 2 flips (row v2, rtl/plain, in <code>results/reproduce_summary.json</code>). That build is not replayed here.</li>'+
+  '<li><b>One witness each.</b> The solver returns one smallest attack, not all of them. Another run or version may name different wires with the same count.</li>'+
+  '<li><b>One fault model.</b> '+esc(b.fault_model)+'; the key input wires are not flipped; the lock starts in its known idle state. Stuck wires, flips on several wires from one physical event, and clock or voltage effects are not modelled.</li>'+
+  '<li><b>The schematics are simplified diagrams</b> drawn by hand to show where a flip lands. The waveform strips are the recorded signals of the replay.</li>'+
+  '<li><b>The accept-flag caveat is narrow.</b> In step 4 the flag reads open for one tick while the boot word stays shut. Whether that matters depends on what reads the flag, which this toy does not include.</li>'+
+  '<li><b>Nothing new is claimed.</b> Bounded fault checking of small circuits is established practice.</li></ul>';
+}
+function layout(){
+  var ws=document.querySelectorAll(".wave");for(var i=0;i<ws.length;i++)drawWave(ws[i]);
+  var st=document.querySelectorAll(".strip");for(var j=0;j<st.length;j++)st[j]._chips.innerHTML=chipsHTML(st[j]._run,st[j]._opt);
+  $("tick").value=tick;$("tickv").textContent=tick;
+}
+function setTick(t){tick=Math.max(0,Math.min(N-1,t));layout();}
+function stopSweep(){if(sweep){clearInterval(sweep);sweep=null;}}
+function runSweep(){
+  stopSweep();
+  if(RM||step===5){tick=N-1;layout();return;}
+  tick=0;layout();
+  sweep=setInterval(function(){if(tick>=N-1){stopSweep();return;}setTick(tick+1);},520);
+}
+function go(n){step=Math.max(1,Math.min(NS,n));render();runSweep();}
+function next(){if(step===NS){if(KIOSK||playing)go(1);}else go(step+1);}
+function setPlay(on){
+  playing=on;$("bPlay").setAttribute("aria-pressed",on?"true":"false");$("bPlay").textContent=on?"Pause":"Play";
+  if(timer){clearInterval(timer);timer=null;}
+  if(on)timer=setInterval(function(){if(step===NS&&!KIOSK){setPlay(false);return;}next();},KIOSK?11000:9000);
+}
+for(var i=1;i<=NS;i++)(function(n){var b=document.createElement("button");b.type="button";b.textContent=n;b.setAttribute("aria-label","Step "+n+": "+CAP[n][1]);b.addEventListener("click",function(){setPlay(false);go(n);});$("dots").appendChild(b);})(i);
+$("bStep").addEventListener("click",function(){next();});
+$("bBack").addEventListener("click",function(){setPlay(false);go(step-1);});
+$("bReset").addEventListener("click",function(){setPlay(false);go(1);});
+$("bPlay").addEventListener("click",function(){setPlay(!playing);});
+$("tick").addEventListener("input",function(){stopSweep();setTick(+this.value);});
+document.addEventListener("keydown",function(e){
+  if(e.altKey||e.ctrlKey||e.metaKey)return;var tg=e.target,tn=tg&&tg.tagName;
+  if(e.key===" "||e.key==="Spacebar"){if(tn==="BUTTON"||tn==="SUMMARY"||tn==="A")return;e.preventDefault();next();return;}
+  if(tn==="INPUT"&&/^(Arrow|Home|End|Page)/.test(e.key))return;
+  if(e.key==="ArrowRight"){e.preventDefault();next();}
+  else if(e.key==="ArrowLeft"){e.preventDefault();setPlay(false);go(step-1);}
+  else if(e.key==="r"||e.key==="R"){setPlay(false);go(1);}
+  else if(e.key==="p"||e.key==="P"){setPlay(!playing);}
+});
+var rz=null;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(layout,80);});
+window.__theatre={state:function(){return{step:step,tick:tick,playing:playing,kiosk:KIOSK,reducedMotion:RM,sweeping:!!sweep};}};
+go(1);
+if(KIOSK)setPlay(true);
+})();
+</script>
+</body>
+</html>

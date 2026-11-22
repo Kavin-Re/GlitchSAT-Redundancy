@@ -84,7 +84,7 @@ Build or cite:
 - Cite SYNFI (2205.04775), FIRMER (2307.00561), VERICA (a15 readme), VerFI (2019/1312), FIVER (2021/936), SoK 2024/1944 (abstract level only).
 - Build: a small test on local yosys 0.33 for opt_merge with and without keep/DONT_TOUCH on duplicated registers, reporting the minimum-fault count each time.
 - Build: a counting-convention table in our docs: FIRMER (ne, nc, per gate once), VERICA (max simultaneous per class), SYNFI (simultaneous faults x locations x mappings), VerFI (per cell, per cycle), ours.
-- Licence note: rIC3 master is BSD-3-Clause; pin the tag. The project's own LICENSE stays undecided (owner's call).
+- Licence note: rIC3 master is BSD-3-Clause; pin the tag. The project's own LICENSE stays undecided (author's call).
 
 ## 4. Not verified or blocked
 
@@ -102,9 +102,9 @@ Build or cite:
 - Fides, COMETS: not found.
 - Certitude, JasperGold, Questa, SymbiYosys/EQY fault flows: nothing found.
 
-## 5. Next-round searches from the critic
+## 5. Next-round searches from the reviewer
 
-Modalities not tried: pdftotext on saved PDFs (1503.06632, 1408.4628, VerFI HOST 2020, 2019/1312); raw.githubusercontent.com READMEs for PROLEAD, FIRMER, VERICA; local yosys 0.33 experiment (needs a lead-run copy).
+Modalities not tried: pdftotext on saved PDFs (1503.06632, 1408.4628, VerFI HOST 2020, 2019/1312); raw.githubusercontent.com READMEs for PROLEAD, FIRMER, VERICA; local yosys 0.33 experiment (needs a integration-run copy).
 
 1. "Bailleux Boufkhad totalizer encoding" and "Sinz sequential counter at-most-k" (pdftotext route).
 2. "PROLEAD fault injection probing-secure glitch" repo and licence.

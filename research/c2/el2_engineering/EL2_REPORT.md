@@ -1,6 +1,6 @@
 # EL2: electronics-level view of the glitch-resistance results
 
-by agent EL2; for the owner to edit. Every number has a label: MEASURED (a tool ran and printed it), SIMULATED / ESTIMATED (tool output under a stated modelling choice), UNVERIFIED. Faults are modelled bit flips. Nothing here is a statement about silicon, a physical glitch or a real attack. Nothing is established as new. License: UNDECIDED. Working title TBD.
+by step EL2; for the author to edit. Every number has a label: MEASURED (a tool ran and printed it), SIMULATED / ESTIMATED (tool output under a stated modelling choice), UNVERIFIED. Faults are modelled bit flips. Nothing here is a statement about silicon, a physical glitch or a real attack. Nothing is established as new. License: UNDECIDED. Working title TBD.
 
 Environment: conda env `eda` (Yosys 0.38+92, OpenROAD, OpenSTA inside it, sky130A PDK, `sky130_fd_sc_hd__tt_025C_1v80.lib`), apt Yosys 0.33, z3 (pip). All runs on copies under `/tmp/work_el2/`; `scripts/` and `layout/` untouched. Common solver setting: T = 6 cycles, k <= 3, attacker input `sig` free and constant, `!= 0xC3`, goal `boot_word == 0x96` at some cycle (the repo's setting).
 
@@ -109,7 +109,7 @@ Within the stated model, the one-flip weakness of V1 (the single AND net that de
 
 - Bounded: k <= 3, T = 6 only; no unbounded argument is made here. Toy designs; nothing about silicon, voltage/clock/laser physics or real feasibility.
 - Fault model by cell output is coarser than transistor level; generic gate model is finer than cells but not physical either. The 2-versus-3 difference for V2 apt-0.33 shows the verdict depends on this choice.
-- The apt Yosys 0.33 abc has no `-dont_use`, so apt netlists were mapped with `pruned.lib` (lpflow/scan/latch/probe cells removed, `prune_lib.py`); this may differ from the lead's intended apt flow. apt 0.33 mapped logic area is a few % higher (V2 384 vs 363 um2).
+- The apt Yosys 0.33 abc has no `-dont_use`, so apt netlists were mapped with `pruned.lib` (lpflow/scan/latch/probe cells removed, `prune_lib.py`); this may differ from the integration step's intended apt flow. apt 0.33 mapped logic area is a few % higher (V2 384 vs 363 um2).
 - V0 placement used 30 % utilisation (60 % fails global placement: GPL-0302), so its placed area / util are not comparable with V1/V2. V0's two flows give the same netlist apart from the header.
 - Power is OpenSTA default-activity estimate, not simulation-based. Slacks are global-route-parasitic estimates, not signoff; the 10 ns clock leaves 7 ns slack everywhere.
 - Slack-restricted and overclock models (section 2) and radius model (section 4) are modelling choices I made; the flop capture error is modelled as a Q flip, which over-approximates and differs from stale capture. DEF cell centres use area/2.72 um as width. CTS clock buffers are placed but not fault sites (clock faults are not modelled). Tap/fill cells ignored.

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlitchSAT: Start here: live demos</title>
+<!-- Single file, offline, no tracking, no external resources. License: Apache-2.0. GlitchSAT. -->
+<style>
+:root{--bg:#fbfaf7;--ink:#1b1f24;--mute:#454f5a;--line:#c9cfd6;--card:#fff;--btn:#1f4e9c;--btnink:#fff;--link:#1f4e9c;--focus:#1f4e9c;--banner:#fff4d6;--bannerink:#3d2b00;--bannerline:#8a6100}
+@media (prefers-color-scheme:dark){:root{--bg:#12161b;--ink:#eceff3;--mute:#b4bdc7;--line:#3b4551;--card:#1b2128;--btn:#8ab4ff;--btnink:#0b1220;--link:#9bbfff;--focus:#ffd84d;--banner:#3a2e0b;--bannerink:#ffe9a8;--bannerline:#b88a1c}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.toy{background:var(--banner);border-bottom:2px solid var(--bannerline);color:var(--bannerink);padding:8px 16px;font-size:14px;text-align:center}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 24px}
+h1{font-size:1.6rem;line-height:1.15;margin:.5em 0 .2em}
+p{margin:.4em 0}
+.note{font-size:14px;color:var(--mute)}
+.grid{display:grid;grid-template-columns:1fr;gap:12px;margin:14px 0}
+@media (min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{display:flex;flex-direction:column;gap:4px;min-height:96px;padding:12px 14px;border:2px solid var(--btn);border-radius:12px;background:var(--card);color:var(--ink);text-decoration:none}
+.card .t{font-size:1.25rem;font-weight:700;color:var(--link)}
+.card .d{font-size:15px}
+.card .tm{font-size:14px;color:var(--mute);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+.row b{margin-right:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 16px;border-radius:10px;border:2px solid var(--btn);background:var(--btn);color:var(--btnink);font-weight:600;text-decoration:none;font-size:15px}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.txt{display:inline-flex;align-items:center;min-height:44px}
+</style>
+</head>
+<body>
+<div class="toy"><b>Computer model of toy designs; nothing physical; makes no claim to be new.</b> </div>
+<main class="wrap">
+<h1>Start here: pick a live demo</h1>
+<p class="note">Every page works offline. Each shows a modelled result on a computer; numbers are labelled MEASURED, ILLUSTRATIVE or similar on the page itself.</p>
+<div class="grid">
+<a class="card" href="dial.html"><span class="t">Verdict Dial</span><span class="d">Set the lock, the reader and the attacker's power with dials, and see the fewest flips the solver found, with its source row.</span><span class="tm">Time: about 30 s</span></a>
+<a class="card" href="theatre.html"><span class="t">Solver Replay</span><span class="d">Watch a recorded solver run step by step: which flips, which wires, and when the door opens.</span><span class="tm">Time: about 90 s</span></a>
+<a class="card" href="wall.html"><span class="t">Tool-setting wall</span><span class="d">One design built with 264 build configurations (152 distinct netlists, that is, distinct wirings); see how often the answer changes with the tool settings.</span><span class="tm">Time: about 60 s</span></a>
+<a class="card" href="explainer.html"><span class="t">Explainer</span><span class="d">A picture story: how one shared wire can beat three guards, with a small measured result.</span><span class="tm">Time: about 3 min</span></a>
+<a class="card" href="game.html"><span class="t">Game</span><span class="d">Break the lock yourself in a toy model, then compare with the solver's verdicts.</span><span class="tm">Time: about 2 min</span></a>
+<a class="card" href="../../dashboard/index.html"><span class="t">Dashboard</span><span class="d">The measured results for the three designs and the Scope tab, all labelled.</span><span class="tm">Time: about 15 min</span></a>
+</div>
+<div class="row"><b>Coding view:</b> <a class="txt" href="../comms/CODING_VIEW.md">CODING_VIEW.md (plain text, about 3 min)</a></div>
+<div class="row"><b>Stage mode:</b> <a class="btn" href="theatre.html?kiosk=1">Solver Replay, kiosk</a> <a class="btn" href="wall.html?kiosk=1">Tool-setting wall, kiosk</a></div>
+<p class="note">Scope: computer model of toy designs; nothing physical; makes no claim to be new.</p>
+</main>
+</body>
+</html>

@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 import json
 O='research/c3/wp4/shots/'
-B='file://<repo>/docs/wow/'
+B='file://<repo>/docs/explainers/'
 log=[]
 def L(*a): log.append(' '.join(map(str,a))); print(*a)
 with sync_playwright() as p:

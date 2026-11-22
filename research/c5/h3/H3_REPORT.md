@@ -1,4 +1,4 @@
-# H3 hardening report (wave 2b). agent H3
+# H3 hardening report (wave 2b). step H3
 
 Scope: close the N1 residue H2 listed as "not fixed": `scripts/synth.sh` built `yosys -q -p "read_verilog $1; hierarchy -top $2; ..."` from user text and `glitchsat.py check <v> --top TOP` called it. Work on the copy `/tmp/work_h3`, applied to the tree after it passed. Backups of the pre-change files: `research/c5/h3/backup/` (+ `tests/test_h3.py.new`, a copy of the new test). Labels: MEASURED = I ran it.
 
@@ -16,9 +16,9 @@ Scope: close the N1 residue H2 listed as "not fixed": `scripts/synth.sh` built `
 | canary on NEW synth.sh / `glitchsat.py check`, bad top (9 payloads) and bad file/out names (6 payloads, both args) | all exit non-zero, no CANARY |
 | `pytest -q tests` on the copy | **133 passed** (99 + 34 new) |
 | `python3 ci/check_reproduce.py --rerun` on the copy | **36/36 rows match (engine re-run); 0 row(s) FAILED**, exit 0 |
-| in the tree after applying | `check_reproduce.py` (no rerun) and `pytest tests/test_h3.py` re-run, see final line of the lead message |
+| in the tree after applying | `check_reproduce.py` (no rerun) and `pytest tests/test_h3.py` re-run, see final line of the integration step message |
 
-## Needs the lead / not done
+## Needs the integration step / not done
 - `ci/check_reproduce.py` holds `ENGINE_MANIFEST` hashes of `scripts/glitchsat.py` and `scripts/synth.sh` (outside my scope). `--rerun` now prints `WARNING: ENGINE FILE DIFFERS FROM MANIFEST` for both files (by design; exit still 0, 36/36). Run `python3 ci/check_reproduce.py --print-engine-manifest` after reviewing, and update the manifest (and any `--strict-engine` CI step).
 - Behaviour change: a Verilog path containing `;`, quotes, backslash or `#` now fails (was passed through). Paths with spaces and `$` work (tested).
 - Yosys itself is not sandboxed: a hostile .v file's contents (e.g. `include`) are still read by Yosys. `--flow` is argparse-restricted; `synth.sh` itself treats any non-`opt` flow as plain, as before.

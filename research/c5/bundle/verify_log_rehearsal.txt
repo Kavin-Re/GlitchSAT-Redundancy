@@ -39,26 +39,26 @@ What this run can and cannot tell you (TAMPER-EVIDENCE):
 ### pytest_product_tests rc=0
 ### check_numbers :: /tmp/bundle_verify_venv/bin/python scripts/check_numbers.py
 check_numbers: 52 files scanned, 2 STALE, 17 HISTORICAL (rules: 34)
-kind | row        | file                               | line  | found                              | should be                      | owner
-STAL | T.root.133 | esearch/c4/review/QA_SIM_REPORT.md | 209   | 99 root                            | 133 passed (root, RECON3; 99 + | QA agent
-STAL | T.prod.310 | esearch/c4/review/QA_SIM_REPORT.md | 209   | 139 product                        | 310 passed, 310 collected (pro | QA agent
-HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 133 passed (10 only as history | LEAD (F2/docs)
-HIST | T.root.133 | docs/ENGINE_STATUS.md              | 71    | 99 passed                          | 133 passed (root, RECON3; 99 + | LEAD (F2/docs)
-HIST | T.prod.310 | docs/ENGINE_STATUS.md              | 71    | 139 + 1                            | 310 passed, 310 collected (pro | LEAD (F2/docs)
-HIST | T.root.133 | docs/FINAL_STATUS.md               | 59    | 99 passed                          | 133 passed (root, RECON3; 99 + | LEAD
-HIST | T.prod.310 | docs/FINAL_STATUS.md               | 59    | 139 + 1                            | 310 passed, 310 collected (pro | LEAD
-HIST | T.root.133 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 99 passed                          | 133 passed (root, RECON3; 99 + | DOSSIER agent (D2)
-HIST | T.prod.310 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 139 + 1                            | 310 passed, 310 collected (pro | DOSSIER agent (D2)
-HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 133 passed (10 only as history | DOSSIER agent (D2)
-HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
-HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER agent (D2)
-HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 133 passed (10 only as history | REPORT agent (F2)
-HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 133 passed (10 only as history | REPORT agent (F2)
-HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT agent (F2)
-HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT agent (F2)
-HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 133 passed (10 only as history | REPORT agent (F2)
-HIST | T.root.133 | esearch/c4/review/QA_SIM_REPORT.md | 268   | 99 root                            | 133 passed (root, RECON3; 99 + | QA agent
-HIST | T.prod.310 | esearch/c4/review/QA_SIM_REPORT.md | 268   | 139 product                        | 310 passed, 310 collected (pro | QA agent
+kind | row        | file                               | line  | found                              | should be                      | author
+STAL | T.root.133 | esearch/c4/review/QA_SIM_REPORT.md | 209   | 99 root                            | 133 passed (root, RECON3; 99 + | QA step
+STAL | T.prod.310 | esearch/c4/review/QA_SIM_REPORT.md | 209   | 139 product                        | 310 passed, 310 collected (pro | QA step
+HIST | T.root.pas | docs/ENGINE_STATUS.md              | 16    | 10 tests                           | 133 passed (10 only as history | author (F2/docs)
+HIST | T.root.133 | docs/ENGINE_STATUS.md              | 71    | 99 passed                          | 133 passed (root, RECON3; 99 + | author (F2/docs)
+HIST | T.prod.310 | docs/ENGINE_STATUS.md              | 71    | 139 + 1                            | 310 passed, 310 collected (pro | author (F2/docs)
+HIST | T.root.133 | docs/FINAL_STATUS.md               | 59    | 99 passed                          | 133 passed (root, RECON3; 99 + | author
+HIST | T.prod.310 | docs/FINAL_STATUS.md               | 59    | 139 + 1                            | 310 passed, 310 collected (pro | author
+HIST | T.root.133 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 99 passed                          | 133 passed (root, RECON3; 99 + | DOSSIER step (D2)
+HIST | T.prod.310 | docs/dossier/PROJECT_DOSSIER.md    | 131   | 139 + 1                            | 310 passed, 310 collected (pro | DOSSIER step (D2)
+HIST | T.root.pas | docs/dossier/PROJECT_DOSSIER.md    | 142   | 10 passed                          | 133 passed (10 only as history | DOSSIER step (D2)
+HIST | T.mut.root | docs/dossier/PROJECT_DOSSIER.md    | 143   | 29/43                              | root 72.5% (50/69), product 67 | DOSSIER step (D2)
+HIST | T.mut.pct  | docs/dossier/PROJECT_DOSSIER.md    | 143   | mutation score killed/run, first 4 | root 72.5% (50/69), product 67 | DOSSIER step (D2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 16    | 10 passed                          | 133 passed (10 only as history | REPORT step (F2)
+HIST | T.root.pas | docs/report/CLAIMS_CHECK.md        | 79    | 10 tests                           | 133 passed (10 only as history | REPORT step (F2)
+HIST | T.mut.pct  | docs/report/ONE_PAGE_SUMMARY.md    | 29    | Mutation score 50 of 69 (72.5%) ro | root 72.5% (50/69), product 67 | REPORT step (F2)
+HIST | T.mut.pct  | docs/report/PROJECT_REPORT.md      | 52    | 67% / 65%                          | root 72.5% (50/69), product 67 | REPORT step (F2)
+HIST | T.root.pas | docs/report/REVIEW_NOTES.md        | 8     | 10 passed                          | 133 passed (10 only as history | REPORT step (F2)
+HIST | T.root.133 | esearch/c4/review/QA_SIM_REPORT.md | 268   | 99 root                            | 133 passed (root, RECON3; 99 + | QA step
+HIST | T.prod.310 | esearch/c4/review/QA_SIM_REPORT.md | 268   | 139 product                        | 310 passed, 310 collected (pro | QA step
 ### check_numbers rc=1
 ### start_cmd1_v1_k1 :: /tmp/bundle_verify_venv/bin/python scripts/glitchsat.py check reference/spike_netlists/v1.json --top v1 --k 1 --cycles 6
 v1: ATTACK_FOUND  (k<=1, cycles=6, reduce=full)  solve=0.093s

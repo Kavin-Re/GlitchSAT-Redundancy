@@ -1,8 +1,8 @@
 # WP_REPORT: wow persona test, round 2
 
-**IMPORTANT: every reader below is a MODEL-SIMULATED persona. None is a real person. Simulated readers tend to be too kind, too articulate and too patient. These scores are ESTIMATED/ILLUSTRATIVE only; real people must repeat this test before any claim about comprehension.**
+**IMPORTANT: every reader below is a SIMULATED persona. None is a real person. Simulated readers tend to be too kind, too articulate and too patient. These scores are ESTIMATED/ILLUSTRATIVE only; real people must repeat this test before any claim about comprehension.**
 
-Method: pages docs/wow/explainer.html and docs/wow/game.html opened in headless Chrome (playwright; the bundled chromium shell was missing, so /usr/bin/google-chrome with --no-sandbox was used; no tracing), 390 px and 1366 px, deviceScaleFactor 1, full-page screenshots in this folder (explainer_phone.png, explainer_desk.png, game_phone.png, game_desk.png, plus *_phone_N.png crops). Also read poster.md and script_60s.md. Nothing else in the repo was read. I did not click through every state; I read the initial rendered state and the page text, so interactive-state problems may be missed.
+Method: pages docs/explainers/explainer.html and docs/explainers/game.html opened in headless Chrome (playwright; the bundled chromium shell was missing, so /usr/bin/google-chrome with --no-sandbox was used; no tracing), 390 px and 1366 px, deviceScaleFactor 1, full-page screenshots in this folder (explainer_phone.png, explainer_desk.png, game_phone.png, game_desk.png, plus *_phone_N.png crops). Also read poster.md and script_60s.md. Nothing else in the repo was read. I did not click through every state; I read the initial rendered state and the page text, so interactive-state problems may be missed.
 
 ## What the screenshots actually show (shared by all personas)
 - Phone explainer (page 4085 px tall, no horizontal overflow): clean, large type, the first diagram (3 guards, "no", shared wire, DOOR SHUT) is clear and the big blue button is thumb-sized. Good.

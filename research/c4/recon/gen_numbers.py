@@ -17,7 +17,7 @@ row("T.root.passed","98","pytest tests: passed, 0 failed (26.7 s on RECON copy).
 row("T.prod.collected","139","pytest product/tests: collected after `pip install ./product[test]`","product/tests/ (test_golden, test_hardening, test_mt_*, test_ps2..ps5)","`pytest product/tests --co -q` in venv with ./product[test] on a tar copy","MEASURED","2026-11-19 RECON",S,verify="pytest_prod")
 row("T.prod.passed",PROD,"pytest product/tests: result line on RECON copy (skips: %s). Docs saying 21, 27 or 38 are stale"%(PRODSKIP or "1"),"product/tests/","`pytest product/tests -q` in venv with ./product[test] on a tar copy","MEASURED","2026-11-19 RECON",S)
 row("T.hist.root","10 -> 30 -> 98","History of the root count: 10 (first writing), 30 (RA, after H1 added 20), 98 (after MT/T2 added tests). Quote only the current one","research/c3/ra/RA_REPORT.md; research/c4/qa_sim/QA_SIM_REPORT.md item 9","see T.root.passed","MEASURED","2026-11-19",S)
-row("T.hist.prod","21 -> 27 -> 38 -> 139","History of product count: 21 (RA, H1), 27 (PS2, MT), 38 (lead, unmeasured), 139 collected now","research/c3/ra/RA_REPORT.md; research/c3/ps2/PS2_REPORT.md; docs/dossier/EVIDENCE_INDEX.md row 2","see T.prod.collected","MEASURED (38 = REPORTED)","2026-11-19",S)
+row("T.hist.prod","21 -> 27 -> 38 -> 139","History of product count: 21 (RA, H1), 27 (PS2, MT), 38 (unmeasured), 139 collected now","research/c3/ra/RA_REPORT.md; research/c3/ps2/PS2_REPORT.md; docs/dossier/EVIDENCE_INDEX.md row 2","see T.prod.collected","MEASURED (38 = REPORTED)","2026-11-19",S)
 row("T.b3","16","B3 research tests (research/c4/b3/test_b3.py) passed","research/c4/b3/B3_REPORT.md","`cd /tmp/work_b3; python3 -m pytest -q test_b3.py`","REPORTED","2026-11-19",S)
 row("T.mt.new","61","MT extra tests (research/c3/mt/new_tests) passed per engine, 1.3 s","research/c3/mt/MT_REPORT.md; docs/dossier/PROJECT_DOSSIER.md l.118","`MT_ROOT=<tree> pytest research/c3/mt/new_tests`","REPORTED","2026-11-19",S)
 row("T.mut.root","29/43 = 67%","Mutation score, tests/ vs glitchsat.py, completed runs (72 of 158 runs not run)","research/c3/mt/MT_REPORT.md","mutate.py + kill_check.py","REPORTED","2026-11-19",S)
@@ -54,7 +54,7 @@ row("G.v2.85","85 (40 AND, 25 OR, 20 NOT, 8 DFF)","V2 apt-0.33 netlist; 85 count
 row("G.v2.83","83 (37 AND, 25 OR, 20 NOT, 1 MUX, 8 DFF)","V2 conda 0.38+92 netlist","formal/FORMAL.md","same","MEASURED (not re-run by RA/RECON)","2026-11-19",S)
 row("G.v2.81","81 (38 AND, 23 OR, 18 NOT, 2 MUX)","V2 apt-0.33 opt flow, also a 2-flip attack","results/work/v2_opt.json; docs/ENGINE_STATUS.md l.34","same","MEASURED","2026-11-19",S)
 row("G.v2.spike","V0 18, V1 58, V2 68","Stored spike netlists, gate counts (edu answer key)","docs/edu/ANSWER_KEY.md Exercise 1, 3","`glitchsat check` prints gate count","MEASURED","2026-11-19",S)
-row("G.v2.merge","63","V2 apt-0.33 plus opt_merge (edu exercise 3): min 1 flip (hash d776226e); plain 85 hash f954078f","docs/edu/ANSWER_KEY.md; INSTRUCTOR_NOTES.md; WORKSHEET.md","edu_work/synth_merge.sh","MEASURED (edu agent)","2026-11-19",S)
+row("G.v2.merge","63","V2 apt-0.33 plus opt_merge (edu exercise 3): min 1 flip (hash d776226e); plain 85 hash f954078f","docs/edu/ANSWER_KEY.md; INSTRUCTOR_NOTES.md; WORKSHEET.md","edu_work/synth_merge.sh","MEASURED (edu step)","2026-11-19",S)
 row("V.flowB","1 (4 of 378 single-flip sites)","V2 on validation flow B (flatten, hierarchy stripped)","validation/VALIDATION.md l.28","`make validate`","MEASURED","2026-11-19",S)
 
 # ---------- M1
@@ -105,7 +105,7 @@ row("EL1.runt","tt: 1.3 V runt (0.1 ns) captures D; 0.9 V needs 2 ns; 0.5 V none
 row("EL1.setup","about 50 to 75 ps (tt, 1.8 V); about 100 ps (1.2 V); 25 ps grid","Latest data change still captured before the edge. Do not quote as attack parameters","EL1_REPORT.md C","expBC.py","SIMULATED","2026-11-19",S)
 row("B3.model","V2 and V5: no attack up to 3 events under rail_all / half / unions / cone; V0 cone 1 event","Rail-dip model, T=6, <=3 events, 0 unknown","research/c4/b3/B3_REPORT.md Plain answers; matrix_T6.jsonl","`python3 run_cells.py`","SIMULATED","2026-11-19",S)
 row("B3.subset","1 event; smallest domain 3 gates (V2, V5), 2 (V1)","dip_subset upper bound: one event may choose which gates fall (selectivity open)","B3_REPORT.md; minsubset.py","`python3 minsubset.py v2,v2_apt033,v5_apt033,v1`","SIMULATED","2026-11-19",S)
-row("F.pdr","V2 spike k=2 PASS in 0.83 s (unbounded, ABC PDR)","Needs conda env `formal`; not re-run by RA or RECON","docs/FINAL_STATUS.md; formal/FORMAL.md","`sby` / abc pdr in env formal","MEASURED by lead (not re-run by RECON)","2026-11-19",S)
+row("F.pdr","V2 spike k=2 PASS in 0.83 s (unbounded, ABC PDR)","Needs conda env `formal`; not re-run by RA or RECON","docs/FINAL_STATUS.md; formal/FORMAL.md","`sby` / abc pdr in env formal","MEASURED by the integration step (not re-run by RECON)","2026-11-19",S)
 row("F.sby","40 netlist/k pairs match","sby BMC depth 6 vs solver","formal/FORMAL.md l.25","formal/runs/bmc_matrix*.json","REPORTED","2026-11-19",S)
 row("F.valid","~2.1M fault sets x 255 inputs, 0 disagreements; 13/13 replays; 5 boolector queries","Independent simulator vs solver","validation/VALIDATION.md l.21,24","`make validate`","MEASURED","2026-11-19",S)
 row("F.sets","46,056 (T=4) and 103,740 (T=6) 2-flip sets, none succeed on V2 spike; 70,300 3-flip sets all cycle 1, 182 attacks","Exhaustive fault-set enumeration","validation/VALIDATION.md l.18-19","`make validate`","MEASURED","2026-11-19",S)
@@ -120,13 +120,13 @@ row("N.fuzz","0 mismatches in about 6,700 programs","Fuzzing spike; data not in 
 # ---------- rules for check_numbers.py
 HIST = r"(?i)\b(stale|superseded|first writing|at that time|at review time|earlier counts?|used to|before later|were 10|was 10|10 at first|old )"
 OWN = {
- "README.md":"LEAD", "START.md":"LEAD", "docs/FINAL_STATUS.md":"LEAD", "docs/ENGINE_STATUS.md":"LEAD (F2/docs)",
- "docs/dossier/":"DOSSIER agent (D2)", "docs/report/":"REPORT agent (F2)", "docs/wow/":"WOW agents (W1-W6)",
- "docs/edu/":"EDU agent", "product/QUICKSTART.md":"PS agent (product)", "product/README.md":"PS agent (product)",
- "dashboard/":"DASH agent", "research/c4/qa_sim/":"QA agent", "docs/HANDOFF.md":"LEAD", "docs/PRIOR_ART.md":"LEAD",
- "docs/DEEP_RESULTS.md":"LEAD", "docs/OWNER_DERIVATION_SHEET.md":"DOSSIER agent (D2)",
+ "README.md":"author", "START.md":"author", "docs/FINAL_STATUS.md":"author", "docs/ENGINE_STATUS.md":"author (F2/docs)",
+ "docs/dossier/":"DOSSIER step (D2)", "docs/report/":"REPORT step (F2)", "docs/explainers/":"WOW steps (W1-W6)",
+ "docs/edu/":"EDU step", "product/QUICKSTART.md":"PS step (product)", "product/README.md":"PS step (product)",
+ "dashboard/":"DASH step", "research/c4/qa_sim/":"QA step", "docs/HANDOFF.md":"author", "docs/PRIOR_ART.md":"author",
+ "docs/DEEP_RESULTS.md":"author", "docs/DERIVATION_SHEET.md":"DOSSIER step (D2)",
 }
-SCAN = ["README.md","START.md","docs/*.md","docs/report/*.md","docs/dossier/*.md","docs/wow/*.md","docs/wow/*.html",
+SCAN = ["README.md","START.md","docs/*.md","docs/report/*.md","docs/dossier/*.md","docs/explainers/*.md","docs/explainers/*.html",
         "docs/edu/*.md","product/QUICKSTART.md","product/README.md","dashboard/template.html","dashboard/build.py",
         "dashboard/index.html","research/c4/qa_sim/QA_SIM_REPORT.md"]
 # skip tables of history / critique logs that legitimately quote old values
@@ -150,18 +150,18 @@ RULES = [
 ]
 BLOCK = dict(version=1, generated=D,
   note="Machine-readable block for scripts/check_numbers.py. 'rules' are stale-value regexes (scan_globs); lines also matching hist_re are reported as HISTORICAL (the old value is quoted as history).",
-  scan_globs=SCAN, skip=SKIP, hist_re=HIST, owners=OWN,
+  scan_globs=SCAN, skip=SKIP, hist_re=HIST, authors=OWN,
   current={"T.root.passed":"98","T.prod.passed":PROD,"T.prod.collected":"139","T.root.collected":"98"},
   rules=RULES,
   verify=[r["id"] for r in R if "verify" in r])
 if __name__=="__main__":
     out=[]
     out.append("""# NUMBERS: single source of truth for every headline number
-Working title TBD. License: UNDECIDED. Faults are modelled single-cycle bit flips in toy netlists; nothing physical; nothing established as new. Owner has not reviewed this page.
+Working title TBD. License: UNDECIDED. Faults are modelled single-cycle bit flips in toy netlists; nothing physical; nothing established as new. Author has not reviewed this page.
 
-Purpose: README.md, START.md, docs/FINAL_STATUS.md, docs/report, docs/dossier, docs/wow, docs/edu, product/QUICKSTART.md and the dashboard quote the same numbers. Quote a number only as it appears here. When a measurement changes, edit THIS file first, then run `python3 scripts/check_numbers.py` to list every page that still carries the old value.
+Purpose: README.md, START.md, docs/FINAL_STATUS.md, docs/report, docs/dossier, docs/explainers, docs/edu, product/QUICKSTART.md and the dashboard quote the same numbers. Quote a number only as it appears here. When a measurement changes, edit THIS file first, then run `python3 scripts/check_numbers.py` to list every page that still carries the old value.
 
-Status labels: MEASURED (a command was run, the output was seen), SIMULATED (SPICE or rail-dip model, not silicon), SOURCED (taken from a cited source, not run), REPORTED (written in an agent report, not re-run by RECON), UNVERIFIED. Date = when the value was produced; RECON rows were re-run on a tar copy in /tmp/work_recon on 2026-11-19.
+Status labels: MEASURED (a command was run, the output was seen), SIMULATED (SPICE or rail-dip model, not silicon), SOURCED (taken from a cited source, not run), REPORTED (written in an step report, not re-run by RECON), UNVERIFIED. Date = when the value was produced; RECON rows were re-run on a tar copy in /tmp/work_recon on 2026-11-19.
 
 ## How RECON measured today's test counts
 ```

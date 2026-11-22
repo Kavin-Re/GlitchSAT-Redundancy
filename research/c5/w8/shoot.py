@@ -8,7 +8,7 @@ with sync_playwright() as p:
         for w,h,name in [(390,844,'390'),(1366,800,'1366'),(320,640,'320'),(640,800,'640z')]:
             pg=b.new_page(viewport={'width':w,'height':h}); errs=[]
             pg.on('console',lambda m:errs.append(m.text) if m.type=='error' else None); pg.on('pageerror',lambda e:errs.append(str(e)))
-            pg.goto('file://<repo>/docs/wow/%s.html'%page); pg.wait_for_timeout(300)
+            pg.goto('file://<repo>/docs/explainers/%s.html'%page); pg.wait_for_timeout(300)
             r=pg.evaluate('''()=>{const de=document.documentElement;let small=[],btn=[];
             const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;
             while(n=w.nextNode()){if(!n.textContent.trim())continue;const e=n.parentElement;if(e.closest('svg'))continue;const cs=getComputedStyle(e);if(cs.display==='none'||e.closest('details:not([open]) :not(summary)')&&false)continue;const fs=parseFloat(cs.fontSize);if(fs<12)small.push([fs,n.textContent.trim().slice(0,30)])}

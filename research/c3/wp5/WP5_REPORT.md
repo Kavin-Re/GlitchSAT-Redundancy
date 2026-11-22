@@ -1,10 +1,10 @@
 # WP5 report: wow persona test, round 5 (final)
 Working title TBD. Licence: UNDECIDED.
 
-**All six readers (P25-P30) are SIMULATED by a language model. None is a real person. Simulated readers lean kind; I tried to be harsh, but treat every score as an optimistic upper bound, and every "seconds to aha" as a guess (UNVERIFIED), not a timing.**
+**All six readers (P25-P30) are SIMULATED. None is a real person. Simulated readers lean kind; I tried to be harsh, but treat every score as an optimistic upper bound, and every "seconds to aha" as a guess (UNVERIFIED), not a timing.**
 
 ## What I actually did (MEASURED by script, research/c3/wp5/run.py, game.py, shots/)
-- Rendered docs/wow/explainer.html and game.html in headless Chrome (playwright, /usr/bin/google-chrome) at 390 and 1366 px; screenshots in research/c3/wp5/shots/.
+- Rendered docs/explainers/explainer.html and game.html in headless Chrome (playwright, /usr/bin/google-chrome) at 390 and 1366 px; screenshots in research/c3/wp5/shots/.
 - Clicked: hero button (state text went "NOT flipped. Door shut." to "FLIPPED. Door open.", aria-pressed true, drawing changed); wiring tabs Wiring A/B, "Flip the next wire" x3, "Show the fewest flips", "Start over"; counting switch (after opening the collapsed "Why the counting matters" box; 1-per-wire gives "needs only 2 flips", 1-per-place gives "3 flips, same as A"). No JS errors, no horizontal overflow at either width.
 - Game: played "2 guards, 1 wire" with a wrong tap (a guard: "Still shut after 1 flip"), a second guard tap (opened after 2 flips, par 1, told fewest is 1), a third tap ("You flipped every wire and the lock still holds ... Flips can cancel"), Reset, then "Rebuilt: Wiring B" (2 taps, opened, par 2, matched), "Show fewest flips". Works.
 - Layout facts: page is about 5450 px tall at both widths; supplier box starts about 1040 px down at 390 px (about 780 px at 1366, in the first screen of scroll); buttons 48-64 px tall (fine for thumbs); smallest text 13 px; the engineer box is closed at 390 px, open at 1366 px.

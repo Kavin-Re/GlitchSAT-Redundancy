@@ -1,10 +1,10 @@
 # Notice
 
 Project: GlitchSAT: How Many Glitches Does Redundancy Stop? (Bounded SAT-Based Fault Analysis of Redundant Boot Checks).
-Copyright 2026 Kavin K K
+Copyright 2026 Kavin.K.K
 Licence: Apache License 2.0 (see `LICENSE`; decision recorded in `LICENSE_CHOICE.md`). Third-party files listed below keep their own licences.
 
-This repository does not include or redistribute the source of the external tools it drives (yosys, iverilog, verilator, z3, OpenROAD, magic, netgen, KLayout, graphviz) or the SkyWater sky130 PDK. They are installed separately and run as separate programs. See `THIRD_PARTY.md`.
+This repository does not include or redistribute the source of the external tools it drives (yosys, iverilog, verilator, z3, OpenROAD, magic, netgen, KLayout, graphviz) or the SkyWater sky130 PDK as a whole. It does contain a few files derived from the sky130 PDK: a sizes-only LEF (`research/c4/l2_inputs/lef/sky130_fd_sc_hd_sizes_only.lef`) and the extracted transistor-level cell netlist `layout/v_designs/out_patched/v2_ref.spice`. These are included under the PDK's Apache-2.0 licence (the SkyWater Open Source PDK is released under the Apache 2.0 license, checked on its GitHub page). They are installed separately and run as separate programs. See `THIRD_PARTY.md`.
 
 Generated files under `results/`, `layout/` and `tb/generated/` contain output or banner text from those tools (for example the yosys log header with its copyright line). That text belongs to the tools' authors.
 
@@ -14,6 +14,6 @@ This repository does contain copied Apache-2.0 design files: `real_designs/secon
 
 Prior work cited in `docs/PRIOR_ART.md` is referenced, not copied.
 
-`third_party_derived/` (local only; NOT part of any shipped bundle; the owner decides its fate; text) holds: a z3 re-implementation of the FIRMER/CLEAVE checks (`firmer_cleave/fm_*.py`); a patch against the CLEAVE source (`firmer_cleave/patches/`), whose origin (S3L-official/CLEAVE) has NO licence file; and a modified copy of `fault_rtlil.cc` from CEA-LIST/uArchiFI under LGPL-2.1 (licence text kept beside it). So this repository is not free of third-party-derived source while that folder exists. Details: `THIRD_PARTY.md`.
+`third_party_derived/` (local only; NOT part of any shipped bundle; the author decides its fate; text) holds: a z3 re-implementation of the FIRMER/CLEAVE checks (`firmer_cleave/fm_*.py`); a patch against the CLEAVE source (`firmer_cleave/patches/`), whose origin (S3L-official/CLEAVE) has NO licence file; and a modified copy of `fault_rtlil.cc` from CEA-LIST/uArchiFI under LGPL-2.1 (licence text kept beside it). So this repository is not free of third-party-derived source while that folder exists. Details: `THIRD_PARTY.md`.
 
-Update 2026-11-20 (owner-authorised third-party tool run, `research/c5/run2/RUN2_REPORT.md`): `third_party_derived/uarchifi_kfrp_fiver/` additionally holds the uArchiFI plugin source (CEA-LIST/uArchiFI @8a2d792f, LGPL-2.1), a k-FRP run configuration and its origin note (CEA-LIST/Fault-Resistant-Partitioning @75929f60, Apache-2.0), and run scripts; FIVER (Chair-for-Security-Engineering/FIVER @176a1db7, custom NON-COMMERCIAL licence) was NOT built or run and none of its code is held. The whole `third_party_derived/` folder stays local and is excluded from every bundle; do not redistribute it.
+Update 2026-11-20 (author-authorised third-party tool run, `research/c5/run2/RUN2_REPORT.md`): `third_party_derived/uarchifi_kfrp_fiver/` additionally holds the uArchiFI plugin source (CEA-LIST/uArchiFI @8a2d792f, LGPL-2.1), a k-FRP run configuration and its origin note (CEA-LIST/Fault-Resistant-Partitioning @75929f60, Apache-2.0), and run scripts; FIVER (Chair-for-Security-Engineering/FIVER @176a1db7, custom NON-COMMERCIAL licence) was NOT built or run and none of its code is held. The whole `third_party_derived/` folder stays local and is excluded from every bundle; do not redistribute it.

@@ -7,17 +7,17 @@ Inputs absent at writing: `research/c5/anchor/RAIL_RECONCILIATION.md` (dir empty
 ## Results
 - README.md: 61 lines (cap 70); plain 'What this is' + explainer link now above every table; rail row reworded (polarity, V1 too, selective = 1, control pending); SYNFI-first framing; 'which numbers rest on what' section.
 - New file docs/report/COUNTING_CONVENTIONS.md (VerFI, VERICA, FIRMER, SYNFI, FIVER, ours; sampled vs bound, per-gate vs stem; UNVERIFIED where the sweeps do not say). Copy in research/c5/fix2/.
-- FINAL_STATUS: first-person 'I re-ran'/'I ran it' replaced by 'the lead re-ran (RUN_LOG entry 72)'; 6/10 panel score removed from line 13 (labelled not evidence); z3-alone vs independent-anchor section added.
+- FINAL_STATUS: first-person 'I re-ran'/'I ran it' replaced by 'the integration step re-ran (RUN_LOG entry 72)'; 6/10 panel score removed from line 13 (labelled not evidence); z3-alone vs independent-anchor section added.
 - Slides: slides 4, 6, 13 edited and re-rendered with LibreOffice (checked images: no overflow; slide 9 unchanged and renders fine; its numbers 99/139/72.5% are current). Speaker-notes 'I re-synthesise' / 'I ran' reworded.
 - explainer.html had no rail-dip or SYNFI evidence line; I added ONE `<li>` in the 'Sources and caveats' list (no layout change). 'What this project is' text left unchanged (README copies it).
 - NUMBERS.md: rows FIX2.rail.v1 and FIX2.synfi. check_numbers on copy: 6 STALE, all in research/c4/qa_sim/QA_SIM_REPORT.md (pre-existing, not mine); none introduced.
-- Not edited / residual: other first-person 'I' in owner-voice scripts (QA_SHEET, QA_ANSWER_CARDS, AI_USE_DISCLOSURE fill-in slots) are owner placeholders and left; QA_ANSWER_CARDS E1-8/E2-6 opt_merge cards not SYNFI-reframed; slides 7/8 rail text not reworded (no rail-attack claim there); a dedicated slide for the counting table was not added (table lives in the docs file, linked from slide 13).
+- Not edited / residual: other first-person 'I' in author-voice scripts (QA_SHEET, QA_ANSWER_CARDS, DISCLOSURE fill-in slots) are author placeholders and left; QA_ANSWER_CARDS E1-8/E2-6 opt_merge cards not SYNFI-reframed; slides 7/8 rail text not reworded (no rail-attack claim there); a dedicated slide for the counting table was not added (table lives in the docs file, linked from slide 13).
 
 ## Every edit (file, before, after)
 
 ### README.md
 - before: `# Project (working title TBD) / `
-- after: `# Project (working title TBD) /  / ## What this is (plain words; same text as the explainer, `docs/wow/explainer.html`) / - **Built:** a computer check that finds the fewest modelled glitches (bit flips) that fool a toy lock design with redundant guard copies. / - **Found:** how many it takes depends on exactly how the lock is wired, how it is built by synthesis, and how you count (1, 2 or 3 flips for the same design). / - **Not done:** nothing physical was tested; no novelty claim. Open `docs/wow/explainer.html` first (5 minutes, no jargon). / `
+- after: `# Project (working title TBD) /  / ## What this is (plain words; same text as the explainer, `docs/explainers/explainer.html`) / - **Built:** a computer check that finds the fewest modelled glitches (bit flips) that fool a toy lock design with redundant guard copies. / - **Found:** how many it takes depends on exactly how the lock is wired, how it is built by synthesis, and how you count (1, 2 or 3 flips for the same design). / - **Not done:** nothing physical was tested; no novelty claim. Open `docs/explainers/explainer.html` first (5 minutes, no jargon). / `
 
 ### README.md
 - before: `| V2 under rail-wide, half-design or cone supply dips (SIMULATED basis) | no attack up to 3 events; **1 event if one dip may choose its gates** (3 gates; selectivity open) | `research/c4/b3/B3_REPORT.md`, `research/c4/layout/LAYOUT_REPORT.md` |`
@@ -29,7 +29,7 @@ Inputs absent at writing: `research/c5/anchor/RAIL_RECONCILIATION.md` (dir empty
 
 ### README.md
 - before: `## Counting rule / `
-- after: `## Which numbers rest on what (MEASURED; sources in `docs/FINAL_STATUS.md`) / - **Independent anchor:** the 36 reproduce rows (second simulator, `validation/VALIDATION.md`); M1's 255 consumer masks (brute force, T=4, k<=2, 255 of 255 agree). / - **z3 alone, no second engine:** the B3 rail-dip rows for V2, V5 and apt-synthesised netlists (brute force covered only V0 and V1 at T<=4, k<=2). Brute-force anchors for these are being added (agent ANCHOR, in progress): treat the rail rows as single-engine until then. /  / ## Counting rule / `
+- after: `## Which numbers rest on what (MEASURED; sources in `docs/FINAL_STATUS.md`) / - **Independent anchor:** the 36 reproduce rows (second simulator, `validation/VALIDATION.md`); M1's 255 consumer masks (brute force, T=4, k<=2, 255 of 255 agree). / - **z3 alone, no second engine:** the B3 rail-dip rows for V2, V5 and apt-synthesised netlists (brute force covered only V0 and V1 at T<=4, k<=2). Brute-force anchors for these are being added (step ANCHOR, in progress): treat the rail rows as single-engine until then. /  / ## Counting rule / `
 
 ### START.md
 - before: `- A supply dip over a whole rail or cone does not break V2 within 3 modelled events, but one dip that could choose its gates would (3 gates); whether a real dip can is open (B3, LAYOUT; r = 2.95 um, one supply net, no extraction).`
@@ -43,11 +43,11 @@ Inputs absent at writing: `research/c5/anchor/RAIL_RECONCILIATION.md` (dir empty
 
 ### docs/FINAL_STATUS.md
 - before: `(MEASURED; I re-ran the V2 k=2 case: PASS in 0.83 s)`
-- after: `(MEASURED; the lead re-ran the V2 k=2 case, RUN_LOG entry 72: PASS in 0.83 s)`
+- after: `(MEASURED; the integration step re-ran the V2 k=2 case, RUN_LOG entry 72: PASS in 0.83 s)`
 
 ### docs/FINAL_STATUS.md
 - before: `and the project's solver agrees on that netlist (I ran it).`
-- after: `and the project's solver agrees on that netlist (the lead ran it, RUN_LOG entry 72).`
+- after: `and the project's solver agrees on that netlist (the integration step ran it, RUN_LOG entry 72).`
 
 ### docs/FINAL_STATUS.md
 - before: `SYNFI already studies and measures synthesis dependence (Yosys re-synthesis cut the needed faults from 3 to 2)`
@@ -62,8 +62,8 @@ Inputs absent at writing: `research/c5/anchor/RAIL_RECONCILIATION.md` (dir empty
 - after: `- **Rail dip and wrong-time capture** (B3, SIMULATED basis, bounded T=6, 3 events; polarity result, not a benefit of triplication: V1 also shows none under whole-rail and half-design 1-to-0 events; 0-to-1 control pending, LEDGER; V2 rows rest on z3 alone): whole-rail, half-hierarchy, union and fanout-cone dips give no attack for V2 and V5;`
 
 ### docs/report/ONE_PAGE_SUMMARY.md
-- before: `| Synthesis merges the copies (opt_merge) | **1** | MEASURED (edu agent) |`
-- after: `| Synthesis merges the copies (opt_merge; effect previously shown by SYNFI, 3->2 and 4->2; our E2 replicates it on a toy design) | **1** | MEASURED (edu agent) |`
+- before: `| Synthesis merges the copies (opt_merge) | **1** | MEASURED (edu step) |`
+- after: `| Synthesis merges the copies (opt_merge; effect previously shown by SYNFI, 3->2 and 4->2; our E2 replicates it on a toy design) | **1** | MEASURED (edu step) |`
 
 ### docs/report/ONE_PAGE_SUMMARY.md
 - before: `- Rail-dip model (SIMULATED, B3): V2 has no attack up to 3 events for whole-rail, half-design or cone dips; if one dip may choose its gates, 1 event (3 gates). Whether a real dip can choose is open.`
@@ -101,11 +101,11 @@ Inputs absent at writing: `research/c5/anchor/RAIL_RECONCILIATION.md` (dir empty
 - before: `copies merged by `opt_merge`, flatten-before-ABC, `abc -dff`; `keep` attribute changes no verdict |`
 - after: `copies merged by `opt_merge`, flatten-before-ABC, `abc -dff`; `keep` attribute changes no verdict; effect previously shown by SYNFI (3->2, 4->2; `set_dont_touch` restored 4), E2 replicates it on a toy design |`
 
-### docs/dossier/ONE_PAGE_FOR_THE_OWNER.md
+### docs/dossier/ONE_PAGE_KEY_POINTS.md
 - before: `- A supply dip over a whole rail, a whole block or a cone does not break V2 within 3 events (model, bounded); if one dip could pick its gates it takes 1 event (3 gates).`
 - after: `- A 1-to-0 supply dip over a whole rail or half the design does not break V1, V2 or V5 within 3 events (model, bounded; a polarity result, not a benefit of triplication; 0-to-1 control pending, LEDGER); if one dip could pick its gates it takes 1 event on V2 (3 gates).`
 
-### docs/wow/explainer.html
+### docs/explainers/explainer.html
 - before: `<li>Conda 0.38+92 was not run for the opt flow.`
 - after: `<li>Synthesis dependence was previously shown by SYNFI (faults needed dropped 3 to 2 after FSM recoding and 4 to 2 after register merging; <code>set_dont_touch</code> restored 4); our E2 replicates the effect on a toy design across 864 synthesis configs and a keep-attribute axis. Supply-dip rows (SIMULATED basis): no rail attack under 1-to-0 whole-rail or half-design events for V1, V2 and V5 alike, a polarity result and not a benefit of triplication; a selective event costs 1; 0-to-1 control pending.</li> / <li>Conda 0.38+92 was not run for the opt flow.`
 

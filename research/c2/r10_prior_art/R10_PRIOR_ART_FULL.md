@@ -1,6 +1,6 @@
 # R10: Prior art, full-text pass
 
-Date of work: 2026-11-19. Agent R10. License: UNDECIDED. Project title: working title TBD.
+Date of work: 2026-11-19. Step R10. License: UNDECIDED. Project title: working title TBD.
 Scope: replace the abstract/README-only novelty basis in `docs/PRIOR_ART.md`, `compare/COMPARISON.md`, `research/c1/R2_tool_landscape.md` with full-text reading where reachable. Nothing was run; repos were cloned read-only into /tmp/work_r10/repos and PDFs read with pdftotext into /tmp/work_r10/p (outside the project).
 
 Evidence labels used per cell: FULLTEXT (I read the paper/README text; page/section given) / REPO (read the repo files) / SNIPPET (search-result text only) / UNVERIFIED. Section numbers for FIRMER and uArchiFI are from the section headings visible in the text; page numbers for the arXiv/FMCAD layouts are approximate (FIRMER arXiv v1 pp.1-8 main text; uArchiFI FMCAD 2023 pp.101-109 as printed). SYNFI page numbers are the printed page numbers of arXiv v2.
@@ -113,7 +113,7 @@ Paper PDF NOT reachable: eprint PDF returned 403 and tches.iacr.org returned a b
 | (f) Open, pip+Yosys easy flow, plain-language explanation | Not assessed by me beyond R2 and READMEs; usability claims are not novelty claims | |
 | (g) Fault types | Project: single-cycle bit flips. FIRMER, FIVER, uArchiFI, SYNFI all cover set/reset or stuck-at too; none models clock glitch at electrical level. Project is narrower | FULLTEXT |
 
-## 3. Safe wording paragraph (for the owner to edit)
+## 3. Safe wording paragraph (for the author to edit)
 
 "This project reproduces, on a small secure-boot style FSM, ideas that are established in the literature: SAT/SMT fault analysis of Yosys gate-level netlists over unrolled cycles with a bounded number of simultaneous faults (SYNFI, FIRMER, CLEAVE), bounded model checking of fault effects with a fault-count budget (uArchiFI), and the observation that logic synthesis can weaken redundancy-based fault countermeasures (SYNFI). It adds a small, self-contained, reproducible implementation that searches for the smallest number of single-cycle bit flips that defeats a boot check, an attempt at an unbounded proof of a bound, and a comparison of results across two Yosys versions. I read the full texts of SYNFI, FIRMER, CLEAVE and uArchiFI, but could not read FIVER's paper or the k-fault-resistant-partitioning paper, which may be closer to parts of this work. Nothing is established as new, and results hold only for the stated fault model (modelled bit flips, not physical glitches), cycle bound and fault budget."
 (Do not add 'first', 'novel', 'proves secure', or any statement about physical feasibility.)

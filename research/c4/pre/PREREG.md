@@ -10,14 +10,14 @@ Output: `lb, est, ub_direct, pred, flag, witness`. No SAT/SMT solver is called.
 4. `pred` = est if found else lb+1 (flag `uncovered`). Predicted ">=3" means pred>=3.
 Counting rule: stem = 1. Solver reference model: glitchsat (T=6, k<=3, input nets not sites, known init, sig constant != key); solver values ">3" are compared as 4.
 
-## Success criteria (fixed now; applied by agent TEST to pooled held-out cells, solver-exact reference)
+## Success criteria (fixed now; applied by step TEST to pooled held-out cells, solver-exact reference)
 Let a "cell" = (netlist, mask) with a solver-exact min flips (cap 3, ">3" = 4).
 - C1 soundness of the bounds: `lb` <= solver in 100% of cells and `est` (when not None) >= solver in 100%. ANY violation = bug in predictor or simulator assumptions (netlist semantics differ); reported as FAIL with the case.
 - C2 exact match `pred == solver` on >= 90% of cells.
 - C3 `|pred - solver| <= 1` on >= 98% of cells.
 - C4 no "false safe": cases with pred >= 3 and solver == 1: 0 (hard); cases pred >= 3 and solver <= 2 reported (expected: over-estimation from incomplete search).
 - C5 no "false weak": cases with pred == 1 and solver >= 2: 0 (cannot happen if C1 holds because est is verified; any occurrence is a C1 failure).
-- C6 on the E2 breakable set (solver min <= 2 for the full word): >= 90% recall of pred <= 2 (the council's concern that breaks come from state/next-state logic, not only compare copies).
+- C6 on the E2 breakable set (solver min <= 2 for the full word): >= 90% recall of pred <= 2 (the review panel's concern that breaks come from state/next-state logic, not only compare copies).
 Overall PASS = C1 and C4 and C5 and C2 and C3 (and C6 when applicable). Report all numbers, per design and per flow, even when passing.
 ## Failure modes and meaning
 - est > solver (over-prediction): the real attack needs an interaction the single-flip classes miss (two flips only effective together, or a non-representative site of an effect class). Conservative direction, but counts against C2/C3. Seen in training: 3/255 V2 masks (pred 4, truth 3).

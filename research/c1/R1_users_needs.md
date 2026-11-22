@@ -52,6 +52,6 @@ Caveat up front: I found NO forum/Reddit/StackExchange threads of practitioners 
 
 ## 4. Implications for the project direction
 - Strongest real niche: educational and small-team pre-silicon check of redundancy countermeasures on synthesized netlists, with a visual/plain-language explanation. Weakest: certification labs and industrial sign-off (no evidence, Z01X incumbency).
-- Evidence for demand is indirect (authors/vendors, not users). A cheap test of real demand: ask in OpenTitan/lowRISC, Yosys, and a hardware-security teaching contact to try it (do not publish externally without owner consent).
-- Gaps to research next: how SYNFI actually performs on the project's designs (already run per status), VERICA/FIVER availability, Z01X/Secure-IC pricing (UNVERIFIED), electronics/analog relevance (voltage-glitch to bit-flip model link) for the owner's "electronics" weakness.
+- Evidence for demand is indirect (authors/vendors, not users). A cheap test of real demand: ask in OpenTitan/lowRISC, Yosys, and a hardware-security teaching contact to try it (do not publish externally without author consent).
+- Gaps to research next: how SYNFI actually performs on the project's designs (already run per status), VERICA/FIVER availability, Z01X/Secure-IC pricing (UNVERIFIED), electronics/analog relevance (voltage-glitch to bit-flip model link) for the author's "electronics" weakness.
 - Unfilled: no practitioner forum evidence found; Common Criteria docs not opened; HDFIT README, DVCon 2025 PDF, TU Delft thesis not read.

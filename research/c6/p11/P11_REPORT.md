@@ -4,7 +4,7 @@ Every number is MEASURED unless marked; command: `python3 scripts/comms/distance
 
 ## FAILED or partly failed predictions (full prominence)
 1. **FAILED: "on the apt-0.33 plain netlist the plateau is 2 for complement pairs".** Measured: all three complement pairs (69/96, C3/3C, A5/5A) give 3 on the plain netlist. The value 2 appears only for three of the four distance-4 two-step codebooks (F0/96 stored, A5/96, fam_d4); CC/96, with the same words as the stored design in swapped order, gives 3. My pre-registered guess of where ABC sharing bites was wrong.
-2. **FAILED as literally posed by the lead (predicted to fail in PREREG): "flops-only == d(I,W)".** For the two B-variant codebooks d(I,W) = 8 but flops-only = 3 and 6 = distance from the FAIL word to W. The governing quantity is d_min (nearest non-accept word visited), not d(I,W).
+2. **FAILED as literally posed at integration (predicted to fail in PREREG): "flops-only == d(I,W)".** For the two B-variant codebooks d(I,W) = 8 but flops-only = 3 and 6 = distance from the FAIL word to W. The governing quantity is d_min (nearest non-accept word visited), not d(I,W).
 3. **FAILED in part: "saturates at 3 for the 3-copy design"** on the project flow: 3 of 16 three-copy codebooks sit at 2 (item 1). It holds on the no-ABC structural netlist (never above 3 anywhere).
 4. **Could not be done as asked: "stored-style netlist".** The stored spike flow is not reproducible here, so the rule was tested on a no-ABC structural flow (proc; techmap; flatten) as a stand-in. This is a substitution, declared in PREREG before running.
 

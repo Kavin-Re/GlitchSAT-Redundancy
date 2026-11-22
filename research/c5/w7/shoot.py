@@ -6,7 +6,7 @@ with sync_playwright() as p:
         for w,h in [(390,844),(1366,768),(320,640),(640,400)]:
             c=b.new_page(viewport={'width':w,'height':h}); errs=[]
             c.on('console',lambda m:errs.append(m.text) if m.type=='error' else None); c.on('pageerror',lambda e:errs.append(str(e)))
-            c.goto(f'file://<repo>/docs/wow/{page}.html'); c.wait_for_timeout(300)
+            c.goto(f'file://<repo>/docs/explainers/{page}.html'); c.wait_for_timeout(300)
             sw=c.evaluate('document.documentElement.scrollWidth-innerWidth')
             small=c.evaluate('''[...document.querySelectorAll('body *')].filter(e=>!(e instanceof SVGElement)&&e.childNodes.length&&[...e.childNodes].some(n=>n.nodeType==3&&n.textContent.trim())&&e.offsetParent!==null&&parseFloat(getComputedStyle(e).fontSize)<12).map(e=>e.tagName+':'+e.textContent.slice(0,20))''')
             btn=c.evaluate('''[...document.querySelectorAll('button,a.go,a.skip,summary')].filter(e=>e.offsetParent!==null).map(e=>[e.textContent.trim().slice(0,25),Math.round(e.getBoundingClientRect().height),Math.round(e.getBoundingClientRect().width)]).filter(x=>x[1]<44||x[2]<44)''')

@@ -10,16 +10,19 @@ Paths are relative to the repository root.
 
 | Codename | What it is | Where |
 |---|---|---|
+| `glitchsat` / `faultbound-wt` | The installable GlitchSAT CLI in `product/`; `faultbound-wt` is its older command name, kept as an alias; the Python module is `faultbound_wt` | `product/` |
+| `scripts/glitchsat.py` | The reference GlitchSAT engine behind the reproduce table (`make reproduce`) | `scripts/` |
+| GlitchSAT Studio | The desktop app (local web page) that runs the engine or shows recorded results | `tools/studio/` |
 | ANCHOR | Brute-force (z3-free) re-check of the V2 headline rows and rail rows | `research/c5/anchor/` |
 | apt 0.33 / conda 0.38 | The two Yosys builds used: Ubuntu's apt package (0.33) and a conda package (0.38) | `research/c2/e2_variance/` |
 | B1 | Fault-model pack: minimum cost under 17 alternative fault models | `research/c2/b1_faultmodels/` |
 | B2 | Scope-sensitivity matrix (360 cells): goal, input sites, power-up, netlist | `research/c2/b2_scope/` |
 | B3 | Rail-dip and wrong-time-capture event models | `research/c4/b3/`, inputs in `research/c4/b3_inputs/` |
-| BC, BC2 | Critical reviews ("brutal critic", pre-mortem), rounds 1 and 2 | `research/c3/bc/`, `research/c5/bc2/` |
+| BC, BC2 | Critical reviews ("critical review", pre-mortem), rounds 1 and 2 | `research/c3/bc/`, `research/c5/bc2/` |
 | BP | "Big picture" review of where the project could aim | `research/c4/bp/` |
 | BUNDLE | Rehearsal of packaging the repository into zip bundles | `research/c5/bundle/`, `docs/BUNDLE.md` |
 | c1 to c6 | Successive rounds of work; the folder number is the round in which an item was done | `research/c1/` to `research/c6/` |
-| COUNCIL (W1) | Panel-style review of whether the project is defensible | `research/c4/council/` |
+| REVIEW PANEL (W1 to W3) | Panel-style review of whether the project is defensible | `research/c4/review_panel/` |
 | CT, CT-1 to CT-15 | Claim-test review: numbered findings where a headline claim was tested against a changed assumption (CT-1: the accept flag `boot_ok` falls to 1 flip) | `docs/dossier/CRITIQUE.md` |
 | D2, D3 | Dossier writing pass; consistency and integration pass | `research/c4/d2/`, `research/c4/d3/` |
 | DA, DA2, DA3 | Devil's-advocate reviews, rounds 1 to 3 (DA measured the 6-of-32 counting-rule result; DA3 audited the predictor baselines) | `research/c2/devils_advocate/`, `research/c3/da2/`, `research/c5/da3/` |
@@ -48,10 +51,10 @@ Paths are relative to the repository root.
 | P13 (P13a) | Wording of the coding-theory chapter | `research/c6/p13/`, `docs/comms/CODING_VIEW.md` |
 | P14 | Burst events compared with random flips | `research/c6/p14/` |
 | P18 | Error-correcting decoder variants of V2 (`rtl/v2c.v`, `rtl/v2_secded.v`), pre-registered | `research/c6/p18/`, `research/c6/comms/P18_PREREG.md` |
-| P21, P24, P40 | Interactive pages: Solver Replay, the 264-configuration wall, the Verdict Dial | `research/c6/p21/`, `research/c6/p24/`, `research/c6/p40/`, `docs/wow/` |
+| P21, P24, P40 | Interactive pages: Solver Replay, the 264-configuration wall, the Verdict Dial | `research/c6/p21/`, `research/c6/p24/`, `research/c6/p40/`, `docs/explainers/` |
 | PRE, TEST, VER | Structural predictor: pre-registration, held-out test, adversarial audit | `research/c4/pre/`, `research/c4/test/`, `research/c4/ver/` |
 | PRES | Presentation set (slides, demo scripts) | `research/c4/pres/`, `docs/report/` |
-| PS, PS2 to PS6 | Build and hardening rounds of the packaged CLI (`faultbound-wt`); "Face B" means this tool as opposed to the study | `research/c2/ps/`, `research/c3/ps2/`, `research/c3/ps3/`, `research/c4/ps4/`, `research/c4/ps5/`, `research/c5/ps6/`, `product/` |
+| PS, PS2 to PS6 | Build and hardening rounds of the packaged CLI (now the `glitchsat` command; older name `faultbound-wt`); "Face B" means this tool as opposed to the study | `research/c2/ps/`, `research/c3/ps2/`, `research/c3/ps3/`, `research/c4/ps4/`, `research/c4/ps5/`, `research/c5/ps6/`, `product/` |
 | R10, R23 | Prior-art survey and its refresh | `research/c2/r10_prior_art/`, `research/c3/r23/`, `docs/PRIOR_ART.md` |
 | R20 | Larger benchmark designs (scaling check) | `research/c3/r20/` |
 | R21 | Survey of fault-injection countermeasures in real designs | `research/c3/r21/` |
@@ -66,12 +69,12 @@ Paths are relative to the repository root.
 | SE | Security, ethics and dual-use review | `research/c3/se/` |
 | spike | The first exploratory prototype. Its netlists are the "stored" reference netlists | `reference/spike_netlists/` |
 | SWEEP S1 | Periodic literature sweep | `research/c4/sweeps/` |
-| the lead | The coordinating work stream that integrated results and re-ran spot checks | (no single folder; see `docs/FINAL_STATUS.md`) |
+| the integration step | The coordinating work stream that integrated results and re-ran spot checks | (no single folder; see `docs/FINAL_STATUS.md`) |
 | V2e, V2c, V2_SECDED | V2 variants: re-encoded armed state `0xA5`; syndrome-checking consumer; SECDED decoder | `rtl/` |
 | V2m, V2s, V3 | Exploratory variants: V2m per-bit 2-of-3 vote, V2s one shared voter (both in M1), V3 a hardening attempt (in B2); not headline results | `research/c3/m1/`, `research/c2/b2_scope/` |
 | V4, V4b, V5, V6 (V456) | Countermeasure example designs built and measured | `research/c3/v456/` |
 | QA (QA SIM) | Simulated question round: 48 questions from four simulated reviewers | `research/c4/qa_sim/`, `docs/dossier/QA_SHEET.md` |
-| W1 to W8, WP to WP7 | Rounds of building and reader-testing the explainer pages | `docs/wow/W*_REPORT.md`, `research/c3/w*/`, `research/c3/wp*/`, `research/c5/w7/`, `research/c5/w8/`, `research/c5/wp6/`, `research/c5/wp7/` |
+| W1 to W8, WP to WP7 | Rounds of building and reader-testing the explainer pages | `docs/explainers/dev/W*_REPORT.md`, `research/c3/w*/`, `research/c3/wp*/`, `research/c5/w7/`, `research/c5/w8/`, `research/c5/wp6/`, `research/c5/wp7/` |
 
 ## Terms
 

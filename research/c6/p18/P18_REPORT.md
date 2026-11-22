@@ -32,7 +32,7 @@ flows: plain, plain_opt_merge, flatten_before_abc, abc_fast, abc_no_mux, opt_flo
 Flops only: v2 4, v2e 4, v2c 4, v2_secded 3, in all 9 flows. boot_ok all nets: 1 everywhere.
 
 ## Findings
-- The SECDED corrector LOWERS the flops-only cost from 4 to 3 (d - t). This contradicts the task brief's suggested prediction ("rises") and matches the pre-registered one.
+- The SECDED corrector LOWERS the flops-only cost from 4 to 3 (d - t). This contradicts the work plan's suggested prediction ("rises") and matches the pre-registered one.
 - NEGATIVE: the task idea "the decoder is shared attack surface, so the all-nets minimum drops" is NOT supported: v2_secded and v2c have the same all-nets minimum as v2 in 9 of 9 flows, although the netlist grows (plain: 85 -> 143 / 100 gates). My prediction "<= 2" holds only because v2 already costs 2.
 - NEGATIVE: the check-only consumer v2c changed no minimum in any cell.
 - The 1-flip rows (plain_opt_merge, flatten_before_abc; witnesses c0.m, word[0]) are the known merged-compare effect of v2, present with and without a decoder.

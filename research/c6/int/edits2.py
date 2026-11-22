@@ -12,19 +12,19 @@ rep('docs/dossier/PROJECT_DOSSIER.md',
  "Test (SIMULATED fault model, D1, re-run by P13a 2026-11-20, `research/c6/p13/hamming_runs.txt`, T=6,")
 rep('docs/dossier/PROJECT_DOSSIER.md',
  "Communication engineering: not applicable beyond Hamming-distance state encoding.",
- "Communication engineering (coding-theory view, `docs/comms/CODING_VIEW.md`): the state words F0, CC, 96, 69 and the key C3 are codewords of the Reed-Muller code RM(1,3) [8,4,4] (FACT, `docs/comms/test_rm13.py`, 16 passed; weight enumerator 1 + 14z^4 + z^8, d=4; re-checked by the lead 2026-11-20); the copies form repetition codes (V1 n=2 merged into one net `ok`, V2 n=3 used for detection only). Distance is the flops-only budget: flops-only minimum 4 = d on four netlists, all nets 1/3/1/2 (V1 spike, V2 spike, V1 apt, V2 apt; MEASURED, `research/c6/p13/hamming_runs.txt`); over 19 codebooks flops-only equals the nearest non-accept distance in 15 of 15 with distance <= 6 (P11, `results/comms/distance_sweep.csv`). The decoder sets the ceiling: about one flip per comparator copy, lower when synthesis shares logic (3 of 16 three-copy codebooks at 2). Burst caveat pending: the complementary pair 96/69 (distance 8) is mapped onto itself by one all-flop inversion (arithmetic; circuit burst run pending P14). Textbook coding theory measured on toy designs; nothing new; no claim that RM(1,3) was chosen on purpose.")
+ "Communication engineering (coding-theory view, `docs/comms/CODING_VIEW.md`): the state words F0, CC, 96, 69 and the key C3 are codewords of the Reed-Muller code RM(1,3) [8,4,4] (FACT, `docs/comms/test_rm13.py`, 16 passed; weight enumerator 1 + 14z^4 + z^8, d=4; re-checked at integration 2026-11-20); the copies form repetition codes (V1 n=2 merged into one net `ok`, V2 n=3 used for detection only). Distance is the flops-only budget: flops-only minimum 4 = d on four netlists, all nets 1/3/1/2 (V1 spike, V2 spike, V1 apt, V2 apt; MEASURED, `research/c6/p13/hamming_runs.txt`); over 19 codebooks flops-only equals the nearest non-accept distance in 15 of 15 with distance <= 6 (P11, `results/comms/distance_sweep.csv`). The decoder sets the ceiling: about one flip per comparator copy, lower when synthesis shares logic (3 of 16 three-copy codebooks at 2). Burst caveat pending: the complementary pair 96/69 (distance 8) is mapped onto itself by one all-flop inversion (arithmetic; circuit burst run pending P14). Textbook coding theory measured on toy designs; nothing new; no claim that RM(1,3) was chosen on purpose.")
 
 rep('docs/dossier/EVIDENCE_MAP.md',
  "| 7 | Analysis | dossier s7, s12; DS synthesis; FP derived-vs-chosen table | States what is derived (shared wire; SAT answer; Hamming distance) versus chosen (fault, counting, goal, input, init); M1 explains V2's '3' by a Hamming-plus-cut rule (known-style reasoning, not a discovery) that matches 255/255 masks on the spike netlist (187/255 on apt) | 85 vs 83 cause not located (E2);",
  "| 7 | Analysis | dossier s7, s12; DS synthesis; FP derived-vs-chosen table; `docs/comms/CODING_VIEW.md`, `docs/comms/test_rm13.py`, `results/comms/distance_sweep.csv`; `docs/report/WHY_TWO_FLIPS.md` | States what is derived (shared wire; SAT answer; Hamming distance) versus chosen (fault, counting, goal, input, init); M1 explains V2's '3' by a Hamming-plus-cut rule (known-style reasoning, not a discovery) that matches 255/255 masks on the spike netlist (187/255 on apt); coding view: state code is a subset of RM(1,3) (tested); fault-capacity table separates code distance (flops-only 4) from decoder ceiling (all nets 1 to 3); P11 codebook sweep (19 codebooks, failed predictions kept); P01a root cause of 2 vs 3 flips is the encoding (0xCC touches 2 of 3 copies; v2e restores 3 on 6 of 8 flows) | exact tool change behind 85 vs 83 gates not located (E2), but the 2-flip weakness is explained (P01a); burst run (P14) and random channel (P12) pending; textbook material, no new theory;")
 
-rep('docs/OWNER_DERIVATION_SHEET.md',
+rep('docs/DERIVATION_SHEET.md',
  "## After you finish",
  """## 6. From the armed word to the accept word in two flips (V2, encoding root cause)
 - Question: derive, by hand, the flip count to reach 0x96 from 0xCC at the load and show which copies the flipped bits belong to.
 - Data: `rtl/v2.v` (bit groups: m0 bits 0,3,6; m1 bits 1,4,7; m2 bits 2,5); `docs/report/WHY_TWO_FLIPS.md`.
-- Hand steps: (leave for the owner)
-- Expected answer: (leave for the owner; the agent's check values are in `research/c6/p01/P01_REPORT.md`)
+- Hand steps: (leave for the author)
+- Expected answer: (leave for the author; the step's check values are in `research/c6/p01/P01_REPORT.md`)
 - Check against: `research/c6/p01/sweeps/sweep_apt_v2.json`, `research/c6/p01/sweeps/sweep_apt_v2e.json`.
 - My derivation: ______
 
@@ -41,7 +41,7 @@ rep('docs/dossier/QA_ANSWER_CARDS.md',
 - Known: synthesis deterministic; compare cones disjoint in both; difference in next-state mapping (one MUX on conda).""")
 
 app('docs/dossier/QA_ANSWER_CARDS.md', """
-## Coding view and encoding root cause (added by agent INT, 2026-11-20; cards C-1 to C-8 from `research/c6/p13/P13_REPORT.md`)
+## Coding view and encoding root cause (added by step INT, 2026-11-20; cards C-1 to C-8 from `research/c6/p13/P13_REPORT.md`)
 
 **C-1. Is there any communications content in this project?**
 - The state words are codewords of RM(1,3) [8,4,4], and the copied comparators are repetition codes.
@@ -95,7 +95,7 @@ Number: **4 of 4** (MEASURED). File: `docs/comms/CODING_VIEW.md` "Limits".
 - The machine loads the armed word 0xCC at cycle 0; 0xCC xor 0x96 = 0x5A, bits {1,3,4,6}, owned by copies m1 and m0 only.
 - On this netlist one net moves bits {1,4} and another moves {3,6}: two flips turn the load of CC into 96.
 - Encoding sets the floor (2 copies touched => 2); the synthesis flow decides whether the floor is reached.
-Number: **2 1 1 2 2 2 2 2 over 8 flows** (MEASURED, P01a; re-verified by the lead 2026-11-20). File: `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`. Trap: "it is a Yosys version effect" (the stored netlist is also Yosys 0.33; that wording was an error, now corrected).
+Number: **2 1 1 2 2 2 2 2 over 8 flows** (MEASURED, P01a; re-verified at integration 2026-11-20). File: `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`. Trap: "it is a Yosys version effect" (the stored netlist is also Yosys 0.33; that wording was an error, now corrected).
 
 **ENC-2. Does re-encoding fix it?**
 - Changing only the armed constant to 0xA5 (xor 96 = bits 0,1,4,5, all three copies) gives 3 on 6 of 8 flows.
@@ -107,12 +107,12 @@ Number: **v2e 3 1 1 3 3 3 3 3** (MEASURED, apt and conda). File: `rtl/v2e.v`, `r
 rep('docs/dossier/EVIDENCE_INDEX.md',
  "| 6 | Verdict table depends on the Yosys build (apt 0.33 vs conda 0.38+92); only 0.33 was run in the tree |",
  "| 6 | Verdict table depends on the netlist (apt 0.33 vs conda 0.38+92 builds give different netlists); only 0.33 was run in the tree. CORRECTED 2026-11-20: the old reading 'depends on the Yosys version' was an error (row 78) |")
-app('docs/dossier/EVIDENCE_INDEX.md', """| 77 | Coding view: state words F0, CC, 96, 69, C3 are RM(1,3) codewords, d=4, enumerator 1,14,1; flops-only 4 on V1/V2 spike and apt; all nets 1/3/1/2 | FACT (test) + MEASURED | `docs/comms/CODING_VIEW.md`, `docs/comms/test_rm13.py`, `research/c6/p13/hamming_runs.txt` | `python3 -m pytest -q docs/comms/test_rm13.py` | P13a; lead re-ran membership |
-| 78 | CORRECTED ERROR: 'V2 needs 3 flips stored and 2 on apt 0.33 because of the Yosys version' was wrong (found by a fresh-eyes review, measured by P01a): stored netlist is also Yosys 0.33; cause is the encoding (0xCC touches 2 of 3 copies); v2 rows 2 1 1 2 2 2 2 2, v2e rows 3 1 1 3 3 3 3 3 | MEASURED | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`, `research/c6/fresh_eyes/ENHANCEMENT_PLAN.md` | `faultbound-wt analyze rtl/v2.v --top v2 --max-flips 3 --cycles 6 --synth-sweep` | P01a; lead re-verified 2026-11-20 05:06 UTC |
+app('docs/dossier/EVIDENCE_INDEX.md', """| 77 | Coding view: state words F0, CC, 96, 69, C3 are RM(1,3) codewords, d=4, enumerator 1,14,1; flops-only 4 on V1/V2 spike and apt; all nets 1/3/1/2 | FACT (test) + MEASURED | `docs/comms/CODING_VIEW.md`, `docs/comms/test_rm13.py`, `research/c6/p13/hamming_runs.txt` | `python3 -m pytest -q docs/comms/test_rm13.py` | P13a; integration step re-ran membership |
+| 78 | CORRECTED ERROR: 'V2 needs 3 flips stored and 2 on apt 0.33 because of the Yosys version' was wrong (found by a fresh-eyes review, measured by P01a): stored netlist is also Yosys 0.33; cause is the encoding (0xCC touches 2 of 3 copies); v2 rows 2 1 1 2 2 2 2 2, v2e rows 3 1 1 3 3 3 3 3 | MEASURED | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md`, `research/c6/fresh_eyes/ENHANCEMENT_PLAN.md` | `faultbound-wt analyze rtl/v2.v --top v2 --max-flips 3 --cycles 6 --synth-sweep` | P01a; integration step re-verified 2026-11-20 05:06 UTC |
 | 79 | Codebook sweep: 19 codebooks; flops-only = nearest non-accept distance in 15/15 (d<=6); all nets <= flops-only 19/19; failed predictions (a) literal, (c) 3 of 16 at 2, word order | MEASURED | `results/comms/distance_sweep.csv`, `research/c6/p11/P11_REPORT.md`, `docs/comms/staircase.png` | `python3 scripts/comms/distance_sweep.py --out results/comms/distance_sweep.csv --cli faultbound-wt` | P11a |
-| 80 | glitchsat.py runs synth.sh via `sh` and no longer advises 'add another independent copy'; sha256 1ad037ef... | MEASURED | `research/c6/p08/P08_REPORT.md`, `tests/test_p08.py` | `pytest -q tests/test_p08.py` | P08; lead updated ENGINE_MANIFEST |
+| 80 | glitchsat.py runs synth.sh via `sh` and no longer advises 'add another independent copy'; sha256 1ad037ef... | MEASURED | `research/c6/p08/P08_REPORT.md`, `tests/test_p08.py` | `pytest -q tests/test_p08.py` | P08; integration step updated ENGINE_MANIFEST |
 """)
-app('docs/dossier/CRITIQUE.md', """| FE-1 | fresh-eyes review (P01a measured) | HIGH | Headline misattribution: '3 flips stored, 2 on apt 0.33' was explained as a Yosys-VERSION effect; the stored netlist is also Yosys 0.33 (flow/source difference); the cause is the encoding (0xCC xor 0x96 touches 2 of 3 copies); `rtl/v2e.v` (0xA5) gives 3 1 1 3 3 3 3 3 over 8 flows | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md` | FIXED (agent INT 2026-11-20: old wording marked as a corrected error in README, FINAL_STATUS, ENGINE_STATUS, dossier, report, dashboard, edu, slides, review) |
+app('docs/dossier/CRITIQUE.md', """| FE-1 | fresh-eyes review (P01a measured) | HIGH | Headline misattribution: '3 flips stored, 2 on apt 0.33' was explained as a Yosys-VERSION effect; the stored netlist is also Yosys 0.33 (flow/source difference); the cause is the encoding (0xCC xor 0x96 touches 2 of 3 copies); `rtl/v2e.v` (0xA5) gives 3 1 1 3 3 3 3 3 over 8 flows | `docs/report/WHY_TWO_FLIPS.md`, `research/c6/p01/P01_REPORT.md` | FIXED (step INT 2026-11-20: old wording marked as a corrected error in README, FINAL_STATUS, ENGINE_STATUS, dossier, report, dashboard, edu, slides, review) |
 | FE-2 | P11a | MED | Coding-view predictions partly failed: flops-only = d(I,W) fails for 2 B-variant codebooks; 3 of 16 three-copy codebooks at 2 on the project flow; word order matters under ABC; mechanism undissected | `research/c6/p11/P11_REPORT.md` | OPEN (stated in README) |
 """)
 json.dump(E, open(ROOT/'research/c6/int/edits_log.json','w'), indent=1)

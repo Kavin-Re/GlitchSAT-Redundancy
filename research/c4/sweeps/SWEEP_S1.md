@@ -99,7 +99,7 @@ Plain words. Nothing here shows our work is novel; treat each item as a comparis
 - The UNSW tooling claim (Yosys, icestorm) is not on the syllabus page.
 - Tile 046's repo workflow files, licence and lab content were not opened.
 
-## 5. Next-round searches from the critic
+## 5. Next-round searches from the reviewer
 
 Competing work not yet searched: VerFI, Fides, COMETS, the Coco/Silver/PROLEAD family, Yosys/SymbiYosys/EQY fault-aware flows, ABC and yosys opt-merge redundancy studies, ATPG-based fault analysis tools, and Cadence/Synopsys formal-security apps (comparison points only). Modalities not tried: arXiv HTML or ar5iv, DBLP/OpenAlex/Semantic Scholar listings, raw.githubusercontent.com READMEs, conference slides and videos, SPICE-based studies.
 

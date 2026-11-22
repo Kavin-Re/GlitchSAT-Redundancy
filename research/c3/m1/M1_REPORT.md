@@ -1,5 +1,5 @@
 # M1 report: decoder width / consumer mask
-Agent M1, 2026-11-19. Everything here is MEASURED with the commands below unless marked INFERRED. Faults are modelled single-cycle bit flips of gate outputs and flop Q (glitchsat model), T=6 cycles, k<=3, input nets not fault sites, known init state, goal `sig != 0xC3`. Toy designs. Nothing about physical glitches, nothing proved beyond the bound T=6, k<=3. Work copy: `/tmp/work_m1/`; scripts and raw data are copied here. Nothing in the tree was edited.
+Step M1, 2026-11-19. Everything here is MEASURED with the commands below unless marked INFERRED. Faults are modelled single-cycle bit flips of gate outputs and flop Q (glitchsat model), T=6 cycles, k<=3, input nets not fault sites, known init state, goal `sig != 0xC3`. Toy designs. Nothing about physical glitches, nothing proved beyond the bound T=6, k<=3. Work copy: `/tmp/work_m1/`; scripts and raw data are copied here. Nothing in the tree was edited.
 
 ## 1. Mask patch and its validation
 - `gs_mask.py` = copy of `scripts/glitchsat.py` with one change (`diff` is 2 lines): new argument `goal_mask` (default 0xFF); the goal at a cycle is "bits of `boot_word` inside the mask equal 0x96 on those bits". Reconstructed from DA2's patch (`/tmp/work_da2/t1/gs_mask.py` still existed; identical semantics).

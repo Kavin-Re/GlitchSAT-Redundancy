@@ -1,5 +1,5 @@
 # M1b: recheck of the M1 consumer-mask matrix under a trustworthy engine
-Agent M1b, 2026-11-19. All numbers MEASURED with the commands below (work dir /tmp/work_m1b; nothing in the tree edited, no make, no build dirs created in product/). Faults are modelled single-cycle bit flips, T=6, k<=3, toy designs; nothing about hardware.
+Step M1b, 2026-11-19. All numbers MEASURED with the commands below (work dir /tmp/work_m1b; nothing in the tree edited, no make, no build dirs created in product/). Faults are modelled single-cycle bit flips, T=6, k<=3, toy designs; nothing about hardware.
 
 ## Result in one line
 The x-init handling in M1's gs_mask.py affected **0 of 1785 CSV cells**: none of the 7 netlists contains an x init bit (nor conflicting init on aliased bits). Recomputing all 255 masks x 7 designs with two independent trustworthy engines gives **0 changed cells**; the corrected CSV `m1b_all_masks.csv` is byte-identical to `m1_all_masks.csv`. No published claim changes.

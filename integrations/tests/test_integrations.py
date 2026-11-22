@@ -261,7 +261,7 @@ def test_attack_list_import_and_untested_renderers():
     assert "[fault]" in cfg and "number = 2" in cfg and "UNTESTED" in cfg
 
 
-# ---------------- recorded SYNFI re-run in this session (python 3.13, unpinned PyPI + setuptools<81) replaying OUR exported specs
+# ---------------- recorded SYNFI re-run in this run (python 3.13, unpinned PyPI + setuptools<81) replaying OUR exported specs
 DATA = os.path.join(ROOT, "integrations", "data")
 
 

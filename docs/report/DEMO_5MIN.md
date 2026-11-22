@@ -1,8 +1,8 @@
 # 5-minute demo script (no hardware, modelled flips only)
 
-Licence Apache-2.0; title GlitchSAT. Replaces the 19:30 version (kept in `research/c4/pres/backup/DEMO_5MIN.md.orig`). Everything below is a bounded result on toy designs under a model; nothing is physical and nothing is claimed as new.
+Licence Apache-2.0; title GlitchSAT. Replaces the 19:30 version (the earlier copy is not kept in the repository). Everything below is a bounded result on toy designs under a model; nothing is physical and nothing is claimed as new.
 
-Every command was run on a copy of the project on 2026-11-19 (agent PRES, `/tmp/work_pres/copy`, venv with `pip install ./product`, z3-solver 5.4.1; timings are wall-clock on that machine, MEASURED, they vary with load). Do NOT run `make` in the live tree (it rewrites `results/` and `tb/`); everything here only reads the tree and writes to `/tmp`.
+Every command was run on a copy of the project on 2026-11-19 (step PRES, `/tmp/work_pres/copy`, venv with `pip install ./product`, z3-solver 5.4.1; timings are wall-clock on that machine, MEASURED, they vary with load). Do NOT run `make` in the live tree (it rewrites `results/` and `tb/`); everything here only reads the tree and writes to `/tmp`.
 
 **Shorter, zero-typing version:** `docs/DEMO_3MIN.md` (3 minutes: Verdict Dial, Solver Replay, 264-builders wall, staircase; plus a 10-minute booth loop). Use this 5-minute script when live commands are wanted.
 
@@ -14,7 +14,7 @@ pip install ./product z3-solver                  # needs PyPI; installs the comm
 EX="$(faultbound-wt example-path)"; A="analyze $EX/v2.json --config $EX/threat.toml"
 mkdir -p /tmp/demo_saved
 ```
-Then pre-run every command below once with `| tee /tmp/demo_saved/<name>.txt`, so there is a saved output to show if a live run is slow or the laptop misbehaves. Open slides 1 to 14 (deck re-ordered by INT2a, 2026-11-20: old slides 5 to 9 are now appendix A6 to A10) (`docs/report/SLIDES.pptx`) and, in a browser, `docs/wow/explainer.html` (the three-guards picture, hero button). In the same terminal keep `EX` and `A` set (re-run the `EX=...` line in each new shell).
+Then pre-run every command below once with `| tee /tmp/demo_saved/<name>.txt`, so there is a saved output to show if a live run is slow or the laptop misbehaves. Open slides 1 to 14 (deck re-ordered by INT2a, 2026-11-20: old slides 5 to 9 are now appendix A6 to A10) (`docs/report/SLIDES.pptx`) and, in a browser, `docs/explainers/explainer.html` (the three-guards picture, hero button). In the same terminal keep `EX` and `A` set (re-run the `EX=...` line in each new shell).
 
 ## Minute by minute
 | Time | What you show | What you say (plain words) |
@@ -25,7 +25,7 @@ Then pre-run every command below once with `| tee /tmp/demo_saved/<name>.txt`, s
 | 2:15 to 2:45 | Command 4 (boot_ok) | "Same design. If the consumer only reads the accept flag `boot_ok`, one flip is enough." |
 | 2:45 to 3:45 | Command 5 (scope sweep); slide 4 | "Here is the same design under four scopes and four goals in one table. The answer moves between 0, 1, 2 and 3. 'Resists two flips' was true in exactly one cell." (0 under arbitrary power-up means no reset: a design gap, not a tool finding.) |
 | 3:45 to 4:30 | Command 6 (width curve); slide A6 (page 20) | "If the consumer reads only the lowest n bits: 0, 1, 1, 2, 2, 3, 3, 3. A claim has to say how wide the reader is." |
-| 4:30 to 4:50 | Slides A7, A8, A9 (pages 21 to 23), or slide 7 (the wall), no live commands | "Synthesis settings give 1, 2 or 3 flips: 180, 60 and 24 of 264 solved configs (94, 38 and 20 over 152 distinct netlists). Circuit simulation (1-to-0 only) says a supply dip hits a whole rail, and a 0->1 event on the three compare copies breaks V2 with one event in our model (polarity open; the domain is the netlist hierarchy, not a physical rail; physical track closed); the layout puts the three copies within 2.95 um on one supply net. Simulated, not silicon." |
+| 4:30 to 4:50 | Slides A7, A8, A9 (pages 21 to 23), or slide 7 (the wall), no live commands | "Synthesis settings give 1, 2 or 3 flips: 180, 60 and 24 of 264 solved configs (94, 38 and 20 over 152 distinct netlists). Circuit simulation (1-to-0 only) says a supply dip hits a whole rail, and a 0->1 event on the three compare copies breaks V2 with one event in our model (polarity open; the domain is the netlist hierarchy, not a physical rail; physical track closed); the layout puts three sufficient cells within 2.95 um on one supply net (selective dip model; 1.67 um under bit flip). Simulated, not silicon." |
 | 4:50 to 5:00 | Slides 12 and 14 | "Not proven: anything physical, anything beyond toy designs and 3 flips, anything new. The sentence to keep: three copies resist two faults means nothing unless it says what counts as a fault, which output, how the chip starts and which netlist." |
 
 ## The six commands (verified 2026-11-19 on a copy; `EX` and `A` as in the prep block)

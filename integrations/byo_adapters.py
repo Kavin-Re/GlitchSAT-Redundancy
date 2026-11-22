@@ -1,6 +1,6 @@
 """'Bring your own install' adapters for tools we are NOT allowed to run here.
 
-STATUS: UNTESTED AGAINST THE REAL TOOLS. FIRMER, FIVER, uArchiFI and k-FRP were not run by this project (owner has
+STATUS: UNTESTED AGAINST THE REAL TOOLS. FIRMER, FIVER, uArchiFI and k-FRP were not run by this project (author has
 authorised running SYNFI only). Nothing here contains or copies their code or text. What is implemented:
   * `run_external()`: a thin, tool-agnostic wrapper that runs a command the USER supplies (their own install),
     with a timeout, and records provenance (command, exit code, stdout/stderr hashes, wall time, working-dir

@@ -1,7 +1,7 @@
 # WP3 report: six new simulated personas (P13 to P18), round 3
-All six readers are SIMULATED by a language model; none is a real person. Simulated readers tend to be too kind; I tried to be harsh, but every score below is ILLUSTRATIVE, not measured human data, and "seconds to aha" is a model's guess.
+All six readers are SIMULATED; none is a real person. Simulated readers tend to be too kind; I tried to be harsh, but every score below is ILLUSTRATIVE, not measured human data, and "seconds to aha" is a model's guess.
 
-Pages read: docs/wow/explainer.html, game.html, poster.md, script_60s.md (and AGENT_RULES.md for rules). Nothing else.
+Pages read: docs/explainers/explainer.html, game.html, poster.md, script_60s.md (and PROCESS_RULES.md for rules). Nothing else.
 Method: Playwright with /usr/bin/google-chrome, screenshots at 390 px and 1366 px (this folder: expl_*.png, game_*.png). No horizontal overflow at either width (scrollWidth equals viewport), no console or page errors.
 Actually clicked (390 px): explainer hero button (door opens, "1 flip"); "own wire" button x4; Twist picker switched to Wiring B with 3 "next wire" clicks (reaches DOOR OPEN with 2 flips); count toggle "Count 1 per light it feeds" (text changes to "same as Wiring A"). Game: all 6 designs played to LOCK OPEN, including wrong-order taps (a guard first in the joined designs: "Still shut after 1 flip ... joined wire stays no", correct), over-flipping (3 flips on the 1-flip designs says "fewest possible here is 1", correct), "Show fewest flips", Reset. Results cards match the explainer table (1,1,1/not checked,3,3,2).
 
@@ -14,7 +14,7 @@ Actually clicked (390 px): explainer hero button (door opens, "1 flip"); "own wi
 6. The game offers no score or goal number up front ("use as few as you can" but not "can you beat 3?"), so a successful round ends flat.
 7. The "Evidence for engineers" block is dense but collapsed on phone, open at 900 px and wider: good.
 
-## P13: 60-year-old taxi owner, smartphone, little patience
+## P13: 60-year-old taxi author, smartphone, little patience
 - Seconds to aha (simulated): about 35 (needs to scroll past the quote and header, then press the button; the red "One flip. Three guards beaten" lands at once).
 - Own words: "A door has three guards but they all talk down one wire, so tricking the wire fools all three. Give each guard his own wire and you need three tricks. Something about building it differently making it weaker, I lost that."
 - Confused: "flip", "netlist-style" nothing, but "building program", "joined wire", "Count 1 per light". The Twist section was where he gave up reading; he went to the game and tapped round things.
@@ -64,9 +64,9 @@ Actually clicked (390 px): explainer hero button (door opens, "1 flip"); "own wi
 - Own words: "A bounded SAT-style fault search on a small netlist finds a 1-flip break when redundancy shares a net. Re-synthesis changes the minimum from 3 to 2 depending on tool and flow, which is an artefact of the fault model's per-net counting. Fine as an illustration; the headline sentence is stronger than the evidence."
 - Claims that overreach or mislead:
   1. Headline quote: "three backup guards that share one wire were no safer than one guard". Supported only by a hand-drawn toy computed on the page (ILLUSTRATIVE), not by any project design: the "3 guards, 1 wire" design has "no solver run". The quote says "In a small computer model" which blurs toy vs solver. A reader cannot tell which parts are measured without opening the evidence block.
-  2. "needed 3 flips one way and 2 the other" is presented as a property of the design and tool; the page itself notes in evidence that 26 of 32 variants needed 2 and 6 needed 3 (by another agent, not re-run), and that conda was not run for the opt flow. The headline pair is one example each; "builder joined some wires" is the page's explanation but "which exact bits are covered is UNVERIFIED". The mechanism sentence is stronger than the evidence.
+  2. "needed 3 flips one way and 2 the other" is presented as a property of the design and tool; the page itself notes in evidence that 26 of 32 variants needed 2 and 6 needed 3 (by another step, not re-run), and that conda was not run for the opt flow. The headline pair is one example each; "builder joined some wires" is the page's explanation but "which exact bits are covered is UNVERIFIED". The mechanism sentence is stronger than the evidence.
   3. "Wiring B ... the two joined wires cover all 8 lights" is a simplified drawing; the page admits UNVERIFIED, but the figure shows it as fact in the main story.
-  4. "Count each wire once and B looks weaker; count per light and the two look the same": the 3 comes from an agent experiment not re-run here; and "who looks safe" implies a fault-count convention dispute that no one in the literature is cited for. Fine as a framing; it should say "no rule is argued to be the physical one" in the main text, not only the evidence block.
+  4. "Count each wire once and B looks weaker; count per light and the two look the same": the 3 comes from an step experiment not re-run here; and "who looks safe" implies a fault-count convention dispute that no one in the literature is cited for. Fine as a framing; it should say "no rule is argued to be the physical one" in the main text, not only the evidence block.
   5. "Computer check = MEASURED" for results up to 3 flips and 6 cycles, one constant attacker input, goal = result word only. Stated, well. But "3 worked and 2 did not" is understandable only if you read the legend.
   6. Silent on whether the 1-flip result for shared nets is physically meaningful (single-cycle bit flips on a net are a model, not glitches); the page says "faults are modelled bit flips" in evidence only.
   Not claimed, to its credit: first/novel, security of any product, physical results.
@@ -78,7 +78,7 @@ Actually clicked (390 px): explainer hero button (door opens, "1 flip"); "own wi
 ## Scores
 | Persona | Aha (s, simulated) | Understood | Would tell | Both >= 7? |
 |---|---|---|---|---|
-| P13 taxi owner | 35 | 7 | 5 | no |
+| P13 taxi author | 35 | 7 | 5 | no |
 | P14 physics teacher | 20 | 8 | 8 | yes |
 | P15 investor | 25 | 8 | 5 | no |
 | P16 software tester | 15 | 8 | 7 | yes |
