@@ -17,7 +17,7 @@ After the lab a student can:
 
 ## Prerequisites
 - Digital design basics: gates, flip-flops, a finite-state machine, Verilog `assign` / `always @(posedge clk)`.
-- Command line and Python 3.11+. No SMT or formal-methods background needed (the solver is a black box that returns the smallest attack or "none up to the bound").
+- Command line and Python 3.10+. No SMT or formal-methods background needed (the solver is a black box that returns the smallest attack or "none up to the bound").
 - Instructor: read `docs/edu/INSTRUCTOR_NOTES.md` first; do the lab once (about 25 minutes of work, most of it reading).
 
 ## Setup in 5 lines (details: `product/QUICKSTART.md`)

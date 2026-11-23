@@ -42,7 +42,9 @@ jobs:
       - name: Engine tests (make test)
         run: make test
       - name: Product tests
-        run: python -m pytest -q product/tests
+        run: |
+          pip install pyyaml jsonschema
+          python -m pytest -q product/tests
       - name: Reproduce the baseline table (make reproduce)
         run: make reproduce
       - name: Compare with expected rows (make check-reproduce)
@@ -63,3 +65,54 @@ jobs:
             results/reproduce/
             results/logs/
           if-no-files-found: warn
+
+  # The installed product: `pip install .` gives the glitchsat command, GlitchSAT Studio and every module.
+  product-and-modules:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      security-events: write      # upload-sarif: findings of the gallery example to code scanning
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Yosys and Icarus Verilog (apt)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends yosys iverilog
+      - name: Install GlitchSAT from this checkout
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ci/requirements-ci.txt pyyaml jsonschema
+          pip install .
+      - name: Commands of the installed package
+        working-directory: ${{ runner.temp }}
+        run: |
+          glitchsat --help
+          glitchsat --version
+          glitchsat-studio --help
+          glitchsat doctor || echo "doctor: some optional tools are missing (see above)"
+      - name: Example from the gallery (findings as SARIF)
+        working-directory: ${{ runner.temp }}
+        run: |
+          glitchsat examples copy hello_lock
+          cd hello_lock
+          set +e
+          glitchsat run --sarif "$GITHUB_WORKSPACE/glitchsat-findings.sarif"
+          rc=$?
+          set -e
+          echo "exit code $rc (1 = an attack was found, which this teaching example is built to show)"
+          [ "$rc" = 1 ]
+      - name: Every module suite (tools/)
+        run: python scripts/test_all.py
+      - name: Wording and path check of the shipped files
+        run: python tools/check_wording.py tools product scripts
+      - name: Upload the example findings to code scanning
+        if: always() && hashFiles('glitchsat-findings.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: glitchsat-findings.sarif
+          category: glitchsat-example

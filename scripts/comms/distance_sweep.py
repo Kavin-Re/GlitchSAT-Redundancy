@@ -202,7 +202,8 @@ def measure(cli, netlist, top, W, k, T, flops_only, timeout_s, workdir, tag):
     toml = os.path.join(workdir, f"{tag}.toml")
     rep = os.path.join(workdir, f"{tag}.json")
     with open(toml, "w") as f:
-        f.write(f'[faults]\nmax_flips = {k}\ncycles = {T}\nkinds = {"[\"flop\"]" if flops_only else "[\"gate\", \"flop\"]"}\n'
+        kinds = '["flop"]' if flops_only else '["gate", "flop"]'
+        f.write(f'[faults]\nmax_flips = {k}\ncycles = {T}\nkinds = {kinds}\n'
                 f'input_sites = "none"\ninit = "known"\ncount_rule = "stem"\n'
                 f'[attacker]\ninput = "sig"\nmodel = "constant"\nlegitimate_value = 0x{KEY:02X}\n'
                 f'[property]\noutput = "boot_word"\nbad_value = 0x{W:02X}\n')
