@@ -1,0 +1,4956 @@
+{
+ "sites": {
+  "89": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14727",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "91": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14728",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "93": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14729",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "95": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14730",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "97": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14731",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "98": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14732",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "99": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14733",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "100": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14734",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "101": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14735",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "102": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14736",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "103": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14737",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "104": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14738",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "105": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14739",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "106": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14740",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "107": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14741",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "108": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14742",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "109": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14743",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "110": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14744",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "111": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14745",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "112": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14746",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "113": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14747",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "114": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14748",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "115": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14749",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "116": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14750",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "117": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14751",
+   "type": "NAND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "119": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14752",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "120": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14753",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "5": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14754",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "121": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14755",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "122": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14756",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "123": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14757",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "20": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14758",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "124": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14759",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "125": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14760",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "126": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14761",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "34": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14762",
+   "type": "NAND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "32": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14763",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "127": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14764",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "128": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14765",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "129": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14766",
+   "type": "NAND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "21": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14767",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "130": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14768",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "131": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14769",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "132": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14770",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "133": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14771",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "134": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14772",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "135": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14773",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "36": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14774",
+   "type": "NAND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "38": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14775",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "136": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14776",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "137": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14777",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "138": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14778",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "139": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14779",
+   "type": "OR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "140": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14780",
+   "type": "OR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "141": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14781",
+   "type": "XNOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "142": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14782",
+   "type": "XOR2_X1",
+   "pin": "Z",
+   "kind": "cell"
+  },
+  "143": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14783",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "144": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14784",
+   "type": "AND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "145": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14785",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "146": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14786",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "147": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14787",
+   "type": "XOR2_X1",
+   "pin": "Z",
+   "kind": "cell"
+  },
+  "148": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14788",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "149": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14789",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "150": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14790",
+   "type": "OAI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "151": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14791",
+   "type": "OAI222_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "152": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14792",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "153": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14793",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "154": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14794",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "155": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14795",
+   "type": "OR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "156": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14796",
+   "type": "OR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "157": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14797",
+   "type": "AND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "158": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14798",
+   "type": "OR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "159": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14799",
+   "type": "AND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "160": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14800",
+   "type": "NAND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "161": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14801",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "162": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14802",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "163": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14803",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "164": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14804",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "165": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14805",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "166": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14806",
+   "type": "OR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "167": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14807",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "168": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14808",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "169": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14809",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "170": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14810",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "171": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14811",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "172": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14812",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "174": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14813",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "175": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14814",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "176": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14815",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "177": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14816",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "178": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14817",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "179": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14818",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "180": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14819",
+   "type": "NAND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "181": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14820",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "182": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14821",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "183": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14822",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "184": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14823",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "185": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14824",
+   "type": "NAND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "186": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14825",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "187": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14826",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "188": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14827",
+   "type": "OAI22_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "189": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14828",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "190": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14829",
+   "type": "AND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "191": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14830",
+   "type": "NAND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "192": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14831",
+   "type": "OAI221_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "193": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14832",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "194": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14833",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "195": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14834",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "196": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14835",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "197": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14836",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "198": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14837",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "199": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14838",
+   "type": "AOI221_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "200": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14839",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "201": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14840",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "202": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14841",
+   "type": "NAND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "203": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14842",
+   "type": "OAI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "204": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14843",
+   "type": "AND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "205": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14844",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "206": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14845",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "207": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14846",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "41": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14847",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "42": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14848",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "52": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14849",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "51": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14850",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "73": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14851",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "208": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14852",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "209": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14853",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "210": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14854",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "74": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14855",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "211": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14856",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "212": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14857",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "213": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14858",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "214": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14859",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "75": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14860",
+   "type": "MUX2_X1",
+   "pin": "Z",
+   "kind": "cell"
+  },
+  "76": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14861",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "215": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14862",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "216": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14863",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "217": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14864",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "83": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14865",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "218": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14866",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "219": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14867",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "220": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14868",
+   "type": "AND3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "81": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14869",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "221": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14870",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "31": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14871",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "222": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14872",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "26": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14873",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "24": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14874",
+   "type": "INV_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "25": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14875",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "27": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14876",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "223": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14877",
+   "type": "OR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "224": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14878",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "225": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14879",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "226": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14880",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "227": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14881",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "228": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14882",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "49": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14883",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "47": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14884",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "229": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14885",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "230": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14886",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "29": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14887",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "231": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14888",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "232": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14889",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "48": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14890",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "233": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14891",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "234": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14892",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "235": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14893",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "50": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14894",
+   "type": "OAI221_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "79": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14895",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "43": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14896",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "44": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14897",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "236": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14898",
+   "type": "OR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "46": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14899",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "237": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14900",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "238": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14901",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "239": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14902",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "240": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14903",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "241": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14904",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "242": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14905",
+   "type": "AOI211_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "243": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14906",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "65": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14907",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "244": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14908",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "245": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14909",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "246": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14910",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "66": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14911",
+   "type": "OR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "247": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14912",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "248": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14913",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "249": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14914",
+   "type": "NOR4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "67": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14915",
+   "type": "OR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "250": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14916",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "68": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14917",
+   "type": "MUX2_X1",
+   "pin": "Z",
+   "kind": "cell"
+  },
+  "251": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "57": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "252": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "253": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "254": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "58": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "255": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "256": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "257": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "59": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "258": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928",
+   "type": "AND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "60": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929",
+   "type": "MUX2_X1",
+   "pin": "Z",
+   "kind": "cell"
+  },
+  "259": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14930",
+   "type": "AOI221_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "6": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14931",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "260": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14932",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "33": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14933",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "35": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14934",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "261": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14935",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "28": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14936",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "262": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14937",
+   "type": "NOR2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "37": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14938",
+   "type": "OAI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "263": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14939",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "39": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14940",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "40": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14941",
+   "type": "NAND4_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "264": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14942",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "265": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14943",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "266": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14944",
+   "type": "NAND2_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "87": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14945",
+   "type": "OAI22_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "267": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14946",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "268": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14947",
+   "type": "AOI21_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "85": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14948",
+   "type": "OAI22_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "22": {
+   "cell": "$abc$14726$auto$blifparse.cc:381:parse_blif$14949",
+   "type": "NOR3_X1",
+   "pin": "ZN",
+   "kind": "cell"
+  },
+  "173": {
+   "cell": "$auto$simplemap.cc:527:simplemap_adff_sdff$13280",
+   "type": "DFFR_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "269": {
+   "cell": "$auto$simplemap.cc:527:simplemap_adff_sdff$13280",
+   "type": "DFFR_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  },
+  "88": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056",
+   "type": "DFFS_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "270": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056",
+   "type": "DFFS_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  },
+  "118": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057",
+   "type": "DFFR_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "271": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057",
+   "type": "DFFR_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  },
+  "90": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058",
+   "type": "DFFR_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "272": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058",
+   "type": "DFFR_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  },
+  "92": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059",
+   "type": "DFFS_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "273": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059",
+   "type": "DFFS_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  },
+  "94": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060",
+   "type": "DFFR_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "274": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060",
+   "type": "DFFR_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  },
+  "96": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061",
+   "type": "DFFR_X1",
+   "pin": "Q",
+   "kind": "flop"
+  },
+  "275": {
+   "cell": "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061",
+   "type": "DFFR_X1",
+   "pin": "QN",
+   "kind": "flop_qn"
+  }
+ },
+ "cells": {
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14727": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 89
+   },
+   "inputs": {
+    "A": 88
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14727/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14728": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 91
+   },
+   "inputs": {
+    "A": 90
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14728/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14729": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 93
+   },
+   "inputs": {
+    "A": 92
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14729/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14730": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 95
+   },
+   "inputs": {
+    "A": 94
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14730/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14731": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 97
+   },
+   "inputs": {
+    "A": 96
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14731/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14732": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 98
+   },
+   "inputs": {
+    "A": 80
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14732/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14733": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 99
+   },
+   "inputs": {
+    "A": 7
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14733/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14734": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 100
+   },
+   "inputs": {
+    "A": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14734/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14735": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 101
+   },
+   "inputs": {
+    "A": 45
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14735/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14736": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 102
+   },
+   "inputs": {
+    "A": 53
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14736/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14737": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 103
+   },
+   "inputs": {
+    "A": 69
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14737/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14738": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 104
+   },
+   "inputs": {
+    "A": 55
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14738/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14739": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 105
+   },
+   "inputs": {
+    "A": 56
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14739/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14740": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 106
+   },
+   "inputs": {
+    "A": 12
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14740/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14741": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 107
+   },
+   "inputs": {
+    "A": 11
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14741/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14742": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 108
+   },
+   "inputs": {
+    "A": 84
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14742/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14743": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 109
+   },
+   "inputs": {
+    "A": 9
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14743/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14744": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 110
+   },
+   "inputs": {
+    "A": 82
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14744/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14745": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 111
+   },
+   "inputs": {
+    "A": 78
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14745/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14746": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 112
+   },
+   "inputs": {
+    "A": 62
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14746/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14747": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 113
+   },
+   "inputs": {
+    "A": 63
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14747/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14748": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 114
+   },
+   "inputs": {
+    "A": 64
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14748/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14749": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 115
+   },
+   "inputs": {
+    "A": 86
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14749/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14750": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 116
+   },
+   "inputs": {
+    "A1": 90,
+    "A2": 93
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14750/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14750/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14751": {
+   "type": "NAND4_X1",
+   "outputs": {
+    "ZN": 117
+   },
+   "inputs": {
+    "A1": 91,
+    "A2": 92,
+    "A3": 95,
+    "A4": 97
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14751/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14751/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14751/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14751/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14752": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 119
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 89,
+    "A3": 94,
+    "A4": 96
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14752/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14752/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14752/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14752/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14753": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 120
+   },
+   "inputs": {
+    "A1": 116,
+    "A2": 119
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14753/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14753/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14754": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 5
+   },
+   "inputs": {
+    "A": 120
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14754/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14755": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 121
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 88
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14755/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14755/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14756": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 122
+   },
+   "inputs": {
+    "A1": 91,
+    "A2": 92
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14756/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14756/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14757": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 123
+   },
+   "inputs": {
+    "A1": 95,
+    "A2": 96,
+    "A3": 121
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14757/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14757/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14757/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14758": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 20
+   },
+   "inputs": {
+    "A1": 122,
+    "A2": 123
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14758/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14759": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 124
+   },
+   "inputs": {
+    "A1": 90,
+    "A2": 92
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14759/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14759/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14760": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 125
+   },
+   "inputs": {
+    "A1": 90,
+    "A2": 92
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14760/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14761": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 126
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 88
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14761/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14761/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14762": {
+   "type": "NAND4_X1",
+   "outputs": {
+    "ZN": 34
+   },
+   "inputs": {
+    "A1": 94,
+    "A2": 97,
+    "A3": 124,
+    "A4": 126
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14762/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14762/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14762/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14762/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14763": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 32
+   },
+   "inputs": {
+    "A": 34
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14763/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14764": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 127
+   },
+   "inputs": {
+    "A1": 30,
+    "A2": 80
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14764/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14764/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14765": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 128
+   },
+   "inputs": {
+    "A1": 19,
+    "A2": 18,
+    "A3": 127
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14765/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14765/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14765/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14766": {
+   "type": "NAND3_X1",
+   "outputs": {
+    "ZN": 129
+   },
+   "inputs": {
+    "A1": 7,
+    "A2": 32,
+    "A3": 128
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14766/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14766/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14766/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14767": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 21
+   },
+   "inputs": {
+    "A": 129
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14767/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14768": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 130
+   },
+   "inputs": {
+    "A1": 100,
+    "A2": 17
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14768/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14769": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 131
+   },
+   "inputs": {
+    "A1": 13,
+    "A2": 14
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14769/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14769/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14770": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 132
+   },
+   "inputs": {
+    "A1": 16,
+    "A2": 131
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14770/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14770/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14771": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 133
+   },
+   "inputs": {
+    "A1": 100,
+    "A2": 16
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14771/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14771/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14772": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 134
+   },
+   "inputs": {
+    "A1": 100,
+    "A2": 17,
+    "A3": 16
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14772/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14772/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14772/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14773": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 135
+   },
+   "inputs": {
+    "A1": 100,
+    "A2": 17,
+    "A3": 16,
+    "A4": 131
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14773/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14773/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14773/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14773/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14774": {
+   "type": "NAND3_X1",
+   "outputs": {
+    "ZN": 36
+   },
+   "inputs": {
+    "A1": 116,
+    "A2": 119,
+    "A3": 135
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14774/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14774/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14774/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14775": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 38
+   },
+   "inputs": {
+    "A": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14775/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14776": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 136
+   },
+   "inputs": {
+    "A1": 94,
+    "A2": 96
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14776/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14776/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14777": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 137
+   },
+   "inputs": {
+    "A1": 90,
+    "A2": 92
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14777/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14777/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14778": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 138
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 89,
+    "A3": 136,
+    "A4": 137
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14778/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14778/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14778/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14778/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14779": {
+   "type": "OR4_X1",
+   "outputs": {
+    "ZN": 139
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 89,
+    "A3": 136,
+    "A4": 137
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14779/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14779/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14779/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14780": {
+   "type": "OR3_X1",
+   "outputs": {
+    "ZN": 140
+   },
+   "inputs": {
+    "A1": 69,
+    "A2": 70,
+    "A3": 71
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14780/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14780/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14781": {
+   "type": "XNOR2_X1",
+   "outputs": {
+    "ZN": 141
+   },
+   "inputs": {
+    "A": 72,
+    "B": 140
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14781/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14781/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14782": {
+   "type": "XOR2_X1",
+   "outputs": {
+    "Z": 142
+   },
+   "inputs": {
+    "A": 72,
+    "B": 140
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14782/Z/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14783": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 143
+   },
+   "inputs": {
+    "A": 71,
+    "B1": 70,
+    "B2": 69
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14783/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14783/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14783/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14784": {
+   "type": "AND3_X1",
+   "outputs": {
+    "ZN": 144
+   },
+   "inputs": {
+    "A1": 104,
+    "A2": 140,
+    "A3": 143
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14784/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14784/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14785": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 145
+   },
+   "inputs": {
+    "A": 104,
+    "B1": 140,
+    "B2": 143
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14785/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14785/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14785/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14786": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 146
+   },
+   "inputs": {
+    "A1": 101,
+    "A2": 127
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14786/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14786/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14787": {
+   "type": "XOR2_X1",
+   "outputs": {
+    "Z": 147
+   },
+   "inputs": {
+    "A": 54,
+    "B": 70
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14787/Z/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14788": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 148
+   },
+   "inputs": {
+    "A": 147,
+    "B1": 69,
+    "B2": 102
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14788/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14788/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14788/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14789": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 149
+   },
+   "inputs": {
+    "A1": 53,
+    "A2": 103
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14789/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14789/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14790": {
+   "type": "OAI211_X1",
+   "outputs": {
+    "ZN": 150
+   },
+   "inputs": {
+    "A": 146,
+    "B": 148,
+    "C1": 56,
+    "C2": 142
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14790/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14790/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14790/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14790/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14791": {
+   "type": "OAI222_X1",
+   "outputs": {
+    "ZN": 151
+   },
+   "inputs": {
+    "A1": 105,
+    "A2": 141,
+    "B1": 144,
+    "B2": 145,
+    "C1": 147,
+    "C2": 149
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14791/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14791/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14791/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14791/ZN/p3",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14791/ZN/p4",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14791/ZN/p5"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14792": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 152
+   },
+   "inputs": {
+    "A": 138,
+    "B1": 150,
+    "B2": 151
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14792/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14792/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14792/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14793": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 153
+   },
+   "inputs": {
+    "A1": 98,
+    "A2": 99,
+    "A3": 150,
+    "A4": 151
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14793/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14793/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14793/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14793/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14794": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 154
+   },
+   "inputs": {
+    "A1": 80,
+    "A2": 138
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14794/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14794/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14795": {
+   "type": "OR3_X1",
+   "outputs": {
+    "ZN": 155
+   },
+   "inputs": {
+    "A1": 150,
+    "A2": 151,
+    "A3": 154
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14795/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14795/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14796": {
+   "type": "OR4_X1",
+   "outputs": {
+    "ZN": 156
+   },
+   "inputs": {
+    "A1": 99,
+    "A2": 150,
+    "A3": 151,
+    "A4": 154
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14796/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14796/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14796/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14797": {
+   "type": "AND3_X1",
+   "outputs": {
+    "ZN": 157
+   },
+   "inputs": {
+    "A1": 129,
+    "A2": 152,
+    "A3": 156
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14797/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14797/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14798": {
+   "type": "OR3_X1",
+   "outputs": {
+    "ZN": 158
+   },
+   "inputs": {
+    "A1": 19,
+    "A2": 18,
+    "A3": 77
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14798/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14798/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14799": {
+   "type": "AND4_X1",
+   "outputs": {
+    "ZN": 159
+   },
+   "inputs": {
+    "A1": 95,
+    "A2": 96,
+    "A3": 122,
+    "A4": 126
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14799/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14799/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14799/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14800": {
+   "type": "NAND4_X1",
+   "outputs": {
+    "ZN": 160
+   },
+   "inputs": {
+    "A1": 95,
+    "A2": 96,
+    "A3": 122,
+    "A4": 126
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14800/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14800/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14800/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14800/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14801": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 161
+   },
+   "inputs": {
+    "A1": 32,
+    "A2": 138
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14801/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14801/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14802": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 162
+   },
+   "inputs": {
+    "A1": 34,
+    "A2": 139
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14802/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14802/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14803": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 163
+   },
+   "inputs": {
+    "A": 32,
+    "B": 138,
+    "C1": 116,
+    "C2": 119
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14803/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14803/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14803/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14803/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14804": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 164
+   },
+   "inputs": {
+    "A1": 160,
+    "A2": 163
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14804/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14805": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 165
+   },
+   "inputs": {
+    "A1": 94,
+    "A2": 97,
+    "A3": 121,
+    "A4": 125
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14805/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14805/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14805/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14805/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14806": {
+   "type": "OR4_X1",
+   "outputs": {
+    "ZN": 166
+   },
+   "inputs": {
+    "A1": 94,
+    "A2": 97,
+    "A3": 121,
+    "A4": 125
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14806/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14806/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14806/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14807": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 167
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 89
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14807/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14807/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14808": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 168
+   },
+   "inputs": {
+    "A1": 94,
+    "A2": 96,
+    "A3": 137,
+    "A4": 167
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14808/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14808/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14808/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14808/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14809": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 169
+   },
+   "inputs": {
+    "A1": 90,
+    "A2": 93,
+    "A3": 136,
+    "A4": 167
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14809/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14809/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14809/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14809/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14810": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 170
+   },
+   "inputs": {
+    "A1": 20,
+    "A2": 165,
+    "A3": 168,
+    "A4": 169
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14810/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14810/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14810/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14810/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14811": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 171
+   },
+   "inputs": {
+    "A": 158,
+    "B1": 164,
+    "B2": 170
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14811/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14811/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14811/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14812": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 172
+   },
+   "inputs": {
+    "A": 20,
+    "B": 158,
+    "C1": 164,
+    "C2": 170
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14812/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14812/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14812/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14812/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14813": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 174
+   },
+   "inputs": {
+    "A1": 7,
+    "A2": 173
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14813/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14813/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14814": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 175
+   },
+   "inputs": {
+    "A1": 160,
+    "A2": 174
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14814/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14814/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14815": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 176
+   },
+   "inputs": {
+    "A": 134,
+    "B1": 100,
+    "B2": 88
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14815/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14815/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14815/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14816": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 177
+   },
+   "inputs": {
+    "A1": 120,
+    "A2": 176
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14816/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14816/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14817": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 178
+   },
+   "inputs": {
+    "A1": 7,
+    "A2": 168
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14817/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14817/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14818": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 179
+   },
+   "inputs": {
+    "A": 175,
+    "B": 177,
+    "C1": 7,
+    "C2": 168
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14818/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14818/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14818/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14818/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14819": {
+   "type": "NAND4_X1",
+   "outputs": {
+    "ZN": 180
+   },
+   "inputs": {
+    "A1": 157,
+    "A2": 166,
+    "A3": 172,
+    "A4": 179
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14819/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14819/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14819/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14819/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14820": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 181
+   },
+   "inputs": {
+    "A": 20,
+    "B": 169,
+    "C1": 168,
+    "C2": 99
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14820/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14820/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14820/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14820/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14821": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 182
+   },
+   "inputs": {
+    "A1": 106,
+    "A2": 11,
+    "A3": 10
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14821/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14821/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14821/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14822": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 183
+   },
+   "inputs": {
+    "A1": 45,
+    "A2": 166,
+    "A3": 182
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14822/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14822/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14822/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14823": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 184
+   },
+   "inputs": {
+    "A": 183,
+    "B1": 5,
+    "B2": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14823/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14823/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14823/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14824": {
+   "type": "NAND3_X1",
+   "outputs": {
+    "ZN": 185
+   },
+   "inputs": {
+    "A1": 171,
+    "A2": 181,
+    "A3": 184
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14824/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14824/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14824/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14825": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 186
+   },
+   "inputs": {
+    "A1": 159,
+    "A2": 174
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14825/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14825/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14826": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 187
+   },
+   "inputs": {
+    "A": 165,
+    "B1": 182,
+    "B2": 45
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14826/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14826/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14826/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14827": {
+   "type": "OAI22_X1",
+   "outputs": {
+    "ZN": 188
+   },
+   "inputs": {
+    "A1": 91,
+    "A2": 4,
+    "B1": 130,
+    "B2": 132
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14827/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14827/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14827/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14827/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14828": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 189
+   },
+   "inputs": {
+    "A1": 5,
+    "A2": 188
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14828/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14828/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14829": {
+   "type": "AND4_X1",
+   "outputs": {
+    "ZN": 190
+   },
+   "inputs": {
+    "A1": 181,
+    "A2": 186,
+    "A3": 187,
+    "A4": 189
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14829/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14829/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14829/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14830": {
+   "type": "NAND3_X1",
+   "outputs": {
+    "ZN": 191
+   },
+   "inputs": {
+    "A1": 152,
+    "A2": 171,
+    "A3": 190
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14830/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14830/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14830/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14831": {
+   "type": "OAI221_X1",
+   "outputs": {
+    "ZN": 192
+   },
+   "inputs": {
+    "A": 187,
+    "B1": 174,
+    "B2": 160,
+    "C1": 120,
+    "C2": 134
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14831/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14831/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14831/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14831/ZN/p3",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14831/ZN/p4"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14832": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 193
+   },
+   "inputs": {
+    "A1": 168,
+    "A2": 169,
+    "A3": 192
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14832/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14832/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14832/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14833": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 194
+   },
+   "inputs": {
+    "A": 158,
+    "B1": 193,
+    "B2": 157
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14833/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14833/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14833/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14834": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 195
+   },
+   "inputs": {
+    "A1": 7,
+    "A2": 139
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14834/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14834/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14835": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 196
+   },
+   "inputs": {
+    "A1": 139,
+    "A2": 153
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14835/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14836": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 197
+   },
+   "inputs": {
+    "A": 34,
+    "B1": 128,
+    "B2": 7
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14836/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14836/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14836/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14837": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 198
+   },
+   "inputs": {
+    "A1": 95,
+    "A2": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14837/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14837/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14838": {
+   "type": "AOI221_X1",
+   "outputs": {
+    "ZN": 199
+   },
+   "inputs": {
+    "A": 198,
+    "B1": 133,
+    "B2": 131,
+    "C1": 4,
+    "C2": 17
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14838/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14838/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14838/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14838/ZN/p3",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14838/ZN/p4"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14839": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 200
+   },
+   "inputs": {
+    "A": 187,
+    "B1": 199,
+    "B2": 120
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14839/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14839/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14839/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14840": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 201
+   },
+   "inputs": {
+    "A1": 197,
+    "A2": 200
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14840/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14840/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14841": {
+   "type": "NAND3_X1",
+   "outputs": {
+    "ZN": 202
+   },
+   "inputs": {
+    "A1": 172,
+    "A2": 196,
+    "A3": 201
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14841/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14841/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14841/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14842": {
+   "type": "OAI211_X1",
+   "outputs": {
+    "ZN": 203
+   },
+   "inputs": {
+    "A": 4,
+    "B": 5,
+    "C1": 132,
+    "C2": 17
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14842/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14842/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14842/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14842/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14843": {
+   "type": "AND3_X1",
+   "outputs": {
+    "ZN": 204
+   },
+   "inputs": {
+    "A1": 152,
+    "A2": 186,
+    "A3": 203
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14843/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14843/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14844": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 205
+   },
+   "inputs": {
+    "A": 158,
+    "B1": 166,
+    "B2": 204
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14844/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14844/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14844/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14845": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 206
+   },
+   "inputs": {
+    "A": 166,
+    "B1": 23,
+    "B2": 173
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14845/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14845/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14845/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14846": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 207
+   },
+   "inputs": {
+    "A": 206
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14846/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14847": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 41
+   },
+   "inputs": {
+    "A1": 84,
+    "A2": 168
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14847/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14847/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14848": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 42
+   },
+   "inputs": {
+    "A": 41
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14848/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14849": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 52
+   },
+   "inputs": {
+    "A1": 109,
+    "A2": 139
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14849/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14849/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14850": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 51
+   },
+   "inputs": {
+    "A": 52
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14850/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14851": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 73
+   },
+   "inputs": {
+    "A1": 103,
+    "A2": 38
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14851/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14851/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14852": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 208
+   },
+   "inputs": {
+    "A1": 12,
+    "A2": 107,
+    "A3": 10
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14852/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14852/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14852/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14853": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 209
+   },
+   "inputs": {
+    "A1": 36,
+    "A2": 208
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14853/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14853/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14854": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 210
+   },
+   "inputs": {
+    "A1": 70,
+    "A2": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14854/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14854/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14855": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 74
+   },
+   "inputs": {
+    "A": 210,
+    "B1": 208,
+    "B2": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14855/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14855/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14855/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14856": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 211
+   },
+   "inputs": {
+    "A1": 12,
+    "A2": 11
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14856/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14856/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14857": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 212
+   },
+   "inputs": {
+    "A1": 10,
+    "A2": 211
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14857/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14858": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 213
+   },
+   "inputs": {
+    "A1": 10,
+    "A2": 211
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14858/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14858/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14859": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 214
+   },
+   "inputs": {
+    "A1": 36,
+    "A2": 212
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14859/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14859/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14860": {
+   "type": "MUX2_X1",
+   "outputs": {
+    "Z": 75
+   },
+   "inputs": {
+    "A": 213,
+    "B": 71,
+    "S": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14860/Z/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14861": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 76
+   },
+   "inputs": {
+    "A1": 72,
+    "A2": 38
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14861/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14862": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 215
+   },
+   "inputs": {
+    "A1": 118,
+    "A2": 89,
+    "A3": 117,
+    "A4": 135
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14862/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14862/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14862/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14862/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14863": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 216
+   },
+   "inputs": {
+    "A1": 197,
+    "A2": 215
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14863/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14864": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 217
+   },
+   "inputs": {
+    "A": 164,
+    "B": 216,
+    "C1": 174,
+    "C2": 159
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14864/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14864/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14864/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14864/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14865": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 83
+   },
+   "inputs": {
+    "A": 110,
+    "B1": 196,
+    "B2": 217
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14865/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14865/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14865/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14866": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 218
+   },
+   "inputs": {
+    "A1": 163,
+    "A2": 195,
+    "A3": 197,
+    "A4": 215
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14866/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14866/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14866/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14866/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14867": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 219
+   },
+   "inputs": {
+    "A": 98,
+    "B1": 152,
+    "B2": 218
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14867/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14867/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14867/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14868": {
+   "type": "AND3_X1",
+   "outputs": {
+    "ZN": 220
+   },
+   "inputs": {
+    "A1": 14,
+    "A2": 5,
+    "A3": 134
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14868/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14868/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14869": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 81
+   },
+   "inputs": {
+    "A1": 219,
+    "A2": 220
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14869/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14870": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 221
+   },
+   "inputs": {
+    "A1": 138,
+    "A2": 146
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14870/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14870/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14871": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 31
+   },
+   "inputs": {
+    "A": 80,
+    "B1": 129,
+    "B2": 221
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14871/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14871/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14871/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14872": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 222
+   },
+   "inputs": {
+    "A1": 32,
+    "A2": 169
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14872/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14873": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 26
+   },
+   "inputs": {
+    "A1": 220,
+    "A2": 222
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14873/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14873/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14874": {
+   "type": "INV_X1",
+   "outputs": {
+    "ZN": 24
+   },
+   "inputs": {
+    "A": 26
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14874/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14875": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 25
+   },
+   "inputs": {
+    "A1": 14,
+    "A2": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14875/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14875/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14876": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 27
+   },
+   "inputs": {
+    "A1": 38,
+    "A2": 222
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14876/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14876/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14877": {
+   "type": "OR2_X1",
+   "outputs": {
+    "ZN": 223
+   },
+   "inputs": {
+    "A1": 208,
+    "A2": 212
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14877/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14878": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 224
+   },
+   "inputs": {
+    "A": 223,
+    "B1": 182,
+    "B2": 9
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14878/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14878/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14878/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14879": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 225
+   },
+   "inputs": {
+    "A": 162,
+    "B1": 224,
+    "B2": 80
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14879/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14879/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14879/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14880": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 226
+   },
+   "inputs": {
+    "A": 223,
+    "B1": 182,
+    "B2": 109
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14880/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14880/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14880/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14881": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 227
+   },
+   "inputs": {
+    "A1": 98,
+    "A2": 165
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14881/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14881/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14882": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 228
+   },
+   "inputs": {
+    "A": 161,
+    "B1": 226,
+    "B2": 227
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14882/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14882/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14882/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14883": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 49
+   },
+   "inputs": {
+    "A1": 225,
+    "A2": 228
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14883/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14884": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 47
+   },
+   "inputs": {
+    "A1": 225,
+    "A2": 228
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14884/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14884/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14885": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 229
+   },
+   "inputs": {
+    "A1": 182,
+    "A2": 208
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14885/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14885/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14886": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 230
+   },
+   "inputs": {
+    "A": 9,
+    "B1": 182,
+    "B2": 208
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14886/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14886/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14886/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14887": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 29
+   },
+   "inputs": {
+    "A1": 80,
+    "A2": 161
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14887/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14887/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14888": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 231
+   },
+   "inputs": {
+    "A": 161,
+    "B1": 227,
+    "B2": 230
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14888/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14888/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14888/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14889": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 232
+   },
+   "inputs": {
+    "A1": 80,
+    "A2": 9,
+    "A3": 229
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14889/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14889/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14889/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14890": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 48
+   },
+   "inputs": {
+    "A": 231,
+    "B1": 232,
+    "B2": 161
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14890/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14890/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14890/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14891": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 233
+   },
+   "inputs": {
+    "A1": 109,
+    "A2": 161
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14891/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14891/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14892": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 234
+   },
+   "inputs": {
+    "A": 229,
+    "B1": 233,
+    "B2": 208
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14892/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14892/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14892/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14893": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 235
+   },
+   "inputs": {
+    "A": 213,
+    "B1": 230,
+    "B2": 165
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14893/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14893/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14893/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14894": {
+   "type": "OAI221_X1",
+   "outputs": {
+    "ZN": 50
+   },
+   "inputs": {
+    "A": 98,
+    "B1": 162,
+    "B2": 165,
+    "C1": 234,
+    "C2": 235
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14894/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14894/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14894/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14894/ZN/p3",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14894/ZN/p4"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14895": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 79
+   },
+   "inputs": {
+    "A": 21,
+    "B": 220,
+    "C1": 36,
+    "C2": 111
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14895/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14895/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14895/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14895/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14896": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 43
+   },
+   "inputs": {
+    "A1": 155,
+    "A2": 41
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14896/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14896/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14897": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 44
+   },
+   "inputs": {
+    "A": 139,
+    "B1": 166,
+    "B2": 182
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14897/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14897/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14897/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14898": {
+   "type": "OR3_X1",
+   "outputs": {
+    "ZN": 236
+   },
+   "inputs": {
+    "A1": 101,
+    "A2": 166,
+    "A3": 182
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14898/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14898/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14899": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 46
+   },
+   "inputs": {
+    "A1": 221,
+    "A2": 236
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14899/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14899/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14900": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 237
+   },
+   "inputs": {
+    "A1": 187,
+    "A2": 221
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14900/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14901": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 238
+   },
+   "inputs": {
+    "A1": 187,
+    "A2": 221
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14901/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14901/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14902": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 239
+   },
+   "inputs": {
+    "A1": 139,
+    "A2": 146
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14902/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14902/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14903": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 240
+   },
+   "inputs": {
+    "A1": 138,
+    "A2": 165
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14903/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14903/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14904": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 241
+   },
+   "inputs": {
+    "A1": 139,
+    "A2": 166
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14904/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14904/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14905": {
+   "type": "AOI211_X1",
+   "outputs": {
+    "ZN": 242
+   },
+   "inputs": {
+    "A": 183,
+    "B": 239,
+    "C1": 240,
+    "C2": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14905/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14905/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14905/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14905/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14906": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 243
+   },
+   "inputs": {
+    "A1": 61,
+    "A2": 238
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14906/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14906/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14907": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 65
+   },
+   "inputs": {
+    "A": 243,
+    "B1": 242,
+    "B2": 61
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14907/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14907/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14907/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14908": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 244
+   },
+   "inputs": {
+    "A1": 61,
+    "A2": 241
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14908/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14908/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14909": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 245
+   },
+   "inputs": {
+    "A": 112,
+    "B1": 242,
+    "B2": 244
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14909/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14909/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14909/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14910": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 246
+   },
+   "inputs": {
+    "A1": 61,
+    "A2": 62,
+    "A3": 237
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14910/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14910/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14910/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14911": {
+   "type": "OR3_X1",
+   "outputs": {
+    "ZN": 66
+   },
+   "inputs": {
+    "A1": 209,
+    "A2": 245,
+    "A3": 246
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14911/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14911/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14912": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 247
+   },
+   "inputs": {
+    "A": 241,
+    "B1": 62,
+    "B2": 61
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14912/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14912/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14912/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14913": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 248
+   },
+   "inputs": {
+    "A": 113,
+    "B1": 242,
+    "B2": 247
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14913/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14913/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14913/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14914": {
+   "type": "NOR4_X1",
+   "outputs": {
+    "ZN": 249
+   },
+   "inputs": {
+    "A1": 61,
+    "A2": 62,
+    "A3": 63,
+    "A4": 237
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14914/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14914/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14914/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14914/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14915": {
+   "type": "OR3_X1",
+   "outputs": {
+    "ZN": 67
+   },
+   "inputs": {
+    "A1": 214,
+    "A2": 248,
+    "A3": 249
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14915/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14915/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14916": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 250
+   },
+   "inputs": {
+    "A1": 114,
+    "A2": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14916/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14916/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14917": {
+   "type": "MUX2_X1",
+   "outputs": {
+    "Z": 68
+   },
+   "inputs": {
+    "A": 250,
+    "B": 114,
+    "S": 249
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14917/Z/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14918": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 251
+   },
+   "inputs": {
+    "A1": 102,
+    "A2": 238
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14918/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14918/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14919": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 57
+   },
+   "inputs": {
+    "A": 251,
+    "B1": 242,
+    "B2": 102
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14919/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14919/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14919/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14920": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 252
+   },
+   "inputs": {
+    "A": 54,
+    "B1": 238,
+    "B2": 53
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14920/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14920/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14920/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14921": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 253
+   },
+   "inputs": {
+    "A1": 53,
+    "A2": 54
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14921/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14921/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14922": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 254
+   },
+   "inputs": {
+    "A1": 241,
+    "A2": 253
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14922/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14922/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14923": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 58
+   },
+   "inputs": {
+    "A": 252,
+    "B1": 254,
+    "B2": 242
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14923/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14923/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14923/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14924": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 255
+   },
+   "inputs": {
+    "A": 104,
+    "B1": 237,
+    "B2": 253
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14924/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14924/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14924/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14925": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 256
+   },
+   "inputs": {
+    "A1": 104,
+    "A2": 253
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14925/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14925/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14926": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 257
+   },
+   "inputs": {
+    "A": 242,
+    "B1": 256,
+    "B2": 240
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14926/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14926/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14926/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14927": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 59
+   },
+   "inputs": {
+    "A1": 255,
+    "A2": 257
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14927/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14928": {
+   "type": "AND2_X1",
+   "outputs": {
+    "ZN": 258
+   },
+   "inputs": {
+    "A1": 238,
+    "A2": 256
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14928/ZN/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14929": {
+   "type": "MUX2_X1",
+   "outputs": {
+    "Z": 60
+   },
+   "inputs": {
+    "A": 257,
+    "B": 258,
+    "S": 105
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14929/Z/p0"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14930": {
+   "type": "AOI221_X1",
+   "outputs": {
+    "ZN": 259
+   },
+   "inputs": {
+    "A": 168,
+    "B1": 128,
+    "B2": 32,
+    "C1": 173,
+    "C2": 159
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14930/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14930/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14930/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14930/ZN/p3",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14930/ZN/p4"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14931": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 6
+   },
+   "inputs": {
+    "A1": 155,
+    "A2": 259
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14931/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14931/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14932": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 260
+   },
+   "inputs": {
+    "A1": 86,
+    "A2": 168
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14932/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14932/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14933": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 33
+   },
+   "inputs": {
+    "A1": 166,
+    "A2": 260
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14933/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14933/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14934": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 35
+   },
+   "inputs": {
+    "A1": 32,
+    "A2": 33
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14934/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14934/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14935": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 261
+   },
+   "inputs": {
+    "A1": 21,
+    "A2": 38,
+    "A3": 169
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14935/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14935/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14935/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14936": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 28
+   },
+   "inputs": {
+    "A": 261,
+    "B1": 237,
+    "B2": 80
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14936/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14936/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14936/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14937": {
+   "type": "NOR2_X1",
+   "outputs": {
+    "ZN": 262
+   },
+   "inputs": {
+    "A1": 14,
+    "A2": 109
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14937/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14937/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14938": {
+   "type": "OAI21_X1",
+   "outputs": {
+    "ZN": 37
+   },
+   "inputs": {
+    "A": 41,
+    "B1": 262,
+    "B2": 36
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14938/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14938/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14938/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14939": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 263
+   },
+   "inputs": {
+    "A1": 38,
+    "A2": 262
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14939/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14939/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14940": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 39
+   },
+   "inputs": {
+    "A1": 41,
+    "A2": 263
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14940/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14940/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14941": {
+   "type": "NAND4_X1",
+   "outputs": {
+    "ZN": 40
+   },
+   "inputs": {
+    "A1": 36,
+    "A2": 41,
+    "A3": 221,
+    "A4": 236
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14941/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14941/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14941/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14941/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14942": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 264
+   },
+   "inputs": {
+    "A": 115,
+    "B1": 16,
+    "B2": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14942/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14942/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14942/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14943": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 265
+   },
+   "inputs": {
+    "A": 264,
+    "B1": 17,
+    "B2": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14943/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14943/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14943/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14944": {
+   "type": "NAND2_X1",
+   "outputs": {
+    "ZN": 266
+   },
+   "inputs": {
+    "A1": 120,
+    "A2": 178
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14944/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14944/ZN/p1"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14945": {
+   "type": "OAI22_X1",
+   "outputs": {
+    "ZN": 87
+   },
+   "inputs": {
+    "A1": 120,
+    "A2": 265,
+    "B1": 266,
+    "B2": 115
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14945/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14945/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14945/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14945/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14946": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 267
+   },
+   "inputs": {
+    "A": 108,
+    "B1": 17,
+    "B2": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14946/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14946/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14946/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14947": {
+   "type": "AOI21_X1",
+   "outputs": {
+    "ZN": 268
+   },
+   "inputs": {
+    "A": 267,
+    "B1": 16,
+    "B2": 4
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14947/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14947/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14947/ZN/p2"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14948": {
+   "type": "OAI22_X1",
+   "outputs": {
+    "ZN": 85
+   },
+   "inputs": {
+    "A1": 108,
+    "A2": 266,
+    "B1": 268,
+    "B2": 120
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14948/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14948/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14948/ZN/p2",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14948/ZN/p3"
+   ]
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14949": {
+   "type": "NOR3_X1",
+   "outputs": {
+    "ZN": 22
+   },
+   "inputs": {
+    "A1": 173,
+    "A2": 110,
+    "A3": 160
+   },
+   "prims": [
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14949/ZN/p0",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14949/ZN/p1",
+    "$abc$14726$auto$blifparse.cc:381:parse_blif$14949/ZN/p2"
+   ]
+  },
+  "$auto$simplemap.cc:527:simplemap_adff_sdff$13280": {
+   "type": "DFFR_X1",
+   "outputs": {
+    "Q": 173,
+    "QN": 269
+   },
+   "inputs": {
+    "D": 207,
+    "RN": 3
+   },
+   "prims": [
+    "$auto$simplemap.cc:527:simplemap_adff_sdff$13280/ff",
+    "$auto$simplemap.cc:527:simplemap_adff_sdff$13280/qn"
+   ]
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056": {
+   "type": "DFFS_X1",
+   "outputs": {
+    "Q": 88,
+    "QN": 270
+   },
+   "inputs": {
+    "D": 180,
+    "SN": 3
+   },
+   "prims": [
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056/ff",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056/qn"
+   ]
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057": {
+   "type": "DFFR_X1",
+   "outputs": {
+    "Q": 118,
+    "QN": 271
+   },
+   "inputs": {
+    "D": 185,
+    "RN": 3
+   },
+   "prims": [
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057/ff",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057/qn"
+   ]
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058": {
+   "type": "DFFR_X1",
+   "outputs": {
+    "Q": 90,
+    "QN": 272
+   },
+   "inputs": {
+    "D": 191,
+    "RN": 3
+   },
+   "prims": [
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058/ff",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058/qn"
+   ]
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059": {
+   "type": "DFFS_X1",
+   "outputs": {
+    "Q": 92,
+    "QN": 273
+   },
+   "inputs": {
+    "D": 194,
+    "SN": 3
+   },
+   "prims": [
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059/ff",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059/qn"
+   ]
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060": {
+   "type": "DFFR_X1",
+   "outputs": {
+    "Q": 94,
+    "QN": 274
+   },
+   "inputs": {
+    "D": 202,
+    "RN": 3
+   },
+   "prims": [
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060/ff",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060/qn"
+   ]
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061": {
+   "type": "DFFR_X1",
+   "outputs": {
+    "Q": 96,
+    "QN": 275
+   },
+   "inputs": {
+    "D": 205,
+    "RN": 3
+   },
+   "prims": [
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061/ff",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061/qn"
+   ]
+  }
+ },
+ "resets": [
+  {
+   "net": 3,
+   "active": 0,
+   "cells": [
+    "$auto$simplemap.cc:527:simplemap_adff_sdff$13280",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060",
+    "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061"
+   ]
+  }
+ ],
+ "clocks": [
+  "2"
+ ],
+ "flops": {
+  "$auto$simplemap.cc:527:simplemap_adff_sdff$13280": {
+   "type": "DFFR_X1",
+   "q": 173,
+   "qn": 269,
+   "init": 0,
+   "d": 207,
+   "reset_pin": "RN",
+   "set_pin": null,
+   "scan": false
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14056": {
+   "type": "DFFS_X1",
+   "q": 88,
+   "qn": 270,
+   "init": 1,
+   "d": 180,
+   "reset_pin": null,
+   "set_pin": "SN",
+   "scan": false
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14057": {
+   "type": "DFFR_X1",
+   "q": 118,
+   "qn": 271,
+   "init": 0,
+   "d": 185,
+   "reset_pin": "RN",
+   "set_pin": null,
+   "scan": false
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14058": {
+   "type": "DFFR_X1",
+   "q": 90,
+   "qn": 272,
+   "init": 0,
+   "d": 191,
+   "reset_pin": "RN",
+   "set_pin": null,
+   "scan": false
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14059": {
+   "type": "DFFS_X1",
+   "q": 92,
+   "qn": 273,
+   "init": 1,
+   "d": 194,
+   "reset_pin": null,
+   "set_pin": "SN",
+   "scan": false
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14060": {
+   "type": "DFFR_X1",
+   "q": 94,
+   "qn": 274,
+   "init": 0,
+   "d": 202,
+   "reset_pin": "RN",
+   "set_pin": null,
+   "scan": false
+  },
+  "$flatten\\u_state_regs.u_state_flop.$auto$simplemap.cc:527:simplemap_adff_sdff$14061": {
+   "type": "DFFR_X1",
+   "q": 96,
+   "qn": 275,
+   "init": 0,
+   "d": 205,
+   "reset_pin": "RN",
+   "set_pin": null,
+   "scan": false
+  }
+ },
+ "reset_mode": "deasserted",
+ "unsupported": [],
+ "tristate": [],
+ "prim_count": 544,
+ "cell_count": 230
+}

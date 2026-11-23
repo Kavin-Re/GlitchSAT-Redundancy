@@ -61,3 +61,20 @@ It must be excluded from any public or submitted bundle until the author decides
 | k-FRP (CEA-LIST/Fault-Resistant-Partitioning @75929f60) | Apache-2.0 (established by RUN2) | built and run locally; derived files (config, run script) in `third_party_derived/uarchifi_kfrp_fiver/` (local only, never in a bundle) |
 | FIVER (Chair-for-Security-Engineering/FIVER @176a1db7) | custom NON-COMMERCIAL licence (established by RUN2): do not redistribute | not built, not run; nothing derived from it |
 `third_party_derived/` stays local and is never part of a bundle (`scripts/make_bundle.sh`); whether to keep, remove or publish it is the author's decision.
+
+## Third-party sources inside `tools/` (added with the GlitchSAT modules)
+Copied files keep their upstream licence; the licence file sits next to them. Everything else listed here is
+fetched by a script at a pinned commit and is not stored in the repository.
+| Path | Origin (pinned) | Licence | Copied or fetched |
+|---|---|---|---|
+| `tools/real/synfi/` | lowRISC/synfi `2d08c4c84b04a4ed9998e1f09033691ca88f447e` (the SYNFI tool, its Nangate45 example netlists and fault specifications) | Apache-2.0 (`tools/real/synfi/LICENSE`, contributor terms in `CLA`) | copied, unmodified |
+| `tools/real/ot_097521/hw/ip/aes/rtl/` | lowRISC/opentitan `097521294cd43a3e059bed8c0cd2a710b4f7f73e` (AES cipher control state-machine sources) | Apache-2.0 (`tools/real/ot_097521/LICENSE`, the OpenTitan licence file) | copied, unmodified |
+| `tools/real/opentitan_prims/src/` | lowRISC/opentitan tag Earlgrey-PROD-M6, `a78922f14a8cc20c7ee569f322a04626f2ac6127` (hardening primitives; sha256 in `tools/real/opentitan_prims/SOURCES.sha256`) | Apache-2.0 (`OPENTITAN_LICENSE` in that folder) | copied, unmodified |
+| `tools/byod/examples/opentitan_count/ot/` | the same OpenTitan commit (`fetch_ot.sh`) | Apache-2.0 | fetched (ignored by git) |
+| PicoSoC (`picosoc.v`, `picorv32.v`, `spimemio.v`, `simpleuart.v`) for `tools/soc/chips/picosoc/` | YosysHQ/picorv32 `ef203c2b0a3fb793280f5114941416c425c5b461` (`fetch.sh`) | ISC | fetched; `rtl/picosoc_chip.v` and `rtl/bootcheck.v` are this project's wrapper code |
+| Ibex demo system for `tools/soc/chips/ibex_demo/` | lowRISC/ibex-demo-system `d37beb753e19482eb054aefac73a27289bf72e47` (`fetch.sh`) | Apache-2.0 | fetched; `rtl/prim_shims.sv` is this project's code |
+| Nangate45 and SkyWater sky130_fd_sc_hd Liberty files for `glitchsat liberty` | The-OpenROAD-Project/OpenROAD-flow-scripts, google/skywater-pdk-libs-sky130_fd_sc_hd (`tools/byod/scripts/fetch_libs.sh`) | Apache-2.0 | fetched into the user cache; the sky130 example netlists name the cells only |
+| Public datasets of related work | listed with pins and licences in `tools/datasets/DATASETS.md` (`fetch_datasets.sh`) | per dataset | fetched; `published_results.json` holds transcribed numbers with citations |
+| A real open-source bootloader (study in `tools/bootloader/`) | not included: the public module holds only its result summary; nothing of it is copied | not applicable (nothing copied) | neither |
+| Python packages | z3-solver (MIT), PyYAML (MIT); optional: pytest (MIT), jsonschema (MIT), Playwright (Apache-2.0, browser suites only) | as listed | installed by pip |
+| SAT solvers (optional) | CaDiCaL (MIT), Kissat (MIT) | as listed | installed separately; found on PATH |

@@ -1,0 +1,66 @@
+{
+ "tool": "SYNFI (lowRISC/synfi @ pinned commit, run unmodified with shims/)",
+ "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+ "module": "aes_cipher_control",
+ "spec": "runs/targeted/E3_3_spec.json",
+ "simultaneous_faults": 2,
+ "auto_fl": false,
+ "limit": null,
+ "parse_s": 0.0,
+ "inject_s": 32.14,
+ "solver": "minicdcl (via shims/pysat)",
+ "synfi_log_summary": [
+  "Injecting 6 faults...",
+  "Found 2 (33.33%) effective combinational faults, 0 (0.0%) effective sequential faults, and 4 ineffective faults.",
+  "Circuit size of the whole circuit: 1.15 kGE and of the analyzed target graph: 556.33 GE."
+ ],
+ "injections": 3,
+ "sat": 1,
+ "results": [
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    },
+    {
+     "location": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    },
+    {
+     "location": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    },
+    {
+     "location": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,5591 @@
+{
+ "tool": "SYNFI (lowRISC/synfi @ pinned commit, run unmodified with shims/)",
+ "netlist": "synfi/examples/ibex/netlist_ibex_if_stage.json",
+ "module": "ibex_if_stage",
+ "spec": "synfi/examples/ibex/fault_model_ibex_if_stage_pc.json",
+ "simultaneous_faults": 1,
+ "auto_fl": true,
+ "limit": null,
+ "parse_s": 0.07,
+ "inject_s": 269.89,
+ "solver": "minicdcl (via shims/pysat)",
+ "synfi_log_summary": [
+  "Injecting 557 faults...",
+  "Found 308 (55.3%) effective combinational faults, 127 (22.8%) effective sequential faults, and 122 ineffective faults.",
+  "Circuit size of the whole circuit: 2.11 kGE and of the analyzed target graph: 488.0 GE."
+ ],
+ "injections": 557,
+ "sat": 435,
+ "results": [
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9079_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9011_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9011_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "branch_target_ex_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8989_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8487_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8530_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9084_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9021_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9021_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8568_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9034_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8946_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8394_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9068_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9068_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9068_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9029_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8559_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8604_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8990_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8990_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8990_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8610_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8981_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8981_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8981_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9083_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8978_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9051_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9008_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9010_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8580_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8931_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9065_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9085_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9085_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9085_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8319_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8942_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8942_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9017_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8952_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8952_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8952_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9016_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8995_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8995_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8984_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8518_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8964_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8348_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9005_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9005_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8427_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8460_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8543_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9090_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8971_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8458_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8496_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8569_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8521_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8967_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8962_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9039_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9069_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9022_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9040_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9040_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9040_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8979_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8979_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8417_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8570_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8366_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8349_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9054_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8552_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8316_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8983_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9046_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8941_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9006_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8985_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9056_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9060_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8998_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8558_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8490_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8466_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9082_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8594_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "pc_if_o_stage_1",
+     "stage": "stage_1",
+     "mapping": "output_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8482_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8596_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8968_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9059_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8997_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9019_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8450_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8451_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9031_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8457_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9066_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8480_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8577_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8429_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8375_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9012_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9012_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8403_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI221_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9036_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9076_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9042_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8489_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8972_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8358_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8980_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8980_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9025_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9033_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8550_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8587_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8614_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8416_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI221_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8991_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8926_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9015_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9015_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9015_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8481_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9087_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9061_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8584_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9073_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8963_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9049_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8404_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8470_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8601_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8560_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9070_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8957_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8965_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9086_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9018_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8973_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8973_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8973_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8511_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9043_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8953_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8996_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8996_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8996_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9041_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8542_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8479_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8588_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9037_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9045_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9045_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8341_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9004_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9003_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9038_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9088_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8945_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9002_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8959_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9080_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8469_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8340_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8986_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8372_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9077_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9077_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9077_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8360_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8376_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8384_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8498_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8320_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9058_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9067_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9030_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9047_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9074_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9074_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9081_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8947_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9052_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8605_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9091_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9027_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9027_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9027_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8927_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8541_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8579_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9013_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8452_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8982_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9035_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8367_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8987_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9075_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8385_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9063_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9014_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8970_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8595_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8578_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8393_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9053_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8381_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9064_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9064_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9064_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9072_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND3_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8976_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8956_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8438_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI221_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8935_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9001_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8499_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9032_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8975_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9055_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9024_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8999_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8359_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8613_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9044_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8531_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8368_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9089_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9089_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9089_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9050_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9050_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9050_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8925_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8428_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9000_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9000_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9000_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8392_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9023_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9023_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9028_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8954_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8993_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9057_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9062_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9078_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8439_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8512_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8520_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND4_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8549_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI222_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8529_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8974_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI211_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8449_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI22_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8507_stage_1",
+     "stage": "stage_1",
+     "mapping": "AND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8943_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$908_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$908_$abc$8281$auto$blifparse.cc:381:parse_blif$9079_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$908_$abc$8281$auto$blifparse.cc:381:parse_blif$9077_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$908_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$908_$abc$8281$auto$blifparse.cc:381:parse_blif$9079_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$908_$abc$8281$auto$blifparse.cc:381:parse_blif$9077_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "clk_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9009_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8988_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8448_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8526_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8527_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8528_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9084_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9082_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9081_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9084_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9082_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9081_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9084_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9082_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$909_$abc$8281$auto$blifparse.cc:381:parse_blif$9081_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9020_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8506_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8540_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "csr_depc_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8934_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9034_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9031_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9032_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9034_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9031_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9032_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9034_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9031_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$898_$abc$8281$auto$blifparse.cc:381:parse_blif$9032_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8944_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8282_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$906_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$906_$abc$8281$auto$blifparse.cc:381:parse_blif$9068_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$906_$abc$8281$auto$blifparse.cc:381:parse_blif$9070_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$906_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$906_$abc$8281$auto$blifparse.cc:381:parse_blif$9068_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$906_$abc$8281$auto$blifparse.cc:381:parse_blif$9070_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8938_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9026_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8556_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8557_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8600_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8602_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8603_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$890_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$890_$abc$8281$auto$blifparse.cc:381:parse_blif$8990_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8537_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "csr_mepc_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8960_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8948_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9007_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8322_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8575_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8297_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8930_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$910_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$910_$abc$8281$auto$blifparse.cc:381:parse_blif$9085_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$910_$abc$8281$auto$blifparse.cc:381:parse_blif$9087_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$910_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$910_$abc$8281$auto$blifparse.cc:381:parse_blif$9085_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$910_$abc$8281$auto$blifparse.cc:381:parse_blif$9087_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8317_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8318_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$895_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$895_$abc$8281$auto$blifparse.cc:381:parse_blif$9017_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$895_$abc$8281$auto$blifparse.cc:381:parse_blif$9015_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$895_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$895_$abc$8281$auto$blifparse.cc:381:parse_blif$9017_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$895_$abc$8281$auto$blifparse.cc:381:parse_blif$9015_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8951_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8977_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8992_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8389_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$885_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$885_$abc$8281$auto$blifparse.cc:381:parse_blif$8964_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8338_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8339_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8287_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8355_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8357_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8411_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8459_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "nt_branch_addr_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8503_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8937_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8966_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8455_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8456_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8565_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8566_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8567_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8932_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8961_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9039_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9036_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9035_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9039_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9036_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9035_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9039_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9036_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$899_$abc$8281$auto$blifparse.cc:381:parse_blif$9035_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$896_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$896_$abc$8281$auto$blifparse.cc:381:parse_blif$9022_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$900_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$900_$abc$8281$auto$blifparse.cc:381:parse_blif$9040_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$900_$abc$8281$auto$blifparse.cc:381:parse_blif$9042_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$900_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$900_$abc$8281$auto$blifparse.cc:381:parse_blif$9040_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$900_$abc$8281$auto$blifparse.cc:381:parse_blif$9042_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8412_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8551_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8356_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8345_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8347_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9054_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9055_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9057_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9054_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9055_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9057_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9054_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9055_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$903_$abc$8281$auto$blifparse.cc:381:parse_blif$9057_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8309_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8315_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "pc_mux_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$901_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$901_$abc$8281$auto$blifparse.cc:381:parse_blif$9046_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$901_$abc$8281$auto$blifparse.cc:381:parse_blif$9044_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$901_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$901_$abc$8281$auto$blifparse.cc:381:parse_blif$9046_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$901_$abc$8281$auto$blifparse.cc:381:parse_blif$9044_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8325_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8940_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$889_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$889_$abc$8281$auto$blifparse.cc:381:parse_blif$8985_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8994_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8447_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8504_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "boot_addr_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8475_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9059_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9061_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9058_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9059_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9061_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9058_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9059_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9061_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$904_$abc$8281$auto$blifparse.cc:381:parse_blif$9058_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8443_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8445_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8446_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8444_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9066_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9063_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9062_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9066_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9063_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9062_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9066_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9063_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$905_$abc$8281$auto$blifparse.cc:381:parse_blif$9062_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8476_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8478_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8324_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8374_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8373_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8402_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9071_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8485_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8486_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8488_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$887_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$887_$abc$8281$auto$blifparse.cc:381:parse_blif$8972_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$887_$abc$8281$auto$blifparse.cc:381:parse_blif$8973_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$887_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$887_$abc$8281$auto$blifparse.cc:381:parse_blif$8972_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$887_$abc$8281$auto$blifparse.cc:381:parse_blif$8973_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8547_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8548_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8583_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8585_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8586_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8415_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8924_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$907_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$907_$abc$8281$auto$blifparse.cc:381:parse_blif$9073_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$907_$abc$8281$auto$blifparse.cc:381:parse_blif$9072_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$907_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$907_$abc$8281$auto$blifparse.cc:381:parse_blif$9073_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$907_$abc$8281$auto$blifparse.cc:381:parse_blif$9072_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8955_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$9048_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8398_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8950_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8464_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8505_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8509_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8510_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$891_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$891_$abc$8281$auto$blifparse.cc:381:parse_blif$8996_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8536_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8538_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8539_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8332_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8337_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$893_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$893_$abc$8281$auto$blifparse.cc:381:parse_blif$9004_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$893_$abc$8281$auto$blifparse.cc:381:parse_blif$9003_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$893_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$893_$abc$8281$auto$blifparse.cc:381:parse_blif$9004_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$893_$abc$8281$auto$blifparse.cc:381:parse_blif$9003_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8928_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$892_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$892_$abc$8281$auto$blifparse.cc:381:parse_blif$9002_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$892_$abc$8281$auto$blifparse.cc:381:parse_blif$9000_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$892_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$892_$abc$8281$auto$blifparse.cc:381:parse_blif$9002_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$892_$abc$8281$auto$blifparse.cc:381:parse_blif$9000_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8958_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8465_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8467_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8468_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8383_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8494_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8495_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8497_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8314_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8939_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$902_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$902_$abc$8281$auto$blifparse.cc:381:parse_blif$9052_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$902_$abc$8281$auto$blifparse.cc:381:parse_blif$9050_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$902_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$902_$abc$8281$auto$blifparse.cc:381:parse_blif$9052_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$902_$abc$8281$auto$blifparse.cc:381:parse_blif$9050_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$911_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$911_$abc$8281$auto$blifparse.cc:381:parse_blif$9091_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$911_$abc$8281$auto$blifparse.cc:381:parse_blif$9089_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$911_stage_1",
+     "stage": "stage_1",
+     "mapping": "prim_flop_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$911_$abc$8281$auto$blifparse.cc:381:parse_blif$9091_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$auto$simplemap.cc:442:simplemap_dffe$911_$abc$8281$auto$blifparse.cc:381:parse_blif$9089_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8365_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8969_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8592_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8593_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8576_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8390_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8391_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8380_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8437_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8665_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8354_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8609_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8611_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8612_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8364_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8423_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8424_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8426_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8949_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8434_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8516_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8517_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8519_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  }
+ ]
+}

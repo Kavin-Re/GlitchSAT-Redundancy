@@ -1,0 +1,12 @@
+# aes_cipher_control (three rails): the rails' state registers must stay separate registers. (Their
+# encodings are checked on the single-rail fsmfree_* views in fsm.yaml: this wrapper keeps the cipher
+# idle, so a fault-free simulation here only ever sees IDLE.)
+name: aes_cipher_control
+top: ot_ciph_w
+intent:
+  rtl: [../src/aes_cipher_control.sv]
+  reference: none
+  countermeasures:
+    - {kind: redundant_register, id: three_rails, registers: ["u_dut.gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs", "u_dut.gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs", "u_dut.gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs"]}
+stages:
+  - {name: plain, netlist: ../work/ciph_out_valid/net_named.json}

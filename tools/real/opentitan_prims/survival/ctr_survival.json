@@ -1,0 +1,401 @@
+{
+ "schema": "glitchsat-survival/1",
+ "tool": {
+  "name": "glitchsat check-survival",
+  "version": "0.1.0",
+  "yosys": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)"
+ },
+ "name": "aes_ctr",
+ "top": "ot_ctr_w",
+ "goal": null,
+ "stages": [
+  {
+   "name": "plain",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/ctr_3rail/net_named.json",
+     "sha256": "edff3b0e88dfc418e00e8152fdeea2c646f1d31c2e0ec1d226dc38f044087f04"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 764,
+    "flops": 28,
+    "cells": 792,
+    "inputs": 1
+   },
+   "reference": true
+  }
+ ],
+ "countermeasures": [
+  {
+   "id": "sparse_encoding:rail0_state",
+   "kind": "sparse_encoding",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "register": "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+    "width": 5,
+    "codes": [
+     1,
+     14,
+     24
+    ],
+    "min_distance": 3,
+    "aliases": []
+   },
+   "track": {
+    "flop_names": [
+     "$flatten\\u_dut.\\gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4506$auto$async2sync.cc:171:execute$364",
+     "$flatten\\u_dut.\\gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4593$auto$async2sync.cc:171:execute$368",
+     "$flatten\\u_dut.\\gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4680$auto$async2sync.cc:171:execute$372",
+     "rst_q",
+     "u_dut._000_[0]",
+     "u_dut._000_[1]",
+     "u_dut._000_[2]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[0]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[1]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[2]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[0]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[1]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[2]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]"
+    ]
+   },
+   "title": "register u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs with 3 codes, distance 3",
+   "stages": [
+    {
+     "cm": "sparse_encoding:rail0_state",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 5,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x1",
+       "0xe",
+       "0x18"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+        "width": 5,
+        "found_by": "name",
+        "codes": [
+         "0xe",
+         "0x18"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 5,
+      "register": "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+      "distance": 3,
+      "codes": [
+       "0xe",
+       "0x18"
+      ]
+     },
+     "evidence": [
+      "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs: fault-free sampled (random simulation from power-up) codes 0xe, 0x18; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "sparse_encoding:rail1_state",
+   "kind": "sparse_encoding",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "register": "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+    "width": 5,
+    "codes": [
+     1,
+     14,
+     24
+    ],
+    "min_distance": 3,
+    "aliases": []
+   },
+   "track": {
+    "flop_names": [
+     "$flatten\\u_dut.\\gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4506$auto$async2sync.cc:171:execute$364",
+     "$flatten\\u_dut.\\gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4593$auto$async2sync.cc:171:execute$368",
+     "$flatten\\u_dut.\\gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4680$auto$async2sync.cc:171:execute$372",
+     "rst_q",
+     "u_dut._000_[0]",
+     "u_dut._000_[1]",
+     "u_dut._000_[2]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[0]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[1]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[2]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[0]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[1]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[2]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]"
+    ]
+   },
+   "title": "register u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs with 3 codes, distance 3",
+   "stages": [
+    {
+     "cm": "sparse_encoding:rail1_state",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 5,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x1",
+       "0xe",
+       "0x18"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+        "width": 5,
+        "found_by": "name",
+        "codes": [
+         "0xe",
+         "0x18"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 5,
+      "register": "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+      "distance": 3,
+      "codes": [
+       "0xe",
+       "0x18"
+      ]
+     },
+     "evidence": [
+      "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs: fault-free sampled (random simulation from power-up) codes 0xe, 0x18; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "sparse_encoding:rail2_state",
+   "kind": "sparse_encoding",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "register": "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+    "width": 5,
+    "codes": [
+     1,
+     14,
+     24
+    ],
+    "min_distance": 3,
+    "aliases": []
+   },
+   "track": {
+    "flop_names": [
+     "$flatten\\u_dut.\\gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4506$auto$async2sync.cc:171:execute$364",
+     "$flatten\\u_dut.\\gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4593$auto$async2sync.cc:171:execute$368",
+     "$flatten\\u_dut.\\gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.\\u_aes_ctr_fsm.$abc$4680$auto$async2sync.cc:171:execute$372",
+     "rst_q",
+     "u_dut._000_[0]",
+     "u_dut._000_[1]",
+     "u_dut._000_[2]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[0]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[1]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.ctr_slice_idx[2]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[0]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[1]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.ctr_slice_idx[2]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[0]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[1]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[2]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[3]",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs[4]"
+    ]
+   },
+   "title": "register u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs with 3 codes, distance 3",
+   "stages": [
+    {
+     "cm": "sparse_encoding:rail2_state",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 5,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x1",
+       "0xe",
+       "0x18"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+        "width": 5,
+        "found_by": "name",
+        "codes": [
+         "0xe",
+         "0x18"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 5,
+      "register": "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+      "distance": 3,
+      "codes": [
+       "0xe",
+       "0x18"
+      ]
+     },
+     "evidence": [
+      "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs: fault-free sampled (random simulation from power-up) codes 0xe, 0x18; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "redundant_register:three_rails",
+   "kind": "redundant_register",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "registers": [
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs"
+    ]
+   },
+   "track": {},
+   "title": "registers u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs / u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs / u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs",
+   "stages": [
+    {
+     "cm": "redundant_register:three_rails",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "flops": {
+       "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs": 5,
+       "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs": 5,
+       "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs": 5
+      },
+      "intended_width": null
+     },
+     "evidence": [
+      "all registers present as separate flops (u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs: 5, u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs: 5, u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs: 5)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "alarm:aes_ctr.alert_o",
+   "kind": "alarm",
+   "origin": "rtl-scan",
+   "where": "opentitan_prims/src/aes_ctr.sv:17",
+   "intent": {
+    "signal": "alert_o",
+    "module": "aes_ctr",
+    "width": 1
+   },
+   "track": {},
+   "title": "alarm alert_o",
+   "stages": [
+    {
+     "cm": "alarm:aes_ctr.alert_o",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 7,
+      "live_bits": 7
+     },
+     "evidence": [
+      "alert_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  }
+ ],
+ "notes": [],
+ "summary": {
+  "counts": {
+   "SURVIVED": 5,
+   "WEAKENED": 0,
+   "REMOVED": 0,
+   "UNTRACKED": 0,
+   "NOT_CHECKED": 0
+  },
+  "margin_below_target": [],
+  "margin_drop": null,
+  "incomplete": 0,
+  "verdict": "PASS",
+  "exit_code": 0
+ }
+}

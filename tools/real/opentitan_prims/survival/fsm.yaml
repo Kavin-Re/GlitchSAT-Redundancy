@@ -1,0 +1,18 @@
+# Survival check of the sparse state encoding of OpenTitan aes_cipher_control_fsm through four open
+# Yosys flows (scripts/build.py FLOWS). Netlists: the fsmfree_* views (every FSM input free, so the
+# checker's fault-free simulation can reach all states), with register names put back on the flop
+# Q nets by scripts/name_flops.py (names only). Margins are computed separately (results JSON).
+name: aes-cipher-control-fsm-flows
+top: ot_ciph_fsm_free_w
+intent:
+  rtl: [../src/aes_cipher_control_fsm.sv]
+  reference: none
+  countermeasures:
+    # codes of aes_cipher_ctrl_e (aes_pkg.sv at the pinned commit):
+    # IDLE 0x09, INIT 0x23, ROUND 0x3D, FINISH 0x10, PRNG_RESEED 0x24, CLEAR_S 0x3A, CLEAR_KD 0x0E, ERROR 0x17
+    - {kind: sparse_encoding, id: cipher_ctrl_state, register: u_dut.aes_cipher_ctrl_cs, width: 6, codes: [0x09, 0x23, 0x3D, 0x10, 0x24, 0x3A, 0x0E, 0x17]}
+stages:
+  - {name: plain, netlist: ../work/fsmfree_plain/net_named.json}
+  - {name: opt_fsm, netlist: ../work/fsmfree_opt_fsm/net_named.json}
+  - {name: opt_nofsm, netlist: ../work/fsmfree_opt_nofsm/net_named.json}
+  - {name: opt_fsm_keep, netlist: ../work/fsmfree_opt_fsm_keep/net_named.json}

@@ -1,0 +1,10 @@
+# prim_count (Width 4): primary up counter and secondary down counter must stay separate registers.
+name: prim_count
+top: ot_count_reg_w
+intent:
+  rtl: [../src/prim_count.sv]
+  reference: none
+  countermeasures:
+    - {kind: redundant_register, id: cross_counter, registers: ["u_dut.gen_cnts[0].cnt_unforced_q", "u_dut.gen_cnts[1].cnt_unforced_q"]}
+stages:
+  - {name: plain, netlist: ../work/count_regs/net_named.json}

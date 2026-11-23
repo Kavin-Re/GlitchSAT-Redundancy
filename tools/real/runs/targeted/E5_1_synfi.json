@@ -1,0 +1,36 @@
+{
+ "tool": "SYNFI (lowRISC/synfi @ pinned commit, run unmodified with shims/)",
+ "netlist": "synfi/examples/ibex/netlist_ibex_if_stage.json",
+ "module": "ibex_if_stage",
+ "spec": "runs/targeted/E5_1_spec.json",
+ "simultaneous_faults": 2,
+ "auto_fl": false,
+ "limit": null,
+ "parse_s": 0.0,
+ "inject_s": 130.26,
+ "solver": "minicdcl (via shims/pysat)",
+ "synfi_log_summary": [
+  "Injecting 2 faults...",
+  "Found 2 (100.0%) effective combinational faults, 0 (0.0%) effective sequential faults, and 0 ineffective faults.",
+  "Circuit size of the whole circuit: 2.11 kGE and of the analyzed target graph: 488.0 GE."
+ ],
+ "injections": 1,
+ "sat": 1,
+ "results": [
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "nt_branch_addr_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    },
+    {
+     "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8992_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  }
+ ]
+}

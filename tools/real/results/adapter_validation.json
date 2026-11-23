@@ -1,0 +1,1256 @@
+{
+ "cell_check": {
+  "cell_pins": 98,
+  "rows": 1326,
+  "mismatches": 0,
+  "cells": {
+   "AND2_X1.ZN": {
+    "expr": "(A1 & A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "AND(A1, A2)",
+    "n_prims": 1
+   },
+   "AND2_X2.ZN": {
+    "expr": "(A1 & A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "AND(A1, A2)",
+    "n_prims": 1
+   },
+   "AND2_X4.ZN": {
+    "expr": "(A1 & A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "AND(A1, A2)",
+    "n_prims": 1
+   },
+   "AND3_X1.ZN": {
+    "expr": "((A1 & A2) & A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "AND(AND(A1, A2), A3)",
+    "n_prims": 2
+   },
+   "AND3_X2.ZN": {
+    "expr": "((A1 & A2) & A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "AND(AND(A1, A2), A3)",
+    "n_prims": 2
+   },
+   "AND3_X4.ZN": {
+    "expr": "((A1 & A2) & A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "AND(AND(A1, A2), A3)",
+    "n_prims": 2
+   },
+   "AND4_X1.ZN": {
+    "expr": "(((A1 & A2) & A3) & A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "AND(AND(AND(A1, A2), A3), A4)",
+    "n_prims": 3
+   },
+   "AND4_X2.ZN": {
+    "expr": "(((A1 & A2) & A3) & A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "AND(AND(AND(A1, A2), A3), A4)",
+    "n_prims": 3
+   },
+   "AND4_X4.ZN": {
+    "expr": "(((A1 & A2) & A3) & A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "AND(AND(AND(A1, A2), A3), A4)",
+    "n_prims": 3
+   },
+   "AOI211_X1.ZN": {
+    "expr": "!(((C1 & C2) | B) | A)",
+    "inputs": [
+     "A",
+     "B",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(OR(AND(C1, C2), B), A))",
+    "n_prims": 4
+   },
+   "AOI211_X2.ZN": {
+    "expr": "!(((C1 & C2) | B) | A)",
+    "inputs": [
+     "A",
+     "B",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(OR(AND(C1, C2), B), A))",
+    "n_prims": 4
+   },
+   "AOI211_X4.ZN": {
+    "expr": "!(!(!(((C1 & C2) | B) | A)))",
+    "inputs": [
+     "A",
+     "B",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(OR(AND(C1, C2), B), A))",
+    "n_prims": 4
+   },
+   "AOI21_X1.ZN": {
+    "expr": "!(A | (B1 & B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(OR(A, AND(B1, B2)))",
+    "n_prims": 3
+   },
+   "AOI21_X2.ZN": {
+    "expr": "!(A | (B1 & B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(OR(A, AND(B1, B2)))",
+    "n_prims": 3
+   },
+   "AOI21_X4.ZN": {
+    "expr": "!(A | (B1 & B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(OR(A, AND(B1, B2)))",
+    "n_prims": 3
+   },
+   "AOI221_X1.ZN": {
+    "expr": "!(((C1 & C2) | A) | (B1 & B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 32,
+    "prims": "NOT(OR(OR(AND(C1, C2), A), AND(B1, B2)))",
+    "n_prims": 5
+   },
+   "AOI221_X2.ZN": {
+    "expr": "!(((C1 & C2) | A) | (B1 & B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 32,
+    "prims": "NOT(OR(OR(AND(C1, C2), A), AND(B1, B2)))",
+    "n_prims": 5
+   },
+   "AOI221_X4.ZN": {
+    "expr": "!(!(!(((C1 & C2) | A) | (B1 & B2))))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 32,
+    "prims": "NOT(OR(OR(AND(C1, C2), A), AND(B1, B2)))",
+    "n_prims": 5
+   },
+   "AOI222_X1.ZN": {
+    "expr": "!(((A1 & A2) | (B1 & B2)) | (C1 & C2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(OR(OR(AND(A1, A2), AND(B1, B2)), AND(C1, C2)))",
+    "n_prims": 6
+   },
+   "AOI222_X2.ZN": {
+    "expr": "!(((A1 & A2) | (B1 & B2)) | (C1 & C2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(OR(OR(AND(A1, A2), AND(B1, B2)), AND(C1, C2)))",
+    "n_prims": 6
+   },
+   "AOI222_X4.ZN": {
+    "expr": "!(!(!(((A1 & A2) | (B1 & B2)) | (C1 & C2))))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(OR(OR(AND(A1, A2), AND(B1, B2)), AND(C1, C2)))",
+    "n_prims": 6
+   },
+   "AOI22_X1.ZN": {
+    "expr": "!((A1 & A2) | (B1 & B2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(AND(A1, A2), AND(B1, B2)))",
+    "n_prims": 4
+   },
+   "AOI22_X2.ZN": {
+    "expr": "!((A1 & A2) | (B1 & B2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(AND(A1, A2), AND(B1, B2)))",
+    "n_prims": 4
+   },
+   "AOI22_X4.ZN": {
+    "expr": "!((A1 & A2) | (B1 & B2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(AND(A1, A2), AND(B1, B2)))",
+    "n_prims": 4
+   },
+   "BUF_X1.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "BUF_X16.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "BUF_X2.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "BUF_X32.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "BUF_X4.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "BUF_X8.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "CLKBUF_X1.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "CLKBUF_X2.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "CLKBUF_X3.Z": {
+    "expr": "A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "FA_X1.CO": {
+    "expr": "((A & B) | (CI & (A | B)))",
+    "inputs": [
+     "A",
+     "B",
+     "CI"
+    ],
+    "rows_checked": 8,
+    "prims": "OR(AND(A, B), AND(CI, OR(A, B)))",
+    "n_prims": 4
+   },
+   "FA_X1.S": {
+    "expr": "(CI ^ (A ^ B))",
+    "inputs": [
+     "A",
+     "B",
+     "CI"
+    ],
+    "rows_checked": 8,
+    "prims": "XOR(CI, XOR(A, B))",
+    "n_prims": 2
+   },
+   "HA_X1.CO": {
+    "expr": "(A & B)",
+    "inputs": [
+     "A",
+     "B"
+    ],
+    "rows_checked": 4,
+    "prims": "AND(A, B)",
+    "n_prims": 1
+   },
+   "HA_X1.S": {
+    "expr": "(A ^ B)",
+    "inputs": [
+     "A",
+     "B"
+    ],
+    "rows_checked": 4,
+    "prims": "XOR(A, B)",
+    "n_prims": 1
+   },
+   "INV_X1.ZN": {
+    "expr": "!A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "NOT(A)",
+    "n_prims": 1
+   },
+   "INV_X16.ZN": {
+    "expr": "!A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "NOT(A)",
+    "n_prims": 1
+   },
+   "INV_X2.ZN": {
+    "expr": "!A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "NOT(A)",
+    "n_prims": 1
+   },
+   "INV_X32.ZN": {
+    "expr": "!A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "NOT(A)",
+    "n_prims": 1
+   },
+   "INV_X4.ZN": {
+    "expr": "!A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "NOT(A)",
+    "n_prims": 1
+   },
+   "INV_X8.ZN": {
+    "expr": "!A",
+    "inputs": [
+     "A"
+    ],
+    "rows_checked": 2,
+    "prims": "NOT(A)",
+    "n_prims": 1
+   },
+   "MUX2_X1.Z": {
+    "expr": "((S & B) | (A & !S))",
+    "inputs": [
+     "A",
+     "B",
+     "S"
+    ],
+    "rows_checked": 8,
+    "prims": "MUX(S, B, A)",
+    "n_prims": 1
+   },
+   "MUX2_X2.Z": {
+    "expr": "((S & B) | (A & !S))",
+    "inputs": [
+     "A",
+     "B",
+     "S"
+    ],
+    "rows_checked": 8,
+    "prims": "MUX(S, B, A)",
+    "n_prims": 1
+   },
+   "NAND2_X1.ZN": {
+    "expr": "!(A1 & A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(AND(A1, A2))",
+    "n_prims": 2
+   },
+   "NAND2_X2.ZN": {
+    "expr": "!(A1 & A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(AND(A1, A2))",
+    "n_prims": 2
+   },
+   "NAND2_X4.ZN": {
+    "expr": "!(A1 & A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(AND(A1, A2))",
+    "n_prims": 2
+   },
+   "NAND3_X1.ZN": {
+    "expr": "!((A1 & A2) & A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(AND(AND(A1, A2), A3))",
+    "n_prims": 3
+   },
+   "NAND3_X2.ZN": {
+    "expr": "!((A1 & A2) & A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(AND(AND(A1, A2), A3))",
+    "n_prims": 3
+   },
+   "NAND3_X4.ZN": {
+    "expr": "!((A1 & A2) & A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(AND(AND(A1, A2), A3))",
+    "n_prims": 3
+   },
+   "NAND4_X1.ZN": {
+    "expr": "!(((A1 & A2) & A3) & A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(AND(AND(A1, A2), A3), A4))",
+    "n_prims": 4
+   },
+   "NAND4_X2.ZN": {
+    "expr": "!(((A1 & A2) & A3) & A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(AND(AND(A1, A2), A3), A4))",
+    "n_prims": 4
+   },
+   "NAND4_X4.ZN": {
+    "expr": "!(((A1 & A2) & A3) & A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(AND(AND(A1, A2), A3), A4))",
+    "n_prims": 4
+   },
+   "NOR2_X1.ZN": {
+    "expr": "!(A1 | A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(OR(A1, A2))",
+    "n_prims": 2
+   },
+   "NOR2_X2.ZN": {
+    "expr": "!(A1 | A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(OR(A1, A2))",
+    "n_prims": 2
+   },
+   "NOR2_X4.ZN": {
+    "expr": "!(A1 | A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(OR(A1, A2))",
+    "n_prims": 2
+   },
+   "NOR3_X1.ZN": {
+    "expr": "!((A1 | A2) | A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(OR(OR(A1, A2), A3))",
+    "n_prims": 3
+   },
+   "NOR3_X2.ZN": {
+    "expr": "!((A1 | A2) | A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(OR(OR(A1, A2), A3))",
+    "n_prims": 3
+   },
+   "NOR3_X4.ZN": {
+    "expr": "!((A1 | A2) | A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(OR(OR(A1, A2), A3))",
+    "n_prims": 3
+   },
+   "NOR4_X1.ZN": {
+    "expr": "!(((A1 | A2) | A3) | A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(OR(OR(A1, A2), A3), A4))",
+    "n_prims": 4
+   },
+   "NOR4_X2.ZN": {
+    "expr": "!(((A1 | A2) | A3) | A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(OR(OR(A1, A2), A3), A4))",
+    "n_prims": 4
+   },
+   "NOR4_X4.ZN": {
+    "expr": "!(((A1 | A2) | A3) | A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(OR(OR(OR(A1, A2), A3), A4))",
+    "n_prims": 4
+   },
+   "OAI211_X1.ZN": {
+    "expr": "!(((C1 | C2) & A) & B)",
+    "inputs": [
+     "A",
+     "B",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(AND(OR(C1, C2), A), B))",
+    "n_prims": 4
+   },
+   "OAI211_X2.ZN": {
+    "expr": "!(((C1 | C2) & A) & B)",
+    "inputs": [
+     "A",
+     "B",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(AND(OR(C1, C2), A), B))",
+    "n_prims": 4
+   },
+   "OAI211_X4.ZN": {
+    "expr": "!(((C1 | C2) & A) & B)",
+    "inputs": [
+     "A",
+     "B",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(AND(OR(C1, C2), A), B))",
+    "n_prims": 4
+   },
+   "OAI21_X1.ZN": {
+    "expr": "!(A & (B1 | B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(AND(A, OR(B1, B2)))",
+    "n_prims": 3
+   },
+   "OAI21_X2.ZN": {
+    "expr": "!(A & (B1 | B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(AND(A, OR(B1, B2)))",
+    "n_prims": 3
+   },
+   "OAI21_X4.ZN": {
+    "expr": "!(A & (B1 | B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 8,
+    "prims": "NOT(AND(A, OR(B1, B2)))",
+    "n_prims": 3
+   },
+   "OAI221_X1.ZN": {
+    "expr": "!(((C1 | C2) & A) & (B1 | B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 32,
+    "prims": "NOT(AND(AND(OR(C1, C2), A), OR(B1, B2)))",
+    "n_prims": 5
+   },
+   "OAI221_X2.ZN": {
+    "expr": "!(((C1 | C2) & A) & (B1 | B2))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 32,
+    "prims": "NOT(AND(AND(OR(C1, C2), A), OR(B1, B2)))",
+    "n_prims": 5
+   },
+   "OAI221_X4.ZN": {
+    "expr": "!(!(!(((C1 | C2) & A) & (B1 | B2))))",
+    "inputs": [
+     "A",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 32,
+    "prims": "NOT(AND(AND(OR(C1, C2), A), OR(B1, B2)))",
+    "n_prims": 5
+   },
+   "OAI222_X1.ZN": {
+    "expr": "!(((A1 | A2) & (B1 | B2)) & (C1 | C2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(AND(AND(OR(A1, A2), OR(B1, B2)), OR(C1, C2)))",
+    "n_prims": 6
+   },
+   "OAI222_X2.ZN": {
+    "expr": "!(((A1 | A2) & (B1 | B2)) & (C1 | C2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(AND(AND(OR(A1, A2), OR(B1, B2)), OR(C1, C2)))",
+    "n_prims": 6
+   },
+   "OAI222_X4.ZN": {
+    "expr": "!(!(!(((A1 | A2) & (B1 | B2)) & (C1 | C2))))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2",
+     "C1",
+     "C2"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(AND(AND(OR(A1, A2), OR(B1, B2)), OR(C1, C2)))",
+    "n_prims": 6
+   },
+   "OAI22_X1.ZN": {
+    "expr": "!((A1 | A2) & (B1 | B2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(OR(A1, A2), OR(B1, B2)))",
+    "n_prims": 4
+   },
+   "OAI22_X2.ZN": {
+    "expr": "!((A1 | A2) & (B1 | B2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(OR(A1, A2), OR(B1, B2)))",
+    "n_prims": 4
+   },
+   "OAI22_X4.ZN": {
+    "expr": "!((A1 | A2) & (B1 | B2))",
+    "inputs": [
+     "A1",
+     "A2",
+     "B1",
+     "B2"
+    ],
+    "rows_checked": 16,
+    "prims": "NOT(AND(OR(A1, A2), OR(B1, B2)))",
+    "n_prims": 4
+   },
+   "OAI33_X1.ZN": {
+    "expr": "!(((A1 | A2) | A3) & ((B1 | B2) | B3))",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "B1",
+     "B2",
+     "B3"
+    ],
+    "rows_checked": 64,
+    "prims": "NOT(AND(OR(OR(A1, A2), A3), OR(OR(B1, B2), B3)))",
+    "n_prims": 6
+   },
+   "OR2_X1.ZN": {
+    "expr": "(A1 | A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "OR(A1, A2)",
+    "n_prims": 1
+   },
+   "OR2_X2.ZN": {
+    "expr": "(A1 | A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "OR(A1, A2)",
+    "n_prims": 1
+   },
+   "OR2_X4.ZN": {
+    "expr": "(A1 | A2)",
+    "inputs": [
+     "A1",
+     "A2"
+    ],
+    "rows_checked": 4,
+    "prims": "OR(A1, A2)",
+    "n_prims": 1
+   },
+   "OR3_X1.ZN": {
+    "expr": "((A1 | A2) | A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "OR(OR(A1, A2), A3)",
+    "n_prims": 2
+   },
+   "OR3_X2.ZN": {
+    "expr": "((A1 | A2) | A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "OR(OR(A1, A2), A3)",
+    "n_prims": 2
+   },
+   "OR3_X4.ZN": {
+    "expr": "((A1 | A2) | A3)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3"
+    ],
+    "rows_checked": 8,
+    "prims": "OR(OR(A1, A2), A3)",
+    "n_prims": 2
+   },
+   "OR4_X1.ZN": {
+    "expr": "(((A1 | A2) | A3) | A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "OR(OR(OR(A1, A2), A3), A4)",
+    "n_prims": 3
+   },
+   "OR4_X2.ZN": {
+    "expr": "(((A1 | A2) | A3) | A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "OR(OR(OR(A1, A2), A3), A4)",
+    "n_prims": 3
+   },
+   "OR4_X4.ZN": {
+    "expr": "(((A1 | A2) | A3) | A4)",
+    "inputs": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ],
+    "rows_checked": 16,
+    "prims": "OR(OR(OR(A1, A2), A3), A4)",
+    "n_prims": 3
+   },
+   "TBUF_X1.Z": {
+    "expr": "A",
+    "inputs": [
+     "A",
+     "EN"
+    ],
+    "rows_checked": 4,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "TBUF_X16.Z": {
+    "expr": "A",
+    "inputs": [
+     "A",
+     "EN"
+    ],
+    "rows_checked": 4,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "TBUF_X2.Z": {
+    "expr": "A",
+    "inputs": [
+     "A",
+     "EN"
+    ],
+    "rows_checked": 4,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "TBUF_X4.Z": {
+    "expr": "A",
+    "inputs": [
+     "A",
+     "EN"
+    ],
+    "rows_checked": 4,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "TBUF_X8.Z": {
+    "expr": "A",
+    "inputs": [
+     "A",
+     "EN"
+    ],
+    "rows_checked": 4,
+    "prims": "A",
+    "n_prims": 0
+   },
+   "TINV_X1.ZN": {
+    "expr": "!I",
+    "inputs": [
+     "EN",
+     "I"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(I)",
+    "n_prims": 1
+   },
+   "XNOR2_X1.ZN": {
+    "expr": "!(A ^ B)",
+    "inputs": [
+     "A",
+     "B"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(XOR(A, B))",
+    "n_prims": 2
+   },
+   "XNOR2_X2.ZN": {
+    "expr": "!(A ^ B)",
+    "inputs": [
+     "A",
+     "B"
+    ],
+    "rows_checked": 4,
+    "prims": "NOT(XOR(A, B))",
+    "n_prims": 2
+   },
+   "XOR2_X1.Z": {
+    "expr": "(A ^ B)",
+    "inputs": [
+     "A",
+     "B"
+    ],
+    "rows_checked": 4,
+    "prims": "XOR(A, B)",
+    "n_prims": 1
+   },
+   "XOR2_X2.Z": {
+    "expr": "(A ^ B)",
+    "inputs": [
+     "A",
+     "B"
+    ],
+    "rows_checked": 4,
+    "prims": "XOR(A, B)",
+    "n_prims": 1
+   }
+  }
+ },
+ "cosim": [
+  {
+   "netlist": "synfi/examples/aes_cipher_control_fsm/netlist_aes_cipher_control_fsm.json",
+   "top": "aes_cipher_control_fsm",
+   "reset_mode": "deasserted",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 230,
+   "primitives": 544,
+   "flops": 7,
+   "nets_compared": 237,
+   "comparisons": 1456128,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.01
+  },
+  {
+   "netlist": "synfi/examples/aes_cipher_control_fsm/netlist_aes_cipher_control_fsm.json",
+   "top": "aes_cipher_control_fsm",
+   "reset_mode": "sync",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 230,
+   "primitives": 553,
+   "flops": 7,
+   "nets_compared": 237,
+   "comparisons": 1456128,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.01
+  },
+  {
+   "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+   "top": "aes_cipher_control",
+   "reset_mode": "deasserted",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 920,
+   "primitives": 2174,
+   "flops": 44,
+   "nets_compared": 964,
+   "comparisons": 5922816,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.06
+  },
+  {
+   "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+   "top": "aes_cipher_control",
+   "reset_mode": "sync",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 920,
+   "primitives": 2226,
+   "flops": 44,
+   "nets_compared": 964,
+   "comparisons": 5922816,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.05
+  },
+  {
+   "netlist": "synfi/examples/ibex/netlist_ibex_if_stage.json",
+   "top": "ibex_if_stage",
+   "reset_mode": "deasserted",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 1653,
+   "primitives": 3556,
+   "flops": 284,
+   "nets_compared": 1937,
+   "comparisons": 11900928,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.1
+  },
+  {
+   "netlist": "synfi/examples/ibex/netlist_ibex_if_stage.json",
+   "top": "ibex_if_stage",
+   "reset_mode": "sync",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 1653,
+   "primitives": 3567,
+   "flops": 284,
+   "nets_compared": 1937,
+   "comparisons": 11900928,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.09
+  },
+  {
+   "netlist": "synfi/examples/circuit.json",
+   "top": "aes_cipher_control",
+   "reset_mode": "deasserted",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 403,
+   "primitives": 935,
+   "flops": 34,
+   "nets_compared": 437,
+   "comparisons": 2684928,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.02
+  },
+  {
+   "netlist": "synfi/examples/circuit.json",
+   "top": "aes_cipher_control",
+   "reset_mode": "sync",
+   "lanes": 512,
+   "cycles": 12,
+   "seed": 1,
+   "cells": 403,
+   "primitives": 976,
+   "flops": 34,
+   "nets_compared": 437,
+   "comparisons": 2684928,
+   "mismatches": 0,
+   "first_mismatches": [],
+   "runtime_s": 0.02
+  }
+ ],
+ "engine_sim": [
+  {
+   "vectors": 8,
+   "cycles": 4,
+   "output_ports": 27,
+   "port_traces_compared": 216,
+   "mismatches": 0,
+   "netlist": "synfi/examples/aes_cipher_control_fsm/netlist_aes_cipher_control_fsm.json"
+  },
+  {
+   "vectors": 8,
+   "cycles": 4,
+   "output_ports": 26,
+   "port_traces_compared": 208,
+   "mismatches": 0,
+   "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json"
+  },
+  {
+   "vectors": 8,
+   "cycles": 4,
+   "output_ports": 12,
+   "port_traces_compared": 96,
+   "mismatches": 0,
+   "netlist": "synfi/examples/ibex/netlist_ibex_if_stage.json"
+  },
+  {
+   "vectors": 8,
+   "cycles": 4,
+   "output_ports": 24,
+   "port_traces_compared": 192,
+   "mismatches": 0,
+   "netlist": "synfi/examples/circuit.json"
+  }
+ ],
+ "runtime_s": 5.8,
+ "all_ok": true
+}

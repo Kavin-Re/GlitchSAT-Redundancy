@@ -1,0 +1,14 @@
+# aes_ctr_fsm (one rail) and aes_ctr (three rails): sparse state codes CTR_IDLE 0x0E, CTR_INCR 0x18,
+# CTR_ERROR 0x01 (aes_pkg.sv); the three rails' state registers must stay separate registers.
+name: aes_ctr
+top: ot_ctr_w
+intent:
+  rtl: [../src/aes_ctr.sv]
+  reference: none
+  countermeasures:
+    - {kind: sparse_encoding, id: rail0_state, register: "u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs", width: 5, codes: [0x0E, 0x18, 0x01]}
+    - {kind: sparse_encoding, id: rail1_state, register: "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs", width: 5, codes: [0x0E, 0x18, 0x01]}
+    - {kind: sparse_encoding, id: rail2_state, register: "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs", width: 5, codes: [0x0E, 0x18, 0x01]}
+    - {kind: redundant_register, id: three_rails, registers: ["u_dut.gen_fsm[0].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs", "u_dut.gen_fsm[1].gen_fsm_p.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs", "u_dut.gen_fsm[2].gen_fsm_n.u_aes_ctr_fsm_i.u_aes_ctr_fsm.aes_ctr_cs"]}
+stages:
+  - {name: plain, netlist: ../work/ctr_3rail/net_named.json}

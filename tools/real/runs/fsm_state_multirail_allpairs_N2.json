@@ -1,0 +1,3658 @@
+{
+ "experiment": "aes_fsm_sparse_state_multirail",
+ "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+ "top": "aes_cipher_control",
+ "state_nets": [
+  "gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+  "gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+  "gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs"
+ ],
+ "rtl_encodings": "ot_097521/hw/ip/aes/rtl/aes_cipher_control_fsm.sv",
+ "encodings": {
+  "IDLE": "001001",
+  "INIT": "100011",
+  "ROUND": "111101",
+  "FINISH": "010000",
+  "PRNG_RESEED": "100100",
+  "CLEAR_S": "111010",
+  "CLEAR_KD": "001110",
+  "ERROR": "010111"
+ },
+ "cycles": 2,
+ "kmax": 5,
+ "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+ "summary": {
+  "pairs": 42,
+  "legal_pairs": 7,
+  "min_state_flops": null,
+  "min_all": 1,
+  "state_flops_le_hamming": true,
+  "runtime_s": 784.2
+ },
+ "rows": [
+  {
+   "start": "IDLE",
+   "target": "INIT",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.003
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.031,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.143
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12815,
+     "clauses": 33291,
+     "literals": 87869
+    },
+    "build_s": 0.062,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "IDLE",
+   "target": "ROUND",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.032
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.082
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.043
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.155
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.03
+   },
+   "all": {
+    "min_faults": 3,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.034
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.172
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.818
+     },
+     {
+      "k": 3,
+      "result": "SAT",
+      "solve_s": 3.51
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.048,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17920",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n160_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17920",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n160_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17686",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$new_n154_"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "IDLE",
+   "target": "FINISH",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.031
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.033
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.044
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.035
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.032
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.051
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.128
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.706
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 2.617
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 8.642
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 20.616
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.078
+   }
+  },
+  {
+   "start": "IDLE",
+   "target": "PRNG_RESEED",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.006
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.023
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.019
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.078
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.192
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.357
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 3.25
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 12.38
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.013
+   }
+  },
+  {
+   "start": "IDLE",
+   "target": "CLEAR_S",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.007
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2059,
+     "clauses": 5951,
+     "literals": 14123
+    },
+    "build_s": 0.015,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.05
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.028,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "IDLE",
+   "target": "CLEAR_KD",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.007
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.014,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.04
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.024,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "INIT",
+   "target": "IDLE",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.023
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.018
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.031
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.011
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.05
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.12
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.83
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.383
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 10.217
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.025
+   }
+  },
+  {
+   "start": "INIT",
+   "target": "ROUND",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.008
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.016,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.028
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.018,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "INIT",
+   "target": "FINISH",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.006
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.014
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.018
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.049
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.089
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.735
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.087
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 5.867
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.024
+   }
+  },
+  {
+   "start": "INIT",
+   "target": "PRNG_RESEED",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.099
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.06
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.142
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.7
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 3.132
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 8.932
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.025
+   }
+  },
+  {
+   "start": "INIT",
+   "target": "CLEAR_S",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.024
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2059,
+     "clauses": 5951,
+     "literals": 14123
+    },
+    "build_s": 0.017
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.054
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.179
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.522
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.434
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 10.137
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.024
+   }
+  },
+  {
+   "start": "INIT",
+   "target": "CLEAR_KD",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.004
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.028
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.021
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.047
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.192
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.496
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 3.037
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 12.49
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.238
+   }
+  },
+  {
+   "start": "ROUND",
+   "target": "IDLE",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.029
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.023
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.02
+   },
+   "all": {
+    "min_faults": 4,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.02
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.065
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.286
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 2.39
+     },
+     {
+      "k": 4,
+      "result": "SAT",
+      "solve_s": 0.762
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.029,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\u_dec_key_gen_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13829",
+      "type": "DFFR_X1",
+      "pin": "Q",
+      "net": "dec_key_gen_o[0]"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\u_dec_key_gen_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13830",
+      "type": "DFFR_X1",
+      "pin": "Q",
+      "net": "dec_key_gen_o[1]"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\u_dec_key_gen_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13831",
+      "type": "DFFS_X1",
+      "pin": "Q",
+      "net": "dec_key_gen_o[2]"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\u_num_rounds_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825",
+      "type": "DFFR_X1",
+      "pin": "Q",
+      "net": "gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.in_buf[5]"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "ROUND",
+   "target": "INIT",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.014
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.067
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.354
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.284
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 4.682
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 19.634
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12815,
+     "clauses": 33291,
+     "literals": 87869
+    },
+    "build_s": 0.04
+   }
+  },
+  {
+   "start": "ROUND",
+   "target": "FINISH",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.02
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.018
+   },
+   "all": {
+    "min_faults": 1,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.02
+     },
+     {
+      "k": 1,
+      "result": "SAT",
+      "solve_s": 0.093
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.041,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\u_num_rounds_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825",
+      "type": "DFFR_X1",
+      "pin": "Q",
+      "net": "gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.in_buf[5]"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "ROUND",
+   "target": "PRNG_RESEED",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.004
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.037
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.019
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.07
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.212
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.798
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 5.115
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 15.889
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.023
+   }
+  },
+  {
+   "start": "ROUND",
+   "target": "CLEAR_S",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.026
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.029
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2059,
+     "clauses": 5951,
+     "literals": 14123
+    },
+    "build_s": 0.022
+   },
+   "all": {
+    "min_faults": 4,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.084
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.16
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.021
+     },
+     {
+      "k": 4,
+      "result": "SAT",
+      "solve_s": 1.297
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.033,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\u_num_rounds_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825",
+      "type": "DFFR_X1",
+      "pin": "Q",
+      "net": "gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.in_buf[5]"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17885",
+      "type": "NAND2_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n125_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17652",
+      "type": "NAND3_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$new_n120_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17884",
+      "type": "NOR3_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n124_"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "ROUND",
+   "target": "CLEAR_KD",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.026
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.025
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.018
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.062
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.219
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.338
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 6.129
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 20.302
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.038
+   }
+  },
+  {
+   "start": "FINISH",
+   "target": "IDLE",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.007
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.015,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.048
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.046,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "FINISH",
+   "target": "INIT",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.025
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.016
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.025
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.099
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.221
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.112
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.404
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 11.011
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12815,
+     "clauses": 33291,
+     "literals": 87869
+    },
+    "build_s": 0.028
+   }
+  },
+  {
+   "start": "FINISH",
+   "target": "ROUND",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.021
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.025
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.022
+   },
+   "all": {
+    "min_faults": 3,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.063
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.384
+     },
+     {
+      "k": 3,
+      "result": "SAT",
+      "solve_s": 0.452
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.039,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17920",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n160_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17920",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n160_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17686",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$new_n154_"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "FINISH",
+   "target": "PRNG_RESEED",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.027
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.018
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.025
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.216
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.235
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.266
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 4.366
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 24.232
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.032
+   }
+  },
+  {
+   "start": "FINISH",
+   "target": "CLEAR_S",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2059,
+     "clauses": 5951,
+     "literals": 14123
+    },
+    "build_s": 0.017
+   },
+   "all": {
+    "min_faults": 4,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.071
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.236
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.565
+     },
+     {
+      "k": 4,
+      "result": "SAT",
+      "solve_s": 2.062
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.031,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17885",
+      "type": "NAND2_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n125_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17885",
+      "type": "NAND2_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n125_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17686",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$new_n154_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17748",
+      "type": "AOI211_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$new_n216_"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "FINISH",
+   "target": "CLEAR_KD",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.024
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.014
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.023
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.079
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.185
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.138
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 6.899
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 25.414
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.033
+   }
+  },
+  {
+   "start": "PRNG_RESEED",
+   "target": "IDLE",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.127
+   },
+   "all": {
+    "min_faults": 3,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.053
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.302
+     },
+     {
+      "k": 3,
+      "result": "SAT",
+      "solve_s": 0.168
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.036,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$auto$simplemap.cc:527:simplemap_adff_sdff$15366",
+      "type": "DFFR_X1",
+      "pin": "Q",
+      "net": "gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.prng_reseed_done_q"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17869",
+      "type": "INV_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n109_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17869",
+      "type": "INV_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n109_"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "PRNG_RESEED",
+   "target": "INIT",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.012
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.012
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.033
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.052
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.184
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.498
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.103
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 11.427
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12815,
+     "clauses": 33291,
+     "literals": 87869
+    },
+    "build_s": 0.032
+   }
+  },
+  {
+   "start": "PRNG_RESEED",
+   "target": "ROUND",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.021
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.033
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.014
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.069
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.407
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 4.866
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 20.271
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 266.779
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.091
+   }
+  },
+  {
+   "start": "PRNG_RESEED",
+   "target": "FINISH",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.015
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.015
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.016
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.062
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.175
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.838
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 3.999
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 17.376
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.023
+   }
+  },
+  {
+   "start": "PRNG_RESEED",
+   "target": "CLEAR_S",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2059,
+     "clauses": 5951,
+     "literals": 14123
+    },
+    "build_s": 0.011
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.038
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.111
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.405
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.175
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 6.187
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.02
+   }
+  },
+  {
+   "start": "PRNG_RESEED",
+   "target": "CLEAR_KD",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.01
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.012
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.053
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.105
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 1.116
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 3.145
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 19.062
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.019
+   }
+  },
+  {
+   "start": "CLEAR_S",
+   "target": "IDLE",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.004
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.011
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.093
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.079
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.561
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 1.748
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 8.194
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.021
+   }
+  },
+  {
+   "start": "CLEAR_S",
+   "target": "INIT",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.006
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.012
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.008
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.028
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.09
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.374
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.88
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 3.475
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12815,
+     "clauses": 33291,
+     "literals": 87869
+    },
+    "build_s": 0.012
+   }
+  },
+  {
+   "start": "CLEAR_S",
+   "target": "ROUND",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.004
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.009
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.007
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.006
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.028
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.068
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.474
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 1.384
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 8.105
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.015
+   }
+  },
+  {
+   "start": "CLEAR_S",
+   "target": "FINISH",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.008
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.007
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.036
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.085
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.595
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 1.126
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 4.887
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.017
+   }
+  },
+  {
+   "start": "CLEAR_S",
+   "target": "PRNG_RESEED",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.004
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.01
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.021
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.056
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.153
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.869
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 1.78
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 5.506
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.028
+   }
+  },
+  {
+   "start": "CLEAR_S",
+   "target": "CLEAR_KD",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.002
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.006,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.037
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.016,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "CLEAR_KD",
+   "target": "IDLE",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.007
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.012,
+    "witness": [],
+    "replayed_on_reference": true
+   },
+   "all": {
+    "min_faults": 0,
+    "verdict": "legal",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "SAT",
+      "solve_s": 0.037
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.022,
+    "witness": [],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "CLEAR_KD",
+   "target": "INIT",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.006
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.018
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.023
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.013
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.061
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.045
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.098
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.498
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 1.442
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 4.644
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12815,
+     "clauses": 33291,
+     "literals": 87869
+    },
+    "build_s": 0.027
+   }
+  },
+  {
+   "start": "CLEAR_KD",
+   "target": "ROUND",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.006
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.022
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.015
+   },
+   "all": {
+    "min_faults": 3,
+    "verdict": "ATTACK_FOUND",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.029
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.093
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.265
+     },
+     {
+      "k": 3,
+      "result": "SAT",
+      "solve_s": 1.547
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.032,
+    "witness": [
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17920",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n160_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17920",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$new_n160_"
+     },
+     {
+      "cycle": 0,
+      "cell": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17686",
+      "type": "OR4_X1",
+      "pin": "ZN",
+      "net": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$new_n154_"
+     }
+    ],
+    "replayed_on_reference": true
+   }
+  },
+  {
+   "start": "CLEAR_KD",
+   "target": "FINISH",
+   "hamming": 4,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.012
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.024
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.018
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.011
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.014
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.044
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.107
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.697
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.755
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 7.177
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.025
+   }
+  },
+  {
+   "start": "CLEAR_KD",
+   "target": "PRNG_RESEED",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.003
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.005
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.01
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.029
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.034
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2067,
+     "clauses": 5975,
+     "literals": 14179
+    },
+    "build_s": 0.037
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.011
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.047
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.102
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.419
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 1.62
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 4.521
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12819,
+     "clauses": 33303,
+     "literals": 87897
+    },
+    "build_s": 0.017
+   }
+  },
+  {
+   "start": "CLEAR_KD",
+   "target": "CLEAR_S",
+   "hamming": 3,
+   "state_flops": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.001
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.007
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.002
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.019
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 0.024
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 0.017
+     }
+    ],
+    "sites": 18,
+    "cnf": {
+     "vars": 2059,
+     "clauses": 5951,
+     "literals": 14123
+    },
+    "build_s": 0.011
+   },
+   "all": {
+    "min_faults": null,
+    "verdict": "NO_ATTACK_UP_TO_5",
+    "sweep": [
+     {
+      "k": 0,
+      "result": "UNSAT",
+      "solve_s": 0.133
+     },
+     {
+      "k": 1,
+      "result": "UNSAT",
+      "solve_s": 0.161
+     },
+     {
+      "k": 2,
+      "result": "UNSAT",
+      "solve_s": 0.374
+     },
+     {
+      "k": 3,
+      "result": "UNSAT",
+      "solve_s": 0.54
+     },
+     {
+      "k": 4,
+      "result": "UNSAT",
+      "solve_s": 2.13
+     },
+     {
+      "k": 5,
+      "result": "UNSAT",
+      "solve_s": 11.697
+     }
+    ],
+    "sites": 964,
+    "cnf": {
+     "vars": 12821,
+     "clauses": 33309,
+     "literals": 87911
+    },
+    "build_s": 0.01
+   }
+  }
+ ]
+}

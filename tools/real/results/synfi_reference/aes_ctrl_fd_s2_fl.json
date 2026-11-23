@@ -1,0 +1,156 @@
+{
+ "tool": "SYNFI (lowRISC/synfi @ pinned commit, run unmodified with shims/)",
+ "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+ "module": "aes_cipher_control",
+ "spec": "synfi/examples/aes_cipher_control_rnd_ctr/fault_model_aes_cipher_control_rnd_cntr.json",
+ "simultaneous_faults": 2,
+ "auto_fl": false,
+ "limit": null,
+ "parse_s": 0.0,
+ "inject_s": 19.27,
+ "solver": "minicdcl (via shims/pysat)",
+ "synfi_log_summary": [
+  "Injecting 18 faults...",
+  "Found 18 (100.0%) effective combinational faults, 0 (0.0%) effective sequential faults, and 0 ineffective faults.",
+  "Circuit size of the whole circuit: 1.15 kGE and of the analyzed target graph: 556.33 GE."
+ ],
+ "injections": 9,
+ "sat": 9,
+ "results": [
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "XOR2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "XOR2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "XOR2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "NAND2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "NAND2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "NAND2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "NOR2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "NOR2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$18095$auto$blifparse.cc:381:parse_blif$18243_stage_3",
+     "stage": "stage_3",
+     "mapping": "NOR2_X1"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$18019_stage_1",
+     "stage": "stage_1",
+     "mapping": "XOR2_X1"
+    }
+   ]
+  }
+ ]
+}

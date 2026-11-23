@@ -1,0 +1,609 @@
+{
+ "question": "E5: GlitchSAT (SYNFI counting) 80 effective of 309,580 injected faults; paper 62 of 309,500",
+ "paper": {
+  "where": "SYNFI paper, Table 7 row 2 and Sec. 4.3 text: \"only 62 (0.02%) out of 309,500 injected faults\"",
+  "checked_against": "arXiv:2205.04775 PDF"
+ },
+ "counting_rule": "SYNFI counts faults, not fault sets: fi_injector.handle_fault_model logs len(sets)*k and evaluate_fault_results adds 1 per fault location of every set; with k = 2 every number is twice the number of fault sets.",
+ "in_fault_sets": {
+  "paper": {
+   "sets": 154750,
+   "effective": 31
+  },
+  "here": {
+   "sets": 154790,
+   "effective": 40
+  },
+  "difference": {
+   "sets": 40,
+   "effective": 9
+  }
+ },
+ "synfi_enumeration": {
+  "how": "--auto_fl: every target-graph node except in/out nodes and registers; one entry per (parent cell, graph node) as built by handle_fault_locations, so the nodes of a register that unroll_circuit cut into c input copies are listed c times each (register node included); itertools.combinations(entries, 2) x product of each entry's mapping list; no limit.",
+  "per_hash_seed": {
+   "0": {
+    "entries": 516,
+    "distinct_locations": 432,
+    "single_injections": 557,
+    "fault_sets": 154790,
+    "synfi_log_injected_faults": 309580,
+    "repeated_entries_by_multiplicity": {
+     "1": 372,
+     "3": 24,
+     "2": 36
+    },
+    "effective_sets_by_glitchsat_verdicts": 40,
+    "effective_sets_in_last_40": 0,
+    "effective_sets_in_first_154750": 40
+   },
+   "1": {
+    "entries": 516,
+    "distinct_locations": 432,
+    "single_injections": 557,
+    "fault_sets": 154790,
+    "synfi_log_injected_faults": 309580,
+    "repeated_entries_by_multiplicity": {
+     "1": 372,
+     "3": 24,
+     "2": 36
+    },
+    "effective_sets_by_glitchsat_verdicts": 40,
+    "effective_sets_in_last_40": 0,
+    "effective_sets_in_first_154750": 40
+   }
+  },
+  "same_content_all_seeds": true,
+  "same_order_all_seeds": false
+ },
+ "glitchsat_exact": {
+  "distinct_effective_sets": 34,
+  "distinct_sets": 111572,
+  "effective_sets_synfi_list": 40,
+  "composition": {
+   "both entries listed once": 31,
+   "uses an entry listed 3 times": 9
+  },
+  "sets_using_repeated_entries": [
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $auto$simplemap.cc:442:simplemap_dffe$898 (DFF_X1)",
+    "nets_b": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8170"
+    ],
+    "mult_b": 3
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $auto$simplemap.cc:442:simplemap_dffe$898 (DFF_X1)",
+    "nets_b": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8170"
+    ],
+    "mult_b": 3
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "register $auto$simplemap.cc:442:simplemap_dffe$898",
+    "nets_b": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8170"
+    ],
+    "mult_b": 3
+   }
+  ],
+  "all_effective": [
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8287 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n840_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8322 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n875_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8373 (XNOR2_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n926_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8398 (NAND2_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n951_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8402 (NAND3_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n955_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8411 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n964_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8459 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1012_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8485 (NAND2_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1038_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8486 (AOI22_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1039_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8487 (NAND2_X1)",
+    "option_a": "AND2_X1",
+    "nets_a": [
+     "$abc$8281$new_n1040_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8488 (NAND3_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1041_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8489 (NAND4_X1)",
+    "option_a": "AND4_X1",
+    "nets_a": [
+     "$abc$8281$new_n1042_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8490 (AOI22_X1)",
+    "option_a": "OAI22_X1",
+    "nets_a": [
+     "$abc$8281$new_n1043_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8932 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1485_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8934 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1487_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$9031 (AOI21_X1)",
+    "option_b": "OAI21_X1",
+    "nets_b": [
+     "$abc$8281$new_n1584_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$9032 (OAI21_X1)",
+    "option_b": "AOI21_X1",
+    "nets_b": [
+     "$abc$8281$new_n1585_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$9033 (NAND2_X1)",
+    "option_b": "AND2_X1",
+    "nets_b": [
+     "$abc$8281$new_n1586_"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $auto$simplemap.cc:442:simplemap_dffe$898 (DFF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8170"
+    ],
+    "mult_b": 3
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "side input from $auto$simplemap.cc:442:simplemap_dffe$898 (DFF_X1)",
+    "option_b": "input_fault",
+    "nets_b": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8170"
+    ],
+    "mult_b": 3
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "register $auto$simplemap.cc:442:simplemap_dffe$898",
+    "option_b": "prim_flop_fault",
+    "nets_b": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8170"
+    ],
+    "mult_b": 3
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8937 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1490_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8938 (BUF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1491_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8978 (NAND4_X1)",
+    "option_a": "AND4_X1",
+    "nets_a": [
+     "$abc$8281$new_n1531_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8979 (NOR2_X1)",
+    "option_a": "NAND2_X1",
+    "nets_a": [
+     "$abc$8281$new_n1532_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8979 (NOR2_X1)",
+    "option_a": "OR2_X1",
+    "nets_a": [
+     "$abc$8281$new_n1532_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8985 (NAND2_X1)",
+    "option_a": "AND2_X1",
+    "nets_a": [
+     "$abc$8281$new_n1538_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8990 (XNOR2_X1)",
+    "option_a": "XOR2_X1",
+    "nets_a": [
+     "$abc$8281$new_n1543_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8990 (XNOR2_X1)",
+    "option_a": "NAND2_X1",
+    "nets_a": [
+     "$abc$8281$new_n1543_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $abc$8281$auto$blifparse.cc:381:parse_blif$8992 (INV_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "$abc$8281$new_n1545_"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "cell $abc$8281$auto$blifparse.cc:381:parse_blif$8993 (AOI21_X1)",
+    "option_a": "OAI21_X1",
+    "nets_a": [
+     "$abc$8281$auto$rtlil.cc:2432:MuxGate$7780"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from $auto$simplemap.cc:442:simplemap_dffe$890 (DFF_X1)",
+    "option_a": "input_fault",
+    "nets_a": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8162"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "register $auto$simplemap.cc:442:simplemap_dffe$890",
+    "option_a": "prim_flop_fault",
+    "nets_a": [
+     "pc_if_o",
+     "$auto$dfflibmap.cc:381:dfflibmap$8162"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   },
+   {
+    "a": "side input from in:boot_addr_i",
+    "option_a": "input_fault",
+    "nets_a": [
+     "in:boot_addr_i"
+    ],
+    "mult_a": 1,
+    "b": "side input from in:nt_branch_addr_i",
+    "option_b": "input_fault",
+    "nets_b": [
+     "in:nt_branch_addr_i"
+    ],
+    "mult_b": 1
+   }
+  ]
+ },
+ "synfi_own_verdicts": {
+  "synfi_inject_cluster_seed0.jsonl": {
+   "sets": 853,
+   "synfi_sat": 40,
+   "glitchsat_agrees": 853
+  },
+  "synfi_inject_glitchsat_effective_seed0.jsonl": {
+   "sets": 40,
+   "synfi_sat": 40,
+   "glitchsat_agrees": 40
+  },
+  "synfi_inject_sample_1000_seed0.jsonl": {
+   "sets": 1000,
+   "synfi_sat": 0,
+   "glitchsat_agrees": 1000
+  }
+ }
+}

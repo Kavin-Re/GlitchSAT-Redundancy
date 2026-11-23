@@ -1,0 +1,119 @@
+{
+ "schema": "glitchsat-survival/1",
+ "tool": {
+  "name": "glitchsat check-survival",
+  "version": "0.1.0",
+  "yosys": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)"
+ },
+ "name": "aes_cipher_control",
+ "top": "ot_ciph_w",
+ "goal": null,
+ "stages": [
+  {
+   "name": "plain",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/ciph_out_valid/net_named.json",
+     "sha256": "f148f0b8d7d54e8f7f23350be9d569ce1fb0db20934f8ea3a7eb71624fa77b61"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 1596,
+    "flops": 63,
+    "cells": 1659,
+    "inputs": 1
+   },
+   "reference": true
+  }
+ ],
+ "countermeasures": [
+  {
+   "id": "redundant_register:three_rails",
+   "kind": "redundant_register",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "registers": [
+     "u_dut.gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+     "u_dut.gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+     "u_dut.gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs"
+    ]
+   },
+   "track": {},
+   "title": "registers u_dut.gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs / u_dut.gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs / u_dut.gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+   "stages": [
+    {
+     "cm": "redundant_register:three_rails",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "flops": {
+       "u_dut.gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs": 6,
+       "u_dut.gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs": 6,
+       "u_dut.gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs": 6
+      },
+      "intended_width": null
+     },
+     "evidence": [
+      "all registers present as separate flops (u_dut.gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs: 6, u_dut.gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs: 6, u_dut.gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs: 6)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "alarm:aes_cipher_control.alert_o",
+   "kind": "alarm",
+   "origin": "rtl-scan",
+   "where": "opentitan_prims/src/aes_cipher_control.sv:46",
+   "intent": {
+    "signal": "alert_o",
+    "module": "aes_cipher_control",
+    "width": 1
+   },
+   "track": {},
+   "title": "alarm alert_o",
+   "stages": [
+    {
+     "cm": "alarm:aes_cipher_control.alert_o",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 7,
+      "live_bits": 7
+     },
+     "evidence": [
+      "alert_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  }
+ ],
+ "notes": [],
+ "summary": {
+  "counts": {
+   "SURVIVED": 2,
+   "WEAKENED": 0,
+   "REMOVED": 0,
+   "UNTRACKED": 0,
+   "NOT_CHECKED": 0
+  },
+  "margin_below_target": [],
+  "margin_drop": null,
+  "incomplete": 0,
+  "verdict": "PASS",
+  "exit_code": 0
+ }
+}

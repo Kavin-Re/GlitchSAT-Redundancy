@@ -1,0 +1,356 @@
+{
+ "schema": "labs-result/1",
+ "module": "opentitan_prims",
+ "title": "OpenTitan hardening primitives",
+ "status": "EXPERIMENTAL",
+ "question": "Do OpenTitan's built-in fault countermeasures (multi-bit booleans, redundant counters) still need several bit flips to break after an open-source synthesis tool has built them, and are the redundant parts still there?",
+ "example": {
+  "name": "3 primitives: mubi_flag, mubi_word, count_regs",
+  "description": "Example (smallest meaningful set, under a minute):\n  mubi_flag   prim_mubi4_sender -> sync -> dec: a 4-bit \"multi-bit boolean\" decoded to one flag\n  mubi_word   prim_mubi4_sender -> sync: the 4-bit word itself\n  count_regs  prim_count: primary up counter + secondary down counter, a fault makes them disagree",
+  "command": "python3 real/opentitan_prims/labs/run_labs.py"
+ },
+ "findings": [
+  {
+   "id": "mubi_flag.build",
+   "text": "OpenTitan multi-bit boolean (prim_mubi4 sender, sync, decoder) ending in one flag: built from the pinned OpenTitan sources with Yosys 0.71 (read_slang) and Yosys 0.33: 65 gates, 17 flip-flops (Yosys 0.71 alone: 64 gates, 17 flip-flops).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "gates": 65,
+    "flops": 17,
+    "gates71": 64,
+    "flops71": 17,
+    "yosys_elab": "Yosys 0.71 (git sha1 b4c586fd3, Release, GNU /usr/bin/g++ 13.3.0)",
+    "yosys_synth": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)",
+    "net_sha256": "e5a495d509311984b72adf8639d0a94ec644f0c8af25fd4489e58adf7b4cc74b"
+   }
+  },
+  {
+   "id": "mubi_flag.min_flips",
+   "text": "OpenTitan multi-bit boolean (prim_mubi4 sender, sync, decoder) ending in one flag: the smallest attack needs 1 bit flip(s) (model: single-cycle bit flips on gate and flip-flop outputs, up to 3 flips, 6 cycles). Prediction written before the run: 1 (the decoder ends in one gate). Same answer as the recorded run in work/.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "status": "EXACT",
+    "lo": 1,
+    "hi": 1,
+    "legit": "NO_ATTACK_UP_TO_BOUND",
+    "recorded": {
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1
+    },
+    "kmax": 3,
+    "cycles": 6
+   }
+  },
+  {
+   "id": "mubi_word.build",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): built from the pinned OpenTitan sources with Yosys 0.71 (read_slang) and Yosys 0.33: 60 gates, 17 flip-flops (Yosys 0.71 alone: 60 gates, 17 flip-flops).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "gates": 60,
+    "flops": 17,
+    "gates71": 60,
+    "flops71": 17,
+    "yosys_elab": "Yosys 0.71 (git sha1 b4c586fd3, Release, GNU /usr/bin/g++ 13.3.0)",
+    "yosys_synth": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)",
+    "net_sha256": "346a602c509da96a08d10034a735ef7b3ec774cc069090c11a8ea390bfc951ed"
+   }
+  },
+  {
+   "id": "mubi_word.min_flips",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): the smallest attack needs 4 bit flip(s) (model: single-cycle bit flips on gate and flip-flop outputs, up to 6 flips, 6 cycles). Prediction written before the run: none up to 3 (4 output bits, each from its own gate after the stability check). Same answer as the recorded run in work/.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "status": "EXACT",
+    "lo": 4,
+    "hi": 4,
+    "legit": "NO_ATTACK_UP_TO_BOUND",
+    "recorded": {
+     "status": "EXACT",
+     "lo": 4,
+     "hi": 4
+    },
+    "kmax": 6,
+    "cycles": 6
+   }
+  },
+  {
+   "id": "mubi_word.survival.mubi:sender_out",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): countermeasure mubi:sender_out survived synthesis (structural check of the netlist).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "SURVIVED"
+   }
+  },
+  {
+   "id": "mubi_word.survival.mubi:sync_out",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): countermeasure mubi:sync_out survived synthesis (structural check of the netlist).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "SURVIVED"
+   }
+  },
+  {
+   "id": "mubi_word.survival.mubi:prim_mubi4_sender.mubi_i",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): countermeasure mubi:prim_mubi4_sender.mubi_i survived synthesis (structural check of the netlist).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "SURVIVED"
+   }
+  },
+  {
+   "id": "mubi_word.survival.mubi:prim_mubi4_sender.mubi_o",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): countermeasure mubi:prim_mubi4_sender.mubi_o survived synthesis (structural check of the netlist).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "SURVIVED"
+   }
+  },
+  {
+   "id": "mubi_word.survival.mubi:prim_mubi4_sender.unused_logic",
+   "text": "OpenTitan multi-bit boolean word (prim_mubi4 sender and sync): mubi:prim_mubi4_sender.unused_logic was found in the RTL but could not be tracked into the netlist, so whether it survived is not known.",
+   "label": "UNTESTED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "UNTRACKED"
+   }
+  },
+  {
+   "id": "count_regs.build",
+   "text": "OpenTitan prim_count redundant counter pair (up and down copies): built from the pinned OpenTitan sources with Yosys 0.71 (read_slang) and Yosys 0.33: 269 gates, 14 flip-flops (Yosys 0.71 alone: 285 gates, 14 flip-flops).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "gates": 269,
+    "flops": 14,
+    "gates71": 285,
+    "flops71": 14,
+    "yosys_elab": "Yosys 0.71 (git sha1 b4c586fd3, Release, GNU /usr/bin/g++ 13.3.0)",
+    "yosys_synth": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)",
+    "net_sha256": "c2d3968961914a83fcfd6213e001ca1f0a58e1047a6bc2a005a2def09e593d3d"
+   }
+  },
+  {
+   "id": "count_regs.min_flips",
+   "text": "OpenTitan prim_count redundant counter pair (up and down copies): the smallest attack needs 2 bit flip(s) (model: single-cycle bit flips on gate and flip-flop outputs, up to 3 flips, 5 cycles). Prediction written before the run: 2 (one bit in each counter, or one counter bit plus err). Same answer as the recorded run in work/.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "status": "EXACT",
+    "lo": 2,
+    "hi": 2,
+    "legit": "NO_ATTACK_UP_TO_BOUND",
+    "recorded": {
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2
+    },
+    "kmax": 3,
+    "cycles": 5
+   }
+  },
+  {
+   "id": "count_regs.survival.redundant_register:cross_counter",
+   "text": "OpenTitan prim_count redundant counter pair (up and down copies): countermeasure redundant_register:cross_counter survived synthesis (structural check of the netlist).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "SURVIVED"
+   }
+  },
+  {
+   "id": "count_regs.survival.alarm:prim_count.err_o",
+   "text": "OpenTitan prim_count redundant counter pair (up and down copies): countermeasure alarm:prim_count.err_o survived synthesis (structural check of the netlist).",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "verdict": "SURVIVED"
+   }
+  },
+  {
+   "id": "other_prims",
+   "text": "The other experiments of experiments.tsv (prim_double_lfsr, AES counter and cipher FSMs, FSM-optimisation flows) are not part of this Labs example.",
+   "label": "UNTESTED",
+   "experimental": true,
+   "evidence": {}
+  },
+  {
+   "id": "real_flow",
+   "text": "OpenTitan's own synthesis flow and standard-cell libraries were not used; results can change with them.",
+   "label": "UNTESTED",
+   "experimental": true,
+   "evidence": {}
+  }
+ ],
+ "labels": {
+  "MEASURED": "counted or computed by running real tools on real inputs in this module",
+  "SIMULATED": "the outcome of a model (fault simulator or probing model); a model, not silicon",
+  "UNTESTED": "stated or expected, but not checked by any run in this module yet"
+ },
+ "caveats": [
+  "Built with open-source Yosys (0.71 read_slang to elaborate, 0.33 to map to generic gates), not with OpenTitan's flow or a real cell library.",
+  "Fault model: single-cycle bit flips on gate and flip-flop outputs, bounded number of flips and cycles; a bounded result says nothing beyond those bounds.",
+  "Each primitive is analysed alone, in a small wrapper; in a chip, the surrounding logic can help or hurt.",
+  "The survival check is structural (are redundant copies still separate nets/registers?), not a proof.",
+  "The OpenTitan SystemVerilog is used through small shims for primgen primitives (shims/)."
+ ],
+ "run": {
+  "started": "2026-11-22T04:51:34+00:00",
+  "seconds": 4.28,
+  "ok": true,
+  "errors": [],
+  "tools": {
+   "build": "scripts/build.py",
+   "run": "scripts/run.py",
+   "survival": "ext/checker"
+  },
+  "rows": {
+   "mubi_flag": {
+    "prediction": "1 (the decoder ends in one gate)",
+    "kmax": 3,
+    "cycles": 6,
+    "build": {
+     "gates": 65,
+     "flops": 17,
+     "gates71": 64,
+     "flops71": 17,
+     "yosys_elab": "Yosys 0.71 (git sha1 b4c586fd3, Release, GNU /usr/bin/g++ 13.3.0)",
+     "yosys_synth": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)",
+     "net_sha256": "e5a495d509311984b72adf8639d0a94ec644f0c8af25fd4489e58adf7b4cc74b"
+    },
+    "scale": {
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "text": "ATTACK_FOUND: the smallest attack uses 1 flip(s) within 6 cycles (minimum proved).",
+     "note": "BOUNDED: the statement holds for at most 3 single-cycle bit flips (gate outputs and flop Q) within 6 cycles on this netlist. It says nothing about more flips, longer runs, other fault types or physical feasibility. Modelled faults.",
+     "runtime_s": 0.017
+    },
+    "legit": {
+     "status": "NO_ATTACK_UP_TO_BOUND",
+     "lo": 1,
+     "hi": null,
+     "text": "NO_ATTACK_UP_TO_BOUND: no attack with up to 0 flip(s) within 6 cycles.",
+     "note": "BOUNDED: the statement holds for at most 0 single-cycle bit flips (gate outputs and flop Q) within 6 cycles on this netlist. It says nothing about more flips, longer runs, other fault types or physical feasibility. Modelled faults.",
+     "runtime_s": 0.01
+    },
+    "recorded": {
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1
+    }
+   },
+   "mubi_word": {
+    "prediction": "none up to 3 (4 output bits, each from its own gate after the stability check)",
+    "kmax": 6,
+    "cycles": 6,
+    "build": {
+     "gates": 60,
+     "flops": 17,
+     "gates71": 60,
+     "flops71": 17,
+     "yosys_elab": "Yosys 0.71 (git sha1 b4c586fd3, Release, GNU /usr/bin/g++ 13.3.0)",
+     "yosys_synth": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)",
+     "net_sha256": "346a602c509da96a08d10034a735ef7b3ec774cc069090c11a8ea390bfc951ed"
+    },
+    "scale": {
+     "status": "EXACT",
+     "lo": 4,
+     "hi": 4,
+     "text": "ATTACK_FOUND: the smallest attack uses 4 flip(s) within 6 cycles (minimum proved).",
+     "note": "BOUNDED: the statement holds for at most 6 single-cycle bit flips (gate outputs and flop Q) within 6 cycles on this netlist. It says nothing about more flips, longer runs, other fault types or physical feasibility. Modelled faults.",
+     "runtime_s": 0.037
+    },
+    "legit": {
+     "status": "NO_ATTACK_UP_TO_BOUND",
+     "lo": 1,
+     "hi": null,
+     "text": "NO_ATTACK_UP_TO_BOUND: no attack with up to 0 flip(s) within 6 cycles.",
+     "note": "BOUNDED: the statement holds for at most 0 single-cycle bit flips (gate outputs and flop Q) within 6 cycles on this netlist. It says nothing about more flips, longer runs, other fault types or physical feasibility. Modelled faults.",
+     "runtime_s": 0.009
+    },
+    "recorded": {
+     "status": "EXACT",
+     "lo": 4,
+     "hi": 4
+    },
+    "survival": [
+     {
+      "id": "mubi:sender_out",
+      "verdict": "SURVIVED"
+     },
+     {
+      "id": "mubi:sync_out",
+      "verdict": "SURVIVED"
+     },
+     {
+      "id": "mubi:prim_mubi4_sender.mubi_i",
+      "verdict": "SURVIVED"
+     },
+     {
+      "id": "mubi:prim_mubi4_sender.mubi_o",
+      "verdict": "SURVIVED"
+     },
+     {
+      "id": "mubi:prim_mubi4_sender.unused_logic",
+      "verdict": "UNTRACKED"
+     }
+    ]
+   },
+   "count_regs": {
+    "prediction": "2 (one bit in each counter, or one counter bit plus err)",
+    "kmax": 3,
+    "cycles": 5,
+    "build": {
+     "gates": 269,
+     "flops": 14,
+     "gates71": 285,
+     "flops71": 14,
+     "yosys_elab": "Yosys 0.71 (git sha1 b4c586fd3, Release, GNU /usr/bin/g++ 13.3.0)",
+     "yosys_synth": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)",
+     "net_sha256": "c2d3968961914a83fcfd6213e001ca1f0a58e1047a6bc2a005a2def09e593d3d"
+    },
+    "scale": {
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "text": "ATTACK_FOUND: the smallest attack uses 2 flip(s) within 5 cycles (minimum proved).",
+     "note": "BOUNDED: the statement holds for at most 3 single-cycle bit flips (gate outputs and flop Q) within 5 cycles on this netlist. It says nothing about more flips, longer runs, other fault types or physical feasibility. Modelled faults.",
+     "runtime_s": 0.076
+    },
+    "legit": {
+     "status": "NO_ATTACK_UP_TO_BOUND",
+     "lo": 1,
+     "hi": null,
+     "text": "NO_ATTACK_UP_TO_BOUND: no attack with up to 0 flip(s) within 5 cycles.",
+     "note": "BOUNDED: the statement holds for at most 0 single-cycle bit flips (gate outputs and flop Q) within 5 cycles on this netlist. It says nothing about more flips, longer runs, other fault types or physical feasibility. Modelled faults.",
+     "runtime_s": 0.02
+    },
+    "recorded": {
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2
+    },
+    "survival": [
+     {
+      "id": "redundant_register:cross_counter",
+      "verdict": "SURVIVED"
+     },
+     {
+      "id": "alarm:prim_count.err_o",
+      "verdict": "SURVIVED"
+     }
+    ]
+   }
+  }
+ },
+ "readme": "README.md"
+}

@@ -1,0 +1,434 @@
+{
+ "schema": "glitchsat-survival/1",
+ "tool": {
+  "name": "glitchsat check-survival",
+  "version": "0.1.0",
+  "yosys": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)"
+ },
+ "name": "aes-cipher-control-fsm-flows",
+ "top": "ot_ciph_fsm_free_w",
+ "goal": null,
+ "stages": [
+  {
+   "name": "plain",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/fsmfree_plain/net_named.json",
+     "sha256": "980da64bde0b81c1e27f55c54a9af5afbe6c90430fa0358a551a00c3510ec6c5"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 296,
+    "flops": 19,
+    "cells": 315,
+    "inputs": 28
+   },
+   "reference": true
+  },
+  {
+   "name": "opt_fsm",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/fsmfree_opt_fsm/net_named.json",
+     "sha256": "3771b3c955ac978e1f145fd1832f135a14d7eec6d1da04b57654e5f3c3ddb8d9"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 285,
+    "flops": 21,
+    "cells": 306,
+    "inputs": 28
+   }
+  },
+  {
+   "name": "opt_nofsm",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/fsmfree_opt_nofsm/net_named.json",
+     "sha256": "0188d92b12edd33e93e67a7fcf57ba1c97716079fa5180874a335038e4482573"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 259,
+    "flops": 18,
+    "cells": 277,
+    "inputs": 28
+   }
+  },
+  {
+   "name": "opt_fsm_keep",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/fsmfree_opt_fsm_keep/net_named.json",
+     "sha256": "074b7b2a206a74fa489989a956f590624b39b19c0a869df6370b629b954a5027"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 285,
+    "flops": 21,
+    "cells": 306,
+    "inputs": 28
+   }
+  }
+ ],
+ "countermeasures": [
+  {
+   "id": "sparse_encoding:cipher_ctrl_state",
+   "kind": "sparse_encoding",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "register": "u_dut.aes_cipher_ctrl_cs",
+    "width": 6,
+    "codes": [
+     9,
+     14,
+     16,
+     23,
+     35,
+     36,
+     58,
+     61
+    ],
+    "min_distance": 3,
+    "aliases": []
+   },
+   "track": {
+    "flop_names": [
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$959",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$961[0]",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$961[1]",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$961[2]",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$961[3]",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$963[0]",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$963[1]",
+     "$flatten\\u_dut.$abc$6853$auto$async2sync.cc:171:execute$963[2]",
+     "rnd_ctr[0]",
+     "rnd_ctr[1]",
+     "rnd_ctr[2]",
+     "rnd_ctr[3]",
+     "rst_q",
+     "u_dut.aes_cipher_ctrl_cs[0]",
+     "u_dut.aes_cipher_ctrl_cs[1]",
+     "u_dut.aes_cipher_ctrl_cs[2]",
+     "u_dut.aes_cipher_ctrl_cs[3]",
+     "u_dut.aes_cipher_ctrl_cs[4]",
+     "u_dut.aes_cipher_ctrl_cs[5]"
+    ]
+   },
+   "title": "register u_dut.aes_cipher_ctrl_cs with 8 codes, distance 3",
+   "stages": [
+    {
+     "cm": "sparse_encoding:cipher_ctrl_state",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 6,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x9",
+       "0xe",
+       "0x10",
+       "0x17",
+       "0x23",
+       "0x24",
+       "0x3a",
+       "0x3d"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.aes_cipher_ctrl_cs",
+        "width": 6,
+        "found_by": "name",
+        "codes": [
+         "0x9",
+         "0xe",
+         "0x17",
+         "0x23",
+         "0x3a"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 6,
+      "register": "u_dut.aes_cipher_ctrl_cs",
+      "distance": 3,
+      "codes": [
+       "0x9",
+       "0xe",
+       "0x17",
+       "0x23",
+       "0x3a"
+      ]
+     },
+     "evidence": [
+      "u_dut.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0xe, 0x17, 0x23, 0x3a; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    },
+    {
+     "cm": "sparse_encoding:cipher_ctrl_state",
+     "stage": "opt_fsm",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 6,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x9",
+       "0xe",
+       "0x10",
+       "0x17",
+       "0x23",
+       "0x24",
+       "0x3a",
+       "0x3d"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.aes_cipher_ctrl_cs",
+        "width": 6,
+        "found_by": "name",
+        "codes": [
+         "0x9",
+         "0xe",
+         "0x17",
+         "0x23",
+         "0x3a"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 6,
+      "register": "u_dut.aes_cipher_ctrl_cs",
+      "distance": 3,
+      "codes": [
+       "0x9",
+       "0xe",
+       "0x17",
+       "0x23",
+       "0x3a"
+      ]
+     },
+     "evidence": [
+      "u_dut.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0xe, 0x17, 0x23, 0x3a; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    },
+    {
+     "cm": "sparse_encoding:cipher_ctrl_state",
+     "stage": "opt_nofsm",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 6,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x9",
+       "0xe",
+       "0x10",
+       "0x17",
+       "0x23",
+       "0x24",
+       "0x3a",
+       "0x3d"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.aes_cipher_ctrl_cs",
+        "width": 6,
+        "found_by": "name",
+        "codes": [
+         "0x9",
+         "0xe",
+         "0x17",
+         "0x23",
+         "0x3a"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 6,
+      "register": "u_dut.aes_cipher_ctrl_cs",
+      "distance": 3,
+      "codes": [
+       "0x9",
+       "0xe",
+       "0x17",
+       "0x23",
+       "0x3a"
+      ]
+     },
+     "evidence": [
+      "u_dut.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0xe, 0x17, 0x23, 0x3a; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    },
+    {
+     "cm": "sparse_encoding:cipher_ctrl_state",
+     "stage": "opt_fsm_keep",
+     "verdict": "SURVIVED",
+     "measured": {
+      "intended_width": 6,
+      "intended_distance": 3,
+      "intended_codes": [
+       "0x9",
+       "0xe",
+       "0x10",
+       "0x17",
+       "0x23",
+       "0x24",
+       "0x3a",
+       "0x3d"
+      ],
+      "instances": [
+       {
+        "register": "u_dut.aes_cipher_ctrl_cs",
+        "width": 6,
+        "found_by": "name",
+        "codes": [
+         "0x9",
+         "0xe",
+         "0x17",
+         "0x23",
+         "0x3a"
+        ],
+        "distance": 3,
+        "codes_how": "sampled"
+       }
+      ],
+      "width": 6,
+      "register": "u_dut.aes_cipher_ctrl_cs",
+      "distance": 3,
+      "codes": [
+       "0x9",
+       "0xe",
+       "0x17",
+       "0x23",
+       "0x3a"
+      ]
+     },
+     "evidence": [
+      "u_dut.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0xe, 0x17, 0x23, 0x3a; minimum Hamming distance 3 (intended 3)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "alarm:aes_cipher_control_fsm.alert_o",
+   "kind": "alarm",
+   "origin": "rtl-scan",
+   "where": "opentitan_prims/src/aes_cipher_control_fsm.sv:41",
+   "intent": {
+    "signal": "alert_o",
+    "module": "aes_cipher_control_fsm",
+    "width": 1
+   },
+   "track": {},
+   "title": "alarm alert_o",
+   "stages": [
+    {
+     "cm": "alarm:aes_cipher_control_fsm.alert_o",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 1,
+      "live_bits": 1
+     },
+     "evidence": [
+      "alert_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    },
+    {
+     "cm": "alarm:aes_cipher_control_fsm.alert_o",
+     "stage": "opt_fsm",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 1,
+      "live_bits": 1
+     },
+     "evidence": [
+      "alert_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    },
+    {
+     "cm": "alarm:aes_cipher_control_fsm.alert_o",
+     "stage": "opt_nofsm",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 1,
+      "live_bits": 1
+     },
+     "evidence": [
+      "alert_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    },
+    {
+     "cm": "alarm:aes_cipher_control_fsm.alert_o",
+     "stage": "opt_fsm_keep",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 1,
+      "live_bits": 1
+     },
+     "evidence": [
+      "alert_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  }
+ ],
+ "notes": [],
+ "summary": {
+  "counts": {
+   "SURVIVED": 2,
+   "WEAKENED": 0,
+   "REMOVED": 0,
+   "UNTRACKED": 0,
+   "NOT_CHECKED": 0
+  },
+  "margin_below_target": [],
+  "margin_drop": null,
+  "incomplete": 0,
+  "verdict": "PASS",
+  "exit_code": 0
+ }
+}

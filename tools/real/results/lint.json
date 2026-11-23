@@ -1,0 +1,607 @@
+{
+ "hier_lint": [
+  {
+   "schema": "glitchsat-hier-lint/1",
+   "top": "aes_cipher_control",
+   "copy_regex": "gen_fsm\\[(\\d+)\\]",
+   "verdict": "separate_with_shared_inputs",
+   "copies": {
+    "0": {
+     "cells": 240,
+     "flops": 7
+    },
+    "1": {
+     "cells": 240,
+     "flops": 7
+    },
+    "2": {
+     "cells": 234,
+     "flops": 7
+    }
+   },
+   "identical_signatures": [
+    [
+     "0",
+     "1"
+    ]
+   ],
+   "cross_copy_reads": 0,
+   "cross_examples": [],
+   "shared_driver_nets": 26,
+   "shared_driver_cells": 18,
+   "shared_driver_ports": [
+    "data_out_clear_i",
+    "key_clear_i",
+    "key_len_i",
+    "op_i",
+    "prng_reseed_ack_i",
+    "rst_ni"
+   ],
+   "shared_cell_types": {
+    "DFFR_X1": 16,
+    "OR4_X1": 1,
+    "NAND3_X1": 1
+   },
+   "shared_examples": [
+    {
+     "net": 17,
+     "driver": "op_i",
+     "kind": "port",
+     "driver_type": "input port",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 322,
+     "driver": "$flatten\\u_rnd_ctr_rem_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13827",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 94,
+     "driver": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13827",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 324,
+     "driver": "$flatten\\u_rnd_ctr_rem_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13826",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 93,
+     "driver": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13826",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 326,
+     "driver": "$flatten\\u_rnd_ctr_rem_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 92,
+     "driver": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 333,
+     "driver": "$flatten\\u_rnd_ctr_rem_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13828",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 95,
+     "driver": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13828",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    },
+    {
+     "net": 335,
+     "driver": "$flatten\\u_num_rounds_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13828",
+     "kind": "cell",
+     "driver_type": "DFFR_X1",
+     "reader_copies": [
+      "0",
+      "1",
+      "2"
+     ]
+    }
+   ],
+   "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json"
+  }
+ ],
+ "merge_lint": [
+  {
+   "port": "in_ready_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.47
+  },
+  {
+   "port": "out_valid_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.48
+  },
+  {
+   "port": "crypt_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.39
+  },
+  {
+   "port": "dec_key_gen_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.38
+  },
+  {
+   "port": "state_we_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.48
+  },
+  {
+   "port": "sub_bytes_en_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.44
+  },
+  {
+   "port": "sub_bytes_out_ack_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 467,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.48
+  },
+  {
+   "port": "key_full_we_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 40,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.49
+  },
+  {
+   "port": "key_dec_we_o",
+   "mode": "names",
+   "verdict": "separate",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      1
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 0,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)"
+   ],
+   "runtime_s": 0.49
+  },
+  {
+   "port": "key_expand_en_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 12,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.51
+  },
+  {
+   "port": "key_expand_out_ack_o",
+   "mode": "names",
+   "verdict": "merged",
+   "copies": {
+    "0": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "1": {
+     "cone": 769,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    },
+    "2": {
+     "cone": 765,
+     "decision_bits": [
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   "shared_nets": 467,
+   "merge_points": 81,
+   "single_points": 12,
+   "findings": [
+    "copy groups from hierarchy names: 0 (769 input-dependent nets), 1 (769 input-dependent nets), 2 (765 input-dependent nets)",
+    "467 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$18095$new_n216_` (0+1+2), `$abc$18095$new_n217_` (0+1+2), `$abc$18095$new_n218_` (0+1+2), `$abc$18095$new_n219_` (0+1+2), `$abc$18095$new_n220_` (0+1+2)",
+    "3 decision bit(s) depend on more than one copy: bits [0, 1, 2]"
+   ],
+   "runtime_s": 0.54
+  }
+ ],
+ "counters": [
+  {
+   "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+   "registers": {
+    "u_num_rounds_regs": 4,
+    "u_rnd_ctr_err_reg": 1,
+    "u_rnd_ctr_par_reg": 1,
+    "u_rnd_ctr_regs": 4,
+    "u_rnd_ctr_rem_regs": 4
+   }
+  }
+ ]
+}

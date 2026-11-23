@@ -1,0 +1,226 @@
+[
+ {
+  "experiment": "E5",
+  "attack": [
+   {
+    "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8938_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "nt_branch_addr_i_stage_1",
+    "option": "input_fault"
+   }
+  ],
+  "fault_locations": {
+   "$abc$8281$auto$blifparse.cc:381:parse_blif$8938": [
+    "stage_1"
+   ],
+   "nt_branch_addr_i": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 1,
+  "synfi_effective": 1,
+  "agree": 1,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 125.65
+ },
+ {
+  "experiment": "E5",
+  "attack": [
+   {
+    "location": "nt_branch_addr_i_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8992_stage_1",
+    "option": "input_fault"
+   }
+  ],
+  "fault_locations": {
+   "nt_branch_addr_i": [
+    "stage_1"
+   ],
+   "$abc$8281$auto$blifparse.cc:381:parse_blif$8992": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 1,
+  "synfi_effective": 1,
+  "agree": 1,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 130.26
+ },
+ {
+  "experiment": "E5",
+  "attack": [
+   {
+    "location": "nt_branch_addr_i_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8979_stage_1",
+    "option": "OR2_X1"
+   }
+  ],
+  "fault_locations": {
+   "nt_branch_addr_i": [
+    "stage_1"
+   ],
+   "$abc$8281$auto$blifparse.cc:381:parse_blif$8979": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 2,
+  "synfi_effective": 2,
+  "agree": 2,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 138.63
+ },
+ {
+  "experiment": "E5",
+  "attack": [
+   {
+    "location": "nt_branch_addr_i_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$abc$8281$auto$blifparse.cc:381:parse_blif$8985_stage_1",
+    "option": "AND2_X1"
+   }
+  ],
+  "fault_locations": {
+   "nt_branch_addr_i": [
+    "stage_1"
+   ],
+   "$abc$8281$auto$blifparse.cc:381:parse_blif$8985": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 1,
+  "synfi_effective": 1,
+  "agree": 1,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 146.28
+ },
+ {
+  "experiment": "E3",
+  "attack": [
+   {
+    "location": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13826_in_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+    "option": "input_fault"
+   }
+  ],
+  "fault_locations": {
+   "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13826": [
+    "stage_1"
+   ],
+   "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 1,
+  "synfi_effective": 1,
+  "agree": 1,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 37.18
+ },
+ {
+  "experiment": "E3",
+  "attack": [
+   {
+    "location": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825_in_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+    "option": "input_fault"
+   }
+  ],
+  "fault_locations": {
+   "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825": [
+    "stage_1"
+   ],
+   "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 1,
+  "synfi_effective": 1,
+  "agree": 1,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 30.63
+ },
+ {
+  "experiment": "E3",
+  "attack": [
+   {
+    "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790_stage_1",
+    "option": "OR2_X1"
+   }
+  ],
+  "fault_locations": {
+   "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996": [
+    "stage_1"
+   ],
+   "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 3,
+  "synfi_effective": 1,
+  "agree": 3,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 38.72
+ },
+ {
+  "experiment": "E3",
+  "attack": [
+   {
+    "location": "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+    "option": "input_fault"
+   },
+   {
+    "location": "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790_stage_1",
+    "option": "OR2_X1"
+   }
+  ],
+  "fault_locations": {
+   "$flatten\\gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996": [
+    "stage_1"
+   ],
+   "$flatten\\gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.$abc$17628$auto$blifparse.cc:381:parse_blif$17790": [
+    "stage_1"
+   ]
+  },
+  "synfi_injections": 3,
+  "synfi_effective": 1,
+  "agree": 3,
+  "synfi_verdict_on_this_attack": [
+   true
+  ],
+  "synfi_runtime_s": 32.14
+ }
+]

@@ -1,0 +1,280 @@
+{
+ "mubi_flag": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 4
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 4
+  },
+  "negative control (one AND made OR: $flatten\\u_dec.$abc$363$auto$blifparse.cc:386:parse_blif$368)": {
+   "verdict": "proved",
+   "induction_length": 4
+  }
+ },
+ "mubi_word": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 4
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 4
+  },
+  "negative control (one AND made OR: $flatten\\u_sync.$abc$332$auto$blifparse.cc:386:parse_blif$34)": {
+   "verdict": "DIFFERENT",
+   "log": "work/mubi_word/equiv_broken.log"
+  }
+ },
+ "count_req": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 3
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 3
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.\\gen_cnts[0].u_cnt_flop.\\u_impl.$abc$920$auto)": {
+   "verdict": "DIFFERENT",
+   "log": "work/count_req/equiv_broken.log"
+  }
+ },
+ "count_regs": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.\\gen_cnts[0].u_cnt_flop.\\u_impl.$abc$916$auto)": {
+   "verdict": "DIFFERENT",
+   "log": "work/count_regs/equiv_broken.log"
+  }
+ },
+ "dlfsr_zero": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 18
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 18
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.\\gen_double_lfsr[0].u_prim_lfsr.$abc$479$auto)": {
+   "verdict": "DIFFERENT",
+   "log": "work/dlfsr_zero/equiv_broken.log"
+  }
+ },
+ "ctr_fsm_1rail": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 8
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 8
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$912$auto$blifparse.cc:386:parse_blif$929)": {
+   "verdict": "proved",
+   "induction_length": 8
+  }
+ },
+ "ctr_3rail": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 8
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 8
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3874$auto$blifparse.cc:386:parse_blif$44)": {
+   "verdict": "DIFFERENT",
+   "log": "work/ctr_3rail/equiv_broken.log"
+  }
+ },
+ "ciph_out_valid": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 5
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 5
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fs)": {
+   "verdict": "proved",
+   "induction_length": 5
+  }
+ },
+ "fsm_plain_state": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$6852$auto$blifparse.cc:386:parse_blif$71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_plain_all": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$6852$auto$blifparse.cc:386:parse_blif$71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_opt_fsm_state": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3404$auto$blifparse.cc:386:parse_blif$38)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_opt_fsm_all": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3404$auto$blifparse.cc:386:parse_blif$38)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_opt_nofsm_state": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$2998$auto$blifparse.cc:386:parse_blif$33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_opt_nofsm_all": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$2998$auto$blifparse.cc:386:parse_blif$33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_opt_fsm_keep_state": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3404$auto$blifparse.cc:386:parse_blif$38)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsm_opt_fsm_keep_all": {
+  "net (Yosys 0.33)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "proved",
+   "induction_length": 2
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3404$auto$blifparse.cc:386:parse_blif$38)": {
+   "verdict": "proved",
+   "induction_length": 2
+  }
+ },
+ "fsmfree_plain": {
+  "net (Yosys 0.33)": {
+   "verdict": "bounded 25"
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "bounded 25"
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$6853$auto$blifparse.cc:386:parse_blif$71)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_plain/equiv_broken.log"
+  }
+ },
+ "fsmfree_opt_fsm": {
+  "net (Yosys 0.33)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_fsm/equiv_net33.log"
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_fsm/equiv_net71.log"
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3405$auto$blifparse.cc:386:parse_blif$38)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_fsm/equiv_broken.log"
+  }
+ },
+ "fsmfree_opt_nofsm": {
+  "net (Yosys 0.33)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_nofsm/equiv_net33.log"
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_nofsm/equiv_net71.log"
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$2999$auto$blifparse.cc:386:parse_blif$33)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_nofsm/equiv_broken.log"
+  }
+ },
+ "fsmfree_opt_fsm_keep": {
+  "net (Yosys 0.33)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_fsm_keep/equiv_net33.log"
+  },
+  "net71 (Yosys 0.71)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_fsm_keep/equiv_net71.log"
+  },
+  "negative control (one AND made OR: $flatten\\u_dut.$abc$3405$auto$blifparse.cc:386:parse_blif$38)": {
+   "verdict": "DIFFERENT",
+   "log": "work/fsmfree_opt_fsm_keep/equiv_broken.log"
+  }
+ }
+}

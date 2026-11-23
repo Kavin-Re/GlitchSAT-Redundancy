@@ -1,0 +1,301 @@
+{
+ "tool": "SYNFI (lowRISC/synfi @ pinned commit, run unmodified with shims/)",
+ "netlist": "synfi/examples/aes_cipher_control_fsm/netlist_aes_cipher_control_fsm.json",
+ "module": "aes_cipher_control_fsm",
+ "spec": "synfi/examples/aes_cipher_control_fsm/fault_model_aes_cipher_control_fsm_rnd_cntr_target_value.json",
+ "simultaneous_faults": 1,
+ "auto_fl": true,
+ "limit": null,
+ "parse_s": 0.0,
+ "inject_s": 0.29,
+ "solver": "minicdcl (via shims/pysat)",
+ "synfi_log_summary": [
+  "Injecting 28 faults...",
+  "Found 1 (3.57%) effective combinational faults, 0 (0.0%) effective sequential faults, and 27 ineffective faults.",
+  "Circuit size of the whole circuit: 280.0 GE and of the analyzed target graph: 23.67 GE."
+ ],
+ "injections": 28,
+ "sat": 1,
+ "results": [
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14738_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14739_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920_stage_1",
+     "stage": "stage_1",
+     "mapping": "OAI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "rnd_ctr_q_i_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14736_stage_1",
+     "stage": "stage_1",
+     "mapping": "INV_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918_stage_1",
+     "stage": "stage_1",
+     "mapping": "OR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "rnd_ctr_d_o_stage_1",
+     "stage": "stage_1",
+     "mapping": "output_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929_stage_1",
+     "stage": "stage_1",
+     "mapping": "MUX2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924_stage_1",
+     "stage": "stage_1",
+     "mapping": "AOI21_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928_stage_1",
+     "stage": "stage_1",
+     "mapping": "NAND2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928_stage_1",
+     "stage": "stage_1",
+     "mapping": "NOR2_X1"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14905_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14903_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14904_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14901_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  },
+  {
+   "sat": false,
+   "faults": [
+    {
+     "location": "$abc$14726$auto$blifparse.cc:381:parse_blif$14900_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  }
+ ]
+}

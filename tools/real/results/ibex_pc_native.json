@@ -1,0 +1,290 @@
+{
+ "experiment": "ibex_pc_native",
+ "netlist": "synfi/examples/ibex/netlist_ibex_if_stage.json",
+ "top": "ibex_if_stage",
+ "target": "0x40400",
+ "pinned_inputs": [
+  "boot_addr_i",
+  "branch_target_ex_i",
+  "nt_branch_addr_i",
+  "csr_mepc_i",
+  "csr_depc_i",
+  "csr_mtvec_i"
+ ],
+ "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; whole netlist; inputs free each cycle except the pinned PC sources; reset released",
+ "backend": "dimacs:cadical",
+ "runs": [
+  {
+   "cycles": 3,
+   "kmax": 3,
+   "sites": 1937,
+   "cnf": {
+    "vars": 33111,
+    "clauses": 81646,
+    "literals": 226710
+   },
+   "build_s": 0.04,
+   "verdict": "ATTACK_FOUND",
+   "min_faults": 2,
+   "sweep": [
+    {
+     "k": 0,
+     "result": "UNSAT",
+     "solve_s": 0.239
+    },
+    {
+     "k": 1,
+     "result": "UNSAT",
+     "solve_s": 0.247
+    },
+    {
+     "k": 2,
+     "result": "SAT",
+     "solve_s": 0.239
+    }
+   ],
+   "witness": [
+    {
+     "cycle": 2,
+     "cell": "$auto$simplemap.cc:442:simplemap_dffe$890",
+     "type": "DFF_X1",
+     "pin": "Q",
+     "net": "pc_if_o[10]"
+    },
+    {
+     "cycle": 2,
+     "cell": "$auto$simplemap.cc:442:simplemap_dffe$898",
+     "type": "DFF_X1",
+     "pin": "Q",
+     "net": "pc_if_o[18]"
+    }
+   ],
+   "replayed_on_reference": true,
+   "surface": {
+    "attacks": 267,
+    "complete": true,
+    "stop": "exhausted",
+    "cycles": {
+     "0": 245,
+     "1": 245,
+     "2": 44
+    },
+    "hot_spots": [
+     {
+      "cell": "$auto$simplemap.cc:442:simplemap_dffe$898",
+      "pin": "Q",
+      "net": "pc_if_o[18]",
+      "attacks": 45
+     },
+     {
+      "cell": "$auto$simplemap.cc:442:simplemap_dffe$890",
+      "pin": "Q",
+      "net": "pc_if_o[10]",
+      "attacks": 39
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$9034",
+      "pin": "Z",
+      "net": "$abc$8281$auto$rtlil.cc:2432:MuxGate$7796",
+      "attacks": 38
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8993",
+      "pin": "ZN",
+      "net": "$abc$8281$auto$rtlil.cc:2432:MuxGate$7780",
+      "attacks": 34
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8486",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1039_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8485",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1038_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8487",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1040_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8488",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1041_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8489",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1042_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8490",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1043_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$9032",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1585_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$9033",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n1586_",
+      "attacks": 23
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8404",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n957_",
+      "attacks": 22
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8400",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n953_",
+      "attacks": 22
+     },
+     {
+      "cell": "$abc$8281$auto$blifparse.cc:381:parse_blif$8399",
+      "pin": "ZN",
+      "net": "$abc$8281$new_n952_",
+      "attacks": 22
+     }
+    ],
+    "first_attacks": [
+     [
+      {
+       "cycle": 2,
+       "net": "pc_if_o[10]",
+       "type": "DFF_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "pc_if_o[10]",
+       "type": "DFF_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "pc_if_o[10]",
+       "type": "DFF_X1"
+      },
+      {
+       "cycle": 1,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[10]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "$abc$8281$new_n957_",
+       "type": "OAI21_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "$abc$8281$new_n953_",
+       "type": "NAND2_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "$abc$8281$new_n952_",
+       "type": "NAND2_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "$abc$8281$new_n954_",
+       "type": "NAND3_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "$abc$8281$new_n955_",
+       "type": "NAND3_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ],
+     [
+      {
+       "cycle": 1,
+       "net": "$abc$8281$new_n951_",
+       "type": "NAND2_X1"
+      },
+      {
+       "cycle": 2,
+       "net": "pc_if_o[18]",
+       "type": "DFF_X1"
+      }
+     ]
+    ]
+   },
+   "runtime_s": 82.9
+  }
+ ]
+}

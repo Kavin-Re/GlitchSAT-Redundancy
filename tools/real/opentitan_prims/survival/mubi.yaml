@@ -1,0 +1,11 @@
+# prim_mubi4_sender -> prim_mubi4_sync: every bit of the 4-bit multi-bit boolean keeps its own driver.
+name: prim_mubi4
+top: ot_mubi_w
+intent:
+  rtl: [../src/prim_mubi4_sender.sv]
+  reference: none
+  countermeasures:
+    - {kind: mubi, id: sender_out, signal: snd, width: 4}
+    - {kind: mubi, id: sync_out, signal: gout, width: 4}
+stages:
+  - {name: plain, netlist: ../work/mubi_word/net_named.json}

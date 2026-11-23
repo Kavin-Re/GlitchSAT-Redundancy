@@ -1,0 +1,10 @@
+# aes_ctr_fsm, one rail: sparse state codes CTR_IDLE 0x0E, CTR_INCR 0x18, CTR_ERROR 0x01 (aes_pkg.sv).
+name: aes_ctr_fsm
+top: ot_ctr_fsm_w
+intent:
+  rtl: [../src/aes_ctr_fsm.sv]
+  reference: none
+  countermeasures:
+    - {kind: sparse_encoding, id: state, register: u_dut.aes_ctr_cs, width: 5, codes: [0x0E, 0x18, 0x01]}
+stages:
+  - {name: plain, netlist: ../work/ctr_fsm_1rail/net_named.json}

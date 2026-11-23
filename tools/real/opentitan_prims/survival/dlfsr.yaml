@@ -1,0 +1,10 @@
+# prim_double_lfsr (8-bit GAL_XOR): the two LFSR state registers must stay separate.
+name: prim_double_lfsr
+top: ot_dlfsr_w
+intent:
+  rtl: [../src/prim_double_lfsr.sv]
+  reference: none
+  countermeasures:
+    - {kind: redundant_register, id: two_lfsrs, registers: ["u_dut.gen_double_lfsr[0].u_prim_lfsr.lfsr_q", "u_dut.gen_double_lfsr[1].u_prim_lfsr.lfsr_q"]}
+stages:
+  - {name: plain, netlist: ../work/dlfsr_zero/net_named.json}

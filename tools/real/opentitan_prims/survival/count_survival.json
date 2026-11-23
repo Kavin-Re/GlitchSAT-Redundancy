@@ -1,0 +1,117 @@
+{
+ "schema": "glitchsat-survival/1",
+ "tool": {
+  "name": "glitchsat check-survival",
+  "version": "0.1.0",
+  "yosys": "Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)"
+ },
+ "name": "prim_count",
+ "top": "ot_count_reg_w",
+ "goal": null,
+ "stages": [
+  {
+   "name": "plain",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../work/count_regs/net_named.json",
+     "sha256": "8503ad47d464ecb674959edea1c54958d4eba6619541219699e7dee4d16c6e8d"
+    }
+   },
+   "status": "ok",
+   "notes": [],
+   "stats": {
+    "gates": 269,
+    "flops": 14,
+    "cells": 283,
+    "inputs": 1
+   },
+   "reference": true
+  }
+ ],
+ "countermeasures": [
+  {
+   "id": "redundant_register:cross_counter",
+   "kind": "redundant_register",
+   "origin": "yaml",
+   "where": "",
+   "intent": {
+    "registers": [
+     "u_dut.gen_cnts[0].cnt_unforced_q",
+     "u_dut.gen_cnts[1].cnt_unforced_q"
+    ]
+   },
+   "track": {},
+   "title": "registers u_dut.gen_cnts[0].cnt_unforced_q / u_dut.gen_cnts[1].cnt_unforced_q",
+   "stages": [
+    {
+     "cm": "redundant_register:cross_counter",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "flops": {
+       "u_dut.gen_cnts[0].cnt_unforced_q": 4,
+       "u_dut.gen_cnts[1].cnt_unforced_q": 4
+      },
+      "intended_width": null
+     },
+     "evidence": [
+      "all registers present as separate flops (u_dut.gen_cnts[0].cnt_unforced_q: 4, u_dut.gen_cnts[1].cnt_unforced_q: 4)"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  },
+  {
+   "id": "alarm:prim_count.err_o",
+   "kind": "alarm",
+   "origin": "rtl-scan",
+   "where": "opentitan_prims/src/prim_count.sv:60",
+   "intent": {
+    "signal": "err_o",
+    "module": "prim_count",
+    "width": 1
+   },
+   "track": {},
+   "title": "alarm err_o",
+   "stages": [
+    {
+     "cm": "alarm:prim_count.err_o",
+     "stage": "plain",
+     "verdict": "SURVIVED",
+     "measured": {
+      "bits": 1,
+      "live_bits": 1
+     },
+     "evidence": [
+      "err_o is driven by non-constant logic"
+     ],
+     "cause": "",
+     "fix": [],
+     "label": "MEASURED"
+    }
+   ],
+   "verdict": "SURVIVED",
+   "broken_at": null
+  }
+ ],
+ "notes": [],
+ "summary": {
+  "counts": {
+   "SURVIVED": 2,
+   "WEAKENED": 0,
+   "REMOVED": 0,
+   "UNTRACKED": 0,
+   "NOT_CHECKED": 0
+  },
+  "margin_below_target": [],
+  "margin_drop": null,
+  "incomplete": 0,
+  "verdict": "PASS",
+  "exit_code": 0
+ }
+}

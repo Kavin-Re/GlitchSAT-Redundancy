@@ -1,0 +1,36 @@
+{
+ "tool": "SYNFI (lowRISC/synfi @ pinned commit, run unmodified with shims/)",
+ "netlist": "synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+ "module": "aes_cipher_control",
+ "spec": "runs/targeted/E3_1_spec.json",
+ "simultaneous_faults": 2,
+ "auto_fl": false,
+ "limit": null,
+ "parse_s": 0.0,
+ "inject_s": 30.63,
+ "solver": "minicdcl (via shims/pysat)",
+ "synfi_log_summary": [
+  "Injecting 2 faults...",
+  "Found 1 (50.0%) effective combinational faults, 1 (50.0%) effective sequential faults, and 0 ineffective faults.",
+  "Circuit size of the whole circuit: 1.15 kGE and of the analyzed target graph: 556.33 GE."
+ ],
+ "injections": 1,
+ "sat": 1,
+ "results": [
+  {
+   "sat": true,
+   "faults": [
+    {
+     "location": "$flatten\\u_rnd_ctr_regs.$auto$simplemap.cc:527:simplemap_adff_sdff$13825_in_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    },
+    {
+     "location": "$flatten\\gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.$abc$17856$auto$blifparse.cc:381:parse_blif$17996_stage_1",
+     "stage": "stage_1",
+     "mapping": "input_fault"
+    }
+   ]
+  }
+ ]
+}

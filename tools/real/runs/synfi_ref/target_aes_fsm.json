@@ -1,0 +1,450 @@
+{
+ "model": "aes_cipher_control_fsm_rnd_cntr",
+ "nodes": {
+  "rnd_ctr_q_i_stage_1": {
+   "parent": "rnd_ctr_q_i",
+   "type": "input",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14739_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14739",
+   "type": "INV_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14923_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923",
+   "type": "AOI21_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14918_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918",
+   "type": "NAND2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14929_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929",
+   "type": "MUX2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921",
+   "type": "NAND2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14738_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14738",
+   "type": "INV_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14927_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927",
+   "type": "AND2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14924_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924",
+   "type": "OAI21_X1",
+   "stage": "stage_1"
+  },
+  "rnd_ctr_d_o_stage_1": {
+   "parent": "rnd_ctr_d_o",
+   "type": "output",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14736_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14736",
+   "type": "INV_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14928_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928",
+   "type": "AND2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925",
+   "type": "NOR2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14922_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922",
+   "type": "NAND2_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14920_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920",
+   "type": "AOI21_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14919_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919",
+   "type": "OAI21_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926",
+   "type": "OAI21_X1",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14905_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14905",
+   "type": "input",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14901_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14901",
+   "type": "input",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14900_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14900",
+   "type": "input",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14904_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14904",
+   "type": "input",
+   "stage": "stage_1"
+  },
+  "$abc$14726$auto$blifparse.cc:381:parse_blif$14903_stage_1": {
+   "parent": "$abc$14726$auto$blifparse.cc:381:parse_blif$14903",
+   "type": "input",
+   "stage": "stage_1"
+  }
+ },
+ "edges": [
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14736_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 0,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 53
+  },
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 0,
+   "in_port": "B2",
+   "in_pin": 0,
+   "wire": 53
+  },
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 1,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 54
+  },
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 0,
+   "in_port": "A1",
+   "in_pin": 0,
+   "wire": 53
+  },
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 1,
+   "in_port": "A2",
+   "in_pin": 0,
+   "wire": 54
+  },
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14738_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 2,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 55
+  },
+  {
+   "src": "rnd_ctr_q_i_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14739_stage_1",
+   "out_port": "rnd_ctr_q_i",
+   "out_pin": 3,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 56
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14739_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "S",
+   "in_pin": 0,
+   "wire": 105
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923_stage_1",
+   "dst": "rnd_ctr_d_o_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "rnd_ctr_d_o",
+   "in_pin": 1,
+   "wire": 58
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 251
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929_stage_1",
+   "dst": "rnd_ctr_d_o_stage_1",
+   "out_port": "Z",
+   "out_pin": 0,
+   "in_port": "rnd_ctr_d_o",
+   "in_pin": 3,
+   "wire": 60
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A2",
+   "in_pin": 0,
+   "wire": 253
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B2",
+   "in_pin": 0,
+   "wire": 253
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14921_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A2",
+   "in_pin": 0,
+   "wire": 253
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14738_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 104
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14738_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A1",
+   "in_pin": 0,
+   "wire": 104
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927_stage_1",
+   "dst": "rnd_ctr_d_o_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "rnd_ctr_d_o",
+   "in_pin": 2,
+   "wire": 59
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A1",
+   "in_pin": 0,
+   "wire": 255
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14736_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A1",
+   "in_pin": 0,
+   "wire": 102
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14736_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B2",
+   "in_pin": 0,
+   "wire": 102
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B",
+   "in_pin": 0,
+   "wire": 258
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B1",
+   "in_pin": 0,
+   "wire": 256
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14925_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A2",
+   "in_pin": 0,
+   "wire": 256
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B1",
+   "in_pin": 0,
+   "wire": 254
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 252
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919_stage_1",
+   "dst": "rnd_ctr_d_o_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "rnd_ctr_d_o",
+   "in_pin": 0,
+   "wire": 57
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14927_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A2",
+   "in_pin": 0,
+   "wire": 257
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14929_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 257
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14905_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14923_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B2",
+   "in_pin": 0,
+   "wire": 242
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14905_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14919_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B1",
+   "in_pin": 0,
+   "wire": 242
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14905_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A",
+   "in_pin": 0,
+   "wire": 242
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14901_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14918_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A2",
+   "in_pin": 0,
+   "wire": 238
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14901_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14928_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A1",
+   "in_pin": 0,
+   "wire": 238
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14901_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14920_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B1",
+   "in_pin": 0,
+   "wire": 238
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14900_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14924_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B1",
+   "in_pin": 0,
+   "wire": 237
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14904_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14922_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "A1",
+   "in_pin": 0,
+   "wire": 241
+  },
+  {
+   "src": "$abc$14726$auto$blifparse.cc:381:parse_blif$14903_stage_1",
+   "dst": "$abc$14726$auto$blifparse.cc:381:parse_blif$14926_stage_1",
+   "out_port": "ZN",
+   "out_pin": 0,
+   "in_port": "B2",
+   "in_pin": 0,
+   "wire": 240
+  }
+ ]
+}
