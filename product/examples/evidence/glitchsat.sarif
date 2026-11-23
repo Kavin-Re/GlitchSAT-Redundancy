@@ -1,0 +1,1410 @@
+{
+ "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+ "version": "2.1.0",
+ "runs": [
+  {
+   "tool": {
+    "driver": {
+     "name": "GlitchSAT",
+     "version": "0.9.0",
+     "semanticVersion": "0.9.0",
+     "informationUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+     "rules": [
+      {
+       "id": "GS001",
+       "name": "SinglePointOfFailure",
+       "shortDescription": {
+        "text": "One modelled bit flip defeats the check"
+       },
+       "fullDescription": {
+        "text": "Within the stated bounds, a single-cycle flip of one net makes the netlist accept a wrong input. A redundant check should need at least two independent faults."
+       },
+       "help": {
+        "text": "Every listed net is, on its own, a minimum attack under the model. Duplicate the decision in independent logic, keep each copy's result in its own output bits, and check that synthesis did not merge the copies (rule GS002).",
+        "markdown": "Every listed net is, on its own, a minimum attack under the model. Duplicate the decision in independent logic, keep each copy's result in its own output bits, and check that synthesis did not merge the copies (rule GS002)."
+       },
+       "defaultConfiguration": {
+        "level": "error"
+       },
+       "helpUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+       "properties": {
+        "tags": [
+         "security",
+         "hardware",
+         "fault-injection"
+        ],
+        "precision": "high",
+        "security-severity": "8.0"
+       }
+      },
+      {
+       "id": "GS002",
+       "name": "MergedRedundantCopies",
+       "shortDescription": {
+        "text": "Redundant copies share or combine logic before the decision"
+       },
+       "fullDescription": {
+        "text": "The structural lint found nets that lie in the cones of two or more intended copies, or that combine copies before the decision bits. One fault there can act on several copies at once."
+       },
+       "help": {
+        "text": "Typical causes are opt_merge / structural hashing in synthesis or an AND of the copies' results. Keep the copies apart (keep_hierarchy, keep attributes, separate output bits) and re-run the bounded search to measure the effect.",
+        "markdown": "Typical causes are opt_merge / structural hashing in synthesis or an AND of the copies' results. Keep the copies apart (keep_hierarchy, keep attributes, separate output bits) and re-run the bounded search to measure the effect."
+       },
+       "defaultConfiguration": {
+        "level": "error"
+       },
+       "helpUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+       "properties": {
+        "tags": [
+         "security",
+         "hardware",
+         "fault-injection"
+        ],
+        "precision": "high",
+        "security-severity": "7.0"
+       }
+      },
+      {
+       "id": "GS003",
+       "name": "MarginBelowTarget",
+       "shortDescription": {
+        "text": "Fault margin below the project's target"
+       },
+       "fullDescription": {
+        "text": "The minimum number of modelled flips, or the attack-potential estimate derived from it, is below the target set in the targets file."
+       },
+       "help": {
+        "text": "The estimate's assumptions (fault type, flips per injection event, factor levels) are listed in the message and in the evidence report. The estimate supports, and never replaces, lab evaluation.",
+        "markdown": "The estimate's assumptions (fault type, flips per injection event, factor levels) are listed in the message and in the evidence report. The estimate supports, and never replaces, lab evaluation."
+       },
+       "defaultConfiguration": {
+        "level": "error"
+       },
+       "helpUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+       "properties": {
+        "tags": [
+         "security",
+         "hardware",
+         "fault-injection"
+        ],
+        "precision": "high",
+        "security-severity": "6.0"
+       }
+      },
+      {
+       "id": "GS004",
+       "name": "SolverInconclusive",
+       "shortDescription": {
+        "text": "Solver did not decide within the limit"
+       },
+       "fullDescription": {
+        "text": "At least one run ended without a verdict (timeout or unknown)."
+       },
+       "help": {
+        "text": "Raise the timeout, reduce the cycle bound, or restrict fault sites; a missing verdict is not a pass.",
+        "markdown": "Raise the timeout, reduce the cycle bound, or restrict fault sites; a missing verdict is not a pass."
+       },
+       "defaultConfiguration": {
+        "level": "warning"
+       },
+       "helpUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+       "properties": {
+        "tags": [
+         "hardware",
+         "fault-injection"
+        ],
+        "precision": "high"
+       }
+      },
+      {
+       "id": "GS005",
+       "name": "ConfigurationProblem",
+       "shortDescription": {
+        "text": "Configuration problem: no valid verdict"
+       },
+       "fullDescription": {
+        "text": "The honest input does not reach the goal in the fault-free design, or two runs on the same netlist contradict."
+       },
+       "help": {
+        "text": "Check attacker.legitimate_value, property.output and property.bad_value in the threat model.",
+        "markdown": "Check attacker.legitimate_value, property.output and property.bad_value in the threat model."
+       },
+       "defaultConfiguration": {
+        "level": "error"
+       },
+       "helpUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+       "properties": {
+        "tags": [
+         "hardware",
+         "fault-injection"
+        ],
+        "precision": "high"
+       }
+      },
+      {
+       "id": "GS006",
+       "name": "MinimumAttackReported",
+       "shortDescription": {
+        "text": "Minimum modelled attack and margin estimate"
+       },
+       "fullDescription": {
+        "text": "Informational record of the smallest attack found within the bound and the attack-potential estimate."
+       },
+       "help": {
+        "text": "No action needed if the margin meets your target. See the evidence report for scope and limits.",
+        "markdown": "No action needed if the margin meets your target. See the evidence report for scope and limits."
+       },
+       "defaultConfiguration": {
+        "level": "note"
+       },
+       "helpUri": "https://github.com/Kavin-Re/GlitchSAT-Redundancy",
+       "properties": {
+        "tags": [
+         "hardware",
+         "fault-injection"
+        ],
+        "precision": "high"
+       }
+      }
+     ]
+    }
+   },
+   "invocations": [
+    {
+     "executionSuccessful": true,
+     "commandLine": "glitchsat evidence-example (recorded V0/V1/V2 results)"
+    }
+   ],
+   "results": [
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (opt)] One modelled flip of `$abc$195$new_n15_` (cycle 3) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$195$new_n15_",
+         "fullyQualifiedName": "v0.$abc$195$new_n15_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "9e10cfe37b54363b9918acc7005e94dc",
+      "primaryLocationLineHash": "9e10cfe37b54363b9918acc7005e94dc:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (opt)",
+      "net": "$abc$195$new_n15_",
+      "cycles": [
+       3
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (opt)] One modelled flip of `boot_word[0]` (cycle 3) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "boot_word[0]",
+         "fullyQualifiedName": "v0.boot_word[0]",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "a1eeff84a301e917fd71e0ae9eb1fee1",
+      "primaryLocationLineHash": "a1eeff84a301e917fd71e0ae9eb1fee1:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (opt)",
+      "net": "boot_word[0]",
+      "cycles": [
+       3
+      ]
+     }
+    },
+    {
+     "ruleId": "GS003",
+     "ruleIndex": 2,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (opt)] Margin below target: 1 flip(s) < target 2 (<= 3 flips, 6 cycles). minimum 1 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "boot_word[0]",
+         "fullyQualifiedName": "v0.boot_word[0]",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "d308765aa6014fac7a369168081c932f",
+      "primaryLocationLineHash": "d308765aa6014fac7a369168081c932f:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (opt)",
+      "min_flips": 1,
+      "psa": 20,
+      "jil": 16,
+      "events": 1
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (plain)] One modelled flip of `$abc$206$new_n16_` (cycle 0) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$206$new_n16_",
+         "fullyQualifiedName": "v0.$abc$206$new_n16_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "df535d56604bcb00b986a5a4d4f4ffc2",
+      "primaryLocationLineHash": "df535d56604bcb00b986a5a4d4f4ffc2:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (plain)",
+      "net": "$abc$206$new_n16_",
+      "cycles": [
+       0
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (plain)] One modelled flip of `$abc$206$new_n17_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$206$new_n17_",
+         "fullyQualifiedName": "v0.$abc$206$new_n17_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "63743195a89e0bb49d0dc2cf9244408a",
+      "primaryLocationLineHash": "63743195a89e0bb49d0dc2cf9244408a:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (plain)",
+      "net": "$abc$206$new_n17_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (plain)] One modelled flip of `$flatten\\c.$abc$196$new_n11_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$196$new_n11_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$196$new_n11_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "a58e779555aee5cce3ea8b736a561ed1",
+      "primaryLocationLineHash": "a58e779555aee5cce3ea8b736a561ed1:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (plain)",
+      "net": "$flatten\\c.$abc$196$new_n11_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS003",
+     "ruleIndex": 2,
+     "level": "error",
+     "message": {
+      "text": "[v0 / rtl/v0.v (plain)] Margin below target: 1 flip(s) < target 2 (<= 3 flips, 6 cycles). minimum 1 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v0.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$206$new_n17_",
+         "fullyQualifiedName": "v0.$abc$206$new_n17_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "af46b63b6e6b78baa513bb3de78b8852",
+      "primaryLocationLineHash": "af46b63b6e6b78baa513bb3de78b8852:1"
+     },
+     "properties": {
+      "design": "v0 / rtl/v0.v (plain)",
+      "min_flips": 1,
+      "psa": 20,
+      "jil": 16,
+      "events": 1
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$abc$184$auto$wreduce.cc:461:run$27[0]` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 410
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$184$auto$wreduce.cc:461:run$27[0]",
+         "fullyQualifiedName": "v0.$abc$184$auto$wreduce.cc:461:run$27[0]",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "13e29ae84510a24b5fc87a7471b52dc5",
+      "primaryLocationLineHash": "13e29ae84510a24b5fc87a7471b52dc5:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$abc$184$auto$wreduce.cc:461:run$27[0]",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$auto$rtlil.cc:2609:MuxGate$193` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 423
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$auto$rtlil.cc:2609:MuxGate$193",
+         "fullyQualifiedName": "v0.$auto$rtlil.cc:2609:MuxGate$193",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "76bd52dd3a97b9c222ea3b34bda40dc5",
+      "primaryLocationLineHash": "76bd52dd3a97b9c222ea3b34bda40dc5:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$auto$rtlil.cc:2609:MuxGate$193",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$auto$rtlil.cc:2609:MuxGate$195` (cycle 1,2,3,4) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 429
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$auto$rtlil.cc:2609:MuxGate$195",
+         "fullyQualifiedName": "v0.$auto$rtlil.cc:2609:MuxGate$195",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "67c71328b164f08f09bd9352ac073fa1",
+      "primaryLocationLineHash": "67c71328b164f08f09bd9352ac073fa1:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$auto$rtlil.cc:2609:MuxGate$195",
+      "cycles": [
+       1,
+       2,
+       3,
+       4
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n10_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 441
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n10_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n10_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "64916b60afde154a5088ed603f265350",
+      "primaryLocationLineHash": "64916b60afde154a5088ed603f265350:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n10_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n11_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 447
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n11_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n11_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "74629f607daa0b9aae60816cc97aac96",
+      "primaryLocationLineHash": "74629f607daa0b9aae60816cc97aac96:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n11_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n12_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 453
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n12_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n12_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "e0afcc6e4de0526c3b47d811b25dfadb",
+      "primaryLocationLineHash": "e0afcc6e4de0526c3b47d811b25dfadb:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n12_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n13_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 459
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n13_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n13_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "c9bb5abffd9048358b3ddbafd4b12ad8",
+      "primaryLocationLineHash": "c9bb5abffd9048358b3ddbafd4b12ad8:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n13_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n14_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 465
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n14_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n14_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "e7c072a9ad5dc4c0654109ce70f0f472",
+      "primaryLocationLineHash": "e7c072a9ad5dc4c0654109ce70f0f472:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n14_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n15_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 471
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n15_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n15_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "7a5f1ac4c92ff1c5e0785d4ca5c10d0e",
+      "primaryLocationLineHash": "7a5f1ac4c92ff1c5e0785d4ca5c10d0e:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n15_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `$flatten\\c.$abc$175$new_n16_` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 477
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c.$abc$175$new_n16_",
+         "fullyQualifiedName": "v0.$flatten\\c.$abc$175$new_n16_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "310d97ba599109471b06374bea0b3da6",
+      "primaryLocationLineHash": "310d97ba599109471b06374bea0b3da6:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "$flatten\\c.$abc$175$new_n16_",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `c.m` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 505
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "c.m",
+         "fullyQualifiedName": "v0.c.m",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "e8434ce18a222f67e1d148c9ddedc41b",
+      "primaryLocationLineHash": "e8434ce18a222f67e1d148c9ddedc41b:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "c.m",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `st[0]` (cycle 2,3,4,5) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 534
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "st[0]",
+         "fullyQualifiedName": "v0.st[0]",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "93ef3b2610eb8552d145a263f4923a83",
+      "primaryLocationLineHash": "93ef3b2610eb8552d145a263f4923a83:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "st[0]",
+      "cycles": [
+       2,
+       3,
+       4,
+       5
+      ]
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] One modelled flip of `st[1]` (cycle 0) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 534
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "st[1]",
+         "fullyQualifiedName": "v0.st[1]",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "b238ed0384cc5733c612698fd25c7cf8",
+      "primaryLocationLineHash": "b238ed0384cc5733c612698fd25c7cf8:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "net": "st[1]",
+      "cycles": [
+       0
+      ]
+     }
+    },
+    {
+     "ruleId": "GS003",
+     "ruleIndex": 2,
+     "level": "error",
+     "message": {
+      "text": "[v0 / reference/spike_netlists/v0.json (given-netlist)] Margin below target: 1 flip(s) < target 2 (<= 3 flips, 6 cycles). Unbounded check (known power-up): no attack with <= 0 flip(s) at any cycle, smallest attack at any cycle 1 flip(s). minimum 1 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v0.json"
+        },
+        "region": {
+         "startLine": 534
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "st[0]",
+         "fullyQualifiedName": "v0.st[0]",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "1a316f8307effde10c2bcf4190eac04f",
+      "primaryLocationLineHash": "1a316f8307effde10c2bcf4190eac04f:1"
+     },
+     "properties": {
+      "design": "v0 / reference/spike_netlists/v0.json (given-netlist)",
+      "min_flips": 1,
+      "psa": 20,
+      "jil": 16,
+      "events": 1,
+      "unbounded_proved_up_to": 0,
+      "unbounded_smallest_attack": 1,
+      "unbounded_init": "known"
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v1 / rtl/v1.v (opt)] One modelled flip of `ok` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v1.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "160fef924063f635e5641535cf98e566",
+      "primaryLocationLineHash": "160fef924063f635e5641535cf98e566:1"
+     },
+     "properties": {
+      "design": "v1 / rtl/v1.v (opt)",
+      "net": "ok",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS003",
+     "ruleIndex": 2,
+     "level": "error",
+     "message": {
+      "text": "[v1 / rtl/v1.v (opt)] Margin below target: 1 flip(s) < target 2 (<= 3 flips, 6 cycles). minimum 1 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v1.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "88eafbdabb35db6854c5c270ee030d91",
+      "primaryLocationLineHash": "88eafbdabb35db6854c5c270ee030d91:1"
+     },
+     "properties": {
+      "design": "v1 / rtl/v1.v (opt)",
+      "min_flips": 1,
+      "psa": 20,
+      "jil": 16,
+      "events": 1
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v1 / rtl/v1.v (plain)] One modelled flip of `ok` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v1.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "86ed3d04c8eaf829a09740426d3d6716",
+      "primaryLocationLineHash": "86ed3d04c8eaf829a09740426d3d6716:1"
+     },
+     "properties": {
+      "design": "v1 / rtl/v1.v (plain)",
+      "net": "ok",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS003",
+     "ruleIndex": 2,
+     "level": "error",
+     "message": {
+      "text": "[v1 / rtl/v1.v (plain)] Margin below target: 1 flip(s) < target 2 (<= 3 flips, 6 cycles). minimum 1 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v1.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "1cb500aab240af57fbaa6e738d98e4f1",
+      "primaryLocationLineHash": "1cb500aab240af57fbaa6e738d98e4f1:1"
+     },
+     "properties": {
+      "design": "v1 / rtl/v1.v (plain)",
+      "min_flips": 1,
+      "psa": 20,
+      "jil": 16,
+      "events": 1
+     }
+    },
+    {
+     "ruleId": "GS001",
+     "ruleIndex": 0,
+     "level": "error",
+     "message": {
+      "text": "[v1 / reference/spike_netlists/v1.json (given-netlist)] One modelled flip of `ok` (cycle 1) defeats the check (<= 3 flips, 6 cycles). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v1.json"
+        },
+        "region": {
+         "startLine": 1628
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "d4e9a0ab3c34cc9870e396dfaf2f311a",
+      "primaryLocationLineHash": "d4e9a0ab3c34cc9870e396dfaf2f311a:1"
+     },
+     "properties": {
+      "design": "v1 / reference/spike_netlists/v1.json (given-netlist)",
+      "net": "ok",
+      "cycles": [
+       1
+      ]
+     }
+    },
+    {
+     "ruleId": "GS002",
+     "ruleIndex": 1,
+     "level": "error",
+     "message": {
+      "text": "[v1 / reference/spike_netlists/v1.json (given-netlist)] Redundancy lint: copies c1+c2 meet at `ok` before the decision (18 single point(s) in total, verdict 'merged'). The lint does not by itself show that one fault there suffices; the bounded search reports minimum 1 flip(s). Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v1.json"
+        },
+        "region": {
+         "startLine": 1628
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "945c26f9837c7e6ddfb8a479144fdd54",
+      "primaryLocationLineHash": "945c26f9837c7e6ddfb8a479144fdd54:1"
+     },
+     "properties": {
+      "design": "v1 / reference/spike_netlists/v1.json (given-netlist)",
+      "lint_verdict": "merged",
+      "single_points": 18
+     }
+    },
+    {
+     "ruleId": "GS003",
+     "ruleIndex": 2,
+     "level": "error",
+     "message": {
+      "text": "[v1 / reference/spike_netlists/v1.json (given-netlist)] Margin below target: 1 flip(s) < target 2 (<= 3 flips, 6 cycles). Unbounded check (known power-up): no attack with <= 0 flip(s) at any cycle, smallest attack at any cycle 1 flip(s). minimum 1 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v1.json"
+        },
+        "region": {
+         "startLine": 1628
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "ok",
+         "fullyQualifiedName": "v1.ok",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "33574288f00983daa8edc6ee9bff5ca9",
+      "primaryLocationLineHash": "33574288f00983daa8edc6ee9bff5ca9:1"
+     },
+     "properties": {
+      "design": "v1 / reference/spike_netlists/v1.json (given-netlist)",
+      "min_flips": 1,
+      "psa": 20,
+      "jil": 16,
+      "events": 1,
+      "unbounded_proved_up_to": 0,
+      "unbounded_smallest_attack": 1,
+      "unbounded_init": "known"
+     }
+    },
+    {
+     "ruleId": "GS006",
+     "ruleIndex": 5,
+     "level": "note",
+     "message": {
+      "text": "[v2 / rtl/v2.v (opt)] minimum 2 flip(s) (<= 3 flips, 6 cycles). minimum 2 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v2.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$314$new_n68_",
+         "fullyQualifiedName": "v2.$abc$314$new_n68_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "1a5915a562f3376258cb808f51c49fea",
+      "primaryLocationLineHash": "1a5915a562f3376258cb808f51c49fea:1"
+     },
+     "properties": {
+      "design": "v2 / rtl/v2.v (opt)",
+      "min_flips": 2,
+      "min_flips_is_lower_bound": false,
+      "psa": 20,
+      "jil": 16,
+      "events": 1
+     }
+    },
+    {
+     "ruleId": "GS006",
+     "ruleIndex": 5,
+     "level": "note",
+     "message": {
+      "text": "[v2 / rtl/v2.v (plain)] minimum 2 flip(s) (<= 3 flips, 6 cycles). minimum 2 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "rtl/v2.v"
+        },
+        "region": {
+         "startLine": 1
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$abc$275$new_n58_",
+         "fullyQualifiedName": "v2.$abc$275$new_n58_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "056acb4df4db12f16f00566018f38867",
+      "primaryLocationLineHash": "056acb4df4db12f16f00566018f38867:1"
+     },
+     "properties": {
+      "design": "v2 / rtl/v2.v (plain)",
+      "min_flips": 2,
+      "min_flips_is_lower_bound": false,
+      "psa": 20,
+      "jil": 16,
+      "events": 1
+     }
+    },
+    {
+     "ruleId": "GS006",
+     "ruleIndex": 5,
+     "level": "note",
+     "message": {
+      "text": "[v2 / reference/spike_netlists/v2.json (given-netlist)] minimum 3 flip(s) (<= 3 flips, 6 cycles). Unbounded check (known power-up): no attack with <= 2 flip(s) at any cycle, smallest attack at any cycle 3 flip(s). minimum 3 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic'). Assumptions: fault_type=voltage, flips_per_event=any, events=1. Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack."
+     },
+     "locations": [
+      {
+       "physicalLocation": {
+        "artifactLocation": {
+         "uri": "reference/spike_netlists/v2.json"
+        },
+        "region": {
+         "startLine": 1694
+        }
+       },
+       "logicalLocations": [
+        {
+         "name": "$flatten\\c0.$abc$251$new_n16_",
+         "fullyQualifiedName": "v2.$flatten\\c0.$abc$251$new_n16_",
+         "kind": "variable"
+        }
+       ]
+      }
+     ],
+     "partialFingerprints": {
+      "glitchsatFinding/v1": "3c51e22604f328207427faeff098d4b9",
+      "primaryLocationLineHash": "3c51e22604f328207427faeff098d4b9:1"
+     },
+     "properties": {
+      "design": "v2 / reference/spike_netlists/v2.json (given-netlist)",
+      "min_flips": 3,
+      "min_flips_is_lower_bound": false,
+      "psa": 20,
+      "jil": 16,
+      "events": 1,
+      "unbounded_proved_up_to": 2,
+      "unbounded_smallest_attack": 3,
+      "unbounded_init": "known"
+     }
+    }
+   ],
+   "properties": {
+    "scope": "Bounded result on modelled single-cycle bit flips of this synthesized netlist; not a proof of security and not a lab rating.",
+    "disclaimer": "Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack.",
+    "targets": {
+     "min_faults": 2,
+     "psa_level": null
+    }
+   },
+   "artifacts": [
+    {
+     "location": {
+      "uri": "reference/spike_netlists/v0.json"
+     },
+     "hashes": {
+      "sha-256": "103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac"
+     }
+    },
+    {
+     "location": {
+      "uri": "reference/spike_netlists/v1.json"
+     },
+     "hashes": {
+      "sha-256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc"
+     }
+    },
+    {
+     "location": {
+      "uri": "reference/spike_netlists/v2.json"
+     },
+     "hashes": {
+      "sha-256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec"
+     }
+    }
+   ]
+  }
+ ]
+}

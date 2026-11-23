@@ -1,0 +1,58 @@
+# Repository-root build file: `pip install .` here installs the whole GlitchSAT product.
+# It builds the package of product/pyproject.toml (source in product/src: the `glitchsat` command, the engine, the
+# evidence tools, the Studio launcher) and, through setup.py, the data package `glitchsat_data`: a copy of the
+# project the Studio and the module tools read (engine scripts, designs, recorded results, tools/<module>/).
+# `pip install ./product` builds only the command-line package, without that data.
+# Keep dependencies, extras, scripts and metadata equal in both files (product/tests/test_evidence_packaging.py checks this).
+[build-system]
+requires = ["setuptools>=77"]   # PEP 639 licence string (license = "Apache-2.0")
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glitchsat"
+dynamic = ["version"]
+description = "GlitchSAT: bounded fault-injection (bit-flip) analysis of Yosys gate-level netlists with z3."
+readme = "product/README.md"
+authors = [{ name = "Kavin.K.K" }]
+keywords = ["fault injection", "glitch", "yosys", "sat", "hardware security", "sarif"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+  "Topic :: Security",
+  "Development Status :: 3 - Alpha",
+]
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = ["pyyaml>=6", "tomli>=1.1; python_version < '3.11'"]   # see product/pyproject.toml: the solver is the `solver` extra
+
+[project.optional-dependencies]
+solver = ["z3-solver>=5.4.1,<6"]
+test = ["pytest>=8", "pyyaml", "jsonschema>=4", "z3-solver>=5.4.1,<6"]
+sarif = ["jsonschema>=4"]
+
+[project.urls]
+Homepage = "https://github.com/Kavin-Re/GlitchSAT-Redundancy"
+Issues = "https://github.com/Kavin-Re/GlitchSAT-Redundancy/issues"
+
+[project.scripts]
+glitchsat = "faultbound_wt.glitchsat_main:main"
+glitchsat-hook = "faultbound_wt.precommit:main"
+glitchsat-evidence = "faultbound_wt.evidence.cli:entry"
+glitchsat-evidence-hook = "faultbound_wt.evidence.hook:main"
+glitchsat-studio = "faultbound_wt.studio_launcher:main"
+faultbound-wt = "faultbound_wt.cli:main"
+faultbound-wt-hook = "faultbound_wt.precommit:main"
+
+[tool.setuptools]
+package-dir = {"" = "product/src"}
+
+[tool.setuptools.packages.find]
+where = ["product/src"]
+
+[tool.setuptools.package-data]
+# tools/studio/: GlitchSAT Studio, copied into the package at integration (run by glitchsat-studio)
+faultbound_wt = ["examples/*", "evidence/data/*.json", "evidence/data/recorded/*/*.json", "tools/studio/*", "tools/studio/**/*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "faultbound_wt.__version__"}

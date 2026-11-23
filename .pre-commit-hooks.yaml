@@ -1,0 +1,23 @@
+# pre-commit hook definitions (https://pre-commit.com). pre-commit reads this file at the ROOT of the hook repository,
+# so it lives at the repository root; `language: python` installs the package from the repository's root.
+# NOTE: pip installs from the repo root, so the root needs a pyproject.toml that builds the package in product/
+# (or move these hooks to a small dedicated hook repository). The repository-root pyproject.toml does this (it builds product/src).
+- id: glitchsat-margin
+  name: GlitchSAT fault margin (modelled bit flips, bounded)
+  description: Runs `glitchsat check` on glitchsat.toml when RTL, netlists, threat models or targets change. Not a security proof.
+  entry: glitchsat-evidence-hook
+  language: python
+  files: '(\.(v|sv|json|toml)$)'
+  pass_filenames: false
+  args: ['--targets', 'glitchsat.toml']
+  # the solver extra (`check` runs it for targets without a recorded result)
+  additional_dependencies: ['z3-solver>=5.4.1,<6']
+- id: glitchsat
+  name: GlitchSAT bounded fault check per netlist
+  description: Runs `glitchsat analyze` on each committed Yosys JSON netlist. Not a security proof.
+  entry: glitchsat-hook
+  language: python
+  files: '\.json$'
+  pass_filenames: true
+  args: ['--config', 'threat.toml']
+  additional_dependencies: ['z3-solver>=5.4.1,<6']

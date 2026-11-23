@@ -1,69 +1,151 @@
-# UNTESTED ON GITHUB (actions/setup-python and the code-scanning SARIF upload never ran). The two shell steps were run locally in a clean venv (2026-11-20): found and fixed a dependency-confusion bug in the default package-path; analysis on spike V2 gave ATTACK_FOUND exit 1, SARIF 2.1.0, badge JSON; bad inputs all exit 3. Never published.
-# Composite action wrapping faultbound-wt. Usage (from a workflow, local path):
-#   - uses: ./product/action
-#     with: { netlist: build/netlist.json, config: threat.toml }
-# The calling job needs `permissions: security-events: write` for the SARIF upload.
-name: faultbound-wt check
-description: Bounded modelled bit-flip check of a Yosys JSON netlist; uploads SARIF. Not a proof of security.
+# GlitchSAT fault-margin check: reusable composite GitHub Action.
+# STATUS: written and statically checked (YAML parsed, every shell step run locally with the same env variables);
+# NOT yet run on GitHub-hosted runners. Never published to the Marketplace.
+#
+# Usage in a workflow (the job needs `permissions: security-events: write` for the SARIF upload):
+#   - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+#   - uses: Kavin-Re/GlitchSAT-Redundancy/product/action@<tag-or-sha>
+#     with: { targets: glitchsat.toml }
+# Third-party actions are pinned by commit SHA (tag in the comment; tags resolved 2026-11-21). The SARIF upload uses
+# github/codeql-action v4 (v3 is deprecated in December 2026).
+# It installs Python, Yosys (apt, ubuntu-24.04) and the GlitchSAT package with its `solver` extra (z3-solver), runs
+# `glitchsat check` on the targets file, uploads SARIF to code scanning and the evidence reports as an artifact, then
+# fails the job if any target's margin is below its target (exit 1), has no verdict (2) or has an input error (3).
+name: GlitchSAT fault-margin check
+description: Bounded modelled bit-flip analysis of Yosys netlists, margin against a target, SARIF for code scanning. Not a proof of security.
+branding: { icon: shield, color: gray-dark }
 inputs:
-  netlist: { description: "Path to the Yosys JSON netlist (or .v with top)", required: true }
-  config: { description: "Threat-model TOML path", required: true }
-  top: { description: "Top module (Verilog or multi-module JSON)", required: false, default: "" }
-  max-flips: { description: "Override faults.max_flips (empty = use config)", required: false, default: "" }
-  cycles: { description: "Override faults.cycles (empty = use config)", required: false, default: "" }
-  package-path: { description: "Path of the faultbound package to pip install", required: false, default: "product" }
+  targets: { description: "Targets file (TOML) relative to the workspace", required: false, default: "glitchsat.toml" }
+  netlist: { description: "Single-netlist mode (older interface): Yosys JSON or Verilog path; used instead of `targets` when set", required: false, default: "" }
+  config: { description: "Single-netlist mode: threat-model TOML", required: false, default: "" }
+  top: { description: "Single-netlist mode: top module", required: false, default: "" }
+  max-flips: { description: "Single-netlist mode: flip budget", required: false, default: "3" }
+  cycles: { description: "Single-netlist mode: cycles", required: false, default: "6" }
+  target-min-faults: { description: "Single-netlist mode: minimum flips required", required: false, default: "2" }
+  package: { description: "What to pip install: empty = the GlitchSAT package from this action's own ref; a local path (./x, /x); or a pinned spec such as glitchsat==0.10.0", required: false, default: "" }
+  install-yosys: { description: "Install Yosys with apt (needed for Verilog targets): true/false", required: false, default: "true" }
   python-version: { description: "Python version", required: false, default: "3.12" }
-  sarif-file: { description: "SARIF output path", required: false, default: "faultbound.sarif" }
-  upload-sarif: { description: "Upload SARIF to code scanning (true/false)", required: false, default: "true" }
+  sarif-file: { description: "SARIF output path", required: false, default: "glitchsat.sarif" }
+  report-dir: { description: "Directory for the HTML/Markdown evidence reports", required: false, default: "glitchsat-evidence" }
+  upload-sarif: { description: "Upload SARIF to GitHub code scanning: true/false", required: false, default: "true" }
+  sarif-category: { description: "Code-scanning category", required: false, default: "glitchsat" }
+  fail-on-margin: { description: "Fail the job when a margin is below target: true/false", required: false, default: "true" }
+  artifact-name: { description: "Name of the evidence-report artifact; empty = glitchsat-evidence-<job id> (set it when the action runs more than once per job or in a matrix)", required: false, default: "" }
 outputs:
   exit-code:
-    description: "faultbound-wt exit code: 0 none, 1 attack, 2 unknown, 3 input error, 4 internal"
-    value: ${{ steps.run.outputs.exit_code }}
+    description: "glitchsat check exit code: 0 margin met, 1 below target, 2 no verdict, 3 input error"
+    value: ${{ steps.check.outputs.exit_code }}
 runs:
   using: composite
   steps:
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
       with:
         python-version: ${{ inputs.python-version }}
-    - name: install
+    - name: install Yosys
+      if: inputs.install-yosys == 'true'
       shell: bash
-      env:
-        PKG: ${{ inputs.package-path }}   # H2 (N1): inputs reach the shell ONLY through env vars, never by ${{ }} text substitution inside `run:`
       run: |
-        case "$PKG" in -*|"") echo "error: package-path must not be empty or start with '-'" >&2; exit 3;; esac
-        # A bare name such as `product` would be read by pip as a PyPI package name (dependency-confusion risk and a wrong install): force a local path.
-        case "$PKG" in /*|./*|../*) ;; *) PKG="./$PKG";; esac
-        [ -f "$PKG/pyproject.toml" ] || { echo "error: package-path '$PKG' is not a local directory with a pyproject.toml" >&2; exit 3; }
-        pip install -- "$PKG"
-    - name: analyze
-      id: run
+        if [ "${RUNNER_OS:-}" != "Linux" ] || ! command -v apt-get >/dev/null; then
+          echo "::warning::install-yosys needs an apt-based Linux runner (tested target: ubuntu-24.04); skipped"; exit 0
+        fi
+        sudo apt-get update -qq && sudo apt-get install -y -qq yosys
+        yosys -V
+    - name: install GlitchSAT
       shell: bash
       env:
+        PKG: ${{ inputs.package }}
+        ACTION_DIR: ${{ github.action_path }}
+      run: |
+        # inputs reach the shell only through env variables, never as expression text inside `run:`
+        if [ -z "$PKG" ]; then PKG="$ACTION_DIR/.."; fi
+        case "$PKG" in
+          -*) echo "error: package must not start with '-'" >&2; exit 3;;
+          # the `solver` extra brings z3-solver: `glitchsat check` runs the solver for targets without a recorded result
+          /*|./*|../*) [ -f "$PKG/pyproject.toml" ] || { echo "error: $PKG has no pyproject.toml" >&2; exit 3; }
+                        python -m pip install --disable-pip-version-check -- "$PKG[solver]";;
+          glitchsat==*) python -m pip install --disable-pip-version-check -- "glitchsat[solver]==${PKG#glitchsat==}";;
+          *) echo "error: package must be empty, a local path or glitchsat==VERSION (a bare name would be resolved on PyPI)" >&2; exit 3;;
+        esac
+        glitchsat --version
+    - name: glitchsat check
+      id: check
+      shell: bash
+      env:
+        TARGETS: ${{ inputs.targets }}
+        SARIF: ${{ inputs.sarif-file }}
+        REPORTS: ${{ inputs.report-dir }}
         NETLIST: ${{ inputs.netlist }}
         CONFIG: ${{ inputs.config }}
         TOP: ${{ inputs.top }}
         MAXF: ${{ inputs.max-flips }}
         CYC: ${{ inputs.cycles }}
-        SARIF: ${{ inputs.sarif-file }}
+        TMIN: ${{ inputs.target-min-faults }}
       run: |
-        # H2 (N1): all values come from env vars (set by the runner, not pasted into this script) and are passed as ONE argv element each,
-        # in --opt=value form (a value starting with '-' cannot become an option); the netlist goes after `--`. No eval, no unquoted expansion.
-        for v in "$MAXF" "$CYC"; do
-          case "$v" in ""|*[!0-9]*) [ -z "$v" ] || { echo "error: max-flips and cycles must be non-negative integers" >&2; echo "exit_code=3" >> "$GITHUB_OUTPUT"; exit 3; };; esac
-        done
-        args=(analyze "--config=$CONFIG" "--report=$SARIF" --report=faultbound.json --badge=faultbound-badge.json)
-        [ -n "$TOP" ] && args+=("--top=$TOP")
-        [ -n "$MAXF" ] && args+=("--max-flips=$MAXF")
-        [ -n "$CYC" ] && args+=("--cycles=$CYC")
-        args+=(-- "$NETLIST")
+        if [ -n "$NETLIST" ]; then
+          # single-netlist mode: write a one-target file; values are JSON-quoted by Python, never pasted into TOML by the shell
+          TARGETS="$RUNNER_TEMP/glitchsat-single.toml"
+          python - "$TARGETS" <<'PY' || { echo "exit_code=3" >> "$GITHUB_OUTPUT"; exit 0; }
+        import json, os, sys
+        e = os.environ
+        for k in ("MAXF", "CYC", "TMIN"):
+            if not e[k].isdigit():
+                sys.exit(f"error: {k} must be a non-negative integer")
+        ws = os.environ.get("GITHUB_WORKSPACE", os.getcwd())
+        q = lambda v: json.dumps(v if os.path.isabs(v) else os.path.join(ws, v))
+        lines = ["[[target]]", 'name = "netlist"', f"netlist = {q(e['NETLIST'])}", f"max_flips = {int(e['MAXF'])}",
+                 f"cycles = {int(e['CYC'])}", f"target_min_faults = {int(e['TMIN'])}"]
+        if e["CONFIG"]:
+            lines.append(f"config = {q(e['CONFIG'])}")
+        if e["TOP"]:
+            lines.append(f"top = {json.dumps(e['TOP'])}")
+        open(sys.argv[1], "w").write("\n".join(lines) + "\n")
+        PY
+        fi
         set +e
-        faultbound-wt "${args[@]}"
+        glitchsat check "--targets=$TARGETS" "--sarif=$SARIF" "--report-dir=$REPORTS"
         code=$?
         echo "exit_code=$code" >> "$GITHUB_OUTPUT"
-        exit $code
+        {
+          echo "### GlitchSAT fault margin"
+          echo ""
+          echo "exit code: $code (0 margin met, 1 below target, 2 no verdict, 3 input error)"
+          echo ""
+          echo "Bounded result on modelled bit flips; attack-potential figures are estimates that support, and never replace, lab evaluation."
+        } >> "$GITHUB_STEP_SUMMARY"
+        exit 0
     - name: upload SARIF
       if: always() && inputs.upload-sarif == 'true' && hashFiles(inputs.sarif-file) != ''
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@1bd86f2fdb4b86187fa4059f16f31a3202acc9ea # v4.39.4
       with:
         sarif_file: ${{ inputs.sarif-file }}
-        category: faultbound
+        category: ${{ inputs.sarif-category }}
+    - name: artifact name
+      id: art
+      if: always()
+      shell: bash
+      env:
+        NAME: ${{ inputs.artifact-name }}
+        JOB: ${{ github.job }}
+      run: |
+        # default: one name per job, so two uses in one workflow run (matrix, several jobs) do not collide
+        if [ -z "$NAME" ]; then NAME="glitchsat-evidence-$JOB"; fi
+        echo "name=$NAME" >> "$GITHUB_OUTPUT"
+    - name: upload evidence reports
+      if: always()
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      with:
+        name: ${{ steps.art.outputs.name }}
+        path: ${{ inputs.report-dir }}
+        if-no-files-found: ignore
+    - name: enforce margin
+      shell: bash
+      env:
+        CODE: ${{ steps.check.outputs.exit_code }}
+        FAIL: ${{ inputs.fail-on-margin }}
+      run: |
+        case "$CODE" in
+          0) echo "all targets meet their margin";;
+          1) if [ "$FAIL" = "true" ]; then echo "::error::fault margin below target (see code scanning / evidence reports)"; exit 1; fi
+             echo "::warning::fault margin below target (fail-on-margin=false)";;
+          *) echo "::error::glitchsat check exit $CODE (2 no verdict, 3 input error)"; exit "${CODE:-3}";;
+        esac

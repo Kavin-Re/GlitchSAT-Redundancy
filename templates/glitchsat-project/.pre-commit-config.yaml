@@ -1,0 +1,7 @@
+# pre-commit (https://pre-commit.com): re-check the fault margin when RTL, netlists, threat models or targets change.
+repos:
+  - repo: https://github.com/Kavin-Re/GlitchSAT-Redundancy
+    rev: v0.9.0   # release tag (checked against the tag by the release workflow)
+    hooks:
+      - id: glitchsat-margin
+        args: [--targets, glitchsat.toml]

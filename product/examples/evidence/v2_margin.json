@@ -1,0 +1,278 @@
+[
+ {
+  "name": "v2 / rtl/v2.v (opt)",
+  "min_faults": 2,
+  "no_attack_up_to": 1,
+  "consistent": true,
+  "status": "rated",
+  "headline": "minimum 2 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic')",
+  "events": 1,
+  "psa_total": 20,
+  "psa_levels": {
+   "2": {
+    "ceiling": 15,
+    "in_scope": false,
+    "margin": 5
+   },
+   "3": {
+    "ceiling": 20,
+    "in_scope": true,
+    "margin": 0
+   },
+   "4": {
+    "ceiling": 24,
+    "in_scope": true,
+    "margin": -4
+   }
+  },
+  "jil_total": 16,
+  "jil_band": "Basic",
+  "assumptions": {
+   "fault_type": "voltage",
+   "flips_per_event": "any",
+   "events": null,
+   "events_from_cycles": false,
+   "success_rare": false,
+   "id_elapsed": "month",
+   "id_expertise": "expert",
+   "id_knowledge": "public",
+   "id_access": "lt10",
+   "id_equipment": "specialized",
+   "exploit_elapsed": null,
+   "exploit_expertise": "proficient",
+   "exploit_knowledge": "public",
+   "exploit_access": "lt10",
+   "exploit_equipment": "specialized",
+   "jil_equipment": null,
+   "jil_open_samples": "public",
+   "target_psa_level": 3
+  },
+  "events_reasoning": [
+   "flips_per_event = any (default for fault_type=voltage): one injection event is assumed able to cause every flip of the attack in its clock cycle, so 2 flip(s) count as 1 event"
+  ],
+  "sensitivity": [
+   {
+    "assumption": "one glitch can cause every flip of a cycle (flips_per_event=any)",
+    "events": 1,
+    "psa": 20,
+    "jil": 16,
+    "jil_band": "Basic"
+   },
+   {
+    "assumption": "every flip needs its own injection (flips_per_event=1)",
+    "events": 2,
+    "psa": 21,
+    "jil": 17,
+    "jil_band": "Basic"
+   }
+  ],
+  "disclaimer": "Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack.",
+  "minimum_source": "bounded runs",
+  "timing": {
+   "min_cycles": 1,
+   "max_cycles": 2,
+   "single_cycle_attacks": 1,
+   "listed": 2,
+   "source": "source: 2 witness(es) of the bounded runs, not a complete listing",
+   "text": "1 of 2 listed minimum attack(s) fit in one clock cycle, others span up to 2 cycles (source: 2 witness(es) of the bounded runs, not a complete listing)",
+   "notes": [
+    [
+     "For fault analysis, a lack of accuracy in the synchronisation requirements 'can render the analysis to recover the key much more complex'; no point value is attached to timing precision.",
+     "JIL v3.2.1, section 5.4, para. 148"
+    ],
+    [
+     "Several perturbations may be required (one per firewall check); performing them is 'difficult, however still feasible' because the check can be found by synchronisation. No point value is given for this.",
+     "JIL v3.2.1, section 5.9.10, paras. 273-274"
+    ]
+   ]
+  }
+ },
+ {
+  "name": "v2 / rtl/v2.v (plain)",
+  "min_faults": 2,
+  "no_attack_up_to": 1,
+  "consistent": true,
+  "status": "rated",
+  "headline": "minimum 2 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic')",
+  "events": 1,
+  "psa_total": 20,
+  "psa_levels": {
+   "2": {
+    "ceiling": 15,
+    "in_scope": false,
+    "margin": 5
+   },
+   "3": {
+    "ceiling": 20,
+    "in_scope": true,
+    "margin": 0
+   },
+   "4": {
+    "ceiling": 24,
+    "in_scope": true,
+    "margin": -4
+   }
+  },
+  "jil_total": 16,
+  "jil_band": "Basic",
+  "assumptions": {
+   "fault_type": "voltage",
+   "flips_per_event": "any",
+   "events": null,
+   "events_from_cycles": false,
+   "success_rare": false,
+   "id_elapsed": "month",
+   "id_expertise": "expert",
+   "id_knowledge": "public",
+   "id_access": "lt10",
+   "id_equipment": "specialized",
+   "exploit_elapsed": null,
+   "exploit_expertise": "proficient",
+   "exploit_knowledge": "public",
+   "exploit_access": "lt10",
+   "exploit_equipment": "specialized",
+   "jil_equipment": null,
+   "jil_open_samples": "public",
+   "target_psa_level": 3
+  },
+  "events_reasoning": [
+   "flips_per_event = any (default for fault_type=voltage): one injection event is assumed able to cause every flip of the attack in its clock cycle, so 2 flip(s) count as 1 event"
+  ],
+  "sensitivity": [
+   {
+    "assumption": "one glitch can cause every flip of a cycle (flips_per_event=any)",
+    "events": 1,
+    "psa": 20,
+    "jil": 16,
+    "jil_band": "Basic"
+   },
+   {
+    "assumption": "every flip needs its own injection (flips_per_event=1)",
+    "events": 2,
+    "psa": 21,
+    "jil": 17,
+    "jil_band": "Basic"
+   }
+  ],
+  "disclaimer": "Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack.",
+  "minimum_source": "bounded runs",
+  "timing": {
+   "min_cycles": 1,
+   "max_cycles": 2,
+   "single_cycle_attacks": 1,
+   "listed": 2,
+   "source": "source: 2 witness(es) of the bounded runs, not a complete listing",
+   "text": "1 of 2 listed minimum attack(s) fit in one clock cycle, others span up to 2 cycles (source: 2 witness(es) of the bounded runs, not a complete listing)",
+   "notes": [
+    [
+     "For fault analysis, a lack of accuracy in the synchronisation requirements 'can render the analysis to recover the key much more complex'; no point value is attached to timing precision.",
+     "JIL v3.2.1, section 5.4, para. 148"
+    ],
+    [
+     "Several perturbations may be required (one per firewall check); performing them is 'difficult, however still feasible' because the check can be found by synchronisation. No point value is given for this.",
+     "JIL v3.2.1, section 5.9.10, paras. 273-274"
+    ]
+   ]
+  }
+ },
+ {
+  "name": "v2 / reference/spike_netlists/v2.json (given-netlist)",
+  "min_faults": 3,
+  "no_attack_up_to": 2,
+  "consistent": true,
+  "status": "rated",
+  "headline": "minimum 3 modelled flip(s) -> 1 injection event(s) assumed -> PSA rating 20 (<= L3 ceiling 20, in scope at L3: the device must resist it); JIL re-scored 16 ('Basic')",
+  "events": 1,
+  "psa_total": 20,
+  "psa_levels": {
+   "2": {
+    "ceiling": 15,
+    "in_scope": false,
+    "margin": 5
+   },
+   "3": {
+    "ceiling": 20,
+    "in_scope": true,
+    "margin": 0
+   },
+   "4": {
+    "ceiling": 24,
+    "in_scope": true,
+    "margin": -4
+   }
+  },
+  "jil_total": 16,
+  "jil_band": "Basic",
+  "assumptions": {
+   "fault_type": "voltage",
+   "flips_per_event": "any",
+   "events": null,
+   "events_from_cycles": false,
+   "success_rare": false,
+   "id_elapsed": "month",
+   "id_expertise": "expert",
+   "id_knowledge": "public",
+   "id_access": "lt10",
+   "id_equipment": "specialized",
+   "exploit_elapsed": null,
+   "exploit_expertise": "proficient",
+   "exploit_knowledge": "public",
+   "exploit_access": "lt10",
+   "exploit_equipment": "specialized",
+   "jil_equipment": null,
+   "jil_open_samples": "public",
+   "target_psa_level": 3
+  },
+  "events_reasoning": [
+   "flips_per_event = any (default for fault_type=voltage): one injection event is assumed able to cause every flip of the attack in its clock cycle, so 3 flip(s) count as 1 event"
+  ],
+  "sensitivity": [
+   {
+    "assumption": "one glitch can cause every flip of a cycle (flips_per_event=any)",
+    "events": 1,
+    "psa": 20,
+    "jil": 16,
+    "jil_band": "Basic"
+   },
+   {
+    "assumption": "every flip needs its own injection (flips_per_event=1)",
+    "events": 3,
+    "psa": 21,
+    "jil": 17,
+    "jil_band": "Basic"
+   }
+  ],
+  "disclaimer": "Estimate only. It supports, and never replaces, evaluation by an accredited lab: the scores use the schemes' point tables, but the factor levels are assumptions about a modelled result, not a lab rating of a demonstrated attack.",
+  "minimum_source": "bounded runs",
+  "timing": {
+   "min_cycles": 1,
+   "max_cycles": 1,
+   "single_cycle_attacks": 182,
+   "listed": 182,
+   "source": "source: attack-surface listing of 182 minimum attack(s), complete = True",
+   "text": "every listed minimum attack puts all its flips in ONE clock cycle (source: attack-surface listing of 182 minimum attack(s), complete = True): a single, well-timed injection event could in principle cause it, if one event can flip all of those nets",
+   "notes": [
+    [
+     "For fault analysis, a lack of accuracy in the synchronisation requirements 'can render the analysis to recover the key much more complex'; no point value is attached to timing precision.",
+     "JIL v3.2.1, section 5.4, para. 148"
+    ],
+    [
+     "Several perturbations may be required (one per firewall check); performing them is 'difficult, however still feasible' because the check can be found by synchronisation. No point value is given for this.",
+     "JIL v3.2.1, section 5.9.10, paras. 273-274"
+    ]
+   ]
+  },
+  "unbounded": {
+   "init": "known",
+   "proved_up_to": 2,
+   "smallest_attack": 3,
+   "checked_up_to": 3,
+   "by_k": {
+    "0": "PROVED_UNBOUNDED",
+    "1": "PROVED_UNBOUNDED",
+    "2": "PROVED_UNBOUNDED",
+    "3": "ATTACK_FOUND"
+   }
+  }
+ }
+]

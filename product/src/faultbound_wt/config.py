@@ -1,5 +1,9 @@
 """Threat-model config (TOML) loading and validation."""
-import re, tomllib
+import re
+try:
+    import tomllib
+except ModuleNotFoundError:          # Python 3.10: the same parser, from the tomli package
+    import tomli as tomllib
 from dataclasses import dataclass, field, asdict
 
 

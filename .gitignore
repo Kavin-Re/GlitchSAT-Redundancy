@@ -31,3 +31,18 @@ venv/
 .vscode/
 .idea/
 .DS_Store
+
+# GlitchSAT Studio and modules: screenshots of the browser suites, local project state, build folders
+tools/studio/shots*/
+.glitchsat/
+tools/real/opentitan_prims/work/
+tools/real/opentitan_prims/labs/work/
+tools/real/opentitan_prims/src_clone/
+tools/soc/work/
+tools/scale/bench/work/
+tools/masking/work/
+tools/bootloader/work/
+tools/bootloader/third_party/
+tools/bootloader/to_report/
+*_pre_audit.*
+*_pre_r2.*

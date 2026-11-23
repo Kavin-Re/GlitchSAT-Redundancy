@@ -1,0 +1,65 @@
+{
+  "label": "MEASURED",
+  "tool": "glitchsat.py",
+  "design": "reference/spike_netlists/v0.json",
+  "design_sha256_16": "103ad03e40a5994d",
+  "top": "v0",
+  "synth_flow": "given-netlist",
+  "verdict": "ATTACK_FOUND",
+  "bound": {
+    "max_faults": 3,
+    "cycles": 6,
+    "fault_model": "single-cycle bit flip of any gate output or flop Q",
+    "attacker_input": "`sig` free, held constant, != key 0xC3",
+    "goal": "boot_word == 0x96 at some cycle < 6"
+  },
+  "note": "BOUNDED, NOT UNBOUNDED: verdict holds only for <= 3 single-cycle bit-flip faults (gate outputs and flop Q) within 6 cycles on this synthesized netlist. It says nothing about more faults, longer runs, other fault types (stuck-at, multi-bit/spatial, clock/voltage effects), or physical feasibility. Toy design; modelled faults.",
+  "netlist": {
+    "gates": 18,
+    "flops": 2
+  },
+  "honest_key_boots_fault_free": true,
+  "model": {
+    "sites_total": 120,
+    "sites_modelled": 106,
+    "reduce": "full",
+    "build_s": 0.008,
+    "solve_s": 0.057,
+    "minimize_s": 0.011
+  },
+  "runtime_s": {
+    "synth": 0.0,
+    "solve_and_minimize": 0.079
+  },
+  "netlist_json": "reference/spike_netlists/v0.json",
+  "min_faults": 1,
+  "faults": [
+    {
+      "net": "$flatten\\c.$abc$175$new_n16_",
+      "net_id": 30,
+      "cycle": 1,
+      "kind": "gate_output"
+    }
+  ],
+  "attacker_input": {
+    "sig": "0x03"
+  },
+  "attacker_input_raw": {
+    "sig": 3
+  },
+  "explanation": {
+    "summary": "SINGLE POINT OF FAILURE: gate output `$flatten\\c.$abc$175$new_n16_` (AND), flipped for one cycle at cycle 1, reaches 2/8 bits of `boot_word` and is enough to reach the accept value.",
+    "fix_pattern": "Duplicate the logic that feeds this net and keep the copies independent (no shared gate), then compare/decide per bit instead of through one net.",
+    "fault_details": [
+      {
+        "net": "$flatten\\c.$abc$175$new_n16_",
+        "cycle": 1,
+        "kind": "gate output",
+        "gate": "AND",
+        "input_bits_in_fanin_cone": 4,
+        "goal_bits_reached": 2,
+        "goal_bits_total": 8
+      }
+    ]
+  }
+}

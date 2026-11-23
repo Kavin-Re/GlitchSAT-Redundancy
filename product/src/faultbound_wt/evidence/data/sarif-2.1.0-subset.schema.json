@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "SUBSET of the OASIS SARIF 2.1.0 JSON schema, transcribed by hand on 2026-11-21 from https://www.schemastore.org/sarif-2.1.0.json (redirect target of https://json.schemastore.org/sarif-2.1.0.json; $id https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json). The full file could not be downloaded in the build environment. Only the objects and properties GlitchSAT emits are listed; additionalProperties:false, required arrays, enums, minimums and uniqueItems are as in the published schema for those objects. propertyBag stays open, as published. Re-validate against the full published schema in CI where it is reachable (see sarif_check.py --schema).",
+  "title": "SARIF 2.1.0 (subset used by GlitchSAT)",
+  "type": "object",
+  "required": ["version", "runs"],
+  "properties": {
+    "$schema": {"type": "string", "format": "uri-reference"},
+    "version": {"const": "2.1.0"},
+    "runs": {"type": "array", "minItems": 0, "uniqueItems": false, "items": {"$ref": "#/definitions/run"}},
+    "properties": {"$ref": "#/definitions/propertyBag"}
+  },
+  "definitions": {
+    "propertyBag": {
+      "type": "object", "additionalProperties": true,
+      "properties": {"tags": {"type": "array", "minItems": 0, "uniqueItems": true, "items": {"type": "string"}}}
+    },
+    "message": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"text": {"type": "string"}, "markdown": {"type": "string"}, "id": {"type": "string"},
+                     "arguments": {"type": "array", "minItems": 0, "uniqueItems": false, "items": {"type": "string"}},
+                     "properties": {"$ref": "#/definitions/propertyBag"}},
+      "anyOf": [{"required": ["text"]}, {"required": ["id"]}]
+    },
+    "multiformatMessageString": {
+      "type": "object", "additionalProperties": false, "required": ["text"],
+      "properties": {"text": {"type": "string"}, "markdown": {"type": "string"}, "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "run": {
+      "type": "object", "additionalProperties": false, "required": ["tool"],
+      "properties": {
+        "tool": {"$ref": "#/definitions/tool"},
+        "invocations": {"type": "array", "minItems": 0, "uniqueItems": false, "items": {"$ref": "#/definitions/invocation"}},
+        "artifacts": {"type": "array", "minItems": 0, "uniqueItems": true, "items": {"$ref": "#/definitions/artifact"}},
+        "results": {"type": "array", "minItems": 0, "uniqueItems": false, "items": {"$ref": "#/definitions/result"}},
+        "properties": {"$ref": "#/definitions/propertyBag"}
+      }
+    },
+    "tool": {
+      "type": "object", "additionalProperties": false, "required": ["driver"],
+      "properties": {"driver": {"$ref": "#/definitions/toolComponent"},
+                     "extensions": {"type": "array", "minItems": 0, "uniqueItems": true, "items": {"$ref": "#/definitions/toolComponent"}},
+                     "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "toolComponent": {
+      "type": "object", "additionalProperties": false, "required": ["name"],
+      "properties": {
+        "name": {"type": "string"}, "version": {"type": "string"}, "semanticVersion": {"type": "string"},
+        "informationUri": {"type": "string", "format": "uri"},
+        "rules": {"type": "array", "minItems": 0, "uniqueItems": true, "items": {"$ref": "#/definitions/reportingDescriptor"}},
+        "properties": {"$ref": "#/definitions/propertyBag"}
+      }
+    },
+    "reportingDescriptor": {
+      "type": "object", "additionalProperties": false, "required": ["id"],
+      "properties": {
+        "id": {"type": "string"}, "name": {"type": "string"},
+        "shortDescription": {"$ref": "#/definitions/multiformatMessageString"},
+        "fullDescription": {"$ref": "#/definitions/multiformatMessageString"},
+        "help": {"$ref": "#/definitions/multiformatMessageString"},
+        "helpUri": {"type": "string", "format": "uri"},
+        "defaultConfiguration": {"$ref": "#/definitions/reportingConfiguration"},
+        "properties": {"$ref": "#/definitions/propertyBag"}
+      }
+    },
+    "reportingConfiguration": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"enabled": {"type": "boolean"}, "level": {"enum": ["none", "note", "warning", "error"]},
+                     "rank": {"type": "number", "minimum": -1, "maximum": 100}, "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "invocation": {
+      "type": "object", "additionalProperties": false, "required": ["executionSuccessful"],
+      "properties": {"executionSuccessful": {"type": "boolean"}, "commandLine": {"type": "string"}, "exitCode": {"type": "integer"},
+                     "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"location": {"$ref": "#/definitions/artifactLocation"},
+                     "hashes": {"type": "object", "additionalProperties": {"type": "string"}},
+                     "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "result": {
+      "type": "object", "additionalProperties": false, "required": ["message"],
+      "properties": {
+        "ruleId": {"type": "string"}, "ruleIndex": {"type": "integer", "minimum": -1},
+        "kind": {"enum": ["notApplicable", "pass", "fail", "review", "open", "informational"]},
+        "level": {"enum": ["none", "note", "warning", "error"]},
+        "message": {"$ref": "#/definitions/message"},
+        "locations": {"type": "array", "minItems": 0, "uniqueItems": false, "items": {"$ref": "#/definitions/location"}},
+        "partialFingerprints": {"type": "object", "additionalProperties": {"type": "string"}},
+        "fingerprints": {"type": "object", "additionalProperties": {"type": "string"}},
+        "properties": {"$ref": "#/definitions/propertyBag"}
+      }
+    },
+    "location": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"id": {"type": "integer", "minimum": -1}, "physicalLocation": {"$ref": "#/definitions/physicalLocation"},
+                     "logicalLocations": {"type": "array", "minItems": 0, "uniqueItems": true, "items": {"$ref": "#/definitions/logicalLocation"}},
+                     "message": {"$ref": "#/definitions/message"}, "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "physicalLocation": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"artifactLocation": {"$ref": "#/definitions/artifactLocation"}, "region": {"$ref": "#/definitions/region"},
+                     "properties": {"$ref": "#/definitions/propertyBag"}},
+      "anyOf": [{"required": ["address"]}, {"required": ["artifactLocation"]}]
+    },
+    "artifactLocation": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"uri": {"type": "string", "format": "uri-reference"}, "uriBaseId": {"type": "string"},
+                     "index": {"type": "integer", "minimum": -1}, "description": {"$ref": "#/definitions/message"},
+                     "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "region": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"startLine": {"type": "integer", "minimum": 1}, "startColumn": {"type": "integer", "minimum": 1},
+                     "endLine": {"type": "integer", "minimum": 1}, "endColumn": {"type": "integer", "minimum": 1},
+                     "message": {"$ref": "#/definitions/message"}, "properties": {"$ref": "#/definitions/propertyBag"}}
+    },
+    "logicalLocation": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"index": {"type": "integer", "minimum": -1}, "parentIndex": {"type": "integer", "minimum": -1},
+                     "name": {"type": "string"}, "fullyQualifiedName": {"type": "string"}, "decoratedName": {"type": "string"},
+                     "kind": {"type": "string"}, "properties": {"$ref": "#/definitions/propertyBag"}}
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+ "schema": "glitchsat-merge-lint/1",
+ "netlist": "reference/spike_netlists/v2.json",
+ "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+ "top": "v2",
+ "goal_out": "boot_word",
+ "mode": "names",
+ "verdict": "separate",
+ "copies": {
+  "c0": {
+   "named_nets": [
+    "$flatten\\c0.$abc$251$new_n10_",
+    "$flatten\\c0.$abc$251$new_n11_",
+    "$flatten\\c0.$abc$251$new_n12_",
+    "$flatten\\c0.$abc$251$new_n13_",
+    "$flatten\\c0.$abc$251$new_n14_",
+    "$flatten\\c0.$abc$251$new_n15_",
+    "$flatten\\c0.$abc$251$new_n16_",
+    "c0.m"
+   ],
+   "cone_size": 8,
+   "hash": "cb60107f37c01fcd",
+   "decision_bits": [
+    0,
+    3,
+    6
+   ]
+  },
+  "c1": {
+   "named_nets": [
+    "$flatten\\c1.$abc$251$new_n10_",
+    "$flatten\\c1.$abc$251$new_n11_",
+    "$flatten\\c1.$abc$251$new_n12_",
+    "$flatten\\c1.$abc$251$new_n13_",
+    "$flatten\\c1.$abc$251$new_n14_",
+    "$flatten\\c1.$abc$251$new_n15_",
+    "$flatten\\c1.$abc$251$new_n16_",
+    "c1.m"
+   ],
+   "cone_size": 8,
+   "hash": "cb60107f37c01fcd",
+   "decision_bits": [
+    1,
+    4,
+    7
+   ]
+  },
+  "c2": {
+   "named_nets": [
+    "$flatten\\c2.$abc$251$new_n10_",
+    "$flatten\\c2.$abc$251$new_n11_",
+    "$flatten\\c2.$abc$251$new_n12_",
+    "$flatten\\c2.$abc$251$new_n13_",
+    "$flatten\\c2.$abc$251$new_n14_",
+    "$flatten\\c2.$abc$251$new_n15_",
+    "$flatten\\c2.$abc$251$new_n16_",
+    "c2.m"
+   ],
+   "cone_size": 8,
+   "hash": "cb60107f37c01fcd",
+   "decision_bits": [
+    2,
+    5
+   ]
+  }
+ },
+ "decision_bits": [
+  {
+   "bit": 0,
+   "net": "$auto$rtlil.cc:2609:MuxGate$292",
+   "owners": [
+    "c0"
+   ]
+  },
+  {
+   "bit": 1,
+   "net": "$auto$rtlil.cc:2609:MuxGate$296",
+   "owners": [
+    "c1"
+   ]
+  },
+  {
+   "bit": 2,
+   "net": "$auto$rtlil.cc:2609:MuxGate$300",
+   "owners": [
+    "c2"
+   ]
+  },
+  {
+   "bit": 3,
+   "net": "$auto$rtlil.cc:2609:MuxGate$304",
+   "owners": [
+    "c0"
+   ]
+  },
+  {
+   "bit": 4,
+   "net": "$auto$rtlil.cc:2609:MuxGate$308",
+   "owners": [
+    "c1"
+   ]
+  },
+  {
+   "bit": 5,
+   "net": "$auto$rtlil.cc:2609:MuxGate$312",
+   "owners": [
+    "c2"
+   ]
+  },
+  {
+   "bit": 6,
+   "net": "$auto$rtlil.cc:2609:MuxGate$316",
+   "owners": [
+    "c0"
+   ]
+  },
+  {
+   "bit": 7,
+   "net": "$auto$rtlil.cc:2609:MuxGate$320",
+   "owners": [
+    "c1"
+   ]
+  }
+ ],
+ "shared_nets": [],
+ "merge_points": [],
+ "single_points": [],
+ "identical_copies": [
+  [
+   "c0",
+   "c1",
+   "c2"
+  ]
+ ],
+ "duplicate_hash_groups": 13,
+ "structural_groups": [
+  [
+   0,
+   3,
+   6
+  ],
+  [
+   1,
+   4,
+   7
+  ],
+  [
+   2,
+   5
+  ]
+ ],
+ "findings": [
+  "copy groups from hierarchy names: c0 (8 input-dependent nets), c1 (8 input-dependent nets), c2 (8 input-dependent nets)",
+  "no net is shared by two copies and no net combines copies before the decision bits",
+  "copies c0, c1, c2 are structurally identical (same canonical hash): a structural-hashing pass (e.g. opt_merge) can fold them unless the flow keeps them apart"
+ ],
+ "runtime_s": 0.0014,
+ "note": "Structural lint only (no solver, no simulation). A single point is a place where one modelled fault can act on several copies; whether it is enough to reach the goal is decided by the bounded search.",
+ "provenance_note": "produced on 2026-11-20 by ext/surface/scripts/merge_lint.py (exhaustive method, numpy, no z3) on the stored netlist; path made repository-relative"
+}

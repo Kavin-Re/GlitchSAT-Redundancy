@@ -9,7 +9,9 @@ except ModuleNotFoundError as _e:
     if _e.name != "z3":
         raise
     reports = runner = None
-Z3_MISSING = "z3-solver is not installed: pip install z3-solver"
+Z3_MISSING = ("z3-solver is not installed; the solver is an optional extra: pip install 'glitchsat[solver]' "
+              "(exact version of the recorded results: pip install -r ci/requirements-ci.txt)")
+_EVIDENCE_CMDS = ("margin", "evidence", "sarif", "check", "validate-sarif", "evidence-example")
 
 EXIT_OK, EXIT_ATTACK, EXIT_UNKNOWN, EXIT_ERROR, EXIT_INTERNAL = 0, 1, 2, 3, 4
 # H1: 0 = no attack within bound; 1 = attack found (ONLY a verdict ever returns 1); 2 = solver unknown/timeout;
@@ -42,7 +44,8 @@ def build_parser():
     ap = _Parser(prog=invoked if invoked in ("glitchsat", "faultbound-wt") else "glitchsat",
                  description="GlitchSAT CLI: bounded analysis of modelled single-cycle bit flips in a Yosys gate-level netlist. "
                              "It reports the smallest number of flips that makes the netlist accept a wrong input, within the stated "
-                             "bounds; a result is not a proof of security.")
+                             "bounds; a result is not a proof of security. Further commands (no z3 needed): margin, evidence, sarif, check, "
+                             "validate-sarif, evidence-example; run `glitchsat margin --help`.")
     ap.add_argument("--version", action="version", version=f"GlitchSAT CLI {__version__}")
     sp = ap.add_subparsers(dest="cmd", required=True)
     a = sp.add_parser("analyze", help="search for a bounded bit-flip attack",
@@ -83,11 +86,23 @@ def build_parser():
                    help="downgrade the 'honest input does not reach the goal' configuration error to a warning")
     a.add_argument("--exit-zero", action="store_true", help="always exit 0 unless there is an input error")
     sp.add_parser("example-path", help="print the directory of the bundled examples")
+    # listed for --help only: main() hands these to evidence.cli before argparse runs (no z3 needed)
+    for name, hlp in (("margin", "attack-potential margin estimate from result files"),
+                      ("evidence", "evidence report (HTML and/or Markdown) from result files"),
+                      ("sarif", "SARIF 2.1.0 for code scanning from result files"),
+                      ("check", "CI check over a targets file (runs or reads results; exit 1 below target)"),
+                      ("validate-sarif", "check a SARIF file against the schema subset and GitHub's upload rules"),
+                      ("evidence-example", "write the example V0/V1/V2 outputs from the bundled recorded results")):
+        sp.add_parser(name, help=hlp + "; see `glitchsat " + name + " --help`", add_help=False)
     return ap
 
 
 def main(argv=None):
     """H2 (N9): SIGTERM/SIGHUP become SystemExit so `finally` blocks run (temp dirs removed, --timeout-s worker and its yosys killed)."""
+    lst = list(sys.argv[1:] if argv is None else argv)
+    if lst and lst[0] in _EVIDENCE_CMDS:   # evidence tools (margin, evidence report, SARIF, CI check): no z3 needed
+        from .evidence import cli as evidence_cli
+        return evidence_cli.main(lst)
     old = {}
     try:
         for sg in (signal.SIGTERM, signal.SIGHUP):

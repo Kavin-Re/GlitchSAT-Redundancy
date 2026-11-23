@@ -1,0 +1,37 @@
+# Source distribution of the whole product (pip install glitchsat): the command-line package plus every folder that
+# setup.py copies into the data package glitchsat_data. Keep in step with DATA in setup.py.
+include pyproject.toml setup.py README.md START.md LICENSE NOTICE.md THIRD_PARTY.md Makefile
+graft product/src
+graft scripts
+graft rtl
+graft reference
+graft results
+graft validation
+graft ci
+graft formal
+graft tb
+graft integrations
+graft real_designs
+graft templates
+graft tools
+graft docs/explainers
+graft docs/report
+graft docs/edu
+include docs/GLOSSARY.md docs/NUMBERS.md docs/EVIDENCE_LABELS.md research/README.md
+graft research/c2/b2_scope
+graft research/c2/e2_variance
+graft research/c3/m1
+graft research/c3/rep
+graft research/c6/p01
+prune tools/soc/work
+prune tools/scale/bench/work
+prune tools/masking/work
+prune tools/real/opentitan_prims/work
+prune tools/real/opentitan_prims/labs/work
+prune tools/real/opentitan_prims/src_clone
+prune tools/bootloader/work
+prune tools/bootloader/third_party
+prune tools/bootloader/to_report
+prune tools/firmware/build
+global-exclude __pycache__ *.pyc *_pre_* .glitchsat
+prune tools/studio/shots*

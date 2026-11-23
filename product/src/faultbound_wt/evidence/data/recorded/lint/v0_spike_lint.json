@@ -1,0 +1,108 @@
+{
+ "schema": "glitchsat-merge-lint/1",
+ "netlist": "reference/spike_netlists/v0.json",
+ "netlist_sha256": "103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac",
+ "top": "v0",
+ "goal_out": "boot_word",
+ "mode": "structural",
+ "verdict": "single_group",
+ "copies": {
+  "g0": {
+   "named_nets": [],
+   "cone_size": 11,
+   "hash": "da0b15be178ae7f2",
+   "decision_bits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  }
+ },
+ "decision_bits": [
+  {
+   "bit": 0,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 1,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 2,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 3,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 4,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 5,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 6,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  },
+  {
+   "bit": 7,
+   "net": "$auto$rtlil.cc:2609:MuxGate$195, $auto$rtlil.cc:2609:MuxGate$197",
+   "owners": [
+    "g0"
+   ]
+  }
+ ],
+ "shared_nets": [],
+ "merge_points": [],
+ "single_points": [],
+ "identical_copies": [],
+ "duplicate_hash_groups": 0,
+ "structural_groups": [
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ ],
+ "findings": [
+  "no copy names: decision bits grouped by overlapping input-dependent logic -> 1 independent group(s): [[0, 1, 2, 3, 4, 5, 6, 7]]",
+  "every decision bit depends on shared input-dependent logic; 11 net(s) reach all of them, e.g. `$abc$184$auto$wreduce.cc:461:run$27[0]`, `$auto$rtlil.cc:2609:MuxGate$193`, `$auto$rtlil.cc:2609:MuxGate$195`, `$flatten\\c.$abc$175$new_n10_`, `$flatten\\c.$abc$175$new_n11_` (either the design has one copy, or its copies were merged; pass --copies N to say how many were intended)"
+ ],
+ "runtime_s": 0.0048,
+ "note": "Structural lint only (no solver, no simulation). A single point is a place where one modelled fault can act on several copies; whether it is enough to reach the goal is decided by the bounded search.",
+ "provenance_note": "produced on 2026-11-20 by ext/surface/scripts/merge_lint.py (exhaustive method, numpy, no z3) on the stored netlist; path made repository-relative"
+}

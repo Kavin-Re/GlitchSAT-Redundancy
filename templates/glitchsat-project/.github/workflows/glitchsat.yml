@@ -1,0 +1,18 @@
+name: glitchsat
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+  security-events: write   # upload SARIF to code scanning
+  actions: read            # needed by upload-sarif on private repositories
+jobs:
+  fault-margin:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # A release tag of the GlitchSAT repository (the release workflow checks that this equals the tag being released);
+      # the action installs the GlitchSAT package from the same ref. A commit SHA works too.
+      - uses: Kavin-Re/GlitchSAT-Redundancy/product/action@v0.9.0
+        with:
+          targets: glitchsat.toml

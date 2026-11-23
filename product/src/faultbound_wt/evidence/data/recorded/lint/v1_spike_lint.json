@@ -1,0 +1,564 @@
+{
+ "schema": "glitchsat-merge-lint/1",
+ "netlist": "reference/spike_netlists/v1.json",
+ "netlist_sha256": "84730fa7b5e3dbefd41ae57efd8d6bc18ca2bf02b03c231a90615c827ec7b5cc",
+ "top": "v1",
+ "goal_out": "boot_word",
+ "mode": "names",
+ "verdict": "merged",
+ "copies": {
+  "c1": {
+   "named_nets": [
+    "$flatten\\c1.$abc$246$new_n10_",
+    "$flatten\\c1.$abc$246$new_n11_",
+    "$flatten\\c1.$abc$246$new_n12_",
+    "$flatten\\c1.$abc$246$new_n13_",
+    "$flatten\\c1.$abc$246$new_n14_",
+    "$flatten\\c1.$abc$246$new_n15_",
+    "$flatten\\c1.$abc$246$new_n16_",
+    "c1.m"
+   ],
+   "cone_size": 8,
+   "hash": "cb60107f37c01fcd",
+   "decision_bits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  "c2": {
+   "named_nets": [
+    "$flatten\\c2.$abc$246$new_n10_",
+    "$flatten\\c2.$abc$246$new_n11_",
+    "$flatten\\c2.$abc$246$new_n12_",
+    "$flatten\\c2.$abc$246$new_n13_",
+    "$flatten\\c2.$abc$246$new_n14_",
+    "$flatten\\c2.$abc$246$new_n15_",
+    "$flatten\\c2.$abc$246$new_n16_",
+    "c2.m"
+   ],
+   "cone_size": 8,
+   "hash": "cb60107f37c01fcd",
+   "decision_bits": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  }
+ },
+ "decision_bits": [
+  {
+   "bit": 0,
+   "net": "$auto$rtlil.cc:2609:MuxGate$285",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 1,
+   "net": "$auto$rtlil.cc:2609:MuxGate$289",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 2,
+   "net": "$auto$rtlil.cc:2609:MuxGate$293",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 3,
+   "net": "$auto$rtlil.cc:2609:MuxGate$297",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 4,
+   "net": "$auto$rtlil.cc:2609:MuxGate$301",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 5,
+   "net": "$auto$rtlil.cc:2609:MuxGate$305",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 6,
+   "net": "$auto$rtlil.cc:2609:MuxGate$309",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  },
+  {
+   "bit": 7,
+   "net": "$auto$rtlil.cc:2609:MuxGate$313",
+   "owners": [
+    "c1",
+    "c2"
+   ]
+  }
+ ],
+ "shared_nets": [],
+ "merge_points": [
+  {
+   "net": "$abc$255$ternary$src/boot.v:26$9_Y[6]",
+   "net_id": 46,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$283",
+   "net_id": 55,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$285",
+   "net_id": 47,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$287",
+   "net_id": 56,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$289",
+   "net_id": 48,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$291",
+   "net_id": 57,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$293",
+   "net_id": 49,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$295",
+   "net_id": 58,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$297",
+   "net_id": 50,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$299",
+   "net_id": 59,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$301",
+   "net_id": 51,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$303",
+   "net_id": 60,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$305",
+   "net_id": 52,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$307",
+   "net_id": 61,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$309",
+   "net_id": 53,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$311",
+   "net_id": 62,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$313",
+   "net_id": 54,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": false
+  },
+  {
+   "net": "ok",
+   "net_id": 45,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "first": true
+  }
+ ],
+ "single_points": [
+  {
+   "net": "ok",
+   "net_id": 45,
+   "kind": "merge",
+   "first": true,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "net": "$abc$255$ternary$src/boot.v:26$9_Y[6]",
+   "net_id": 46,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    0,
+    3,
+    5,
+    6
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$283",
+   "net_id": 55,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    0
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$285",
+   "net_id": 47,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    0
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$287",
+   "net_id": 56,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    1
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$289",
+   "net_id": 48,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    1
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$291",
+   "net_id": 57,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    2
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$293",
+   "net_id": 49,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    2
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$295",
+   "net_id": 58,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    3
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$297",
+   "net_id": 50,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    3
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$299",
+   "net_id": 59,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    4
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$301",
+   "net_id": 51,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    4
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$303",
+   "net_id": 60,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    5
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$305",
+   "net_id": 52,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    5
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$307",
+   "net_id": 61,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    6
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$309",
+   "net_id": 53,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    6
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$311",
+   "net_id": 62,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    7
+   ]
+  },
+  {
+   "net": "$auto$rtlil.cc:2609:MuxGate$313",
+   "net_id": 54,
+   "kind": "merge",
+   "first": false,
+   "copies": [
+    "c1",
+    "c2"
+   ],
+   "decision_bits_reached": [
+    7
+   ]
+  }
+ ],
+ "identical_copies": [
+  [
+   "c1",
+   "c2"
+  ]
+ ],
+ "duplicate_hash_groups": 12,
+ "structural_groups": [
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ ],
+ "findings": [
+  "copy groups from hierarchy names: c1 (8 input-dependent nets), c2 (8 input-dependent nets)",
+  "1 first merge point(s) combine copies before the decision bits: `ok` (c1+c2) (18 merge nets in total)",
+  "copies c1, c2 are structurally identical (same canonical hash): a structural-hashing pass (e.g. opt_merge) can fold them unless the flow keeps them apart",
+  "8 decision bit(s) depend on more than one copy: bits [0, 1, 2, 3, 4, 5, 6, 7]"
+ ],
+ "runtime_s": 0.0013,
+ "note": "Structural lint only (no solver, no simulation). A single point is a place where one modelled fault can act on several copies; whether it is enough to reach the goal is decided by the bounded search.",
+ "provenance_note": "produced on 2026-11-20 by ext/surface/scripts/merge_lint.py (exhaustive method, numpy, no z3) on the stored netlist; path made repository-relative"
+}

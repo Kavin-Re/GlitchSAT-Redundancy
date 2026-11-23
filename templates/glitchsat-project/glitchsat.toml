@@ -1,0 +1,19 @@
+# GlitchSAT targets: what `glitchsat check` (CI, pre-commit) analyses and the margin each target must keep.
+# Paths are relative to this file. Run locally:  glitchsat check --targets glitchsat.toml
+[defaults]
+max_flips = 3              # search budget: the analysis reports the minimum number of flips up to this bound
+cycles = 6                 # clock cycles analysed
+target_min_faults = 2      # fail if one or more attacks need fewer modelled flips than this
+# target_psa_level = 3     # also fail if the PSA attack-potential estimate is within this level's ceiling (2, 3 or 4)
+fault_type = "voltage"     # voltage | clock | em | laser | light: decides equipment class and flips per injection event
+# [defaults.assume]        # any margin assumption, e.g. flips_per_event = 1 (see README "Margin estimate")
+
+[[target]]
+name = "boot-check"
+netlist = "rtl/boot_check.v"   # Verilog (needs yosys and `top`) or a Yosys JSON netlist
+top = "v2"
+config = "threat.toml"
+# surface = "evidence/boot_check_surface.json"   # optional attack-surface JSON (ext/surface attack_surface.py)
+# lint = "evidence/boot_check_lint.json"         # optional merge-lint JSON
+# unbounded = ["evidence/boot_check_ub_k0.json", "evidence/boot_check_ub_k1.json"]   # optional unbounded-proof results, one per flip budget
+# result = "recorded/boot_check.result.json"     # use a recorded result instead of running the solver

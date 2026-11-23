@@ -7,7 +7,7 @@ A result is *bounded result under this model; not a proof of security*.
 
 ## What to install, in 5 lines
 ```
-python3 -m venv .venv && . .venv/bin/activate     # Python 3.11+
+python3 -m venv .venv && . .venv/bin/activate     # Python 3.10+
 pip install ./product                              # pulls z3-solver from PyPI; add [test] for pytest
 sudo apt install yosys                             # only if you start from Verilog (or use the Dockerfile below)
 glitchsat example-path                         # sanity check: prints the bundled examples folder
@@ -15,7 +15,7 @@ glitchsat analyze "$(glitchsat example-path)/v2.json" --config "$(glitchsat exam
 ```
 
 ## 0. What you need
-- Python 3.11 or newer. Internet only to download the solver (`z3-solver`) from PyPI.
+- Python 3.10 or newer. Internet only to download the solver (`z3-solver`) from PyPI.
 - Optional, only for step 4 (your own Verilog): `yosys` (for example `sudo apt install yosys`).
 
 ## 1. Install (2 minutes)

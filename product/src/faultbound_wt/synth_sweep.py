@@ -3,7 +3,11 @@
 modelled bit flips is computed on each resulting netlist. A verdict belongs to ONE netlist hash; this shows how much it moves with the build.
 Every Yosys script is generated from the template below (kept in the JSON result) and run as `yosys -q -s flow.ys` in a private directory that holds
 a copy of the source as design.v (single-file Verilog: `include of other files is not supported here)."""
-import copy, hashlib, json, os, re, shutil, subprocess, tempfile, time, tomllib
+import copy, hashlib, json, os, re, shutil, subprocess, tempfile, time
+try:
+    import tomllib
+except ModuleNotFoundError:          # Python 3.10: the same parser, from the tomli package
+    import tomli as tomllib
 
 from . import __version__, _engine as eng
 from . import runner
