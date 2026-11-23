@@ -1,0 +1,53 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 208,
+   "pc": "0x168",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "jalr\tra, -0x152(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 213,
+ "nodes": 53,
+ "seconds": 0.08,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_delay.c",
+   31,
+   "0x168",
+   "jalr\tra, -0x152(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 208,
+   "pc": "0x168",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "jalr\tra, -0x152(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_delay-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 144
+}

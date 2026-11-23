@@ -1,0 +1,164 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 203,
+   "pc": "0x154",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 8,
+   "asm": "bne\ta0, a1, 0x17e",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  }
+ ],
+ "k1_count": 10,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 214,
+ "nodes": 864,
+ "seconds": 0.21,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_compl.c",
+   8,
+   "0x154",
+   "bne\ta0, a1, 0x17e"
+  ],
+  [
+   "rom_compl.c",
+   29,
+   "0x17e",
+   "c.lwsp\ta0, 0x8(sp)"
+  ],
+  [
+   "rom_compl.c",
+   29,
+   "0x180",
+   "addi\ta1, zero, 0x739"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 203,
+   "pc": "0x154",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 8,
+   "asm": "bne\ta0, a1, 0x17e",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 203,
+   "pc": "0x154",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 8,
+   "asm": "bne\ta0, a1, 0x17e",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 204,
+   "pc": "0x17e",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "c.lwsp\ta0, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 204,
+   "pc": "0x17e",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "c.lwsp\ta0, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 204,
+   "pc": "0x17e",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "c.lwsp\ta0, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 205,
+   "pc": "0x180",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "addi\ta1, zero, 0x739",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 205,
+   "pc": "0x180",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "addi\ta1, zero, 0x739",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 205,
+   "pc": "0x180",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "addi\ta1, zero, 0x739",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 205,
+   "pc": "0x180",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "addi\ta1, zero, 0x739",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 205,
+   "pc": "0x180",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "addi\ta1, zero, 0x739",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "build": "rom_compl-Os-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 187
+}

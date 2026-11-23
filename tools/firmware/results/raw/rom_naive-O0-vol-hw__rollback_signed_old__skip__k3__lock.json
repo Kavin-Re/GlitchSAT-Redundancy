@@ -1,0 +1,138 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 18,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 6,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 559,
+ "nodes": 64,
+ "seconds": 0.04,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom.h",
+   39,
+   "0x26a",
+   "c.jr\tra"
+  ],
+  [
+   "rom_naive.c",
+   18,
+   "0x1de",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_naive.c",
+   19,
+   "0x1e2",
+   "c.lw\ta0, 0x4(a0)"
+  ],
+  [
+   "rom_naive.c",
+   19,
+   "0x1f6",
+   "lw\ta0, -0x30(s0)"
+  ],
+  [
+   "rom_naive.c",
+   19,
+   "0x1fa",
+   "bltu\ta0, a1, 0x202"
+  ],
+  [
+   "rom_naive.c",
+   20,
+   "0x20c",
+   "jalr\tra, -0x1f6(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 18,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 530,
+   "pc": "0x1e2",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 547,
+   "pc": "0x26a",
+   "function": "otp_read",
+   "file": "rom.h",
+   "line": 39,
+   "asm": "c.jr\tra",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 549,
+   "pc": "0x1f6",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "lw\ta0, -0x30(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 550,
+   "pc": "0x1fa",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "bltu\ta0, a1, 0x202",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 554,
+   "pc": "0x20c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 20,
+   "asm": "jalr\tra, -0x1f6(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_naive-O0-vol-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 240
+}

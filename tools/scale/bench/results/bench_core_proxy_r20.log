@@ -1,0 +1,138 @@
+v2 spike
+   fastsat      3           0.32 s
+   time         3           0.55 s
+   struct       3           0.27 s
+   modules      3           0.25 s
+   race2        3           0.40 s
+   cadical      3           0.04 s
+   cadical+mod  3           0.04 s
+   kissat       3           0.08 s
+v2 spike T=20
+   fastsat      3           3.50 s
+   time         [3,?]      60.02 s
+   struct       3           5.33 s
+   modules      3           9.26 s
+   race2        3          12.72 s
+   cadical      3           0.70 s
+   cadical+mod  3           0.17 s
+   kissat       3           0.39 s
+v5 (apt 0.33)
+   fastsat      3           2.70 s
+   time         3           5.64 s
+   struct       3           1.03 s
+   modules      3           0.78 s
+   race2        3           1.69 s
+   cadical      3           0.07 s
+   cadical+mod  3           0.11 s
+   kissat       3           0.17 s
+R20 sbox_unprot
+   fastsat      1           0.53 s
+   time         1           0.27 s
+   struct       1           0.19 s
+   modules      1           0.14 s
+   race2        1           0.23 s
+   cadical      1           0.15 s
+   cadical+mod  1           0.63 s
+   kissat       1           0.18 s
+R20 sbox_par
+   fastsat      1           0.87 s
+   time         1           1.34 s
+   struct       1           0.37 s
+   modules      1           0.23 s
+   race2        1           0.44 s
+   cadical      1           0.27 s
+   cadical+mod  1           5.46 s
+   kissat       1           0.46 s
+R20 sbox_par2
+   fastsat      1           2.21 s
+   time         1           1.15 s
+   struct       1           2.96 s
+   modules      1           0.29 s
+   race2        1           0.64 s
+   cadical      1           0.25 s
+   cadical+mod  1           0.35 s
+   kissat       1           0.36 s
+R20 sbox_dmr
+   fastsat      2           3.41 s
+   time         2          11.23 s
+   struct       2           0.61 s
+   modules      2           3.01 s
+   race2        2           2.76 s
+   cadical      2           0.28 s
+   cadical+mod  2           0.30 s
+   kissat       2           0.30 s
+R20 crc_plain
+   fastsat      1           0.00 s
+   time         1           0.00 s
+   struct       1           0.01 s
+   modules      1           0.00 s
+   race2        1           0.02 s
+   cadical      1           0.02 s
+   cadical+mod  1           0.02 s
+   kissat       1           0.01 s
+R20 crc_tmr
+   fastsat      1           0.01 s
+   time         1           0.01 s
+   struct       1           0.00 s
+   modules      1           0.00 s
+   race2        1           0.02 s
+   cadical      1           0.03 s
+   cadical+mod  1           0.02 s
+   kissat       1           0.01 s
+R20 uart T=6
+   fastsat      1           0.06 s
+   time         1           0.12 s
+   struct       1           0.03 s
+   race2        1           0.07 s
+   cadical      1           0.06 s
+   kissat       1           0.06 s
+R20 uart T=30
+   fastsat      1           0.23 s
+   time         1           0.78 s
+   struct       1           0.66 s
+   race2        1           0.71 s
+   cadical      1           0.39 s
+   kissat       1           0.36 s
+R20 uart T=60
+   fastsat      1           0.61 s
+   time         1           1.77 s
+   struct       1           0.42 s
+   race2        1           0.85 s
+   cadical      1           0.69 s
+   kissat       1           0.52 s
+proxy dmr trees
+   fastsat      2           1.07 s
+   time         2          15.23 s
+   struct       2           0.49 s
+   modules      2           0.61 s
+   race2        2           0.96 s
+   cadical      2           0.17 s
+   cadical+mod  2           0.28 s
+   kissat       2           0.27 s
+proxy dmr shared
+   fastsat      2           1.78 s
+   time         2           6.94 s
+   struct       2           0.43 s
+   modules      2           0.62 s
+   race2        2           1.26 s
+   cadical      2           0.11 s
+   cadical+mod  2           0.12 s
+   kissat       2           0.24 s
+proxy tmr2 trees
+   fastsat      3           5.02 s
+   time         [2,3]      61.00 s
+   struct       3           0.54 s
+   modules      3           1.68 s
+   race2        3           1.23 s
+   cadical      3           0.25 s
+   cadical+mod  3           0.43 s
+   kissat       3           0.42 s
+proxy tmr2 shared
+   fastsat      3          13.09 s
+   time         [2,3]      60.67 s
+   struct       3           0.58 s
+   modules      3           1.43 s
+   race2        3           1.28 s
+   cadical      3           0.19 s
+   cadical+mod  3           0.63 s
+   kissat       3           0.40 s

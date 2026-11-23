@@ -1,0 +1,160 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 193,
+   "pc": "0x124",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "addi\ta2, a2, 0x30",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 8,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 261,
+ "nodes": 1616,
+ "seconds": 0.27,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   9,
+   "0x124",
+   "addi\ta2, a2, 0x30"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x128",
+   "c.lw\ta3, 0x0(s0)"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x12a",
+   "c.lw\ta4, 0x0(a1)"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x12c",
+   "c.xor\ta3, a4"
+  ],
+  [
+   "rom_infective.c",
+   27,
+   "0x162",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_infective.c",
+   27,
+   "0x164",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 193,
+   "pc": "0x124",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "addi\ta2, a2, 0x30",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 194,
+   "pc": "0x128",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 195,
+   "pc": "0x12a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 196,
+   "pc": "0x12c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 254,
+   "pc": "0x162",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 254,
+   "pc": "0x162",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 254,
+   "pc": "0x162",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 255,
+   "pc": "0x164",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "build": "rom_infective-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 132
+}

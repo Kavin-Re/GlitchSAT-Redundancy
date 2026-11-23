@@ -1,0 +1,2347 @@
+{
+ "schema": "glitchsat-studio-secboot-hw/1",
+ "panel_title": "Secure-boot hardware",
+ "banner": "Our own boot-check hardware, in several protected versions. Each card asks: how many modelled bit flips make it accept a wrong image? Results are bounded (k flips, fixed cycles) and appear only after a cloud run; until then every result is NOT_RUN.",
+ "labels": {
+  "MEASURED": "produced by the cloud run that wrote this file",
+  "NOT_RUN": "no fault analysis has been run for this entry yet",
+  "FAILED": "the cloud run could not synthesise or analyse this entry (see its record.json)",
+  "DESIGN_INTENT": "what the countermeasure is meant to do; not a result"
+ },
+ "kmax": 3,
+ "flows": [
+  "plain",
+  "opt"
+ ],
+ "cards": [
+  {
+   "name": "d_single",
+   "family": "decision",
+   "title": "One comparator decides; the state codes are sparse.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "single",
+     "text": "one digest compare"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "baseline: one wrong gate in the compare or the decision logic may be enough",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_single",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 24,
+    "file": "rtl/tops/top_d_single.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_dup",
+   "family": "decision",
+   "title": "Two comparators, but one AND gate per state bit combines them.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "dup",
+     "text": "two compares, results ANDed in one gate per state bit"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "duplication with a shared combining gate",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_dup",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 25,
+    "file": "rtl/tops/top_d_dup.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_dup_inline",
+   "family": "decision",
+   "title": "Same as d_dup, written so that synthesis is free to merge the two comparators.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "dup",
+     "text": "two compares, results ANDed in one gate per state bit"
+    },
+    {
+     "id": "inline",
+     "text": "compare copies written inline (synthesis may merge them)"
+    }
+   ],
+   "design_intent": "shows what merging of copies does",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_dup_inline",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 25,
+    "file": "rtl/tops/top_d_dup_inline.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip",
+   "family": "decision",
+   "title": "Three comparators; each one alone decides a third of the state bits.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "no single comparator decides the whole state word",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 26,
+    "file": "rtl/tops/top_d_trip.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_inline",
+   "family": "decision",
+   "title": "Same as d_trip, written so that synthesis may merge the comparators.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "inline",
+     "text": "compare copies written inline (synthesis may merge them)"
+    }
+   ],
+   "design_intent": "shows what merging of copies does",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_inline",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 26,
+    "file": "rtl/tops/top_d_trip_inline.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_compl",
+   "family": "decision",
+   "title": "Two comparators, one on the true and one on the inverted digest; each owns half the bits.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "compl",
+     "text": "two compares, second one on the complemented rail"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "a stuck or flipped net cannot look like \"match\" on both rails",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_compl",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 25,
+    "file": "rtl/tops/top_d_compl.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_mubi",
+   "family": "decision",
+   "title": "Three comparators whose results are stored as 4-bit codes, not single bits.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "mubi",
+     "text": "compare results stored as 4-bit multi-bit booleans"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "one flipped result bit is not a valid \"true\"",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_mubi",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 35,
+    "file": "rtl/tops/top_d_trip_mubi.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_compl_mubi",
+   "family": "decision",
+   "title": "Complemented pair with 4-bit result codes.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "compl",
+     "text": "two compares, second one on the complemented rail"
+    },
+    {
+     "id": "mubi",
+     "text": "compare results stored as 4-bit multi-bit booleans"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_d_compl_mubi",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 31,
+    "file": "rtl/tops/top_d_compl_mubi.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_alarm",
+   "family": "decision",
+   "title": "Triplicated compare plus an alarm on any invalid state or unsupported accept.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "alarm",
+     "text": "alarm path (invalid state, accept without evidence)"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "partial faults land on invalid codes and raise the alarm",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_alarm",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 26,
+    "file": "rtl/tops/top_d_trip_alarm.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_mubi_alarm",
+   "family": "decision",
+   "title": "Triplicated compare, 4-bit result codes and the alarm.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "mubi",
+     "text": "compare results stored as 4-bit multi-bit booleans"
+    },
+    {
+     "id": "alarm",
+     "text": "alarm path (invalid state, accept without evidence)"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_mubi_alarm",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 35,
+    "file": "rtl/tops/top_d_trip_mubi_alarm.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_cfi",
+   "family": "decision",
+   "title": "Triplicated compare; the decision also needs the right step count.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "cfi",
+     "text": "step counter with complemented copy"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "skipping a step makes the decision REJECT",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_cfi",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 32,
+    "file": "rtl/tops/top_d_trip_cfi.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_cfi_alarm",
+   "family": "decision",
+   "title": "Step counter and alarm together.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "cfi",
+     "text": "step counter with complemented copy"
+    },
+    {
+     "id": "alarm",
+     "text": "alarm path (invalid state, accept without evidence)"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_cfi_alarm",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 32,
+    "file": "rtl/tops/top_d_trip_cfi_alarm.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_otp1",
+   "family": "decision",
+   "title": "Expected digest copied from OTP into one register that all comparators read.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "otp1",
+     "text": "expected digest loaded into one shadow register"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "one shared register: its flops become a common point",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_otp1",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 34,
+    "file": "rtl/tops/top_d_trip_otp1.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_otp2",
+   "family": "decision",
+   "title": "Expected digest copied into one register per comparator.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "otp2",
+     "text": "expected digest loaded into one shadow register per compare"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_otp2",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 8,
+    "register_bits": 50,
+    "file": "rtl/tops/top_d_trip_otp2.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_single_infect",
+   "family": "decision",
+   "title": "One comparator, but the release token is corrupted by every wrong tag bit.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "single",
+     "text": "one digest compare"
+    },
+    {
+     "id": "infect",
+     "text": "infection: wrong tag bits corrupt the release token"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "forcing ACCEPT is not enough: the token must also be right",
+   "slow": false,
+   "experiment": {
+    "top": "top_d_single_infect",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_grant == 0x96B7",
+    "cycles": 8,
+    "register_bits": 32,
+    "file": "rtl/tops/top_d_single_infect.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_trip_infect",
+   "family": "decision",
+   "title": "Triplicated compare plus the infected release token.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "infect",
+     "text": "infection: wrong tag bits corrupt the release token"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_d_trip_infect",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_grant == 0x96B7",
+    "cycles": 8,
+    "register_bits": 34,
+    "file": "rtl/tops/top_d_trip_infect.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "d_all",
+   "family": "decision",
+   "title": "Every decision countermeasure at once.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "mubi",
+     "text": "compare results stored as 4-bit multi-bit booleans"
+    },
+    {
+     "id": "alarm",
+     "text": "alarm path (invalid state, accept without evidence)"
+    },
+    {
+     "id": "cfi",
+     "text": "step counter with complemented copy"
+    },
+    {
+     "id": "otp2",
+     "text": "expected digest loaded into one shadow register per compare"
+    },
+    {
+     "id": "infect",
+     "text": "infection: wrong tag bits corrupt the release token"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_d_all",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_grant == 0x96B7",
+    "cycles": 8,
+    "register_bits": 81,
+    "file": "rtl/tops/top_d_all.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "h_single",
+   "family": "hash",
+   "title": "The hardware hashes the image and one comparator checks the result.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "hash",
+     "text": "keyed sponge MAC computed in hardware"
+    },
+    {
+     "id": "single",
+     "text": "one digest compare"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_h_single",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 15,
+    "register_bits": 75,
+    "file": "rtl/tops/top_h_single.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "h_trip",
+   "family": "hash",
+   "title": "Hash in hardware, three comparators reading the same hash engine.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "hash",
+     "text": "keyed sponge MAC computed in hardware"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": "the shared hash engine is a common point for all three comparators",
+   "slow": false,
+   "experiment": {
+    "top": "top_h_trip",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 15,
+    "register_bits": 77,
+    "file": "rtl/tops/top_h_trip.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "h_trip_2hash",
+   "family": "hash",
+   "title": "Two independent hash engines feed the comparators.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "hash",
+     "text": "keyed sponge MAC computed in hardware"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "hash2",
+     "text": "two independent hash engines"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_h_trip_2hash",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 15,
+    "register_bits": 127,
+    "file": "rtl/tops/top_h_trip_2hash.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "h_all",
+   "family": "hash",
+   "title": "Hash in hardware with every countermeasure.",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "hash",
+     "text": "keyed sponge MAC computed in hardware"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "hash2",
+     "text": "two independent hash engines"
+    },
+    {
+     "id": "mubi",
+     "text": "compare results stored as 4-bit multi-bit booleans"
+    },
+    {
+     "id": "alarm",
+     "text": "alarm path (invalid state, accept without evidence)"
+    },
+    {
+     "id": "cfi",
+     "text": "step counter with complemented copy"
+    },
+    {
+     "id": "otp2",
+     "text": "expected digest loaded into one shadow register per compare"
+    },
+    {
+     "id": "infect",
+     "text": "infection: wrong tag bits corrupt the release token"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": false,
+   "experiment": {
+    "top": "top_h_all",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_grant == 0x96B7",
+    "cycles": 15,
+    "register_bits": 184,
+    "file": "rtl/tops/top_h_all.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "h_single_full",
+   "family": "hash",
+   "title": "h_single with the full round count (slow in the solver).",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "hash",
+     "text": "keyed sponge MAC computed in hardware"
+    },
+    {
+     "id": "single",
+     "text": "one digest compare"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": true,
+   "experiment": {
+    "top": "top_h_single_full",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_word == 0x96",
+    "cycles": 51,
+    "register_bits": 75,
+    "file": "rtl/tops/top_h_single_full.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "name": "h_all_full",
+   "family": "hash",
+   "title": "h_all with the full round count (slow).",
+   "countermeasures": [
+    {
+     "id": "sparse",
+     "text": "sparse 8-bit state codes (distance 4)"
+    },
+    {
+     "id": "hash",
+     "text": "keyed sponge MAC computed in hardware"
+    },
+    {
+     "id": "trip",
+     "text": "three compares, each owning its own state bits"
+    },
+    {
+     "id": "hash2",
+     "text": "two independent hash engines"
+    },
+    {
+     "id": "mubi",
+     "text": "compare results stored as 4-bit multi-bit booleans"
+    },
+    {
+     "id": "alarm",
+     "text": "alarm path (invalid state, accept without evidence)"
+    },
+    {
+     "id": "cfi",
+     "text": "step counter with complemented copy"
+    },
+    {
+     "id": "otp2",
+     "text": "expected digest loaded into one shadow register per compare"
+    },
+    {
+     "id": "infect",
+     "text": "infection: wrong tag bits corrupt the release token"
+    },
+    {
+     "id": "separate",
+     "text": "compare copies kept as separate module instances"
+    }
+   ],
+   "design_intent": null,
+   "slow": true,
+   "experiment": {
+    "top": "top_h_all_full",
+    "attacker_input": "sig (8 bits, held constant)",
+    "key": "0xC3",
+    "goal": "boot_grant == 0x96B7",
+    "cycles": 51,
+    "register_bits": 188,
+    "file": "rtl/tops/top_h_all_full.v"
+   },
+   "status": "NOT_RUN",
+   "results": {
+    "plain": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    },
+    "opt": {
+     "gates": null,
+     "flops": null,
+     "replay_ok": null,
+     "by_k": [
+      {
+       "k": 1,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 2,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      },
+      {
+       "k": 3,
+       "verdict": "NOT_RUN",
+       "min_faults": null,
+       "implied": false,
+       "solve_s": null,
+       "faults": []
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

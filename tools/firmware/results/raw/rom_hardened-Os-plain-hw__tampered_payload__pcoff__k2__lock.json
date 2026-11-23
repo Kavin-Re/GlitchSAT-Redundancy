@@ -1,0 +1,97 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 284,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 40,
+   "asm": "sw\ta4, 0x0(a2)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 293,
+ "nodes": 2128,
+ "seconds": 0.42,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   40,
+   "0x186",
+   "sw\ta4, 0x0(a2)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 284,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 40,
+   "asm": "sw\ta4, 0x0(a2)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 284,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 40,
+   "asm": "sw\ta4, 0x0(a2)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 284,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 40,
+   "asm": "sw\ta4, 0x0(a2)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 284,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 40,
+   "asm": "sw\ta4, 0x0(a2)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 284,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 40,
+   "asm": "sw\ta4, 0x0(a2)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "build": "rom_hardened-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 203
+}

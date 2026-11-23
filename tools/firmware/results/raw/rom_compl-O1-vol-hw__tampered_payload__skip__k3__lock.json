@@ -1,0 +1,53 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 206,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x1ce",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 214,
+ "nodes": 54,
+ "seconds": 0.23,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_compl.c",
+   29,
+   "0x18c",
+   "bne\ta0, a1, 0x1ce"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 206,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x1ce",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_compl-O1-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 191
+}

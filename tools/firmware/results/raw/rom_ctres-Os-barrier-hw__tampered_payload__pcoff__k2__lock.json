@@ -1,0 +1,109 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 321,
+   "pc": "0x162",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x739",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 332,
+ "nodes": 2752,
+ "seconds": 0.41,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   0,
+   "0x162",
+   "addi\ta3, zero, 0x739"
+  ],
+  [
+   "rom_ctres.c",
+   0,
+   "0x168",
+   "addi\ta3, zero, 0x1d4"
+  ],
+  [
+   "rom_ctres.c",
+   32,
+   "0x166",
+   "c.beqz\ta4, 0x16c"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 321,
+   "pc": "0x162",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x739",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 322,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.beqz\ta4, 0x16c",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 322,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.beqz\ta4, 0x16c",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 323,
+   "pc": "0x168",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x1d4",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 323,
+   "pc": "0x168",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x1d4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  }
+ ],
+ "build": "rom_ctres-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 160
+}

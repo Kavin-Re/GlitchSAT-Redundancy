@@ -1,0 +1,81 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 4241,
+   "pc": "0x5be",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "c.addi\ta0, 0x1",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 4288,
+ "nodes": 8384,
+ "seconds": 4.75,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   15,
+   "0x5be",
+   "c.addi\ta0, 0x1"
+  ],
+  [
+   "rom_ctres.c",
+   15,
+   "0x5c0",
+   "sw\ta0, -0x18(s0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 4241,
+   "pc": "0x5be",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "c.addi\ta0, 0x1",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 4242,
+   "pc": "0x5c0",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 4242,
+   "pc": "0x5c0",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "build": "rom_ctres-O0-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 490
+}

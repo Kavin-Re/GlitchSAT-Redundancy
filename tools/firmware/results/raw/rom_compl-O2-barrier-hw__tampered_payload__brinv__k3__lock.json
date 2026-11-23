@@ -1,0 +1,53 @@
+{
+ "model": "brinv",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 164,
+   "pc": "0x1bc",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta1, a3, 0x1fe",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 172,
+ "nodes": 10,
+ "seconds": 0.0,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_compl.c",
+   29,
+   "0x1bc",
+   "bne\ta1, a3, 0x1fe"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 164,
+   "pc": "0x1bc",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta1, a3, 0x1fe",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "build": "rom_compl-O2-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 218
+}

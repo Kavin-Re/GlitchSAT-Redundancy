@@ -1,0 +1,70 @@
+{
+ "model": "brinv",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 3837,
+   "pc": "0x37e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x386",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 3866,
+ "nodes": 8,
+ "seconds": 0.0,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   5,
+   "0x37e",
+   "bge\ta0, a1, 0x386"
+  ],
+  [
+   "rom_naive.c",
+   21,
+   "0x316",
+   "c.bnez\ta0, 0x31c"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 3837,
+   "pc": "0x37e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x386",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  },
+  {
+   "step": 3857,
+   "pc": "0x316",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x31c",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "build": "rom_naive-O0-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 240
+}

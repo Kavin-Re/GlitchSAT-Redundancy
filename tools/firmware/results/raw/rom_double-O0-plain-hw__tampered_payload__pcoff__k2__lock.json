@@ -1,0 +1,87 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 622,
+ "nodes": 2032,
+ "seconds": 0.64,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_double.c",
+   0,
+   "0x242",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_double.c",
+   0,
+   "0x246",
+   "addi\ta1, a0, 0x10"
+  ],
+  [
+   "rom_double.c",
+   19,
+   "0x1de",
+   "lui\ta0, 0x20000"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 575,
+   "pc": "0x242",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 0,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 576,
+   "pc": "0x246",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 0,
+   "asm": "addi\ta1, a0, 0x10",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  }
+ ],
+ "build": "rom_double-O0-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 293
+}

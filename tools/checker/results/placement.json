@@ -1,0 +1,3187 @@
+{
+ "schema": "glitchsat-survival-validation/placement/1",
+ "rows": [
+  {
+   "design": "v1",
+   "radius_um": 0.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 0.25,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 0.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 0.75,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 1.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 1.25,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 1.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 1.75,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 2.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 2.25,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 2.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 2.75,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 3.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 3.25,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 3.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 3.75,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 4.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 4.25,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 4.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 4.75,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 5.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 5.25,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 5.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 5.75,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 6.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 6.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 7.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 7.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 8.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 8.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 9.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 9.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 10.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 10.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 11.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 11.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 12.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 12.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 13.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 13.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 14.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 14.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 15.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 15.5,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 16.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 18.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 20.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 22.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 24.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 26.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 28.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 30.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 32.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 34.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 36.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 38.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 40.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 42.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v1",
+   "radius_um": 44.0,
+   "min_shots": 1,
+   "shots_at_r0": 1,
+   "truth": "SURVIVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 0.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 0.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 0.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 0.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 1.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 1.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 1.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 1.75,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 2.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 2.25,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 2.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 2.75,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 3.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 3.25,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 3.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 3.75,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 4.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 4.25,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 4.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 4.75,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 5.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 5.25,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 5.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 5.75,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 6.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 6.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 7.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 7.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 8.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 8.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 9.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 9.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 10.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 10.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 11.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 11.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 12.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 12.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 13.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 13.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 14.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 14.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 15.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 15.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 16.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 18.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 20.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 22.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 24.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 26.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 28.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 30.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 32.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 34.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 36.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 38.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 40.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 42.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2",
+   "radius_um": 44.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 0.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 0.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 0.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 0.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 1.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 1.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 1.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 1.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 2.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 2.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 2.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 2.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 3.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 3.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 3.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 3.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 4.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 4.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 4.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 4.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 5.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 5.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 5.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 5.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 6.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 6.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 7.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 7.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 8.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 8.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 9.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 9.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 10.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 10.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 11.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 11.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 12.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 12.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 13.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 13.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 14.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 14.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 15.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 15.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 16.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 18.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 20.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 22.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 24.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 26.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 28.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 30.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 32.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 34.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 36.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 38.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 40.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 42.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 44.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 46.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 48.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v8",
+   "radius_um": 49.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 0.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 0.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 0.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 0.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 1.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 1.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 1.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 1.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 2.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 2.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 2.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 2.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 3.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 3.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 3.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 3.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 4.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 4.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 4.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 4.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 5.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 5.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 5.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 5.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 6.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 6.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 7.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 7.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 8.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 8.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 9.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 9.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 10.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 10.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 11.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 11.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 12.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 12.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 13.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 13.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 14.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 14.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 15.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 15.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 16.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 18.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 20.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 22.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 24.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 26.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 28.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 30.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 32.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 34.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 36.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 38.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 40.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 42.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 44.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 46.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 48.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 50.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 52.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 54.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 56.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 58.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 60.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 62.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_s8",
+   "radius_um": 63.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 0.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 0.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 0.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 0.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 1.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 1.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 1.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 1.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 2.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 2.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 2.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 2.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 3.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 3.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 3.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 3.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 4.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 4.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 4.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 4.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 5.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 5.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 5.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 5.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 6.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 6.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 7.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 7.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 8.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 8.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 9.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 9.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 10.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 10.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 11.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 11.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 12.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 12.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 13.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 13.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 14.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 14.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 15.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 15.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 16.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 18.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 20.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 22.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 24.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 26.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 28.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 30.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 32.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 34.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 36.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 38.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 40.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 42.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 44.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 46.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 48.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 50.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 52.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 54.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 56.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 58.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 60.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 62.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 64.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 66.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 68.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_v15",
+   "radius_um": 69.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 0.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 0.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 0.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 0.75,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 1.0,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 1.25,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 1.5,
+   "min_shots": 3,
+   "shots_at_r0": 3,
+   "truth": "SURVIVED",
+   "verdict": "SURVIVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 1.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 2.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 2.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 2.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 2.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 3.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 3.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 3.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 3.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 4.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "WEAKENED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 4.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 4.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 4.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 5.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 5.25,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 5.5,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 5.75,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 6.0,
+   "min_shots": 2,
+   "shots_at_r0": 3,
+   "truth": "WEAKENED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 6.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 7.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 7.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 8.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 8.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 9.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 9.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 10.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 10.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 11.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 11.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 12.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 12.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 13.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 13.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 14.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 14.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 15.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 15.5,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 16.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 18.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 20.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 22.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 24.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 26.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 28.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 30.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 32.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 34.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 36.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 38.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 40.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 42.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 44.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 46.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 48.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 50.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 52.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 54.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 56.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 58.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 60.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 62.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  },
+  {
+   "design": "v2_rr",
+   "radius_um": 63.0,
+   "min_shots": 1,
+   "shots_at_r0": 3,
+   "truth": "REMOVED",
+   "verdict": "REMOVED"
+  }
+ ],
+ "summary": {
+  "v2_layouts": {
+   "points": 331,
+   "exact_class": 276,
+   "tp": 286,
+   "fp": 15,
+   "fn": 0,
+   "precision": 0.95,
+   "recall": 1.0,
+   "text": "precision 0.95 (286/301), recall 1.00 (286/286)"
+  },
+  "v1_control": {
+   "points": 59,
+   "note": "V1 needs 1 shot at every radius (single voter net): placement cannot weaken it; the checker still reports when its two copies are within one spot",
+   "flagged": 55
+  },
+  "per_design": {
+   "v1": {
+    "copies": 2,
+    "r_pair_um": 0.92,
+    "r_all_um": 0.92,
+    "shots_at_r0": 1,
+    "note": "V1, patched flow (LVS-matching layout)"
+   },
+   "v2": {
+    "copies": 3,
+    "r_pair_um": 0.92,
+    "r_all_um": 1.665,
+    "shots_at_r0": 3,
+    "note": "V2, patched flow (LVS-matching layout)"
+   },
+   "v2_v8": {
+    "copies": 3,
+    "r_pair_um": 1.365,
+    "r_all_um": 3.689,
+    "shots_at_r0": 3,
+    "note": "V2, compare copies pinned apart, util 45 (LVS fails in the repo's flow)"
+   },
+   "v2_s8": {
+    "copies": 3,
+    "r_pair_um": 1.435,
+    "r_all_um": 5.366,
+    "shots_at_r0": 3,
+    "note": "V2, copies in three corners, util 25 (LVS fails)"
+   },
+   "v2_v15": {
+    "copies": 3,
+    "r_pair_um": 1.581,
+    "r_all_um": 4.75,
+    "shots_at_r0": 3,
+    "note": "V2, as v8 with util 20 (LVS fails)"
+   },
+   "v2_rr": {
+    "copies": 3,
+    "r_pair_um": 1.581,
+    "r_all_um": 4.031,
+    "shots_at_r0": 3,
+    "note": "V2, copies on rows 0/6/12 (LVS fails)"
+   }
+  }
+ },
+ "label": "verdicts: MEASURED geometry (DEF); truth: SIMULATED shot search recorded by ext/shots"
+}

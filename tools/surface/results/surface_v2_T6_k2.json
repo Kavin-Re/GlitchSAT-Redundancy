@@ -1,0 +1,32 @@
+{
+  "schema": "glitchsat-attack-surface/1",
+  "method": "exhaustive",
+  "netlist": "reference/spike_netlists/v2.json",
+  "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+  "top": "v2",
+  "bound": {
+    "cycles": 6,
+    "max_faults": 2,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "attacker_input": "`sig` free, held constant, != key 0xC3 (other inputs free)",
+    "key": 195,
+    "reduce": "full",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q"
+  },
+  "verdict": "NO_ATTACK_UP_TO_BOUND",
+  "min_faults": null,
+  "count": 0,
+  "complete": true,
+  "stop_reason": "no_attack",
+  "sites_modelled": 353,
+  "runtime_s": 0.802,
+  "copy_source": "names",
+  "nets": [],
+  "cycles": {},
+  "copies": {},
+  "copies_touched": {},
+  "attacks": [],
+  "attacks_listed": 0,
+  "note": "BOUNDED and MODELLED: all attacks of the minimum size m with single-cycle bit flips of gate outputs and flop Q within 6 cycles on this netlist. Nothing is said about more cycles, other fault types, or physical feasibility.",
+  "sets_simulated": 62482
+}

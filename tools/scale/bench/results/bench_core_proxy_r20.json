@@ -1,0 +1,5427 @@
+{
+ "env": {
+  "python": "3.13.18",
+  "machine": "x86_64",
+  "cpus": 2,
+  "load": [
+   6.61572265625,
+   6.18701171875,
+   5.83447265625
+  ],
+  "cadical": "cadical",
+  "kissat": "kissat",
+  "yosys": true,
+  "limit_s": 60.0,
+  "date": "2026-11-21 09:14",
+  "cadical_version": "3.1.0",
+  "kissat_version": "4.0.4"
+ },
+ "rows": [
+  {
+   "name": "v2 spike",
+   "top": "v2",
+   "gates": 68,
+   "flops": 8,
+   "T": 6,
+   "k": 3,
+   "recorded": 3,
+   "source": "results/reproduce",
+   "expect": null,
+   "netlist": "reference/spike_netlists/v2.json",
+   "sizes": {
+    "sites_total": 456,
+    "dag": {
+     "nodes": 361,
+     "sites": 353,
+     "observed": 48
+    },
+    "time": {
+     "fault_vars": 353,
+     "reduce_s": 0.002,
+     "vars": 1774,
+     "clauses": 4623,
+     "literals": 13309
+    },
+    "struct": {
+     "fault_vars": 83,
+     "reduce_s": 0.001,
+     "vars": 540,
+     "clauses": 1423,
+     "literals": 3776
+    },
+    "full": {
+     "fault_vars": 83,
+     "reduce_s": 0.008,
+     "vars": 540,
+     "clauses": 1423,
+     "literals": 3776,
+     "functional": {
+      "candidates_zero": 0,
+      "candidates_equal": 0,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 0,
+      "undecided": 0,
+      "signatures": 83,
+      "complete": true,
+      "time_s": 0.007
+     }
+    },
+    "modules": {
+     "fault_vars": 73,
+     "cost_vars": 45,
+     "instances": 15,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "c0",
+      "c1",
+      "c2"
+     ],
+     "vars": 685,
+     "clauses": 1688,
+     "literals": 4401
+    },
+    "fastsat": {
+     "fault_vars": 83,
+     "vars": 535,
+     "clauses": 1419,
+     "literals": 3767
+    }
+   },
+   "sizes_s": 0.01,
+   "modules": [
+    "c0",
+    "c1",
+    "c2"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 3,
+     "s": 0.32
+    },
+    "time": {
+     "answer": 3,
+     "s": 0.55,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.438,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.438,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.447,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.553,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1774,
+        "clauses": 4623,
+        "literals": 13309
+       },
+       "fault_vars": 353,
+       "sat_calls": 4,
+       "sat_time": 0.542,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 3,
+     "s": 0.27,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.246,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.246,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.248,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.266,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 540,
+        "clauses": 1423,
+        "literals": 3776
+       },
+       "fault_vars": 83,
+       "sat_calls": 4,
+       "sat_time": 0.261,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 3,
+     "s": 0.25,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.005,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.007,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.068,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.253,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 685,
+        "clauses": 1688,
+        "literals": 4401
+       },
+       "instances": 15,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 0.248,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 3,
+     "s": 0.4,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.034,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.046,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.214,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.395,
+       "hi": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 0.04,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.016,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.02,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.024,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.035,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 540,
+        "clauses": 1423,
+        "literals": 3776
+       },
+       "fault_vars": 83,
+       "sat_calls": 4,
+       "sat_time": 0.027,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 0.04,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.01,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.019,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.03,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.044,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 685,
+        "clauses": 1688,
+        "literals": 4401
+       },
+       "instances": 15,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 0.033,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 0.08,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.028,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.034,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.051,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.075,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 540,
+        "clauses": 1423,
+        "literals": 3776
+       },
+       "fault_vars": 83,
+       "sat_calls": 4,
+       "sat_time": 0.069,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "v2 spike T=20",
+   "top": "v2",
+   "gates": 68,
+   "flops": 8,
+   "T": 20,
+   "k": 3,
+   "recorded": 3,
+   "source": "ext/fastsat README 7.1",
+   "expect": null,
+   "netlist": "reference/spike_netlists/v2.json",
+   "sizes": {
+    "sites_total": 1520,
+    "dag": {
+     "nodes": 1327,
+     "sites": 1319,
+     "observed": 160
+    },
+    "time": {
+     "fault_vars": 1319,
+     "reduce_s": 0.008,
+     "vars": 6631,
+     "clauses": 17418,
+     "literals": 50211
+    },
+    "struct": {
+     "fault_vars": 293,
+     "reduce_s": 0.004,
+     "vars": 1927,
+     "clauses": 5204,
+     "literals": 13858
+    },
+    "full": {
+     "fault_vars": 293,
+     "reduce_s": 0.667,
+     "vars": 1927,
+     "clauses": 5204,
+     "literals": 13858,
+     "functional": {
+      "candidates_zero": 16,
+      "candidates_equal": 0,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 16,
+      "undecided": 0,
+      "signatures": 293,
+      "complete": true,
+      "time_s": 0.663
+     }
+    },
+    "modules": {
+     "fault_vars": 255,
+     "cost_vars": 171,
+     "instances": 57,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "c0",
+      "c1",
+      "c2"
+     ],
+     "vars": 2477,
+     "clauses": 6210,
+     "literals": 16231
+    },
+    "fastsat": {
+     "fault_vars": 293,
+     "vars": 1908,
+     "clauses": 5186,
+     "literals": 13821
+    }
+   },
+   "sizes_s": 0.69,
+   "modules": [
+    "c0",
+    "c1",
+    "c2"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 3,
+     "s": 3.5
+    },
+    "time": {
+     "answer": "[3,?]",
+     "s": 60.02,
+     "status": "LOWER_BOUND_ONLY",
+     "lo": 3,
+     "hi": null,
+     "lo_by": "exact",
+     "hi_by": null,
+     "events": [
+      {
+       "t": 15.198,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 15.323,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 23.958,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 6631,
+        "clauses": 17418,
+        "literals": 50211
+       },
+       "fault_vars": 1319,
+       "sat_calls": 5,
+       "sat_time": 59.955,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 3,
+     "s": 5.33,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 4.705,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 4.705,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 4.728,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 5.323,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1927,
+        "clauses": 5204,
+        "literals": 13858
+       },
+       "fault_vars": 293,
+       "sat_calls": 4,
+       "sat_time": 5.308,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 3,
+     "s": 9.26,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.028,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.054,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 2.779,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 9.253,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2477,
+        "clauses": 6210,
+        "literals": 16231
+       },
+       "instances": 57,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 9.222,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 3,
+     "s": 12.72,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.059,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.106,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 5.739,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 12.716,
+       "hi": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 0.7,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.553,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.567,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.589,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.694,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1927,
+        "clauses": 5204,
+        "literals": 13858
+       },
+       "fault_vars": 293,
+       "sat_calls": 4,
+       "sat_time": 0.67,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 0.17,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.028,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.041,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.137,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.166,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2477,
+        "clauses": 6210,
+        "literals": 16231
+       },
+       "instances": 57,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 0.148,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 0.39,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.222,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.228,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.279,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.386,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1927,
+        "clauses": 5204,
+        "literals": 13858
+       },
+       "fault_vars": 293,
+       "sat_calls": 4,
+       "sat_time": 0.372,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "v5 (apt 0.33)",
+   "top": "v5",
+   "gates": 208,
+   "flops": 9,
+   "T": 6,
+   "k": 3,
+   "recorded": 3,
+   "source": "ext/fastsat README 7.1",
+   "expect": null,
+   "netlist": "research/c4/b3/nl/v5_apt033.json",
+   "sizes": {
+    "sites_total": 1302,
+    "dag": {
+     "nodes": 1036,
+     "sites": 1028,
+     "observed": 48
+    },
+    "time": {
+     "fault_vars": 1028,
+     "reduce_s": 0.009,
+     "vars": 5157,
+     "clauses": 13173,
+     "literals": 37310
+    },
+    "struct": {
+     "fault_vars": 163,
+     "reduce_s": 0.003,
+     "vars": 1208,
+     "clauses": 3272,
+     "literals": 8677
+    },
+    "full": {
+     "fault_vars": 163,
+     "reduce_s": 2.127,
+     "vars": 1208,
+     "clauses": 3272,
+     "literals": 8677,
+     "functional": {
+      "candidates_zero": 5,
+      "candidates_equal": 138,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 143,
+      "undecided": 0,
+      "signatures": 163,
+      "complete": true,
+      "time_s": 2.12
+     }
+    },
+    "modules": {
+     "fault_vars": 108,
+     "cost_vars": 165,
+     "instances": 55,
+     "shapes": 3,
+     "facts": 80,
+     "names": [
+      "c0",
+      "c1",
+      "c2",
+      "g[0]",
+      "g[1]",
+      "g[2]",
+      "g[3]",
+      "g[4]",
+      "g[5]",
+      "g[6]",
+      "g[7]"
+     ],
+     "vars": 1695,
+     "clauses": 4031,
+     "literals": 10281
+    },
+    "fastsat": {
+     "fault_vars": 193,
+     "vars": 1354,
+     "clauses": 3639,
+     "literals": 9700
+    }
+   },
+   "sizes_s": 2.15,
+   "modules": [
+    "c0",
+    "c1",
+    "c2",
+    "g[0]",
+    "g[1]",
+    "g[2]",
+    "g[3]",
+    "g[4]",
+    "g[5]",
+    "g[6]",
+    "g[7]"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 3,
+     "s": 2.7
+    },
+    "time": {
+     "answer": 3,
+     "s": 5.64,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 5.464,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 5.464,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 5.505,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 5.633,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 5157,
+        "clauses": 13173,
+        "literals": 37310
+       },
+       "fault_vars": 1028,
+       "sat_calls": 4,
+       "sat_time": 5.594,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 3,
+     "s": 1.03,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.889,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.889,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.9,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 1.03,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1208,
+        "clauses": 3272,
+        "literals": 8677
+       },
+       "fault_vars": 163,
+       "sat_calls": 4,
+       "sat_time": 1.019,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 3,
+     "s": 0.78,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.025,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.061,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.195,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.78,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 1695,
+        "clauses": 4031,
+        "literals": 10281
+       },
+       "instances": 55,
+       "shapes": 3,
+       "facts": 80,
+       "sat_calls": 4,
+       "sat_time": 0.757,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 3,
+     "s": 1.69,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.063,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.111,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.395,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 1.684,
+       "hi": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 0.07,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.028,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.034,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.044,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.07,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1208,
+        "clauses": 3272,
+        "literals": 8677
+       },
+       "fault_vars": 163,
+       "sat_calls": 4,
+       "sat_time": 0.052,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 0.11,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.023,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.034,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.073,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.102,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 1695,
+        "clauses": 4031,
+        "literals": 10281
+       },
+       "instances": 55,
+       "shapes": 3,
+       "facts": 80,
+       "sat_calls": 4,
+       "sat_time": 0.083,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 0.17,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.047,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.055,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.103,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.169,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1208,
+        "clauses": 3272,
+        "literals": 8677
+       },
+       "fault_vars": 163,
+       "sat_calls": 4,
+       "sat_time": 0.158,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 sbox_unprot",
+   "top": "sbox_unprot",
+   "gates": 1012,
+   "flops": 16,
+   "T": 4,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "sbox_unprot.json",
+   "sizes": {
+    "sites_total": 4112,
+    "dag": {
+     "nodes": 3100,
+     "sites": 3092,
+     "observed": 32
+    },
+    "time": {
+     "fault_vars": 3092,
+     "reduce_s": 0.018,
+     "vars": 15456,
+     "clauses": 39983,
+     "literals": 113572
+    },
+    "struct": {
+     "fault_vars": 1271,
+     "reduce_s": 0.025,
+     "vars": 8166,
+     "clauses": 21767,
+     "literals": 58948
+    },
+    "full": {
+     "fault_vars": 1271,
+     "reduce_s": 0.67,
+     "vars": 8166,
+     "clauses": 21767,
+     "literals": 58948,
+     "functional": {
+      "candidates_zero": 2,
+      "candidates_equal": 98,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 100,
+      "undecided": 0,
+      "signatures": 1271,
+      "complete": true,
+      "time_s": 0.657
+     }
+    },
+    "modules": {
+     "fault_vars": 56,
+     "cost_vars": 9,
+     "instances": 3,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "A"
+     ],
+     "vars": 3340,
+     "clauses": 9702,
+     "literals": 22812
+    },
+    "fastsat": {
+     "fault_vars": 1271,
+     "vars": 8163,
+     "clauses": 21765,
+     "literals": 58943
+    }
+   },
+   "sizes_s": 0.76,
+   "modules": [
+    "A"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.53
+    },
+    "time": {
+     "answer": 1,
+     "s": 0.27,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.265,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.265,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 15456,
+        "clauses": 39983,
+        "literals": 113572
+       },
+       "fault_vars": 3092,
+       "sat_calls": 2,
+       "sat_time": 0.192,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.19,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.187,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.187,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 8166,
+        "clauses": 21767,
+        "literals": 58948
+       },
+       "fault_vars": 1271,
+       "sat_calls": 2,
+       "sat_time": 0.139,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 1,
+     "s": 0.14,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.115,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.128,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 3340,
+        "clauses": 9702,
+        "literals": 22812
+       },
+       "instances": 3,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.04,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.23,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.214,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.229,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.15,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.056,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.083,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.138,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 8166,
+        "clauses": 21767,
+        "literals": 58948
+       },
+       "fault_vars": 1271,
+       "sat_calls": 3,
+       "sat_time": 0.101,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 1,
+     "s": 0.63,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.102,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.603,
+       "hi": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.623,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 3340,
+        "clauses": 9702,
+        "literals": 22812
+       },
+       "instances": 3,
+       "shapes": 1,
+       "facts": 3,
+       "sat_calls": 3,
+       "sat_time": 0.061,
+       "iterations": 2,
+       "refinements": 1
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.18,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.093,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.14,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.172,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 8166,
+        "clauses": 21767,
+        "literals": 58948
+       },
+       "fault_vars": 1271,
+       "sat_calls": 3,
+       "sat_time": 0.135,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 sbox_par",
+   "top": "sbox_par",
+   "gates": 2040,
+   "flops": 17,
+   "T": 4,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "sbox_par.json",
+   "sizes": {
+    "sites_total": 8228,
+    "dag": {
+     "nodes": 6197,
+     "sites": 6189,
+     "observed": 36
+    },
+    "time": {
+     "fault_vars": 6189,
+     "reduce_s": 0.062,
+     "vars": 30994,
+     "clauses": 80275,
+     "literals": 228067
+    },
+    "struct": {
+     "fault_vars": 1275,
+     "reduce_s": 0.033,
+     "vars": 11238,
+     "clauses": 31023,
+     "literals": 80696
+    },
+    "full": {
+     "fault_vars": 1275,
+     "reduce_s": 6.129,
+     "vars": 11238,
+     "clauses": 31023,
+     "literals": 80696,
+     "functional": {
+      "candidates_zero": 2,
+      "candidates_equal": 125,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 127,
+      "undecided": 0,
+      "signatures": 1275,
+      "complete": true,
+      "time_s": 6.098
+     }
+    },
+    "modules": {
+     "fault_vars": 60,
+     "cost_vars": 18,
+     "instances": 6,
+     "shapes": 2,
+     "facts": 0,
+     "names": [
+      "A",
+      "B"
+     ],
+     "vars": 3471,
+     "clauses": 10074,
+     "literals": 23867
+    },
+    "fastsat": {
+     "fault_vars": 2490,
+     "vars": 16122,
+     "clauses": 43204,
+     "literals": 117138
+    }
+   },
+   "sizes_s": 6.37,
+   "modules": [
+    "A",
+    "B"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.87
+    },
+    "time": {
+     "answer": 1,
+     "s": 1.34,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 1.21,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 1.21,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 1.316,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 30994,
+        "clauses": 80275,
+        "literals": 228067
+       },
+       "fault_vars": 6189,
+       "sat_calls": 3,
+       "sat_time": 0.957,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.37,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.253,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.253,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.357,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 11238,
+        "clauses": 31023,
+        "literals": 80696
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.224,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 1,
+     "s": 0.23,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.201,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.223,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 3471,
+        "clauses": 10074,
+        "literals": 23867
+       },
+       "instances": 6,
+       "shapes": 2,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.034,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.44,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.376,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.433,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.27,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.123,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.179,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.255,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 11238,
+        "clauses": 31023,
+        "literals": 80696
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.169,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 1,
+     "s": 5.46,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.179,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.597,
+       "hi": 2,
+       "by": "modules"
+      },
+      {
+       "t": 5.442,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 3471,
+        "clauses": 10074,
+        "literals": 23867
+       },
+       "instances": 6,
+       "shapes": 2,
+       "facts": 6,
+       "sat_calls": 4,
+       "sat_time": 0.137,
+       "iterations": 3,
+       "refinements": 2
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.46,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.283,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.373,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.436,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 11238,
+        "clauses": 31023,
+        "literals": 80696
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.273,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 sbox_par2",
+   "top": "sbox_par2",
+   "gates": 2040,
+   "flops": 25,
+   "T": 4,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "sbox_par2.json",
+   "sizes": {
+    "sites_total": 8260,
+    "dag": {
+     "nodes": 6221,
+     "sites": 6213,
+     "observed": 36
+    },
+    "time": {
+     "fault_vars": 6213,
+     "reduce_s": 0.069,
+     "vars": 31106,
+     "clauses": 80507,
+     "literals": 228667
+    },
+    "struct": {
+     "fault_vars": 1275,
+     "reduce_s": 0.035,
+     "vars": 9224,
+     "clauses": 24966,
+     "literals": 66523
+    },
+    "full": {
+     "fault_vars": 1275,
+     "reduce_s": 11.691,
+     "vars": 9224,
+     "clauses": 24966,
+     "literals": 66523,
+     "functional": {
+      "candidates_zero": 8,
+      "candidates_equal": 605,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 613,
+      "undecided": 0,
+      "signatures": 1275,
+      "complete": true,
+      "time_s": 11.657
+     }
+    },
+    "modules": {
+     "fault_vars": 60,
+     "cost_vars": 18,
+     "instances": 6,
+     "shapes": 2,
+     "facts": 0,
+     "names": [
+      "A",
+      "B"
+     ],
+     "vars": 4472,
+     "clauses": 13077,
+     "literals": 30874
+    },
+    "fastsat": {
+     "fault_vars": 2514,
+     "vars": 16237,
+     "clauses": 43445,
+     "literals": 117759
+    }
+   },
+   "sizes_s": 11.98,
+   "modules": [
+    "A",
+    "B"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 2.21
+    },
+    "time": {
+     "answer": 1,
+     "s": 1.15,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.911,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.911,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 1.12,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 31106,
+        "clauses": 80507,
+        "literals": 228667
+       },
+       "fault_vars": 6213,
+       "sat_calls": 3,
+       "sat_time": 0.845,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 2.96,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 1.551,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 1.551,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 2.938,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9224,
+        "clauses": 24966,
+        "literals": 66523
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 2.764,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 1,
+     "s": 0.29,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.228,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.281,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 4472,
+        "clauses": 13077,
+        "literals": 30874
+       },
+       "instances": 6,
+       "shapes": 2,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.133,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.64,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.499,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.626,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.25,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.125,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.17,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.237,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9224,
+        "clauses": 24966,
+        "literals": 66523
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.15,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 1,
+     "s": 0.35,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.2,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.335,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 4472,
+        "clauses": 13077,
+        "literals": 30874
+       },
+       "instances": 6,
+       "shapes": 2,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.054,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.36,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.154,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.211,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.348,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9224,
+        "clauses": 24966,
+        "literals": 66523
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.269,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 sbox_dmr",
+   "top": "sbox_dmr",
+   "gates": 2040,
+   "flops": 32,
+   "T": 4,
+   "k": 3,
+   "recorded": 2,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "sbox_dmr.json",
+   "sizes": {
+    "sites_total": 8288,
+    "dag": {
+     "nodes": 6256,
+     "sites": 6248,
+     "observed": 36
+    },
+    "time": {
+     "fault_vars": 6248,
+     "reduce_s": 0.062,
+     "vars": 31252,
+     "clauses": 80835,
+     "literals": 229568
+    },
+    "struct": {
+     "fault_vars": 1275,
+     "reduce_s": 0.034,
+     "vars": 9231,
+     "clauses": 24966,
+     "literals": 66467
+    },
+    "full": {
+     "fault_vars": 1275,
+     "reduce_s": 2.485,
+     "vars": 9231,
+     "clauses": 24966,
+     "literals": 66467,
+     "functional": {
+      "candidates_zero": 2,
+      "candidates_equal": 101,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 103,
+      "undecided": 0,
+      "signatures": 1275,
+      "complete": true,
+      "time_s": 2.449
+     }
+    },
+    "modules": {
+     "fault_vars": 60,
+     "cost_vars": 18,
+     "instances": 6,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "A",
+      "B"
+     ],
+     "vars": 4472,
+     "clauses": 13049,
+     "literals": 30734
+    },
+    "fastsat": {
+     "fault_vars": 2514,
+     "vars": 16237,
+     "clauses": 43417,
+     "literals": 117619
+    }
+   },
+   "sizes_s": 2.69,
+   "modules": [
+    "A",
+    "B"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 2,
+     "s": 3.41
+    },
+    "time": {
+     "answer": 2,
+     "s": 11.23,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 3.641,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 3.68,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 10.416,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 11.194,
+       "hi": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 31252,
+        "clauses": 80835,
+        "literals": 229568
+       },
+       "fault_vars": 6248,
+       "sat_calls": 4,
+       "sat_time": 10.939,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 2,
+     "s": 0.61,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.245,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.245,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.558,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.591,
+       "hi": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9231,
+        "clauses": 24966,
+        "literals": 66467
+       },
+       "fault_vars": 1275,
+       "sat_calls": 4,
+       "sat_time": 0.441,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 2,
+     "s": 3.01,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.144,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 2.111,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 2.994,
+       "hi": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 4472,
+        "clauses": 13049,
+        "literals": 30734
+       },
+       "instances": 6,
+       "shapes": 1,
+       "facts": 12,
+       "sat_calls": 4,
+       "sat_time": 2.122,
+       "iterations": 2,
+       "refinements": 2
+      }
+     }
+    },
+    "race2": {
+     "answer": 2,
+     "s": 2.76,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.416,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.495,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.727,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 2.755,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 2,
+     "s": 0.28,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.165,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.206,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.265,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9231,
+        "clauses": 24966,
+        "literals": 66467
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.156,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 2,
+     "s": 0.3,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.147,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.189,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.285,
+       "hi": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 4472,
+        "clauses": 13049,
+        "literals": 30734
+       },
+       "instances": 6,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 3,
+       "sat_time": 0.086,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 2,
+     "s": 0.3,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.164,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.209,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.288,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9231,
+        "clauses": 24966,
+        "literals": 66467
+       },
+       "fault_vars": 1275,
+       "sat_calls": 3,
+       "sat_time": 0.209,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 crc_plain",
+   "top": "bootcrc",
+   "gates": 40,
+   "flops": 9,
+   "T": 4,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "crc_plain.json",
+   "sizes": {
+    "sites_total": 196,
+    "dag": {
+     "nodes": 156,
+     "sites": 148,
+     "observed": 4
+    },
+    "time": {
+     "fault_vars": 148,
+     "reduce_s": 0.001,
+     "vars": 784,
+     "clauses": 1805,
+     "literals": 4876
+    },
+    "struct": {
+     "fault_vars": 4,
+     "reduce_s": 0.0,
+     "vars": 46,
+     "clauses": 100,
+     "literals": 281
+    },
+    "full": {
+     "fault_vars": 4,
+     "reduce_s": 0.0,
+     "vars": 46,
+     "clauses": 100,
+     "literals": 281,
+     "functional": {
+      "candidates_zero": 0,
+      "candidates_equal": 0,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 0,
+      "undecided": 0,
+      "signatures": 4,
+      "complete": true,
+      "time_s": 0.0
+     }
+    },
+    "modules": {
+     "fault_vars": 4,
+     "cost_vars": 9,
+     "instances": 3,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "island0"
+     ],
+     "vars": 87,
+     "clauses": 180,
+     "literals": 478
+    },
+    "fastsat": {
+     "fault_vars": 49,
+     "vars": 308,
+     "clauses": 736,
+     "literals": 1981
+    }
+   },
+   "sizes_s": 0.0,
+   "modules": [
+    "island0"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.0
+    },
+    "time": {
+     "answer": 1,
+     "s": 0.0,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.004,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.004,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 784,
+        "clauses": 1805,
+        "literals": 4876
+       },
+       "fault_vars": 148,
+       "sat_calls": 2,
+       "sat_time": 0.001,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.01,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.005,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.005,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 46,
+        "clauses": 100,
+        "literals": 281
+       },
+       "fault_vars": 4,
+       "sat_calls": 2,
+       "sat_time": 0.004,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 1,
+     "s": 0.0,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.001,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.002,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 87,
+        "clauses": 180,
+        "literals": 478
+       },
+       "instances": 3,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.0,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.02,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.017,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.018,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.02,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.012,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.021,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 46,
+        "clauses": 100,
+        "literals": 281
+       },
+       "fault_vars": 4,
+       "sat_calls": 2,
+       "sat_time": 0.013,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 1,
+     "s": 0.02,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.01,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.019,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 87,
+        "clauses": 180,
+        "literals": 478
+       },
+       "instances": 3,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.01,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.01,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.006,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.009,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 46,
+        "clauses": 100,
+        "literals": 281
+       },
+       "fault_vars": 4,
+       "sat_calls": 2,
+       "sat_time": 0.006,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 crc_tmr",
+   "top": "bootcrc_tmr",
+   "gates": 44,
+   "flops": 11,
+   "T": 4,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "crc_tmr.json",
+   "sizes": {
+    "sites_total": 220,
+    "dag": {
+     "nodes": 180,
+     "sites": 172,
+     "observed": 4
+    },
+    "time": {
+     "fault_vars": 172,
+     "reduce_s": 0.001,
+     "vars": 902,
+     "clauses": 2093,
+     "literals": 5676
+    },
+    "struct": {
+     "fault_vars": 4,
+     "reduce_s": 0.0,
+     "vars": 46,
+     "clauses": 100,
+     "literals": 281
+    },
+    "full": {
+     "fault_vars": 4,
+     "reduce_s": 0.005,
+     "vars": 46,
+     "clauses": 100,
+     "literals": 281,
+     "functional": {
+      "candidates_zero": 0,
+      "candidates_equal": 0,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 0,
+      "undecided": 0,
+      "signatures": 4,
+      "complete": true,
+      "time_s": 0.0
+     }
+    },
+    "modules": {
+     "fault_vars": 4,
+     "cost_vars": 9,
+     "instances": 3,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "island1"
+     ],
+     "vars": 87,
+     "clauses": 180,
+     "literals": 478
+    },
+    "fastsat": {
+     "fault_vars": 60,
+     "vars": 369,
+     "clauses": 888,
+     "literals": 2390
+    }
+   },
+   "sizes_s": 0.01,
+   "modules": [
+    "island1"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.01
+    },
+    "time": {
+     "answer": 1,
+     "s": 0.01,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.011,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.011,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 902,
+        "clauses": 2093,
+        "literals": 5676
+       },
+       "fault_vars": 172,
+       "sat_calls": 2,
+       "sat_time": 0.002,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.0,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.001,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.001,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 46,
+        "clauses": 100,
+        "literals": 281
+       },
+       "fault_vars": 4,
+       "sat_calls": 2,
+       "sat_time": 0.0,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 1,
+     "s": 0.0,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.001,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.002,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 87,
+        "clauses": 180,
+        "literals": 478
+       },
+       "instances": 3,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.0,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.02,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.021,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.021,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.03,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.02,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.025,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 46,
+        "clauses": 100,
+        "literals": 281
+       },
+       "fault_vars": 4,
+       "sat_calls": 2,
+       "sat_time": 0.009,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 1,
+     "s": 0.02,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.008,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.015,
+       "hi": 1,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 87,
+        "clauses": 180,
+        "literals": 478
+       },
+       "instances": 3,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 2,
+       "sat_time": 0.01,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.01,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.008,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.012,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 46,
+        "clauses": 100,
+        "literals": 281
+       },
+       "fault_vars": 4,
+       "sat_calls": 2,
+       "sat_time": 0.008,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 uart T=6",
+   "top": "uartw",
+   "gates": 368,
+   "flops": 34,
+   "T": 6,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "uart.json",
+   "sizes": {
+    "sites_total": 2412,
+    "dag": {
+     "nodes": 1504,
+     "sites": 1496,
+     "observed": 12
+    },
+    "time": {
+     "fault_vars": 1496,
+     "reduce_s": 0.014,
+     "vars": 7443,
+     "clauses": 18577,
+     "literals": 52470
+    },
+    "struct": {
+     "fault_vars": 318,
+     "reduce_s": 0.009,
+     "vars": 2304,
+     "clauses": 6044,
+     "literals": 15857
+    },
+    "full": {
+     "fault_vars": 318,
+     "reduce_s": 15.021,
+     "vars": 2304,
+     "clauses": 6044,
+     "literals": 15857,
+     "functional": {
+      "candidates_zero": 88,
+      "candidates_equal": 532,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 117,
+      "undecided": 503,
+      "signatures": 318,
+      "complete": true,
+      "time_s": 15.017
+     }
+    },
+    "fastsat": {
+     "fault_vars": 350,
+     "vars": 2483,
+     "clauses": 6483,
+     "literals": 17017
+    }
+   },
+   "sizes_s": 15.06,
+   "modules": [],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.06
+    },
+    "time": {
+     "answer": 1,
+     "s": 0.12,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.094,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.094,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.113,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 7443,
+        "clauses": 18577,
+        "literals": 52470
+       },
+       "fault_vars": 1496,
+       "sat_calls": 3,
+       "sat_time": 0.042,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.03,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.027,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.027,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2304,
+        "clauses": 6044,
+        "literals": 15857
+       },
+       "fault_vars": 318,
+       "sat_calls": 2,
+       "sat_time": 0.004,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.07,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.053,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.07,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.06,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.037,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.044,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.059,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2304,
+        "clauses": 6044,
+        "literals": 15857
+       },
+       "fault_vars": 318,
+       "sat_calls": 3,
+       "sat_time": 0.029,
+       "solver": "cadical"
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.06,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.026,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.035,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.047,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2304,
+        "clauses": 6044,
+        "literals": 15857
+       },
+       "fault_vars": 318,
+       "sat_calls": 3,
+       "sat_time": 0.027,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 uart T=30",
+   "top": "uartw",
+   "gates": 368,
+   "flops": 34,
+   "T": 30,
+   "k": 2,
+   "recorded": 1,
+   "source": "R20_REPORT.md",
+   "expect": null,
+   "netlist": "uart.json",
+   "sizes": {
+    "sites_total": 12060,
+    "dag": {
+     "nodes": 11084,
+     "sites": 11076,
+     "observed": 60
+    },
+    "time": {
+     "fault_vars": 11076,
+     "reduce_s": 0.087,
+     "vars": 49730,
+     "clauses": 122824,
+     "literals": 351135
+    },
+    "struct": {
+     "fault_vars": 2468,
+     "reduce_s": 0.101,
+     "vars": 17026,
+     "clauses": 44829,
+     "literals": 117484
+    },
+    "full": {
+     "fault_vars": 2468,
+     "reduce_s": 53.792,
+     "vars": 17026,
+     "clauses": 44829,
+     "literals": 117484,
+     "functional": {
+      "candidates_zero": 439,
+      "candidates_equal": 4604,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 139,
+      "undecided": 4904,
+      "signatures": 1648,
+      "complete": false,
+      "time_s": 53.732
+     }
+    },
+    "fastsat": {
+     "fault_vars": 2524,
+     "vars": 17273,
+     "clauses": 45424,
+     "literals": 119068
+    }
+   },
+   "sizes_s": 54.03,
+   "modules": [],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.23
+    },
+    "time": {
+     "answer": 1,
+     "s": 0.78,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.568,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.569,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.743,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 49730,
+        "clauses": 122824,
+        "literals": 351135
+       },
+       "fault_vars": 11076,
+       "sat_calls": 3,
+       "sat_time": 0.342,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.66,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.229,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.229,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.643,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 17026,
+        "clauses": 44829,
+        "literals": 117484
+       },
+       "fault_vars": 2468,
+       "sat_calls": 3,
+       "sat_time": 0.459,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.71,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.574,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.582,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.689,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.39,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.27,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.371,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 17026,
+        "clauses": 44829,
+        "literals": 117484
+       },
+       "fault_vars": 2468,
+       "sat_calls": 2,
+       "sat_time": 0.226,
+       "solver": "cadical"
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.36,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.192,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.249,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.347,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 17026,
+        "clauses": 44829,
+        "literals": 117484
+       },
+       "fault_vars": 2468,
+       "sat_calls": 3,
+       "sat_time": 0.181,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "R20 uart T=60",
+   "top": "uartw",
+   "gates": 368,
+   "flops": 34,
+   "T": 60,
+   "k": 3,
+   "recorded": 1,
+   "source": "R20_REPORT.md (z3 run did not finish; min 1 follows from T=6)",
+   "expect": null,
+   "netlist": "uart.json",
+   "sizes": {
+    "sites_total": 24120,
+    "dag": {
+     "nodes": 23144,
+     "sites": 23136,
+     "observed": 120
+    },
+    "time": {
+     "fault_vars": 23136,
+     "reduce_s": 0.179,
+     "vars": 115477,
+     "clauses": 291623,
+     "literals": 827336
+    },
+    "struct": {
+     "fault_vars": 5168,
+     "reduce_s": 0.169,
+     "vars": 38329,
+     "clauses": 101986,
+     "literals": 267623
+    },
+    "full": {
+     "fault_vars": 5168,
+     "reduce_s": 15.146,
+     "vars": 38329,
+     "clauses": 101986,
+     "literals": 267623,
+     "functional": {
+      "candidates_zero": 171,
+      "candidates_equal": 2533,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 59,
+      "undecided": 2645,
+      "signatures": 816,
+      "complete": false,
+      "time_s": 15.005
+     }
+    },
+    "fastsat": {
+     "fault_vars": 5254,
+     "vars": 38724,
+     "clauses": 102965,
+     "literals": 270241
+    }
+   },
+   "sizes_s": 15.58,
+   "modules": [],
+   "cells": {
+    "fastsat": {
+     "answer": 1,
+     "s": 0.61
+    },
+    "time": {
+     "answer": 1,
+     "s": 1.77,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 1.41,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 1.41,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 1.701,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 115477,
+        "clauses": 291623,
+        "literals": 827336
+       },
+       "fault_vars": 23136,
+       "sat_calls": 3,
+       "sat_time": 0.725,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.42,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.395,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.395,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 38329,
+        "clauses": 101986,
+        "literals": 267623
+       },
+       "fault_vars": 5168,
+       "sat_calls": 2,
+       "sat_time": 0.1,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.85,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.697,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.829,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.69,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.312,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.453,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.657,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 38329,
+        "clauses": 101986,
+        "literals": 267623
+       },
+       "fault_vars": 5168,
+       "sat_calls": 3,
+       "sat_time": 0.463,
+       "solver": "cadical"
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.52,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.299,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.416,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.499,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 38329,
+        "clauses": 101986,
+        "literals": 267623
+       },
+       "fault_vars": 5168,
+       "sat_calls": 3,
+       "sat_time": 0.271,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "proxy dmr trees",
+   "top": "sbox_dmr_proxy",
+   "gates": 1790,
+   "flops": 32,
+   "T": 4,
+   "k": 3,
+   "recorded": 2,
+   "source": "ext/fastsat README 7.1",
+   "expect": null,
+   "netlist": "sbox_dmr_proxy.json",
+   "sizes": {
+    "sites_total": 7288,
+    "dag": {
+     "nodes": 5506,
+     "sites": 5498,
+     "observed": 36
+    },
+    "time": {
+     "fault_vars": 5498,
+     "reduce_s": 0.036,
+     "vars": 27502,
+     "clauses": 88341,
+     "literals": 282794
+    },
+    "struct": {
+     "fault_vars": 63,
+     "reduce_s": 0.033,
+     "vars": 1945,
+     "clauses": 9825,
+     "literals": 28808
+    },
+    "full": {
+     "fault_vars": 63,
+     "reduce_s": 0.042,
+     "vars": 1945,
+     "clauses": 9825,
+     "literals": 28808,
+     "functional": {
+      "candidates_zero": 0,
+      "candidates_equal": 0,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 0,
+      "undecided": 0,
+      "signatures": 63,
+      "complete": true,
+      "time_s": 0.033
+     }
+    },
+    "modules": {
+     "fault_vars": 56,
+     "cost_vars": 30,
+     "instances": 10,
+     "shapes": 2,
+     "facts": 1176,
+     "names": [
+      "A",
+      "B",
+      "chk"
+     ],
+     "vars": 2036,
+     "clauses": 9877,
+     "literals": 28930
+    },
+    "fastsat": {
+     "fault_vars": 90,
+     "vars": 2899,
+     "clauses": 14749,
+     "literals": 43267
+    }
+   },
+   "sizes_s": 0.15,
+   "modules": [
+    "A",
+    "B",
+    "chk"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 2,
+     "s": 1.07
+    },
+    "time": {
+     "answer": 2,
+     "s": 15.23,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 1.985,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 2.266,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 15.206,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 27502,
+        "clauses": 88341,
+        "literals": 282794
+       },
+       "fault_vars": 5498,
+       "sat_calls": 3,
+       "sat_time": 15.003,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 2,
+     "s": 0.49,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.114,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.162,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.479,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1945,
+        "clauses": 9825,
+        "literals": 28808
+       },
+       "fault_vars": 63,
+       "sat_calls": 3,
+       "sat_time": 0.426,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 2,
+     "s": 0.61,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.229,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.501,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.602,
+       "hi": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2036,
+        "clauses": 9877,
+        "literals": 28930
+       },
+       "instances": 10,
+       "shapes": 2,
+       "facts": 1176,
+       "sat_calls": 3,
+       "sat_time": 0.502,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 2,
+     "s": 0.96,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.298,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.455,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.952,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 2,
+     "s": 0.17,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.078,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.098,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.132,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.165,
+       "hi": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1945,
+        "clauses": 9825,
+        "literals": 28808
+       },
+       "fault_vars": 63,
+       "sat_calls": 4,
+       "sat_time": 0.105,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 2,
+     "s": 0.28,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.143,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.226,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.271,
+       "hi": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2036,
+        "clauses": 9877,
+        "literals": 28930
+       },
+       "instances": 10,
+       "shapes": 2,
+       "facts": 1176,
+       "sat_calls": 3,
+       "sat_time": 0.145,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 2,
+     "s": 0.27,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.15,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.201,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.262,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1945,
+        "clauses": 9825,
+        "literals": 28808
+       },
+       "fault_vars": 63,
+       "sat_calls": 3,
+       "sat_time": 0.201,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "proxy dmr shared",
+   "top": "sbox_dmrs_proxy",
+   "gates": 834,
+   "flops": 32,
+   "T": 4,
+   "k": 3,
+   "recorded": 2,
+   "source": "ext/fastsat README 7.1",
+   "expect": null,
+   "netlist": "sbox_dmrs_proxy.json",
+   "sizes": {
+    "sites_total": 3464,
+    "dag": {
+     "nodes": 2638,
+     "sites": 2630,
+     "observed": 36
+    },
+    "time": {
+     "fault_vars": 2630,
+     "reduce_s": 0.021,
+     "vars": 13162,
+     "clauses": 46725,
+     "literals": 155966
+    },
+    "struct": {
+     "fault_vars": 279,
+     "reduce_s": 0.012,
+     "vars": 2824,
+     "clauses": 12447,
+     "literals": 37760
+    },
+    "full": {
+     "fault_vars": 279,
+     "reduce_s": 0.163,
+     "vars": 2824,
+     "clauses": 12447,
+     "literals": 37760,
+     "functional": {
+      "candidates_zero": 56,
+      "candidates_equal": 4,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 60,
+      "undecided": 0,
+      "signatures": 279,
+      "complete": true,
+      "time_s": 0.155
+     }
+    },
+    "modules": {
+     "fault_vars": 56,
+     "cost_vars": 30,
+     "instances": 10,
+     "shapes": 2,
+     "facts": 1122,
+     "names": [
+      "A",
+      "B",
+      "chk"
+     ],
+     "vars": 2036,
+     "clauses": 9877,
+     "literals": 28930
+    },
+    "fastsat": {
+     "fault_vars": 534,
+     "vars": 4705,
+     "clauses": 20149,
+     "literals": 61735
+    }
+   },
+   "sizes_s": 0.22,
+   "modules": [
+    "A",
+    "B",
+    "chk"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 2,
+     "s": 1.78
+    },
+    "time": {
+     "answer": 2,
+     "s": 6.94,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 1.623,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 1.776,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 6.658,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 6.927,
+       "hi": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 13162,
+        "clauses": 46725,
+        "literals": 155966
+       },
+       "fault_vars": 2630,
+       "sat_calls": 4,
+       "sat_time": 6.812,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 2,
+     "s": 0.43,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.188,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.247,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.372,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.426,
+       "hi": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2824,
+        "clauses": 12447,
+        "literals": 37760
+       },
+       "fault_vars": 279,
+       "sat_calls": 4,
+       "sat_time": 0.382,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 2,
+     "s": 0.62,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.25,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.593,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.615,
+       "hi": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2036,
+        "clauses": 9877,
+        "literals": 28930
+       },
+       "instances": 10,
+       "shapes": 2,
+       "facts": 1122,
+       "sat_calls": 3,
+       "sat_time": 0.553,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 2,
+     "s": 1.26,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.485,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.516,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.971,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 1.26,
+       "lo": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 2,
+     "s": 0.11,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.055,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.074,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.104,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2824,
+        "clauses": 12447,
+        "literals": 37760
+       },
+       "fault_vars": 279,
+       "sat_calls": 3,
+       "sat_time": 0.07,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 2,
+     "s": 0.12,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.043,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.086,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.112,
+       "hi": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2036,
+        "clauses": 9877,
+        "literals": 28930
+       },
+       "instances": 10,
+       "shapes": 2,
+       "facts": 1122,
+       "sat_calls": 3,
+       "sat_time": 0.076,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 2,
+     "s": 0.24,
+     "status": "EXACT",
+     "lo": 2,
+     "hi": 2,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.093,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.138,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.231,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2824,
+        "clauses": 12447,
+        "literals": 37760
+       },
+       "fault_vars": 279,
+       "sat_calls": 3,
+       "sat_time": 0.206,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "proxy tmr2 trees",
+   "top": "sbox_tmr2_proxy",
+   "gates": 2693,
+   "flops": 48,
+   "T": 4,
+   "k": 3,
+   "recorded": 3,
+   "source": "ext/fastsat README 7.1",
+   "expect": null,
+   "netlist": "sbox_tmr2_proxy.json",
+   "sizes": {
+    "sites_total": 10964,
+    "dag": {
+     "nodes": 8287,
+     "sites": 8279,
+     "observed": 40
+    },
+    "time": {
+     "fault_vars": 8279,
+     "reduce_s": 0.088,
+     "vars": 41423,
+     "clauses": 132946,
+     "literals": 425403
+    },
+    "struct": {
+     "fault_vars": 67,
+     "reduce_s": 0.028,
+     "vars": 1965,
+     "clauses": 9873,
+     "literals": 28932
+    },
+    "full": {
+     "fault_vars": 67,
+     "reduce_s": 0.058,
+     "vars": 1965,
+     "clauses": 9873,
+     "literals": 28932,
+     "functional": {
+      "candidates_zero": 0,
+      "candidates_equal": 0,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 0,
+      "undecided": 0,
+      "signatures": 67,
+      "complete": true,
+      "time_s": 0.037
+     }
+    },
+    "modules": {
+     "fault_vars": 56,
+     "cost_vars": 51,
+     "instances": 17,
+     "shapes": 2,
+     "facts": 1764,
+     "names": [
+      "A",
+      "B",
+      "C",
+      "chk12",
+      "chk13"
+     ],
+     "vars": 2193,
+     "clauses": 10257,
+     "literals": 29926
+    },
+    "fastsat": {
+     "fault_vars": 121,
+     "vars": 4298,
+     "clauses": 22047,
+     "literals": 64720
+    }
+   },
+   "sizes_s": 0.26,
+   "modules": [
+    "A",
+    "B",
+    "C",
+    "chk12",
+    "chk13"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 3,
+     "s": 5.02
+    },
+    "time": {
+     "answer": "[2,3]",
+     "s": 61.0,
+     "status": "INTERVAL",
+     "lo": 2,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 5.608,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 5.652,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 22.855,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 41423,
+        "clauses": 132946,
+        "literals": 425403
+       },
+       "fault_vars": 8279,
+       "sat_calls": 4,
+       "sat_time": 60.532,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 3,
+     "s": 0.54,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.312,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.37,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.385,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.52,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1965,
+        "clauses": 9873,
+        "literals": 28932
+       },
+       "fault_vars": 67,
+       "sat_calls": 4,
+       "sat_time": 0.4,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 3,
+     "s": 1.68,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.352,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.671,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 1.564,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 1.663,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2193,
+        "clauses": 10257,
+        "literals": 29926
+       },
+       "instances": 17,
+       "shapes": 2,
+       "facts": 1764,
+       "sat_calls": 4,
+       "sat_time": 1.481,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 3,
+     "s": 1.23,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.728,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.835,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 1.2,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 0.25,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.139,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.167,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.198,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.239,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1965,
+        "clauses": 9873,
+        "literals": 28932
+       },
+       "fault_vars": 67,
+       "sat_calls": 4,
+       "sat_time": 0.121,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 0.43,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.137,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.176,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.33,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.416,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2193,
+        "clauses": 10257,
+        "literals": 29926
+       },
+       "instances": 17,
+       "shapes": 2,
+       "facts": 1764,
+       "sat_calls": 4,
+       "sat_time": 0.266,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 0.42,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.18,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.242,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.324,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.413,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1965,
+        "clauses": 9873,
+        "literals": 28932
+       },
+       "fault_vars": 67,
+       "sat_calls": 4,
+       "sat_time": 0.31,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  },
+  {
+   "name": "proxy tmr2 shared",
+   "top": "sbox_tmr2s_proxy",
+   "gates": 1259,
+   "flops": 48,
+   "T": 4,
+   "k": 3,
+   "recorded": 3,
+   "source": "ext/fastsat README 7.1",
+   "expect": null,
+   "netlist": "sbox_tmr2s_proxy.json",
+   "sizes": {
+    "sites_total": 5228,
+    "dag": {
+     "nodes": 3985,
+     "sites": 3977,
+     "observed": 40
+    },
+    "time": {
+     "fault_vars": 3977,
+     "reduce_s": 0.063,
+     "vars": 19914,
+     "clauses": 70523,
+     "literals": 235163
+    },
+    "struct": {
+     "fault_vars": 283,
+     "reduce_s": 0.024,
+     "vars": 2844,
+     "clauses": 12495,
+     "literals": 37884
+    },
+    "full": {
+     "fault_vars": 283,
+     "reduce_s": 0.469,
+     "vars": 2844,
+     "clauses": 12495,
+     "literals": 37884,
+     "functional": {
+      "candidates_zero": 65,
+      "candidates_equal": 8,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 73,
+      "undecided": 0,
+      "signatures": 283,
+      "complete": true,
+      "time_s": 0.448
+     }
+    },
+    "modules": {
+     "fault_vars": 56,
+     "cost_vars": 51,
+     "instances": 17,
+     "shapes": 2,
+     "facts": 1683,
+     "names": [
+      "A",
+      "B",
+      "C",
+      "chk12",
+      "chk13"
+     ],
+     "vars": 2193,
+     "clauses": 10257,
+     "literals": 29926
+    },
+    "fastsat": {
+     "fault_vars": 787,
+     "vars": 7006,
+     "clauses": 30146,
+     "literals": 92420
+    }
+   },
+   "sizes_s": 0.62,
+   "modules": [
+    "A",
+    "B",
+    "C",
+    "chk12",
+    "chk13"
+   ],
+   "cells": {
+    "fastsat": {
+     "answer": 3,
+     "s": 13.09
+    },
+    "time": {
+     "answer": "[2,3]",
+     "s": 60.67,
+     "status": "INTERVAL",
+     "lo": 2,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 2.4,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 2.423,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 16.798,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 19914,
+        "clauses": 70523,
+        "literals": 235163
+       },
+       "fault_vars": 3977,
+       "sat_calls": 4,
+       "sat_time": 60.385,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 3,
+     "s": 0.58,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.414,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.434,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.435,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.573,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2844,
+        "clauses": 12495,
+        "literals": 37884
+       },
+       "fault_vars": 283,
+       "sat_calls": 4,
+       "sat_time": 0.489,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 3,
+     "s": 1.43,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.314,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.7,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 1.351,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 1.424,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2193,
+        "clauses": 10257,
+        "literals": 29926
+       },
+       "instances": 17,
+       "shapes": 2,
+       "facts": 1683,
+       "sat_calls": 4,
+       "sat_time": 1.322,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 3,
+     "s": 1.28,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.692,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.871,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 1.263,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 0.19,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.096,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.124,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.154,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.189,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2844,
+        "clauses": 12495,
+        "literals": 37884
+       },
+       "fault_vars": 283,
+       "sat_calls": 4,
+       "sat_time": 0.128,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 0.63,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.11,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.151,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.225,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.618,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 2193,
+        "clauses": 10257,
+        "literals": 29926
+       },
+       "instances": 17,
+       "shapes": 2,
+       "facts": 1690,
+       "sat_calls": 5,
+       "sat_time": 0.259,
+       "iterations": 2,
+       "refinements": 1
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 0.4,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.167,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.229,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.313,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.4,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2844,
+        "clauses": 12495,
+        "literals": 37884
+       },
+       "fault_vars": 283,
+       "sat_calls": 4,
+       "sat_time": 0.321,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": true
+  }
+ ]
+}

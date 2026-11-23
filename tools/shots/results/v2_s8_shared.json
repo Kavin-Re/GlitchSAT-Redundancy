@@ -1,0 +1,1348 @@
+{
+ "schema": "physical-fault-campaign/1",
+ "mechanism": "laser_em",
+ "design": "v2_s8",
+ "top": "v2",
+ "key": 195,
+ "good": 150,
+ "init": 240,
+ "realizable_wrong_key_accept": true,
+ "min_cost": 8.0,
+ "cost_unit": "shot_radius_um",
+ "realized_flip_sets": [
+  {
+   "cycle": 2,
+   "flops": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 0,
+   "r_um": 0.0,
+   "n_shots": 3,
+   "rule": "centre",
+   "aim": "cell"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    0,
+    1,
+    4,
+    5,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 1,
+   "r_um": 6.0,
+   "n_shots": 2,
+   "rule": "centre",
+   "aim": "cell"
+  },
+  {
+   "cycle": 2,
+   "flops": [
+    0,
+    3,
+    5,
+    6,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 1,
+   "r_um": 6.0,
+   "n_shots": 2,
+   "rule": "centre",
+   "aim": "cell"
+  },
+  {
+   "cycle": 0,
+   "flops": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 2,
+   "r_um": 9.5,
+   "n_shots": 1,
+   "rule": "centre",
+   "aim": "cell"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    3,
+    4,
+    6,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 2,
+   "r_um": 9.5,
+   "n_shots": 1,
+   "rule": "centre",
+   "aim": "cell"
+  },
+  {
+   "cycle": 0,
+   "flops": [
+    2
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 4,
+   "r_um": 2.75,
+   "n_shots": 2,
+   "rule": "centre",
+   "aim": "grid"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    1,
+    5,
+    6
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 4,
+   "r_um": 2.75,
+   "n_shots": 2,
+   "rule": "centre",
+   "aim": "grid"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 5,
+   "r_um": 8.0,
+   "n_shots": 1,
+   "rule": "centre",
+   "aim": "grid"
+  },
+  {
+   "cycle": 2,
+   "flops": [
+    2,
+    5,
+    6,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 5,
+   "r_um": 8.0,
+   "n_shots": 1,
+   "rule": "centre",
+   "aim": "grid"
+  },
+  {
+   "cycle": 0,
+   "flops": [
+    0,
+    1,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 7,
+   "r_um": 2.75,
+   "n_shots": 2,
+   "rule": "overlap",
+   "aim": "cell"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    0,
+    2,
+    5,
+    6,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 7,
+   "r_um": 2.75,
+   "n_shots": 2,
+   "rule": "overlap",
+   "aim": "cell"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 10,
+   "r_um": 7.0,
+   "n_shots": 1,
+   "rule": "overlap",
+   "aim": "cell"
+  },
+  {
+   "cycle": 2,
+   "flops": [
+    0,
+    2,
+    5,
+    6,
+    7
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 10,
+   "r_um": 7.0,
+   "n_shots": 1,
+   "rule": "overlap",
+   "aim": "cell"
+  },
+  {
+   "cycle": 0,
+   "flops": [
+    1,
+    2
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 12,
+   "r_um": 0.5,
+   "n_shots": 2,
+   "rule": "overlap",
+   "aim": "grid"
+  },
+  {
+   "cycle": 1,
+   "flops": [
+    5,
+    6
+   ],
+   "sig": "0x00",
+   "outcome": "SUCCESS",
+   "attack": 12,
+   "r_um": 0.5,
+   "n_shots": 2,
+   "rule": "overlap",
+   "aim": "grid"
+  }
+ ],
+ "honesty": "SIMULATION, not measurement",
+ "extra": {
+  "model": "disc of radius r disturbs every placed logic cell within r (bit-flip of its output in one clock cycle); placement from the sky130 DEF; exhaustive bounded search, T = 6 cycles",
+  "min_cost_meaning": "smallest radius (um) at which one shot opens the lock, rule centre, free aim",
+  "one_shot_radius_um": {
+   "centre/cell": 9.5,
+   "centre/grid": 8.0,
+   "overlap/cell": 7.0,
+   "overlap/grid": 5.75
+  },
+  "min_shots_vs_radius": {
+   "centre/cell": {
+    "kmax": 4,
+    "exact_steps": false,
+    "steps": [
+     {
+      "r_from": 0.0,
+      "r_last": 5.75,
+      "min_shots": 3,
+      "searched_k": 3
+     },
+     {
+      "r_from": 6.0,
+      "r_last": 9.0,
+      "min_shots": 2,
+      "searched_k": 2
+     },
+     {
+      "r_from": 9.5,
+      "r_last": 63.0,
+      "min_shots": 1,
+      "searched_k": 1
+     }
+    ]
+   },
+   "centre/grid": {
+    "kmax": 3,
+    "exact_steps": false,
+    "steps": [
+     {
+      "r_from": 0.0,
+      "r_last": 2.5,
+      "min_shots": 3,
+      "searched_k": 3
+     },
+     {
+      "r_from": 2.75,
+      "r_last": 7.5,
+      "min_shots": 2,
+      "searched_k": 2
+     },
+     {
+      "r_from": 8.0,
+      "r_last": 63.0,
+      "min_shots": 1,
+      "searched_k": 1
+     }
+    ]
+   },
+   "overlap/cell": {
+    "kmax": 4,
+    "exact_steps": false,
+    "steps": [
+     {
+      "r_from": 0.0,
+      "r_last": 2.5,
+      "min_shots": 3,
+      "searched_k": 3
+     },
+     {
+      "r_from": 2.75,
+      "r_last": 3.25,
+      "min_shots": 2,
+      "searched_k": 2
+     },
+     {
+      "r_from": 3.5,
+      "r_last": 4.0,
+      "min_shots": 3,
+      "searched_k": 3
+     },
+     {
+      "r_from": 4.25,
+      "r_last": 6.5,
+      "min_shots": 2,
+      "searched_k": 2
+     },
+     {
+      "r_from": 7.0,
+      "r_last": 63.0,
+      "min_shots": 1,
+      "searched_k": 1
+     }
+    ]
+   },
+   "overlap/grid": {
+    "kmax": 3,
+    "exact_steps": false,
+    "steps": [
+     {
+      "r_from": 0.0,
+      "r_last": 0.25,
+      "min_shots": 3,
+      "searched_k": 3
+     },
+     {
+      "r_from": 0.5,
+      "r_last": 5.5,
+      "min_shots": 2,
+      "searched_k": 2
+     },
+     {
+      "r_from": 5.75,
+      "r_last": 63.0,
+      "min_shots": 1,
+      "searched_k": 1
+     }
+    ]
+   }
+  },
+  "attacks": [
+   {
+    "attack": 0,
+    "rule": "centre",
+    "aim": "cell",
+    "r_from_um": 0.0,
+    "r_last_um": 5.75,
+    "n_shots": 3,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0xcc",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 12.65,
+      "y": 39.44,
+      "r": 0.0,
+      "cells": [
+       "c2/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 12.65,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c0/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 37.03,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c1/_4_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 1,
+    "rule": "centre",
+    "aim": "cell",
+    "r_from_um": 6.0,
+    "r_last_um": 9.0,
+    "n_shots": 2,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0x7f",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 10.58,
+      "y": 20.4,
+      "r": 6.0,
+      "cells": [
+       "_35_",
+       "_19_",
+       "_20_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_24_",
+       "_26_",
+       "_27_",
+       "_30_",
+       "_33_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 17.25,
+      "y": 23.12,
+      "r": 6.0,
+      "cells": [
+       "_36_",
+       "_39_",
+       "_40_",
+       "_42_",
+       "_22_",
+       "_26_",
+       "_27_",
+       "_31_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 1,
+      "flops": [
+       0,
+       1,
+       4,
+       5,
+       7
+      ]
+     },
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       3,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 2,
+    "rule": "centre",
+    "aim": "cell",
+    "r_from_um": 9.5,
+    "r_last_um": 63.0,
+    "n_shots": 1,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0x4e",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 0,
+      "x": 12.19,
+      "y": 25.84,
+      "r": 9.5,
+      "cells": [
+       "_36_",
+       "_37_",
+       "_38_",
+       "_39_",
+       "_40_",
+       "_42_",
+       "_18_",
+       "_19_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_24_",
+       "_26_",
+       "_27_",
+       "_28_",
+       "_29_",
+       "_30_",
+       "_31_",
+       "_32_",
+       "_33_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 0,
+      "flops": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       7
+      ]
+     },
+     {
+      "cycle": 1,
+      "flops": [
+       3,
+       4,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 3,
+    "rule": "centre",
+    "aim": "grid",
+    "r_from_um": 0.0,
+    "r_last_um": 2.5,
+    "n_shots": 3,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0xcc",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 12.65,
+      "y": 39.44,
+      "r": 0.0,
+      "cells": [
+       "c2/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 12.65,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c0/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 37.03,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c1/_4_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 4,
+    "rule": "centre",
+    "aim": "grid",
+    "r_from_um": 2.75,
+    "r_last_um": 7.5,
+    "n_shots": 2,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf4",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 0,
+      "x": 10.95,
+      "y": 29.15,
+      "r": 2.75,
+      "cells": [
+       "_37_",
+       "_32_"
+      ]
+     },
+     {
+      "cycle": 0,
+      "x": 13.05,
+      "y": 15.85,
+      "r": 2.75,
+      "cells": [
+       "_20_",
+       "_25_",
+       "_33_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 0,
+      "flops": [
+       2
+      ]
+     },
+     {
+      "cycle": 1,
+      "flops": [
+       1,
+       5,
+       6
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 5,
+    "rule": "centre",
+    "aim": "grid",
+    "r_from_um": 8.0,
+    "r_last_um": 63.0,
+    "n_shots": 1,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0x72",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 12.15,
+      "y": 23.95,
+      "r": 8.0,
+      "cells": [
+       "_36_",
+       "_37_",
+       "_38_",
+       "_39_",
+       "_40_",
+       "_42_",
+       "_19_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_24_",
+       "_26_",
+       "_27_",
+       "_29_",
+       "_30_",
+       "_32_",
+       "_33_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 1,
+      "flops": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       7
+      ]
+     },
+     {
+      "cycle": 2,
+      "flops": [
+       2,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 6,
+    "rule": "overlap",
+    "aim": "cell",
+    "r_from_um": 0.0,
+    "r_last_um": 2.5,
+    "n_shots": 3,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0xcc",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 12.65,
+      "y": 39.44,
+      "r": 0.0,
+      "cells": [
+       "c2/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 12.65,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c0/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 37.03,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c1/_4_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 7,
+    "rule": "overlap",
+    "aim": "cell",
+    "r_from_um": 2.75,
+    "r_last_um": 3.25,
+    "n_shots": 2,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0x73",
+     "0x96",
+     "0x3b",
+     "0x3b",
+     "0x3b",
+     "0x3b"
+    ],
+    "shots": [
+     {
+      "cycle": 0,
+      "x": 11.04,
+      "y": 17.68,
+      "r": 2.75,
+      "cells": [
+       "_35_",
+       "_36_",
+       "_42_",
+       "_19_",
+       "_20_",
+       "_21_",
+       "_24_",
+       "_33_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 12.19,
+      "y": 23.12,
+      "r": 2.75,
+      "cells": [
+       "_38_",
+       "_39_",
+       "_42_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_26_",
+       "_27_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 0,
+      "flops": [
+       0,
+       1,
+       7
+      ]
+     },
+     {
+      "cycle": 1,
+      "flops": [
+       0,
+       2,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 8,
+    "rule": "overlap",
+    "aim": "cell",
+    "r_from_um": 3.5,
+    "r_last_um": 4.0,
+    "n_shots": 3,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0x73",
+     "0x96",
+     "0xb9",
+     "0xb9",
+     "0xb9",
+     "0xb9"
+    ],
+    "shots": [
+     {
+      "cycle": 0,
+      "x": 11.04,
+      "y": 17.68,
+      "r": 3.5,
+      "cells": [
+       "_35_",
+       "_36_",
+       "_42_",
+       "_19_",
+       "_20_",
+       "_21_",
+       "_24_",
+       "_25_",
+       "_33_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 17.02,
+      "y": 17.68,
+      "r": 3.5,
+      "cells": [
+       "_36_",
+       "_42_",
+       "_20_",
+       "_25_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 12.19,
+      "y": 23.12,
+      "r": 3.5,
+      "cells": [
+       "_38_",
+       "_39_",
+       "_42_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_26_",
+       "_27_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 0,
+      "flops": [
+       0,
+       1,
+       7
+      ]
+     },
+     {
+      "cycle": 1,
+      "flops": [
+       0,
+       2,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 9,
+    "rule": "overlap",
+    "aim": "cell",
+    "r_from_um": 4.25,
+    "r_last_um": 6.5,
+    "n_shots": 2,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0xcc",
+     "0x96",
+     "0x91",
+     "0x91",
+     "0x91"
+    ],
+    "shots": [
+     {
+      "cycle": 2,
+      "x": 14.03,
+      "y": 12.24,
+      "r": 4.25,
+      "cells": [
+       "_35_",
+       "_36_",
+       "_41_",
+       "c0/_4_",
+       "_17_",
+       "_20_",
+       "_25_"
+      ]
+     },
+     {
+      "cycle": 2,
+      "x": 12.19,
+      "y": 25.84,
+      "r": 4.25,
+      "cells": [
+       "_37_",
+       "_38_",
+       "_39_",
+       "_40_",
+       "_42_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_26_",
+       "_27_",
+       "_32_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 10,
+    "rule": "overlap",
+    "aim": "cell",
+    "r_from_um": 7.0,
+    "r_last_um": 63.0,
+    "n_shots": 1,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0x73",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 9.66,
+      "y": 23.12,
+      "r": 7.0,
+      "cells": [
+       "_35_",
+       "_36_",
+       "_37_",
+       "_38_",
+       "_39_",
+       "_40_",
+       "_42_",
+       "_18_",
+       "_19_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_24_",
+       "_26_",
+       "_27_",
+       "_29_",
+       "_30_",
+       "_32_",
+       "_33_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 1,
+      "flops": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       7
+      ]
+     },
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       2,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 11,
+    "rule": "overlap",
+    "aim": "grid",
+    "r_from_um": 0.0,
+    "r_last_um": 0.25,
+    "n_shots": 3,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0xcc",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 13.11,
+      "y": 39.44,
+      "r": 0.0,
+      "cells": [
+       "c2/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 13.11,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c0/_4_"
+      ]
+     },
+     {
+      "cycle": 1,
+      "x": 37.03,
+      "y": 6.8,
+      "r": 0.0,
+      "cells": [
+       "c1/_4_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 2,
+      "flops": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 12,
+    "rule": "overlap",
+    "aim": "grid",
+    "r_from_um": 0.5,
+    "r_last_um": 5.5,
+    "n_shots": 2,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf6",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 0,
+      "x": 10.95,
+      "y": 29.45,
+      "r": 0.5,
+      "cells": [
+       "_37_",
+       "_32_"
+      ]
+     },
+     {
+      "cycle": 0,
+      "x": 12.85,
+      "y": 16.85,
+      "r": 0.5,
+      "cells": [
+       "_36_",
+       "_33_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 0,
+      "flops": [
+       1,
+       2
+      ]
+     },
+     {
+      "cycle": 1,
+      "flops": [
+       5,
+       6
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   },
+   {
+    "attack": 13,
+    "rule": "overlap",
+    "aim": "grid",
+    "r_from_um": 5.75,
+    "r_last_um": 63.0,
+    "n_shots": 1,
+    "sig": "0x00",
+    "boot_word_trace": [
+     "0xf0",
+     "0x72",
+     "0x96",
+     "0x96",
+     "0x96",
+     "0x96"
+    ],
+    "shots": [
+     {
+      "cycle": 1,
+      "x": 10.95,
+      "y": 24.25,
+      "r": 5.75,
+      "cells": [
+       "_36_",
+       "_37_",
+       "_38_",
+       "_39_",
+       "_40_",
+       "_42_",
+       "_19_",
+       "_21_",
+       "_22_",
+       "_23_",
+       "_24_",
+       "_26_",
+       "_27_",
+       "_29_",
+       "_30_",
+       "_32_",
+       "_33_",
+       "_34_"
+      ]
+     }
+    ],
+    "flop_flip_sets": [
+     {
+      "cycle": 1,
+      "flops": [
+       1,
+       2,
+       3,
+       4,
+       5,
+       7
+      ]
+     },
+     {
+      "cycle": 2,
+      "flops": [
+       2,
+       5,
+       6,
+       7
+      ]
+     }
+    ],
+    "flop_only_replay_ok": true
+   }
+  ],
+  "source_results": "results/shots_results.json (2026-11-21T07:09:08Z)",
+  "spot_size_sources": [
+   {
+    "id": "dutertre_fdtc2018",
+    "label": "SOURCED",
+    "url": "https://fdtc.deib.polimi.it/FDTC18/shared/FDTC%202018%20-%20session%201.1.pdf"
+   },
+   {
+    "id": "bartkewitz_tches2022",
+    "label": "SOURCED",
+    "url": "https://iacr.org/submit/files/slides/2022/tches/ches2022/3_57/slides.pdf"
+   },
+   {
+    "id": "moro_fdtc2013",
+    "label": "SOURCED",
+    "url": "https://arxiv.org/pdf/1402.6421.pdf"
+   }
+  ],
+  "placement_note": "V2, copies in three corners, util 25 (LVS fails)"
+ }
+}

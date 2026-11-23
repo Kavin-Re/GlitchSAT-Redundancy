@@ -1,0 +1,121 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 155,
+ "nodes": 1216,
+ "seconds": 0.13,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_ctres.c",
+   27,
+   "0xd8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_ctres.c",
+   28,
+   "0xe8",
+   "bgeu\ta0, a1, 0x10a"
+  ],
+  [
+   "rom_ctres.c",
+   33,
+   "0x112",
+   "bne\ta2, a1, 0x162"
+  ],
+  [
+   "rom_ctres.c",
+   34,
+   "0x164",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 21,
+   "pc": "0xd8",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 27,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 143,
+   "pc": "0xe8",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 28,
+   "asm": "bgeu\ta0, a1, 0x10a",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `bgeu\ta0, a1, 0x14a`"
+  },
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "bne\ta2, a1, 0x162",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bne\ta2, a1, 0x152`"
+  },
+  {
+   "step": 149,
+   "pc": "0x164",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 34,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "build": "rom_ctres-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 135
+}

@@ -1,0 +1,131 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 202,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x1e8",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  }
+ ],
+ "k1_count": 7,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 210,
+ "nodes": 800,
+ "seconds": 0.1,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_triple.c",
+   27,
+   "0x166",
+   "c.bnez\ta0, 0x1e8"
+  ],
+  [
+   "rom_triple.c",
+   28,
+   "0x1e8",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_triple.c",
+   28,
+   "0x1ea",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 202,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x1e8",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 202,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x1e8",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 202,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x1e8",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 203,
+   "pc": "0x1e8",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 28,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 203,
+   "pc": "0x1e8",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 28,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 203,
+   "pc": "0x1e8",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 28,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 204,
+   "pc": "0x1ea",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 28,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "build": "rom_triple-O1-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 204
+}

@@ -1,0 +1,5 @@
+(a) recorded results: 116/116 equal, 12 skipped  [6s]
+(b) exhaustive simulator: 240 cells equal/consistent, 0 mismatches, 0 skipped, on 120 distinct netlists  [487s]
+    exact minimum established by exhaustion (+ replayed witness) in 226 cells; lower bound only in 14
+    SAT minimum histogram over cells: {'0': 22, '1': 133, '2': 33, '3': 38, 'None': 14}
+    netlists without sig/boot_word ports (not covered here): ['real_designs/fsm5.json', 'real_designs/second/door5.json']

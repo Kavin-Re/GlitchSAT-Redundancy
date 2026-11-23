@@ -1,0 +1,1785 @@
+{
+ "schema": "glitchsat-studio-suggest-fix/1",
+ "panel_title": "Suggest a fix",
+ "banner": "Modelled bit flips on toy designs. \"After\" numbers are exhaustive simulations of reference gate mappings written by the tool, not of a Yosys netlist, unless a row says so. Not a security proof.",
+ "labels": {
+  "MEASURED": "simulated here, exhaustively, on the netlist named in the row",
+  "RECORDED": "copied from a file already in the repository; not re-run here",
+  "UNTESTED-HERE": "needs Yosys; the generated script and cloud/run_cloud.sh produce it",
+  "ASSUMED": "a modelling choice or unit weight, stated where used"
+ },
+ "cards": [
+  {
+   "design": "v0",
+   "goal_min_flips": 2,
+   "before_min_flips": "1",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "st[1]"
+     ]
+    ],
+    "cycles_used": 1,
+    "flip_bits": [
+     [
+      0,
+      12
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": true,
+   "suggestions": [
+    {
+     "title": "Sparse state word as output + Voter placement + More compare copies",
+     "plain": [
+      "Replace the 2-bit state and the decoded output by an 8-bit state word that is the output (as rtl/v1.v, v2.v do).",
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0x0",
+       "after": "0xF0"
+      },
+      {
+       "what": "armed code word",
+       "before": "0x1",
+       "after": "0xCC"
+      },
+      {
+       "what": "accept code word",
+       "before": "0x2",
+       "after": "0x96"
+      },
+      {
+       "what": "reject code word",
+       "before": "0x3",
+       "after": "0x69"
+      },
+      {
+       "what": "state width (bits)",
+       "before": 2,
+       "after": 8
+      },
+      {
+       "what": "boot_word source",
+       "before": "decoded",
+       "after": "state"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 1,
+       "after": 2
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10101010"
+      }
+     ],
+     "after_min_flips": "2",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 1 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 1",
+      "mux-shared": "> 1",
+      "unshared": "> 1"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 50,
+      "flops": 6,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {
+      "verilog": "designs/v0_g2.v",
+      "yosys_script": "designs/v0_g2.ys",
+      "netlist_select-shared": "designs/v0_g2_select-shared.json",
+      "netlist_mux-shared": "designs/v0_g2_mux-shared.json",
+      "netlist_unshared": "designs/v0_g2_unshared.json",
+      "netlist_verilog": "designs/v0_g2_netlist.v",
+      "spec": "designs/v0_g2.spec.json"
+     },
+     "note": "The fix changes what boot_word shows before the decision (F0/CC instead of 69); a consumer that tests == 0x96 is unaffected."
+    },
+    {
+     "title": "Sparse state word as output + Voter placement + More compare copies",
+     "plain": [
+      "Replace the 2-bit state and the decoded output by an 8-bit state word that is the output (as rtl/v1.v, v2.v do).",
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0x0",
+       "after": "0xF0"
+      },
+      {
+       "what": "armed code word",
+       "before": "0x1",
+       "after": "0xCC"
+      },
+      {
+       "what": "accept code word",
+       "before": "0x2",
+       "after": "0x96"
+      },
+      {
+       "what": "reject code word",
+       "before": "0x3",
+       "after": "0x69"
+      },
+      {
+       "what": "state width (bits)",
+       "before": 2,
+       "after": 8
+      },
+      {
+       "what": "boot_word source",
+       "before": "decoded",
+       "after": "state"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 1,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      }
+     ],
+     "after_min_flips": "2",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 1 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 1",
+      "mux-shared": "> 1",
+      "unshared": "> 1"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 62,
+      "flops": 6,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {},
+     "note": "The fix changes what boot_word shows before the decision (F0/CC instead of 69); a consumer that tests == 0x96 is unaffected."
+    },
+    {
+     "title": "Sparse state word as output + Voter placement + More compare copies",
+     "plain": [
+      "Replace the 2-bit state and the decoded output by an 8-bit state word that is the output (as rtl/v1.v, v2.v do).",
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0x0",
+       "after": "0xF0"
+      },
+      {
+       "what": "armed code word",
+       "before": "0x1",
+       "after": "0xCC"
+      },
+      {
+       "what": "accept code word",
+       "before": "0x2",
+       "after": "0x96"
+      },
+      {
+       "what": "reject code word",
+       "before": "0x3",
+       "after": "0x69"
+      },
+      {
+       "what": "state width (bits)",
+       "before": 2,
+       "after": 8
+      },
+      {
+       "what": "boot_word source",
+       "before": "decoded",
+       "after": "state"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "per_bit_and"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 1,
+       "after": 2
+      }
+     ],
+     "after_min_flips": "2",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 1 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 1",
+      "mux-shared": "> 1",
+      "unshared": "> 1"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 66,
+      "flops": 6,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {},
+     "note": "The fix changes what boot_word shows before the decision (F0/CC instead of 69); a consumer that tests == 0x96 is unaffected."
+    }
+   ]
+  },
+  {
+   "design": "v0",
+   "goal_min_flips": 3,
+   "before_min_flips": "1",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "st[1]"
+     ]
+    ],
+    "cycles_used": 1,
+    "flip_bits": [
+     [
+      0,
+      12
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": true,
+   "suggestions": [
+    {
+     "title": "Sparse state word as output + Voter placement + More compare copies + State encoding",
+     "plain": [
+      "Replace the 2-bit state and the decoded output by an 8-bit state word that is the output (as rtl/v1.v, v2.v do).",
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0x0",
+       "after": "0xF0"
+      },
+      {
+       "what": "armed code word",
+       "before": "0x1",
+       "after": "0xC8"
+      },
+      {
+       "what": "accept code word",
+       "before": "0x2",
+       "after": "0x96"
+      },
+      {
+       "what": "reject code word",
+       "before": "0x3",
+       "after": "0x69"
+      },
+      {
+       "what": "state width (bits)",
+       "before": 2,
+       "after": 8
+      },
+      {
+       "what": "boot_word source",
+       "before": "decoded",
+       "after": "state"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 1,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 61,
+      "flops": 6,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {
+      "verilog": "designs/v0_g3.v",
+      "yosys_script": "designs/v0_g3.ys",
+      "netlist_select-shared": "designs/v0_g3_select-shared.json",
+      "netlist_mux-shared": "designs/v0_g3_mux-shared.json",
+      "netlist_unshared": "designs/v0_g3_unshared.json",
+      "netlist_verilog": "designs/v0_g3_netlist.v",
+      "spec": "designs/v0_g3.spec.json"
+     },
+     "note": "The fix changes what boot_word shows before the decision (F0/C8 instead of 69); a consumer that tests == 0x96 is unaffected."
+    },
+    {
+     "title": "Sparse state word as output + Voter placement + More compare copies + Invalid state goes to reject + State encoding",
+     "plain": [
+      "Replace the 2-bit state and the decoded output by an 8-bit state word that is the output (as rtl/v1.v, v2.v do).",
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "A state that is none of the four code words moves to reject instead of being held.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0x0",
+       "after": "0xF0"
+      },
+      {
+       "what": "armed code word",
+       "before": "0x1",
+       "after": "0xC8"
+      },
+      {
+       "what": "accept code word",
+       "before": "0x2",
+       "after": "0x96"
+      },
+      {
+       "what": "reject code word",
+       "before": "0x3",
+       "after": "0x69"
+      },
+      {
+       "what": "state width (bits)",
+       "before": 2,
+       "after": 8
+      },
+      {
+       "what": "boot_word source",
+       "before": "decoded",
+       "after": "state"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 1,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      },
+      {
+       "what": "invalid state",
+       "before": "held",
+       "after": "goes to reject"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 79,
+      "flops": 6,
+      "depth": 4,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {},
+     "note": "The fix changes what boot_word shows before the decision (F0/C8 instead of 69); a consumer that tests == 0x96 is unaffected."
+    },
+    {
+     "title": "Sparse state word as output + Voter placement + More compare copies + Check copy with infection / alarm latch + State encoding",
+     "plain": [
+      "Replace the 2-bit state and the decoded output by an 8-bit state word that is the output (as rtl/v1.v, v2.v do).",
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "Add a compare copy that owns no bit and an alarm: if any two compare blocks disagree the reject word is forced (infect); the sticky variant latches the alarm in a flop that keeps forcing reject.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0x0",
+       "after": "0xF0"
+      },
+      {
+       "what": "armed code word",
+       "before": "0x1",
+       "after": "0xC8"
+      },
+      {
+       "what": "accept code word",
+       "before": "0x2",
+       "after": "0x96"
+      },
+      {
+       "what": "reject code word",
+       "before": "0x3",
+       "after": "0x69"
+      },
+      {
+       "what": "state width (bits)",
+       "before": 2,
+       "after": 8
+      },
+      {
+       "what": "boot_word source",
+       "before": "decoded",
+       "after": "state"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 1,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      },
+      {
+       "what": "alarm",
+       "before": "none",
+       "after": "infect with 1 check copy"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 81,
+      "flops": 6,
+      "depth": 4,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {},
+     "note": "The fix changes what boot_word shows before the decision (F0/C8 instead of 69); a consumer that tests == 0x96 is unaffected."
+    }
+   ]
+  },
+  {
+   "design": "v1",
+   "goal_min_flips": 2,
+   "before_min_flips": "1",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "and47"
+     ]
+    ],
+    "cycles_used": 2,
+    "flip_bits": [
+     [
+      0,
+      65
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": true,
+   "suggestions": [
+    {
+     "title": "Voter placement",
+     "plain": [
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner)."
+     ],
+     "changes": [
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10101010"
+      }
+     ],
+     "after_min_flips": "2",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 1 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 1",
+      "mux-shared": "> 1",
+      "unshared": "> 1"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 1,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {
+      "verilog": "designs/v1_g2.v",
+      "yosys_script": "designs/v1_g2.ys",
+      "netlist_select-shared": "designs/v1_g2_select-shared.json",
+      "netlist_mux-shared": "designs/v1_g2_mux-shared.json",
+      "netlist_unshared": "designs/v1_g2_unshared.json",
+      "netlist_verilog": "designs/v1_g2_netlist.v",
+      "spec": "designs/v1_g2.spec.json"
+     }
+    },
+    {
+     "title": "Voter placement + More compare copies",
+     "plain": [
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path."
+     ],
+     "changes": [
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 2,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      }
+     ],
+     "after_min_flips": "2",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 1 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 1",
+      "mux-shared": "> 1",
+      "unshared": "> 1"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 13,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    },
+    {
+     "title": "Voter placement",
+     "plain": [
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner)."
+     ],
+     "changes": [
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "per_bit_and"
+      }
+     ],
+     "after_min_flips": "2",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 1 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 1",
+      "mux-shared": "> 1",
+      "unshared": "> 1"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 17,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    }
+   ]
+  },
+  {
+   "design": "v1",
+   "goal_min_flips": 3,
+   "before_min_flips": "1",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "and47"
+     ]
+    ],
+    "cycles_used": 2,
+    "flip_bits": [
+     [
+      0,
+      65
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": true,
+   "suggestions": [
+    {
+     "title": "Voter placement + More compare copies + State encoding",
+     "plain": [
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0xC8"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 2,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 12,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {
+      "verilog": "designs/v1_g3.v",
+      "yosys_script": "designs/v1_g3.ys",
+      "netlist_select-shared": "designs/v1_g3_select-shared.json",
+      "netlist_mux-shared": "designs/v1_g3_mux-shared.json",
+      "netlist_unshared": "designs/v1_g3_unshared.json",
+      "netlist_verilog": "designs/v1_g3_netlist.v",
+      "spec": "designs/v1_g3.spec.json"
+     }
+    },
+    {
+     "title": "Voter placement + More compare copies",
+     "plain": [
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path."
+     ],
+     "changes": [
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 2,
+       "after": 4
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "32103210"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 27,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    },
+    {
+     "title": "Voter placement + More compare copies + Invalid state goes to reject + State encoding",
+     "plain": [
+      "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "A state that is none of the four code words moves to reject instead of being held.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0xC8"
+      },
+      {
+       "what": "voter placement",
+       "before": "single_and",
+       "after": "owner"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 2,
+       "after": 3
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "-",
+       "after": "10210210"
+      },
+      {
+       "what": "invalid state",
+       "before": "held",
+       "after": "goes to reject"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 30,
+      "flops": 0,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    }
+   ]
+  },
+  {
+   "design": "v2",
+   "goal_min_flips": 3,
+   "before_min_flips": "2",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "not58"
+     ],
+     [
+      0,
+      "and61"
+     ]
+    ],
+    "cycles_used": 2,
+    "flip_bits": [
+     [
+      0,
+      76
+     ],
+     [
+      0,
+      79
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": true,
+   "suggestions": [
+    {
+     "title": "State encoding",
+     "plain": [
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0xC8"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": -1,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {
+      "verilog": "designs/v2_g3.v",
+      "yosys_script": "designs/v2_g3.ys",
+      "netlist_select-shared": "designs/v2_g3_select-shared.json",
+      "netlist_mux-shared": "designs/v2_g3_mux-shared.json",
+      "netlist_unshared": "designs/v2_g3_unshared.json",
+      "netlist_verilog": "designs/v2_g3_netlist.v",
+      "spec": "designs/v2_g3.spec.json"
+     }
+    },
+    {
+     "title": "More compare copies",
+     "plain": [
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path."
+     ],
+     "changes": [
+      {
+       "what": "compare copies that own bits",
+       "before": 3,
+       "after": 4
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "10210210",
+       "after": "32103210"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 14,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    },
+    {
+     "title": "Invalid state goes to reject + State encoding",
+     "plain": [
+      "A state that is none of the four code words moves to reject instead of being held.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0xC8"
+      },
+      {
+       "what": "invalid state",
+       "before": "held",
+       "after": "goes to reject"
+      }
+     ],
+     "after_min_flips": "3",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 2",
+      "mux-shared": "> 2",
+      "unshared": "> 2"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 17,
+      "flops": 0,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    }
+   ]
+  },
+  {
+   "design": "v2",
+   "goal_min_flips": 4,
+   "before_min_flips": "2",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "not58"
+     ],
+     [
+      0,
+      "and61"
+     ]
+    ],
+    "cycles_used": 2,
+    "flip_bits": [
+     [
+      0,
+      76
+     ],
+     [
+      0,
+      79
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": true,
+   "suggestions": [
+    {
+     "title": "More compare copies + State encoding",
+     "plain": [
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0xF0",
+       "after": "0x61"
+      },
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0x49"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 3,
+       "after": 4
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "10210210",
+       "after": "32103210"
+      }
+     ],
+     "after_min_flips": "4",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 3 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 3",
+      "mux-shared": "> 3",
+      "unshared": "> 3"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 13,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {
+      "verilog": "designs/v2_g4.v",
+      "yosys_script": "designs/v2_g4.ys",
+      "netlist_select-shared": "designs/v2_g4_select-shared.json",
+      "netlist_mux-shared": "designs/v2_g4_mux-shared.json",
+      "netlist_unshared": "designs/v2_g4_unshared.json",
+      "netlist_verilog": "designs/v2_g4_netlist.v",
+      "spec": "designs/v2_g4.spec.json"
+     }
+    },
+    {
+     "title": "More compare copies + State encoding",
+     "plain": [
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "idle code word",
+       "before": "0xF0",
+       "after": "0x61"
+      },
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0x49"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 3,
+       "after": 5
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "10210210",
+       "after": "21043210"
+      }
+     ],
+     "after_min_flips": "4",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 3 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 3",
+      "mux-shared": "> 3",
+      "unshared": "> 3"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 24,
+      "flops": 0,
+      "depth": 0,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    },
+    {
+     "title": "More compare copies + Invalid state goes to reject + State encoding",
+     "plain": [
+      "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+      "A state that is none of the four code words moves to reject instead of being held.",
+      "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v)."
+     ],
+     "changes": [
+      {
+       "what": "armed code word",
+       "before": "0xCC",
+       "after": "0x4C"
+      },
+      {
+       "what": "compare copies that own bits",
+       "before": 3,
+       "after": 4
+      },
+      {
+       "what": "bit ownership (bit 7..0 -> copy)",
+       "before": "10210210",
+       "after": "32103210"
+      },
+      {
+       "what": "invalid state",
+       "before": "held",
+       "after": "goes to reject"
+      }
+     ],
+     "after_min_flips": "4",
+     "evidence_label": "MEASURED",
+     "evidence": "no attack with <= 3 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+     "per_mapping": {
+      "select-shared": "> 3",
+      "mux-shared": "> 3",
+      "unshared": "> 3"
+     },
+     "if_copies_merged": "1",
+     "cost": {
+      "gates": 32,
+      "flops": 0,
+      "depth": 2,
+      "latency_cycles": 0
+     },
+     "needs": "copies kept separate through synthesis (script provided)",
+     "yosys": "UNTESTED-HERE",
+     "files": {}
+    }
+   ]
+  },
+  {
+   "design": "v2",
+   "goal_min_flips": 5,
+   "before_min_flips": "2",
+   "before_witness": {
+    "input": 0,
+    "flips": [
+     [
+      0,
+      "not58"
+     ],
+     [
+      0,
+      "and61"
+     ]
+    ],
+    "cycles_used": 2,
+    "flip_bits": [
+     [
+      0,
+      76
+     ],
+     [
+      0,
+      79
+     ]
+    ],
+    "replayed": true
+   },
+   "reached": false,
+   "suggestions": [],
+   "closest": {
+    "min_flips": 4,
+    "description": "5 copies, voter owner 21043210, idle/armed/accept/reject 61/49/96/69",
+    "moves": [
+     "copies",
+     "encoding"
+    ],
+    "note": "best candidate simulated that did not reach the goal"
+   }
+  }
+ ],
+ "netlist_fixes": [
+  {
+   "netlist": "validation/nl/v2.json",
+   "note": "V2 synthesised flatten-first (copies merged by abc)",
+   "goal_min_flips": 2,
+   "before_min_flips": "1",
+   "after_min_flips": "2",
+   "reached": true,
+   "lint": {
+    "source": "../surface/scripts/merge_lint.py",
+    "verdict": "merged",
+    "mode": "structural",
+    "single_points": 16,
+    "shared_nets": 16,
+    "examples": [
+     "$abc$310$new_n47_",
+     "$abc$310$new_n48_",
+     "$abc$310$new_n49_",
+     "$abc$310$new_n50_",
+     "$abc$310$new_n51_"
+    ]
+   },
+   "steps": [
+    {
+     "title": "Remove single points (separate the shared copy logic)",
+     "what": "Every gate that two or more copy groups share is duplicated so that each group has its own; the duplicates are marked keep.",
+     "shown": "2",
+     "cost": {
+      "gates_added": 20,
+      "flops_added": 0,
+      "depth_added": 0
+     },
+     "label": "MEASURED"
+    }
+   ],
+   "evidence_label": "MEASURED"
+  },
+  {
+   "netlist": "research/c2/reviews/ct/tests/v2_inbuf.json",
+   "note": "V2 with a shared input buffer stage",
+   "goal_min_flips": 3,
+   "before_min_flips": "1",
+   "after_min_flips": "3",
+   "reached": true,
+   "lint": {
+    "source": "../surface/scripts/merge_lint.py",
+    "verdict": "merged",
+    "mode": "structural",
+    "single_points": 8,
+    "shared_nets": 8,
+    "examples": [
+     "87",
+     "88",
+     "89",
+     "90",
+     "91"
+    ]
+   },
+   "steps": [
+    {
+     "title": "Remove single points (separate the shared copy logic)",
+     "what": "Every gate that two or more copy groups share is duplicated so that each group has its own; the duplicates are marked keep.",
+     "shown": "3",
+     "cost": {
+      "gates_added": 16,
+      "flops_added": 0,
+      "depth_added": 0
+     },
+     "label": "MEASURED"
+    }
+   ],
+   "evidence_label": "MEASURED"
+  },
+  {
+   "netlist": "reference/spike_netlists/v2.json",
+   "note": "stored V2, consumer checks only bits 0x8D",
+   "goal_min_flips": 3,
+   "before_min_flips": "1",
+   "after_min_flips": "3",
+   "reached": true,
+   "lint": {
+    "source": "../surface/scripts/merge_lint.py",
+    "verdict": "separate",
+    "mode": "structural",
+    "single_points": 0,
+    "shared_nets": 0,
+    "examples": []
+   },
+   "steps": [
+    {
+     "title": "Consumer checks every owned bit",
+     "what": "The block that uses boot_word must compare all bits, at least one from every copy; a partial mask lets an attacker ignore copies.",
+     "shown": "3",
+     "cost": {
+      "gates_added_in_consumer_estimate": 4,
+      "note": "4 more bits compared by the consumer (about one gate each; ASSUMED, the consumer is outside the netlist)"
+     },
+     "label": "MEASURED"
+    },
+    {
+     "title": "Remove single points",
+     "skipped": "no gate is shared between the copy groups"
+    }
+   ],
+   "evidence_label": "MEASURED"
+  },
+  {
+   "netlist": "reference/spike_netlists/v2.json",
+   "note": "stored V2, consumer checks only the low nibble",
+   "goal_min_flips": 3,
+   "before_min_flips": "2",
+   "after_min_flips": "3",
+   "reached": true,
+   "lint": {
+    "source": "../surface/scripts/merge_lint.py",
+    "verdict": "separate",
+    "mode": "structural",
+    "single_points": 0,
+    "shared_nets": 0,
+    "examples": []
+   },
+   "steps": [
+    {
+     "title": "Consumer checks every owned bit",
+     "what": "The block that uses boot_word must compare all bits, at least one from every copy; a partial mask lets an attacker ignore copies.",
+     "shown": "3",
+     "cost": {
+      "gates_added_in_consumer_estimate": 4,
+      "note": "4 more bits compared by the consumer (about one gate each; ASSUMED, the consumer is outside the netlist)"
+     },
+     "label": "MEASURED"
+    },
+    {
+     "title": "Remove single points",
+     "skipped": "no gate is shared between the copy groups"
+    }
+   ],
+   "evidence_label": "MEASURED"
+  },
+  {
+   "netlist": "research/c2/e2_variance/baseline_netlists/apt0.33_v2.json",
+   "note": "apt 0.33 V2: no shared copy logic, nothing to remove",
+   "goal_min_flips": 3,
+   "before_min_flips": "2",
+   "after_min_flips": "2",
+   "reached": false,
+   "lint": {
+    "source": "../surface/scripts/merge_lint.py",
+    "verdict": "separate",
+    "mode": "structural",
+    "single_points": 0,
+    "shared_nets": 0,
+    "examples": []
+   },
+   "steps": [
+    {
+     "title": "Remove single points",
+     "skipped": "no gate is shared between the copy groups"
+    }
+   ],
+   "evidence_label": "MEASURED"
+  }
+ ],
+ "confirmed_on_stored_yosys_netlists": [
+  {
+   "change": "armed 0xCC -> 0xA5",
+   "yosys": "0.33 (apt)",
+   "before": "2",
+   "after": "3",
+   "netlist": "research/c6/p01/netlists/nl_apt_v2e.json",
+   "evidence_label": "MEASURED"
+  },
+  {
+   "change": "armed 0xCC -> 0xA5",
+   "yosys": "0.38+92 (conda)",
+   "before": "3",
+   "after": "3",
+   "netlist": "research/c6/p01/netlists/nl_conda_v2e.json",
+   "evidence_label": "MEASURED"
+  },
+  {
+   "change": "armed 0xCC -> 0x5A",
+   "yosys": "0.33 (apt)",
+   "before": "2",
+   "after": "3",
+   "netlist": "research/c6/p01/netlists/nl_apt_v2c5a.json",
+   "evidence_label": "MEASURED"
+  },
+  {
+   "change": "armed 0xCC -> 0x5A",
+   "yosys": "0.38+92 (conda)",
+   "before": "3",
+   "after": "3",
+   "netlist": "research/c6/p01/netlists/nl_conda_v2c5a.json",
+   "evidence_label": "MEASURED"
+  }
+ ],
+ "separation_evidence": {
+  "source": "research/c2/e2_variance/raw/matrix.csv",
+  "label": "RECORDED",
+  "solved": 264,
+  "all": {
+   "1": 180,
+   "2": 60,
+   "3": 24
+  },
+  "opt_merge": {
+   "1": 120,
+   "2": 12,
+   "3": 0
+  },
+  "flatten_then_abc": {
+   "1": 102,
+   "2": 24,
+   "3": 6
+  },
+  "separate_flows": {
+   "1": 12,
+   "2": 36,
+   "3": 18
+  },
+  "one_match_net_when_min1": 153,
+  "min1": 180,
+  "three_match_nets_min_ge2": 48,
+  "three_match_nets": 60
+ },
+ "armed_sweep": {
+  "constants": 253,
+  "reach_3_on_all_unmerged_mappings": 96,
+  "reach_3_per_mapping": {
+   "select-shared": 96,
+   "mux-shared": 159,
+   "unshared": 217
+  },
+  "passing": [
+   "01",
+   "03",
+   "08",
+   "09",
+   "0A",
+   "0B",
+   "11",
+   "13",
+   "18",
+   "19",
+   "1A",
+   "1B",
+   "21",
+   "23",
+   "28",
+   "29",
+   "2A",
+   "2B",
+   "31",
+   "33",
+   "38",
+   "39",
+   "3A",
+   "3B",
+   "40",
+   "41",
+   "42",
+   "43",
+   "48",
+   "49",
+   "4A",
+   "4B",
+   "50",
+   "51",
+   "52",
+   "53",
+   "58",
+   "59",
+   "5A",
+   "5B",
+   "60",
+   "61",
+   "62",
+   "63",
+   "68",
+   "6A",
+   "6B",
+   "70",
+   "71",
+   "72",
+   "73",
+   "78",
+   "79",
+   "7A",
+   "7B",
+   "81",
+   "83",
+   "88",
+   "89",
+   "8A",
+   "8B",
+   "91",
+   "98",
+   "99",
+   "A1",
+   "A3",
+   "A8",
+   "A9",
+   "AA",
+   "AB",
+   "B1",
+   "B8",
+   "B9",
+   "C0",
+   "C1",
+   "C2",
+   "C3",
+   "C8",
+   "C9",
+   "CA",
+   "CB",
+   "D0",
+   "D1",
+   "D8",
+   "D9",
+   "E0",
+   "E1",
+   "E2",
+   "E3",
+   "E8",
+   "E9",
+   "EA",
+   "EB",
+   "F1",
+   "F8",
+   "F9"
+  ],
+  "file": "results/armed_sweep_v2.csv"
+ },
+ "moves": {
+  "v1": [
+   {
+    "change": "as is",
+    "description": "2 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": 0,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "voter: one kept AND per state bit",
+    "description": "2 copies, voter per_bit_and, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "2"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 17,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "voter: none in front of the register (bit ownership)",
+    "description": "2 copies, voter owner 10101010, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "2"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 1,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "one more owning copy",
+    "description": "3 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": 12,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "check copy + infection",
+    "description": "2 copies + 1 check, voter single_and, idle/armed/accept/reject F0/CC/96/69, alarm infect",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": 16,
+    "flops_added": 0,
+    "depth_added": 1
+   },
+   {
+    "change": "check copy + sticky alarm flop",
+    "description": "2 copies + 1 check, voter single_and, idle/armed/accept/reject F0/CC/96/69, alarm sticky",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": 26,
+    "flops_added": 1,
+    "depth_added": 3
+   },
+   {
+    "change": "infection without a check copy",
+    "description": "2 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69, alarm infect",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": 3,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "invalid state -> reject",
+    "description": "2 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69, invalid state -> reject",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": 19,
+    "flops_added": 0,
+    "depth_added": 2
+   }
+  ],
+  "v2": [
+   {
+    "change": "as is",
+    "description": "3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "3"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 0,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "voter: single AND in front of the register",
+    "description": "3 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "1",
+     "mux-shared": "1",
+     "unshared": "1"
+    },
+    "worst": "1",
+    "merged": "1",
+    "gates_added": -1,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "voter: one kept AND per state bit",
+    "description": "3 copies, voter per_bit_and, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "3",
+     "mux-shared": "3",
+     "unshared": "3"
+    },
+    "worst": "3",
+    "merged": "1",
+    "gates_added": 23,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "one more owning copy",
+    "description": "4 copies, voter owner 32103210, idle/armed/accept/reject F0/CC/96/69",
+    "min_flips": {
+     "select-shared": "3",
+     "mux-shared": "4",
+     "unshared": "4"
+    },
+    "worst": "3",
+    "merged": "1",
+    "gates_added": 14,
+    "flops_added": 0,
+    "depth_added": 0
+   },
+   {
+    "change": "check copy + infection",
+    "description": "3 copies + 1 check, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69, alarm infect",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "4"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 20,
+    "flops_added": 0,
+    "depth_added": 2
+   },
+   {
+    "change": "check copy + sticky alarm flop",
+    "description": "3 copies + 1 check, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69, alarm sticky",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "4"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 30,
+    "flops_added": 1,
+    "depth_added": 4
+   },
+   {
+    "change": "infection without a check copy",
+    "description": "3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69, alarm infect",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "3"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 7,
+    "flops_added": 0,
+    "depth_added": 1
+   },
+   {
+    "change": "invalid state -> reject",
+    "description": "3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69, invalid state -> reject",
+    "min_flips": {
+     "select-shared": "2",
+     "mux-shared": "2",
+     "unshared": "3"
+    },
+    "worst": "2",
+    "merged": "1",
+    "gates_added": 19,
+    "flops_added": 0,
+    "depth_added": 2
+   }
+  ]
+ }
+}

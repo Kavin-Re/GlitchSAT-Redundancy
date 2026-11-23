@@ -1,0 +1,45 @@
+{
+ "model": "brinv",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 1148,
+   "pc": "0x1be",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "c.bnez\ta0, 0x1da",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  },
+  {
+   "step": 1150,
+   "pc": "0x1c2",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 35,
+   "asm": "bne\ta1, a0, 0x1e4",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1156,
+ "nodes": 121,
+ "seconds": 0.01,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_ctres-O1-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 145
+}

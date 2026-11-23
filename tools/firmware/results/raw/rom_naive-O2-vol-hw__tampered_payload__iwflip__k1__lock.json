@@ -1,0 +1,64 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "bne\ta1, a2, 0x16e",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `bne\ta1, a2, 0x166`"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 155,
+ "nodes": 1216,
+ "seconds": 0.43,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   6,
+   "0x112",
+   "bne\ta1, a2, 0x16e"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "bne\ta1, a2, 0x16e",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `bne\ta1, a2, 0x166`"
+  },
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "bne\ta1, a2, 0x16e",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bne\ta1, a2, 0x15e`"
+  }
+ ],
+ "build": "rom_naive-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 141
+}

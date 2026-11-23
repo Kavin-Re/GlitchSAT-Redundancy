@@ -1,0 +1,15 @@
+# GlitchSAT ext/opentitan experiment table (tab-separated). Lines starting with '#' are ignored.
+# id	top	wrapper	packages	modules	goal_value	key	cycles	kmax	prediction
+# packages/modules: comma-separated upstream file names (fetched into work/src by fetch.sh).
+# The generic primitives and the shims are added to every experiment by build.sh.
+# goal_value/key are for the engine flags --goal-value/--key (goal port gout, attacker input sig).
+# cycles = T after reset (cycle 0 is the first cycle after reset). Reasons: README, "Experiments".
+# prediction: what the code reading suggests. PREDICTION ONLY, not a result.
+mubi_flag	ot_mubi_dec_w	ot_mubi_dec_w.sv	prim_mubi_pkg.sv	prim_mubi4_sender.sv,prim_mubi4_sync.sv,prim_mubi4_dec.sv	0x1	0x0	6	3	1 (the decoder ends in one gate)
+mubi_word	ot_mubi_w	ot_mubi_w.sv	prim_mubi_pkg.sv	prim_mubi4_sender.sv,prim_mubi4_sync.sv	0x6	0x0	6	3	none up to 3 (4 output bits, each from its own gate after the stability check)
+count_req	ot_count_req_w	ot_count_req_w.sv	prim_count_pkg.sv	prim_count.sv	0x011	0x0	5	3	1 (one request register feeds both counters)
+count_regs	ot_count_reg_w	ot_count_reg_w.sv	prim_count_pkg.sv	prim_count.sv	0x011	0x0	5	3	2 (one bit in each counter, or one counter bit plus err)
+dlfsr_zero	ot_dlfsr_w	ot_dlfsr_w.sv	prim_cipher_pkg.sv	prim_double_lfsr.sv,prim_lfsr.sv	0x000	0x0	4	3	2 (one bit in each copy; seed 0x01 is one bit away from 0)
+ctr_fsm_1rail	ot_ctr_fsm_w	ot_ctr_fsm_w.sv	prim_util_pkg.sv,aes_reg_pkg.sv,aes_pkg.sv	aes_ctr_fsm.sv,prim_sparse_fsm_flop.sv	0x1	0x1	4	3	1 (single-rail request and write-enable decode)
+ctr_3rail	ot_ctr_w	ot_ctr_w.sv	prim_util_pkg.sv,aes_reg_pkg.sv,aes_pkg.sv	aes_ctr.sv,aes_ctr_fsm.sv,aes_ctr_fsm_p.sv,aes_ctr_fsm_n.sv,aes_sel_buf_chk.sv,prim_sparse_fsm_flop.sv	0x3	0x1	4	3	3 if no gate is shared (one write-enable decode per rail); unknown
+ciph_out_valid	ot_ciph_w	ot_ciph_w.sv	prim_util_pkg.sv,aes_reg_pkg.sv,aes_pkg.sv	aes_cipher_control.sv,aes_cipher_control_fsm.sv,aes_cipher_control_fsm_p.sv,aes_cipher_control_fsm_n.sv,aes_sel_buf_chk.sv,prim_sparse_fsm_flop.sv	0x3	0x0	4	3	3 if no gate is shared (one out_valid decode per rail); unknown

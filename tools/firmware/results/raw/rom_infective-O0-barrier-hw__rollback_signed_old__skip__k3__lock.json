@@ -1,0 +1,155 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 547,
+   "pc": "0x226",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 21,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 7,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 583,
+ "nodes": 88,
+ "seconds": 0.02,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   21,
+   "0x226",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_infective.c",
+   22,
+   "0x22a",
+   "sw\ta0, -0x48(s0)"
+  ],
+  [
+   "rom_infective.c",
+   22,
+   "0x23a",
+   "sw\ta0, -0x4c(s0)"
+  ],
+  [
+   "rom_infective.c",
+   22,
+   "0x242",
+   "c.lw\ta0, 0x4(a0)"
+  ],
+  [
+   "rom_infective.c",
+   22,
+   "0x256",
+   "lw\ta0, -0x78(s0)"
+  ],
+  [
+   "rom_infective.c",
+   22,
+   "0x25a",
+   "bltu\ta0, a1, 0x262"
+  ],
+  [
+   "rom_infective.c",
+   23,
+   "0x26c",
+   "jalr\tra, -0x256(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 547,
+   "pc": "0x226",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 21,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 548,
+   "pc": "0x22a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "sw\ta0, -0x48(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 552,
+   "pc": "0x23a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "sw\ta0, -0x4c(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 554,
+   "pc": "0x242",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 573,
+   "pc": "0x256",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "lw\ta0, -0x78(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 574,
+   "pc": "0x25a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "bltu\ta0, a1, 0x262",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 578,
+   "pc": "0x26c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 23,
+   "asm": "jalr\tra, -0x256(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_infective-O0-barrier-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 347
+}

@@ -1,0 +1,81 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 3943,
+   "pc": "0x682",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 4251,
+ "nodes": 7792,
+ "seconds": 4.97,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   11,
+   "0x682",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   17,
+   "0x712",
+   "c.jr\tra"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 3943,
+   "pc": "0x682",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 4205,
+   "pc": "0x712",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 4205,
+   "pc": "0x712",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  }
+ ],
+ "build": "rom_hardened-O0-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 650
+}

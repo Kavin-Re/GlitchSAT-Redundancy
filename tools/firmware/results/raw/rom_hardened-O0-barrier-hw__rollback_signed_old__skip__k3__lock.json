@@ -1,0 +1,104 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 623,
+   "pc": "0x2c4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 33,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 4,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 655,
+ "nodes": 160,
+ "seconds": 0.22,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   33,
+   "0x2c4",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_hardened.c",
+   34,
+   "0x2c8",
+   "sw\ta0, -0x60(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   34,
+   "0x2d8",
+   "sw\ta0, -0x64(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   34,
+   "0x2e0",
+   "c.lw\ta0, 0x4(a0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 623,
+   "pc": "0x2c4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 33,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 624,
+   "pc": "0x2c8",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 34,
+   "asm": "sw\ta0, -0x60(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 628,
+   "pc": "0x2d8",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 34,
+   "asm": "sw\ta0, -0x64(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 630,
+   "pc": "0x2e0",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 34,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_hardened-O0-barrier-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 650
+}

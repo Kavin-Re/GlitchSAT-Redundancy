@@ -1,0 +1,1109 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 583,
+   "pc": "0x218",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 29,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 79,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 659,
+ "nodes": 2624,
+ "seconds": 1.41,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_delay.c",
+   0,
+   "0x23e",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_delay.c",
+   0,
+   "0x31a",
+   "c.li\ta0, 0x1"
+  ],
+  [
+   "rom_delay.c",
+   5,
+   "0x2cc",
+   "c.swsp\tra, 0x1c(sp)"
+  ],
+  [
+   "rom_delay.c",
+   5,
+   "0x2ce",
+   "c.swsp\ts0, 0x18(sp)"
+  ],
+  [
+   "rom_delay.c",
+   5,
+   "0x2d0",
+   "c.addi4spn\ts0, sp, 0x20"
+  ],
+  [
+   "rom_delay.c",
+   5,
+   "0x2d2",
+   "sw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_delay.c",
+   5,
+   "0x2d6",
+   "sw\ta1, -0x14(s0)"
+  ],
+  [
+   "rom_delay.c",
+   5,
+   "0x2da",
+   "c.li\ta0, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   6,
+   "0x2dc",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_delay.c",
+   6,
+   "0x2e0",
+   "jal\tzero, 0x2e4"
+  ],
+  [
+   "rom_delay.c",
+   6,
+   "0x2e4",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_delay.c",
+   6,
+   "0x2e8",
+   "c.li\ta0, 0x7"
+  ],
+  [
+   "rom_delay.c",
+   6,
+   "0x2ea",
+   "bge\ta0, a1, 0x2f2"
+  ],
+  [
+   "rom_delay.c",
+   6,
+   "0x2f2",
+   "jal\tzero, 0x2f6"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x2f6",
+   "lw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x2fa",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x2fe",
+   "slli\ta2, a1, 0x2"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x302",
+   "c.add\ta0, a2"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x30e",
+   "bne\ta0, a1, 0x316"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x316",
+   "jal\tzero, 0x31a"
+  ],
+  [
+   "rom_delay.c",
+   8,
+   "0x31c",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_delay.c",
+   8,
+   "0x320",
+   "jal\tzero, 0x340"
+  ],
+  [
+   "rom_delay.c",
+   10,
+   "0x340",
+   "lw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_delay.c",
+   10,
+   "0x344",
+   "c.lwsp\tra, 0x1c(sp)"
+  ],
+  [
+   "rom_delay.c",
+   10,
+   "0x346",
+   "c.lwsp\ts0, 0x18(sp)"
+  ],
+  [
+   "rom_delay.c",
+   10,
+   "0x34a",
+   "c.jr\tra"
+  ],
+  [
+   "rom_delay.c",
+   16,
+   "0x2a8",
+   "c.jr\tra"
+  ],
+  [
+   "rom_delay.c",
+   29,
+   "0x218",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   29,
+   "0x224",
+   "addi\ta1, a0, 0x10"
+  ],
+  [
+   "rom_delay.c",
+   29,
+   "0x228",
+   "addi\ta0, s0, -0x28"
+  ],
+  [
+   "rom_delay.c",
+   30,
+   "0x22c",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   30,
+   "0x234",
+   "c.bnez\ta0, 0x23a"
+  ],
+  [
+   "rom_delay.c",
+   30,
+   "0x23a",
+   "jal\tzero, 0x23e"
+  ],
+  [
+   "rom_delay.c",
+   31,
+   "0x240",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 583,
+   "pc": "0x218",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 29,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 613,
+   "pc": "0x2a8",
+   "function": "rand_delay",
+   "file": "rom_delay.c",
+   "line": 16,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 615,
+   "pc": "0x224",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 29,
+   "asm": "addi\ta1, a0, 0x10",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 616,
+   "pc": "0x228",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 29,
+   "asm": "addi\ta0, s0, -0x28",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 617,
+   "pc": "0x22c",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 30,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 620,
+   "pc": "0x2cc",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.swsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 621,
+   "pc": "0x2ce",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.swsp\ts0, 0x18(sp)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 622,
+   "pc": "0x2d0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 622,
+   "pc": "0x2d0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 622,
+   "pc": "0x2d0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 623,
+   "pc": "0x2d2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 623,
+   "pc": "0x2d2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 623,
+   "pc": "0x2d2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 623,
+   "pc": "0x2d2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x2d6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x2d6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x2d6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x2d6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x2d6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x2d6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x2da",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x2da",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x2da",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x2da",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x2da",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x2da",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x2dc",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x2dc",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x2dc",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x2dc",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x2dc",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x2e0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2e4",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x2e0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2e4",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x2e0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2e4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x2e0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2e4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x2e0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2e4",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x2e0",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2e4",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 628,
+   "pc": "0x2e4",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 628,
+   "pc": "0x2e4",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 628,
+   "pc": "0x2e4",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 628,
+   "pc": "0x2e4",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 629,
+   "pc": "0x2e8",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 629,
+   "pc": "0x2e8",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 629,
+   "pc": "0x2e8",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 629,
+   "pc": "0x2e8",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 630,
+   "pc": "0x2ea",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "bge\ta0, a1, 0x2f2",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 630,
+   "pc": "0x2ea",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "bge\ta0, a1, 0x2f2",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 630,
+   "pc": "0x2ea",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "bge\ta0, a1, 0x2f2",
+   "model": "pcoff",
+   "arg": -4,
+   "effect": "next PC -4 bytes"
+  },
+  {
+   "step": 630,
+   "pc": "0x2ea",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "bge\ta0, a1, 0x2f2",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 631,
+   "pc": "0x2f2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2f6",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 631,
+   "pc": "0x2f2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2f6",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 631,
+   "pc": "0x2f2",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2f6",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 632,
+   "pc": "0x2f6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "lw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 632,
+   "pc": "0x2f6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "lw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 632,
+   "pc": "0x2f6",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "lw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 633,
+   "pc": "0x2fa",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 633,
+   "pc": "0x2fa",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 634,
+   "pc": "0x2fe",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "slli\ta2, a1, 0x2",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 635,
+   "pc": "0x302",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "c.add\ta0, a2",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 640,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta0, a1, 0x316",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 641,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "jal\tzero, 0x31a",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 642,
+   "pc": "0x31a",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x1",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 643,
+   "pc": "0x31c",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 8,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 644,
+   "pc": "0x320",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x340",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 644,
+   "pc": "0x320",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x340",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 645,
+   "pc": "0x340",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 10,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 645,
+   "pc": "0x340",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 10,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 646,
+   "pc": "0x344",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 10,
+   "asm": "c.lwsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 646,
+   "pc": "0x344",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 10,
+   "asm": "c.lwsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 647,
+   "pc": "0x346",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 10,
+   "asm": "c.lwsp\ts0, 0x18(sp)",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 649,
+   "pc": "0x34a",
+   "function": "mac_cmp",
+   "file": "rom_delay.c",
+   "line": 10,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 650,
+   "pc": "0x234",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 30,
+   "asm": "c.bnez\ta0, 0x23a",
+   "model": "pcoff",
+   "arg": -4,
+   "effect": "next PC -4 bytes"
+  },
+  {
+   "step": 650,
+   "pc": "0x234",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 30,
+   "asm": "c.bnez\ta0, 0x23a",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 651,
+   "pc": "0x23a",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 30,
+   "asm": "jal\tzero, 0x23e",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 651,
+   "pc": "0x23a",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 30,
+   "asm": "jal\tzero, 0x23e",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 652,
+   "pc": "0x23e",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 652,
+   "pc": "0x23e",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 653,
+   "pc": "0x240",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 653,
+   "pc": "0x240",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  }
+ ],
+ "build": "rom_delay-O0-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 287
+}

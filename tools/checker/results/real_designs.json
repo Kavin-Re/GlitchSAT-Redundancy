@@ -1,0 +1,197 @@
+{
+ "schema": "glitchsat-survival-validation/real/1",
+ "rows": [
+  {
+   "countermeasure": "register aes_cipher_ctrl_cs with 8 codes, distance 3",
+   "kind": "sparse_encoding",
+   "stage": "synth-single-rail",
+   "verdict": "SURVIVED",
+   "evidence": [
+    "u_state_regs.state_o (matched by its values): fault-free sampled (random simulation from power-up) codes 0x9, 0xe, 0x17, 0x23, 0x3a; minimum Hamming distance 3 (intended 3)"
+   ],
+   "instances": [
+    {
+     "register": "u_state_regs.state_o",
+     "width": 6,
+     "found_by": "value",
+     "codes": [
+      "0x9",
+      "0xe",
+      "0x17",
+      "0x23",
+      "0x3a"
+     ],
+     "distance": 3,
+     "codes_how": "sampled"
+    }
+   ],
+   "recorded": {
+    "source": "real/results/fsm_state_single.json",
+    "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+    "cycles": 2,
+    "kmax": 4,
+    "state_pairs": 42,
+    "min_flips_state_flops_only": 3,
+    "min_flips_any_cell": 1
+   }
+  },
+  {
+   "countermeasure": "register aes_cipher_ctrl_cs with 8 codes, distance 3",
+   "kind": "sparse_encoding",
+   "stage": "synth-three-rails",
+   "verdict": "SURVIVED",
+   "evidence": [
+    "gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0x17; minimum Hamming distance 4 (intended 3)",
+    "gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0x17; minimum Hamming distance 4 (intended 3)",
+    "gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs: fault-free sampled (random simulation from power-up) codes 0x9, 0x17; minimum Hamming distance 4 (intended 3)"
+   ],
+   "instances": [
+    {
+     "register": "gen_fsm[0].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+     "width": 6,
+     "found_by": "name",
+     "codes": [
+      "0x9",
+      "0x17"
+     ],
+     "distance": 4,
+     "codes_how": "sampled"
+    },
+    {
+     "register": "gen_fsm[1].gen_fsm_p.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+     "width": 6,
+     "found_by": "name",
+     "codes": [
+      "0x9",
+      "0x17"
+     ],
+     "distance": 4,
+     "codes_how": "sampled"
+    },
+    {
+     "register": "gen_fsm[2].gen_fsm_n.u_aes_cipher_control_fsm_i.u_aes_cipher_control_fsm.aes_cipher_ctrl_cs",
+     "width": 6,
+     "found_by": "name",
+     "codes": [
+      "0x9",
+      "0x17"
+     ],
+     "distance": 4,
+     "codes_how": "sampled"
+    }
+   ],
+   "recorded": {
+    "source": "real/results/fsm_state_multirail_from_reset.json",
+    "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+    "cycles": 6,
+    "kmax": 5,
+    "state_pairs": 6,
+    "min_flips_state_flops_only": null,
+    "min_flips_any_cell": 2
+   }
+  },
+  {
+   "countermeasure": "alarm alert_o",
+   "kind": "alarm",
+   "stage": "synth-single-rail",
+   "verdict": "SURVIVED",
+   "evidence": [
+    "alert_o is driven by non-constant logic"
+   ],
+   "instances": [],
+   "recorded": {
+    "source": "real/results/fsm_state_single.json",
+    "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+    "cycles": 2,
+    "kmax": 4,
+    "state_pairs": 42,
+    "min_flips_state_flops_only": 3,
+    "min_flips_any_cell": 1
+   }
+  },
+  {
+   "countermeasure": "alarm alert_o",
+   "kind": "alarm",
+   "stage": "synth-three-rails",
+   "verdict": "SURVIVED",
+   "evidence": [
+    "alert_o is driven by non-constant logic"
+   ],
+   "instances": [],
+   "recorded": {
+    "source": "real/results/fsm_state_multirail_from_reset.json",
+    "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+    "cycles": 6,
+    "kmax": 5,
+    "state_pairs": 6,
+    "min_flips_state_flops_only": null,
+    "min_flips_any_cell": 2
+   }
+  }
+ ],
+ "stages": [
+  {
+   "name": "synth-single-rail",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../../../real/synfi/examples/aes_cipher_control_fsm/netlist_aes_cipher_control_fsm.json",
+     "sha256": "6fa5aa960e81e0c091f361c98c654abe6c6811dd130669f8f001158861d4e297"
+    }
+   },
+   "status": "ok",
+   "notes": [
+    "Nangate45 cells mapped to primitives by glitchsat_real.nangate (resets held inactive)"
+   ],
+   "stats": {
+    "gates": 537,
+    "flops": 7,
+    "cells": 230,
+    "inputs": 36
+   },
+   "reference": true
+  },
+  {
+   "name": "synth-three-rails",
+   "kind": "netlist",
+   "files": {
+    "netlist": {
+     "path": "../../../real/synfi/examples/aes_cipher_control_rnd_ctr/netlist_aes_cipher_control_flattened_ctr_reg.json",
+     "sha256": "f46e660e2245754b04e10b961c6fcc0ea36025977873162e7622b42ae6f638f7"
+    }
+   },
+   "status": "ok",
+   "notes": [
+    "Nangate45 cells mapped to primitives by glitchsat_real.nangate (resets held inactive)"
+   ],
+   "stats": {
+    "gates": 2130,
+    "flops": 44,
+    "cells": 920,
+    "inputs": 30
+   }
+  }
+ ],
+ "recorded": {
+  "synth-single-rail": {
+   "source": "real/results/fsm_state_single.json",
+   "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+   "cycles": 2,
+   "kmax": 4,
+   "state_pairs": 42,
+   "min_flips_state_flops_only": 3,
+   "min_flips_any_cell": 1
+  },
+  "synth-three-rails": {
+   "source": "real/results/fsm_state_multirail_from_reset.json",
+   "model": "GlitchSAT bit flips (single cycle) on Nangate cell outputs / flop Q; inputs free each cycle; reset inactive",
+   "cycles": 6,
+   "kmax": 5,
+   "state_pairs": 6,
+   "min_flips_state_flops_only": null,
+   "min_flips_any_cell": 2
+  }
+ },
+ "label": "verdicts MEASURED here on the stored netlists; fault minima RECORDED from real/results",
+ "reading": "The RTL declares 8 state codes at Hamming distance >= 3. On both netlists every state register still has 6 flops and every code seen in random fault-free simulation is one of the RTL codes: the encoding itself survived synthesis. The recorded SAT analysis agrees for faults on the state flops (3 flips = the code distance on the single-rail netlist) and finds cheaper attacks through combinational cells (1 flip single rail, 2 flips three rails from reset). That drop is outside what the structural encoding check sees; it is a margin result. The checker therefore does NOT by itself flag a 3-to-2 weakening on these netlists."
+}

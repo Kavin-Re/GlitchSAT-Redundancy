@@ -1,0 +1,814 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 575,
+   "pc": "0x25e",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "jal\tzero, 0x270",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x2b0`"
+  }
+ ],
+ "k1_count": 62,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 627,
+ "nodes": 4224,
+ "seconds": 3.29,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   0,
+   "0x34c",
+   "c.li\ta0, 0x1"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x304",
+   "sw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x308",
+   "sw\ta1, -0x14(s0)"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x30c",
+   "c.li\ta0, 0x0"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x30e",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x312",
+   "jal\tzero, 0x316"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x316",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x31a",
+   "c.li\ta0, 0x7"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x31c",
+   "bge\ta0, a1, 0x324"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x324",
+   "jal\tzero, 0x328"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x340",
+   "bne\ta0, a1, 0x348"
+  ],
+  [
+   "rom_naive.c",
+   7,
+   "0x34e",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_naive.c",
+   9,
+   "0x372",
+   "lw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_naive.c",
+   19,
+   "0x25e",
+   "jal\tzero, 0x270"
+  ],
+  [
+   "rom_naive.c",
+   21,
+   "0x29c",
+   "c.bnez\ta0, 0x2a2"
+  ],
+  [
+   "rom_naive.c",
+   22,
+   "0x2ac",
+   "jalr\tra, -0x296(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 575,
+   "pc": "0x25e",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "jal\tzero, 0x270",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x2b0`"
+  },
+  {
+   "step": 591,
+   "pc": "0x304",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.jal\t0x31c`"
+  },
+  {
+   "step": 591,
+   "pc": "0x304",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta1, -0x10(s0)`"
+  },
+  {
+   "step": 592,
+   "pc": "0x308",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta0, -0x14(s0)`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 5,
+   "effect": "bit 5 of fetched word flipped -> executes `c.li\ta0, 0x8`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 6,
+   "effect": "bit 6 of fetched word flipped -> executes `c.li\ta0, 0x10`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 7,
+   "effect": "bit 7 of fetched word flipped -> executes `c.li\ta1, 0x0`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `c.li\ta4, 0x0`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `c.li\ts10, 0x0`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 14,
+   "effect": "bit 14 of fetched word flipped -> executes `c.addi\ta0, 0x0`"
+  },
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "iwflip",
+   "arg": 15,
+   "effect": "bit 15 of fetched word flipped -> executes `c.beqz\ta0, 0x314`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 7,
+   "effect": "bit 7 of fetched word flipped -> executes `sw\ta0, -0x17(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 8,
+   "effect": "bit 8 of fetched word flipped -> executes `sw\ta0, -0x16(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `sw\ta0, -0x14(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `sw\ta0, -0x20(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta1, -0x18(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 21,
+   "effect": "bit 21 of fetched word flipped -> executes `sw\ts0, -0x18(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 23,
+   "effect": "bit 23 of fetched word flipped -> executes `sw\tsp, -0x18(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `sw\ta0, -0x38(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `sw\ta0, -0x58(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 27,
+   "effect": "bit 27 of fetched word flipped -> executes `sw\ta0, -0x98(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 28,
+   "effect": "bit 28 of fetched word flipped -> executes `sw\ta0, -0x118(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `sw\ta0, -0x218(s0)`"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 30,
+   "effect": "bit 30 of fetched word flipped -> executes `sw\ta0, -0x418(s0)`"
+  },
+  {
+   "step": 595,
+   "pc": "0x312",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x316",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 595,
+   "pc": "0x312",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x316",
+   "model": "iwflip",
+   "arg": 23,
+   "effect": "bit 23 of fetched word flipped -> executes `jal\tzero, 0x31e`"
+  },
+  {
+   "step": 595,
+   "pc": "0x312",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x316",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `jal\tzero, 0x326`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 5,
+   "effect": "bit 5 of fetched word flipped -> executes `sw\ts0, -0x15(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 7,
+   "effect": "bit 7 of fetched word flipped -> executes `lw\ta0, -0x18(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 8,
+   "effect": "bit 8 of fetched word flipped -> executes `lw\ts1, -0x18(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `lw\ta5, -0x18(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `lw\tgp, -0x18(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `lw\ts11, -0x18(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 17,
+   "effect": "bit 17 of fetched word flipped -> executes `lw\ta1, -0x18(a2)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `lw\ta1, -0x17(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 21,
+   "effect": "bit 21 of fetched word flipped -> executes `lw\ta1, -0x16(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 22,
+   "effect": "bit 22 of fetched word flipped -> executes `lw\ta1, -0x14(s0)`"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `lw\ta1, -0x8(s0)`"
+  },
+  {
+   "step": 597,
+   "pc": "0x31a",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x7",
+   "model": "iwflip",
+   "arg": 7,
+   "effect": "bit 7 of fetched word flipped -> executes `c.li\ta1, 0x7`"
+  },
+  {
+   "step": 597,
+   "pc": "0x31a",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x7",
+   "model": "iwflip",
+   "arg": 12,
+   "effect": "bit 12 of fetched word flipped -> executes `c.li\ta0, -0x19`"
+  },
+  {
+   "step": 598,
+   "pc": "0x31c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x324",
+   "model": "iwflip",
+   "arg": 8,
+   "effect": "bit 8 of fetched word flipped -> executes `bge\ta0, a1, 0x326`"
+  },
+  {
+   "step": 598,
+   "pc": "0x31c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x324",
+   "model": "iwflip",
+   "arg": 12,
+   "effect": "bit 12 of fetched word flipped -> executes `blt\ta0, a1, 0x324`"
+  },
+  {
+   "step": 599,
+   "pc": "0x324",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x328",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 599,
+   "pc": "0x324",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x328",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x368`"
+  },
+  {
+   "step": 608,
+   "pc": "0x340",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "bne\ta0, a1, 0x348",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bne\ta0, a1, 0x358`"
+  },
+  {
+   "step": 608,
+   "pc": "0x340",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "bne\ta0, a1, 0x348",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `bne\ta0, a1, 0x368`"
+  },
+  {
+   "step": 610,
+   "pc": "0x34c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x1",
+   "model": "iwflip",
+   "arg": 2,
+   "effect": "bit 2 of fetched word flipped -> executes `c.li\ta0, 0x0`"
+  },
+  {
+   "step": 611,
+   "pc": "0x34e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 7,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 22,
+   "effect": "bit 22 of fetched word flipped -> executes `sw\ta4, -0xc(s0)`"
+  },
+  {
+   "step": 611,
+   "pc": "0x34e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 7,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `sw\ts10, -0xc(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 4,
+   "effect": "bit 4 of fetched word flipped -> executes `slti\ta0, s0, -0xc`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `lw\ta0, -0xb(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `lw\ta0, -0x2c(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `lw\ta0, -0x4c(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 27,
+   "effect": "bit 27 of fetched word flipped -> executes `lw\ta0, -0x8c(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 28,
+   "effect": "bit 28 of fetched word flipped -> executes `lw\ta0, -0x10c(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `lw\ta0, -0x20c(s0)`"
+  },
+  {
+   "step": 613,
+   "pc": "0x372",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 30,
+   "effect": "bit 30 of fetched word flipped -> executes `lw\ta0, -0x40c(s0)`"
+  },
+  {
+   "step": 618,
+   "pc": "0x29c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x2a2",
+   "model": "iwflip",
+   "arg": 4,
+   "effect": "bit 4 of fetched word flipped -> executes `c.bnez\ta0, 0x29e`"
+  },
+  {
+   "step": 618,
+   "pc": "0x29c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x2a2",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `c.bnez\ta4, 0x2a2`"
+  },
+  {
+   "step": 618,
+   "pc": "0x29c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x2a2",
+   "model": "iwflip",
+   "arg": 13,
+   "effect": "bit 13 of fetched word flipped -> executes `c.beqz\ta0, 0x2a2`"
+  },
+  {
+   "step": 618,
+   "pc": "0x29c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x2a2",
+   "model": "iwflip",
+   "arg": 15,
+   "effect": "bit 15 of fetched word flipped -> executes `c.addi16sp\tsp, 0x180`"
+  },
+  {
+   "step": 622,
+   "pc": "0x2ac",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 22,
+   "asm": "jalr\tra, -0x296(ra)",
+   "model": "iwflip",
+   "arg": 2,
+   "effect": "bit 2 of fetched word flipped -> executes `beq\tra, a0, 0xc`"
+  }
+ ],
+ "build": "rom_naive-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 312
+}

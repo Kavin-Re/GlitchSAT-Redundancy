@@ -1,0 +1,752 @@
+{
+ "schema": "glitchsat-harden/1",
+ "design": "v1",
+ "design_description": "2 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69",
+ "spec": {
+  "name": "v1",
+  "key": 195,
+  "width": 8,
+  "idle": 240,
+  "armed": 204,
+  "accept": 150,
+  "reject": 105,
+  "copies": 2,
+  "check_copies": 0,
+  "voter": "single_and",
+  "owner": [],
+  "alarm": "none",
+  "trap_invalid": false,
+  "output": "state",
+  "key_hex": "0xC3",
+  "idle_hex": "0xF0",
+  "armed_hex": "0xCC",
+  "accept_hex": "0x96",
+  "reject_hex": "0x69"
+ },
+ "goal": {
+  "min_flips_at_least": 3,
+  "meaning": "no attack with 2 or fewer modelled flips"
+ },
+ "goal_output": "boot_word == 0x96 while sig != 0xC3",
+ "cycles": "all",
+ "moves_allowed": [
+  "encoding",
+  "ownership",
+  "voter",
+  "copies",
+  "alarm",
+  "trap",
+  "sparse"
+ ],
+ "before": {
+  "min_flips": 1,
+  "shown": "1",
+  "label": "MEASURED",
+  "per_mapping": {
+   "select-shared": {
+    "min_flips": 1,
+    "shown": "1",
+    "gates": 77,
+    "flops": 8,
+    "sets_simulated": 11050,
+    "fault_sites_per_cycle": 85,
+    "witness": {
+     "input": 0,
+     "flips": [
+      [
+       0,
+       "and47"
+      ]
+     ],
+     "cycles_used": 2,
+     "flip_bits": [
+      [
+       0,
+       65
+      ]
+     ],
+     "replayed": true
+    },
+    "right_key_boots": true,
+    "wrong_key_boots_without_faults": false,
+    "matches_description": true
+   },
+   "mux-shared": {
+    "min_flips": 1,
+    "shown": "1",
+    "gates": 73,
+    "flops": 8,
+    "sets_simulated": 13579,
+    "fault_sites_per_cycle": 81,
+    "witness": {
+     "input": 0,
+     "flips": [
+      [
+       1,
+       "word[7]"
+      ]
+     ],
+     "cycles_used": 3,
+     "flip_bits": [
+      [
+       1,
+       59
+      ]
+     ],
+     "replayed": true
+    },
+    "right_key_boots": true,
+    "wrong_key_boots_without_faults": false,
+    "matches_description": true
+   },
+   "unshared": {
+    "min_flips": 1,
+    "shown": "1",
+    "gates": 91,
+    "flops": 8,
+    "sets_simulated": 4687,
+    "fault_sites_per_cycle": 99,
+    "witness": {
+     "input": 0,
+     "flips": [
+      [
+       1,
+       "word[7]"
+      ]
+     ],
+     "cycles_used": 3,
+     "flip_bits": [
+      [
+       1,
+       63
+      ]
+     ],
+     "replayed": true
+    },
+    "right_key_boots": true,
+    "wrong_key_boots_without_faults": false,
+    "matches_description": true
+   }
+  },
+  "if_copies_merged": "1"
+ },
+ "search": {
+  "structures": 54,
+  "candidates_after_predictor": 305,
+  "candidates_simulated": 3,
+  "sets_simulated": 12203,
+  "stopped_by_time_budget": false,
+  "runtime_s": 11.23
+ },
+ "reached": true,
+ "fixes": [
+  {
+   "rank": 1,
+   "description": "3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69",
+   "spec": {
+    "name": "v1",
+    "key": 195,
+    "width": 8,
+    "idle": 240,
+    "armed": 200,
+    "accept": 150,
+    "reject": 105,
+    "copies": 3,
+    "check_copies": 0,
+    "voter": "owner",
+    "owner": [
+     0,
+     1,
+     2,
+     0,
+     1,
+     2,
+     0,
+     1
+    ],
+    "alarm": "none",
+    "trap_invalid": false,
+    "output": "state",
+    "key_hex": "0xC3",
+    "idle_hex": "0xF0",
+    "armed_hex": "0xC8",
+    "accept_hex": "0x96",
+    "reject_hex": "0x69"
+   },
+   "moves": [
+    "voter",
+    "copies",
+    "encoding"
+   ],
+   "move_text": [
+    {
+     "move": "voter",
+     "title": "Voter placement",
+     "what": "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+     "why_sound": "A voter in front of the register is one net that decides every bit; behind the register no single net does. Behaviour re-checked for all inputs."
+    },
+    {
+     "move": "copies",
+     "title": "More compare copies",
+     "what": "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+     "why_sound": "Adds logic only; the new copies compute the same comparison. Needs the copies to stay separate through synthesis."
+    },
+    {
+     "move": "encoding",
+     "title": "State encoding",
+     "what": "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v).",
+     "why_sound": "Sound because only constants change: the fault-free behaviour is re-checked for all 256 inputs, and the flip count is re-measured."
+    },
+    {
+     "move": "separation",
+     "title": "Keep the copies separate through synthesis",
+     "what": "Map each compare copy on its own (keep_hierarchy until after abc), mark its cells keep before flatten, and do not run abc on the flattened design.",
+     "why_sound": "Does not change the logic function. Needed by every other fix: when identical copies are merged one flip decides all of them."
+    }
+   ],
+   "changes": [
+    {
+     "what": "armed code word",
+     "before": "0xCC",
+     "after": "0xC8"
+    },
+    {
+     "what": "voter placement",
+     "before": "single_and",
+     "after": "owner"
+    },
+    {
+     "what": "compare copies that own bits",
+     "before": 2,
+     "after": 3
+    },
+    {
+     "what": "bit ownership (bit 7..0 -> copy)",
+     "before": "-",
+     "after": "10210210"
+    }
+   ],
+   "after": {
+    "min_flips": 3,
+    "shown": "3",
+    "label": "MEASURED",
+    "statement": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+    "per_mapping": {
+     "select-shared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 89,
+      "flops": 8,
+      "sets_simulated": 1430,
+      "fault_sites_per_cycle": 97,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     },
+     "mux-shared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 86,
+      "flops": 8,
+      "sets_simulated": 1430,
+      "fault_sites_per_cycle": 94,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     },
+     "unshared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 101,
+      "flops": 8,
+      "sets_simulated": 856,
+      "fault_sites_per_cycle": 109,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     }
+    },
+    "exact_per_mapping": {
+     "select-shared": "3",
+     "mux-shared": "3",
+     "unshared": "3"
+    },
+    "witness_at_minimum": {
+     "input": 0,
+     "flips": [
+      [
+       0,
+       "st[6]"
+      ],
+      [
+       0,
+       "and64"
+      ],
+      [
+       1,
+       "st[1]"
+      ]
+     ],
+     "cycles_used": 2,
+     "flip_bits": [
+      [
+       0,
+       17
+      ],
+      [
+       0,
+       82
+      ],
+      [
+       1,
+       12
+      ]
+     ],
+     "replayed": true
+    },
+    "bounded_6_cycles": {
+     "select-shared": "> 2",
+     "mux-shared": "> 2",
+     "unshared": "> 2"
+    },
+    "if_copies_merged": "1"
+   },
+   "cost": {
+    "gates_before": 77,
+    "gates_after": 89,
+    "gates_added": 12,
+    "flops_before": 8,
+    "flops_after": 8,
+    "flops_added": 0,
+    "depth_before": 9,
+    "depth_after": 9,
+    "depth_added": 0,
+    "area_ge_before": 125,
+    "area_ge_after": 137,
+    "decision_latency_cycles_before": 2,
+    "decision_latency_cycles_after": 2,
+    "note": "gate and flop counts of the select-shared reference mapping (MEASURED here); area unit = gates + 6 x flops (assumed weight); latency = clock cycles from reset to the decision (2 in every variant) and logic depth in gate levels"
+   },
+   "yosys": {
+    "label": "UNTESTED-HERE",
+    "note": "hardened Verilog and Yosys script are generated; cloud/run_cloud.sh synthesises them with apt Yosys 0.33 over the synthesis configurations and re-runs this verification on every netlist"
+   },
+   "files": {
+    "verilog": "designs/v1_g3.v",
+    "yosys_script": "designs/v1_g3.ys",
+    "netlist_select-shared": "designs/v1_g3_select-shared.json",
+    "netlist_mux-shared": "designs/v1_g3_mux-shared.json",
+    "netlist_unshared": "designs/v1_g3_unshared.json",
+    "netlist_verilog": "designs/v1_g3_netlist.v",
+    "spec": "designs/v1_g3.spec.json"
+   }
+  },
+  {
+   "rank": 2,
+   "description": "4 copies, voter owner 32103210, idle/armed/accept/reject F0/CC/96/69",
+   "spec": {
+    "name": "v1",
+    "key": 195,
+    "width": 8,
+    "idle": 240,
+    "armed": 204,
+    "accept": 150,
+    "reject": 105,
+    "copies": 4,
+    "check_copies": 0,
+    "voter": "owner",
+    "owner": [
+     0,
+     1,
+     2,
+     3,
+     0,
+     1,
+     2,
+     3
+    ],
+    "alarm": "none",
+    "trap_invalid": false,
+    "output": "state",
+    "key_hex": "0xC3",
+    "idle_hex": "0xF0",
+    "armed_hex": "0xCC",
+    "accept_hex": "0x96",
+    "reject_hex": "0x69"
+   },
+   "moves": [
+    "voter",
+    "copies"
+   ],
+   "move_text": [
+    {
+     "move": "voter",
+     "title": "Voter placement",
+     "what": "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+     "why_sound": "A voter in front of the register is one net that decides every bit; behind the register no single net does. Behaviour re-checked for all inputs."
+    },
+    {
+     "move": "copies",
+     "title": "More compare copies",
+     "what": "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+     "why_sound": "Adds logic only; the new copies compute the same comparison. Needs the copies to stay separate through synthesis."
+    },
+    {
+     "move": "separation",
+     "title": "Keep the copies separate through synthesis",
+     "what": "Map each compare copy on its own (keep_hierarchy until after abc), mark its cells keep before flatten, and do not run abc on the flattened design.",
+     "why_sound": "Does not change the logic function. Needed by every other fix: when identical copies are merged one flip decides all of them."
+    }
+   ],
+   "changes": [
+    {
+     "what": "voter placement",
+     "before": "single_and",
+     "after": "owner"
+    },
+    {
+     "what": "compare copies that own bits",
+     "before": 2,
+     "after": 4
+    },
+    {
+     "what": "bit ownership (bit 7..0 -> copy)",
+     "before": "-",
+     "after": "32103210"
+    }
+   ],
+   "after": {
+    "min_flips": 3,
+    "shown": "3",
+    "label": "MEASURED",
+    "statement": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+    "per_mapping": {
+     "select-shared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 104,
+      "flops": 8,
+      "sets_simulated": 1430,
+      "fault_sites_per_cycle": 112,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     },
+     "mux-shared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 105,
+      "flops": 8,
+      "sets_simulated": 1339,
+      "fault_sites_per_cycle": 113,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     },
+     "unshared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 112,
+      "flops": 8,
+      "sets_simulated": 929,
+      "fault_sites_per_cycle": 120,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     }
+    },
+    "exact_per_mapping": {
+     "select-shared": "3",
+     "mux-shared": "> 3",
+     "unshared": "> 3"
+    },
+    "witness_at_minimum": {
+     "input": 0,
+     "flips": [
+      [
+       0,
+       "or79"
+      ],
+      [
+       1,
+       "st[1]"
+      ],
+      [
+       1,
+       "st[4]"
+      ]
+     ],
+     "cycles_used": 2,
+     "flip_bits": [
+      [
+       0,
+       97
+      ],
+      [
+       1,
+       12
+      ],
+      [
+       1,
+       15
+      ]
+     ],
+     "replayed": true
+    },
+    "bounded_6_cycles": {
+     "select-shared": "> 2",
+     "mux-shared": "> 2",
+     "unshared": "> 2"
+    },
+    "if_copies_merged": "1"
+   },
+   "cost": {
+    "gates_before": 77,
+    "gates_after": 104,
+    "gates_added": 27,
+    "flops_before": 8,
+    "flops_after": 8,
+    "flops_added": 0,
+    "depth_before": 9,
+    "depth_after": 9,
+    "depth_added": 0,
+    "area_ge_before": 125,
+    "area_ge_after": 152,
+    "decision_latency_cycles_before": 2,
+    "decision_latency_cycles_after": 2,
+    "note": "gate and flop counts of the select-shared reference mapping (MEASURED here); area unit = gates + 6 x flops (assumed weight); latency = clock cycles from reset to the decision (2 in every variant) and logic depth in gate levels"
+   },
+   "yosys": {
+    "label": "UNTESTED-HERE",
+    "note": "hardened Verilog and Yosys script are generated; cloud/run_cloud.sh synthesises them with apt Yosys 0.33 over the synthesis configurations and re-runs this verification on every netlist"
+   },
+   "files": {}
+  },
+  {
+   "rank": 3,
+   "description": "3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69, invalid state -> reject",
+   "spec": {
+    "name": "v1",
+    "key": 195,
+    "width": 8,
+    "idle": 240,
+    "armed": 200,
+    "accept": 150,
+    "reject": 105,
+    "copies": 3,
+    "check_copies": 0,
+    "voter": "owner",
+    "owner": [
+     0,
+     1,
+     2,
+     0,
+     1,
+     2,
+     0,
+     1
+    ],
+    "alarm": "none",
+    "trap_invalid": true,
+    "output": "state",
+    "key_hex": "0xC3",
+    "idle_hex": "0xF0",
+    "armed_hex": "0xC8",
+    "accept_hex": "0x96",
+    "reject_hex": "0x69"
+   },
+   "moves": [
+    "voter",
+    "copies",
+    "trap",
+    "encoding"
+   ],
+   "move_text": [
+    {
+     "move": "voter",
+     "title": "Voter placement",
+     "what": "Remove the single voter net in front of the state register. Either each state bit gets its own kept voter (per_bit_and) or each bit is driven by one copy and the consumer comparing the whole word is the voter (owner).",
+     "why_sound": "A voter in front of the register is one net that decides every bit; behind the register no single net does. Behaviour re-checked for all inputs."
+    },
+    {
+     "move": "copies",
+     "title": "More compare copies",
+     "what": "Add compare copies that own state bits. Each copy is one more net the attacker has to flip on the compare path.",
+     "why_sound": "Adds logic only; the new copies compute the same comparison. Needs the copies to stay separate through synthesis."
+    },
+    {
+     "move": "trap",
+     "title": "Invalid state goes to reject",
+     "what": "A state that is none of the four code words moves to reject instead of being held.",
+     "why_sound": "Only changes behaviour in states the fault-free design never reaches."
+    },
+    {
+     "move": "encoding",
+     "title": "State encoding",
+     "what": "Choose the armed / idle code words so that turning any state the wrong-key run passes through into the accept word needs changes in bits driven by as many different compare copies as possible. Generalises the manual 0xCC -> 0xA5 change (rtl/v2e.v).",
+     "why_sound": "Sound because only constants change: the fault-free behaviour is re-checked for all 256 inputs, and the flip count is re-measured."
+    },
+    {
+     "move": "separation",
+     "title": "Keep the copies separate through synthesis",
+     "what": "Map each compare copy on its own (keep_hierarchy until after abc), mark its cells keep before flatten, and do not run abc on the flattened design.",
+     "why_sound": "Does not change the logic function. Needed by every other fix: when identical copies are merged one flip decides all of them."
+    }
+   ],
+   "changes": [
+    {
+     "what": "armed code word",
+     "before": "0xCC",
+     "after": "0xC8"
+    },
+    {
+     "what": "voter placement",
+     "before": "single_and",
+     "after": "owner"
+    },
+    {
+     "what": "compare copies that own bits",
+     "before": 2,
+     "after": 3
+    },
+    {
+     "what": "bit ownership (bit 7..0 -> copy)",
+     "before": "-",
+     "after": "10210210"
+    },
+    {
+     "what": "invalid state",
+     "before": "held",
+     "after": "goes to reject"
+    }
+   ],
+   "after": {
+    "min_flips": 3,
+    "shown": "3",
+    "label": "MEASURED",
+    "statement": "no attack with <= 2 flips on all 3 unmerged reference mappings, all wrong inputs, any number of cycles",
+    "per_mapping": {
+     "select-shared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 107,
+      "flops": 8,
+      "sets_simulated": 1930,
+      "fault_sites_per_cycle": 115,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     },
+     "mux-shared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 105,
+      "flops": 8,
+      "sets_simulated": 1930,
+      "fault_sites_per_cycle": 113,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     },
+     "unshared": {
+      "min_flips": null,
+      "shown": "> 2",
+      "gates": 138,
+      "flops": 8,
+      "sets_simulated": 929,
+      "fault_sites_per_cycle": 146,
+      "witness": null,
+      "right_key_boots": true,
+      "wrong_key_boots_without_faults": false,
+      "matches_description": true
+     }
+    },
+    "exact_per_mapping": {
+     "select-shared": "3",
+     "mux-shared": "3",
+     "unshared": "3"
+    },
+    "witness_at_minimum": {
+     "input": 0,
+     "flips": [
+      [
+       0,
+       "or55"
+      ],
+      [
+       0,
+       "and82"
+      ],
+      [
+       1,
+       "st[2]"
+      ]
+     ],
+     "cycles_used": 2,
+     "flip_bits": [
+      [
+       0,
+       73
+      ],
+      [
+       0,
+       100
+      ],
+      [
+       1,
+       13
+      ]
+     ],
+     "replayed": true
+    },
+    "bounded_6_cycles": {
+     "select-shared": "> 2",
+     "mux-shared": "> 2",
+     "unshared": "> 2"
+    },
+    "if_copies_merged": "1"
+   },
+   "cost": {
+    "gates_before": 77,
+    "gates_after": 107,
+    "gates_added": 30,
+    "flops_before": 8,
+    "flops_after": 8,
+    "flops_added": 0,
+    "depth_before": 9,
+    "depth_after": 11,
+    "depth_added": 2,
+    "area_ge_before": 125,
+    "area_ge_after": 155,
+    "decision_latency_cycles_before": 2,
+    "decision_latency_cycles_after": 2,
+    "note": "gate and flop counts of the select-shared reference mapping (MEASURED here); area unit = gates + 6 x flops (assumed weight); latency = clock cycles from reset to the decision (2 in every variant) and logic depth in gate levels"
+   },
+   "yosys": {
+    "label": "UNTESTED-HERE",
+    "note": "hardened Verilog and Yosys script are generated; cloud/run_cloud.sh synthesises them with apt Yosys 0.33 over the synthesis configurations and re-runs this verification on every netlist"
+   },
+   "files": {}
+  }
+ ],
+ "caveats": [
+  "Modelled faults only: one-cycle bit flips of gate outputs and flop outputs. Not a physical glitch model.",
+  "Toy 8-bit designs with a constant attacker input and a known reset state.",
+  "A number belongs to one netlist. The reference mappings are written by this tool, they are not Yosys output; re-synthesis can share or merge logic differently and change the number.",
+  "\"At least G\" means: no set of at most G-1 modelled flips works, for every wrong input and every number of clock cycles, on the listed netlists. It is an exhaustive search of the model, not a proof about hardware."
+ ],
+ "labels": {
+  "MEASURED": "simulated here, exhaustively, on the netlist named in the row",
+  "RECORDED": "copied from a file already in the repository; not re-run here",
+  "UNTESTED-HERE": "needs Yosys; the generated script and cloud/run_cloud.sh produce it",
+  "ASSUMED": "a modelling choice or unit weight, stated where used"
+ }
+}

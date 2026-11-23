@@ -1,0 +1,70 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 531,
+   "pc": "0x1e4",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 20,
+   "asm": "sw\ta0, -0x3c(s0)",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.jal\t0x2ec`"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 645,
+ "nodes": 4800,
+ "seconds": 3.37,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_triple.c",
+   20,
+   "0x1e4",
+   "sw\ta0, -0x3c(s0)"
+  ],
+  [
+   "rom_triple.c",
+   24,
+   "0x262",
+   "jal\tzero, 0x274"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 531,
+   "pc": "0x1e4",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 20,
+   "asm": "sw\ta0, -0x3c(s0)",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.jal\t0x2ec`"
+  },
+  {
+   "step": 597,
+   "pc": "0x262",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 24,
+   "asm": "jal\tzero, 0x274",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x2b4`"
+  }
+ ],
+ "build": "rom_triple-O0-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 342
+}

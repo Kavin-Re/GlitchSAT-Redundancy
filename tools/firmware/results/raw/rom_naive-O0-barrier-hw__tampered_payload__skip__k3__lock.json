@@ -1,0 +1,138 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 6,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 627,
+ "nodes": 132,
+ "seconds": 0.03,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   4,
+   "0x30c",
+   "c.li\ta0, 0x0"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x30e",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x316",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x31c",
+   "bge\ta0, a1, 0x324"
+  ],
+  [
+   "rom_naive.c",
+   21,
+   "0x29c",
+   "c.bnez\ta0, 0x2a2"
+  ],
+  [
+   "rom_naive.c",
+   22,
+   "0x2ac",
+   "jalr\tra, -0x296(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 593,
+   "pc": "0x30c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 594,
+   "pc": "0x30e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 596,
+   "pc": "0x316",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 598,
+   "pc": "0x31c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x324",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 618,
+   "pc": "0x29c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x2a2",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 622,
+   "pc": "0x2ac",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 22,
+   "asm": "jalr\tra, -0x296(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_naive-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 312
+}

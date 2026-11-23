@@ -1,0 +1,7 @@
+# bulk intermediates: compiler assembly (.s), disassembly (.dis), object files.
+# Recreate with: python3 scripts/build.py   (ELFs and line tables go to elf/, which is kept)
+build/
+__pycache__/
+.pytest_cache/
+*.pyc
+results/raw/*.tmp

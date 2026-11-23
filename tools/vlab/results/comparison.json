@@ -1,0 +1,603 @@
+{
+ "schema": "vlab-comparison/1",
+ "honesty": "SIMULATION, not measurement",
+ "generated": "2026-11-21T07:43:52.817133+00:00",
+ "designs": [
+  {
+   "design": "v1",
+   "horizon_T": 8,
+   "engine_abstract_min_flips": 1,
+   "engine_abstract_min_flips_source": "reference netlist reference/spike_netlists/v1.json via results/reproduce/v1_spike_given-netlist_k*.json (not the placed netlist simulated here)",
+   "engine_attack_site_kinds": [
+    "gate_output"
+   ],
+   "engine_attack_sites_reference_netlist": [
+    {
+     "net": "ok",
+     "cycle": 1
+    }
+   ],
+   "abstract_flop_only_single_cycle_min": 4,
+   "abstract_flop_only_success_sets": 8,
+   "abstract_flop_only_examples": [
+    {
+     "cycle": 0,
+     "flip_mask": "0x66",
+     "n_flops": 4
+    },
+    {
+     "cycle": 1,
+     "flip_mask": "0x5a",
+     "n_flops": 4
+    },
+    {
+     "cycle": 2,
+     "flip_mask": "0xff",
+     "n_flops": 8
+    }
+   ],
+   "glitch_campaign": {
+    "delay_model": "ASSUMED",
+    "n_offsets": 7,
+    "n_periods": 96,
+    "cells_with_success": 0,
+    "glitch_realizable_wrong_key_accept": false,
+    "nonmix_captures": {
+     "note": "captures with >= 1 bit that is neither the old value S[offset] nor the new value S[offset+1] (hazard captured mid-settling); they show that the capture is not limited to per-bit old/new mixes",
+     "cells": 4,
+     "cells_wrong_key": 1,
+     "sig_cells": 259,
+     "sig_cells_wrong_key": 255,
+     "cells_total": 672
+    }
+   },
+   "oldnew_mix_check": {
+    "model": "hazard-free capture (each bit old or new); DIAGNOSTIC, not a proof",
+    "good_reachable": false,
+    "offsets": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "continuation_cycles": 20,
+    "wrong_sigs_covered": 255,
+    "distinct_wrong_key_trajectories": 1,
+    "per_edge": [
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     }
+    ]
+   },
+   "realizable_by_single_clock_glitch": false,
+   "note": "SIMULATED, ASSUMED delays. The cheapest GlitchSAT attack on the reference netlist flips gate_output; a clock glitch acts only on flop capture. The simulated sweep found 0 wrong-key accepts. This is a result of the sweep, not a proof for other delays."
+  },
+  {
+   "design": "v2",
+   "horizon_T": 8,
+   "engine_abstract_min_flips": 3,
+   "engine_abstract_min_flips_source": "reference netlist reference/spike_netlists/v2.json via results/reproduce/v2_spike_given-netlist_k*.json (not the placed netlist simulated here)",
+   "engine_attack_site_kinds": [
+    "gate_output",
+    "gate_output",
+    "gate_output"
+   ],
+   "engine_attack_sites_reference_netlist": [
+    {
+     "net": "$flatten\\c0.$abc$251$new_n16_",
+     "cycle": 1
+    },
+    {
+     "net": "$flatten\\c1.$abc$251$new_n15_",
+     "cycle": 1
+    },
+    {
+     "net": "$flatten\\c2.$abc$251$new_n15_",
+     "cycle": 1
+    }
+   ],
+   "abstract_flop_only_single_cycle_min": 4,
+   "abstract_flop_only_success_sets": 8,
+   "abstract_flop_only_examples": [
+    {
+     "cycle": 0,
+     "flip_mask": "0x66",
+     "n_flops": 4
+    },
+    {
+     "cycle": 1,
+     "flip_mask": "0x5a",
+     "n_flops": 4
+    },
+    {
+     "cycle": 2,
+     "flip_mask": "0xff",
+     "n_flops": 8
+    }
+   ],
+   "glitch_campaign": {
+    "delay_model": "ASSUMED",
+    "n_offsets": 7,
+    "n_periods": 96,
+    "cells_with_success": 0,
+    "glitch_realizable_wrong_key_accept": false,
+    "nonmix_captures": {
+     "note": "captures with >= 1 bit that is neither the old value S[offset] nor the new value S[offset+1] (hazard captured mid-settling); they show that the capture is not limited to per-bit old/new mixes",
+     "cells": 0,
+     "cells_wrong_key": 0,
+     "sig_cells": 0,
+     "sig_cells_wrong_key": 0,
+     "cells_total": 672
+    }
+   },
+   "oldnew_mix_check": {
+    "model": "hazard-free capture (each bit old or new); DIAGNOSTIC, not a proof",
+    "good_reachable": false,
+    "offsets": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "continuation_cycles": 20,
+    "wrong_sigs_covered": 255,
+    "distinct_wrong_key_trajectories": 1,
+    "per_edge": [
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 1,
+      "old": "0xcc",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 2,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 3,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 4,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 5,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 6,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 180,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 60,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 12,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     },
+     {
+      "offset": 7,
+      "old": "0x69",
+      "new": "0x69",
+      "n_wrong_sigs": 3,
+      "good_is_mix": false,
+      "good_reached_from_a_mix": false
+     }
+    ]
+   },
+   "realizable_by_single_clock_glitch": false,
+   "note": "SIMULATED, ASSUMED delays. The cheapest GlitchSAT attack on the reference netlist flips gate_output; a clock glitch acts only on flop capture. The simulated sweep found 0 wrong-key accepts. This is a result of the sweep, not a proof for other delays."
+  }
+ ]
+}

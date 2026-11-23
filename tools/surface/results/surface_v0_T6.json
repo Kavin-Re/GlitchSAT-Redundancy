@@ -1,0 +1,406 @@
+{
+  "schema": "glitchsat-attack-surface/1",
+  "method": "exhaustive",
+  "netlist": "reference/spike_netlists/v0.json",
+  "netlist_sha256": "103ad03e40a5994db598f50a3ead62742664bbf7253b15806defc08f10f16aac",
+  "top": "v0",
+  "bound": {
+    "cycles": 6,
+    "max_faults": 3,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "attacker_input": "`sig` free, held constant, != key 0xC3 (other inputs free)",
+    "key": 195,
+    "reduce": "full",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q"
+  },
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "count": 19,
+  "complete": true,
+  "stop_reason": "exhausted",
+  "sites_modelled": 106,
+  "runtime_s": 0.059,
+  "copy_source": "structural",
+  "nets": [
+    {
+      "net": "$auto$rtlil.cc:2609:MuxGate$195",
+      "net_id": 21,
+      "kind": "gate_output",
+      "gate": "MUX",
+      "copy": "g0",
+      "count": 4,
+      "share": 0.2105,
+      "cycles": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      }
+    },
+    {
+      "net": "st[0]",
+      "net_id": 15,
+      "kind": "flop_Q",
+      "gate": "DFF",
+      "copy": "outside",
+      "count": 4,
+      "share": 0.2105,
+      "cycles": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      }
+    },
+    {
+      "net": "$abc$184$auto$wreduce.cc:461:run$27[0]",
+      "net_id": 18,
+      "kind": "gate_output",
+      "gate": "NOT",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$auto$rtlil.cc:2609:MuxGate$193",
+      "net_id": 23,
+      "kind": "gate_output",
+      "gate": "MUX",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n10_",
+      "net_id": 24,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n11_",
+      "net_id": 25,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n12_",
+      "net_id": 26,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n13_",
+      "net_id": 27,
+      "kind": "gate_output",
+      "gate": "NOT",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n14_",
+      "net_id": 28,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n15_",
+      "net_id": 29,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$flatten\\c.$abc$175$new_n16_",
+      "net_id": 30,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "c.m",
+      "net_id": 17,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "st[1]",
+      "net_id": 13,
+      "kind": "flop_Q",
+      "gate": "DFF",
+      "copy": "outside",
+      "count": 1,
+      "share": 0.0526,
+      "cycles": {
+        "0": 1
+      }
+    }
+  ],
+  "cycles": {
+    "0": {
+      "faults": 1,
+      "attacks": 1
+    },
+    "1": {
+      "faults": 11,
+      "attacks": 11
+    },
+    "2": {
+      "faults": 2,
+      "attacks": 2
+    },
+    "3": {
+      "faults": 2,
+      "attacks": 2
+    },
+    "4": {
+      "faults": 2,
+      "attacks": 2
+    },
+    "5": {
+      "faults": 1,
+      "attacks": 1
+    }
+  },
+  "copies": {
+    "g0": {
+      "faults": 14,
+      "share": 0.7368,
+      "attacks": 14
+    },
+    "outside": {
+      "faults": 5,
+      "share": 0.2632,
+      "attacks": 5
+    }
+  },
+  "copies_touched": {
+    "0": 5,
+    "1": 14
+  },
+  "attacks": [
+    {
+      "faults": [
+        [
+          "st[1]",
+          0
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$abc$184$auto$wreduce.cc:461:run$27[0]",
+          1
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$auto$rtlil.cc:2609:MuxGate$195",
+          1
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$auto$rtlil.cc:2609:MuxGate$193",
+          1
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c.$abc$175$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c.m",
+          1
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "st[0]",
+          2
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$auto$rtlil.cc:2609:MuxGate$195",
+          2
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "st[0]",
+          3
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$auto$rtlil.cc:2609:MuxGate$195",
+          3
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "st[0]",
+          4
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$auto$rtlil.cc:2609:MuxGate$195",
+          4
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "st[0]",
+          5
+        ]
+      ],
+      "inputs": 255
+    }
+  ],
+  "attacks_listed": 19,
+  "note": "BOUNDED and MODELLED: all attacks of the minimum size m with single-cycle bit flips of gate outputs and flop Q within 6 cycles on this netlist. Nothing is said about more cycles, other fault types, or physical feasibility.",
+  "sets_simulated": 107
+}

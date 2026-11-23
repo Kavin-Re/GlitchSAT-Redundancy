@@ -1,0 +1,1085 @@
+{
+ "rows": [
+  {
+   "build": "rom_naive-O0-plain-hw",
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 746
+  },
+  {
+   "build": "rom_naive-O0-vol-hw",
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 746
+  },
+  {
+   "build": "rom_naive-O0-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 782
+  },
+  {
+   "build": "rom_naive-O1-plain-hw",
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 269
+  },
+  {
+   "build": "rom_naive-O1-vol-hw",
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 269
+  },
+  {
+   "build": "rom_naive-O1-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 271
+  },
+  {
+   "build": "rom_naive-O2-plain-hw",
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 186
+  },
+  {
+   "build": "rom_naive-O2-vol-hw",
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 186
+  },
+  {
+   "build": "rom_naive-O2-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 185
+  },
+  {
+   "build": "rom_naive-Os-plain-hw",
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 259
+  },
+  {
+   "build": "rom_naive-Os-vol-hw",
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 259
+  },
+  {
+   "build": "rom_naive-Os-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 261
+  },
+  {
+   "build": "rom_double-O0-plain-hw",
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 953
+  },
+  {
+   "build": "rom_double-O0-vol-hw",
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 953
+  },
+  {
+   "build": "rom_double-O0-barrier-hw",
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 1013
+  },
+  {
+   "build": "rom_double-O1-plain-hw",
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 339
+  },
+  {
+   "build": "rom_double-O1-vol-hw",
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 347
+  },
+  {
+   "build": "rom_double-O1-barrier-hw",
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 345
+  },
+  {
+   "build": "rom_double-O2-plain-hw",
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 224
+  },
+  {
+   "build": "rom_double-O2-vol-hw",
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 233
+  },
+  {
+   "build": "rom_double-O2-barrier-hw",
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 227
+  },
+  {
+   "build": "rom_double-Os-plain-hw",
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 15,
+   "mac_compares_executed": 1.875,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 316
+  },
+  {
+   "build": "rom_double-Os-vol-hw",
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 346
+  },
+  {
+   "build": "rom_double-Os-barrier-hw",
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 345
+  },
+  {
+   "build": "rom_triple-O0-plain-hw",
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 1158
+  },
+  {
+   "build": "rom_triple-O0-vol-hw",
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 1158
+  },
+  {
+   "build": "rom_triple-O0-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 1236
+  },
+  {
+   "build": "rom_triple-O1-plain-hw",
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 410
+  },
+  {
+   "build": "rom_triple-O1-vol-hw",
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 422
+  },
+  {
+   "build": "rom_triple-O1-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 419
+  },
+  {
+   "build": "rom_triple-O2-plain-hw",
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 199
+  },
+  {
+   "build": "rom_triple-O2-vol-hw",
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 280
+  },
+  {
+   "build": "rom_triple-O2-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 272
+  },
+  {
+   "build": "rom_triple-Os-plain-hw",
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 22,
+   "mac_compares_executed": 2.75,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 374
+  },
+  {
+   "build": "rom_triple-Os-vol-hw",
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 420
+  },
+  {
+   "build": "rom_triple-Os-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 24,
+   "mac_compares_executed": 3.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 419
+  },
+  {
+   "build": "rom_compl-O0-plain-hw",
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 974
+  },
+  {
+   "build": "rom_compl-O0-vol-hw",
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 974
+  },
+  {
+   "build": "rom_compl-O0-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 1040
+  },
+  {
+   "build": "rom_compl-O1-plain-hw",
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 346
+  },
+  {
+   "build": "rom_compl-O1-vol-hw",
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 359
+  },
+  {
+   "build": "rom_compl-O1-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 358
+  },
+  {
+   "build": "rom_compl-O2-plain-hw",
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 15,
+   "mac_compares_executed": 1.875,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 217
+  },
+  {
+   "build": "rom_compl-O2-vol-hw",
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 236
+  },
+  {
+   "build": "rom_compl-O2-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 233
+  },
+  {
+   "build": "rom_compl-Os-plain-hw",
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 15,
+   "mac_compares_executed": 1.875,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 339
+  },
+  {
+   "build": "rom_compl-Os-vol-hw",
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 339
+  },
+  {
+   "build": "rom_compl-Os-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 2,
+   "good_run_steps": 358
+  },
+  {
+   "build": "rom_ctres-O0-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 983
+  },
+  {
+   "build": "rom_ctres-O0-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 983
+  },
+  {
+   "build": "rom_ctres-O0-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 1050
+  },
+  {
+   "build": "rom_ctres-O1-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 335
+  },
+  {
+   "build": "rom_ctres-O1-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 346
+  },
+  {
+   "build": "rom_ctres-O1-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 342
+  },
+  {
+   "build": "rom_ctres-O2-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 183
+  },
+  {
+   "build": "rom_ctres-O2-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 235
+  },
+  {
+   "build": "rom_ctres-O2-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 240
+  },
+  {
+   "build": "rom_ctres-Os-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 335
+  },
+  {
+   "build": "rom_ctres-Os-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 346
+  },
+  {
+   "build": "rom_ctres-Os-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 16,
+   "mac_compares_executed": 2.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 342
+  },
+  {
+   "build": "rom_cfi-O0-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 797
+  },
+  {
+   "build": "rom_cfi-O0-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 797
+  },
+  {
+   "build": "rom_cfi-O0-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 911
+  },
+  {
+   "build": "rom_cfi-O1-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 301
+  },
+  {
+   "build": "rom_cfi-O1-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 312
+  },
+  {
+   "build": "rom_cfi-O1-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 319
+  },
+  {
+   "build": "rom_cfi-O2-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 218
+  },
+  {
+   "build": "rom_cfi-O2-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 231
+  },
+  {
+   "build": "rom_cfi-O2-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 219
+  },
+  {
+   "build": "rom_cfi-Os-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 301
+  },
+  {
+   "build": "rom_cfi-Os-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 302
+  },
+  {
+   "build": "rom_cfi-Os-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 305
+  },
+  {
+   "build": "rom_delay-O0-plain-hw",
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 808
+  },
+  {
+   "build": "rom_delay-O0-vol-hw",
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 808
+  },
+  {
+   "build": "rom_delay-O0-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 844
+  },
+  {
+   "build": "rom_delay-O1-plain-hw",
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 283
+  },
+  {
+   "build": "rom_delay-O1-vol-hw",
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 283
+  },
+  {
+   "build": "rom_delay-O1-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 285
+  },
+  {
+   "build": "rom_delay-O2-plain-hw",
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 200
+  },
+  {
+   "build": "rom_delay-O2-vol-hw",
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 200
+  },
+  {
+   "build": "rom_delay-O2-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 199
+  },
+  {
+   "build": "rom_delay-Os-plain-hw",
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 273
+  },
+  {
+   "build": "rom_delay-Os-vol-hw",
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 273
+  },
+  {
+   "build": "rom_delay-Os-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 275
+  },
+  {
+   "build": "rom_infective-O0-plain-hw",
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 770
+  },
+  {
+   "build": "rom_infective-O0-vol-hw",
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 770
+  },
+  {
+   "build": "rom_infective-O0-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 818
+  },
+  {
+   "build": "rom_infective-O1-plain-hw",
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 264
+  },
+  {
+   "build": "rom_infective-O1-vol-hw",
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 273
+  },
+  {
+   "build": "rom_infective-O1-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 271
+  },
+  {
+   "build": "rom_infective-O2-plain-hw",
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 183
+  },
+  {
+   "build": "rom_infective-O2-vol-hw",
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 199
+  },
+  {
+   "build": "rom_infective-O2-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 198
+  },
+  {
+   "build": "rom_infective-Os-plain-hw",
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 264
+  },
+  {
+   "build": "rom_infective-Os-vol-hw",
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 273
+  },
+  {
+   "build": "rom_infective-Os-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 1,
+   "good_run_steps": 271
+  },
+  {
+   "build": "rom_hardened-O0-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 904
+  },
+  {
+   "build": "rom_hardened-O0-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 904
+  },
+  {
+   "build": "rom_hardened-O0-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 1054
+  },
+  {
+   "build": "rom_hardened-O1-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 319
+  },
+  {
+   "build": "rom_hardened-O1-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 348
+  },
+  {
+   "build": "rom_hardened-O1-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 342
+  },
+  {
+   "build": "rom_hardened-O2-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 242
+  },
+  {
+   "build": "rom_hardened-O2-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 275
+  },
+  {
+   "build": "rom_hardened-O2-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 262
+  },
+  {
+   "build": "rom_hardened-Os-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 319
+  },
+  {
+   "build": "rom_hardened-Os-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 348
+  },
+  {
+   "build": "rom_hardened-Os-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_word_loads": 8,
+   "mac_compares_executed": 1.0,
+   "otp_min_version_reads": 3,
+   "good_run_steps": 335
+  }
+ ],
+ "image": "good"
+}

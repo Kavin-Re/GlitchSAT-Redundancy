@@ -1,0 +1,531 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 16,
+   "pc": "0x17a",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 23,
+   "asm": "jal\tzero, 0x18c",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `jal\tzero, 0x38c`"
+  }
+ ],
+ "k1_count": 39,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 862,
+ "nodes": 11744,
+ "seconds": 16.33,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   11,
+   "0x3f8",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   11,
+   "0x3fc",
+   "sw\ta1, -0x10(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x40a",
+   "jal\tzero, 0x40e"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x414",
+   "bge\ta0, a1, 0x41c"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x41c",
+   "jal\tzero, 0x420"
+  ],
+  [
+   "rom_hardened.c",
+   14,
+   "0x440",
+   "sw\ta0, -0x14(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   16,
+   "0x454",
+   "jal\tzero, 0x458"
+  ],
+  [
+   "rom_hardened.c",
+   17,
+   "0x466",
+   "lw\ta0, -0x14(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   23,
+   "0x17a",
+   "jal\tzero, 0x18c"
+  ],
+  [
+   "rom_hardened.c",
+   35,
+   "0x27a",
+   "jal\tzero, 0x28c"
+  ],
+  [
+   "rom_hardened.c",
+   38,
+   "0x2b4",
+   "sw\ta0, -0x40(s0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 16,
+   "pc": "0x17a",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 23,
+   "asm": "jal\tzero, 0x18c",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `jal\tzero, 0x38c`"
+  },
+  {
+   "step": 605,
+   "pc": "0x27a",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 35,
+   "asm": "jal\tzero, 0x28c",
+   "model": "iwflip",
+   "arg": 28,
+   "effect": "bit 28 of fetched word flipped -> executes `jal\tzero, 0x38c`"
+  },
+  {
+   "step": 620,
+   "pc": "0x3f8",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta1, -0xc(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 5,
+   "effect": "bit 5 of fetched word flipped -> executes `lw\ta6, -0x15(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `sw\ta1, -0x20(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 16,
+   "effect": "bit 16 of fetched word flipped -> executes `sw\ta1, -0x10(a0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta0, -0x10(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `sw\ta1, -0x30(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `sw\ta1, -0x50(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 27,
+   "effect": "bit 27 of fetched word flipped -> executes `sw\ta1, -0x90(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 28,
+   "effect": "bit 28 of fetched word flipped -> executes `sw\ta1, -0x110(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `sw\ta1, -0x210(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 30,
+   "effect": "bit 30 of fetched word flipped -> executes `sw\ta1, -0x410(s0)`"
+  },
+  {
+   "step": 625,
+   "pc": "0x40a",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x40e",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 625,
+   "pc": "0x40a",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x40e",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `jal\tzero, 0x41e`"
+  },
+  {
+   "step": 628,
+   "pc": "0x414",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "bge\ta0, a1, 0x41c",
+   "model": "iwflip",
+   "arg": 8,
+   "effect": "bit 8 of fetched word flipped -> executes `bge\ta0, a1, 0x41e`"
+  },
+  {
+   "step": 629,
+   "pc": "0x41c",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x420",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 646,
+   "pc": "0x454",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 16,
+   "asm": "jal\tzero, 0x458",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 816,
+   "pc": "0x440",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 14,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 22,
+   "effect": "bit 22 of fetched word flipped -> executes `sw\ta4, -0x14(s0)`"
+  },
+  {
+   "step": 816,
+   "pc": "0x440",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 14,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `sw\ts10, -0x14(s0)`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 4,
+   "effect": "bit 4 of fetched word flipped -> executes `slti\ta0, s0, -0x14`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `lw\ta0, -0x34(s0)`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `lw\ta0, -0x54(s0)`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 27,
+   "effect": "bit 27 of fetched word flipped -> executes `lw\ta0, -0x94(s0)`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 28,
+   "effect": "bit 28 of fetched word flipped -> executes `lw\ta0, -0x114(s0)`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `lw\ta0, -0x214(s0)`"
+  },
+  {
+   "step": 830,
+   "pc": "0x466",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 30,
+   "effect": "bit 30 of fetched word flipped -> executes `lw\ta0, -0x414(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 5,
+   "effect": "bit 5 of fetched word flipped -> executes `lw\tzero, -0x36(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `sw\ta0, -0x3c(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `sw\ta0, -0x38(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `sw\ta0, -0x30(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 22,
+   "effect": "bit 22 of fetched word flipped -> executes `sw\ta4, -0x40(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `sw\ts10, -0x40(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `sw\ta0, -0x20(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `sw\ta0, -0x80(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 27,
+   "effect": "bit 27 of fetched word flipped -> executes `sw\ta0, -0xc0(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 28,
+   "effect": "bit 28 of fetched word flipped -> executes `sw\ta0, -0x140(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `sw\ta0, -0x240(s0)`"
+  },
+  {
+   "step": 835,
+   "pc": "0x2b4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "sw\ta0, -0x40(s0)",
+   "model": "iwflip",
+   "arg": 30,
+   "effect": "bit 30 of fetched word flipped -> executes `sw\ta0, -0x440(s0)`"
+  }
+ ],
+ "build": "rom_hardened-O0-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 434
+}

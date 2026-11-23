@@ -1,0 +1,205 @@
+{
+ "schema": "glitchsat-harden/1",
+ "design": "v2",
+ "design_description": "3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69",
+ "spec": {
+  "name": "v2",
+  "key": 195,
+  "width": 8,
+  "idle": 240,
+  "armed": 204,
+  "accept": 150,
+  "reject": 105,
+  "copies": 3,
+  "check_copies": 0,
+  "voter": "owner",
+  "owner": [
+   0,
+   1,
+   2,
+   0,
+   1,
+   2,
+   0,
+   1
+  ],
+  "alarm": "none",
+  "trap_invalid": false,
+  "output": "state",
+  "key_hex": "0xC3",
+  "idle_hex": "0xF0",
+  "armed_hex": "0xCC",
+  "accept_hex": "0x96",
+  "reject_hex": "0x69"
+ },
+ "goal": {
+  "min_flips_at_least": 5,
+  "meaning": "no attack with 4 or fewer modelled flips"
+ },
+ "goal_output": "boot_word == 0x96 while sig != 0xC3",
+ "cycles": "all",
+ "moves_allowed": [
+  "encoding",
+  "ownership",
+  "voter",
+  "copies",
+  "alarm",
+  "trap",
+  "sparse"
+ ],
+ "before": {
+  "min_flips": 2,
+  "shown": "2",
+  "label": "MEASURED",
+  "per_mapping": {
+   "select-shared": {
+    "min_flips": 2,
+    "shown": "2",
+    "gates": 90,
+    "flops": 8,
+    "sets_simulated": 20741,
+    "fault_sites_per_cycle": 98,
+    "witness": {
+     "input": 0,
+     "flips": [
+      [
+       0,
+       "not58"
+      ],
+      [
+       0,
+       "and61"
+      ]
+     ],
+     "cycles_used": 2,
+     "flip_bits": [
+      [
+       0,
+       76
+      ],
+      [
+       0,
+       79
+      ]
+     ],
+     "replayed": true
+    },
+    "right_key_boots": true,
+    "wrong_key_boots_without_faults": false,
+    "matches_description": true
+   },
+   "mux-shared": {
+    "min_flips": 2,
+    "shown": "2",
+    "gates": 87,
+    "flops": 8,
+    "sets_simulated": 20741,
+    "fault_sites_per_cycle": 95,
+    "witness": {
+     "input": 0,
+     "flips": [
+      [
+       0,
+       "and60"
+      ],
+      [
+       0,
+       "or67"
+      ]
+     ],
+     "cycles_used": 2,
+     "flip_bits": [
+      [
+       0,
+       78
+      ],
+      [
+       0,
+       85
+      ]
+     ],
+     "replayed": true
+    },
+    "right_key_boots": true,
+    "wrong_key_boots_without_faults": false,
+    "matches_description": true
+   },
+   "unshared": {
+    "min_flips": 3,
+    "shown": "3",
+    "gates": 101,
+    "flops": 8,
+    "sets_simulated": 14638,
+    "fault_sites_per_cycle": 109,
+    "witness": {
+     "input": 0,
+     "flips": [
+      [
+       1,
+       "c0.m"
+      ],
+      [
+       1,
+       "word[7]"
+      ],
+      [
+       1,
+       "word[2]"
+      ]
+     ],
+     "cycles_used": 3,
+     "flip_bits": [
+      [
+       1,
+       29
+      ],
+      [
+       1,
+       40
+      ],
+      [
+       1,
+       51
+      ]
+     ],
+     "replayed": true
+    },
+    "right_key_boots": true,
+    "wrong_key_boots_without_faults": false,
+    "matches_description": true
+   }
+  },
+  "if_copies_merged": "1"
+ },
+ "search": {
+  "structures": 18,
+  "candidates_after_predictor": 14214,
+  "candidates_simulated": 48,
+  "sets_simulated": 21040508,
+  "stopped_by_time_budget": false,
+  "runtime_s": 252.18
+ },
+ "reached": false,
+ "fixes": [],
+ "caveats": [
+  "Modelled faults only: one-cycle bit flips of gate outputs and flop outputs. Not a physical glitch model.",
+  "Toy 8-bit designs with a constant attacker input and a known reset state.",
+  "A number belongs to one netlist. The reference mappings are written by this tool, they are not Yosys output; re-synthesis can share or merge logic differently and change the number.",
+  "\"At least G\" means: no set of at most G-1 modelled flips works, for every wrong input and every number of clock cycles, on the listed netlists. It is an exhaustive search of the model, not a proof about hardware."
+ ],
+ "labels": {
+  "MEASURED": "simulated here, exhaustively, on the netlist named in the row",
+  "RECORDED": "copied from a file already in the repository; not re-run here",
+  "UNTESTED-HERE": "needs Yosys; the generated script and cloud/run_cloud.sh produce it",
+  "ASSUMED": "a modelling choice or unit weight, stated where used"
+ },
+ "closest": {
+  "min_flips": 4,
+  "description": "5 copies, voter owner 21043210, idle/armed/accept/reject 61/49/96/69",
+  "moves": [
+   "copies",
+   "encoding"
+  ],
+  "note": "best candidate simulated that did not reach the goal"
+ }
+}

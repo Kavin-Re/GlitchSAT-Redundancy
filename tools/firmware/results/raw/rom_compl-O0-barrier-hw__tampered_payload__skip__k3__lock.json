@@ -1,0 +1,70 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 710,
+   "pc": "0x37a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x382",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 719,
+ "nodes": 224,
+ "seconds": 0.39,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_compl.c",
+   29,
+   "0x37a",
+   "bne\ta0, a1, 0x382"
+  ],
+  [
+   "rom_compl.c",
+   30,
+   "0x38c",
+   "jalr\tra, -0x376(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 710,
+   "pc": "0x37a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x382",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 714,
+   "pc": "0x38c",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 30,
+   "asm": "jalr\tra, -0x376(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_compl-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 465
+}

@@ -1,0 +1,53 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 202,
+   "pc": "0x16c",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta1, 0x1ea",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `c.bnez\ta1, 0x1e2`"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 210,
+ "nodes": 1600,
+ "seconds": 0.95,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_triple.c",
+   27,
+   "0x16c",
+   "c.bnez\ta1, 0x1ea"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 202,
+   "pc": "0x16c",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta1, 0x1ea",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `c.bnez\ta1, 0x1e2`"
+  }
+ ],
+ "build": "rom_triple-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 205
+}

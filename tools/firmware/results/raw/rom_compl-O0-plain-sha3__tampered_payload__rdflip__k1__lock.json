@@ -1,0 +1,87 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 33,
+   "pc": "0x2cc",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 20,
+   "asm": "jalr\tra, -0x282(ra)",
+   "model": "rdflip",
+   "arg": 8,
+   "effect": "bit 8 of ra flipped after write"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 3940,
+ "nodes": 3648,
+ "seconds": 1.48,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_compl.c",
+   11,
+   "0x492",
+   "c.lwsp\tra, 0x1c(sp)"
+  ],
+  [
+   "rom_compl.c",
+   20,
+   "0x2cc",
+   "jalr\tra, -0x282(ra)"
+  ],
+  [
+   "rom_compl.c",
+   27,
+   "0x38a",
+   "jalr\tra, 0x92(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 33,
+   "pc": "0x2cc",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 20,
+   "asm": "jalr\tra, -0x282(ra)",
+   "model": "rdflip",
+   "arg": 8,
+   "effect": "bit 8 of ra flipped after write"
+  },
+  {
+   "step": 3895,
+   "pc": "0x38a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 27,
+   "asm": "jalr\tra, 0x92(ra)",
+   "model": "rdflip",
+   "arg": 5,
+   "effect": "bit 5 of ra flipped after write"
+  },
+  {
+   "step": 3923,
+   "pc": "0x492",
+   "function": "mac_cmp",
+   "file": "rom_compl.c",
+   "line": 11,
+   "asm": "c.lwsp\tra, 0x1c(sp)",
+   "model": "rdflip",
+   "arg": 5,
+   "effect": "bit 5 of ra flipped after write"
+  }
+ ],
+ "build": "rom_compl-O0-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 333
+}

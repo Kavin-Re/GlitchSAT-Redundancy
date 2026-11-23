@@ -1,0 +1,45 @@
+{
+ "model": "rdflip",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 49,
+   "pc": "0x21a",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "addi\ta1, s0, -0x28",
+   "model": "rdflip",
+   "arg": 6,
+   "effect": "bit 6 of a1 flipped after write"
+  },
+  {
+   "step": 614,
+   "pc": "0x2de",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 24,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 6,
+   "effect": "bit 6 of ra flipped after write"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 664,
+ "nodes": 290446,
+ "seconds": 66.48,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_double-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 413
+}

@@ -1,0 +1,261 @@
+{
+ "label": "MEASURED",
+ "tool": "ext/unbounded/src/unbounded.py 0.1.0",
+ "design": "v2_stored",
+ "origin": "stored reference netlist (68 gates)",
+ "netlist": "reference/spike_netlists/v2.json",
+ "netlist_sha256_16": "289355dc483b9e6a",
+ "top": "v2",
+ "max_faults": 2,
+ "verdict": "PROVED_UNBOUNDED",
+ "verdict_init": "known",
+ "scope": {
+  "time": "any number of clock cycles (unbounded)",
+  "max_faults": 2,
+  "fault_model": "single-cycle bit flip of any gate output or flop Q net",
+  "count_rule": "stem (one flipped net = one fault, whatever its fan-out)",
+  "attacker_input": "`sig` free, held constant, != key 0xC3",
+  "goal": "boot_word == 0x96 at some cycle",
+  "init": "known = flops power up at their netlist init value; arbitrary = any power-up state; free_nongoal = any power-up state from which the fault-free run never shows the goal"
+ },
+ "note": "UNBOUNDED IN TIME, BOUNDED IN EVERYTHING ELSE: the verdict covers any number of clock cycles, for at most 2 modelled single-cycle bit flips (gate outputs and flop Q nets) in total, on this one netlist, with the attacker input held constant and not equal to the key. It says nothing about more flips, other fault types (stuck-at, multi-cycle, clock or voltage effects), other netlists of the same RTL, or physical feasibility. Toy design; modelled faults.",
+ "netlist_stats": {
+  "gates": 68,
+  "flops": 8,
+  "state_bits": 19,
+  "design_flops": 8,
+  "input_bits": 8,
+  "counter_bits": 2,
+  "fault_sites_in_cone": 69,
+  "fault_sites_total": 76,
+  "step_vars": 434,
+  "step_clauses": 1351
+ },
+ "backend": "minicdcl",
+ "backends_available": [
+  "minicdcl"
+ ],
+ "python": "3.13.18",
+ "scopes": [
+  {
+   "init": "known",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 0.554,
+     "reachable_state_input_pairs": 27540,
+     "verdict": "proved",
+     "note": "fixed point reached: the listed number of (flop state, input) pairs is everything reachable with <= 2 flips, and none of them, with any remaining flips, shows the goal"
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 3,
+     "backend": "minicdcl",
+     "verdict": "proved",
+     "depth": 3,
+     "seconds": 0.222,
+     "step_failed_at_depths": 3
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "proved",
+     "frames": 2,
+     "seconds": 0.135,
+     "obligations": 20,
+     "blocked_cubes": 11,
+     "sat_calls": 304,
+     "invariant_clauses": 10,
+     "invariant": [
+      "boot_word[6] | used>=1",
+      "!boot_word[4] | boot_word[5] | used>=1",
+      "boot_word[3] | boot_word[5] | used>=1",
+      "boot_word[3] | boot_word[5] | boot_word[6] | used>=2",
+      "!boot_word[2] | !boot_word[5] | used>=1",
+      "!boot_word[2] | !boot_word[5] | boot_word[6] | used>=2",
+      "!goal_seen",
+      "!boot_word[4] | boot_word[5] | boot_word[6] | used>=2",
+      "!boot_word[2] | boot_word[3] | !boot_word[4] | boot_word[5] | used>=2",
+      "!boot_word[2] | boot_word[3] | !boot_word[4] | boot_word[5] | boot_word[6]"
+     ],
+     "certificate": {
+      "init": true,
+      "safe": true,
+      "inductive": true,
+      "ok": true,
+      "clauses": 10
+     },
+     "plain_induction_with_this_invariant": {
+      "verdict": "proved",
+      "depth": 0,
+      "seconds": 0.003
+     },
+     "invariant_holds_on_all_explicitly_reached_states": true
+    }
+   },
+   "plain_k_induction": {
+    "method": "k-induction without simple-path constraints (shown for comparison; not used for the verdict)",
+    "simple_path": false,
+    "invariant_clauses": 0,
+    "distinct_pairs": 0,
+    "backend": "minicdcl",
+    "verdict": "unknown",
+    "reason": "not inductive up to depth 12",
+    "depth": 12,
+    "seconds": 0.736,
+    "step_failed_at_depths": 13,
+    "last_step_counterexample": {
+     "depth": 12,
+     "start_flops": "0x86",
+     "start_used": 0,
+     "repeats_a_state": true
+    }
+   },
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.554,
+    "k_induction_simple_path": 0.222,
+    "ic3": 0.135
+   }
+  },
+  {
+   "init": "arbitrary",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 0.003,
+     "reachable_state_input_pairs": 0,
+     "verdict": "attack",
+     "min_faults": 0,
+     "faults": [],
+     "cycles": 1,
+     "attacker_input": {
+      "sig": 0
+     },
+     "init_state": 150,
+     "replayed": true
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "attack",
+     "depth": 1,
+     "seconds": 0.008,
+     "step_failed_at_depths": 1,
+     "faults": [],
+     "flips_used": 0,
+     "cycles": 1,
+     "replayed": true
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "attack",
+     "frames": 1,
+     "seconds": 0.001,
+     "obligations": 1,
+     "blocked_cubes": 0,
+     "sat_calls": 2,
+     "faults": [],
+     "flips_used": 0,
+     "cycles": 1,
+     "replayed": true
+    }
+   },
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.001
+   }
+  },
+  {
+   "init": "free_nongoal",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 1.738,
+     "reachable_state_input_pairs": 64770,
+     "verdict": "attack",
+     "min_faults": 1,
+     "faults": [
+      {
+       "cycle": 0,
+       "net": "boot_word[7]",
+       "net_id": 19,
+       "kind": "flop_Q"
+      }
+     ],
+     "cycles": 1,
+     "attacker_input": {
+      "sig": 0
+     },
+     "init_state": 22,
+     "replayed": true
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "attack",
+     "depth": 1,
+     "seconds": 0.016,
+     "step_failed_at_depths": 1,
+     "faults": [
+      {
+       "cycle": 0,
+       "net": "boot_word[0]",
+       "net_id": 12,
+       "kind": "flop_Q"
+      }
+     ],
+     "flips_used": 1,
+     "cycles": 1,
+     "replayed": true
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "attack",
+     "frames": 1,
+     "seconds": 0.006,
+     "obligations": 1,
+     "blocked_cubes": 0,
+     "sat_calls": 2,
+     "faults": [
+      {
+       "cycle": 0,
+       "net": "boot_word[0]",
+       "net_id": 12,
+       "kind": "flop_Q"
+      }
+     ],
+     "flips_used": 1,
+     "cycles": 1,
+     "replayed": true
+    }
+   },
+   "admissible_power_up_pairs": 65025,
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.738,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.006
+   }
+  }
+ ],
+ "honest_key_boots_fault_free": {
+  "solver": true,
+  "simulator": true
+ }
+}

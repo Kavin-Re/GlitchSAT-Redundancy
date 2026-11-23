@@ -1,0 +1,126 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 214,
+   "pc": "0x1c6",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.swsp\ta1, 0xc(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 6,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 224,
+ "nodes": 1712,
+ "seconds": 0.25,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   32,
+   "0x1c6",
+   "c.swsp\ta1, 0xc(sp)"
+  ],
+  [
+   "rom_ctres.c",
+   33,
+   "0x1c8",
+   "c.lwsp\ta1, 0xc(sp)"
+  ],
+  [
+   "rom_ctres.c",
+   34,
+   "0x1ee",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_ctres.c",
+   34,
+   "0x1f0",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 214,
+   "pc": "0x1c6",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.swsp\ta1, 0xc(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 215,
+   "pc": "0x1c8",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "c.lwsp\ta1, 0xc(sp)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 215,
+   "pc": "0x1c8",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "c.lwsp\ta1, 0xc(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 217,
+   "pc": "0x1ee",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 34,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 217,
+   "pc": "0x1ee",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 34,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 218,
+   "pc": "0x1f0",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 34,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "build": "rom_ctres-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 210
+}

@@ -1,0 +1,234 @@
+{
+ "label": "MEASURED",
+ "tool": "ext/unbounded/src/unbounded.py 0.1.0",
+ "design": "v2c5a_apt",
+ "origin": "control design armed state 0x5A, apt Yosys 0.33",
+ "netlist": "research/c6/p01/netlists/nl_apt_v2c5a.json",
+ "netlist_sha256_16": "17972e2f719944e3",
+ "top": "v2c5a",
+ "max_faults": 0,
+ "verdict": "PROVED_UNBOUNDED",
+ "verdict_init": "known",
+ "scope": {
+  "time": "any number of clock cycles (unbounded)",
+  "max_faults": 0,
+  "fault_model": "single-cycle bit flip of any gate output or flop Q net",
+  "count_rule": "stem (one flipped net = one fault, whatever its fan-out)",
+  "attacker_input": "`sig` free, held constant, != key 0xC3",
+  "goal": "boot_word == 0x96 at some cycle",
+  "init": "known = flops power up at their netlist init value; arbitrary = any power-up state; free_nongoal = any power-up state from which the fault-free run never shows the goal"
+ },
+ "note": "UNBOUNDED IN TIME, BOUNDED IN EVERYTHING ELSE: the verdict covers any number of clock cycles, for at most 0 modelled single-cycle bit flips (gate outputs and flop Q nets) in total, on this one netlist, with the attacker input held constant and not equal to the key. It says nothing about more flips, other fault types (stuck-at, multi-cycle, clock or voltage effects), other netlists of the same RTL, or physical feasibility. Toy design; modelled faults.",
+ "netlist_stats": {
+  "gates": 88,
+  "flops": 8,
+  "state_bits": 17,
+  "design_flops": 8,
+  "input_bits": 8,
+  "counter_bits": 0,
+  "fault_sites_in_cone": 0,
+  "fault_sites_total": 96,
+  "step_vars": 100,
+  "step_clauses": 239
+ },
+ "backend": "minicdcl",
+ "backends_available": [
+  "minicdcl"
+ ],
+ "python": "3.13.18",
+ "scopes": [
+  {
+   "init": "known",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 0.013,
+     "reachable_state_input_pairs": 765,
+     "verdict": "proved",
+     "note": "fixed point reached: the listed number of (flop state, input) pairs is everything reachable with <= 0 flips, and none of them, with any remaining flips, shows the goal"
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "proved",
+     "depth": 1,
+     "seconds": 0.005,
+     "step_failed_at_depths": 1
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "proved",
+     "frames": 2,
+     "seconds": 0.003,
+     "obligations": 4,
+     "blocked_cubes": 3,
+     "sat_calls": 33,
+     "invariant_clauses": 2,
+     "invariant": [
+      "boot_word[6]",
+      "!goal_seen"
+     ],
+     "certificate": {
+      "init": true,
+      "safe": true,
+      "inductive": true,
+      "ok": true,
+      "clauses": 2
+     },
+     "plain_induction_with_this_invariant": {
+      "verdict": "proved",
+      "depth": 0,
+      "seconds": 0.0
+     },
+     "invariant_holds_on_all_explicitly_reached_states": true
+    }
+   },
+   "plain_k_induction": {
+    "method": "k-induction without simple-path constraints (shown for comparison; not used for the verdict)",
+    "simple_path": false,
+    "invariant_clauses": 0,
+    "distinct_pairs": 0,
+    "backend": "minicdcl",
+    "verdict": "proved",
+    "depth": 1,
+    "seconds": 0.002,
+    "step_failed_at_depths": 1,
+    "last_step_counterexample": {
+     "depth": 0,
+     "start_flops": "0x96",
+     "start_used": 0,
+     "repeats_a_state": false
+    }
+   },
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.013,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.003
+   }
+  },
+  {
+   "init": "arbitrary",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 0.002,
+     "reachable_state_input_pairs": 0,
+     "verdict": "attack",
+     "min_faults": 0,
+     "faults": [],
+     "cycles": 1,
+     "attacker_input": {
+      "sig": 0
+     },
+     "init_state": 150,
+     "replayed": true
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "attack",
+     "depth": 1,
+     "seconds": 0.001,
+     "step_failed_at_depths": 1,
+     "faults": [],
+     "flips_used": 0,
+     "cycles": 1,
+     "replayed": true
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "attack",
+     "frames": 1,
+     "seconds": 0.0,
+     "obligations": 1,
+     "blocked_cubes": 0,
+     "sat_calls": 2,
+     "faults": [],
+     "flips_used": 0,
+     "cycles": 1,
+     "replayed": true
+    }
+   },
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "init": "free_nongoal",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 2.087,
+     "reachable_state_input_pairs": 65025,
+     "verdict": "proved",
+     "note": "fixed point reached: the listed number of (flop state, input) pairs is everything reachable with <= 0 flips, and none of them, with any remaining flips, shows the goal"
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "proved",
+     "depth": 1,
+     "seconds": 0.014,
+     "step_failed_at_depths": 1
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "proved",
+     "frames": 2,
+     "seconds": 0.017,
+     "obligations": 4,
+     "blocked_cubes": 3,
+     "sat_calls": 35,
+     "invariant_clauses": 2,
+     "invariant": [
+      "boot_word[0] | !boot_word[1] | !boot_word[2] | boot_word[3] | !boot_word[4] | boot_word[5] | boot_word[6] | !boot_word[7]",
+      "!goal_seen"
+     ],
+     "certificate": {
+      "init": true,
+      "safe": true,
+      "inductive": true,
+      "ok": true,
+      "clauses": 2
+     },
+     "plain_induction_with_this_invariant": {
+      "verdict": "proved",
+      "depth": 0,
+      "seconds": 0.002
+     },
+     "invariant_holds_on_all_explicitly_reached_states": true
+    }
+   },
+   "admissible_power_up_pairs": 65025,
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.087,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.017
+   }
+  }
+ ],
+ "honest_key_boots_fault_free": {
+  "solver": true,
+  "simulator": true
+ }
+}

@@ -1,0 +1,401 @@
+{
+ "label": "MEASURED",
+ "when": "2026-11-20 20:42:49",
+ "config": "backend sat:minicdcl  card=totalizer  fault-enc=relax  collapse=on  python 3.13.18  cpus 2  timeout 120.0s",
+ "args": {
+  "set": [
+   "proxy"
+  ],
+  "backend": "py",
+  "k": [
+   1,
+   2,
+   3
+  ],
+  "timeout": 120.0,
+  "card": "totalizer",
+  "fault_enc": "relax",
+  "no_collapse": false,
+  "cnf_only": false,
+  "per_k": false,
+  "z3": false,
+  "z3_timeout": 300,
+  "r20_dir": "ext/fastsat/bench/work/r20",
+  "proxy_cycles": null,
+  "only": "s (proxy)",
+  "out": "results/ablation_faultencrelax.json",
+  "md": "results/ablation_faultencrelax.md"
+ },
+ "rows": [
+  {
+   "name": "unprots (proxy)",
+   "T": 4,
+   "gates": 409,
+   "flops": 16,
+   "sites_modelled": 1283,
+   "fault_vars": 281,
+   "cnf_circuit": {
+    "vars": 1558,
+    "clauses": 7089,
+    "literals": 22040
+   },
+   "cnf": {
+    "vars": 2398,
+    "clauses": 9043,
+    "literals": 26785
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.264
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.117
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.424,
+   "build_s": 0.015,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "pars (proxy)",
+   "T": 4,
+   "gates": 834,
+   "flops": 17,
+   "sites_modelled": 2571,
+   "fault_vars": 510,
+   "cnf_circuit": {
+    "vars": 3061,
+    "clauses": 14193,
+    "literals": 44161
+   },
+   "cnf": {
+    "vars": 4587,
+    "clauses": 17749,
+    "literals": 52797
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.432
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.082
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.685,
+   "build_s": 0.104,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "par2s (proxy)",
+   "T": 4,
+   "gates": 834,
+   "flops": 25,
+   "sites_modelled": 2595,
+   "fault_vars": 534,
+   "cnf_circuit": {
+    "vars": 3107,
+    "clauses": 14275,
+    "literals": 44395
+   },
+   "cnf": {
+    "vars": 4705,
+    "clauses": 17999,
+    "literals": 53439
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.49
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.443
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 1.057,
+   "build_s": 0.037,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "dmrs (proxy)",
+   "T": 4,
+   "gates": 834,
+   "flops": 32,
+   "sites_modelled": 2630,
+   "fault_vars": 534,
+   "cnf_circuit": {
+    "vars": 3107,
+    "clauses": 14247,
+    "literals": 44255
+   },
+   "cnf": {
+    "vars": 4705,
+    "clauses": 17971,
+    "literals": 53299
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.337
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 3.168
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 1.402
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 4.998,
+   "build_s": 0.025,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "tmrs (proxy)",
+   "T": 4,
+   "gates": 1259,
+   "flops": 48,
+   "sites_modelled": 3977,
+   "fault_vars": 783,
+   "cnf_circuit": {
+    "vars": 4644,
+    "clauses": 21373,
+    "literals": 66386
+   },
+   "cnf": {
+    "vars": 6989,
+    "clauses": 26840,
+    "literals": 79663
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.54
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 2.885
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 1.2
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 4.768,
+   "build_s": 0.047,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "tmr2s (proxy)",
+   "T": 4,
+   "gates": 1259,
+   "flops": 48,
+   "sites_modelled": 3977,
+   "fault_vars": 787,
+   "cnf_circuit": {
+    "vars": 4649,
+    "clauses": 21384,
+    "literals": 66421
+   },
+   "cnf": {
+    "vars": 7006,
+    "clauses": 26879,
+    "literals": 79766
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.524
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 2.057
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 17.839
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.11
+    }
+   ],
+   "sweep_wall_s": 20.72,
+   "build_s": 0.062,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  }
+ ]
+}

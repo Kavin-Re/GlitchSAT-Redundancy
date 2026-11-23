@@ -1,0 +1,26 @@
+[
+ {
+  "design": "aes_fsm",
+  "cycles": 4,
+  "k": 3,
+  "gscale": 1,
+  "seq_model": 1,
+  "sites_same": true
+ },
+ {
+  "design": "aes_ctrl",
+  "cycles": 3,
+  "k": 4,
+  "gscale": 3,
+  "seq_model": 3,
+  "sites_same": true
+ },
+ {
+  "design": "ibex",
+  "cycles": 3,
+  "k": 3,
+  "gscale": 1,
+  "seq_model": 1,
+  "sites_same": true
+ }
+]

@@ -1,0 +1,131 @@
+{
+  "schema": "glitchsat-attack-surface/1",
+  "method": "exhaustive",
+  "netlist": "validation/nl/v2.json",
+  "netlist_sha256": "4c6cea5e7392a51f1dfcb1d8e8145342e0189454c65898b2c0165aa1b7046227",
+  "top": "v2",
+  "bound": {
+    "cycles": 6,
+    "max_faults": 3,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "attacker_input": "`sig` free, held constant, != key 0xC3 (other inputs free)",
+    "key": 195,
+    "reduce": "full",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q"
+  },
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "count": 4,
+  "complete": true,
+  "stop_reason": "exhausted",
+  "sites_modelled": 268,
+  "runtime_s": 0.078,
+  "copy_source": "structural",
+  "nets": [
+    {
+      "net": "$abc$310$new_n47_",
+      "net_id": 40,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.25,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$abc$310$new_n49_",
+      "net_id": 42,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.25,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$abc$310$new_n53_",
+      "net_id": 46,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.25,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "$abc$310$new_n55_",
+      "net_id": 48,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "g0",
+      "count": 1,
+      "share": 0.25,
+      "cycles": {
+        "1": 1
+      }
+    }
+  ],
+  "cycles": {
+    "1": {
+      "faults": 4,
+      "attacks": 4
+    }
+  },
+  "copies": {
+    "g0": {
+      "faults": 4,
+      "share": 1.0,
+      "attacks": 4
+    }
+  },
+  "copies_touched": {
+    "1": 4
+  },
+  "attacks": [
+    {
+      "faults": [
+        [
+          "$abc$310$new_n47_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$abc$310$new_n49_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$abc$310$new_n53_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$abc$310$new_n55_",
+          1
+        ]
+      ],
+      "inputs": 3
+    }
+  ],
+  "attacks_listed": 4,
+  "note": "BOUNDED and MODELLED: all attacks of the minimum size m with single-cycle bit flips of gate outputs and flop Q within 6 cycles on this netlist. Nothing is said about more cycles, other fault types, or physical feasibility.",
+  "sets_simulated": 269
+}

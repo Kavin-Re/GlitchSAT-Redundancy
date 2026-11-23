@@ -1,0 +1,64 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 285,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 41,
+   "asm": "c.bnez\ta3, 0x1f0",
+   "model": "iwflip",
+   "arg": 13,
+   "effect": "bit 13 of fetched word flipped -> executes `c.beqz\ta3, 0x1f0`"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 293,
+ "nodes": 4256,
+ "seconds": 3.2,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   41,
+   "0x18a",
+   "c.bnez\ta3, 0x1f0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 285,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 41,
+   "asm": "c.bnez\ta3, 0x1f0",
+   "model": "iwflip",
+   "arg": 13,
+   "effect": "bit 13 of fetched word flipped -> executes `c.beqz\ta3, 0x1f0`"
+  },
+  {
+   "step": 285,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 41,
+   "asm": "c.bnez\ta3, 0x1f0",
+   "model": "iwflip",
+   "arg": 15,
+   "effect": "bit 15 of fetched word flipped -> executes `c.lui\tt0, 0xf`"
+  }
+ ],
+ "build": "rom_hardened-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 203
+}

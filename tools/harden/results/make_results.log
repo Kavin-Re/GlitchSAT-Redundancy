@@ -1,0 +1,37 @@
+search v0 2
+before: 1 copy, voter single_and, idle/armed/accept/reject 0/1/2/3  min flips (worst unmerged mapping) = 1
+  pass: 2 copies, voter owner 10101010, idle/armed/accept/reject F0/CC/96/69  [sparse, voter, copies]  +50 gates, +6 flops
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69  [sparse, voter, copies]  +62 gates, +6 flops
+  pass: 2 copies, voter per_bit_and, idle/armed/accept/reject F0/CC/96/69  [sparse, voter, copies]  +66 gates, +6 flops
+search v0 3
+before: 1 copy, voter single_and, idle/armed/accept/reject 0/1/2/3  min flips (worst unmerged mapping) = 1
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69  [sparse, voter, copies, encoding]  +61 gates, +6 flops
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69, invalid state -> reject  [sparse, voter, copies, trap, encoding]  +79 gates, +6 flops
+  pass: 3 copies + 1 check, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69, alarm infect  [sparse, voter, copies, alarm, encoding]  +81 gates, +6 flops
+search v1 2
+before: 2 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69  min flips (worst unmerged mapping) = 1
+  pass: 2 copies, voter owner 10101010, idle/armed/accept/reject F0/CC/96/69  [voter]  +1 gates, +0 flops
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69  [voter, copies]  +13 gates, +0 flops
+  pass: 2 copies, voter per_bit_and, idle/armed/accept/reject F0/CC/96/69  [voter]  +17 gates, +0 flops
+search v1 3
+before: 2 copies, voter single_and, idle/armed/accept/reject F0/CC/96/69  min flips (worst unmerged mapping) = 1
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69  [voter, copies, encoding]  +12 gates, +0 flops
+  pass: 4 copies, voter owner 32103210, idle/armed/accept/reject F0/CC/96/69  [voter, copies]  +27 gates, +0 flops
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69, invalid state -> reject  [voter, copies, trap, encoding]  +30 gates, +0 flops
+search v2 3
+before: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69  min flips (worst unmerged mapping) = 2
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69  [encoding]  +-1 gates, +0 flops
+  pass: 4 copies, voter owner 32103210, idle/armed/accept/reject F0/CC/96/69  [copies]  +14 gates, +0 flops
+  pass: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/C8/96/69, invalid state -> reject  [trap, encoding]  +17 gates, +0 flops
+search v2 4
+before: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69  min flips (worst unmerged mapping) = 2
+  pass: 4 copies, voter owner 32103210, idle/armed/accept/reject 61/49/96/69  [copies, encoding]  +13 gates, +0 flops
+  pass: 5 copies, voter owner 21043210, idle/armed/accept/reject 61/49/96/69  [copies, encoding]  +24 gates, +0 flops
+  pass: 4 copies, voter owner 32103210, idle/armed/accept/reject F0/4C/96/69, invalid state -> reject  [copies, trap, encoding]  +32 gates, +0 flops
+search v2 5
+before: 3 copies, voter owner 10210210, idle/armed/accept/reject F0/CC/96/69  min flips (worst unmerged mapping) = 2
+armed sweep
+stored netlists
+netlist fixes
+done 372.7 s
+exit 0

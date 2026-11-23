@@ -1,0 +1,53 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 164,
+   "pc": "0x226",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "jalr\tra, -0x210(ra)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `jalr\tra, -0x10(ra)`"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 169,
+ "nodes": 1664,
+ "seconds": 1.22,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   33,
+   "0x226",
+   "jalr\tra, -0x210(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 164,
+   "pc": "0x226",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "jalr\tra, -0x210(ra)",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `jalr\tra, -0x10(ra)`"
+  }
+ ],
+ "build": "rom_cfi-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 237
+}

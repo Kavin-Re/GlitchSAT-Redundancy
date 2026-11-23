@@ -1,0 +1,124 @@
+backend sat:minicdcl  card=totalizer  fault-enc=xor  collapse=on  python 3.13.18  cpus 2  timeout 120.0s
+
+| design | gates/flops | T | sites | fault vars | CNF vars | CNF clauses | min<=3 | sweep s | k<=0 s | k<=1 s | k<=2 s | k<=3 s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| dashboard/real/netlists/v0.json | 18/2 | 6 | 106 | 34 | 211 | 553 | 1 | 0.005 | 0.001 | 0.0 | (implied) | (implied) |
+| dashboard/real/netlists/v1.json | 58/8 | 6 | 313 | 78 | 505 | 1349 | 1 | 0.011 | 0.001 | 0.008 | (implied) | (implied) |
+| dashboard/real/netlists/v2.json | 68/8 | 6 | 353 | 83 | 535 | 1419 | 3 | 0.398 | 0.001 | 0.009 | 0.098 | 0.276 |
+| docs/edu/starter_designs/mini_v0.json | 33/4 | 6 | 169 | 69 | 406 | 1038 | 0 | 0.003 | 0.001 | (implied) | (implied) | (implied) |
+| docs/edu/starter_designs/mini_v1.json | 39/4 | 6 | 199 | 69 | 407 | 1031 | 0 | 0.008 | 0.006 | (implied) | (implied) | (implied) |
+| docs/edu/starter_designs/mini_v2.json | 45/4 | 6 | 229 | 59 | 361 | 925 | 0 | 0.003 | 0.001 | (implied) | (implied) | (implied) |
+| formal/gen/v0.json | 23/2 | 6 | 131 | 65 | 357 | 874 | 1 | 0.007 | 0.001 | 0.004 | (implied) | (implied) |
+| formal/gen/v1.json | 70/8 | 6 | 348 | 133 | 756 | 1890 | 1 | 0.014 | 0.001 | 0.009 | (implied) | (implied) |
+| formal/gen/v2.json | 83/8 | 6 | 413 | 123 | 720 | 1809 | 3 | 0.17 | 0.001 | 0.012 | 0.124 | 0.026 |
+| formal/gen/v2_y038.json | 83/8 | 6 | 413 | 123 | 720 | 1809 | 3 | 0.181 | 0.001 | 0.011 | 0.135 | 0.03 |
+| formal/gen/w0.json | 25/2 | 6 | 141 | 65 | 362 | 874 | 1 | 0.002 | 0.0 | 0.0 | (implied) | (implied) |
+| formal/gen/w1.json | 72/8 | 6 | 353 | 138 | 780 | 1954 | 1 | 0.011 | 0.001 | 0.002 | (implied) | (implied) |
+| formal/gen/w2.json | 85/8 | 6 | 408 | 133 | 771 | 1935 | 2 | 0.056 | 0.001 | 0.014 | 0.034 | (implied) |
+| formal/gen/w2o.json | 81/8 | 6 | 398 | 133 | 771 | 1945 | 2 | 0.032 | 0.003 | 0.008 | 0.016 | (implied) |
+| research/c2/b1_faultmodels/netlists/v0_conda038.json | 23/2 | 6 | 131 | 65 | 357 | 874 | 1 | 0.003 | 0.001 | 0.0 | (implied) | (implied) |
+| research/c2/b1_faultmodels/netlists/v1_conda038.json | 70/8 | 6 | 348 | 133 | 756 | 1890 | 1 | 0.018 | 0.001 | 0.005 | (implied) | (implied) |
+| research/c2/b1_faultmodels/netlists/v2_conda038.json | 83/8 | 6 | 413 | 123 | 720 | 1809 | 3 | 0.176 | 0.001 | 0.018 | 0.128 | 0.024 |
+| research/c2/e2_variance/baseline_netlists/apt0.33_v0.json | 25/2 | 6 | 141 | 65 | 362 | 874 | 1 | 0.007 | 0.001 | 0.0 | (implied) | (implied) |
+| research/c2/e2_variance/baseline_netlists/apt0.33_v1.json | 72/8 | 6 | 353 | 138 | 780 | 1954 | 1 | 0.013 | 0.002 | 0.006 | (implied) | (implied) |
+| research/c2/e2_variance/baseline_netlists/apt0.33_v2.json | 85/8 | 6 | 408 | 133 | 771 | 1935 | 2 | 0.044 | 0.001 | 0.01 | 0.028 | (implied) |
+| research/c2/e2_variance/baseline_netlists/conda-eda0.38_v0.json | 23/2 | 6 | 131 | 65 | 357 | 874 | 1 | 0.002 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c2/e2_variance/baseline_netlists/conda-eda0.38_v1.json | 70/8 | 6 | 348 | 133 | 756 | 1890 | 1 | 0.018 | 0.001 | 0.01 | (implied) | (implied) |
+| research/c2/e2_variance/baseline_netlists/conda-eda0.38_v2.json | 83/8 | 6 | 413 | 123 | 720 | 1809 | 3 | 0.142 | 0.001 | 0.008 | 0.108 | 0.022 |
+| research/c2/e2_variance/baseline_netlists/conda-formal0.38_v0.json | 23/2 | 6 | 131 | 65 | 357 | 874 | 1 | 0.027 | 0.025 | 0.0 | (implied) | (implied) |
+| research/c2/e2_variance/baseline_netlists/conda-formal0.38_v1.json | 70/8 | 6 | 348 | 133 | 756 | 1890 | 1 | 0.027 | 0.006 | 0.011 | (implied) | (implied) |
+| research/c2/e2_variance/baseline_netlists/conda-formal0.38_v2.json | 83/8 | 6 | 413 | 123 | 720 | 1809 | 3 | 0.207 | 0.001 | 0.018 | 0.151 | 0.031 |
+| research/c2/reviews/ct/tests/v2_inbuf.json | 76/8 | 6 | 393 | 123 | 763 | 1943 | 1 | 0.018 | 0.009 | 0.003 | (implied) | (implied) |
+| research/c3/rt/hostile.json | 2/0 | 6 | 12 | 12 | 59 | 121 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/b3/nl/v5_apt033.json | 208/9 | 6 | 1028 | 193 | 1354 | 3639 | 3 | 1.746 | 0.009 | 0.055 | 0.216 | 1.446 |
+| research/c4/layout/nl/v1_layout.json | 75/8 | 6 | 368 | 83 | 545 | 1379 | 1 | 0.009 | 0.001 | 0.002 | (implied) | (implied) |
+| research/c4/layout/nl/v2_layout.json | 87/8 | 6 | 428 | 88 | 580 | 1419 | 3 | 0.288 | 0.005 | 0.005 | 0.054 | 0.216 |
+| research/c4/layout/nl/v2_wi_layout.json | 87/8 | 6 | 428 | 88 | 580 | 1419 | 3 | 0.341 | 0.001 | 0.007 | 0.059 | 0.267 |
+| research/c4/ver/gen/V456_v4_opt.json | 101/16 | 6 | 248 | 98 | 594 | 1526 | 1 | 0.029 | 0.001 | 0.021 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v4_plain.json | 118/16 | 6 | 303 | 138 | 779 | 1961 | 1 | 0.024 | 0.001 | 0.012 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v4b_opt.json | 116/16 | 6 | 248 | 98 | 594 | 1526 | 1 | 0.036 | 0.004 | 0.028 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v4b_plain.json | 128/16 | 6 | 303 | 138 | 779 | 1961 | 1 | 0.03 | 0.002 | 0.022 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v5_opt.json | 188/9 | 6 | 933 | 177 | 1204 | 3098 | 3 | 0.444 | 0.007 | 0.062 | 0.344 | 0.006 |
+| research/c4/ver/gen/V456_v6_opt.json | 86/24 | 6 | 558 | 205 | 1195 | 2968 | 1 | 0.025 | 0.001 | 0.014 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v6_plain.json | 78/24 | 6 | 518 | 165 | 974 | 2405 | 1 | 0.006 | 0.001 | 0.001 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v6bh_opt.json | 107/16 | 6 | 623 | 228 | 1380 | 3461 | 1 | 0.02 | 0.007 | 0.004 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v6bh_plain.json | 108/24 | 6 | 668 | 218 | 1337 | 3399 | 1 | 0.017 | 0.002 | 0.004 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v6h_opt.json | 107/24 | 6 | 663 | 220 | 1339 | 3367 | 1 | 0.061 | 0.002 | 0.045 | (implied) | (implied) |
+| research/c4/ver/gen/V456_v6h_plain.json | 108/24 | 6 | 668 | 250 | 1514 | 3797 | 1 | 0.06 | 0.002 | 0.044 | (implied) | (implied) |
+| research/c4/ver/gen/crc300_plain.json | 10/12 | 6 | 114 | 24 | 118 | 218 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc301_opt.json | - | 6 | rejected: flop net o: init value 'xx0xxxx0' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/crc302_plain.json | 3/11 | 6 | 78 | 48 | 209 | 396 | 0 | 0.001 | 0.0 | (implied) | (implied) | (implied) |
+| research/c4/ver/gen/crc303_opt.json | 2/3 | 6 | 26 | 6 | 30 | 50 | 0 | 0.0 | 0.0 | (implied) | (implied) | (implied) |
+| research/c4/ver/gen/crc304_plain.json | 2/3 | 6 | 26 | 6 | 30 | 50 | 0 | 0.0 | 0.0 | (implied) | (implied) | (implied) |
+| research/c4/ver/gen/crc305_opt.json | 5/6 | 6 | 57 | 12 | 62 | 110 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc306_plain.json | 8/7 | 6 | 76 | 6 | 36 | 62 | 1 | 0.0 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc307_opt.json | - | 6 | rejected: flop net o: init value 'xxxx0xx0' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/crc308_plain.json | 3/8 | 6 | 59 | 24 | 110 | 206 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc309_opt.json | 5/5 | 6 | 51 | 6 | 32 | 56 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc310_plain.json | 2/3 | 6 | 26 | 6 | 34 | 50 | 0 | 0.0 | 0.0 | (implied) | (implied) | (implied) |
+| research/c4/ver/gen/crc311_opt.json | - | 6 | rejected: flop net o: init value 'xxxx0xx0' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/crc312_plain.json | 11/9 | 6 | 101 | 6 | 40 | 68 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc313_opt.json | - | 6 | rejected: flop net o: init value 'xxx0xxx0' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/crc314_plain.json | 5/8 | 6 | 69 | 24 | 110 | 206 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc315_opt.json | 7/8 | 6 | 77 | 12 | 66 | 116 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc316_plain.json | 4/5 | 6 | 46 | 6 | 32 | 56 | 1 | 0.0 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc317_opt.json | 7/7 | 6 | 71 | 6 | 36 | 62 | 1 | 0.005 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc318_plain.json | 10/16 | 6 | 138 | 48 | 214 | 410 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc319_opt.json | - | 6 | rejected: flop net o: init value 'xxx0xxx0' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/crc320_plain.json | 8/10 | 6 | 94 | 24 | 114 | 212 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/crc321_opt.json | - | 6 | rejected: flop net o: init value 'xxx0xxx0' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/rand200_plain.json | 30/8 | 6 | 217 | 99 | 579 | 1464 | 1 | 0.021 | 0.002 | 0.011 | (implied) | (implied) |
+| research/c4/ver/gen/rand201_plain.json | 9/5 | 6 | 78 | 56 | 281 | 680 | none | 0.001 | 0.0 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rand202_plain.json | 31/6 | 6 | 212 | 112 | 649 | 1681 | none | 0.005 | 0.002 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rand203_plain.json | 21/6 | 6 | 156 | 82 | 455 | 1259 | 1 | 0.005 | 0.001 | 0.001 | (implied) | (implied) |
+| research/c4/ver/gen/rand204_plain.json | 15/7 | 6 | 122 | 67 | 391 | 1007 | none | 0.003 | 0.001 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rand205_plain.json | 7/8 | 6 | 64 | 45 | 256 | 684 | 0 | 0.001 | 0.0 | (implied) | (implied) | (implied) |
+| research/c4/ver/gen/rand206_plain.json | 29/5 | 6 | 195 | 91 | 546 | 1433 | 1 | 0.028 | 0.011 | 0.014 | (implied) | (implied) |
+| research/c4/ver/gen/rand207_plain.json | 23/8 | 6 | 170 | 95 | 520 | 1349 | 2 | 0.023 | 0.001 | 0.003 | 0.012 | (implied) |
+| research/c4/ver/gen/rand208_plain.json | 10/4 | 6 | 76 | 52 | 296 | 778 | none | 0.002 | 0.001 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rand209_plain.json | 12/3 | 6 | 89 | 47 | 273 | 697 | none | 0.002 | 0.001 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rand210_plain.json | 33/8 | 6 | 209 | 89 | 549 | 1497 | 0 | 0.016 | 0.011 | (implied) | (implied) | (implied) |
+| research/c4/ver/gen/rand211_plain.json | 19/8 | 6 | 149 | 81 | 460 | 1171 | 1 | 0.012 | 0.0 | 0.008 | (implied) | (implied) |
+| research/c4/ver/gen/rand212_plain.json | 25/3 | 6 | 160 | 77 | 461 | 1193 | none | 0.004 | 0.001 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rand213_plain.json | 8/4 | 6 | 56 | 16 | 100 | 233 | none | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| research/c4/ver/gen/rc100_plain.json | 16/10 | 6 | 135 | 67 | 338 | 755 | 2 | 0.008 | 0.0 | 0.002 | 0.0 | (implied) |
+| research/c4/ver/gen/rc101_opt.json | 42/7 | 6 | 245 | 37 | 226 | 517 | 1 | 0.003 | 0.001 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/rc102_plain.json | 25/12 | 6 | 190 | 89 | 449 | 996 | 1 | 0.004 | 0.0 | 0.002 | (implied) | (implied) |
+| research/c4/ver/gen/rc103_opt.json | - | 6 | rejected: flop net o: init value 'xx1001' contains 'x' (unknown); the model needs a known power-up state (trea | | | | | | | | | |
+| research/c4/ver/gen/rc104_plain.json | 22/10 | 6 | 161 | 58 | 314 | 707 | 2 | 0.036 | 0.0 | 0.034 | 0.0 | (implied) |
+| research/c4/ver/gen/rc105_opt.json | 26/5 | 6 | 157 | 29 | 180 | 395 | 1 | 0.006 | 0.0 | 0.004 | (implied) | (implied) |
+| research/c4/ver/gen/rc106_plain.json | 24/12 | 6 | 185 | 81 | 427 | 955 | 1 | 0.009 | 0.002 | 0.001 | (implied) | (implied) |
+| research/c4/ver/gen/rc107_opt.json | - | 6 | rejected: flop net o: init value '010x101x' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/rc108_plain.json | 38/14 | 6 | 244 | 108 | 574 | 1339 | 2 | 0.031 | 0.0 | 0.01 | 0.018 | (implied) |
+| research/c4/ver/gen/rc109_opt.json | 14/4 | 6 | 75 | 18 | 109 | 251 | 1 | 0.001 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/rc110_plain.json | 40/13 | 6 | 269 | 99 | 510 | 1169 | 3 | 0.04 | 0.0 | 0.012 | 0.017 | 0.004 |
+| research/c4/ver/gen/rc111_opt.json | - | 6 | rejected: flop net o: init value 'xx1x10' contains 'x' (unknown); the model needs a known power-up state (trea | | | | | | | | | |
+| research/c4/ver/gen/rc112_plain.json | 44/14 | 6 | 298 | 110 | 577 | 1312 | 2 | 0.02 | 0.002 | 0.009 | 0.001 | (implied) |
+| research/c4/ver/gen/rc113_opt.json | - | 6 | rejected: flop net o: init value '001x1xxx' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c4/ver/gen/rc114_plain.json | 30/12 | 6 | 213 | 73 | 376 | 848 | 1 | 0.009 | 0.006 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/rc115_opt.json | 23/5 | 6 | 139 | 25 | 160 | 371 | 1 | 0.002 | 0.0 | 0.001 | (implied) | (implied) |
+| research/c4/ver/gen/rc116_plain.json | 24/11 | 6 | 180 | 82 | 423 | 947 | 2 | 0.015 | 0.0 | 0.008 | 0.003 | (implied) |
+| research/c4/ver/gen/rc117_opt.json | - | 6 | rejected: flop net s: init value 'x111' contains 'x' (unknown); the model needs a known power-up state (treati | | | | | | | | | |
+| research/c4/ver/gen/rc118_plain.json | 32/13 | 6 | 231 | 81 | 412 | 906 | 1 | 0.01 | 0.001 | 0.002 | (implied) | (implied) |
+| research/c4/ver/gen/rc119_opt.json | - | 6 | rejected: flop net o: init value 'x111' contains 'x' (unknown); the model needs a known power-up state (treati | | | | | | | | | |
+| research/c4/ver/gen/rc120_plain.json | 18/10 | 6 | 142 | 53 | 284 | 623 | 1 | 0.007 | 0.0 | 0.005 | (implied) | (implied) |
+| research/c4/ver/gen/rc121_opt.json | - | 6 | rejected: flop net o: init value 'x000' contains 'x' (unknown); the model needs a known power-up state (treati | | | | | | | | | |
+| research/c4/ver/gen/rc122_plain.json | 24/7 | 6 | 158 | 36 | 195 | 399 | 1 | 0.002 | 0.0 | 0.0 | (implied) | (implied) |
+| research/c4/ver/gen/rc123_opt.json | 22/8 | 6 | 146 | 61 | 353 | 888 | 1 | 0.024 | 0.001 | 0.016 | (implied) | (implied) |
+| research/c4/ver/gen/rc124_plain.json | 28/11 | 6 | 202 | 80 | 453 | 1133 | 2 | 0.038 | 0.001 | 0.013 | 0.015 | (implied) |
+| research/c4/ver/gen/rc125_opt.json | 34/9 | 6 | 219 | 73 | 426 | 1021 | 1 | 0.011 | 0.001 | 0.003 | (implied) | (implied) |
+| research/c4/ver/gen/rc126_plain.json | 34/8 | 6 | 213 | 60 | 344 | 839 | 2 | 0.018 | 0.001 | 0.011 | 0.001 | (implied) |
+| research/c4/ver/gen/rc127_opt.json | - | 6 | rejected: flop net o: init value '0011xx1x' contains 'x' (unknown); the model needs a known power-up state (tr | | | | | | | | | |
+| research/c6/p01/netlists/nl_apt_v2.json | 85/8 | 6 | 408 | 133 | 771 | 1935 | 2 | 0.055 | 0.003 | 0.011 | 0.034 | (implied) |
+| research/c6/p01/netlists/nl_apt_v2c04.json | 81/8 | 6 | 418 | 98 | 635 | 1589 | 1 | 0.013 | 0.001 | 0.002 | (implied) | (implied) |
+| research/c6/p01/netlists/nl_apt_v2c4d.json | 89/8 | 6 | 438 | 103 | 660 | 1664 | 2 | 0.047 | 0.001 | 0.009 | 0.028 | (implied) |
+| research/c6/p01/netlists/nl_apt_v2c5a.json | 88/8 | 6 | 458 | 103 | 660 | 1664 | 3 | 0.134 | 0.005 | 0.005 | 0.089 | 0.031 |
+| research/c6/p01/netlists/nl_apt_v2e.json | 89/8 | 6 | 463 | 98 | 645 | 1629 | 3 | 0.297 | 0.001 | 0.016 | 0.157 | 0.114 |
+| research/c6/p01/netlists/nl_conda_v2.json | 83/8 | 6 | 413 | 123 | 720 | 1809 | 3 | 0.247 | 0.001 | 0.02 | 0.17 | 0.034 |
+| research/c6/p01/netlists/nl_conda_v2c04.json | 82/8 | 6 | 418 | 93 | 616 | 1550 | 1 | 0.012 | 0.003 | 0.001 | (implied) | (implied) |
+| research/c6/p01/netlists/nl_conda_v2c4d.json | 88/8 | 6 | 453 | 113 | 691 | 1745 | 3 | 0.365 | 0.001 | 0.008 | 0.098 | 0.249 |
+| research/c6/p01/netlists/nl_conda_v2c5a.json | 88/8 | 6 | 458 | 118 | 740 | 1869 | 3 | 0.245 | 0.001 | 0.008 | 0.132 | 0.091 |
+| research/c6/p01/netlists/nl_conda_v2e.json | 81/8 | 6 | 423 | 113 | 691 | 1760 | 3 | 0.223 | 0.005 | 0.023 | 0.119 | 0.067 |
+| validation/nl/v0.json | 17/2 | 6 | 100 | 22 | 150 | 376 | 1 | 0.005 | 0.004 | 0.0 | (implied) | (implied) |
+| validation/nl/v1.json | 55/8 | 6 | 268 | 118 | 698 | 1808 | 1 | 0.036 | 0.002 | 0.013 | (implied) | (implied) |
+| validation/nl/v2.json | 55/8 | 6 | 268 | 118 | 698 | 1808 | 1 | 0.028 | 0.006 | 0.019 | (implied) | (implied) |

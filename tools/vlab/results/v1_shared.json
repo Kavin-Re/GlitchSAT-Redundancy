@@ -1,0 +1,19 @@
+{
+ "schema": "physical-fault-campaign/1",
+ "mechanism": "clock_glitch",
+ "design": "v1",
+ "top": "v1",
+ "key": 195,
+ "good": 150,
+ "init": 240,
+ "realizable_wrong_key_accept": false,
+ "min_cost": null,
+ "cost_unit": null,
+ "realized_flip_sets": [],
+ "honesty": "SIMULATION, not measurement",
+ "extra": {
+  "delay_model": "ASSUMED",
+  "n_offsets": 7,
+  "n_periods": 96
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 971,
+   "pc": "0x1d4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x278",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  }
+ ],
+ "k1_count": 4,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 979,
+ "nodes": 848,
+ "seconds": 0.53,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   13,
+   "0x1d4",
+   "bne\ta2, a3, 0x278"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 971,
+   "pc": "0x1d4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x278",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 971,
+   "pc": "0x1d4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x278",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 971,
+   "pc": "0x1d4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x278",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 971,
+   "pc": "0x1d4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x278",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  }
+ ],
+ "build": "rom_cfi-O2-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 214
+}

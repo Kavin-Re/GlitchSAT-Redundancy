@@ -1,0 +1,45 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 5,
+   "pc": "0xac",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 12,
+   "asm": "c.swsp\tra, 0x2c(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 14,
+   "pc": "0x10c",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 18,
+   "asm": "jalr\tra, -0xf6(ra)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 203,
+ "nodes": 188214,
+ "seconds": 4.28,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_triple-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 177
+}

@@ -1,0 +1,34 @@
+GlitchSAT countermeasure survival: v2    FAIL (exit 1)
+
+  3 copies of cmp8(sig)   [redundant_copies; rtl-scan; rtl/v2.v:9]
+    synth-plain  SURVIVED  3 independent copies of 3 intended, no shared cell
+    synth-flat   REMOVED   1 independent copy left of 3 intended: 2 net(s) still compute the function but share 4 cell(s)
+                   - 2 net(s) compute the copies' function: $abc$310$new_n59_, $abc$310$new_n60_
+                   - 4 cell(s) lie in the logic of more than one copy: $abc$310$auto$blifparse.cc:386:parse_blif$332 [$_OR_], $abc$310$auto$blifparse.cc:386:parse_blif$334 [$_AND_], $abc$310$auto$blifparse.cc:386:parse_blif$338 [$_AND_], $abc$310$auto$blifparse.cc:386:parse_blif$340 [$_OR_]
+        why:  The copies were optimised together and now share gates. The script runs `abc -g AND,OR,XOR,MUX` on the flattened design, so ABC sees all copies at once and shares their common sub-expressions.
+        fix:  RTL: put `(* keep_hierarchy *)` on module `cmp8` and map before flattening (`abc` per module, then `flatten`), with no `opt_merge`/`opt`/`synth` after the flatten.
+              Constraint: mark each copy's cells `keep` / `dont_touch` before any pass that sees more than one copy (Yosys: `setattr -set keep 1 c0/* c1/* c2/*`; Design Compiler / Genus: `set_dont_touch` on the copy instances).
+              ext/harden: `glitchsat harden design <design> --goal N --out fixes/` writes a Yosys script with this copy-separation guard; `glitchsat harden netlist <netlist.json> --groups ...` duplicates the shared gates of an existing netlist ("remove single points").
+    placed       WEAKENED  3 independent copies of 3 intended, no shared cell
+                   - 3 net(s) compute the copies' function: m2, m0, m1
+                   - closest cells of two different copies: c1/_3_ and c2/_3_, centres 1.84 um apart (boxes 0.0 um apart): a spot of radius 0.92 um reaches both
+                   - one spot of radius 1.665 um at (20.24, 8.004) reaches a cell of every copy: c0/_2_, c1/_4_, c2/_4_
+                   - configured spot radius 1.0 um >= 0.92 um: one shot reaches two copies, not all
+        why:  Placement put cells of different copies next to each other: 0.92 um is enough to reach two copies and 1.665 um to reach all of them. Placers minimise wire length, and copies that read the same inputs are pulled together.
+        fix:  Placement constraint: one region (OpenROAD `create_region`/`place_cell` fences, Innovus `createInstGroup` + `createRegion`, ICC2 `create_bound -exclusive`) per copy, at least 2.00 um apart edge to edge (twice the spot radius), including the cells each copy alone drives.
+              The repository's pinned layouts (research/c4/l2_inputs: v8, s8, v15, rr) show the effect; ext/shots gives the number of shots for each radius.
+
+  register st with 4 codes, distance 4   [sparse_encoding; rtl-scan; rtl/v2.v:8]
+    synth-plain  SURVIVED  st: fault-free reachable codes 0x69, 0x96, 0xcc, 0xf0; minimum Hamming distance 4 (intended 4)
+    synth-flat   SURVIVED  st: fault-free reachable codes 0x69, 0x96, 0xcc, 0xf0; minimum Hamming distance 4 (intended 4)
+    placed       SURVIVED  boot_word: fault-free reachable codes 0x69, 0x96, 0xcc, 0xf0; minimum Hamming distance 4 (intended 4)
+
+  Security margin per stage (goal: boot_word == 0x96 with a wrong sig):
+    synth-plain  3 fault(s) (within 6 cycles, exhaustive (<= 2 flips) + fastsat)
+    synth-flat   1 fault(s) (within 6 cycles, exhaustive)
+    placed       2 shot(s) of radius 1.0 um (SIMULATED (recorded by ext/shots))
+    -> margin dropped from 3 (synth-plain) to 1 (synth-flat); explained by: 3 copies of cmp8(sig). Minimum attack found: $abc$310$new_n47_ (cycle 1, feeds 8 state flops)
+
+  note [placed]: power-up values of 8 flops taken from the previous netlist stage (same flop names)
+
+  1 survived, 0 weakened, 1 removed, 0 untracked, 0 not run.  Structural check of this netlist / layout / binary against the countermeasures found in the source. Margins are bounded results on modelled faults; not a proof of security and not a lab rating.

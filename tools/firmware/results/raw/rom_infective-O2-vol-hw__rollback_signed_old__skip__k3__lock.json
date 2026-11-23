@@ -1,0 +1,70 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 140,
+   "pc": "0xe0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "c.lw\ta0, 0x4(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 151,
+ "nodes": 34,
+ "seconds": 0.0,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   22,
+   "0xe0",
+   "c.lw\ta0, 0x4(s0)"
+  ],
+  [
+   "rom_infective.c",
+   22,
+   "0xe2",
+   "lui\ta1, 0x40000"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 140,
+   "pc": "0xe0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "c.lw\ta0, 0x4(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 141,
+   "pc": "0xe2",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 22,
+   "asm": "lui\ta1, 0x40000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_infective-O2-vol-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 148
+}

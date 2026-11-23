@@ -1,0 +1,3456 @@
+{
+  "schema": "glitchsat-attack-surface/1",
+  "method": "exhaustive",
+  "netlist": "reference/spike_netlists/v2.json",
+  "netlist_sha256": "289355dc483b9e6a74fea40b2d33a782350a2fd626468e97dd1c10b1cfe781ec",
+  "top": "v2",
+  "bound": {
+    "cycles": 6,
+    "max_faults": 3,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "attacker_input": "`sig` free, held constant, != key 0xC3 (other inputs free)",
+    "key": 195,
+    "reduce": "full",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q"
+  },
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 3,
+  "count": 182,
+  "complete": true,
+  "stop_reason": "exhausted",
+  "sites_modelled": 353,
+  "runtime_s": 60.894,
+  "copy_source": "names",
+  "nets": [
+    {
+      "net": "c1.m",
+      "net_id": 65,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c1",
+      "count": 44,
+      "share": 0.2418,
+      "cycles": {
+        "1": 44
+      }
+    },
+    {
+      "net": "c2.m",
+      "net_id": 27,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c2",
+      "count": 44,
+      "share": 0.2418,
+      "cycles": {
+        "1": 44
+      }
+    },
+    {
+      "net": "c0.m",
+      "net_id": 29,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c0",
+      "count": 36,
+      "share": 0.1978,
+      "cycles": {
+        "1": 36
+      }
+    },
+    {
+      "net": "word[0]",
+      "net_id": 30,
+      "kind": "gate_output",
+      "gate": "NOT",
+      "copy": "c0:path",
+      "count": 36,
+      "share": 0.1978,
+      "cycles": {
+        "1": 36
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n12_",
+      "net_id": 75,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c1",
+      "count": 28,
+      "share": 0.1538,
+      "cycles": {
+        "1": 28
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n13_",
+      "net_id": 76,
+      "kind": "gate_output",
+      "gate": "NOT",
+      "copy": "c1",
+      "count": 28,
+      "share": 0.1538,
+      "cycles": {
+        "1": 28
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n12_",
+      "net_id": 82,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c2",
+      "count": 28,
+      "share": 0.1538,
+      "cycles": {
+        "1": 28
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n13_",
+      "net_id": 83,
+      "kind": "gate_output",
+      "gate": "NOT",
+      "copy": "c2",
+      "count": 28,
+      "share": 0.1538,
+      "cycles": {
+        "1": 28
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n12_",
+      "net_id": 68,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c0",
+      "count": 23,
+      "share": 0.1264,
+      "cycles": {
+        "1": 23
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n13_",
+      "net_id": 69,
+      "kind": "gate_output",
+      "gate": "NOT",
+      "copy": "c0",
+      "count": 23,
+      "share": 0.1264,
+      "cycles": {
+        "1": 23
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n10_",
+      "net_id": 73,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c1",
+      "count": 20,
+      "share": 0.1099,
+      "cycles": {
+        "1": 20
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n11_",
+      "net_id": 74,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c1",
+      "count": 20,
+      "share": 0.1099,
+      "cycles": {
+        "1": 20
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n10_",
+      "net_id": 80,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c2",
+      "count": 20,
+      "share": 0.1099,
+      "cycles": {
+        "1": 20
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n11_",
+      "net_id": 81,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c2",
+      "count": 20,
+      "share": 0.1099,
+      "cycles": {
+        "1": 20
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n16_",
+      "net_id": 79,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c1",
+      "count": 18,
+      "share": 0.0989,
+      "cycles": {
+        "1": 18
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n16_",
+      "net_id": 86,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c2",
+      "count": 18,
+      "share": 0.0989,
+      "cycles": {
+        "1": 18
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n10_",
+      "net_id": 66,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c0",
+      "count": 16,
+      "share": 0.0879,
+      "cycles": {
+        "1": 16
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n11_",
+      "net_id": 67,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c0",
+      "count": 16,
+      "share": 0.0879,
+      "cycles": {
+        "1": 16
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n16_",
+      "net_id": 72,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c0",
+      "count": 14,
+      "share": 0.0769,
+      "cycles": {
+        "1": 14
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n14_",
+      "net_id": 77,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c1",
+      "count": 12,
+      "share": 0.0659,
+      "cycles": {
+        "1": 12
+      }
+    },
+    {
+      "net": "$flatten\\c1.$abc$251$new_n15_",
+      "net_id": 78,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c1",
+      "count": 12,
+      "share": 0.0659,
+      "cycles": {
+        "1": 12
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n14_",
+      "net_id": 84,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c2",
+      "count": 12,
+      "share": 0.0659,
+      "cycles": {
+        "1": 12
+      }
+    },
+    {
+      "net": "$flatten\\c2.$abc$251$new_n15_",
+      "net_id": 85,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c2",
+      "count": 12,
+      "share": 0.0659,
+      "cycles": {
+        "1": 12
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n14_",
+      "net_id": 70,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c0",
+      "count": 9,
+      "share": 0.0495,
+      "cycles": {
+        "1": 9
+      }
+    },
+    {
+      "net": "$flatten\\c0.$abc$251$new_n15_",
+      "net_id": 71,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c0",
+      "count": 9,
+      "share": 0.0495,
+      "cycles": {
+        "1": 9
+      }
+    }
+  ],
+  "cycles": {
+    "1": {
+      "faults": 546,
+      "attacks": 182
+    }
+  },
+  "copies": {
+    "c0": {
+      "faults": 146,
+      "share": 0.2674,
+      "attacks": 146
+    },
+    "c0:path": {
+      "faults": 36,
+      "share": 0.0659,
+      "attacks": 36
+    },
+    "c1": {
+      "faults": 182,
+      "share": 0.3333,
+      "attacks": 182
+    },
+    "c2": {
+      "faults": 182,
+      "share": 0.3333,
+      "attacks": 182
+    }
+  },
+  "copies_touched": {
+    "3": 182
+  },
+  "attacks": [
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "word[0]",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "$flatten\\c0.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n10_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n11_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n12_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n13_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n14_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n15_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "$flatten\\c1.$abc$251$new_n16_",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n10_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n11_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n12_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n13_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n14_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n15_",
+          1
+        ]
+      ],
+      "inputs": 3
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "$flatten\\c2.$abc$251$new_n16_",
+          1
+        ]
+      ],
+      "inputs": 15
+    },
+    {
+      "faults": [
+        [
+          "c0.m",
+          1
+        ],
+        [
+          "c1.m",
+          1
+        ],
+        [
+          "c2.m",
+          1
+        ]
+      ],
+      "inputs": 255
+    }
+  ],
+  "attacks_listed": 182,
+  "note": "BOUNDED and MODELLED: all attacks of the minimum size m with single-cycle bit flips of gate outputs and flop Q within 6 cycles on this netlist. Nothing is said about more cycles, other fault types, or physical feasibility.",
+  "sets_simulated": 7331458
+}

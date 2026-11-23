@@ -1,0 +1,70 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 960,
+   "pc": "0x1b0",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 26,
+   "asm": "jalr\tra, 0x28(ra)",
+   "model": "rdflip",
+   "arg": 1,
+   "effect": "bit 1 of ra flipped after write"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 976,
+ "nodes": 1184,
+ "seconds": 0.31,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_triple.c",
+   7,
+   "0x1de",
+   "c.li\ta0, 0x1"
+  ],
+  [
+   "rom_triple.c",
+   26,
+   "0x1b0",
+   "jalr\tra, 0x28(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 960,
+   "pc": "0x1b0",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 26,
+   "asm": "jalr\tra, 0x28(ra)",
+   "model": "rdflip",
+   "arg": 1,
+   "effect": "bit 1 of ra flipped after write"
+  },
+  {
+   "step": 965,
+   "pc": "0x1de",
+   "function": "mac_cmp",
+   "file": "rom_triple.c",
+   "line": 7,
+   "asm": "c.li\ta0, 0x1",
+   "model": "rdflip",
+   "arg": 0,
+   "effect": "bit 0 of a0 flipped after write"
+  }
+ ],
+ "build": "rom_triple-O2-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 164
+}

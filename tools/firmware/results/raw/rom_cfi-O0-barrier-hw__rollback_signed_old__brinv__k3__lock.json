@@ -1,0 +1,53 @@
+{
+ "model": "brinv",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 593,
+   "pc": "0x2a6",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "bltu\ta0, a1, 0x2ae",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 602,
+ "nodes": 5,
+ "seconds": 0.02,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   29,
+   "0x2a6",
+   "bltu\ta0, a1, 0x2ae"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 593,
+   "pc": "0x2a6",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "bltu\ta0, a1, 0x2ae",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "build": "rom_cfi-O0-barrier-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 439
+}

@@ -1,0 +1,161 @@
+{
+  "schema": "glitchsat-attack-surface/1",
+  "method": "exhaustive",
+  "netlist": "research/c4/b3_inputs/nl/v2_apt033.json",
+  "netlist_sha256": "f954078f944ab7a2c58845dbbfc399e13d179de8547df7b51c1f402aafff72c5",
+  "top": "v2",
+  "bound": {
+    "cycles": 6,
+    "max_faults": 3,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "attacker_input": "`sig` free, held constant, != key 0xC3 (other inputs free)",
+    "key": 195,
+    "reduce": "full",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q"
+  },
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 2,
+  "count": 5,
+  "complete": true,
+  "stop_reason": "exhausted",
+  "sites_modelled": 408,
+  "runtime_s": 1.078,
+  "copy_source": "names",
+  "nets": [
+    {
+      "net": "$abc$275$new_n58_",
+      "net_id": 51,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "c1:path",
+      "count": 5,
+      "share": 1.0,
+      "cycles": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      }
+    },
+    {
+      "net": "$abc$275$new_n74_",
+      "net_id": 67,
+      "kind": "gate_output",
+      "gate": "OR",
+      "copy": "c0:path",
+      "count": 5,
+      "share": 1.0,
+      "cycles": {
+        "0": 5
+      }
+    }
+  ],
+  "cycles": {
+    "0": {
+      "faults": 6,
+      "attacks": 5
+    },
+    "1": {
+      "faults": 1,
+      "attacks": 1
+    },
+    "2": {
+      "faults": 1,
+      "attacks": 1
+    },
+    "3": {
+      "faults": 1,
+      "attacks": 1
+    },
+    "4": {
+      "faults": 1,
+      "attacks": 1
+    }
+  },
+  "copies": {
+    "c0:path": {
+      "faults": 5,
+      "share": 0.5,
+      "attacks": 5
+    },
+    "c1:path": {
+      "faults": 5,
+      "share": 0.5,
+      "attacks": 5
+    }
+  },
+  "copies_touched": {
+    "2": 5
+  },
+  "attacks": [
+    {
+      "faults": [
+        [
+          "$abc$275$new_n58_",
+          0
+        ],
+        [
+          "$abc$275$new_n74_",
+          0
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$abc$275$new_n74_",
+          0
+        ],
+        [
+          "$abc$275$new_n58_",
+          1
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$abc$275$new_n74_",
+          0
+        ],
+        [
+          "$abc$275$new_n58_",
+          2
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$abc$275$new_n74_",
+          0
+        ],
+        [
+          "$abc$275$new_n58_",
+          3
+        ]
+      ],
+      "inputs": 255
+    },
+    {
+      "faults": [
+        [
+          "$abc$275$new_n74_",
+          0
+        ],
+        [
+          "$abc$275$new_n58_",
+          4
+        ]
+      ],
+      "inputs": 255
+    }
+  ],
+  "attacks_listed": 5,
+  "note": "BOUNDED and MODELLED: all attacks of the minimum size m with single-cycle bit flips of gate outputs and flop Q within 6 cycles on this netlist. Nothing is said about more cycles, other fault types, or physical feasibility.",
+  "sets_simulated": 83437
+}

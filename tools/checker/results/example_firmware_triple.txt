@@ -1,0 +1,21 @@
+GlitchSAT countermeasure survival: rom_triple-O2-plain    FAIL (exit 1)
+
+  check `HDR->version < otp_read(OTP_MIN_VERSION)` written 3 times in rom_main   [fw_repeated_check; c-scan; ext/firmware/src/rom_triple.c:20]
+    firmware     SURVIVED  all 3 guards own a conditional branch or handler call in the binary
+
+  check `LAUNDER(r1) != 0` written 3 times in rom_main   [fw_repeated_check; c-scan; ext/firmware/src/rom_triple.c:27]
+    firmware     REMOVED   1 of 3 independent checks left in the binary (1 guard line(s) with a branch): the repetition is gone
+                   - rom_triple.c:30 `if (LAUNDER(r2) != 0)` -> rom_alarm(): no instruction of the binary belongs to this line
+                   - rom_triple.c:33 `if (LAUNDER(r3) != 0)` -> rom_alarm(): no instruction of the binary belongs to this line
+                   - the checked computation is still done 1 time(s) in rom_main (mac_cmp: 1 call site(s) + 0 inlined copy(ies))
+        why:  The compiler proved the repeated checks equivalent (same expression, nothing in between that it must assume can change) and kept one: common-subexpression elimination and jump threading, enabled from -O1/-O2 (-fgcse, -ftree-dominator-opts, LLVM GVN/EarlyCSE/SimplifyCFG).
+        fix:  Compiler barrier: pass each checked value through an empty inline-asm barrier, as ext/firmware/src/rom.h `LAUNDER(x)` (`__asm__ volatile("" : "+r"(v))`, OpenTitan `launder32`), once per check.
+              Or read the checked data through `volatile` (ext/firmware build mode `vol`). Both keep all repeats at -O1, -O2 and -Os in ext/firmware's measurements.
+              Keep this check in CI: a compiler upgrade can undo a barrier that works today.
+
+  Security margin per stage:
+    firmware     1 instruction fault(s) (SIMULATED (recorded by ext/firmware: rv32sim, one fault model per search))
+
+  note [firmware]: line table: ext/firmware/elf/rom_triple-O2-plain-hw.lines.json
+
+  1 survived, 0 weakened, 1 removed, 0 untracked, 0 not run.  Structural check of this netlist / layout / binary against the countermeasures found in the source. Margins are bounded results on modelled faults; not a proof of security and not a lab rating.

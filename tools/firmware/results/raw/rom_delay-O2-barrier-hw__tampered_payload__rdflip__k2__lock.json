@@ -1,0 +1,21 @@
+{
+ "model": "rdflip",
+ "kmax": 2,
+ "min_faults": null,
+ "completed_k": 2,
+ "witness": null,
+ "k1_count": 0,
+ "status": "no_attack_up_to_kmax",
+ "golden_outcome": "reject",
+ "golden_steps": 170,
+ "nodes": 885120,
+ "seconds": 67.4,
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_delay-O2-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 600.0,
+ "date": "2026-11-21",
+ "sites_in_window": 156
+}

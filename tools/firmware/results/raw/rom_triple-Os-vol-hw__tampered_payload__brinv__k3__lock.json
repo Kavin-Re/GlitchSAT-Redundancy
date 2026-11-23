@@ -1,0 +1,56 @@
+{
+ "model": "brinv",
+ "kmax": 3,
+ "min_faults": 3,
+ "completed_k": 2,
+ "witness": [
+  {
+   "step": 202,
+   "pc": "0x166",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x1e4",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  },
+  {
+   "step": 209,
+   "pc": "0x19a",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 30,
+   "asm": "c.bnez\ta0, 0x1ee",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  },
+  {
+   "step": 216,
+   "pc": "0x1ce",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 33,
+   "asm": "c.bnez\ta0, 0x1ee",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 210,
+ "nodes": 48,
+ "seconds": 0.05,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_triple-Os-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 202
+}

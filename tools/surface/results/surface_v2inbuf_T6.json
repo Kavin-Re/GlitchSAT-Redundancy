@@ -1,0 +1,215 @@
+{
+  "schema": "glitchsat-attack-surface/1",
+  "method": "exhaustive",
+  "netlist": "research/c2/reviews/ct/tests/v2_inbuf.json",
+  "netlist_sha256": "71abce9e5496993689b6c1cd5e96a003cb30267d264b4b6406c9b28a64fdce49",
+  "top": "v2",
+  "bound": {
+    "cycles": 6,
+    "max_faults": 3,
+    "goal": "boot_word == 0x96 at some cycle < 6",
+    "attacker_input": "`sig` free, held constant, != key 0xC3 (other inputs free)",
+    "key": 195,
+    "reduce": "full",
+    "fault_model": "single-cycle bit flip of any gate output or flop Q"
+  },
+  "verdict": "ATTACK_FOUND",
+  "min_faults": 1,
+  "count": 8,
+  "complete": true,
+  "stop_reason": "exhausted",
+  "sites_modelled": 393,
+  "runtime_s": 0.083,
+  "copy_source": "names",
+  "nets": [
+    {
+      "net": "87",
+      "net_id": 87,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "88",
+      "net_id": 88,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "89",
+      "net_id": 89,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "90",
+      "net_id": 90,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "91",
+      "net_id": 91,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "92",
+      "net_id": 92,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "93",
+      "net_id": 93,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    },
+    {
+      "net": "94",
+      "net_id": 94,
+      "kind": "gate_output",
+      "gate": "AND",
+      "copy": "shared",
+      "count": 1,
+      "share": 0.125,
+      "cycles": {
+        "1": 1
+      }
+    }
+  ],
+  "cycles": {
+    "1": {
+      "faults": 8,
+      "attacks": 8
+    }
+  },
+  "copies": {
+    "shared": {
+      "faults": 8,
+      "share": 1.0,
+      "attacks": 8
+    }
+  },
+  "copies_touched": {
+    "0": 8
+  },
+  "attacks": [
+    {
+      "faults": [
+        [
+          "87",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "88",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "89",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "90",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "91",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "92",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "93",
+          1
+        ]
+      ],
+      "inputs": 1
+    },
+    {
+      "faults": [
+        [
+          "94",
+          1
+        ]
+      ],
+      "inputs": 1
+    }
+  ],
+  "attacks_listed": 8,
+  "note": "BOUNDED and MODELLED: all attacks of the minimum size m with single-cycle bit flips of gate outputs and flop Q within 6 cycles on this netlist. Nothing is said about more cycles, other fault types, or physical feasibility.",
+  "sets_simulated": 394
+}

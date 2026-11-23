@@ -1,0 +1,2046 @@
+{
+ "about": "Result tables transcribed from published papers and one repository README, for one-to-one comparison with GlitchSAT outputs. Every value is transcribed, none is computed or estimated. Null means the cell could not be read reliably from the source text; check the PDF before using it.",
+ "transcription_note": "Values were transcribed from the text layer of each PDF (web text extraction), not from a rendered page. Column alignment in PDF text layers can shift. Before quoting a value in a report, check it against the rendered PDF page named in 'where'. Numbers are kept exactly as printed (including '34.652' in SYNFI Table 1, which is probably 34,652 written with a dot as thousands separator).",
+ "compiled": "2026-11-20",
+ "sources": [
+  {
+   "id": "synfi_2022",
+   "citation": "P. Nasahl, M. Osorio, P. Vogel, M. Schaffner, T. Trippel, D. Rizzo, S. Mangard. SYNFI: Pre-Silicon Fault Analysis of an Open-Source Secure Element. IACR TCHES 2022, issue 4. Preprint arXiv:2205.04775 (v2, 2022-07-07).",
+   "url": "https://arxiv.org/pdf/2205.04775",
+   "licence_of_source": "arXiv page shows no licence; TCHES version at https://tches.iacr.org/index.php/TCHES/article/view/9813 (TCHES articles are published open access; check the page).",
+   "where": "arXiv:2205.04775v2, Section 4, Tables 1-8. Printed page numbers were not present in the text layer; locate by table number.",
+   "definitions_quoted": {
+    "FE": "any fault having an arbitrary effect to the input-output relation of the circuit",
+    "FD": "an effective fault is a fault manipulating the circuit's output and the fault countermeasures did not detect it",
+    "FS": "a fault changing the output of the circuit to a specific state without triggering the countermeasures",
+    "Effective [%]": "how many of the total number of injected faults SYNFI considers to be effective",
+    "Total [#]": "the total number of injected faults"
+   },
+   "flow_note": "Tables 1-6 and 8: OpenTitan internal flow, Synopsys DC with a proprietary cell library, so GE and fault counts cannot be matched exactly with open cells. Table 7 (Ibex): Yosys with Nangate45, reproducible from lowRISC/synfi examples/ibex.",
+   "tables": [
+    {
+     "table": "1",
+     "caption": "Verification results for the AES round counter performed on a 16-core machine.",
+     "module": "aes_cipher_control_fsm (rows 1-2), aes_cipher_control (row 3)",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Unprotected Round Counter",
+       "setting": "FE",
+       "simultaneous_faults": 1,
+       "effective_percent": 55.56,
+       "total_injected": "18",
+       "execution": "4.4 s",
+       "circuit_GE": 20.25
+      },
+      {
+       "target": "Unprotected Round Counter",
+       "setting": "FS",
+       "simultaneous_faults": 2,
+       "effective_percent": 2.65,
+       "total_injected": "302",
+       "execution": "4.47 s",
+       "circuit_GE": 20.25
+      },
+      {
+       "target": "Protected Round Counter",
+       "setting": "FD",
+       "simultaneous_faults": 2,
+       "effective_percent": 0.13,
+       "total_injected": "34.652",
+       "execution": "366.81 s",
+       "circuit_GE": 156
+      }
+     ]
+    },
+    {
+     "table": "2",
+     "caption": "Verification results for the AES handshake signal on a 16-core machine.",
+     "module": "aes_cipher_control_fsm (row 1)",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Unprotected Handshake Signal",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 83.83,
+       "total_injected": "31",
+       "execution": "4.49 s",
+       "circuit_GE": 32
+      },
+      {
+       "target": "Protected Handshake Signal",
+       "setting": "FS",
+       "simultaneous_faults": 3,
+       "effective_percent": 15.32,
+       "total_injected": "8436",
+       "execution": "270.68 s",
+       "circuit_GE": 38
+      }
+     ]
+    },
+    {
+     "table": "3",
+     "caption": "Verification results for the AES multi-rail FSM on a 16- or 72-core* machine.",
+     "module": "aes_cipher_control_fsm_p / _n inside aes_cipher_control",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Multi-Rail FSM loose config",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 2.46,
+       "total_injected": "122",
+       "execution": "8.2 s",
+       "circuit_GE": 96.5
+      },
+      {
+       "target": "Multi-Rail FSM tight config",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 0,
+       "total_injected": "573",
+       "execution": "266.87 s",
+       "circuit_GE": 355.75
+      },
+      {
+       "target": "Multi-Rail FSM tight config",
+       "setting": "FS",
+       "simultaneous_faults": 2,
+       "effective_percent": 0,
+       "total_injected": "170,982",
+       "execution": "1.01 h",
+       "circuit_GE": 355.75
+      },
+      {
+       "target": "*Multi-Rail FSM tight config (72-core)",
+       "setting": "FS",
+       "simultaneous_faults": 3,
+       "effective_percent": 0.02,
+       "total_injected": "35,222,293",
+       "execution": "38.27 h",
+       "circuit_GE": 355.75
+      }
+     ]
+    },
+    {
+     "table": "4",
+     "caption": "Verification results for the AES FSM state encoding on a 16-core machine.",
+     "module": "aes_cipher_control_fsm",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Encoded FSM states",
+       "setting": "FS",
+       "simultaneous_faults": 3,
+       "effective_percent": 15,
+       "total_injected": "29",
+       "execution": "16.09 s",
+       "circuit_GE": 90.5
+      }
+     ]
+    },
+    {
+     "table": "5",
+     "caption": "Verification results for entering the RMA state on a 16-core machine.",
+     "module": "life cycle controller FSM",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Token comparison in TokenHashSt",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 0,
+       "total_injected": "313",
+       "execution": "32.56 s",
+       "circuit_GE": 215
+      },
+      {
+       "target": "Token comparison in TokenCheck0St",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 0,
+       "total_injected": "349",
+       "execution": "35.87 s",
+       "circuit_GE": 248.25
+      },
+      {
+       "target": "Token comparison in TokenCheck1St",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 0,
+       "total_injected": "310",
+       "execution": "28.26 s",
+       "circuit_GE": 204.75
+      },
+      {
+       "target": "Skip token check states",
+       "setting": "FS",
+       "simultaneous_faults": 7,
+       "effective_percent": 100,
+       "total_injected": "7",
+       "execution": "17.44 s",
+       "circuit_GE": 214.5
+      }
+     ]
+    },
+    {
+     "table": "6",
+     "caption": "Verification results for glitching the locking mechanism performed on a 16- or 72-core* machine.",
+     "module": "lc_ctrl_state_transition (rows 1-2), lc_ctrl_fsm (row 3)",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Prevent counter incr.",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 17.81,
+       "total_injected": "853",
+       "execution": "261.76 s",
+       "circuit_GE": 1170
+      },
+      {
+       "target": "*Reset counter value (72-core)",
+       "setting": "FS",
+       "simultaneous_faults": 3,
+       "effective_percent": 0,
+       "total_injected": "1,000,000",
+       "execution": "7 h",
+       "circuit_GE": 1170
+      },
+      {
+       "target": "Skip CntProgSt",
+       "setting": "FS",
+       "simultaneous_faults": 7,
+       "effective_percent": 100,
+       "total_injected": "7",
+       "execution": "17.53 s",
+       "circuit_GE": 228.75
+      }
+     ]
+    },
+    {
+     "table": "7",
+     "caption": "Verification results for the Ibex processor on a 16-core machine.",
+     "module": "ibex_if_stage (rows 1-2), Ibex lockstep (row 3); Yosys + Nangate45",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "Glitch the PC",
+       "setting": "FE",
+       "simultaneous_faults": 1,
+       "effective_percent": 78.1,
+       "total_injected": "557",
+       "execution": "185.07 s",
+       "circuit_GE": 488
+      },
+      {
+       "target": "Glitch the PC",
+       "setting": "FS",
+       "simultaneous_faults": 2,
+       "effective_percent": 0.02,
+       "total_injected": "309,500",
+       "execution": "0.72 h",
+       "circuit_GE": 488
+      },
+      {
+       "target": "Lockstep mode",
+       "setting": "FS",
+       "simultaneous_faults": 1,
+       "effective_percent": 6.31,
+       "total_injected": "111",
+       "execution": "10.22 s",
+       "circuit_GE": 165.34
+      }
+     ]
+    },
+    {
+     "table": "8",
+     "caption": "Verification results for the prim_double_lfsr and prim_count modules.",
+     "module": "prim_count, prim_double_lfsr",
+     "columns": [
+      "target",
+      "setting",
+      "simultaneous_faults",
+      "effective_percent",
+      "total_injected",
+      "execution",
+      "circuit_GE"
+     ],
+     "rows": [
+      {
+       "target": "prim_count",
+       "setting": "FD",
+       "simultaneous_faults": 2,
+       "effective_percent": 10.82,
+       "total_injected": "1552",
+       "execution": "37.46 s",
+       "circuit_GE": 29.75
+      },
+      {
+       "target": "prim_double_lfsr",
+       "setting": "FD",
+       "simultaneous_faults": 2,
+       "effective_percent": 0.05,
+       "total_injected": "7827",
+       "execution": "74.44 s",
+       "circuit_GE": 116.75
+      },
+      {
+       "target": "prim_double_lfsr",
+       "setting": "FD",
+       "simultaneous_faults": 3,
+       "effective_percent": 0.09,
+       "total_injected": "340,692",
+       "execution": "2114.69 s",
+       "circuit_GE": 116.75
+      }
+     ]
+    }
+   ],
+   "text_notes": [
+    "Table 5 row 2 appears as 'TokenCheckOSt' in the text layer; read here as TokenCheck0St (letter O vs digit 0) - check the PDF."
+   ],
+   "all_values_transcribed": true
+  },
+  {
+   "id": "synfi_repo_ibex_readme",
+   "citation": "lowRISC/synfi repository, examples/ibex/README.md, commit 2d08c4c84b04a4ed9998e1f09033691ca88f447e (2023-08-29), Apache-2.0.",
+   "url": "https://github.com/lowRISC/synfi/blob/2d08c4c84b04a4ed9998e1f09033691ca88f447e/examples/ibex/README.md",
+   "where": "Section 'Results'",
+   "rows": [
+    {
+     "experiment": "1 simultaneous fault into ibex_if_stage, effective = arbitrarily change the PC",
+     "reported": "78.1% (55.3+22.8) effective faults, as shown in row (1) of Table 7 in the paper"
+    },
+    {
+     "experiment": "1 simultaneous fault, effective = change the PC to a specific value",
+     "reported": "0% effective faults"
+    },
+    {
+     "experiment": "2 simultaneous faults, specific PC value, limited to 10000 random injections",
+     "reported": "output changes after each execution (random sampling)"
+    }
+   ],
+   "setup": "OpenTitan commit 097521294cd43a3e059bed8c0cd2a710b4f7f73e, Yosys with Nangate45 (from examples/ibex/run.sh)",
+   "all_values_transcribed": true
+  },
+  {
+   "id": "firmer_tches2024",
+   "citation": "H. Tan, P. Gao, F. Song, T. Chen, Z. Wu. SAT-based Formal Verification of Fault Injection Countermeasures for Cryptographic Circuits. IACR TCHES 2024, issue 4 (accepted-version PDF served by CHES 2024).",
+   "url": "https://ches.iacr.org/2024/papers-issue-4/4_7.pdf",
+   "tool": "https://github.com/S3L-official/FIRMER (commit 42c71b16b1fb1968b36310149ce175e0fde9e521, 2024-12-12; no LICENSE file)",
+   "where": "Table 3, 'Verification results, where R denotes Result, and DR denotes Desired Result.', pp. 21-22 of the PDF (page header numbering pp. 1-38; the PDF carries placeholder DOI 'XXXXXXXX'). Columns #Var, #Cls, 2CNF and Solving of FIRMER(SAT) were not transcribed.",
+   "model_note": "Model column printed as ζ(ne, nc, T, lm) with T = {τs, τr, τbf}. The meaning of ne, nc, lm and the τ fault types is defined in the paper's fault-model section; read it before mapping a row to a GlitchSAT bound k.",
+   "symbol_note": "✓ = fault-resistant (no effective undetected fault), ✗ = not fault-resistant. Times in seconds; 'timeout' as printed.",
+   "tables": [
+    {
+     "table": "3",
+     "columns": [
+      "benchmark",
+      "model",
+      "firmer_sat_total_s",
+      "smt_time_s",
+      "fiver_time_s",
+      "result",
+      "desired_result"
+     ],
+     "rows": [
+      {
+       "benchmark": "AES-R1-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 195.24,
+       "smt_time_s": 4856.58,
+       "fiver_time_s": 59.49,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "AES-R1-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 2.57,
+       "smt_time_s": 3650.83,
+       "fiver_time_s": 34744.4,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "AES-R1-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 1850.07,
+       "smt_time_s": 23542.57,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "AES-R1-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 5.28,
+       "smt_time_s": 3386.38,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "AES-R2-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 1740.43,
+       "smt_time_s": 48359.73,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "AES-R2-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 35.95,
+       "smt_time_s": 32302.85,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "AES-R2-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 14323.66,
+       "smt_time_s": "timeout",
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "AES-R2-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 83.69,
+       "smt_time_s": 95.05,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R1-b1-C",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.79,
+       "smt_time_s": 9.81,
+       "fiver_time_s": 0.14,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R1-b1-C",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.2,
+       "smt_time_s": 0.28,
+       "fiver_time_s": 1.34,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R1-b2-C",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 132.79,
+       "smt_time_s": 2898.55,
+       "fiver_time_s": 338.23,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R1-b2-C",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 3.39,
+       "smt_time_s": 21.49,
+       "fiver_time_s": 4491.08,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R1-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.13,
+       "smt_time_s": 0.33,
+       "fiver_time_s": 0.04,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R1-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.06,
+       "smt_time_s": 0.01,
+       "fiver_time_s": 0.35,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R1-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.24,
+       "smt_time_s": 1.02,
+       "fiver_time_s": 1.13,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R1-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.06,
+       "smt_time_s": 0.2,
+       "fiver_time_s": 117.54,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R1-b3-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.46,
+       "smt_time_s": 4.43,
+       "fiver_time_s": 8007.42,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R1-b3-D",
+       "model": "ζ(4,1,T,lm)",
+       "firmer_sat_total_s": 0.07,
+       "smt_time_s": 0.34,
+       "fiver_time_s": 82955.17,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R2-b1-C",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 11.63,
+       "smt_time_s": 101.19,
+       "fiver_time_s": 4.2,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R2-b1-C",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.45,
+       "smt_time_s": 0.6,
+       "fiver_time_s": 394.79,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R2-b2-C",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 2060.81,
+       "smt_time_s": 13585.63,
+       "fiver_time_s": 5012.34,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R2-b2-C",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 10.41,
+       "smt_time_s": 3000.8,
+       "fiver_time_s": 29120.79,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R2-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.94,
+       "smt_time_s": 6.16,
+       "fiver_time_s": 1.04,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R2-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.1,
+       "smt_time_s": 0.18,
+       "fiver_time_s": 23.63,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R2-b1-D",
+       "model": "ζ(1,2,T,lm)",
+       "firmer_sat_total_s": 1.82,
+       "smt_time_s": 8.25,
+       "fiver_time_s": 1291.12,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R2-b1-D",
+       "model": "ζ(1,3,T,lm)",
+       "firmer_sat_total_s": 1.41,
+       "smt_time_s": 7.19,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R2-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 3.34,
+       "smt_time_s": 34.93,
+       "fiver_time_s": 88.35,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R2-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.17,
+       "smt_time_s": 1.38,
+       "fiver_time_s": 9141.86,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R2-b2-D",
+       "model": "ζ(2,2,T,lm)",
+       "firmer_sat_total_s": 3.58,
+       "smt_time_s": 43.36,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R3-b3-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 37.86,
+       "smt_time_s": 414.0,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R3-b3-D",
+       "model": "ζ(4,1,T,lm)",
+       "firmer_sat_total_s": 0.31,
+       "smt_time_s": 4.69,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R3-b3-D",
+       "model": "ζ(3,2,T,lm)",
+       "firmer_sat_total_s": 57.74,
+       "smt_time_s": 393.8,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R3-b3-D",
+       "model": "ζ(3,3,T,lm)",
+       "firmer_sat_total_s": 37.04,
+       "smt_time_s": 357.59,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R3-b3-D",
+       "model": "ζ(3,4,T,lm)",
+       "firmer_sat_total_s": 31.84,
+       "smt_time_s": 385.19,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R4-b3-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 62.07,
+       "smt_time_s": 1188.03,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R4-b3-D",
+       "model": "ζ(4,1,T,lm)",
+       "firmer_sat_total_s": 0.77,
+       "smt_time_s": 8.25,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "CRAFT-R4-b3-D",
+       "model": "ζ(3,2,T,lm)",
+       "firmer_sat_total_s": 155.75,
+       "smt_time_s": 978.78,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R4-b3-D",
+       "model": "ζ(3,3,T,lm)",
+       "firmer_sat_total_s": 82.08,
+       "smt_time_s": 900.28,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R4-b3-D",
+       "model": "ζ(3,4,T,lm)",
+       "firmer_sat_total_s": 71.15,
+       "smt_time_s": 916.13,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "CRAFT-R4-b3-D",
+       "model": "ζ(3,5,T,lm)",
+       "firmer_sat_total_s": 55.16,
+       "smt_time_s": 922.49,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R1-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 1.12,
+       "smt_time_s": 11.63,
+       "fiver_time_s": 0.23,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R1-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.07,
+       "smt_time_s": 0.85,
+       "fiver_time_s": 8.39,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "LED-R1-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 2.09,
+       "smt_time_s": 33.4,
+       "fiver_time_s": 10.18,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R1-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.11,
+       "smt_time_s": 0.83,
+       "fiver_time_s": 2292.6,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "LED-R2-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 9.76,
+       "smt_time_s": 139.78,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R2-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.17,
+       "smt_time_s": 1.68,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "LED-R2-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 13.85,
+       "smt_time_s": 336.45,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R2-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.24,
+       "smt_time_s": 2.78,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "LED-R3-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 36.71,
+       "smt_time_s": 588.07,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R3-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.25,
+       "smt_time_s": 2.9,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "LED-R3-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 47.99,
+       "smt_time_s": 860.2,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "LED-R3-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.37,
+       "smt_time_s": 3.72,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "GIFT-R1-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.16,
+       "smt_time_s": 1.85,
+       "fiver_time_s": 0.02,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "GIFT-R1-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.12,
+       "smt_time_s": 1.37,
+       "fiver_time_s": 0.14,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "GIFT-R1-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.33,
+       "smt_time_s": 11.55,
+       "fiver_time_s": 0.81,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "GIFT-R1-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.17,
+       "smt_time_s": 9.96,
+       "fiver_time_s": 42.14,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "GIFT-R2-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.42,
+       "smt_time_s": 7.0,
+       "fiver_time_s": 0.17,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "GIFT-R2-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.2,
+       "smt_time_s": 5.18,
+       "fiver_time_s": 3.33,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "GIFT-R2-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.96,
+       "smt_time_s": 22.97,
+       "fiver_time_s": 15.59,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "GIFT-R2-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.38,
+       "smt_time_s": 0.35,
+       "fiver_time_s": 1278.12,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "PRESENT-R1-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.19,
+       "smt_time_s": 2.5,
+       "fiver_time_s": 0.03,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "PRESENT-R1-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.11,
+       "smt_time_s": 1.69,
+       "fiver_time_s": 0.16,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "PRESENT-R1-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.38,
+       "smt_time_s": 8.63,
+       "fiver_time_s": 0.95,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "PRESENT-R1-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.19,
+       "smt_time_s": 8.47,
+       "fiver_time_s": 42.61,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "PRESENT-R2-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.58,
+       "smt_time_s": 6.88,
+       "fiver_time_s": 0.22,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "PRESENT-R2-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.23,
+       "smt_time_s": 6.19,
+       "fiver_time_s": 4.76,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "PRESENT-R2-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.97,
+       "smt_time_s": 19.47,
+       "fiver_time_s": 16.09,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "PRESENT-R2-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.39,
+       "smt_time_s": 0.48,
+       "fiver_time_s": 1259.9,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "SIMON-R1-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.13,
+       "smt_time_s": 0.93,
+       "fiver_time_s": 0.01,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "SIMON-R1-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.07,
+       "smt_time_s": 0.84,
+       "fiver_time_s": 0.17,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "SIMON-R1-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.23,
+       "smt_time_s": 2.66,
+       "fiver_time_s": 0.78,
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "SIMON-R1-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.1,
+       "smt_time_s": 2.02,
+       "fiver_time_s": 65.93,
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "SIMON-R2-b1-D",
+       "model": "ζ(1,1,T,lm)",
+       "firmer_sat_total_s": 0.27,
+       "smt_time_s": 3.64,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "SIMON-R2-b1-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.1,
+       "smt_time_s": 2.59,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      },
+      {
+       "benchmark": "SIMON-R2-b2-D",
+       "model": "ζ(2,1,T,lm)",
+       "firmer_sat_total_s": 0.75,
+       "smt_time_s": 9.82,
+       "fiver_time_s": "timeout",
+       "result": "✓",
+       "desired_result": "✓"
+      },
+      {
+       "benchmark": "SIMON-R2-b2-D",
+       "model": "ζ(3,1,T,lm)",
+       "firmer_sat_total_s": 0.18,
+       "smt_time_s": 6.56,
+       "fiver_time_s": "timeout",
+       "result": "✗",
+       "desired_result": "✗"
+      }
+     ]
+    }
+   ],
+   "not_transcribed": [
+    "Table 2 (p. 19) benchmark statistics of the TCHES version",
+    "Table 4 (p. 23) solver comparison",
+    "Table 5 (pp. 24-25) with/without vulnerable-gate reduction",
+    "Table 6 (p. 27) thread counts",
+    "Table 7 (Appendix B) τbf-only comparison with FIVER: beyond the text range read"
+   ],
+   "all_values_transcribed": true
+  },
+  {
+   "id": "firmer_arxiv_v1_benchmarks",
+   "citation": "H. Tan, P. Gao, T. Chen, F. Song, Z. Wu. SAT-based Formal Fault-Resistance Verification of Cryptographic Circuits. arXiv:2307.00561v1, 2023-07-02.",
+   "url": "https://arxiv.org/pdf/2307.00561",
+   "where": "Table II, 'Benchmark statistics, where Ri denotes i rounds, bi denotes countermeasure against i-bit faults, and D (resp. C) denotes detection-based (resp. correction-based) countermeasure.' Page number not present in the text layer.",
+   "use": "Check gate/register counts after importing FIRMER test/ netlists into GlitchSAT (same netlists, Synopsys DC O-2018.06-SP2, NanGate-style cells).",
+   "note": "The arXiv v1 benchmark set is smaller than the TCHES version (no AES-R2, GIFT, PRESENT, SIMON). Two cells were blank in the text layer (null).",
+   "tables": [
+    {
+     "table": "II",
+     "columns": [
+      "name",
+      "clk",
+      "B",
+      "in",
+      "out",
+      "gate",
+      "and",
+      "nand",
+      "or",
+      "nor",
+      "xor",
+      "xnor",
+      "not",
+      "reg"
+     ],
+     "rows": [
+      {
+       "name": "AES-R1",
+       "clk": 1,
+       "B": 0,
+       "in": 256,
+       "out": 128,
+       "gate": 21201,
+       "and": 464,
+       "nand": 7936,
+       "or": 592,
+       "nor": 8480,
+       "xor": 464,
+       "xnor": 560,
+       "not": 2705,
+       "reg": 0
+      },
+      {
+       "name": "AES-R1-b1-D",
+       "clk": 1,
+       "B": 432,
+       "in": 256,
+       "out": 129,
+       "gate": 24864,
+       "and": 576,
+       "nand": 9446,
+       "or": 560,
+       "nor": 9705,
+       "xor": 828,
+       "xnor": 852,
+       "not": 2897,
+       "reg": 0
+      },
+      {
+       "name": "AES-R1-b2-D",
+       "clk": 1,
+       "B": 1055,
+       "in": 256,
+       "out": 129,
+       "gate": 34159,
+       "and": 704,
+       "nand": 12698,
+       "or": 833,
+       "nor": 13012,
+       "xor": 1440,
+       "xnor": 1584,
+       "not": 3888,
+       "reg": 0
+      },
+      {
+       "name": "CRAFT-R1",
+       "clk": 2,
+       "B": 0,
+       "in": 128,
+       "out": 64,
+       "gate": 480,
+       "and": 0,
+       "nand": 160,
+       "or": 16,
+       "nor": 80,
+       "xor": 80,
+       "xnor": 32,
+       "not": 48,
+       "reg": 64
+      },
+      {
+       "name": "CRAFT-R1-b1-C",
+       "clk": 2,
+       "B": 192,
+       "in": 128,
+       "out": 64,
+       "gate": 3140,
+       "and": 0,
+       "nand": 864,
+       "or": 48,
+       "nor": 656,
+       "xor": 460,
+       "xnor": 728,
+       "not": 272,
+       "reg": 112
+      },
+      {
+       "name": "CRAFT-R1-b2-C",
+       "clk": 2,
+       "B": 1312,
+       "in": null,
+       "out": 64,
+       "gate": 20948,
+       "and": 336,
+       "nand": 7856,
+       "or": 384,
+       "nor": 6576,
+       "xor": 1484,
+       "xnor": 2056,
+       "not": 2080,
+       "reg": 176
+      },
+      {
+       "name": "CRAFT-R1-b1-D",
+       "clk": 2,
+       "B": 159,
+       "in": 128,
+       "out": 65,
+       "gate": 925,
+       "and": 41,
+       "nand": 155,
+       "or": 65,
+       "nor": 148,
+       "xor": 187,
+       "xnor": 193,
+       "not": 56,
+       "reg": 80
+      },
+      {
+       "name": "CRAFT-R1-b2-D",
+       "clk": 2,
+       "B": 383,
+       "in": 128,
+       "out": 65,
+       "gate": 1522,
+       "and": 49,
+       "nand": 266,
+       "or": 49,
+       "nor": 211,
+       "xor": 201,
+       "xnor": 539,
+       "not": 95,
+       "reg": 112
+      },
+      {
+       "name": "CRAFT-R1-b3-D",
+       "clk": 2,
+       "B": 511,
+       "in": 128,
+       "out": 65,
+       "gate": 1807,
+       "and": 48,
+       "nand": 282,
+       "or": 97,
+       "nor": 292,
+       "xor": 240,
+       "xnor": 640,
+       "not": 80,
+       "reg": 128
+      },
+      {
+       "name": "CRAFT-R2",
+       "clk": 3,
+       "B": 0,
+       "in": 192,
+       "out": 64,
+       "gate": 960,
+       "and": 0,
+       "nand": 320,
+       "or": 32,
+       "nor": 160,
+       "xor": 160,
+       "xnor": 64,
+       "not": 96,
+       "reg": 128
+      },
+      {
+       "name": "CRAFT-R2-b1-C",
+       "clk": 3,
+       "B": 192,
+       "in": 192,
+       "out": 64,
+       "gate": 5848,
+       "and": 0,
+       "nand": 1680,
+       "or": 96,
+       "nor": 1248,
+       "xor": 808,
+       "xnor": 1264,
+       "not": 528,
+       "reg": 224
+      },
+      {
+       "name": "CRAFT-R2-b2-C",
+       "clk": 3,
+       "B": 1312,
+       "in": 192,
+       "out": 64,
+       "gate": 40184,
+       "and": 672,
+       "nand": 15152,
+       "or": 752,
+       "nor": 12576,
+       "xor": 2680,
+       "xnor": 3936,
+       "not": 4064,
+       "reg": 352
+      },
+      {
+       "name": "CRAFT-R2-b1-D",
+       "clk": 3,
+       "B": 400,
+       "in": 192,
+       "out": 65,
+       "gate": 1880,
+       "and": 100,
+       "nand": null,
+       "or": 120,
+       "nor": 311,
+       "xor": 382,
+       "xnor": 394,
+       "not": 121,
+       "reg": 160
+      },
+      {
+       "name": "CRAFT-R2-b2-D",
+       "clk": 3,
+       "B": 959,
+       "in": 192,
+       "out": 65,
+       "gate": 3139,
+       "and": 97,
+       "nand": 553,
+       "or": 100,
+       "nor": 449,
+       "xor": 434,
+       "xnor": 1094,
+       "not": 188,
+       "reg": 224
+      },
+      {
+       "name": "CRAFT-R3",
+       "clk": 4,
+       "B": 0,
+       "in": 256,
+       "out": 64,
+       "gate": 1440,
+       "and": 0,
+       "nand": 480,
+       "or": 48,
+       "nor": 240,
+       "xor": 240,
+       "xnor": 96,
+       "not": 144,
+       "reg": 192
+      },
+      {
+       "name": "CRAFT-R3-b3-D",
+       "clk": 4,
+       "B": 1791,
+       "in": 256,
+       "out": 65,
+       "gate": 5567,
+       "and": 192,
+       "nand": 954,
+       "or": 193,
+       "nor": 836,
+       "xor": 672,
+       "xnor": 2048,
+       "not": 288,
+       "reg": 384
+      },
+      {
+       "name": "CRAFT-R4",
+       "clk": 5,
+       "B": 0,
+       "in": 320,
+       "out": 64,
+       "gate": 1920,
+       "and": 0,
+       "nand": 640,
+       "or": 64,
+       "nor": 320,
+       "xor": 320,
+       "xnor": 128,
+       "not": 192,
+       "reg": 256
+      },
+      {
+       "name": "CRAFT-R4-b3-D",
+       "clk": 5,
+       "B": 2303,
+       "in": 320,
+       "out": 65,
+       "gate": 7295,
+       "and": 256,
+       "nand": 1242,
+       "or": 257,
+       "nor": 1124,
+       "xor": 944,
+       "xnor": 2576,
+       "not": 384,
+       "reg": 512
+      },
+      {
+       "name": "LED64-R1",
+       "clk": 1,
+       "B": 0,
+       "in": 128,
+       "out": 64,
+       "gate": 976,
+       "and": 16,
+       "nand": 272,
+       "or": 16,
+       "nor": 32,
+       "xor": 288,
+       "xnor": 304,
+       "not": 48,
+       "reg": 0
+      },
+      {
+       "name": "LED64-R1-b1-D",
+       "clk": 1,
+       "B": 240,
+       "in": 128,
+       "out": 65,
+       "gate": 1552,
+       "and": 16,
+       "nand": 346,
+       "or": 32,
+       "nor": 53,
+       "xor": 416,
+       "xnor": 608,
+       "not": 81,
+       "reg": 0
+      },
+      {
+       "name": "LED64-R1-b2-D",
+       "clk": 1,
+       "B": 575,
+       "in": 128,
+       "out": 65,
+       "gate": 2463,
+       "and": 17,
+       "nand": 479,
+       "or": 64,
+       "nor": 111,
+       "xor": 512,
+       "xnor": 1168,
+       "not": 112,
+       "reg": 0
+      },
+      {
+       "name": "LED64-R2",
+       "clk": 2,
+       "B": 0,
+       "in": 128,
+       "out": 64,
+       "gate": 1952,
+       "and": 32,
+       "nand": 544,
+       "or": 32,
+       "nor": 64,
+       "xor": 512,
+       "xnor": 608,
+       "not": 96,
+       "reg": 64
+      },
+      {
+       "name": "LED64-R2-b1-D",
+       "clk": 2,
+       "B": 480,
+       "in": 128,
+       "out": 65,
+       "gate": 2976,
+       "and": 32,
+       "nand": 690,
+       "or": 64,
+       "nor": 109,
+       "xor": 760,
+       "xnor": 1112,
+       "not": 129,
+       "reg": 80
+      },
+      {
+       "name": "LED64-R2-b2-D",
+       "clk": 2,
+       "B": 1151,
+       "in": 128,
+       "out": 65,
+       "gate": 4687,
+       "and": 33,
+       "nand": 951,
+       "or": 128,
+       "nor": 231,
+       "xor": 984,
+       "xnor": 2072,
+       "not": 176,
+       "reg": 112
+      },
+      {
+       "name": "LED64-R3",
+       "clk": 3,
+       "B": 0,
+       "in": 128,
+       "out": 64,
+       "gate": 2928,
+       "and": 48,
+       "nand": 816,
+       "or": 48,
+       "nor": 96,
+       "xor": 736,
+       "xnor": 912,
+       "not": 144,
+       "reg": 128
+      },
+      {
+       "name": "LED64-R3-b1-D",
+       "clk": 3,
+       "B": 720,
+       "in": 128,
+       "out": 65,
+       "gate": 4400,
+       "and": 48,
+       "nand": 1030,
+       "or": 96,
+       "nor": 169,
+       "xor": 1116,
+       "xnor": 1604,
+       "not": 177,
+       "reg": 160
+      },
+      {
+       "name": "LED64-R3-b2-D",
+       "clk": 3,
+       "B": 1727,
+       "in": 128,
+       "out": 65,
+       "gate": 6911,
+       "and": 49,
+       "nand": 1411,
+       "or": 192,
+       "nor": 363,
+       "xor": 1492,
+       "xnor": 2940,
+       "not": 240,
+       "reg": 224
+      }
+     ]
+    }
+   ],
+   "all_values_transcribed": true
+  },
+  {
+   "id": "tollec_eprint_2024_247",
+   "citation": "S. Tollec, V. Hadžić, P. Nasahl, M. Asavoae, R. Bloem, D. Couroussé, K. Heydemann, M. Jan, S. Mangard. Fault-Resistant Partitioning of Secure CPUs for System Co-Verification against Faults. IACR ePrint 2024/247 (revised 2024-07-13; major revision of a TCHES 2024 paper). CC BY 4.0.",
+   "url": "https://eprint.iacr.org/2024/247.pdf",
+   "where": "Tables 1-3; page numbers inferred from running headers (Table 1 p. 16, Table 2 p. 18, Table 3 p. 21). Captions paraphrased in 'caption'.",
+   "setup": "Yosys synthesis, CaDiCaL incremental SAT; Tables 1-2 on Intel Xeon Gold 6154, Table 3 on Intel Core i7-1185G7. OpenTitan 'development version' (commit not stated). Code: 'link will be provided after paper acceptance' (none found).",
+   "tables": [
+    {
+     "table": "1",
+     "caption": "Circuit characteristics and performance of k-fault-resistant partitioning (k=1) on Secure Ibex modules",
+     "columns": [
+      "name",
+      "size_GE",
+      "registers",
+      "locations",
+      "order_k",
+      "proc1_iterations",
+      "proc1_time_s",
+      "proc2_time_s",
+      "partitions",
+      "P_prime",
+      "F_prime"
+     ],
+     "rows": [
+      {
+       "name": "Register File",
+       "size_GE": "12 075",
+       "registers": "1 326",
+       "locations": "8 392",
+       "order_k": 1,
+       "proc1_iterations": "53",
+       "proc1_time_s": "306.46",
+       "proc2_time_s": "37.6",
+       "partitions": "1 288",
+       "P_prime": "0",
+       "F_prime": "172"
+      },
+      {
+       "name": "DCLS",
+       "size_GE": "117 998",
+       "registers": "5 918",
+       "locations": "116 561",
+       "order_k": 1,
+       "proc1_iterations": "508",
+       "proc1_time_s": "72 743 (20h12)",
+       "proc2_time_s": "18 619 (5h10)",
+       "partitions": "1 108",
+       "P_prime": "0",
+       "F_prime": "0"
+      },
+      {
+       "name": "Secure Ibex (no iCache)",
+       "size_GE": "130 194",
+       "registers": "7 248",
+       "locations": "125 080",
+       "order_k": 1,
+       "proc1_iterations": "1",
+       "proc1_time_s": "38 684 (10h45)",
+       "proc2_time_s": "110 931 (30h50)",
+       "partitions": "2 400",
+       "P_prime": "0",
+       "F_prime": "0 (+172)"
+      }
+     ]
+    },
+    {
+     "table": "2",
+     "caption": "Co-verification results on software use cases",
+     "columns": [
+      "program",
+      "function_version",
+      "length_instr",
+      "attacker_goal",
+      "timing_cycles",
+      "locations",
+      "success",
+      "fail",
+      "timeout",
+      "parallel_runs",
+      "verification_time_s"
+     ],
+     "rows": [
+      {
+       "program": "Secure Boot",
+       "function_version": "Mask ROM signature check",
+       "length_instr": "2 526",
+       "attacker_goal": "φboot_flash",
+       "timing_cycles": "0 - 1",
+       "locations": "907 122 048",
+       "success": "0",
+       "fail": "95 238",
+       "timeout": "26 810",
+       "parallel_runs": "8",
+       "verification_time_s": "9 235"
+      },
+      {
+       "program": "Tiny AES",
+       "function_version": "Key Schedule 8th-9th round",
+       "length_instr": "221",
+       "attacker_goal": "φkey_sched",
+       "timing_cycles": "0 - 90",
+       "locations": "5 760",
+       "success": "532",
+       "fail": "4 666",
+       "timeout": "562",
+       "parallel_runs": "2",
+       "verification_time_s": "458"
+      },
+      {
+       "program": "Tiny AES",
+       "function_version": "AES 7th-8th round",
+       "length_instr": "1 144",
+       "attacker_goal": "φaes",
+       "timing_cycles": "0 - 610",
+       "locations": "38 912",
+       "success": "4 084",
+       "fail": "29 477",
+       "timeout": "5 228",
+       "parallel_runs": "8",
+       "verification_time_s": "1 742"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v0",
+       "length_instr": "114",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 49 / 84",
+       "locations": "3 136",
+       "success": "2",
+       "fail": "2 890",
+       "timeout": "160",
+       "parallel_runs": "1",
+       "verification_time_s": "145"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v1",
+       "length_instr": "121",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 51 / 89",
+       "locations": "3 264",
+       "success": "1",
+       "fail": "2 990",
+       "timeout": "185",
+       "parallel_runs": "1",
+       "verification_time_s": "154"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v2",
+       "length_instr": "162",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 91 / 87",
+       "locations": "5 824",
+       "success": "1",
+       "fail": "5 200",
+       "timeout": "537",
+       "parallel_runs": "1",
+       "verification_time_s": "311"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v3",
+       "length_instr": "166",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 95 / 87",
+       "locations": "6 080",
+       "success": "1",
+       "fail": "5 456",
+       "timeout": "537",
+       "parallel_runs": "1",
+       "verification_time_s": "309"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v4",
+       "length_instr": "189",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 117 / 95",
+       "locations": "7 488",
+       "success": "1",
+       "fail": "6 714",
+       "timeout": "679",
+       "parallel_runs": "1",
+       "verification_time_s": "468"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v5",
+       "length_instr": "169",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 97 / 77",
+       "locations": "6 208",
+       "success": "0",
+       "fail": "5 503",
+       "timeout": "628",
+       "parallel_runs": "1",
+       "verification_time_s": "311"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v6",
+       "length_instr": "160",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 88 / 85",
+       "locations": "5 632",
+       "success": "0",
+       "fail": "5 019",
+       "timeout": "528",
+       "parallel_runs": "1",
+       "verification_time_s": "264"
+      },
+      {
+       "program": "VerifyPIN",
+       "function_version": "v7",
+       "length_instr": "187",
+       "attacker_goal": "φauthen / φptc",
+       "timing_cycles": "0 - 116 / 61",
+       "locations": "7 424",
+       "success": "1",
+       "fail": "6 682",
+       "timeout": "681",
+       "parallel_runs": "1",
+       "verification_time_s": "399"
+      }
+     ],
+     "note": "VerifyPIN rows list two attacker goals; the text layer does not separate per-goal success/fail/timeout, so treat these rows as unverified until checked on the rendered page. Success+fail+timeout does not equal locations in several rows (as extracted)."
+    },
+    {
+     "table": "3",
+     "caption": "Circuit characteristics and performance of k-fault-resistant partitioning on Impeccable Circuits (Skinny-64)",
+     "columns": [
+      "name",
+      "code_nkd",
+      "size_GE",
+      "registers",
+      "locations",
+      "order_k",
+      "proc1_s",
+      "proc2_s",
+      "partitions",
+      "exploitable_faults"
+     ],
+     "rows": [
+      {
+       "name": "Skinny-64 red-1",
+       "code_nkd": "[5, 4, 2]",
+       "size_GE": "3 270",
+       "registers": "235",
+       "locations": "2 097",
+       "order_k": 1,
+       "proc1_s": "1.18",
+       "proc2_s": "0.043",
+       "partitions": "235",
+       "exploitable_faults": null
+      },
+      {
+       "name": "Skinny-64 red-2",
+       "code_nkd": "[6, 4, 2]",
+       "size_GE": "3 718",
+       "registers": "269",
+       "locations": "2 234",
+       "order_k": 1,
+       "proc1_s": "1.48",
+       "proc2_s": "0.056",
+       "partitions": "269",
+       "exploitable_faults": null
+      },
+      {
+       "name": "Skinny-64 red-3",
+       "code_nkd": "[7, 4, 3]",
+       "size_GE": "4 163",
+       "registers": "305",
+       "locations": "2 371",
+       "order_k": 1,
+       "proc1_s": "1.32",
+       "proc2_s": "0.052",
+       "partitions": "305",
+       "exploitable_faults": null
+      },
+      {
+       "name": "Skinny-64 red-3",
+       "code_nkd": "[7, 4, 3]",
+       "size_GE": "4 163",
+       "registers": "305",
+       "locations": "2 371",
+       "order_k": 2,
+       "proc1_s": "9.06",
+       "proc2_s": "0.324",
+       "partitions": "305",
+       "exploitable_faults": null
+      },
+      {
+       "name": "Skinny-64 red-4",
+       "code_nkd": "[8, 4, 4]",
+       "size_GE": "6 316",
+       "registers": "341",
+       "locations": "4 142",
+       "order_k": 1,
+       "proc1_s": "2.48",
+       "proc2_s": "0.127",
+       "partitions": "341",
+       "exploitable_faults": null
+      },
+      {
+       "name": "Skinny-64 red-4",
+       "code_nkd": "[8, 4, 4]",
+       "size_GE": "6 316",
+       "registers": "341",
+       "locations": "4 142",
+       "order_k": 2,
+       "proc1_s": "10.23",
+       "proc2_s": "0.404",
+       "partitions": "341",
+       "exploitable_faults": null
+      },
+      {
+       "name": "Skinny-64 red-4",
+       "code_nkd": "[8, 4, 4]",
+       "size_GE": "6 316",
+       "registers": "341",
+       "locations": "4 142",
+       "order_k": 3,
+       "proc1_s": "57.89",
+       "proc2_s": "0.693",
+       "partitions": "341",
+       "exploitable_faults": "341 + 441 others"
+      }
+     ],
+     "note": "'Exploitable faults' column misaligned in the text layer for red-1..red-3 (one fragment reads '128 inputs + 64 outputs'); left null. Size/registers/locations printed once per circuit in the source and repeated here per row."
+    }
+   ],
+   "not_found": "The abstract's comparison with existing tools for AES under a three-fault attack was not located in the text read; check the PDF for a further table.",
+   "all_values_transcribed": true
+  },
+  {
+   "id": "craft_hasp2025",
+   "citation": "A. A. Malik, H. Mihir, A. Aysu. CRAFT: Characterizing and Root-Causing Fault Injection Threats at Pre-Silicon. HASP 2025, Seoul, 2025-10-19. DOI 10.1145/3768725.3768726. arXiv:2503.03877v4 (2025-10-22).",
+   "url": "https://arxiv.org/pdf/2503.03877",
+   "where": "Table 1 and Table 2; printed page numbers not present in the text layer.",
+   "setup": "CV32E40X RISC-V core, MNIST inference workload, Vivado 2020.2 simulation, Xilinx Kintex-7 FPGA, 50 MHz (20 ns) clock.",
+   "tables": [
+    {
+     "table": "1",
+     "caption": "Risk assessment table (RAT) displaying the total percentage of faults observed across the pipeline stages (sum of all cells 100%). Simulation (pre-silicon) only.",
+     "columns": [
+      "instruction",
+      "IF/ID",
+      "ID/EX",
+      "EX/WB"
+     ],
+     "rows": [
+      {
+       "instruction": "c.addi",
+       "IF/ID": 0.4,
+       "ID/EX": 5.24,
+       "EX/WB": 6.45
+      },
+      {
+       "instruction": "auipc",
+       "IF/ID": 0.0,
+       "ID/EX": 0.0,
+       "EX/WB": 2.03
+      },
+      {
+       "instruction": "JAL",
+       "IF/ID": 14.92,
+       "ID/EX": 13.31,
+       "EX/WB": 6.85
+      },
+      {
+       "instruction": "bne",
+       "IF/ID": 2.42,
+       "ID/EX": 1.61,
+       "EX/WB": 3.23
+      },
+      {
+       "instruction": "bge",
+       "IF/ID": 1.61,
+       "ID/EX": 6.05,
+       "EX/WB": 1.21
+      },
+      {
+       "instruction": "c.lwsp",
+       "IF/ID": 1.61,
+       "ID/EX": 0.81,
+       "EX/WB": 2.82
+      },
+      {
+       "instruction": "c.mv",
+       "IF/ID": 0.0,
+       "ID/EX": 0.81,
+       "EX/WB": 0.0
+      },
+      {
+       "instruction": "lw",
+       "IF/ID": 11.29,
+       "ID/EX": 9.27,
+       "EX/WB": 8.06
+      }
+     ],
+     "note": "Caption says four pipeline stages; the table has three columns (as printed)."
+    },
+    {
+     "table": "2",
+     "caption": "Glitch offset and width configurations that lead to output corruption",
+     "columns": [
+      "case",
+      "T_offset_ns",
+      "T_width_ns",
+      "T_glitch_ns",
+      "illegal_flag",
+      "effect"
+     ],
+     "rows": [
+      {
+       "case": 1,
+       "T_offset_ns": "0.833",
+       "T_width_ns": "≤2.967",
+       "T_glitch_ns": "≤3.8",
+       "illegal_flag": true,
+       "effect": "Instruction Skip"
+      },
+      {
+       "case": 2,
+       "T_offset_ns": "3.067 – 3.567",
+       "T_width_ns": "3.901 – 4.400",
+       "T_glitch_ns": null,
+       "illegal_flag": true,
+       "effect": "Data Zeroization"
+      },
+      {
+       "case": 3,
+       "T_offset_ns": "3.667 – 4.289",
+       "T_width_ns": "4.504 – 5.121",
+       "T_glitch_ns": null,
+       "illegal_flag": false,
+       "effect": "Data Zeroization"
+      },
+      {
+       "case": 4,
+       "T_offset_ns": "4.289 – 4.339",
+       "T_width_ns": "5.112 – 5.172",
+       "T_glitch_ns": null,
+       "illegal_flag": false,
+       "effect": "Partial Data Corruption"
+      }
+     ],
+     "note": "Rows 2-4: the text layer shows only two ranges per row; assignment to offset/width columns is as extracted and must be checked on the rendered page."
+    }
+   ],
+   "prose_values": [
+    {
+     "what": "simulation sweep",
+     "value": "0.278 ns to 8.89 ns in 0.5 ns steps, 17 x 17 grid; 9248 configurations searched"
+    },
+    {
+     "what": "critical configurations",
+     "value": "248 of 9248 produced critical faults (reported as a 97.31% search reduction)"
+    },
+    {
+     "what": "FPGA glitch edge",
+     "value": "glitched clock transitions within 0.833 ns, below the ILA sampling period of 3.33 ns (300 MHz)"
+    },
+    {
+     "what": "simulation vs FPGA, case 1",
+     "value": "lw at PC 0x386 skipped with illegal flag on FPGA, reproducing simulation"
+    },
+    {
+     "what": "simulation vs FPGA, case 2",
+     "value": "simulation zeroed x11; FPGA loaded non-zero values; PC redirected to 0xF3698 in simulation and 0xFFF337A4 on FPGA"
+    },
+    {
+     "what": "simulation vs FPGA, cases 3-4",
+     "value": "silent faults reproduced on FPGA; no counts given"
+    }
+   ],
+   "measured_on_hardware": "Partly: FPGA (Kintex-7) confirmation of selected simulated cases; no per-case hardware counts are published.",
+   "all_values_transcribed": true
+  }
+ ]
+}

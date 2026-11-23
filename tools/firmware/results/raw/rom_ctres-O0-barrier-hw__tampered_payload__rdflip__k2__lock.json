@@ -1,0 +1,53 @@
+{
+ "model": "rdflip",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 557,
+   "pc": "0x24c",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 28,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 6,
+   "effect": "bit 6 of ra flipped after write"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1019,
+ "nodes": 11296,
+ "seconds": 3.32,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   28,
+   "0x24c",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 557,
+   "pc": "0x24c",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 28,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 6,
+   "effect": "bit 6 of ra flipped after write"
+  }
+ ],
+ "build": "rom_ctres-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 490
+}

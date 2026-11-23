@@ -1,0 +1,149 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "k1_count": 7,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 167,
+ "nodes": 1600,
+ "seconds": 0.16,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_triple.c",
+   7,
+   "0x158",
+   "c.li\ta0, 0x1"
+  ],
+  [
+   "rom_triple.c",
+   19,
+   "0xd8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_triple.c",
+   26,
+   "0x126",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_triple.c",
+   27,
+   "0x12e",
+   "c.bnez\ta0, 0x144"
+  ],
+  [
+   "rom_triple.c",
+   28,
+   "0x146",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 21,
+   "pc": "0xd8",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 19,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 150,
+   "pc": "0x126",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 26,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 156,
+   "pc": "0x158",
+   "function": "mac_cmp",
+   "file": "rom_triple.c",
+   "line": 7,
+   "asm": "c.li\ta0, 0x1",
+   "model": "iwflip",
+   "arg": 2,
+   "effect": "bit 2 of fetched word flipped -> executes `c.li\ta0, 0x0`"
+  },
+  {
+   "step": 159,
+   "pc": "0x12e",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x144",
+   "model": "iwflip",
+   "arg": 13,
+   "effect": "bit 13 of fetched word flipped -> executes `c.beqz\ta0, 0x144`"
+  },
+  {
+   "step": 159,
+   "pc": "0x12e",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 27,
+   "asm": "c.bnez\ta0, 0x144",
+   "model": "iwflip",
+   "arg": 15,
+   "effect": "bit 15 of fetched word flipped -> executes `c.lui\ts2, 0x6`"
+  },
+  {
+   "step": 161,
+   "pc": "0x146",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 28,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "build": "rom_triple-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 164
+}

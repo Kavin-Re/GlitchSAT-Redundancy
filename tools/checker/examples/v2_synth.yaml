@@ -1,0 +1,18 @@
+# V2 (triplicated compare, sparse state word): RTL intent, the stored reference netlist, a second synthesis flow, and
+# the placed layout. Paths are relative to this file; GLITCHSAT_ROOT must point at the repository.
+name: v2
+top: v2
+intent:
+  rtl: [../../../work/glitchsat/rtl/v2.v]
+goal: {output: boot_word, value: 0x96, input: sig, key: 0xC3}
+margin: {k: 3, cycles: 6}
+stages:
+  - name: synth-plain            # scripts/synth.sh plain flow (hierarchy kept through ABC)
+    netlist: ../../../work/glitchsat/reference/spike_netlists/v2.json
+  - name: synth-flat             # flattened before optimisation (validation "flow B")
+    netlist: ../../../work/glitchsat/validation/nl/v2.json
+    flow: "proc; flatten; opt; techmap; abc -g AND,OR,XOR,MUX; opt"
+  - name: placed
+    netlist: ../../../work/glitchsat/layout/v_designs/out_patched/v2_pnr.v
+    def: ../../../work/glitchsat/layout/v_designs/out_patched/v2.def
+    spot_radius_um: 1.0

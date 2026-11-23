@@ -1,0 +1,11 @@
+# Needs Yosys: the checker elaborates the RTL as written (reference), then runs the flow below and checks its result.
+name: v2-flow
+top: v2
+intent:
+  rtl: [../../../work/glitchsat/rtl/v2.v]
+goal: {output: boot_word, value: 0x96, input: sig, key: 0xC3}
+margin: {k: 3, cycles: 6, min: 3}
+stages:
+  - name: synth
+    verilog: [../../../work/glitchsat/rtl/v2.v]
+    flow: "proc; opt_clean; techmap; opt_clean; abc -g AND,OR,XOR,MUX; opt_clean; setattr -mod -unset keep_hierarchy *; flatten; opt_clean; techmap; opt_clean; opt_merge; opt_clean"

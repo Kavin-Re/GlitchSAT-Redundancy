@@ -1,0 +1,131 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 157,
+   "pc": "0x138",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x1ec",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  }
+ ],
+ "k1_count": 7,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 165,
+ "nodes": 768,
+ "seconds": 0.15,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   13,
+   "0x138",
+   "bne\ta2, a3, 0x1ec"
+  ],
+  [
+   "rom_cfi.c",
+   33,
+   "0x1ec",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_cfi.c",
+   33,
+   "0x1ee",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 157,
+   "pc": "0x138",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x1ec",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 157,
+   "pc": "0x138",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x1ec",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 157,
+   "pc": "0x138",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta2, a3, 0x1ec",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 158,
+   "pc": "0x1ec",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 158,
+   "pc": "0x1ec",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 158,
+   "pc": "0x1ec",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 159,
+   "pc": "0x1ee",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "build": "rom_cfi-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 211
+}

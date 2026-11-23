@@ -1,0 +1,275 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 572,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  }
+ ],
+ "k1_count": 19,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 970,
+ "nodes": 15200,
+ "seconds": 18.82,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   8,
+   "0x318",
+   "jal\tzero, 0x356"
+  ],
+  [
+   "rom_ctres.c",
+   8,
+   "0x31c",
+   "jal\tzero, 0x320"
+  ],
+  [
+   "rom_ctres.c",
+   8,
+   "0x352",
+   "jal\tzero, 0x30e"
+  ],
+  [
+   "rom_ctres.c",
+   15,
+   "0x3c8",
+   "jal\tzero, 0x380"
+  ],
+  [
+   "rom_ctres.c",
+   33,
+   "0x284",
+   "jal\tzero, 0x288"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 572,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 589,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 593,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 610,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 614,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 631,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 635,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 652,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 656,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 673,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 677,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 694,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 698,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 715,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 719,
+   "pc": "0x31c",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x320",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 736,
+   "pc": "0x352",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x30e",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2ee`"
+  },
+  {
+   "step": 740,
+   "pc": "0x318",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x356",
+   "model": "iwflip",
+   "arg": 27,
+   "effect": "bit 27 of fetched word flipped -> executes `jal\tzero, 0x3d6`"
+  },
+  {
+   "step": 937,
+   "pc": "0x3c8",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "jal\tzero, 0x380",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x360`"
+  },
+  {
+   "step": 962,
+   "pc": "0x284",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "jal\tzero, 0x288",
+   "model": "iwflip",
+   "arg": 25,
+   "effect": "bit 25 of fetched word flipped -> executes `jal\tzero, 0x2a8`"
+  }
+ ],
+ "build": "rom_ctres-O0-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 357
+}

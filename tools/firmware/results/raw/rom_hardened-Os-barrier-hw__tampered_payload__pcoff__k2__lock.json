@@ -1,0 +1,45 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 200,
+   "pc": "0x124",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 33,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 205,
+   "pc": "0x1a",
+   "function": null,
+   "file": "crt0.S",
+   "line": 15,
+   "asm": "or\tt1, t1, a0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 303,
+ "nodes": 462286,
+ "seconds": 47.49,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_hardened-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 233
+}

@@ -1,0 +1,104 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 957,
+   "pc": "0x19c",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 24,
+   "asm": "bgeu\ta0, a1, 0x1aa",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  }
+ ],
+ "k1_count": 4,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 976,
+ "nodes": 800,
+ "seconds": 0.52,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_triple.c",
+   10,
+   "0x22a",
+   "c.jr\tra"
+  ],
+  [
+   "rom_triple.c",
+   24,
+   "0x19c",
+   "bgeu\ta0, a1, 0x1aa"
+  ],
+  [
+   "rom_triple.c",
+   26,
+   "0x1aa",
+   "c.addi4spn\ta0, sp, 0x8"
+  ],
+  [
+   "rom_triple.c",
+   26,
+   "0x1ac",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 957,
+   "pc": "0x19c",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 24,
+   "asm": "bgeu\ta0, a1, 0x1aa",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 958,
+   "pc": "0x1aa",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 26,
+   "asm": "c.addi4spn\ta0, sp, 0x8",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 959,
+   "pc": "0x1ac",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 26,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 967,
+   "pc": "0x22a",
+   "function": "mac_cmp",
+   "file": "rom_triple.c",
+   "line": 10,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  }
+ ],
+ "build": "rom_triple-O2-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 164
+}

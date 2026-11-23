@@ -1,0 +1,154 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 32,
+   "pc": "0x1ca",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 18,
+   "asm": "jal\tzero, 0x1ce",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `jal\tzero, 0x3ce`"
+  }
+ ],
+ "k1_count": 8,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 719,
+ "nodes": 7168,
+ "seconds": 6.91,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_compl.c",
+   18,
+   "0x1ca",
+   "jal\tzero, 0x1ce"
+  ],
+  [
+   "rom_compl.c",
+   21,
+   "0x22e",
+   "jalr\tra, 0x1e4(ra)"
+  ],
+  [
+   "rom_compl.c",
+   22,
+   "0x246",
+   "jalr\tra, 0x1cc(ra)"
+  ],
+  [
+   "rom_compl.c",
+   29,
+   "0x37a",
+   "bne\ta0, a1, 0x382"
+  ],
+  [
+   "rom_compl.c",
+   30,
+   "0x38c",
+   "jalr\tra, -0x376(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 32,
+   "pc": "0x1ca",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 18,
+   "asm": "jal\tzero, 0x1ce",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `jal\tzero, 0x3ce`"
+  },
+  {
+   "step": 549,
+   "pc": "0x22e",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 21,
+   "asm": "jalr\tra, 0x1e4(ra)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jalr\tra, 0x1a4(ra)`"
+  },
+  {
+   "step": 568,
+   "pc": "0x246",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 22,
+   "asm": "jalr\tra, 0x1cc(ra)",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `jalr\tra, 0x18c(ra)`"
+  },
+  {
+   "step": 710,
+   "pc": "0x37a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x382",
+   "model": "iwflip",
+   "arg": 12,
+   "effect": "bit 12 of fetched word flipped -> executes `beq\ta0, a1, 0x382`"
+  },
+  {
+   "step": 710,
+   "pc": "0x37a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x382",
+   "model": "iwflip",
+   "arg": 14,
+   "effect": "bit 14 of fetched word flipped -> executes `bge\ta0, a1, 0x382`"
+  },
+  {
+   "step": 710,
+   "pc": "0x37a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x382",
+   "model": "iwflip",
+   "arg": 15,
+   "effect": "bit 15 of fetched word flipped -> executes `bne\ta1, a1, 0x382`"
+  },
+  {
+   "step": 710,
+   "pc": "0x37a",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 29,
+   "asm": "bne\ta0, a1, 0x382",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `bne\ta0, a0, 0x382`"
+  },
+  {
+   "step": 714,
+   "pc": "0x38c",
+   "function": "rom_main",
+   "file": "rom_compl.c",
+   "line": 30,
+   "asm": "jalr\tra, -0x376(ra)",
+   "model": "iwflip",
+   "arg": 2,
+   "effect": "bit 2 of fetched word flipped -> executes `beq\tra, a0, 0xc`"
+  }
+ ],
+ "build": "rom_compl-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 465
+}

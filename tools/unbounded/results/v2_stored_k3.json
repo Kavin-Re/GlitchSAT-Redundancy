@@ -1,0 +1,329 @@
+{
+ "label": "MEASURED",
+ "tool": "ext/unbounded/src/unbounded.py 0.1.0",
+ "design": "v2_stored",
+ "origin": "stored reference netlist (68 gates)",
+ "netlist": "reference/spike_netlists/v2.json",
+ "netlist_sha256_16": "289355dc483b9e6a",
+ "top": "v2",
+ "max_faults": 3,
+ "verdict": "ATTACK_FOUND",
+ "verdict_init": "known",
+ "scope": {
+  "time": "any number of clock cycles (unbounded)",
+  "max_faults": 3,
+  "fault_model": "single-cycle bit flip of any gate output or flop Q net",
+  "count_rule": "stem (one flipped net = one fault, whatever its fan-out)",
+  "attacker_input": "`sig` free, held constant, != key 0xC3",
+  "goal": "boot_word == 0x96 at some cycle",
+  "init": "known = flops power up at their netlist init value; arbitrary = any power-up state; free_nongoal = any power-up state from which the fault-free run never shows the goal"
+ },
+ "note": "UNBOUNDED IN TIME, BOUNDED IN EVERYTHING ELSE: the verdict covers any number of clock cycles, for at most 3 modelled single-cycle bit flips (gate outputs and flop Q nets) in total, on this one netlist, with the attacker input held constant and not equal to the key. It says nothing about more flips, other fault types (stuck-at, multi-cycle, clock or voltage effects), other netlists of the same RTL, or physical feasibility. Toy design; modelled faults.",
+ "netlist_stats": {
+  "gates": 68,
+  "flops": 8,
+  "state_bits": 20,
+  "design_flops": 8,
+  "input_bits": 8,
+  "counter_bits": 3,
+  "fault_sites_in_cone": 69,
+  "fault_sites_total": 76,
+  "step_vars": 505,
+  "step_clauses": 1630
+ },
+ "backend": "minicdcl",
+ "backends_available": [
+  "minicdcl"
+ ],
+ "python": "3.13.18",
+ "scopes": [
+  {
+   "init": "known",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 0.702,
+     "reachable_state_input_pairs": 27432,
+     "verdict": "attack",
+     "min_faults": 3,
+     "faults": [
+      {
+       "cycle": 1,
+       "net": "word[0]",
+       "net_id": 30,
+       "kind": "gate_output"
+      },
+      {
+       "cycle": 1,
+       "net": "$flatten\\c1.$abc$251$new_n16_",
+       "net_id": 79,
+       "kind": "gate_output"
+      },
+      {
+       "cycle": 1,
+       "net": "$flatten\\c2.$abc$251$new_n16_",
+       "net_id": 86,
+       "kind": "gate_output"
+      }
+     ],
+     "cycles": 3,
+     "attacker_input": {
+      "sig": 0
+     },
+     "init_state": 240,
+     "replayed": true
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 2,
+     "backend": "minicdcl",
+     "verdict": "attack",
+     "depth": 3,
+     "seconds": 0.114,
+     "step_failed_at_depths": 3,
+     "faults": [
+      {
+       "cycle": 1,
+       "net": "$flatten\\c0.$abc$251$new_n13_",
+       "net_id": 69,
+       "kind": "gate_output"
+      },
+      {
+       "cycle": 1,
+       "net": "$flatten\\c1.$abc$251$new_n10_",
+       "net_id": 73,
+       "kind": "gate_output"
+      },
+      {
+       "cycle": 1,
+       "net": "$flatten\\c2.$abc$251$new_n12_",
+       "net_id": 82,
+       "kind": "gate_output"
+      }
+     ],
+     "flips_used": 3,
+     "cycles": 3,
+     "replayed": true
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "attack",
+     "frames": 3,
+     "seconds": 0.438,
+     "obligations": 45,
+     "blocked_cubes": 22,
+     "sat_calls": 757,
+     "faults": [
+      {
+       "cycle": 1,
+       "net": "$flatten\\c0.$abc$251$new_n11_",
+       "net_id": 67,
+       "kind": "gate_output"
+      },
+      {
+       "cycle": 1,
+       "net": "$flatten\\c1.$abc$251$new_n11_",
+       "net_id": 74,
+       "kind": "gate_output"
+      },
+      {
+       "cycle": 1,
+       "net": "$flatten\\c2.$abc$251$new_n11_",
+       "net_id": 81,
+       "kind": "gate_output"
+      }
+     ],
+     "flips_used": 3,
+     "cycles": 3,
+     "replayed": true
+    }
+   },
+   "plain_k_induction": {
+    "method": "k-induction without simple-path constraints (shown for comparison; not used for the verdict)",
+    "simple_path": false,
+    "invariant_clauses": 0,
+    "distinct_pairs": 0,
+    "backend": "minicdcl",
+    "verdict": "attack",
+    "depth": 3,
+    "seconds": 0.062,
+    "step_failed_at_depths": 3,
+    "last_step_counterexample": {
+     "depth": 2,
+     "start_flops": "0x9C",
+     "start_used": 0,
+     "repeats_a_state": true
+    },
+    "faults": [
+     {
+      "cycle": 1,
+      "net": "$flatten\\c0.$abc$251$new_n13_",
+      "net_id": 69,
+      "kind": "gate_output"
+     },
+     {
+      "cycle": 1,
+      "net": "$flatten\\c1.$abc$251$new_n10_",
+      "net_id": 73,
+      "kind": "gate_output"
+     },
+     {
+      "cycle": 1,
+      "net": "$flatten\\c2.$abc$251$new_n12_",
+      "net_id": 82,
+      "kind": "gate_output"
+     }
+    ],
+    "flips_used": 3,
+    "cycles": 3,
+    "replayed": true
+   },
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.702,
+    "k_induction_simple_path": 0.114,
+    "ic3": 0.438
+   }
+  },
+  {
+   "init": "arbitrary",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 0.004,
+     "reachable_state_input_pairs": 0,
+     "verdict": "attack",
+     "min_faults": 0,
+     "faults": [],
+     "cycles": 1,
+     "attacker_input": {
+      "sig": 0
+     },
+     "init_state": 150,
+     "replayed": true
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "attack",
+     "depth": 1,
+     "seconds": 0.009,
+     "step_failed_at_depths": 1,
+     "faults": [],
+     "flips_used": 0,
+     "cycles": 1,
+     "replayed": true
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "attack",
+     "frames": 1,
+     "seconds": 0.001,
+     "obligations": 1,
+     "blocked_cubes": 0,
+     "sat_calls": 2,
+     "faults": [],
+     "flips_used": 0,
+     "cycles": 1,
+     "replayed": true
+    }
+   },
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "init": "free_nongoal",
+   "methods": {
+    "oracle": {
+     "method": "explicit reachability (exhaustive, no solver)",
+     "seconds": 1.799,
+     "reachable_state_input_pairs": 64770,
+     "verdict": "attack",
+     "min_faults": 1,
+     "faults": [
+      {
+       "cycle": 0,
+       "net": "boot_word[7]",
+       "net_id": 19,
+       "kind": "flop_Q"
+      }
+     ],
+     "cycles": 1,
+     "attacker_input": {
+      "sig": 0
+     },
+     "init_state": 22,
+     "replayed": true
+    },
+    "k_induction_simple_path": {
+     "method": "k-induction",
+     "simple_path": true,
+     "invariant_clauses": 0,
+     "distinct_pairs": 0,
+     "backend": "minicdcl",
+     "verdict": "attack",
+     "depth": 1,
+     "seconds": 0.014,
+     "step_failed_at_depths": 1,
+     "faults": [
+      {
+       "cycle": 0,
+       "net": "boot_word[0]",
+       "net_id": 12,
+       "kind": "flop_Q"
+      }
+     ],
+     "flips_used": 1,
+     "cycles": 1,
+     "replayed": true
+    },
+    "ic3": {
+     "method": "IC3",
+     "backend": "minicdcl",
+     "uses_unsat_cores": false,
+     "verdict": "attack",
+     "frames": 1,
+     "seconds": 0.005,
+     "obligations": 1,
+     "blocked_cubes": 0,
+     "sat_calls": 2,
+     "faults": [
+      {
+       "cycle": 0,
+       "net": "boot_word[0]",
+       "net_id": 12,
+       "kind": "flop_Q"
+      }
+     ],
+     "flips_used": 1,
+     "cycles": 1,
+     "replayed": true
+    }
+   },
+   "admissible_power_up_pairs": 65025,
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.799,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.005
+   }
+  }
+ ],
+ "honest_key_boots_fault_free": {
+  "solver": true,
+  "simulator": true
+ }
+}

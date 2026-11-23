@@ -1,0 +1,18 @@
+# project plain flow + copy-separation guard (cells of every kept module get keep=1 before flatten)
+# the guard matters when a later flow adds opt/opt_merge: after flatten this script itself runs only opt_clean and
+# techmap, which do not merge the copies
+read_verilog v0_g3.v
+hierarchy -top v0h
+proc
+opt_clean
+techmap
+opt_clean
+abc -g AND,OR,XOR,MUX
+opt_clean
+setattr -set keep 1 cmp8/c:*
+setattr -mod -unset keep_hierarchy *
+flatten
+opt_clean
+techmap
+opt_clean
+write_json v0_g3_yosys.json

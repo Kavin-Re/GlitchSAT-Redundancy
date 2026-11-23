@@ -1,0 +1,172 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 566,
+   "pc": "0x272",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 28,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 8,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 602,
+ "nodes": 107,
+ "seconds": 0.23,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom.h",
+   39,
+   "0x3b2",
+   "c.addi\tsp, -0x10"
+  ],
+  [
+   "rom_cfi.c",
+   28,
+   "0x272",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x276",
+   "sw\ta0, -0x58(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x286",
+   "sw\ta0, -0x5c(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x28e",
+   "c.lw\ta0, 0x4(a0)"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x2a2",
+   "lw\ta0, -0x88(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x2a6",
+   "bltu\ta0, a1, 0x2ae"
+  ],
+  [
+   "rom_cfi.c",
+   30,
+   "0x2b8",
+   "jalr\tra, -0x2a2(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 566,
+   "pc": "0x272",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 28,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 567,
+   "pc": "0x276",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "sw\ta0, -0x58(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 571,
+   "pc": "0x286",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "sw\ta0, -0x5c(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 573,
+   "pc": "0x28e",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 578,
+   "pc": "0x3b2",
+   "function": "otp_read",
+   "file": "rom.h",
+   "line": 39,
+   "asm": "c.addi\tsp, -0x10",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 592,
+   "pc": "0x2a2",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "lw\ta0, -0x88(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 593,
+   "pc": "0x2a6",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "bltu\ta0, a1, 0x2ae",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 597,
+   "pc": "0x2b8",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 30,
+   "asm": "jalr\tra, -0x2a2(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_cfi-O0-barrier-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 439
+}

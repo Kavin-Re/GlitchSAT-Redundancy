@@ -1,0 +1,45 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 21,
+   "pc": "0xe0",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 0,
+   "asm": "lui\ts1, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 22,
+   "pc": "0xe4",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 26,
+   "asm": "c.lw\ta1, 0xc(s1)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 209,
+ "nodes": 2506,
+ "seconds": 0.59,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_hardened-O1-plain-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 203
+}

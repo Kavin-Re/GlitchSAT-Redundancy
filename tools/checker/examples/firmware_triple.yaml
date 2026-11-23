@@ -1,0 +1,7 @@
+# Triple-check boot ROM (ext/firmware), compiled at -O2 in ordinary C. The C source is the intent.
+name: rom_triple-O2-plain
+stages:
+  - name: firmware
+    elf: ../../firmware/elf/rom_triple-O2-plain-hw.elf
+    sources: [../../firmware/src/rom_triple.c]
+    function: rom_main

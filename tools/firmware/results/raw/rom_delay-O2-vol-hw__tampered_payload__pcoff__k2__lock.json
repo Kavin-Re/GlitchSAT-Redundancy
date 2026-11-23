@@ -1,0 +1,64 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 161,
+   "pc": "0x134",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x190",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 169,
+ "nodes": 832,
+ "seconds": 0.28,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_delay.c",
+   7,
+   "0x134",
+   "bne\ta1, a2, 0x190"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 161,
+   "pc": "0x134",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x190",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 161,
+   "pc": "0x134",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x190",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  }
+ ],
+ "build": "rom_delay-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 158
+}

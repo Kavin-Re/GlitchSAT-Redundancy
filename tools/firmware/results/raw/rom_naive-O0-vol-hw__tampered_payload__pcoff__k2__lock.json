@@ -1,0 +1,1137 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 18,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "k1_count": 81,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 597,
+ "nodes": 1632,
+ "seconds": 0.44,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   0,
+   "0x210",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_naive.c",
+   0,
+   "0x214",
+   "addi\ta1, a0, 0x10"
+  ],
+  [
+   "rom_naive.c",
+   0,
+   "0x218",
+   "addi\ta0, s0, -0x28"
+  ],
+  [
+   "rom_naive.c",
+   0,
+   "0x22e",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_naive.c",
+   0,
+   "0x2bc",
+   "c.li\ta0, 0x1"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x26e",
+   "c.swsp\tra, 0x1c(sp)"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x270",
+   "c.swsp\ts0, 0x18(sp)"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x272",
+   "c.addi4spn\ts0, sp, 0x20"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x274",
+   "sw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x278",
+   "sw\ta1, -0x14(s0)"
+  ],
+  [
+   "rom_naive.c",
+   4,
+   "0x27c",
+   "c.li\ta0, 0x0"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x27e",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x282",
+   "jal\tzero, 0x286"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x286",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x28a",
+   "c.li\ta0, 0x7"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x28c",
+   "bge\ta0, a1, 0x294"
+  ],
+  [
+   "rom_naive.c",
+   5,
+   "0x294",
+   "jal\tzero, 0x298"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x298",
+   "lw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x29c",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x2a0",
+   "slli\ta2, a1, 0x2"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x2a4",
+   "c.add\ta0, a2"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x2b0",
+   "bne\ta0, a1, 0x2b8"
+  ],
+  [
+   "rom_naive.c",
+   6,
+   "0x2b8",
+   "jal\tzero, 0x2bc"
+  ],
+  [
+   "rom_naive.c",
+   7,
+   "0x2be",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_naive.c",
+   7,
+   "0x2c2",
+   "jal\tzero, 0x2e2"
+  ],
+  [
+   "rom_naive.c",
+   9,
+   "0x2e2",
+   "lw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_naive.c",
+   9,
+   "0x2e6",
+   "c.lwsp\tra, 0x1c(sp)"
+  ],
+  [
+   "rom_naive.c",
+   9,
+   "0x2e8",
+   "c.lwsp\ts0, 0x18(sp)"
+  ],
+  [
+   "rom_naive.c",
+   9,
+   "0x2ec",
+   "c.jr\tra"
+  ],
+  [
+   "rom_naive.c",
+   18,
+   "0x1de",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_naive.c",
+   19,
+   "0x1fe",
+   "jal\tzero, 0x210"
+  ],
+  [
+   "rom_naive.c",
+   21,
+   "0x21c",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_naive.c",
+   21,
+   "0x224",
+   "c.bnez\ta0, 0x22a"
+  ],
+  [
+   "rom_naive.c",
+   21,
+   "0x22a",
+   "jal\tzero, 0x22e"
+  ],
+  [
+   "rom_naive.c",
+   22,
+   "0x230",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 18,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 551,
+   "pc": "0x1fe",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "jal\tzero, 0x210",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 552,
+   "pc": "0x210",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 553,
+   "pc": "0x214",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "addi\ta1, a0, 0x10",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 553,
+   "pc": "0x214",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "addi\ta1, a0, 0x10",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 554,
+   "pc": "0x218",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "addi\ta0, s0, -0x28",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 555,
+   "pc": "0x21c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 558,
+   "pc": "0x26e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.swsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 559,
+   "pc": "0x270",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.swsp\ts0, 0x18(sp)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 560,
+   "pc": "0x272",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 560,
+   "pc": "0x272",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 560,
+   "pc": "0x272",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 561,
+   "pc": "0x274",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 561,
+   "pc": "0x274",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 561,
+   "pc": "0x274",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 561,
+   "pc": "0x274",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x278",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x278",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x278",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x278",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x278",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x278",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x27c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x27c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x27c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x27c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x27c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x27c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 4,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 564,
+   "pc": "0x27e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 564,
+   "pc": "0x27e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 564,
+   "pc": "0x27e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 564,
+   "pc": "0x27e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 564,
+   "pc": "0x27e",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 565,
+   "pc": "0x282",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x286",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 565,
+   "pc": "0x282",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x286",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 565,
+   "pc": "0x282",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x286",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 565,
+   "pc": "0x282",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x286",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 565,
+   "pc": "0x282",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x286",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 565,
+   "pc": "0x282",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x286",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 566,
+   "pc": "0x286",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 566,
+   "pc": "0x286",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 566,
+   "pc": "0x286",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 566,
+   "pc": "0x286",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 567,
+   "pc": "0x28a",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 567,
+   "pc": "0x28a",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 567,
+   "pc": "0x28a",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 567,
+   "pc": "0x28a",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 568,
+   "pc": "0x28c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x294",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 568,
+   "pc": "0x28c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x294",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 568,
+   "pc": "0x28c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x294",
+   "model": "pcoff",
+   "arg": -4,
+   "effect": "next PC -4 bytes"
+  },
+  {
+   "step": 568,
+   "pc": "0x28c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "bge\ta0, a1, 0x294",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 569,
+   "pc": "0x294",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x298",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 569,
+   "pc": "0x294",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x298",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 569,
+   "pc": "0x294",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 5,
+   "asm": "jal\tzero, 0x298",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 570,
+   "pc": "0x298",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "lw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 570,
+   "pc": "0x298",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "lw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 570,
+   "pc": "0x298",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "lw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 571,
+   "pc": "0x29c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 571,
+   "pc": "0x29c",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 572,
+   "pc": "0x2a0",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "slli\ta2, a1, 0x2",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 573,
+   "pc": "0x2a4",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "c.add\ta0, a2",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 578,
+   "pc": "0x2b0",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "bne\ta0, a1, 0x2b8",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 579,
+   "pc": "0x2b8",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 6,
+   "asm": "jal\tzero, 0x2bc",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 580,
+   "pc": "0x2bc",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x1",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 581,
+   "pc": "0x2be",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 7,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 582,
+   "pc": "0x2c2",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 7,
+   "asm": "jal\tzero, 0x2e2",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 582,
+   "pc": "0x2c2",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 7,
+   "asm": "jal\tzero, 0x2e2",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 583,
+   "pc": "0x2e2",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 583,
+   "pc": "0x2e2",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 584,
+   "pc": "0x2e6",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "c.lwsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 584,
+   "pc": "0x2e6",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "c.lwsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 585,
+   "pc": "0x2e8",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "c.lwsp\ts0, 0x18(sp)",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 587,
+   "pc": "0x2ec",
+   "function": "mac_cmp",
+   "file": "rom_naive.c",
+   "line": 9,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 588,
+   "pc": "0x224",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x22a",
+   "model": "pcoff",
+   "arg": -4,
+   "effect": "next PC -4 bytes"
+  },
+  {
+   "step": 588,
+   "pc": "0x224",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "c.bnez\ta0, 0x22a",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 589,
+   "pc": "0x22a",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "jal\tzero, 0x22e",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 589,
+   "pc": "0x22a",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 21,
+   "asm": "jal\tzero, 0x22e",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 590,
+   "pc": "0x22e",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 590,
+   "pc": "0x22e",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 591,
+   "pc": "0x230",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 22,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 591,
+   "pc": "0x230",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 22,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  }
+ ],
+ "build": "rom_naive-O0-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 240
+}

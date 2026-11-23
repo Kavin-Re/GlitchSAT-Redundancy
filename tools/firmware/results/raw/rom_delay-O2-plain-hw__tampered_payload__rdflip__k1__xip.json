@@ -1,0 +1,104 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  }
+ ],
+ "k1_count": 4,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 169,
+ "nodes": 1216,
+ "seconds": 0.25,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   25,
+   "0xd6",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   25,
+   "0xda",
+   "jalr\tra, -0x90(ra)"
+  ],
+  [
+   "rom_delay.c",
+   31,
+   "0x192",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 20,
+   "pc": "0xd6",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 25,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 21,
+   "pc": "0xda",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 25,
+   "asm": "jalr\tra, -0x90(ra)",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 163,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  }
+ ],
+ "build": "rom_delay-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 158
+}

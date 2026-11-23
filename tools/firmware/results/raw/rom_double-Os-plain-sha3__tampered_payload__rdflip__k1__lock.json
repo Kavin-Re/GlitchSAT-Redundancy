@@ -1,0 +1,53 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 22,
+   "pc": "0x14a",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "jalr\tra, -0x100(ra)",
+   "model": "rdflip",
+   "arg": 7,
+   "effect": "bit 7 of ra flipped after write"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1030,
+ "nodes": 960,
+ "seconds": 0.23,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_double.c",
+   19,
+   "0x14a",
+   "jalr\tra, -0x100(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 22,
+   "pc": "0x14a",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "jalr\tra, -0x100(ra)",
+   "model": "rdflip",
+   "arg": 7,
+   "effect": "bit 7 of ra flipped after write"
+  }
+ ],
+ "build": "rom_double-Os-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 154
+}

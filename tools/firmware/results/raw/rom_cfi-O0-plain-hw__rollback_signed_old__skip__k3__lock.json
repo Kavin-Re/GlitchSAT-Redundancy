@@ -1,0 +1,121 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 536,
+   "pc": "0x1fa",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 28,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 566,
+ "nodes": 71,
+ "seconds": 0.19,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   28,
+   "0x1fa",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x1fe",
+   "c.lw\ta0, 0x4(a0)"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x212",
+   "lw\ta0, -0x30(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   29,
+   "0x216",
+   "bltu\ta0, a1, 0x21e"
+  ],
+  [
+   "rom_cfi.c",
+   30,
+   "0x228",
+   "jalr\tra, -0x212(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 536,
+   "pc": "0x1fa",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 28,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 537,
+   "pc": "0x1fe",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 556,
+   "pc": "0x212",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "lw\ta0, -0x30(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 557,
+   "pc": "0x216",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "bltu\ta0, a1, 0x21e",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 561,
+   "pc": "0x228",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 30,
+   "asm": "jalr\tra, -0x212(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_cfi-O0-plain-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 295
+}

@@ -1,0 +1,104 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  }
+ ],
+ "k1_count": 4,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 163,
+ "nodes": 1120,
+ "seconds": 0.07,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_double.c",
+   19,
+   "0xdc",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_double.c",
+   19,
+   "0xe0",
+   "jalr\tra, -0x96(ra)"
+  ],
+  [
+   "rom_double.c",
+   26,
+   "0x19e",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 22,
+   "pc": "0xdc",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 23,
+   "pc": "0xe0",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "jalr\tra, -0x96(ra)",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 157,
+   "pc": "0x19e",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 26,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  }
+ ],
+ "build": "rom_double-O2-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 205
+}

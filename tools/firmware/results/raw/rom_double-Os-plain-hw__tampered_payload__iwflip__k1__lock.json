@@ -1,0 +1,53 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 188,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 22,
+   "asm": "bgeu\ta0, a1, 0x120",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `bgeu\ta0, a1, 0x160`"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 200,
+ "nodes": 1280,
+ "seconds": 0.79,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_double.c",
+   22,
+   "0x112",
+   "bgeu\ta0, a1, 0x120"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 188,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 22,
+   "asm": "bgeu\ta0, a1, 0x120",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `bgeu\ta0, a1, 0x160`"
+  }
+ ],
+ "build": "rom_double-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 154
+}

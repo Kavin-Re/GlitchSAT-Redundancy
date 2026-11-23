@@ -1,0 +1,53 @@
+{
+ "model": "rdflip",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 21,
+   "pc": "0xde",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 18,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 8,
+   "effect": "bit 8 of ra flipped after write"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 198,
+ "nodes": 928,
+ "seconds": 0.07,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   18,
+   "0xde",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 21,
+   "pc": "0xde",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 18,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 8,
+   "effect": "bit 8 of ra flipped after write"
+  }
+ ],
+ "build": "rom_naive-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 123
+}

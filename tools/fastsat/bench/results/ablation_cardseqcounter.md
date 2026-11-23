@@ -1,0 +1,10 @@
+backend sat:minicdcl  card=seqcounter  fault-enc=xor  collapse=on  python 3.13.18  cpus 2  timeout 120.0s
+
+| design | gates/flops | T | sites | fault vars | CNF vars | CNF clauses | min<=3 | sweep s | k<=0 s | k<=1 s | k<=2 s | k<=3 s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| unprots (proxy) | 409/16 | 4 | 1283 | 281 | 2676 | 10410 | 1 | 0.408 | 0.266 | 0.108 | (implied) | (implied) |
+| pars (proxy) | 834/17 | 4 | 2571 | 510 | 5095 | 20435 | 1 | 0.523 | 0.323 | 0.066 | (implied) | (implied) |
+| par2s (proxy) | 834/25 | 4 | 2595 | 534 | 5237 | 20709 | 1 | 1.217 | 0.328 | 0.816 | (implied) | (implied) |
+| dmrs (proxy) | 834/32 | 4 | 2630 | 534 | 5237 | 20681 | 2 | 3.401 | 0.246 | 3.032 | 0.049 | (implied) |
+| tmrs (proxy) | 1259/48 | 4 | 3977 | 783 | 7770 | 30888 | 2 | 5.631 | 0.472 | 4.715 | 0.297 | (implied) |
+| tmr2s (proxy) | 1259/48 | 4 | 3977 | 787 | 7791 | 30931 | 3 | 33.479 | 0.525 | 4.854 | 27.389 | 0.539 |

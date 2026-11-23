@@ -1,0 +1,53 @@
+{
+ "model": "skip",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 1079,
+   "pc": "0x19a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x1b0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1087,
+ "nodes": 97,
+ "seconds": 0.06,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   26,
+   "0x19a",
+   "c.bnez\ta0, 0x1b0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 1079,
+   "pc": "0x19a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x1b0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_infective-O1-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 119
+}

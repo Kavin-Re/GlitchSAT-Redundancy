@@ -1,0 +1,53 @@
+{
+ "model": "brinv",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 570,
+   "pc": "0x2b6",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bge\ta0, a1, 0x2be",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 766,
+ "nodes": 15,
+ "seconds": 0.0,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   9,
+   "0x2b6",
+   "bge\ta0, a1, 0x2be"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 570,
+   "pc": "0x2b6",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bge\ta0, a1, 0x2be",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "build": "rom_infective-O0-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 251
+}

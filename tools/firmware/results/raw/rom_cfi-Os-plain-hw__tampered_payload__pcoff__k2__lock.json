@@ -1,0 +1,45 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 195,
+   "pc": "0x12e",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 12,
+   "asm": "addi\ta1, a0, 0xb4",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 198,
+   "pc": "0x144",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "addi\ta6, a0, 0x2d0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 208,
+ "nodes": 263663,
+ "seconds": 20.96,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_cfi-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 173
+}

@@ -1,0 +1,121 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 563,
+   "pc": "0x29e",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 7,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 766,
+ "nodes": 271,
+ "seconds": 0.11,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   7,
+   "0x29e",
+   "sw\ta1, -0x10(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x2a8",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x2b0",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x2b6",
+   "bge\ta0, a1, 0x2be"
+  ],
+  [
+   "rom_infective.c",
+   24,
+   "0x22c",
+   "sw\ta0, -0x30(s0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 563,
+   "pc": "0x29e",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 7,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 566,
+   "pc": "0x2a8",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 568,
+   "pc": "0x2b0",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 570,
+   "pc": "0x2b6",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bge\ta0, a1, 0x2be",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 746,
+   "pc": "0x22c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 24,
+   "asm": "sw\ta0, -0x30(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_infective-O0-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 251
+}

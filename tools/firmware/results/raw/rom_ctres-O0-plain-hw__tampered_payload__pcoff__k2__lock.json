@@ -1,0 +1,349 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 27,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "k1_count": 23,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 970,
+ "nodes": 7600,
+ "seconds": 2.72,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   6,
+   "0x2f6",
+   "c.addi4spn\ts0, sp, 0x20"
+  ],
+  [
+   "rom_ctres.c",
+   6,
+   "0x2f8",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_ctres.c",
+   6,
+   "0x2fc",
+   "sw\ta1, -0x10(s0)"
+  ],
+  [
+   "rom_ctres.c",
+   8,
+   "0x318",
+   "jal\tzero, 0x356"
+  ],
+  [
+   "rom_ctres.c",
+   8,
+   "0x34e",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_ctres.c",
+   10,
+   "0x356",
+   "lw\ta0, -0x14(s0)"
+  ],
+  [
+   "rom_ctres.c",
+   10,
+   "0x35a",
+   "c.lwsp\tra, 0x1c(sp)"
+  ],
+  [
+   "rom_ctres.c",
+   15,
+   "0x3c2",
+   "c.addi\ta0, 0x1"
+  ],
+  [
+   "rom_ctres.c",
+   15,
+   "0x3c4",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_ctres.c",
+   27,
+   "0x1de",
+   "lui\ta0, 0x20000"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 27,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x2f6",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 6,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 562,
+   "pc": "0x2f6",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 6,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x2f8",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 6,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 563,
+   "pc": "0x2f8",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 6,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 564,
+   "pc": "0x2fc",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 6,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 588,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 609,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 630,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 651,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 672,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 693,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 714,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 735,
+   "pc": "0x34e",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 740,
+   "pc": "0x318",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x356",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 740,
+   "pc": "0x318",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x356",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 740,
+   "pc": "0x318",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x356",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 740,
+   "pc": "0x318",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "jal\tzero, 0x356",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 741,
+   "pc": "0x356",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 10,
+   "asm": "lw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 742,
+   "pc": "0x35a",
+   "function": "ct_diff",
+   "file": "rom_ctres.c",
+   "line": 10,
+   "asm": "c.lwsp\tra, 0x1c(sp)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 935,
+   "pc": "0x3c2",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "c.addi\ta0, 0x1",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 936,
+   "pc": "0x3c4",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 936,
+   "pc": "0x3c4",
+   "function": "ct_eqcount",
+   "file": "rom_ctres.c",
+   "line": 15,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "build": "rom_ctres-O0-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 357
+}

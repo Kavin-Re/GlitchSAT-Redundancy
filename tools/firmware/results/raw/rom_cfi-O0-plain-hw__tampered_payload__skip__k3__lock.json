@@ -1,0 +1,45 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 566,
+   "pc": "0x248",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 32,
+   "asm": "auipc\tra, 0x0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 568,
+   "pc": "0x292",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 36,
+   "asm": "jalr\tra, -0x26a(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 612,
+ "nodes": 4195,
+ "seconds": 3.92,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_cfi-O0-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 295
+}

@@ -1,0 +1,63 @@
+{
+ "schema": "vlab-hazard-probe/1",
+ "honesty": "SIMULATION, not measurement",
+ "designs": [
+  {
+   "design": "v1",
+   "label": "SIMULATED (ASSUMED delays and ASSUMED random scalings)",
+   "trials": 200,
+   "seed": 1,
+   "scale_range": [
+    0.3,
+    3.0
+   ],
+   "captures_checked": 35185,
+   "nonmix_captures": 2071,
+   "nonmix_captures_default_delays": 9,
+   "wrong_key_accepts": 0,
+   "examples": [
+    {
+     "trial": 0,
+     "offset": 2,
+     "sig": "0x0",
+     "old": "0x69",
+     "new": "0x69",
+     "captured": "0x6d"
+    },
+    {
+     "trial": 0,
+     "offset": 2,
+     "sig": "0x3",
+     "old": "0x69",
+     "new": "0x69",
+     "captured": "0x6d"
+    },
+    {
+     "trial": 0,
+     "offset": 2,
+     "sig": "0xc0",
+     "old": "0x69",
+     "new": "0x69",
+     "captured": "0x6d"
+    }
+   ],
+   "note": "trial 0 = ASSUMED default delays; trials 1..N = each cell delay scaled by a uniform random factor. Counts are per (trial, offset, sig class, sample instant)."
+  },
+  {
+   "design": "v2",
+   "label": "SIMULATED (ASSUMED delays and ASSUMED random scalings)",
+   "trials": 200,
+   "seed": 1,
+   "scale_range": [
+    0.3,
+    3.0
+   ],
+   "captures_checked": 30753,
+   "nonmix_captures": 0,
+   "nonmix_captures_default_delays": 0,
+   "wrong_key_accepts": 0,
+   "examples": [],
+   "note": "trial 0 = ASSUMED default delays; trials 1..N = each cell delay scaled by a uniform random factor. Counts are per (trial, offset, sig class, sample instant)."
+  }
+ ]
+}

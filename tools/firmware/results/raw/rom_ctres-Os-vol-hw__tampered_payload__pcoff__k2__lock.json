@@ -1,0 +1,81 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 325,
+   "pc": "0x16a",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.swsp\ta1, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 335,
+ "nodes": 2800,
+ "seconds": 0.5,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   32,
+   "0x16a",
+   "c.swsp\ta1, 0x8(sp)"
+  ],
+  [
+   "rom_ctres.c",
+   33,
+   "0x16c",
+   "c.lwsp\ta1, 0x8(sp)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 325,
+   "pc": "0x16a",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.swsp\ta1, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 326,
+   "pc": "0x16c",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "c.lwsp\ta1, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 326,
+   "pc": "0x16c",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 33,
+   "asm": "c.lwsp\ta1, 0x8(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "build": "rom_ctres-Os-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 161
+}

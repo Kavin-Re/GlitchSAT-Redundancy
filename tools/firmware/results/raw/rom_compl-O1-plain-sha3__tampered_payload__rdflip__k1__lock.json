@@ -1,0 +1,21 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": null,
+ "completed_k": 1,
+ "witness": null,
+ "k1_count": 0,
+ "status": "no_attack_up_to_kmax",
+ "golden_outcome": "reject",
+ "golden_steps": 1039,
+ "nodes": 1184,
+ "seconds": 0.3,
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_compl-O1-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 174
+}

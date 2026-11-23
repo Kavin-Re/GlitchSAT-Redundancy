@@ -1,0 +1,53 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 190,
+   "pc": "0x100",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "c.lw\ta0, 0x4(s1)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 201,
+ "nodes": 41,
+ "seconds": 0.04,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   29,
+   "0x100",
+   "c.lw\ta0, 0x4(s1)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 190,
+   "pc": "0x100",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 29,
+   "asm": "c.lw\ta0, 0x4(s1)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_cfi-Os-plain-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 173
+}

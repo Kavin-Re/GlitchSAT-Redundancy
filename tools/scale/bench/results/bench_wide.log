@@ -1,0 +1,41 @@
+tmr2 x1 bytes
+   fastsat      [?,3]      45.99 s
+   time         [2,?]      45.96 s
+   struct       3           0.95 s
+   modules      3           1.00 s
+   race2        3           1.22 s
+   cadical      3           0.35 s
+   cadical+mod  3           2.87 s
+   kissat       3           0.51 s
+dmr x4 bytes
+   fastsat      [?,2]      48.28 s
+   time         [1,2]      47.54 s
+   struct       2          13.54 s
+   modules      2           8.43 s
+   cadical      2           2.36 s
+   cadical+mod  2           1.83 s
+   kissat       2           2.21 s
+tmr2 x4 bytes
+   fastsat      [?,3]      47.85 s
+   time         [1,?]      49.86 s
+   struct       3          16.48 s
+   modules      3          15.82 s
+   cadical      3           2.61 s
+   cadical+mod  3          10.16 s
+   kissat       3           2.15 s
+dmr x10 bytes
+   fastsat      [?,2]      54.22 s
+   time         [1,?]      45.45 s
+   struct       [1,?]      46.41 s
+   modules      2          24.28 s
+   cadical      2           4.77 s
+   cadical+mod  2           8.77 s
+   kissat       2           4.96 s
+dmr x16 bytes
+   fastsat      [?,?]      56.07 s
+   time         [0,?]      47.40 s
+   struct       [1,?]      45.64 s
+   modules      [1,?]      45.26 s
+   cadical      2          20.87 s
+   cadical+mod  2          13.12 s
+   kissat       2          10.77 s

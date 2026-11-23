@@ -1,0 +1,45 @@
+{
+ "model": "brinv",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 1038,
+   "pc": "0x1fa",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 32,
+   "asm": "c.beqz\ta1, 0x206",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  },
+  {
+   "step": 1043,
+   "pc": "0x216",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 35,
+   "asm": "bne\ta0, a1, 0x232",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1046,
+ "nodes": 17,
+ "seconds": 0.01,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_cfi-O1-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 186
+}

@@ -1,0 +1,45 @@
+{
+ "model": "brinv",
+ "kmax": 3,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 204,
+   "pc": "0x13a",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta0, a2, 0x162",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  },
+  {
+   "step": 218,
+   "pc": "0x15e",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 30,
+   "asm": "bltu\ta0, a2, 0x16c",
+   "model": "brinv",
+   "arg": 0,
+   "effect": "branch direction inverted"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 212,
+ "nodes": 653,
+ "seconds": 0.16,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_delay-O1-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 142
+}

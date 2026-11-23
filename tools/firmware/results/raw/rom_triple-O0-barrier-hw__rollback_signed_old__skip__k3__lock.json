@@ -1,0 +1,53 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 559,
+   "pc": "0x450",
+   "function": "otp_read",
+   "file": "rom.h",
+   "line": 39,
+   "asm": "c.addi\tsp, -0x10",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 583,
+ "nodes": 88,
+ "seconds": 0.01,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom.h",
+   39,
+   "0x450",
+   "c.addi\tsp, -0x10"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 559,
+   "pc": "0x450",
+   "function": "otp_read",
+   "file": "rom.h",
+   "line": 39,
+   "asm": "c.addi\tsp, -0x10",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_triple-O0-barrier-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 498
+}

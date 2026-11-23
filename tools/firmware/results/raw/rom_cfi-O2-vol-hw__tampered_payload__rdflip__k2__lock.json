@@ -1,0 +1,45 @@
+{
+ "model": "rdflip",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 19,
+   "pc": "0xd4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 0,
+   "asm": "andi\ta1, a0, 0x3",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of a1 flipped after write"
+  },
+  {
+   "step": 22,
+   "pc": "0x120",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 26,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 9,
+   "effect": "bit 9 of ra flipped after write"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 169,
+ "nodes": 130952,
+ "seconds": 16.03,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_cfi-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 237
+}

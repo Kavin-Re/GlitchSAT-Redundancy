@@ -1,0 +1,115 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 169,
+ "nodes": 1664,
+ "seconds": 0.15,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   7,
+   "0x134",
+   "bne\ta1, a2, 0x190"
+  ],
+  [
+   "rom_delay.c",
+   25,
+   "0xd6",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_delay.c",
+   31,
+   "0x192",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 20,
+   "pc": "0xd6",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 25,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 161,
+   "pc": "0x134",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x190",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `bne\ta1, a2, 0x188`"
+  },
+  {
+   "step": 161,
+   "pc": "0x134",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x190",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bne\ta1, a2, 0x180`"
+  },
+  {
+   "step": 163,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "build": "rom_delay-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 158
+}

@@ -1,0 +1,45 @@
+{
+ "model": "rdflip",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 287,
+   "pc": "0x1f2",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 42,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 4,
+   "effect": "bit 4 of ra flipped after write"
+  },
+  {
+   "step": 291,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 8,
+   "effect": "bit 8 of ra flipped after write"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 293,
+ "nodes": 1303598,
+ "seconds": 211.85,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_hardened-O1-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 1200.0,
+ "date": "2026-11-21",
+ "sites_in_window": 203
+}

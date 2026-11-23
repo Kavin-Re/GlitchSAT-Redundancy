@@ -1,0 +1,117 @@
+{
+ "label": "firmware MEASURED (simulator); hardware quoted from docs/NUMBERS.md",
+ "note": "Hardware: single-cycle bit flips on nets of a gate-level netlist (8-bit toy designs, 6 cycles, at most 3 flips). Firmware: instruction-level faults on a simulated RV32IMC core. The units differ (one net flip vs one instruction fault); compare the pattern, not the absolute numbers.",
+ "rows": [
+  {
+   "hardware": {
+    "design": "V0",
+    "what": "one check",
+    "min_flips": "1",
+    "numbers_ids": [
+     "B2.v0v1"
+    ],
+    "firmware_counterpart": "rom_naive"
+   },
+   "firmware_variant": "rom_naive",
+   "firmware_plain_tampered": {
+    "O0": "1",
+    "O1": "1",
+    "O2": "1",
+    "Os": "1"
+   },
+   "firmware_barrier_tampered": {
+    "O0": "1",
+    "O1": "1",
+    "O2": "1",
+    "Os": "1"
+   },
+   "firmware_plain_skip_only": {
+    "O0": "1",
+    "O1": "1",
+    "O2": ">3",
+    "Os": "1"
+   },
+   "firmware_barrier_skip_only": {
+    "O0": "1",
+    "O1": "1",
+    "O2": ">3",
+    "Os": "1"
+   }
+  },
+  {
+   "hardware": {
+    "design": "V1",
+    "what": "two checks joined by one AND gate",
+    "min_flips": "1",
+    "numbers_ids": [
+     "B2.v0v1"
+    ],
+    "firmware_counterpart": "rom_double"
+   },
+   "firmware_variant": "rom_double",
+   "firmware_plain_tampered": {
+    "O0": "1",
+    "O1": "2",
+    "O2": "1",
+    "Os": "1"
+   },
+   "firmware_barrier_tampered": {
+    "O0": "1",
+    "O1": "1",
+    "O2": "1",
+    "Os": "1"
+   },
+   "firmware_plain_skip_only": {
+    "O0": "2",
+    "O1": "2",
+    "O2": ">3",
+    "Os": "2"
+   },
+   "firmware_barrier_skip_only": {
+    "O0": "2",
+    "O1": "2",
+    "O2": "2",
+    "Os": "2"
+   }
+  },
+  {
+   "hardware": {
+    "design": "V2",
+    "what": "three checks with separate output bits",
+    "min_flips": "3 (stored netlist, full 8-bit word goal); 2 after re-synthesis with apt Yosys 0.33; 1 if only the boot_ok flag must be forced",
+    "numbers_ids": [
+     "B2.v2.spike.word",
+     "B2.v2.apt",
+     "B2.v2.conda",
+     "B2.v2.ok"
+    ],
+    "firmware_counterpart": "rom_triple"
+   },
+   "firmware_variant": "rom_triple",
+   "firmware_plain_tampered": {
+    "O0": "1",
+    "O1": "2",
+    "O2": "1",
+    "Os": "2"
+   },
+   "firmware_barrier_tampered": {
+    "O0": "1",
+    "O1": "1",
+    "O2": "1",
+    "Os": "1"
+   },
+   "firmware_plain_skip_only": {
+    "O0": "2",
+    "O1": "2",
+    "O2": "1",
+    "Os": "2"
+   },
+   "firmware_barrier_skip_only": {
+    "O0": "2",
+    "O1": "3",
+    "O2": "3",
+    "Os": "3"
+   }
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 3,
+ "completed_k": 2,
+ "witness": [
+  {
+   "step": 33,
+   "pc": "0x1da",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 19,
+   "asm": "jalr\tra, -0x190(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 38,
+   "pc": "0x1ec",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 20,
+   "asm": "auipc\tra, 0x0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 40,
+   "pc": "0x302",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 34,
+   "asm": "c.sw\ts0, 0x20(a3)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 559,
+ "nodes": 60935,
+ "seconds": 1.91,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_triple-O0-plain-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 342
+}

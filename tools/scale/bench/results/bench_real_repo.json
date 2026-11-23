@@ -1,0 +1,2554 @@
+{
+ "env": {
+  "python": "3.13.18",
+  "machine": "x86_64",
+  "cpus": 2,
+  "load": [
+   4.39697265625,
+   4.77734375,
+   4.94580078125
+  ],
+  "cadical": "cadical",
+  "kissat": "kissat",
+  "yosys": true,
+  "limit_s": 60.0,
+  "date": "2026-11-21 09:40",
+  "cadical_version": "3.1.0",
+  "kissat_version": "4.0.4"
+ },
+ "rows": [
+  {
+   "name": "OT AES cipher control FSM: out_valid without in_valid, alert silent",
+   "top": "aes_cipher_control_fsm",
+   "gates": 537,
+   "flops": 7,
+   "T": 4,
+   "k": 3,
+   "recorded": null,
+   "source": "",
+   "expect": null,
+   "netlist": "aes_fsm.json",
+   "sizes": {
+    "sites_total": 948,
+    "dag": {
+     "nodes": 904,
+     "sites": 381,
+     "observed": 8
+    },
+    "time": {
+     "fault_vars": 381,
+     "reduce_s": 0.007,
+     "vars": 2428,
+     "clauses": 5576,
+     "literals": 14408
+    },
+    "struct": {
+     "fault_vars": 178,
+     "reduce_s": 0.004,
+     "vars": 1434,
+     "clauses": 3367,
+     "literals": 8512
+    },
+    "full": {
+     "fault_vars": 178,
+     "reduce_s": 1.5,
+     "vars": 1434,
+     "clauses": 3367,
+     "literals": 8512,
+     "functional": {
+      "candidates_zero": 37,
+      "candidates_equal": 76,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 113,
+      "undecided": 0,
+      "signatures": 178,
+      "complete": true,
+      "time_s": 1.498
+     }
+    }
+   },
+   "sizes_s": 1.52,
+   "modules": [],
+   "cells": {
+    "time": {
+     "answer": 1,
+     "s": 0.05,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.03,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.03,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.046,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 2428,
+        "clauses": 5576,
+        "literals": 14408
+       },
+       "fault_vars": 381,
+       "sat_calls": 3,
+       "sat_time": 0.012,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.04,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.023,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.023,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.042,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1434,
+        "clauses": 3367,
+        "literals": 8512
+       },
+       "fault_vars": 178,
+       "sat_calls": 3,
+       "sat_time": 0.021,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.06,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.046,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.059,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.06,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.04,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.031,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.042,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1434,
+        "clauses": 3367,
+        "literals": 8512
+       },
+       "fault_vars": 178,
+       "sat_calls": 2,
+       "sat_time": 0.021,
+       "solver": "cadical"
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.03,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.016,
+       "hi": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.024,
+       "lo": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 1434,
+        "clauses": 3367,
+        "literals": 8512
+       },
+       "fault_vars": 178,
+       "sat_calls": 2,
+       "sat_time": 0.012,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": null
+  },
+  {
+   "name": "OT AES cipher control (3 rails): out_valid=011 with in_valid=100, alert silent",
+   "top": "aes_cipher_control",
+   "gates": 2130,
+   "flops": 44,
+   "T": 3,
+   "k": 4,
+   "recorded": null,
+   "source": "",
+   "expect": null,
+   "netlist": "aes_ctrl.json",
+   "sizes": {
+    "sites_total": 2892,
+    "dag": {
+     "nodes": 4250,
+     "sites": 1990,
+     "observed": 12
+    },
+    "time": {
+     "fault_vars": 1990,
+     "reduce_s": 0.018,
+     "vars": 12642,
+     "clauses": 31398,
+     "literals": 82251
+    },
+    "struct": {
+     "fault_vars": 648,
+     "reduce_s": 0.019,
+     "vars": 5571,
+     "clauses": 14481,
+     "literals": 36696
+    },
+    "full": {
+     "fault_vars": 648,
+     "reduce_s": 23.559,
+     "vars": 5571,
+     "clauses": 14481,
+     "literals": 36696,
+     "functional": {
+      "candidates_zero": 578,
+      "candidates_equal": 135,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 555,
+      "undecided": 158,
+      "signatures": 648,
+      "complete": true,
+      "time_s": 23.542
+     }
+    },
+    "modules": {
+     "fault_vars": 648,
+     "cost_vars": 4,
+     "instances": 1,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "island1"
+     ],
+     "vars": 5589,
+     "clauses": 14519,
+     "literals": 36790
+    }
+   },
+   "sizes_s": 23.64,
+   "modules": [
+    "island1"
+   ],
+   "cells": {
+    "time": {
+     "answer": 3,
+     "s": 16.34,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 1.318,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 1.318,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 2.351,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 16.314,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 12642,
+        "clauses": 31398,
+        "literals": 82251
+       },
+       "fault_vars": 1990,
+       "sat_calls": 4,
+       "sat_time": 16.2,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 3,
+     "s": 7.89,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 3.815,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 3.815,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 3.962,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 7.875,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 5571,
+        "clauses": 14481,
+        "literals": 36696
+       },
+       "fault_vars": 648,
+       "sat_calls": 4,
+       "sat_time": 7.756,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": 3,
+     "s": 9.86,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.061,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.256,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 4.396,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 9.85,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 5589,
+        "clauses": 14519,
+        "literals": 36790
+       },
+       "instances": 1,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 9.772,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": 3,
+     "s": 9.21,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.148,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.577,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 6.503,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 9.208,
+       "lo": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 0.4,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.108,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.13,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.161,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.383,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 5571,
+        "clauses": 14481,
+        "literals": 36696
+       },
+       "fault_vars": 648,
+       "sat_calls": 4,
+       "sat_time": 0.303,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 0.38,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.104,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.132,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 0.312,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 0.37,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 5589,
+        "clauses": 14519,
+        "literals": 36790
+       },
+       "instances": 1,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 0.258,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 0.41,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.157,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.179,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.255,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.405,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 5571,
+        "clauses": 14481,
+        "literals": 36696
+       },
+       "fault_vars": 648,
+       "sat_calls": 4,
+       "sat_time": 0.33,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": null
+  },
+  {
+   "name": "same, 8 cycles",
+   "top": "aes_cipher_control",
+   "gates": 2130,
+   "flops": 44,
+   "T": 8,
+   "k": 4,
+   "recorded": null,
+   "source": "",
+   "expect": null,
+   "netlist": "aes_ctrl.json",
+   "sizes": {
+    "sites_total": 7712,
+    "dag": {
+     "nodes": 13365,
+     "sites": 6190,
+     "observed": 32
+    },
+    "time": {
+     "fault_vars": 6190,
+     "reduce_s": 0.064,
+     "vars": 39577,
+     "clauses": 98793,
+     "literals": 259116
+    },
+    "struct": {
+     "fault_vars": 2174,
+     "reduce_s": 0.056,
+     "vars": 18654,
+     "clauses": 48822,
+     "literals": 124149
+    },
+    "full": {
+     "fault_vars": 2174,
+     "reduce_s": 123.565,
+     "vars": 18654,
+     "clauses": 48822,
+     "literals": 124149,
+     "functional": {
+      "candidates_zero": 2072,
+      "candidates_equal": 46,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 839,
+      "undecided": 1279,
+      "signatures": 2174,
+      "complete": true,
+      "time_s": 123.513
+     }
+    },
+    "modules": {
+     "fault_vars": 2174,
+     "cost_vars": 24,
+     "instances": 6,
+     "shapes": 1,
+     "facts": 0,
+     "names": [
+      "island1"
+     ],
+     "vars": 18762,
+     "clauses": 49050,
+     "literals": 124713
+    }
+   },
+   "sizes_s": 123.82,
+   "modules": [
+    "island1"
+   ],
+   "cells": {
+    "time": {
+     "answer": "[2,4]",
+     "s": 60.16,
+     "status": "INTERVAL",
+     "lo": 2,
+     "hi": 4,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 2.734,
+       "hi": 4,
+       "by": "exact"
+      },
+      {
+       "t": 2.734,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 15.702,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 39577,
+        "clauses": 98793,
+        "literals": 259116
+       },
+       "fault_vars": 6190,
+       "sat_calls": 4,
+       "sat_time": 59.731,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": "[2,?]",
+     "s": 60.14,
+     "status": "LOWER_BOUND_ONLY",
+     "lo": 2,
+     "hi": null,
+     "lo_by": "exact",
+     "hi_by": null,
+     "events": [
+      {
+       "t": 15.411,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 17.874,
+       "lo": 2,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 18654,
+        "clauses": 48822,
+        "literals": 124149
+       },
+       "fault_vars": 2174,
+       "sat_calls": 4,
+       "sat_time": 59.679,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "modules": {
+     "answer": "[2,?]",
+     "s": 60.25,
+     "status": "LOWER_BOUND_ONLY",
+     "lo": 2,
+     "hi": null,
+     "lo_by": "modules",
+     "hi_by": null,
+     "events": [
+      {
+       "t": 0.206,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 5.616,
+       "lo": 2,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 18762,
+        "clauses": 49050,
+        "literals": 124713
+       },
+       "instances": 6,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 3,
+       "sat_time": 60.074,
+       "iterations": 0,
+       "refinements": 0
+      }
+     }
+    },
+    "race2": {
+     "answer": "[2,3]",
+     "s": 60.54,
+     "status": "INTERVAL",
+     "lo": 2,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.572,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 14.354,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 54.406,
+       "hi": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 18762,
+        "clauses": 49050,
+        "literals": 124713
+       },
+       "instances": 6,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 3,
+       "sat_time": 59.843,
+       "iterations": 0,
+       "refinements": 0
+      }
+     }
+    },
+    "cadical": {
+     "answer": 3,
+     "s": 2.7,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.234,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.29,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.546,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 2.689,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 18654,
+        "clauses": 48822,
+        "literals": 124149
+       },
+       "fault_vars": 2174,
+       "sat_calls": 4,
+       "sat_time": 2.562,
+       "solver": "cadical"
+      }
+     }
+    },
+    "cadical+mod": {
+     "answer": 3,
+     "s": 2.49,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "modules",
+     "hi_by": "modules",
+     "events": [
+      {
+       "t": 0.12,
+       "lo": 1,
+       "by": "modules"
+      },
+      {
+       "t": 0.356,
+       "lo": 2,
+       "by": "modules"
+      },
+      {
+       "t": 2.312,
+       "lo": 3,
+       "by": "modules"
+      },
+      {
+       "t": 2.463,
+       "hi": 3,
+       "by": "modules"
+      }
+     ],
+     "parts": {
+      "modules": {
+       "size": {
+        "vars": 18762,
+        "clauses": 49050,
+        "literals": 124713
+       },
+       "instances": 6,
+       "shapes": 1,
+       "facts": 0,
+       "sat_calls": 4,
+       "sat_time": 2.329,
+       "iterations": 1,
+       "refinements": 0
+      }
+     }
+    },
+    "kissat": {
+     "answer": 3,
+     "s": 2.88,
+     "status": "EXACT",
+     "lo": 3,
+     "hi": 3,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.342,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.421,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.64,
+       "lo": 2,
+       "by": "exact"
+      },
+      {
+       "t": 2.863,
+       "lo": 3,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 18654,
+        "clauses": 48822,
+        "literals": 124149
+       },
+       "fault_vars": 2174,
+       "sat_calls": 4,
+       "sat_time": 2.676,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": null
+  },
+  {
+   "name": "Ibex fetch stage: fetch address 0x40400 with no PC set and no mispredict, mismatch alert silent",
+   "top": "ibex_if_stage",
+   "gates": 3272,
+   "flops": 284,
+   "T": 3,
+   "k": 3,
+   "recorded": null,
+   "source": "",
+   "expect": null,
+   "netlist": "ibex.json",
+   "sizes": {
+    "sites_total": 5811,
+    "dag": {
+     "nodes": 3493,
+     "sites": 1406,
+     "observed": 90
+    },
+    "time": {
+     "fault_vars": 1406,
+     "reduce_s": 0.013,
+     "vars": 9061,
+     "clauses": 21150,
+     "literals": 56386
+    },
+    "struct": {
+     "fault_vars": 400,
+     "reduce_s": 0.014,
+     "vars": 4096,
+     "clauses": 9893,
+     "literals": 25841
+    },
+    "full": {
+     "fault_vars": 400,
+     "reduce_s": 1.423,
+     "vars": 4096,
+     "clauses": 9893,
+     "literals": 25841,
+     "functional": {
+      "candidates_zero": 14,
+      "candidates_equal": 46,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 60,
+      "undecided": 0,
+      "signatures": 400,
+      "complete": true,
+      "time_s": 1.416
+     }
+    }
+   },
+   "sizes_s": 1.47,
+   "modules": [],
+   "cells": {
+    "time": {
+     "answer": 1,
+     "s": 0.16,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.089,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.089,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.149,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 9061,
+        "clauses": 21150,
+        "literals": 56386
+       },
+       "fault_vars": 1406,
+       "sat_calls": 3,
+       "sat_time": 0.073,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.12,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.067,
+       "hi": 3,
+       "by": "exact"
+      },
+      {
+       "t": 0.067,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.108,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 4096,
+        "clauses": 9893,
+        "literals": 25841
+       },
+       "fault_vars": 400,
+       "sat_calls": 3,
+       "sat_time": 0.04,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.14,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.072,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.126,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.13,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.063,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.08,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.122,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 4096,
+        "clauses": 9893,
+        "literals": 25841
+       },
+       "fault_vars": 400,
+       "sat_calls": 3,
+       "sat_time": 0.055,
+       "solver": "cadical"
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.13,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.068,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.079,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.116,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 4096,
+        "clauses": 9893,
+        "literals": 25841
+       },
+       "fault_vars": 400,
+       "sat_calls": 3,
+       "sat_time": 0.039,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": null
+  },
+  {
+   "name": "same, 8 cycles",
+   "top": "ibex_if_stage",
+   "gates": 3272,
+   "flops": 284,
+   "T": 8,
+   "k": 3,
+   "recorded": null,
+   "source": "",
+   "expect": null,
+   "netlist": "ibex.json",
+   "sizes": {
+    "sites_total": 15496,
+    "dag": {
+     "nodes": 10506,
+     "sites": 4472,
+     "observed": 240
+    },
+    "time": {
+     "fault_vars": 4472,
+     "reduce_s": 0.032,
+     "vars": 28381,
+     "clauses": 67657,
+     "literals": 182623
+    },
+    "struct": {
+     "fault_vars": 1481,
+     "reduce_s": 0.03,
+     "vars": 13812,
+     "clauses": 34117,
+     "literals": 89798
+    },
+    "full": {
+     "fault_vars": 1481,
+     "reduce_s": 15.091,
+     "vars": 13812,
+     "clauses": 34117,
+     "literals": 89798,
+     "functional": {
+      "candidates_zero": 187,
+      "candidates_equal": 105,
+      "proved_noop": 0,
+      "proved_equal": 0,
+      "refuted": 267,
+      "undecided": 25,
+      "signatures": 1481,
+      "complete": true,
+      "time_s": 15.036
+     }
+    }
+   },
+   "sizes_s": 15.23,
+   "modules": [],
+   "cells": {
+    "time": {
+     "answer": 1,
+     "s": 0.6,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.371,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.371,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.577,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 28381,
+        "clauses": 67657,
+        "literals": 182623
+       },
+       "fault_vars": 4472,
+       "sat_calls": 3,
+       "sat_time": 0.295,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "struct": {
+     "answer": 1,
+     "s": 0.65,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.247,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.248,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.625,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 13812,
+        "clauses": 34117,
+        "literals": 89798
+       },
+       "fault_vars": 1481,
+       "sat_calls": 3,
+       "sat_time": 0.463,
+       "solver": "minicdcl"
+      }
+     }
+    },
+    "race2": {
+     "answer": 1,
+     "s": 0.48,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.266,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.467,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {}
+    },
+    "cadical": {
+     "answer": 1,
+     "s": 0.43,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.231,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.278,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.408,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 13812,
+        "clauses": 34117,
+        "literals": 89798
+       },
+       "fault_vars": 1481,
+       "sat_calls": 3,
+       "sat_time": 0.21,
+       "solver": "cadical"
+      }
+     }
+    },
+    "kissat": {
+     "answer": 1,
+     "s": 0.36,
+     "status": "EXACT",
+     "lo": 1,
+     "hi": 1,
+     "lo_by": "exact",
+     "hi_by": "exact",
+     "events": [
+      {
+       "t": 0.211,
+       "hi": 2,
+       "by": "exact"
+      },
+      {
+       "t": 0.249,
+       "lo": 1,
+       "by": "exact"
+      },
+      {
+       "t": 0.334,
+       "hi": 1,
+       "by": "exact"
+      }
+     ],
+     "parts": {
+      "exact": {
+       "size": {
+        "vars": 13812,
+        "clauses": 34117,
+        "literals": 89798
+       },
+       "fault_vars": 1481,
+       "sat_calls": 3,
+       "sat_time": 0.123,
+       "solver": "kissat"
+      }
+     }
+    }
+   },
+   "agree": true,
+   "matches_recorded": null
+  }
+ ],
+ "repo": {
+  "netlists": 120,
+  "skipped_by_parser": 0,
+  "disagreements": 0,
+  "minimum_histogram": {
+   "1": 69,
+   "3": 17,
+   "0": 11,
+   "2": 16,
+   "none": 7
+  },
+  "bad": [],
+  "rows": [
+   {
+    "path": "dashboard/real/netlists/v0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "dashboard/real/netlists/v1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "dashboard/real/netlists/v2.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "docs/edu/starter_designs/mini_v0.json",
+    "fastsat": 0,
+    "recorded": null,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "docs/edu/starter_designs/mini_v1.json",
+    "fastsat": 0,
+    "recorded": null,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "docs/edu/starter_designs/mini_v2.json",
+    "fastsat": 0,
+    "recorded": null,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "formal/gen/v0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "formal/gen/v1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "formal/gen/v2.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "formal/gen/v2_y038.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "formal/gen/w0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "formal/gen/w1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "formal/gen/w2.json",
+    "fastsat": 2,
+    "recorded": null,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "formal/gen/w2o.json",
+    "fastsat": 2,
+    "recorded": null,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c2/b1_faultmodels/netlists/v0_conda038.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/b1_faultmodels/netlists/v1_conda038.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/b1_faultmodels/netlists/v2_conda038.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v2.json",
+    "fastsat": 2,
+    "recorded": null,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v2.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v2.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c2/reviews/ct/tests/v2_inbuf.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c3/rt/hostile.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/b3/nl/v5_apt033.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c4/layout/nl/v1_layout.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/layout/nl/v2_layout.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c4/layout/nl/v2_wi_layout.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v4_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v4_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v4b_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v4b_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v5_opt.json",
+    "fastsat": 3,
+    "recorded": 3,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v6_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v6_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v6bh_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v6bh_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v6h_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/V456_v6h_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc300_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc301_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc302_plain.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/crc303_opt.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/crc304_plain.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/crc305_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc306_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc307_opt.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/crc308_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc309_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc310_plain.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/crc311_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc312_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc313_opt.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/crc314_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc315_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc316_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc317_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc318_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc319_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc320_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/crc321_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rand200_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rand201_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rand202_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rand203_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rand204_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rand205_plain.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/rand206_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rand207_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rand208_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rand209_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rand210_plain.json",
+    "fastsat": 0,
+    "recorded": 0,
+    "struct": 0,
+    "full": 0,
+    "modules": 0,
+    "time": 0
+   },
+   {
+    "path": "research/c4/ver/gen/rand211_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rand212_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rand213_plain.json",
+    "fastsat": "none",
+    "recorded": ">3",
+    "struct": "none",
+    "full": "none",
+    "modules": "none",
+    "time": "none"
+   },
+   {
+    "path": "research/c4/ver/gen/rc100_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc101_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc102_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc103_opt.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc104_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc105_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc106_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc107_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc108_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc109_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc110_plain.json",
+    "fastsat": 3,
+    "recorded": 3,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c4/ver/gen/rc111_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc112_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc113_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc114_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc115_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc116_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc117_opt.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc118_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc119_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc120_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc121_opt.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc122_plain.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc123_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc124_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc125_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c4/ver/gen/rc126_plain.json",
+    "fastsat": 2,
+    "recorded": 2,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c4/ver/gen/rc127_opt.json",
+    "fastsat": 1,
+    "recorded": 1,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_apt_v2.json",
+    "fastsat": 2,
+    "recorded": null,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_apt_v2c04.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_apt_v2c4d.json",
+    "fastsat": 2,
+    "recorded": null,
+    "struct": 2,
+    "full": 2,
+    "modules": 2,
+    "time": 2
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_apt_v2c5a.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_apt_v2e.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_conda_v2.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_conda_v2c04.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_conda_v2c4d.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_conda_v2c5a.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "research/c6/p01/netlists/nl_conda_v2e.json",
+    "fastsat": 3,
+    "recorded": null,
+    "struct": 3,
+    "full": 3,
+    "modules": 3,
+    "time": 3
+   },
+   {
+    "path": "validation/nl/v0.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "validation/nl/v1.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   },
+   {
+    "path": "validation/nl/v2.json",
+    "fastsat": 1,
+    "recorded": null,
+    "struct": 1,
+    "full": 1,
+    "modules": 1,
+    "time": 1
+   }
+  ]
+ }
+}

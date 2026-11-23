@@ -1,0 +1,3370 @@
+{
+ "label": "MEASURED",
+ "tool": "ext/unbounded/src/unbounded.py 0.1.0",
+ "backend": "minicdcl",
+ "backends_available": [
+  "minicdcl"
+ ],
+ "python": "3.13.18",
+ "kmax": 3,
+ "inits": [
+  "known",
+  "arbitrary",
+  "free_nongoal"
+ ],
+ "problems": [],
+ "rows": [
+  {
+   "design": "v0_stored",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.008,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.006
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v0_stored",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.014,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_stored",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.009,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.003
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.0
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_stored",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.009,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.004
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_stored",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_stored",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.013,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.008
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.01,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.002
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v1_stored",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.786,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.009,
+    "k_induction_simple_path": 0.034,
+    "ic3": 0.037
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_stored",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.682,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.024,
+    "ic3": 0.07
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_stored",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.582,
+    "k_induction_simple_path": 0.021,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.017,
+    "k_induction_simple_path": 0.044,
+    "ic3": 0.192
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_stored",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_stored",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.637,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.017,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.004
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_stored",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.869,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.012
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.116,
+    "k_induction_simple_path": 0.039,
+    "ic3": 0.028
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2_stored",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.952,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.554,
+    "k_induction_simple_path": 0.222,
+    "ic3": 0.135
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2_stored",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.738,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.702,
+    "k_induction_simple_path": 0.114,
+    "ic3": 0.438
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_stored",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_stored",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.799,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.002
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v0_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.006,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.0
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.02,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.019,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.009,
+    "k_induction_simple_path": 0.004,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v1_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.697,
+    "k_induction_simple_path": 0.018,
+    "ic3": 0.015
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.018,
+    "k_induction_simple_path": 0.071,
+    "ic3": 0.069
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.78,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.016,
+    "k_induction_simple_path": 0.04,
+    "ic3": 0.13
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.516,
+    "k_induction_simple_path": 0.02,
+    "ic3": 0.009
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.017,
+    "k_induction_simple_path": 0.059,
+    "ic3": 0.232
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.008,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v1_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.706,
+    "k_induction_simple_path": 0.023,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.016,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 3.013,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.023
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.404,
+    "k_induction_simple_path": 0.162,
+    "ic3": 0.097
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.203,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.164,
+    "k_induction_simple_path": 0.06,
+    "ic3": 0.184
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.971,
+    "k_induction_simple_path": 0.021,
+    "ic3": 0.013
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.24,
+    "k_induction_simple_path": 0.055,
+    "ic3": 0.261
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.006,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.359,
+    "k_induction_simple_path": 0.018,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.017,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.004
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_conda",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.073,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.02
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.162,
+    "k_induction_simple_path": 0.067,
+    "ic3": 0.034
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2_conda",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.975,
+    "k_induction_simple_path": 0.019,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.885,
+    "k_induction_simple_path": 0.257,
+    "ic3": 0.205
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2_conda",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.971,
+    "k_induction_simple_path": 0.018,
+    "ic3": 0.008
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.76,
+    "k_induction_simple_path": 0.059,
+    "ic3": 0.086
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_conda",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_conda",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.068,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.016,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.004
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2e_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.245,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.012
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.154,
+    "k_induction_simple_path": 0.062,
+    "ic3": 0.046
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2e_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.126,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.817,
+    "k_induction_simple_path": 0.336,
+    "ic3": 0.423
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2e_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.188,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.841,
+    "k_induction_simple_path": 0.047,
+    "ic3": 0.366
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2e_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.006,
+    "k_induction_simple_path": 0.018,
+    "ic3": 0.002
+   }
+  },
+  {
+   "design": "v2e_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.096,
+    "k_induction_simple_path": 0.027,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.018,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.004
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2e_conda",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.847,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.011
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.16,
+    "k_induction_simple_path": 0.065,
+    "ic3": 0.038
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2e_conda",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.053,
+    "k_induction_simple_path": 0.02,
+    "ic3": 0.008
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.835,
+    "k_induction_simple_path": 0.244,
+    "ic3": 0.288
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2e_conda",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.985,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.88,
+    "k_induction_simple_path": 0.065,
+    "ic3": 0.24
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2e_conda",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2e_conda",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.197,
+    "k_induction_simple_path": 0.017,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.831,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.011
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.019,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.792,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.004
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.009,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.783,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_stored_ok",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.733,
+    "k_induction_simple_path": 0.018,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.002
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v0_apt033",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.0,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_apt033",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.004
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_apt033",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.01,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.001
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v0_apt033",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.0,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v0_apt033",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.01,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v1_apt033",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.844,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.047,
+    "ic3": 0.049
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_apt033",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.997,
+    "k_induction_simple_path": 0.017,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.016,
+    "k_induction_simple_path": 0.04,
+    "ic3": 0.085
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_apt033",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.799,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.015,
+    "k_induction_simple_path": 0.036,
+    "ic3": 0.161
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v1_apt033",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v1_apt033",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.789,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.015,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_apt033",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.118,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.012
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.163,
+    "k_induction_simple_path": 0.067,
+    "ic3": 0.038
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2_apt033",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.921,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.157,
+    "k_induction_simple_path": 0.04,
+    "ic3": 0.149
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_apt033",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.92,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.165,
+    "k_induction_simple_path": 0.048,
+    "ic3": 0.244
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_apt033",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.007,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.002
+   }
+  },
+  {
+   "design": "v2_apt033",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.17,
+    "k_induction_simple_path": 0.024,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.035,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.007
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v5_apt033",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.003,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 8.256,
+    "k_induction_simple_path": 0.025,
+    "ic3": 0.029
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.327,
+    "k_induction_simple_path": 0.136,
+    "ic3": 0.113
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v5_apt033",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.002
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 8.817,
+    "k_induction_simple_path": 0.077,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.928,
+    "k_induction_simple_path": 1.166,
+    "ic3": 0.734
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v5_apt033",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.007,
+    "k_induction_simple_path": 0.022,
+    "ic3": 0.002
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 9.304,
+    "k_induction_simple_path": 0.035,
+    "ic3": 0.009
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.104,
+    "k_induction_simple_path": 0.472,
+    "ic3": 2.468
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v5_apt033",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.1,
+    "k_induction_simple_path": 0.038,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 13.002,
+    "k_induction_simple_path": 0.052,
+    "ic3": 0.063
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.021,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.007
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_flowB",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.004
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.951,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.013
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.035,
+    "ic3": 0.039
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_flowB",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.801,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.017,
+    "k_induction_simple_path": 0.035,
+    "ic3": 0.093
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_flowB",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.569,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.013,
+    "k_induction_simple_path": 0.031,
+    "ic3": 0.143
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_flowB",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_flowB",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.436,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.147,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.012
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.049,
+    "k_induction_simple_path": 0.089,
+    "ic3": 0.058
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.032,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.052,
+    "k_induction_simple_path": 0.032,
+    "ic3": 0.125
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.464,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.057,
+    "k_induction_simple_path": 0.039,
+    "ic3": 0.224
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.004,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.066,
+    "k_induction_simple_path": 0.021,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.01,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.876,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.016,
+    "k_induction_simple_path": 0.053,
+    "ic3": 0.023
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.802,
+    "k_induction_simple_path": 0.022,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.018,
+    "k_induction_simple_path": 0.058,
+    "ic3": 0.038
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.854,
+    "k_induction_simple_path": 0.023,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.023,
+    "k_induction_simple_path": 0.052,
+    "ic3": 0.132
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.009,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.623,
+    "k_induction_simple_path": 0.024,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.014,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.006,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 3.004,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.015
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 1,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.016,
+    "k_induction_simple_path": 0.044,
+    "ic3": 0.031
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.41,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.012,
+    "k_induction_simple_path": 0.03,
+    "ic3": 0.023
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.801,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.015,
+    "k_induction_simple_path": 0.054,
+    "ic3": 0.114
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c04_conda",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.055,
+    "k_induction_simple_path": 0.023,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.01,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.002
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.199,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.011
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.171,
+    "k_induction_simple_path": 0.065,
+    "ic3": 0.042
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.006,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.936,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.136,
+    "k_induction_simple_path": 0.045,
+    "ic3": 0.107
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.008,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.808,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.12,
+    "k_induction_simple_path": 0.038,
+    "ic3": 0.103
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.009,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c4d_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.823,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.006
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.011,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.089,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.015
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.133,
+    "k_induction_simple_path": 0.082,
+    "ic3": 0.045
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.007,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.067,
+    "k_induction_simple_path": 0.013,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.643,
+    "k_induction_simple_path": 0.434,
+    "ic3": 0.289
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.01,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.924,
+    "k_induction_simple_path": 0.016,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.682,
+    "k_induction_simple_path": 0.05,
+    "ic3": 0.341
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.006,
+    "k_induction_simple_path": 0.012,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c4d_conda",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.148,
+    "k_induction_simple_path": 0.017,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.013,
+    "k_induction_simple_path": 0.005,
+    "ic3": 0.003
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 2.087,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.017
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.245,
+    "k_induction_simple_path": 0.07,
+    "ic3": 0.047
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.268,
+    "k_induction_simple_path": 0.022,
+    "ic3": 0.011
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.852,
+    "k_induction_simple_path": 0.289,
+    "ic3": 0.159
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.005,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.312,
+    "k_induction_simple_path": 0.029,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.265,
+    "k_induction_simple_path": 0.089,
+    "ic3": 0.228
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.006,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c5a_apt",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 3.033,
+    "k_induction_simple_path": 0.026,
+    "ic3": 0.007
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 0,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.022,
+    "k_induction_simple_path": 0.002,
+    "ic3": 0.004
+   },
+   "plain_k_induction": "proved"
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 0,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.002,
+    "k_induction_simple_path": 0.001,
+    "ic3": 0.0
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 0,
+   "init": "free_nongoal",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 3.075,
+    "k_induction_simple_path": 0.019,
+    "ic3": 0.021
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 1,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 0.237,
+    "k_induction_simple_path": 0.143,
+    "ic3": 0.064
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 1,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.003,
+    "k_induction_simple_path": 0.011,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 1,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 2.853,
+    "k_induction_simple_path": 0.017,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 2,
+   "init": "known",
+   "verdict": "PROVED_UNBOUNDED",
+   "seconds": {
+    "oracle": 1.119,
+    "k_induction_simple_path": 0.524,
+    "ic3": 0.211
+   },
+   "plain_k_induction": "unknown"
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 2,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.008,
+    "k_induction_simple_path": 0.014,
+    "ic3": 0.001
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 2,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 3.002,
+    "k_induction_simple_path": 0.023,
+    "ic3": 0.01
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 3,
+   "init": "known",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 1.167,
+    "k_induction_simple_path": 0.175,
+    "ic3": 0.845
+   },
+   "plain_k_induction": "attack"
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 3,
+   "init": "arbitrary",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 0.01,
+    "k_induction_simple_path": 0.015,
+    "ic3": 0.005
+   }
+  },
+  {
+   "design": "v2c5a_conda",
+   "k": 3,
+   "init": "free_nongoal",
+   "verdict": "ATTACK_FOUND",
+   "seconds": {
+    "oracle": 3.069,
+    "k_induction_simple_path": 0.024,
+    "ic3": 0.011
+   }
+  }
+ ],
+ "consistency": [
+  {
+   "design": "v0_stored",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.014,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "results/reproduce_summary.json (spike/given-netlist)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true,
+   "surface": {
+    "file": "surface_v0_T6.json",
+    "cycles": 6,
+    "max_faults": 3,
+    "surface_min": 1,
+    "surface_count": 19,
+    "surface_complete": true,
+    "explicit_bounded_min_here": 1,
+    "attacks_replayed": 19,
+    "replay_mismatches": [],
+    "consistent": true
+   }
+  },
+  {
+   "design": "v1_stored",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.041,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "results/reproduce_summary.json (spike/given-netlist)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true,
+   "surface": {
+    "file": "surface_v1_T6.json",
+    "cycles": 6,
+    "max_faults": 3,
+    "surface_min": 1,
+    "surface_count": 1,
+    "surface_complete": true,
+    "explicit_bounded_min_here": 1,
+    "attacks_replayed": 1,
+    "replay_mismatches": [],
+    "consistent": true
+   }
+  },
+  {
+   "design": "v2_stored",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 2.779,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "results/reproduce_summary.json (spike/given-netlist)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true,
+   "surface": {
+    "file": "surface_v2_T6.json",
+    "cycles": 6,
+    "max_faults": 3,
+    "surface_min": 3,
+    "surface_count": 182,
+    "surface_complete": true,
+    "explicit_bounded_min_here": 3,
+    "attacks_replayed": 182,
+    "replay_mismatches": [],
+    "consistent": true
+   }
+  },
+  {
+   "design": "v0_apt",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.01,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "results/reproduce_summary.json (rtl/plain)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v1_apt",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.058,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "results/reproduce_summary.json (rtl/plain)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2_apt",
+   "unbounded_min_known_init": 2,
+   "explicit_min_within_6_cycles": 2,
+   "explicit_bounded_seconds": 1.139,
+   "recorded_min_within_6_cycles": 2,
+   "recorded_source": "results/reproduce_summary.json (rtl/plain); research/c6/p01/glitchsat_cross.txt",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2_conda",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 3.605,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c6/p01/glitchsat_cross.txt",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2e_apt",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 3.734,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c6/p01/glitchsat_cross.txt",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2e_conda",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 3.413,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c6/p01/glitchsat_cross.txt",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2_stored_ok",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.05,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "docs/NUMBERS.md B2.v2.ok; research/c4/b3/matrix_T6.jsonl (v2, stem_flip, ok)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v0_apt033",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.01,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "research/c4/b3/matrix_T6.jsonl (stem_flip, word)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v1_apt033",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.053,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "research/c4/b3/matrix_T6.jsonl (stem_flip, word)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2_apt033",
+   "unbounded_min_known_init": 2,
+   "explicit_min_within_6_cycles": 2,
+   "explicit_bounded_seconds": 0.778,
+   "recorded_min_within_6_cycles": 2,
+   "recorded_source": "research/c4/b3/matrix_T6.jsonl (stem_flip, word); ext/surface/results/surface_v2apt_T6.json",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true,
+   "surface": {
+    "file": "surface_v2apt_T6.json",
+    "cycles": 6,
+    "max_faults": 3,
+    "surface_min": 2,
+    "surface_count": 5,
+    "surface_complete": true,
+    "explicit_bounded_min_here": 2,
+    "attacks_replayed": 5,
+    "replay_mismatches": [],
+    "consistent": true
+   }
+  },
+  {
+   "design": "v5_apt033",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 8.334,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c4/b3/matrix_T6.jsonl (stem_flip, word)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2_flowB",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.09,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "docs/NUMBERS.md V.flowB; ext/surface/results/surface_v2flowB_T6.json",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true,
+   "surface": {
+    "file": "surface_v2flowB_T6.json",
+    "cycles": 6,
+    "max_faults": 3,
+    "surface_min": 1,
+    "surface_count": 4,
+    "surface_complete": true,
+    "explicit_bounded_min_here": 1,
+    "attacks_replayed": 4,
+    "replay_mismatches": [],
+    "consistent": true
+   }
+  },
+  {
+   "design": "v2_inbuf",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.255,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "ext/surface/results/surface_v2inbuf_T6.json",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true,
+   "surface": {
+    "file": "surface_v2inbuf_T6.json",
+    "cycles": 6,
+    "max_faults": 3,
+    "surface_min": 1,
+    "surface_count": 8,
+    "surface_complete": true,
+    "explicit_bounded_min_here": 1,
+    "attacks_replayed": 8,
+    "replay_mismatches": [],
+    "consistent": true
+   }
+  },
+  {
+   "design": "v2c04_apt",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.075,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "research/c6/p01/sweep_summary.txt (plain flow)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2c04_conda",
+   "unbounded_min_known_init": 1,
+   "explicit_min_within_6_cycles": 1,
+   "explicit_bounded_seconds": 0.093,
+   "recorded_min_within_6_cycles": 1,
+   "recorded_source": "research/c6/p01/sweep_summary.txt (plain flow)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2c4d_apt",
+   "unbounded_min_known_init": 2,
+   "explicit_min_within_6_cycles": 2,
+   "explicit_bounded_seconds": 0.647,
+   "recorded_min_within_6_cycles": 2,
+   "recorded_source": "research/c6/p01/sweep_summary.txt (plain flow)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2c4d_conda",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 2.707,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c6/p01/sweep_summary.txt (plain flow)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2c5a_apt",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 3.501,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c6/p01/sweep_summary.txt (plain flow)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  },
+  {
+   "design": "v2c5a_conda",
+   "unbounded_min_known_init": 3,
+   "explicit_min_within_6_cycles": 3,
+   "explicit_bounded_seconds": 5.237,
+   "recorded_min_within_6_cycles": 3,
+   "recorded_source": "research/c6/p01/sweep_summary.txt (plain flow)",
+   "honest_key_boots": {
+    "solver": true,
+    "simulator": true
+   },
+   "consistent": true
+  }
+ ]
+}

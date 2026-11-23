@@ -1,0 +1,416 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 3861,
+   "pc": "0x44c",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 7,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  }
+ ],
+ "k1_count": 28,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 4083,
+ "nodes": 5104,
+ "seconds": 3.03,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   7,
+   "0x44c",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_infective.c",
+   8,
+   "0x456",
+   "sw\ta0, -0x14(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x45a",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x45e",
+   "jal\tzero, 0x462"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x462",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x466",
+   "c.li\ta0, 0x7"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x468",
+   "bge\ta0, a1, 0x470"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x470",
+   "jal\tzero, 0x474"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x49c",
+   "lw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x474",
+   "lw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x478",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   24,
+   "0x392",
+   "lw\ta1, -0x7c(s0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 3861,
+   "pc": "0x44c",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 7,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 3864,
+   "pc": "0x456",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 3864,
+   "pc": "0x456",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 3864,
+   "pc": "0x456",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 3864,
+   "pc": "0x456",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 3864,
+   "pc": "0x456",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 8,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 3865,
+   "pc": "0x45a",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 3865,
+   "pc": "0x45a",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 3865,
+   "pc": "0x45a",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 3865,
+   "pc": "0x45a",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 3866,
+   "pc": "0x45e",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "jal\tzero, 0x462",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 3866,
+   "pc": "0x45e",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "jal\tzero, 0x462",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 3866,
+   "pc": "0x45e",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "jal\tzero, 0x462",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 3866,
+   "pc": "0x45e",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "jal\tzero, 0x462",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 3867,
+   "pc": "0x462",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 3867,
+   "pc": "0x462",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 3868,
+   "pc": "0x466",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 3868,
+   "pc": "0x466",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 3869,
+   "pc": "0x468",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bge\ta0, a1, 0x470",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 3869,
+   "pc": "0x468",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bge\ta0, a1, 0x470",
+   "model": "pcoff",
+   "arg": -4,
+   "effect": "next PC -4 bytes"
+  },
+  {
+   "step": 3870,
+   "pc": "0x470",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "jal\tzero, 0x474",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 3870,
+   "pc": "0x470",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "jal\tzero, 0x474",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 3871,
+   "pc": "0x474",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 3871,
+   "pc": "0x474",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 3872,
+   "pc": "0x478",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 3884,
+   "pc": "0x49c",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "lw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 3884,
+   "pc": "0x49c",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "lw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 4044,
+   "pc": "0x392",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 24,
+   "asm": "lw\ta1, -0x7c(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  }
+ ],
+ "build": "rom_infective-O0-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 347
+}

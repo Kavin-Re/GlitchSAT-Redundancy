@@ -1,0 +1,56 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 3,
+ "completed_k": 2,
+ "witness": [
+  {
+   "step": 197,
+   "pc": "0x12e",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 9,
+   "asm": "c.or\ta0, a3",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 200,
+   "pc": "0x134",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 8,
+   "asm": "bne\ta1, a2, 0x128",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 276,
+   "pc": "0x172",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x8",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 332,
+ "nodes": 69930,
+ "seconds": 13.38,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_ctres-O1-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 160
+}

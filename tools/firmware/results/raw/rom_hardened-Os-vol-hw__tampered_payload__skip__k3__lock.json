@@ -1,0 +1,53 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 292,
+   "pc": "0x184",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "c.swsp\ta2, 0xc(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 1,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 312,
+ "nodes": 152,
+ "seconds": 0.03,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   38,
+   "0x184",
+   "c.swsp\ta2, 0xc(sp)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 292,
+   "pc": "0x184",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 38,
+   "asm": "c.swsp\ta2, 0xc(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_hardened-Os-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 235
+}

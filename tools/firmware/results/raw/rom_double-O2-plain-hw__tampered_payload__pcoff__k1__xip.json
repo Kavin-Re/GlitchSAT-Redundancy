@@ -1,0 +1,64 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 149,
+   "pc": "0x122",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 157,
+ "nodes": 640,
+ "seconds": 0.14,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_double.c",
+   7,
+   "0x122",
+   "bne\ta1, a2, 0x18a"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 149,
+   "pc": "0x122",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 149,
+   "pc": "0x122",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 7,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  }
+ ],
+ "build": "rom_double-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 204
+}

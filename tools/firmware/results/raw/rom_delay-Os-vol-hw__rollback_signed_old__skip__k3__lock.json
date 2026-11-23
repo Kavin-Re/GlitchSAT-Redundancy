@@ -1,0 +1,70 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 189,
+   "pc": "0xf4",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 0,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 201,
+ "nodes": 41,
+ "seconds": 0.04,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_delay.c",
+   0,
+   "0xf4",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0xf8",
+   "c.lw\ta0, 0x4(a0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 189,
+   "pc": "0xf4",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 0,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 190,
+   "pc": "0xf8",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_delay-Os-vol-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 140
+}

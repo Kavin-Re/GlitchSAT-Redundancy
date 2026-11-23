@@ -1,0 +1,5936 @@
+{
+ "label": "MEASURED",
+ "backend": "py",
+ "quick": false,
+ "wall_s": 487.3,
+ "recorded": [
+  {
+   "source": "results/reproduce/v0_rtl_plain_k0.json",
+   "netlist": "results/deep/work/nl/v0_rtl.json",
+   "T": 6,
+   "k": 0,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_rtl_plain_k1.json",
+   "netlist": "results/deep/work/nl/v0_rtl.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_rtl_plain_k2.json",
+   "netlist": "results/deep/work/nl/v0_rtl.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_rtl_plain_k3.json",
+   "netlist": "results/deep/work/nl/v0_rtl.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_spike_given-netlist_k0.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 0,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_spike_given-netlist_k1.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_spike_given-netlist_k2.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v0_spike_given-netlist_k3.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_plain_k0.json",
+   "netlist": "results/deep/work/nl/v1_rtl.json",
+   "T": 6,
+   "k": 0,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_plain_k1.json",
+   "netlist": "results/deep/work/nl/v1_rtl.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_plain_k2.json",
+   "netlist": "results/deep/work/nl/v1_rtl.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_plain_k3.json",
+   "netlist": "results/deep/work/nl/v1_rtl.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_spike_given-netlist_k0.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 0,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_spike_given-netlist_k1.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_spike_given-netlist_k2.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v1_spike_given-netlist_k3.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_plain_k0.json",
+   "netlist": "results/deep/work/nl/v2_rtl.json",
+   "T": 6,
+   "k": 0,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_plain_k1.json",
+   "netlist": "results/deep/work/nl/v2_rtl.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_plain_k2.json",
+   "netlist": "results/deep/work/nl/v2_rtl.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_plain_k3.json",
+   "netlist": "results/deep/work/nl/v2_rtl.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_spike_given-netlist_k0.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 0,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_spike_given-netlist_k1.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_spike_given-netlist_k2.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "results/reproduce/v2_spike_given-netlist_k3.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v0_results.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v0_results.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v0_results.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v0_results.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 4,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v0_results.json",
+   "netlist": "reference/spike_netlists/v0.json",
+   "T": 6,
+   "k": 5,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v1_results.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v1_results.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v1_results.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v1_results.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 4,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v1_results.json",
+   "netlist": "reference/spike_netlists/v1.json",
+   "T": 6,
+   "k": 5,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v2_results.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v2_results.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 2,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v2_results.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v2_results.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 4,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "validation/data/spike_v2_results.json",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 5,
+   "expected": [
+    "ATTACK_FOUND",
+    null
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v4_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v4_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v4b_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v4b_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v5_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v5_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v6_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v6_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v6bh_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v6bh_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v6h_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/V456_v6h_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc300_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc301_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc302_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc303_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc304_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc305_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc306_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc307_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc308_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc309_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc310_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc311_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc312_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc313_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc314_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc315_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc316_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc317_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc318_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc319_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc320_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/crc321_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand200_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand201_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand202_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand203_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand204_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand205_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand206_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand207_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand208_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand209_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand210_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    0
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand211_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand212_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rand213_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "got": [
+    "NO_ATTACK_UP_TO_BOUND",
+    null
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc100_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc101_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc102_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc103_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc104_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc105_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc106_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc107_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc108_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc109_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc110_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    3
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc111_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc112_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc113_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc114_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc115_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc116_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc117_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc118_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc119_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc120_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc121_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc122_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc123_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc124_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc125_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc126_plain.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    2
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "research/c4/ver/heldout.csv (full mask)",
+   "netlist": "research/c4/ver/gen/rc127_opt.json",
+   "T": 6,
+   "k": 3,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  },
+  {
+   "source": "docs/NUMBERS.md B2.v2.ok",
+   "netlist": "reference/spike_netlists/v2.json",
+   "T": 6,
+   "k": 1,
+   "expected": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "got": [
+    "ATTACK_FOUND",
+    1
+   ],
+   "status": "ok"
+  }
+ ],
+ "recorded_skipped": [
+  {
+   "source": "results/reproduce/v0_rtl_opt_k0.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v0_rtl_opt_k1.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v0_rtl_opt_k2.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v0_rtl_opt_k3.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_opt_k0.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_opt_k1.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_opt_k2.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v1_rtl_opt_k3.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_opt_k0.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_opt_k1.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_opt_k2.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  },
+  {
+   "source": "results/reproduce/v2_rtl_opt_k3.json",
+   "why": "no stored netlist for synth flow 'opt' with matching gate/flop count (needs yosys)"
+  }
+ ],
+ "exhaustive": [
+  {
+   "path": "dashboard/real/netlists/v0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 18,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "dashboard/real/netlists/v0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 18,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "dashboard/real/netlists/v1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 58,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 100,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.4
+  },
+  {
+   "path": "dashboard/real/netlists/v1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 58,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 100,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "dashboard/real/netlists/v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 68,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 104197,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 54.7
+  },
+  {
+   "path": "dashboard/real/netlists/v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 68,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 26107,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 8.2
+  },
+  {
+   "path": "docs/edu/starter_designs/mini_v0.json",
+   "top": "mini0",
+   "T": 6,
+   "goal_value": 6,
+   "key": 3,
+   "gates": 33,
+   "flops": 4,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "docs/edu/starter_designs/mini_v0.json",
+   "top": "mini0",
+   "T": 3,
+   "goal_value": 6,
+   "key": 3,
+   "gates": 33,
+   "flops": 4,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "docs/edu/starter_designs/mini_v1.json",
+   "top": "mini1",
+   "T": 6,
+   "goal_value": 6,
+   "key": 3,
+   "gates": 39,
+   "flops": 4,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "docs/edu/starter_designs/mini_v1.json",
+   "top": "mini1",
+   "T": 3,
+   "goal_value": 6,
+   "key": 3,
+   "gates": 39,
+   "flops": 4,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "docs/edu/starter_designs/mini_v2.json",
+   "top": "mini2",
+   "T": 6,
+   "goal_value": 6,
+   "key": 3,
+   "gates": 45,
+   "flops": 4,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "docs/edu/starter_designs/mini_v2.json",
+   "top": "mini2",
+   "T": 3,
+   "goal_value": 6,
+   "key": 3,
+   "gates": 45,
+   "flops": 4,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "formal/gen/v0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "formal/gen/v0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "formal/gen/v1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.7
+  },
+  {
+   "path": "formal/gen/v1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.4
+  },
+  {
+   "path": "formal/gen/v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 149332,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 70.5
+  },
+  {
+   "path": "formal/gen/v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 37402,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 9.8
+  },
+  {
+   "path": "formal/gen/v2_y038.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 149332,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 60.0
+  },
+  {
+   "path": "formal/gen/v2_y038.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 37402,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 9.7
+  },
+  {
+   "path": "formal/gen/w0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 25,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "formal/gen/w0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 25,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "formal/gen/w1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 72,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 115,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.6
+  },
+  {
+   "path": "formal/gen/w1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 72,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 115,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "formal/gen/w2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 85,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 20518,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 7.4
+  },
+  {
+   "path": "formal/gen/w2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 85,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 9916,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 1.8
+  },
+  {
+   "path": "formal/gen/w2o.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 81,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 19606,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 7.2
+  },
+  {
+   "path": "formal/gen/w2o.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 81,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 9460,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 1.7
+  },
+  {
+   "path": "research/c2/b1_faultmodels/netlists/v0_conda038.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c2/b1_faultmodels/netlists/v0_conda038.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c2/b1_faultmodels/netlists/v1_conda038.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c2/b1_faultmodels/netlists/v1_conda038.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c2/b1_faultmodels/netlists/v2_conda038.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 149332,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 57.0
+  },
+  {
+   "path": "research/c2/b1_faultmodels/netlists/v2_conda038.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 37402,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 10.9
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 25,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 25,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 72,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 115,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.8
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 72,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 115,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 85,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 20518,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 8.5
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/apt0.33_v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 85,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 9916,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 1.7
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 149332,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 53.3
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 37402,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 7.2
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 23,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 70,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 112,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 149332,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 61.0
+  },
+  {
+   "path": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 37402,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 7.1
+  },
+  {
+   "path": "research/c2/reviews/ct/tests/v2_inbuf.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 76,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 162,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.9
+  },
+  {
+   "path": "research/c2/reviews/ct/tests/v2_inbuf.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 76,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 162,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c3/rt/hostile.json",
+   "top": "t",
+   "T": 6,
+   "goal_value": 2,
+   "key": 3,
+   "gates": 2,
+   "flops": 0,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c3/rt/hostile.json",
+   "top": "t",
+   "T": 3,
+   "goal_value": 2,
+   "key": 3,
+   "gates": 2,
+   "flops": 0,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/b3/nl/v5_apt033.json",
+   "top": "v5",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 208,
+   "flops": 9,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 1303,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 24.7
+  },
+  {
+   "path": "research/c4/b3/nl/v5_apt033.json",
+   "top": "v5",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 208,
+   "flops": 9,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 652,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 1.7
+  },
+  {
+   "path": "research/c4/layout/nl/v1_layout.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 75,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 40,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c4/layout/nl/v1_layout.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 75,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 40,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/layout/nl/v2_layout.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 87,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 571,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 10.3
+  },
+  {
+   "path": "research/c4/layout/nl/v2_layout.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 87,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 40756,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 10.4
+  },
+  {
+   "path": "research/c4/layout/nl/v2_wi_layout.json",
+   "top": "v2_wi",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 87,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 571,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 7.4
+  },
+  {
+   "path": "research/c4/layout/nl/v2_wi_layout.json",
+   "top": "v2_wi",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 87,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 40756,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 8.0
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4_opt.json",
+   "top": "v4",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 101,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 227,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4_opt.json",
+   "top": "v4",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 101,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 227,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4_plain.json",
+   "top": "v4",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 118,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 261,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.7
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4_plain.json",
+   "top": "v4",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 118,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 261,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4b_opt.json",
+   "top": "v4b",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 116,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 248,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4b_opt.json",
+   "top": "v4b",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 116,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 248,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4b_plain.json",
+   "top": "v4b",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 128,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 272,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.7
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v4b_plain.json",
+   "top": "v4b",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 128,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 272,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v5_opt.json",
+   "top": "v5",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 188,
+   "flops": 9,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 1183,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 9.2
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v5_opt.json",
+   "top": "v5",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 188,
+   "flops": 9,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 592,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 1.4
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6_opt.json",
+   "top": "v6",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 86,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 38,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.6
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6_opt.json",
+   "top": "v6",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 86,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 38,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6_plain.json",
+   "top": "v6",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 78,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 38,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.4
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6_plain.json",
+   "top": "v6",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 78,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 38,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6bh_opt.json",
+   "top": "v6bh",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 107,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 34,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6bh_opt.json",
+   "top": "v6bh",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 107,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 34,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6bh_plain.json",
+   "top": "v6bh",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 108,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 42,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.5
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6bh_plain.json",
+   "top": "v6bh",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 108,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 42,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6h_opt.json",
+   "top": "v6h",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 107,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 42,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.7
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6h_opt.json",
+   "top": "v6h",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 107,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 42,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6h_plain.json",
+   "top": "v6h",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 108,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 1,
+   "brute_sets": 42,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.6
+  },
+  {
+   "path": "research/c4/ver/gen/V456_v6h_plain.json",
+   "top": "v6h",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 108,
+   "flops": 24,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 42,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/crc300_plain.json",
+   "top": "t300",
+   "T": 6,
+   "goal_value": 9,
+   "key": 210,
+   "gates": 10,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 23,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc300_plain.json",
+   "top": "t300",
+   "T": 3,
+   "goal_value": 9,
+   "key": 210,
+   "gates": 10,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 23,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc301_opt.json",
+   "top": "t301",
+   "T": 6,
+   "goal_value": 167,
+   "key": 51,
+   "gates": 6,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 15,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc301_opt.json",
+   "top": "t301",
+   "T": 3,
+   "goal_value": 167,
+   "key": 51,
+   "gates": 6,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 15,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc302_plain.json",
+   "top": "t302",
+   "T": 6,
+   "goal_value": 241,
+   "key": 50,
+   "gates": 3,
+   "flops": 11,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc302_plain.json",
+   "top": "t302",
+   "T": 3,
+   "goal_value": 241,
+   "key": 50,
+   "gates": 3,
+   "flops": 11,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc303_opt.json",
+   "top": "t303",
+   "T": 6,
+   "goal_value": 1,
+   "key": 4,
+   "gates": 2,
+   "flops": 3,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc303_opt.json",
+   "top": "t303",
+   "T": 3,
+   "goal_value": 1,
+   "key": 4,
+   "gates": 2,
+   "flops": 3,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc304_plain.json",
+   "top": "t304",
+   "T": 6,
+   "goal_value": 1,
+   "key": 3,
+   "gates": 2,
+   "flops": 3,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc304_plain.json",
+   "top": "t304",
+   "T": 3,
+   "goal_value": 1,
+   "key": 3,
+   "gates": 2,
+   "flops": 3,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc305_opt.json",
+   "top": "t305",
+   "T": 6,
+   "goal_value": 9,
+   "key": 9,
+   "gates": 5,
+   "flops": 6,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 12,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc305_opt.json",
+   "top": "t305",
+   "T": 3,
+   "goal_value": 9,
+   "key": 9,
+   "gates": 5,
+   "flops": 6,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 12,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc306_plain.json",
+   "top": "t306",
+   "T": 6,
+   "goal_value": 1,
+   "key": 26,
+   "gates": 8,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc306_plain.json",
+   "top": "t306",
+   "T": 3,
+   "goal_value": 1,
+   "key": 26,
+   "gates": 8,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc307_opt.json",
+   "top": "t307",
+   "T": 6,
+   "goal_value": 109,
+   "key": 160,
+   "gates": 3,
+   "flops": 5,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc307_opt.json",
+   "top": "t307",
+   "T": 3,
+   "goal_value": 109,
+   "key": 160,
+   "gates": 3,
+   "flops": 5,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc308_plain.json",
+   "top": "t308",
+   "T": 6,
+   "goal_value": 13,
+   "key": 15,
+   "gates": 3,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 12,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc308_plain.json",
+   "top": "t308",
+   "T": 3,
+   "goal_value": 13,
+   "key": 15,
+   "gates": 3,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 12,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc309_opt.json",
+   "top": "t309",
+   "T": 6,
+   "goal_value": 1,
+   "key": 3,
+   "gates": 5,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc309_opt.json",
+   "top": "t309",
+   "T": 3,
+   "goal_value": 1,
+   "key": 3,
+   "gates": 5,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc310_plain.json",
+   "top": "t310",
+   "T": 6,
+   "goal_value": 1,
+   "key": 239,
+   "gates": 2,
+   "flops": 3,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc310_plain.json",
+   "top": "t310",
+   "T": 3,
+   "goal_value": 1,
+   "key": 239,
+   "gates": 2,
+   "flops": 3,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc311_opt.json",
+   "top": "t311",
+   "T": 6,
+   "goal_value": 249,
+   "key": 56,
+   "gates": 8,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 17,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc311_opt.json",
+   "top": "t311",
+   "T": 3,
+   "goal_value": 249,
+   "key": 56,
+   "gates": 8,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 17,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc312_plain.json",
+   "top": "t312",
+   "T": 6,
+   "goal_value": 1,
+   "key": 168,
+   "gates": 11,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc312_plain.json",
+   "top": "t312",
+   "T": 3,
+   "goal_value": 1,
+   "key": 168,
+   "gates": 11,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc313_opt.json",
+   "top": "t313",
+   "T": 6,
+   "goal_value": 223,
+   "key": 89,
+   "gates": 3,
+   "flops": 5,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc313_opt.json",
+   "top": "t313",
+   "T": 3,
+   "goal_value": 223,
+   "key": 89,
+   "gates": 3,
+   "flops": 5,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc314_plain.json",
+   "top": "t314",
+   "T": 6,
+   "goal_value": 3,
+   "key": 6,
+   "gates": 5,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 14,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc314_plain.json",
+   "top": "t314",
+   "T": 3,
+   "goal_value": 3,
+   "key": 6,
+   "gates": 5,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 14,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc315_opt.json",
+   "top": "t315",
+   "T": 6,
+   "goal_value": 9,
+   "key": 26,
+   "gates": 7,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 16,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc315_opt.json",
+   "top": "t315",
+   "T": 3,
+   "goal_value": 9,
+   "key": 26,
+   "gates": 7,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 16,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc316_plain.json",
+   "top": "t316",
+   "T": 6,
+   "goal_value": 1,
+   "key": 13,
+   "gates": 4,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc316_plain.json",
+   "top": "t316",
+   "T": 3,
+   "goal_value": 1,
+   "key": 13,
+   "gates": 4,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc317_opt.json",
+   "top": "t317",
+   "T": 6,
+   "goal_value": 1,
+   "key": 45,
+   "gates": 7,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc317_opt.json",
+   "top": "t317",
+   "T": 3,
+   "goal_value": 1,
+   "key": 45,
+   "gates": 7,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc318_plain.json",
+   "top": "t318",
+   "T": 6,
+   "goal_value": 43,
+   "key": 12,
+   "gates": 10,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 22,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc318_plain.json",
+   "top": "t318",
+   "T": 3,
+   "goal_value": 43,
+   "key": 12,
+   "gates": 10,
+   "flops": 16,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 22,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc319_opt.json",
+   "top": "t319",
+   "T": 6,
+   "goal_value": 159,
+   "key": 1,
+   "gates": 5,
+   "flops": 6,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 4,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc319_opt.json",
+   "top": "t319",
+   "T": 3,
+   "goal_value": 159,
+   "key": 1,
+   "gates": 5,
+   "flops": 6,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 4,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc320_plain.json",
+   "top": "t320",
+   "T": 6,
+   "goal_value": 1,
+   "key": 26,
+   "gates": 8,
+   "flops": 10,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc320_plain.json",
+   "top": "t320",
+   "T": 3,
+   "goal_value": 1,
+   "key": 26,
+   "gates": 8,
+   "flops": 10,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc321_opt.json",
+   "top": "t321",
+   "T": 6,
+   "goal_value": 87,
+   "key": 8,
+   "gates": 7,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 7,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/crc321_opt.json",
+   "top": "t321",
+   "T": 3,
+   "goal_value": 87,
+   "key": 8,
+   "gates": 7,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 7,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rand200_plain.json",
+   "top": "t200",
+   "T": 6,
+   "goal_value": 2,
+   "key": 0,
+   "gates": 30,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 98,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand200_plain.json",
+   "top": "t200",
+   "T": 3,
+   "goal_value": 2,
+   "key": 0,
+   "gates": 30,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 98,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand201_plain.json",
+   "top": "t201",
+   "T": 6,
+   "goal_value": 199,
+   "key": 0,
+   "gates": 9,
+   "flops": 5,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 98855,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 8.3
+  },
+  {
+   "path": "research/c4/ver/gen/rand201_plain.json",
+   "top": "t201",
+   "T": 3,
+   "goal_value": 199,
+   "key": 0,
+   "gates": 9,
+   "flops": 5,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 12384,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 0.5
+  },
+  {
+   "path": "research/c4/ver/gen/rand202_plain.json",
+   "top": "t202",
+   "T": 6,
+   "goal_value": 50,
+   "key": 55,
+   "gates": 31,
+   "flops": 6,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 24754,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT none <= 3",
+   "s": 6.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand202_plain.json",
+   "top": "t202",
+   "T": 3,
+   "goal_value": 50,
+   "key": 55,
+   "gates": 31,
+   "flops": 6,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 6217,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT none <= 3",
+   "s": 0.9
+  },
+  {
+   "path": "research/c4/ver/gen/rand203_plain.json",
+   "top": "t203",
+   "T": 6,
+   "goal_value": 3,
+   "key": 14,
+   "gates": 21,
+   "flops": 6,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand203_plain.json",
+   "top": "t203",
+   "T": 3,
+   "goal_value": 3,
+   "key": 14,
+   "gates": 21,
+   "flops": 6,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rand204_plain.json",
+   "top": "t204",
+   "T": 6,
+   "goal_value": 6,
+   "key": 8,
+   "gates": 15,
+   "flops": 7,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 8779,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT none <= 3",
+   "s": 1.4
+  },
+  {
+   "path": "research/c4/ver/gen/rand204_plain.json",
+   "top": "t204",
+   "T": 3,
+   "goal_value": 6,
+   "key": 8,
+   "gates": 15,
+   "flops": 7,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 47972,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 3.6
+  },
+  {
+   "path": "research/c4/ver/gen/rand205_plain.json",
+   "top": "t205",
+   "T": 6,
+   "goal_value": 54,
+   "key": 34,
+   "gates": 7,
+   "flops": 8,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rand205_plain.json",
+   "top": "t205",
+   "T": 3,
+   "goal_value": 54,
+   "key": 34,
+   "gates": 7,
+   "flops": 8,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 3,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rand206_plain.json",
+   "top": "t206",
+   "T": 6,
+   "goal_value": 13,
+   "key": 3,
+   "gates": 29,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 6,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.8
+  },
+  {
+   "path": "research/c4/ver/gen/rand206_plain.json",
+   "top": "t206",
+   "T": 3,
+   "goal_value": 13,
+   "key": 3,
+   "gates": 29,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 6,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand207_plain.json",
+   "top": "t207",
+   "T": 6,
+   "goal_value": 241,
+   "key": 218,
+   "gates": 23,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 11844,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 2.0
+  },
+  {
+   "path": "research/c4/ver/gen/rand207_plain.json",
+   "top": "t207",
+   "T": 3,
+   "goal_value": 241,
+   "key": 218,
+   "gates": 23,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": 3,
+   "brute_depth": 3,
+   "brute_sets": 19645,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 1.4
+  },
+  {
+   "path": "research/c4/ver/gen/rand208_plain.json",
+   "top": "t208",
+   "T": 6,
+   "goal_value": 204,
+   "key": 36,
+   "gates": 10,
+   "flops": 4,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 98855,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 7.2
+  },
+  {
+   "path": "research/c4/ver/gen/rand208_plain.json",
+   "top": "t208",
+   "T": 3,
+   "goal_value": 204,
+   "key": 36,
+   "gates": 10,
+   "flops": 4,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 12384,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 0.6
+  },
+  {
+   "path": "research/c4/ver/gen/rand209_plain.json",
+   "top": "t209",
+   "T": 6,
+   "goal_value": 147,
+   "key": 247,
+   "gates": 12,
+   "flops": 3,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 121576,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 10.3
+  },
+  {
+   "path": "research/c4/ver/gen/rand209_plain.json",
+   "top": "t209",
+   "T": 3,
+   "goal_value": 147,
+   "key": 247,
+   "gates": 12,
+   "flops": 3,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 15226,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 0.9
+  },
+  {
+   "path": "research/c4/ver/gen/rand210_plain.json",
+   "top": "t210",
+   "T": 6,
+   "goal_value": 6,
+   "key": 55,
+   "gates": 33,
+   "flops": 8,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand210_plain.json",
+   "top": "t210",
+   "T": 3,
+   "goal_value": 6,
+   "key": 55,
+   "gates": 33,
+   "flops": 8,
+   "sat_min": 0,
+   "brute_min": 0,
+   "brute_depth": 2,
+   "brute_sets": 1,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rand211_plain.json",
+   "top": "t211",
+   "T": 6,
+   "goal_value": 20,
+   "key": 5,
+   "gates": 19,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 34,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c4/ver/gen/rand211_plain.json",
+   "top": "t211",
+   "T": 3,
+   "goal_value": 20,
+   "key": 5,
+   "gates": 19,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 34,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand212_plain.json",
+   "top": "t212",
+   "T": 6,
+   "goal_value": 15,
+   "key": 37,
+   "gates": 25,
+   "flops": 3,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 14197,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT none <= 3",
+   "s": 2.1
+  },
+  {
+   "path": "research/c4/ver/gen/rand212_plain.json",
+   "top": "t212",
+   "T": 3,
+   "goal_value": 15,
+   "key": 37,
+   "gates": 25,
+   "flops": 3,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 98855,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 6.3
+  },
+  {
+   "path": "research/c4/ver/gen/rand213_plain.json",
+   "top": "t213",
+   "T": 6,
+   "goal_value": 12,
+   "key": 0,
+   "gates": 8,
+   "flops": 4,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 62269,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 3.4
+  },
+  {
+   "path": "research/c4/ver/gen/rand213_plain.json",
+   "top": "t213",
+   "T": 3,
+   "goal_value": 12,
+   "key": 0,
+   "gates": 8,
+   "flops": 4,
+   "sat_min": null,
+   "brute_min": null,
+   "brute_depth": 3,
+   "brute_sets": 7807,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 3; SAT none <= 3",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc100_plain.json",
+   "top": "t100",
+   "T": 6,
+   "goal_value": 60,
+   "key": 7,
+   "gates": 16,
+   "flops": 10,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 1810,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c4/ver/gen/rc100_plain.json",
+   "top": "t100",
+   "T": 3,
+   "goal_value": 60,
+   "key": 7,
+   "gates": 16,
+   "flops": 10,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 874,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc101_opt.json",
+   "top": "t101",
+   "T": 6,
+   "goal_value": 15,
+   "key": 232,
+   "gates": 42,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc101_opt.json",
+   "top": "t101",
+   "T": 3,
+   "goal_value": 15,
+   "key": 232,
+   "gates": 42,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc102_plain.json",
+   "top": "t102",
+   "T": 6,
+   "goal_value": 91,
+   "key": 9,
+   "gates": 25,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 53,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc102_plain.json",
+   "top": "t102",
+   "T": 3,
+   "goal_value": 91,
+   "key": 9,
+   "gates": 25,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 53,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc103_opt.json",
+   "top": "t103",
+   "T": 6,
+   "goal_value": 46,
+   "key": 239,
+   "gates": 13,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 747,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc103_opt.json",
+   "top": "t103",
+   "T": 3,
+   "goal_value": 46,
+   "key": 239,
+   "gates": 13,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 369,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc104_plain.json",
+   "top": "t104",
+   "T": 6,
+   "goal_value": 12,
+   "key": 11,
+   "gates": 22,
+   "flops": 10,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 209,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc104_plain.json",
+   "top": "t104",
+   "T": 3,
+   "goal_value": 12,
+   "key": 11,
+   "gates": 22,
+   "flops": 10,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 113,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc105_opt.json",
+   "top": "t105",
+   "T": 6,
+   "goal_value": 50,
+   "key": 148,
+   "gates": 26,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc105_opt.json",
+   "top": "t105",
+   "T": 3,
+   "goal_value": 50,
+   "key": 148,
+   "gates": 26,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc106_plain.json",
+   "top": "t106",
+   "T": 6,
+   "goal_value": 35,
+   "key": 4,
+   "gates": 24,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 12,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc106_plain.json",
+   "top": "t106",
+   "T": 3,
+   "goal_value": 35,
+   "key": 4,
+   "gates": 24,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 12,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc107_opt.json",
+   "top": "t107",
+   "T": 6,
+   "goal_value": 196,
+   "key": 9,
+   "gates": 30,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 155,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc107_opt.json",
+   "top": "t107",
+   "T": 3,
+   "goal_value": 196,
+   "key": 9,
+   "gates": 30,
+   "flops": 12,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 1043,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc108_plain.json",
+   "top": "t108",
+   "T": 6,
+   "goal_value": 21,
+   "key": 13,
+   "gates": 38,
+   "flops": 14,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 20389,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 5.9
+  },
+  {
+   "path": "research/c4/ver/gen/rc108_plain.json",
+   "top": "t108",
+   "T": 3,
+   "goal_value": 21,
+   "key": 13,
+   "gates": 38,
+   "flops": 14,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 8845,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 1.3
+  },
+  {
+   "path": "research/c4/ver/gen/rc109_opt.json",
+   "top": "t109",
+   "T": 6,
+   "goal_value": 7,
+   "key": 29,
+   "gates": 14,
+   "flops": 4,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc109_opt.json",
+   "top": "t109",
+   "T": 3,
+   "goal_value": 7,
+   "key": 29,
+   "gates": 14,
+   "flops": 4,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc110_plain.json",
+   "top": "t110",
+   "T": 6,
+   "goal_value": 105,
+   "key": 15,
+   "gates": 40,
+   "flops": 13,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 50722,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 18.6
+  },
+  {
+   "path": "research/c4/ver/gen/rc110_plain.json",
+   "top": "t110",
+   "T": 3,
+   "goal_value": 105,
+   "key": 15,
+   "gates": 40,
+   "flops": 13,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 12721,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 2.6
+  },
+  {
+   "path": "research/c4/ver/gen/rc111_opt.json",
+   "top": "t111",
+   "T": 6,
+   "goal_value": 12,
+   "key": 7,
+   "gates": 32,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.4
+  },
+  {
+   "path": "research/c4/ver/gen/rc111_opt.json",
+   "top": "t111",
+   "T": 3,
+   "goal_value": 12,
+   "key": 7,
+   "gates": 32,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc112_plain.json",
+   "top": "t112",
+   "T": 6,
+   "goal_value": 158,
+   "key": 37,
+   "gates": 44,
+   "flops": 14,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 48646,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 18.5
+  },
+  {
+   "path": "research/c4/ver/gen/rc112_plain.json",
+   "top": "t112",
+   "T": 3,
+   "goal_value": 158,
+   "key": 37,
+   "gates": 44,
+   "flops": 14,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 15226,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 2.8
+  },
+  {
+   "path": "research/c4/ver/gen/rc113_opt.json",
+   "top": "t113",
+   "T": 6,
+   "goal_value": 207,
+   "key": 13,
+   "gates": 15,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 70,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc113_opt.json",
+   "top": "t113",
+   "T": 3,
+   "goal_value": 207,
+   "key": 13,
+   "gates": 15,
+   "flops": 9,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 1038,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc114_plain.json",
+   "top": "t114",
+   "T": 6,
+   "goal_value": 86,
+   "key": 1,
+   "gates": 30,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 21,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc114_plain.json",
+   "top": "t114",
+   "T": 3,
+   "goal_value": 86,
+   "key": 1,
+   "gates": 30,
+   "flops": 12,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 21,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc115_opt.json",
+   "top": "t115",
+   "T": 6,
+   "goal_value": 1,
+   "key": 49,
+   "gates": 23,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc115_opt.json",
+   "top": "t115",
+   "T": 3,
+   "goal_value": 1,
+   "key": 49,
+   "gates": 23,
+   "flops": 5,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 2,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc116_plain.json",
+   "top": "t116",
+   "T": 6,
+   "goal_value": 184,
+   "key": 139,
+   "gates": 24,
+   "flops": 11,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 2701,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.8
+  },
+  {
+   "path": "research/c4/ver/gen/rc116_plain.json",
+   "top": "t116",
+   "T": 3,
+   "goal_value": 184,
+   "key": 139,
+   "gates": 24,
+   "flops": 11,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 1336,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc117_opt.json",
+   "top": "t117",
+   "T": 6,
+   "goal_value": 3,
+   "key": 2,
+   "gates": 25,
+   "flops": 6,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 189,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc117_opt.json",
+   "top": "t117",
+   "T": 3,
+   "goal_value": 3,
+   "key": 2,
+   "gates": 25,
+   "flops": 6,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 96,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc118_plain.json",
+   "top": "t118",
+   "T": 6,
+   "goal_value": 79,
+   "key": 46,
+   "gates": 32,
+   "flops": 13,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 155,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc118_plain.json",
+   "top": "t118",
+   "T": 3,
+   "goal_value": 79,
+   "key": 46,
+   "gates": 32,
+   "flops": 13,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 550,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc119_opt.json",
+   "top": "t119",
+   "T": 6,
+   "goal_value": 12,
+   "key": 47,
+   "gates": 26,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 29,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc119_opt.json",
+   "top": "t119",
+   "T": 3,
+   "goal_value": 12,
+   "key": 47,
+   "gates": 26,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 29,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc120_plain.json",
+   "top": "t120",
+   "T": 6,
+   "goal_value": 15,
+   "key": 48,
+   "gates": 18,
+   "flops": 10,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 9,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc120_plain.json",
+   "top": "t120",
+   "T": 3,
+   "goal_value": 15,
+   "key": 48,
+   "gates": 18,
+   "flops": 10,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 9,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc121_opt.json",
+   "top": "t121",
+   "T": 6,
+   "goal_value": 13,
+   "key": 9,
+   "gates": 29,
+   "flops": 7,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 219,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc121_opt.json",
+   "top": "t121",
+   "T": 3,
+   "goal_value": 13,
+   "key": 9,
+   "gates": 29,
+   "flops": 7,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 111,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc122_plain.json",
+   "top": "t122",
+   "T": 6,
+   "goal_value": 13,
+   "key": 152,
+   "gates": 24,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 7,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc122_plain.json",
+   "top": "t122",
+   "T": 3,
+   "goal_value": 13,
+   "key": 152,
+   "gates": 24,
+   "flops": 7,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 7,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc123_opt.json",
+   "top": "t123",
+   "T": 6,
+   "goal_value": 49,
+   "key": 1,
+   "gates": 22,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 87,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc123_opt.json",
+   "top": "t123",
+   "T": 3,
+   "goal_value": 49,
+   "key": 1,
+   "gates": 22,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 93,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc124_plain.json",
+   "top": "t124",
+   "T": 6,
+   "goal_value": 45,
+   "key": 0,
+   "gates": 28,
+   "flops": 11,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 18044,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 7.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc124_plain.json",
+   "top": "t124",
+   "T": 3,
+   "goal_value": 45,
+   "key": 0,
+   "gates": 28,
+   "flops": 11,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 6904,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 1.2
+  },
+  {
+   "path": "research/c4/ver/gen/rc125_opt.json",
+   "top": "t125",
+   "T": 6,
+   "goal_value": 12,
+   "key": 13,
+   "gates": 34,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 67,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.1
+  },
+  {
+   "path": "research/c4/ver/gen/rc125_opt.json",
+   "top": "t125",
+   "T": 3,
+   "goal_value": 12,
+   "key": 13,
+   "gates": 34,
+   "flops": 9,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 67,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "research/c4/ver/gen/rc126_plain.json",
+   "top": "t126",
+   "T": 6,
+   "goal_value": 9,
+   "key": 147,
+   "gates": 34,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 25885,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 9.8
+  },
+  {
+   "path": "research/c4/ver/gen/rc126_plain.json",
+   "top": "t126",
+   "T": 3,
+   "goal_value": 9,
+   "key": 147,
+   "gates": 34,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 8002,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 1.4
+  },
+  {
+   "path": "research/c4/ver/gen/rc127_opt.json",
+   "top": "t127",
+   "T": 6,
+   "goal_value": 144,
+   "key": 9,
+   "gates": 19,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 79,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.3
+  },
+  {
+   "path": "research/c4/ver/gen/rc127_opt.json",
+   "top": "t127",
+   "T": 3,
+   "goal_value": 144,
+   "key": 9,
+   "gates": 19,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 3,
+   "brute_sets": 736,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 85,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 20518,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 14.3
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 85,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 9916,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 3.7
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2c04.json",
+   "top": "v2c04",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 81,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 37,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 1.1
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2c04.json",
+   "top": "v2c04",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 81,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 37,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2c4d.json",
+   "top": "v2c4d",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 89,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 583,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 2 replayed",
+   "s": 3.0
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2c4d.json",
+   "top": "v2c4d",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 89,
+   "flops": 8,
+   "sat_min": 2,
+   "brute_min": 2,
+   "brute_depth": 2,
+   "brute_sets": 13569,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 4.1
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2c5a.json",
+   "top": "v2c5a",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 88,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 577,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 3.6
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2c5a.json",
+   "top": "v2c5a",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 88,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 41617,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 10.7
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2e.json",
+   "top": "v2e",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 89,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 583,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 2.9
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_apt_v2e.json",
+   "top": "v2e",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 89,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 42487,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 12.5
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 149332,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 86.4
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 83,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 37402,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 10.2
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2c04.json",
+   "top": "v2c04",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 82,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 36,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.7
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2c04.json",
+   "top": "v2c04",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 82,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 36,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2c4d.json",
+   "top": "v2c4d",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 88,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 577,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 4.6
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2c4d.json",
+   "top": "v2c4d",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 88,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 41617,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 14.5
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2c5a.json",
+   "top": "v2c5a",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 88,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 1,
+   "brute_sets": 577,
+   "kmax": 3,
+   "exact": false,
+   "status": "ok",
+   "why": "exhaustive none <= 1; SAT witness with 3 replayed",
+   "s": 6.0
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2c5a.json",
+   "top": "v2c5a",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 88,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 41617,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 11.7
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2e.json",
+   "top": "v2e",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 81,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 142846,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 72.2
+  },
+  {
+   "path": "research/c6/p01/netlists/nl_conda_v2e.json",
+   "top": "v2e",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 81,
+   "flops": 8,
+   "sat_min": 3,
+   "brute_min": null,
+   "brute_depth": 2,
+   "brute_sets": 35779,
+   "kmax": 3,
+   "exact": true,
+   "status": "ok",
+   "why": "exhaustive none <= 2; SAT witness with 3 replayed",
+   "s": 13.0
+  },
+  {
+   "path": "validation/nl/v0.json",
+   "top": "v0",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 17,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "validation/nl/v0.json",
+   "top": "v0",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 17,
+   "flops": 2,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 3,
+   "brute_sets": 3,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.0
+  },
+  {
+   "path": "validation/nl/v1.json",
+   "top": "v1",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 55,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 94,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.7
+  },
+  {
+   "path": "validation/nl/v1.json",
+   "top": "v1",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 55,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 94,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  },
+  {
+   "path": "validation/nl/v2.json",
+   "top": "v2",
+   "T": 6,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 55,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 94,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.8
+  },
+  {
+   "path": "validation/nl/v2.json",
+   "top": "v2",
+   "T": 3,
+   "goal_value": 150,
+   "key": 195,
+   "gates": 55,
+   "flops": 8,
+   "sat_min": 1,
+   "brute_min": 1,
+   "brute_depth": 2,
+   "brute_sets": 94,
+   "kmax": 3,
+   "status": "ok",
+   "why": "exhaustive minimum equal",
+   "s": 0.2
+  }
+ ],
+ "not_covered": [
+  "real_designs/fsm5.json",
+  "real_designs/second/door5.json"
+ ]
+}

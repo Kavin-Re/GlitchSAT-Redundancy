@@ -1,0 +1,16 @@
+# Example GitHub Actions job: fail a pull request when a countermeasure weakens compared with main.
+name: countermeasure-survival
+on: [pull_request]
+jobs:
+  survival:
+    runs-on: ubuntu-24.04
+    permissions: {contents: read, security-events: write}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: sudo apt-get install -y yosys && pip install numpy pyyaml
+      - run: make netlist            # your own build step that writes the netlists named in survival.yaml
+      - run: ./ext/checker/glitchsat check-survival survival.yaml --against origin/main --sarif survival.sarif --md "$GITHUB_STEP_SUMMARY"
+      - uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with: {sarif_file: survival.sarif, category: glitchsat-survival}

@@ -1,0 +1,109 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 1151,
+   "pc": "0x1ca",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x739",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1162,
+ "nodes": 2752,
+ "seconds": 0.9,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_ctres.c",
+   0,
+   "0x1ca",
+   "addi\ta3, zero, 0x739"
+  ],
+  [
+   "rom_ctres.c",
+   0,
+   "0x1d0",
+   "addi\ta3, zero, 0x1d4"
+  ],
+  [
+   "rom_ctres.c",
+   32,
+   "0x1ce",
+   "c.beqz\ta4, 0x1d4"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 1151,
+   "pc": "0x1ca",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x739",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1152,
+   "pc": "0x1ce",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.beqz\ta4, 0x1d4",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1152,
+   "pc": "0x1ce",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 32,
+   "asm": "c.beqz\ta4, 0x1d4",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1153,
+   "pc": "0x1d0",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x1d4",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1153,
+   "pc": "0x1d0",
+   "function": "rom_main",
+   "file": "rom_ctres.c",
+   "line": 0,
+   "asm": "addi\ta3, zero, 0x1d4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  }
+ ],
+ "build": "rom_ctres-O1-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 160
+}

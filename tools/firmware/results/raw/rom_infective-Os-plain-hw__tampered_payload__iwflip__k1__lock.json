@@ -1,0 +1,64 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 249,
+   "pc": "0x132",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x148",
+   "model": "iwflip",
+   "arg": 13,
+   "effect": "bit 13 of fetched word flipped -> executes `c.beqz\ta0, 0x148`"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 257,
+ "nodes": 3104,
+ "seconds": 1.77,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   26,
+   "0x132",
+   "c.bnez\ta0, 0x148"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 249,
+   "pc": "0x132",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x148",
+   "model": "iwflip",
+   "arg": 13,
+   "effect": "bit 13 of fetched word flipped -> executes `c.beqz\ta0, 0x148`"
+  },
+  {
+   "step": 249,
+   "pc": "0x132",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x148",
+   "model": "iwflip",
+   "arg": 15,
+   "effect": "bit 15 of fetched word flipped -> executes `c.lui\ts2, 0x6`"
+  }
+ ],
+ "build": "rom_infective-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 119
+}

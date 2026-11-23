@@ -1,0 +1,27 @@
+GlitchSAT countermeasure survival: v2-flow    FAIL (exit 1)
+
+  3 copies of cmp8(sig)   [redundant_copies; rtl-scan; rtl/v2.v:9]
+    rtl          SURVIVED  3 independent copies of 3 intended, no shared cell
+    synth        REMOVED   1 independent copy left of 3 intended: 1 net(s) still compute the function
+                   - the outputs of copies c0, c1, c2 are one and the same net (m0)
+                   - 1 net(s) compute the copies' function: m0
+        why:  MEASURED by re-running the script one command at a time: the verdict changes to REMOVED right after command 12, `opt_merge`. Identical logic with identical inputs was merged into one copy (common-subexpression elimination). The script runs `opt_merge` after `flatten`: once the copies are in one module, `opt_merge` treats them as duplicates.
+        fix:  RTL: put `(* keep_hierarchy *)` on module `cmp8` and map before flattening (`abc` per module, then `flatten`), with no `opt_merge`/`opt`/`synth` after the flatten.
+              Constraint: mark each copy's cells `keep` / `dont_touch` before any pass that sees more than one copy (Yosys: `setattr -set keep 1 c0/* c1/* c2/*`; Design Compiler / Genus: `set_dont_touch` on the copy instances).
+              ext/harden: `glitchsat harden design <design> --goal N --out fixes/` writes a Yosys script with this copy-separation guard; `glitchsat harden netlist <netlist.json> --groups ...` duplicates the shared gates of an existing netlist ("remove single points").
+
+  register st with 4 codes, distance 4   [sparse_encoding; rtl-scan; rtl/v2.v:8]
+    rtl          SURVIVED  st: fault-free reachable codes 0x69, 0x96, 0xcc, 0xf0; minimum Hamming distance 4 (intended 4)
+    synth        SURVIVED  st: fault-free reachable codes 0x69, 0x96, 0xcc, 0xf0; minimum Hamming distance 4 (intended 4)
+
+  Security margin per stage (goal: boot_word == 0x96 with a wrong sig):
+    rtl          3 fault(s) (within 6 cycles, exhaustive (<= 2 flips) + fastsat)
+    synth        1 fault(s) (within 6 cycles, exhaustive)
+    -> margin dropped from 3 (rtl) to 1 (synth); explained by: 3 copies of cmp8(sig). Minimum attack found: $flatten\c0.$abc$265$new_n10_ (cycle 1, feeds 8 state flops)
+    -> synth: 1 is below the target 3
+
+  note [rtl]: made by the checker: read_verilog; proc; setattr -mod -unset keep_hierarchy *; flatten; techmap (no optimisation)
+  note [synth]: netlist made here with Yosys 0.33 (git sha1 2584903a0, clang 18.1.3 -fPIC -Os)
+  bisect [synth]: (as written) -> copies SURVIVED, encoding SURVIVED; proc -> copies SURVIVED, encoding SURVIVED; opt_clean -> copies SURVIVED, encoding SURVIVED; techmap -> copies SURVIVED, encoding SURVIVED; opt_clean -> copies SURVIVED, encoding SURVIVED; abc -g AND,OR,XOR,MUX -> copies SURVIVED, encoding SURVIVED; opt_clean -> copies SURVIVED, encoding SURVIVED; setattr -mod -unset keep_hierarchy * -> copies SURVIVED, encoding SURVIVED; flatten -> copies SURVIVED, encoding SURVIVED; opt_clean -> copies SURVIVED, encoding SURVIVED; techmap -> copies SURVIVED, encoding SURVIVED; opt_clean -> copies SURVIVED, encoding SURVIVED; opt_merge -> copies REMOVED, encoding SURVIVED; opt_clean -> copies REMOVED, encoding SURVIVED
+
+  1 survived, 0 weakened, 1 removed, 0 untracked, 0 not run.  Structural check of this netlist / layout / binary against the countermeasures found in the source. Margins are bounded results on modelled faults; not a proof of security and not a lab rating.

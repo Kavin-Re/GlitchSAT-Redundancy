@@ -1,0 +1,81 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 989,
+   "pc": "0x1f0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta3, 0x210",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 997,
+ "nodes": 1136,
+ "seconds": 0.49,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   26,
+   "0x1f0",
+   "c.bnez\ta3, 0x210"
+  ],
+  [
+   "rom_infective.c",
+   27,
+   "0x210",
+   "c.li\ta0, 0x4"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 989,
+   "pc": "0x1f0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta3, 0x210",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 990,
+   "pc": "0x210",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 990,
+   "pc": "0x210",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  }
+ ],
+ "build": "rom_infective-O2-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 155
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+# glitchsat harden <command> ...   wrapper so the feature reads as a glitchsat subcommand.
+# Other subcommands are passed to scripts/glitchsat.py of the repository (GLITCHSAT_ROOT).
+HERE=$(cd "$(dirname "$0")" && pwd)
+if [ "$1" = harden ]; then
+  shift
+  PYTHONPATH="$HERE${PYTHONPATH:+:$PYTHONPATH}" exec python3 -m harden "$@"
+fi
+ROOT=${GLITCHSAT_ROOT:-$HERE/..}
+exec python3 "$ROOT/scripts/glitchsat.py" "$@"

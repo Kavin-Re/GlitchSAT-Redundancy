@@ -1,0 +1,172 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 578,
+   "pc": "0x22e",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 26,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 8,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 614,
+ "nodes": 119,
+ "seconds": 0.18,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom.h",
+   39,
+   "0x358",
+   "c.jr\tra"
+  ],
+  [
+   "rom_delay.c",
+   26,
+   "0x22e",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x232",
+   "sw\ta0, -0x48(s0)"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x242",
+   "sw\ta0, -0x4c(s0)"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x24a",
+   "c.lw\ta0, 0x4(a0)"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x25e",
+   "lw\ta0, -0x60(s0)"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x262",
+   "bltu\ta0, a1, 0x26a"
+  ],
+  [
+   "rom_delay.c",
+   28,
+   "0x274",
+   "jalr\tra, -0x25e(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 578,
+   "pc": "0x22e",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 26,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 579,
+   "pc": "0x232",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "sw\ta0, -0x48(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 583,
+   "pc": "0x242",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "sw\ta0, -0x4c(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 585,
+   "pc": "0x24a",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 602,
+   "pc": "0x358",
+   "function": "otp_read",
+   "file": "rom.h",
+   "line": 39,
+   "asm": "c.jr\tra",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 604,
+   "pc": "0x25e",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "lw\ta0, -0x60(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 605,
+   "pc": "0x262",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "bltu\ta0, a1, 0x26a",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 609,
+   "pc": "0x274",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 28,
+   "asm": "jalr\tra, -0x25e(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_delay-O0-barrier-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 359
+}

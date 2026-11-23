@@ -1,0 +1,78 @@
+{
+ "seeds": 32,
+ "scenario": "tampered_payload",
+ "rows": [
+  {
+   "build": "rom_naive-O0-plain-hw",
+   "seeds_with_any_single_skip": 32,
+   "best_fixed_step": 563,
+   "seeds_where_best_step_works": 32,
+   "best_fixed_step_success_rate": 1.0,
+   "run_length_min": 597,
+   "run_length_max": 597
+  },
+  {
+   "build": "rom_delay-O0-plain-hw",
+   "seeds_with_any_single_skip": 32,
+   "best_fixed_step": 650,
+   "seeds_where_best_step_works": 6,
+   "best_fixed_step_success_rate": 0.1875,
+   "run_length_min": 659,
+   "run_length_max": 939
+  },
+  {
+   "build": "rom_naive-O1-plain-hw",
+   "seeds_with_any_single_skip": 32,
+   "best_fixed_step": 193,
+   "seeds_where_best_step_works": 32,
+   "best_fixed_step_success_rate": 1.0,
+   "run_length_min": 198,
+   "run_length_max": 198
+  },
+  {
+   "build": "rom_delay-O1-plain-hw",
+   "seeds_with_any_single_skip": 32,
+   "best_fixed_step": 207,
+   "seeds_where_best_step_works": 3,
+   "best_fixed_step_success_rate": 0.0938,
+   "run_length_min": 212,
+   "run_length_max": 296
+  },
+  {
+   "build": "rom_naive-O2-plain-hw",
+   "seeds_with_any_single_skip": 0,
+   "best_fixed_step": null,
+   "seeds_where_best_step_works": 0,
+   "best_fixed_step_success_rate": 0.0,
+   "run_length_min": 155,
+   "run_length_max": 155
+  },
+  {
+   "build": "rom_delay-O2-plain-hw",
+   "seeds_with_any_single_skip": 0,
+   "best_fixed_step": null,
+   "seeds_where_best_step_works": 0,
+   "best_fixed_step_success_rate": 0.0,
+   "run_length_min": 169,
+   "run_length_max": 253
+  },
+  {
+   "build": "rom_naive-Os-plain-hw",
+   "seeds_with_any_single_skip": 32,
+   "best_fixed_step": 193,
+   "seeds_where_best_step_works": 32,
+   "best_fixed_step_success_rate": 1.0,
+   "run_length_min": 198,
+   "run_length_max": 198
+  },
+  {
+   "build": "rom_delay-Os-plain-hw",
+   "seeds_with_any_single_skip": 32,
+   "best_fixed_step": 207,
+   "seeds_where_best_step_works": 3,
+   "best_fixed_step_success_rate": 0.0938,
+   "run_length_min": 212,
+   "run_length_max": 296
+  }
+ ]
+}

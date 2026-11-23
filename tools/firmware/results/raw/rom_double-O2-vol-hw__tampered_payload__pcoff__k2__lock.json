@@ -1,0 +1,70 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 152,
+   "pc": "0x174",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 24,
+   "asm": "c.swsp\ta0, 0x4(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 162,
+ "nodes": 720,
+ "seconds": 0.13,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_double.c",
+   24,
+   "0x174",
+   "c.swsp\ta0, 0x4(sp)"
+  ],
+  [
+   "rom_double.c",
+   25,
+   "0x176",
+   "c.lwsp\ta0, 0x4(sp)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 152,
+   "pc": "0x174",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 24,
+   "asm": "c.swsp\ta0, 0x4(sp)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 153,
+   "pc": "0x176",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 25,
+   "asm": "c.lwsp\ta0, 0x4(sp)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "build": "rom_double-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 214
+}

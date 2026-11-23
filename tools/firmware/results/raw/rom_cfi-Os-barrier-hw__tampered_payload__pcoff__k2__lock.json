@@ -1,0 +1,45 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 191,
+   "pc": "0x106",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 0,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 196,
+   "pc": "0x1a",
+   "function": null,
+   "file": "crt0.S",
+   "line": 15,
+   "asm": "or\tt1, t1, a0",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 213,
+ "nodes": 296799,
+ "seconds": 24.81,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_cfi-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 180
+}

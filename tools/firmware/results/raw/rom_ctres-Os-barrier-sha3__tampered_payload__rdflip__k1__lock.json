@@ -1,0 +1,21 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": null,
+ "completed_k": 1,
+ "witness": null,
+ "k1_count": 0,
+ "status": "no_attack_up_to_kmax",
+ "golden_outcome": "reject",
+ "golden_steps": 1162,
+ "nodes": 4672,
+ "seconds": 0.24,
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_ctres-Os-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 160
+}

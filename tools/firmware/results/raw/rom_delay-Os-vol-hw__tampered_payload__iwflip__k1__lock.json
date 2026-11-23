@@ -1,0 +1,70 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 204,
+   "pc": "0x13a",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta0, a1, 0x15e",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `bne\ta0, a1, 0x15a`"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 212,
+ "nodes": 1664,
+ "seconds": 1.43,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_delay.c",
+   7,
+   "0x13a",
+   "bne\ta0, a1, 0x15e"
+  ],
+  [
+   "rom_delay.c",
+   31,
+   "0x164",
+   "jalr\tra, -0x14e(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 204,
+   "pc": "0x13a",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 7,
+   "asm": "bne\ta0, a1, 0x15e",
+   "model": "iwflip",
+   "arg": 9,
+   "effect": "bit 9 of fetched word flipped -> executes `bne\ta0, a1, 0x15a`"
+  },
+  {
+   "step": 207,
+   "pc": "0x164",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 31,
+   "asm": "jalr\tra, -0x14e(ra)",
+   "model": "iwflip",
+   "arg": 2,
+   "effect": "bit 2 of fetched word flipped -> executes `beq\tra, s2, 0x4`"
+  }
+ ],
+ "build": "rom_delay-Os-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 140
+}

@@ -1,0 +1,493 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 674,
+   "pc": "0x590",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  }
+ ],
+ "k1_count": 29,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 982,
+ "nodes": 7792,
+ "seconds": 2.98,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_hardened.c",
+   11,
+   "0x590",
+   "sw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   11,
+   "0x594",
+   "sw\ta1, -0x10(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   11,
+   "0x598",
+   "c.li\ta0, 0x0"
+  ],
+  [
+   "rom_hardened.c",
+   12,
+   "0x59a",
+   "sw\ta0, -0x14(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x59e",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x5a2",
+   "jal\tzero, 0x5a6"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x5a6",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x5aa",
+   "c.li\ta0, 0x7"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x5ac",
+   "bge\ta0, a1, 0x5b4"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x5b4",
+   "jal\tzero, 0x5b8"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x608",
+   "lw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x60c",
+   "c.addi\ta0, 0x1"
+  ],
+  [
+   "rom_hardened.c",
+   13,
+   "0x60e",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   14,
+   "0x5b8",
+   "lw\ta0, -0xc(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   14,
+   "0x5bc",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   14,
+   "0x5c0",
+   "slli\ta2, a1, 0x2"
+  ],
+  [
+   "rom_hardened.c",
+   14,
+   "0x5c4",
+   "c.add\ta0, a2"
+  ],
+  [
+   "rom_hardened.c",
+   15,
+   "0x5f4",
+   "lw\ta0, -0x1c(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   15,
+   "0x5f8",
+   "sw\ta0, -0x20(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   15,
+   "0x5fc",
+   "lw\ta0, -0x20(s0)"
+  ],
+  [
+   "rom_hardened.c",
+   15,
+   "0x600",
+   "sw\ta0, 0x0(a1)"
+  ],
+  [
+   "rom_hardened.c",
+   16,
+   "0x604",
+   "jal\tzero, 0x608"
+  ],
+  [
+   "rom_hardened.c",
+   17,
+   "0x620",
+   "c.jr\tra"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 674,
+   "pc": "0x590",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 674,
+   "pc": "0x590",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 675,
+   "pc": "0x594",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 676,
+   "pc": "0x598",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 11,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 677,
+   "pc": "0x59a",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 12,
+   "asm": "sw\ta0, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 678,
+   "pc": "0x59e",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 679,
+   "pc": "0x5a2",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x5a6",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 679,
+   "pc": "0x5a2",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x5a6",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 680,
+   "pc": "0x5a6",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 680,
+   "pc": "0x5a6",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 681,
+   "pc": "0x5aa",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 681,
+   "pc": "0x5aa",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 682,
+   "pc": "0x5ac",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "bge\ta0, a1, 0x5b4",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 682,
+   "pc": "0x5ac",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "bge\ta0, a1, 0x5b4",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 683,
+   "pc": "0x5b4",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x5b8",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 684,
+   "pc": "0x5b8",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 14,
+   "asm": "lw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 685,
+   "pc": "0x5bc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 14,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 686,
+   "pc": "0x5c0",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 14,
+   "asm": "slli\ta2, a1, 0x2",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 687,
+   "pc": "0x5c4",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 14,
+   "asm": "c.add\ta0, a2",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 705,
+   "pc": "0x600",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 15,
+   "asm": "sw\ta0, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 706,
+   "pc": "0x604",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 16,
+   "asm": "jal\tzero, 0x608",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 707,
+   "pc": "0x608",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "lw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 708,
+   "pc": "0x60c",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "c.addi\ta0, 0x1",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 709,
+   "pc": "0x60e",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 13,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 733,
+   "pc": "0x5f4",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 15,
+   "asm": "lw\ta0, -0x1c(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 734,
+   "pc": "0x5f8",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 15,
+   "asm": "sw\ta0, -0x20(s0)",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 735,
+   "pc": "0x5fc",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 15,
+   "asm": "lw\ta0, -0x20(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 936,
+   "pc": "0x620",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 4,
+   "effect": "next PC +4 bytes"
+  },
+  {
+   "step": 936,
+   "pc": "0x620",
+   "function": "ct_diff_cfi",
+   "file": "rom_hardened.c",
+   "line": 17,
+   "asm": "c.jr\tra",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  }
+ ],
+ "build": "rom_hardened-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 650
+}

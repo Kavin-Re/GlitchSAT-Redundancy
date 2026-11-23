@@ -1,0 +1,149 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 620,
+   "pc": "0x3da",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta1, -0x10(s0)`"
+  }
+ ],
+ "k1_count": 7,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 666,
+ "nodes": 5472,
+ "seconds": 6.96,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   10,
+   "0x3da",
+   "sw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   10,
+   "0x3de",
+   "sw\ta1, -0x14(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3e8",
+   "jal\tzero, 0x3ec"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3f2",
+   "bge\ta0, a1, 0x3fa"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3fa",
+   "jal\tzero, 0x3fe"
+  ],
+  [
+   "rom_cfi.c",
+   13,
+   "0x43e",
+   "bne\ta0, a1, 0x446"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 620,
+   "pc": "0x3da",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta1, -0x10(s0)`"
+  },
+  {
+   "step": 621,
+   "pc": "0x3de",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "iwflip",
+   "arg": 20,
+   "effect": "bit 20 of fetched word flipped -> executes `sw\ta0, -0x14(s0)`"
+  },
+  {
+   "step": 624,
+   "pc": "0x3e8",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "jal\tzero, 0x3ec",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 624,
+   "pc": "0x3e8",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "jal\tzero, 0x3ec",
+   "model": "iwflip",
+   "arg": 24,
+   "effect": "bit 24 of fetched word flipped -> executes `jal\tzero, 0x3fc`"
+  },
+  {
+   "step": 627,
+   "pc": "0x3f2",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "bge\ta0, a1, 0x3fa",
+   "model": "iwflip",
+   "arg": 8,
+   "effect": "bit 8 of fetched word flipped -> executes `bge\ta0, a1, 0x3fc`"
+  },
+  {
+   "step": 628,
+   "pc": "0x3fa",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "jal\tzero, 0x3fe",
+   "model": "iwflip",
+   "arg": 1,
+   "effect": "bit 1 of fetched word flipped -> executes `c.nop\t0x1b`"
+  },
+  {
+   "step": 647,
+   "pc": "0x43e",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta0, a1, 0x446",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bne\ta0, a1, 0x456`"
+  }
+ ],
+ "build": "rom_cfi-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 439
+}

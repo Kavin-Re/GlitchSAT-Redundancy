@@ -1,0 +1,369 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 619,
+   "pc": "0x3d8",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 21,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 666,
+ "nodes": 2736,
+ "seconds": 1.03,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_cfi.c",
+   0,
+   "0x44a",
+   "c.li\ta0, 0x1"
+  ],
+  [
+   "rom_cfi.c",
+   10,
+   "0x3d8",
+   "c.addi4spn\ts0, sp, 0x20"
+  ],
+  [
+   "rom_cfi.c",
+   10,
+   "0x3da",
+   "sw\ta0, -0x10(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   10,
+   "0x3de",
+   "sw\ta1, -0x14(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   10,
+   "0x3e2",
+   "c.li\ta0, 0x0"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3e4",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3e8",
+   "jal\tzero, 0x3ec"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3ec",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3f0",
+   "c.li\ta0, 0x7"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3f2",
+   "bge\ta0, a1, 0x3fa"
+  ],
+  [
+   "rom_cfi.c",
+   11,
+   "0x3fa",
+   "jal\tzero, 0x3fe"
+  ],
+  [
+   "rom_cfi.c",
+   12,
+   "0x3fe",
+   "lui\ta1, 0x10000"
+  ],
+  [
+   "rom_cfi.c",
+   12,
+   "0x402",
+   "lw\ta0, 0x0(a1)"
+  ],
+  [
+   "rom_cfi.c",
+   12,
+   "0x406",
+   "addi\ta0, a0, 0x5a"
+  ],
+  [
+   "rom_cfi.c",
+   13,
+   "0x43e",
+   "bne\ta0, a1, 0x446"
+  ],
+  [
+   "rom_cfi.c",
+   13,
+   "0x446",
+   "jal\tzero, 0x44a"
+  ],
+  [
+   "rom_cfi.c",
+   14,
+   "0x44c",
+   "sw\ta0, -0xc(s0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 619,
+   "pc": "0x3d8",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "c.addi4spn\ts0, sp, 0x20",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 620,
+   "pc": "0x3da",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "sw\ta0, -0x10(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 621,
+   "pc": "0x3de",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "sw\ta1, -0x14(s0)",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 622,
+   "pc": "0x3e2",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 10,
+   "asm": "c.li\ta0, 0x0",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 623,
+   "pc": "0x3e4",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x3e8",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "jal\tzero, 0x3ec",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 624,
+   "pc": "0x3e8",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "jal\tzero, 0x3ec",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x3ec",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 625,
+   "pc": "0x3ec",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x3f0",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  },
+  {
+   "step": 626,
+   "pc": "0x3f0",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "c.li\ta0, 0x7",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x3f2",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "bge\ta0, a1, 0x3fa",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 627,
+   "pc": "0x3f2",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "bge\ta0, a1, 0x3fa",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 628,
+   "pc": "0x3fa",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 11,
+   "asm": "jal\tzero, 0x3fe",
+   "model": "pcoff",
+   "arg": -2,
+   "effect": "next PC -2 bytes"
+  },
+  {
+   "step": 629,
+   "pc": "0x3fe",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 12,
+   "asm": "lui\ta1, 0x10000",
+   "model": "pcoff",
+   "arg": -6,
+   "effect": "next PC -6 bytes"
+  },
+  {
+   "step": 630,
+   "pc": "0x402",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 12,
+   "asm": "lw\ta0, 0x0(a1)",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 631,
+   "pc": "0x406",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 12,
+   "asm": "addi\ta0, a0, 0x5a",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 647,
+   "pc": "0x43e",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "bne\ta0, a1, 0x446",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 648,
+   "pc": "0x446",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 13,
+   "asm": "jal\tzero, 0x44a",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 649,
+   "pc": "0x44a",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 0,
+   "asm": "c.li\ta0, 0x1",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 650,
+   "pc": "0x44c",
+   "function": "mac_cmp_cfi",
+   "file": "rom_cfi.c",
+   "line": 14,
+   "asm": "sw\ta0, -0xc(s0)",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  }
+ ],
+ "build": "rom_cfi-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 439
+}

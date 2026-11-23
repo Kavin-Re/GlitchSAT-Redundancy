@@ -1,0 +1,56 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 3,
+ "completed_k": 2,
+ "witness": [
+  {
+   "step": 162,
+   "pc": "0x136",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 26,
+   "asm": "c.swsp\ta0, 0x14(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 175,
+   "pc": "0x146",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 29,
+   "asm": "c.swsp\ta0, 0x10(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 188,
+   "pc": "0x156",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 32,
+   "asm": "c.swsp\ta0, 0xc(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 172,
+ "nodes": 48505,
+ "seconds": 1.29,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_triple-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 191
+}

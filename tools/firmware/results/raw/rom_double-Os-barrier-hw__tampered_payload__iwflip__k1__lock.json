@@ -1,0 +1,70 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 196,
+   "pc": "0x136",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 7,
+   "asm": "bne\ta2, a3, 0x15c",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `bne\ta2, a3, 0x19c`"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 205,
+ "nodes": 1440,
+ "seconds": 0.75,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_double.c",
+   7,
+   "0x136",
+   "bne\ta2, a3, 0x15c"
+  ],
+  [
+   "rom_double.c",
+   25,
+   "0x15c",
+   "c.bnez\ta1, 0x1a8"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 196,
+   "pc": "0x136",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 7,
+   "asm": "bne\ta2, a3, 0x15c",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `bne\ta2, a3, 0x19c`"
+  },
+  {
+   "step": 197,
+   "pc": "0x15c",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 25,
+   "asm": "c.bnez\ta1, 0x1a8",
+   "model": "iwflip",
+   "arg": 10,
+   "effect": "bit 10 of fetched word flipped -> executes `c.bnez\ta1, 0x1a0`"
+  }
+ ],
+ "build": "rom_double-Os-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 172
+}

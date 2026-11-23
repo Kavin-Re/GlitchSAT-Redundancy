@@ -1,0 +1,21 @@
+{
+ "model": "brinv",
+ "kmax": 3,
+ "min_faults": null,
+ "completed_k": 3,
+ "witness": null,
+ "k1_count": 0,
+ "status": "no_attack_up_to_kmax",
+ "golden_outcome": "reject",
+ "golden_steps": 201,
+ "nodes": 38,
+ "seconds": 0.0,
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_compl-Os-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 163
+}

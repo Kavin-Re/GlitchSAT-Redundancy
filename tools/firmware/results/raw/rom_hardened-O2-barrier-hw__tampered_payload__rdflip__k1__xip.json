@@ -1,0 +1,104 @@
+{
+ "model": "rdflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  }
+ ],
+ "k1_count": 4,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 229,
+ "nodes": 2752,
+ "seconds": 0.3,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_hardened.c",
+   28,
+   "0xe6",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_hardened.c",
+   28,
+   "0xea",
+   "jalr\tra, -0xa0(ra)"
+  ],
+  [
+   "rom_hardened.c",
+   42,
+   "0x290",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 24,
+   "pc": "0xe6",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 28,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 25,
+   "pc": "0xea",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 28,
+   "asm": "jalr\tra, -0xa0(ra)",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  },
+  {
+   "step": 223,
+   "pc": "0x290",
+   "function": "rom_main",
+   "file": "rom_hardened.c",
+   "line": 42,
+   "asm": "auipc\tra, 0x0",
+   "model": "rdflip",
+   "arg": 29,
+   "effect": "bit 29 of ra flipped after write"
+  }
+ ],
+ "build": "rom_hardened-O2-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 285
+}

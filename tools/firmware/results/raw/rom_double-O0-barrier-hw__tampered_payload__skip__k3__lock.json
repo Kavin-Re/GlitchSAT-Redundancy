@@ -1,0 +1,45 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 51,
+   "pc": "0x222",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 19,
+   "asm": "jalr\tra, -0x1d8(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 119,
+   "pc": "0x2de",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 24,
+   "asm": "auipc\tra, 0x0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 664,
+ "nodes": 3475,
+ "seconds": 1.71,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_double-O0-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 413
+}

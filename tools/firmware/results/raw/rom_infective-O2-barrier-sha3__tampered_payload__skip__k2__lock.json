@@ -1,0 +1,45 @@
+{
+ "model": "skip",
+ "kmax": 2,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 22,
+   "pc": "0x164",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 21,
+   "asm": "jalr\tra, -0x11a(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 59,
+   "pc": "0x1e2",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "or\ta3, a1, a0",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 997,
+ "nodes": 3835,
+ "seconds": 0.42,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_infective-O2-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 155
+}

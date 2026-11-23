@@ -1,0 +1,6 @@
+# bytecode and test caches
+__pycache__/
+.pytest_cache/
+*.pyc
+# solver work directories created by cloud_bench.sh (R20 synthesis, proxy netlists)
+bench/work/

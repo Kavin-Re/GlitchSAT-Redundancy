@@ -1,0 +1,138 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 560,
+   "pc": "0x1e6",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 26,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 6,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 590,
+ "nodes": 95,
+ "seconds": 0.14,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom.h",
+   39,
+   "0x2c8",
+   "c.jr\tra"
+  ],
+  [
+   "rom_delay.c",
+   26,
+   "0x1e6",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x1ea",
+   "c.lw\ta0, 0x4(a0)"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x1fe",
+   "lw\ta0, -0x30(s0)"
+  ],
+  [
+   "rom_delay.c",
+   27,
+   "0x202",
+   "bltu\ta0, a1, 0x20a"
+  ],
+  [
+   "rom_delay.c",
+   28,
+   "0x214",
+   "jalr\tra, -0x1fe(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 560,
+   "pc": "0x1e6",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 26,
+   "asm": "lui\ta0, 0x20000",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 561,
+   "pc": "0x1ea",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "c.lw\ta0, 0x4(a0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 578,
+   "pc": "0x2c8",
+   "function": "otp_read",
+   "file": "rom.h",
+   "line": 39,
+   "asm": "c.jr\tra",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 580,
+   "pc": "0x1fe",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "lw\ta0, -0x30(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 581,
+   "pc": "0x202",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 27,
+   "asm": "bltu\ta0, a1, 0x20a",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 585,
+   "pc": "0x214",
+   "function": "rom_main",
+   "file": "rom_delay.c",
+   "line": 28,
+   "asm": "jalr\tra, -0x1fe(ra)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_delay-O0-vol-hw",
+ "scenario": "rollback_signed_old",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 287
+}

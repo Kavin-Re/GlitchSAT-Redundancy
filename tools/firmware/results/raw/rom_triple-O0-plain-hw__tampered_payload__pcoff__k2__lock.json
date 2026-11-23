@@ -1,0 +1,87 @@
+{
+ "model": "pcoff",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 19,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 645,
+ "nodes": 2400,
+ "seconds": 0.79,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_triple.c",
+   0,
+   "0x274",
+   "lui\ta0, 0x20000"
+  ],
+  [
+   "rom_triple.c",
+   0,
+   "0x278",
+   "addi\ta1, a0, 0x10"
+  ],
+  [
+   "rom_triple.c",
+   19,
+   "0x1de",
+   "lui\ta0, 0x20000"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 529,
+   "pc": "0x1de",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 19,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 598,
+   "pc": "0x274",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 0,
+   "asm": "lui\ta0, 0x20000",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 599,
+   "pc": "0x278",
+   "function": "rom_main",
+   "file": "rom_triple.c",
+   "line": 0,
+   "asm": "addi\ta1, a0, 0x10",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  }
+ ],
+ "build": "rom_triple-O0-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 342
+}

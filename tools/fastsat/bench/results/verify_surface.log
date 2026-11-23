@@ -1,0 +1,13 @@
+(a) ext/surface recorded minimums: 8/8 equal (7 SAT witnesses found in a complete recorded attack list), 0 skipped
+    ext/surface/results/surface_v0_T6.json        T=6 recorded ['ATTACK_FOUND', 1] SAT ['ATTACK_FOUND', 1] ok
+    ext/surface/results/surface_v1_T6.json        T=6 recorded ['ATTACK_FOUND', 1] SAT ['ATTACK_FOUND', 1] ok
+    ext/surface/results/surface_v2_T4.json        T=4 recorded ['ATTACK_FOUND', 3] SAT ['ATTACK_FOUND', 3] ok
+    ext/surface/results/surface_v2_T6.json        T=6 recorded ['ATTACK_FOUND', 3] SAT ['ATTACK_FOUND', 3] ok
+    ext/surface/results/surface_v2_T6_k2.json     T=6 recorded ['NO_ATTACK_UP_TO_BOUND', None] SAT ['NO_ATTACK_UP_TO_BOUND', None] ok
+    ext/surface/results/surface_v2apt_T6.json     T=6 recorded ['ATTACK_FOUND', 2] SAT ['ATTACK_FOUND', 2] ok
+    ext/surface/results/surface_v2flowB_T6.json   T=6 recorded ['ATTACK_FOUND', 1] SAT ['ATTACK_FOUND', 1] ok
+    ext/surface/results/surface_v2inbuf_T6.json   T=6 recorded ['ATTACK_FOUND', 1] SAT ['ATTACK_FOUND', 1] ok
+    skipped (worker died): research/c4/b3/nl/v5_apt033.json T=6
+    skipped (worker died): research/c4/ver/gen/V456_v5_opt.json T=6
+(b) exhaustive oracle (ext/surface) on 120 netlists x T in [6, 3], k <= 3: {'ok': 224, 'consistent': 14, 'skipped': 2}  [397s]
+    witness inside the complete oracle attack set: 208 cells

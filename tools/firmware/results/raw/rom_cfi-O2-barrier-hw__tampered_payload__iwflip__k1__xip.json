@@ -1,0 +1,87 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 170,
+ "nodes": 1696,
+ "seconds": 0.35,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "crt0.S",
+   7,
+   "0x8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_cfi.c",
+   28,
+   "0xf8",
+   "auipc\tra, 0x0"
+  ],
+  [
+   "rom_cfi.c",
+   33,
+   "0x1f4",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 2,
+   "pc": "0x8",
+   "function": null,
+   "file": "crt0.S",
+   "line": 7,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 29,
+   "pc": "0xf8",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 28,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  },
+  {
+   "step": 164,
+   "pc": "0x1f4",
+   "function": "rom_main",
+   "file": "rom_cfi.c",
+   "line": 33,
+   "asm": "auipc\tra, 0x0",
+   "model": "iwflip",
+   "arg": 29,
+   "effect": "bit 29 of fetched word flipped -> executes `auipc\tra, 0x20000`"
+  }
+ ],
+ "build": "rom_cfi-O2-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 214
+}

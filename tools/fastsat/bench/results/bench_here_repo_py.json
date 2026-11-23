@@ -1,0 +1,6668 @@
+{
+ "label": "MEASURED",
+ "when": "2026-11-20 14:23:49",
+ "config": "backend sat:minicdcl  card=totalizer  fault-enc=xor  collapse=on  python 3.13.18  cpus 2  timeout 120.0s",
+ "args": {
+  "set": [
+   "repo"
+  ],
+  "backend": "py",
+  "k": [
+   1,
+   2,
+   3
+  ],
+  "timeout": 120.0,
+  "card": "totalizer",
+  "fault_enc": "xor",
+  "no_collapse": false,
+  "cnf_only": false,
+  "per_k": false,
+  "z3": false,
+  "z3_timeout": 300,
+  "r20_dir": "ext/fastsat/bench/work/r20",
+  "proxy_cycles": null,
+  "only": null,
+  "out": "results/bench_here_repo_py.json",
+  "md": "results/bench_here_repo_py.md"
+ },
+ "rows": [
+  {
+   "name": "dashboard/real/netlists/v0.json",
+   "T": 6,
+   "gates": 18,
+   "flops": 2,
+   "sites_modelled": 106,
+   "fault_vars": 34,
+   "cnf_circuit": {
+    "vars": 113,
+    "clauses": 329,
+    "literals": 925
+   },
+   "cnf": {
+    "vars": 211,
+    "clauses": 553,
+    "literals": 1469
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.005,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "dashboard/real/netlists/v1.json",
+   "T": 6,
+   "gates": 58,
+   "flops": 8,
+   "sites_modelled": 313,
+   "fault_vars": 78,
+   "cnf_circuit": {
+    "vars": 275,
+    "clauses": 817,
+    "literals": 2295
+   },
+   "cnf": {
+    "vars": 505,
+    "clauses": 1349,
+    "literals": 3587
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.011,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "dashboard/real/netlists/v2.json",
+   "T": 6,
+   "gates": 68,
+   "flops": 8,
+   "sites_modelled": 353,
+   "fault_vars": 83,
+   "cnf_circuit": {
+    "vars": 290,
+    "clauses": 852,
+    "literals": 2390
+   },
+   "cnf": {
+    "vars": 535,
+    "clauses": 1419,
+    "literals": 3767
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.009
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.098
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.276
+    }
+   ],
+   "sweep_wall_s": 0.398,
+   "build_s": 0.007,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "docs/edu/starter_designs/mini_v0.json",
+   "T": 6,
+   "gates": 33,
+   "flops": 4,
+   "sites_modelled": 169,
+   "fault_vars": 69,
+   "cnf_circuit": {
+    "vars": 202,
+    "clauses": 568,
+    "literals": 1698
+   },
+   "cnf": {
+    "vars": 406,
+    "clauses": 1038,
+    "literals": 2839
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.003,
+   "build_s": 0.001,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "docs/edu/starter_designs/mini_v1.json",
+   "T": 6,
+   "gates": 39,
+   "flops": 4,
+   "sites_modelled": 199,
+   "fault_vars": 69,
+   "cnf_circuit": {
+    "vars": 203,
+    "clauses": 561,
+    "literals": 1665
+   },
+   "cnf": {
+    "vars": 407,
+    "clauses": 1031,
+    "literals": 2806
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.006
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.008,
+   "build_s": 0.001,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "docs/edu/starter_designs/mini_v2.json",
+   "T": 6,
+   "gates": 45,
+   "flops": 4,
+   "sites_modelled": 229,
+   "fault_vars": 59,
+   "cnf_circuit": {
+    "vars": 188,
+    "clauses": 526,
+    "literals": 1540
+   },
+   "cnf": {
+    "vars": 361,
+    "clauses": 925,
+    "literals": 2509
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.003,
+   "build_s": 0.001,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "formal/gen/v0.json",
+   "T": 6,
+   "gates": 23,
+   "flops": 2,
+   "sites_modelled": 131,
+   "fault_vars": 65,
+   "cnf_circuit": {
+    "vars": 165,
+    "clauses": 432,
+    "literals": 1268
+   },
+   "cnf": {
+    "vars": 357,
+    "clauses": 874,
+    "literals": 2341
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.004
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.007,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "formal/gen/v1.json",
+   "T": 6,
+   "gates": 70,
+   "flops": 8,
+   "sites_modelled": 348,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 360,
+    "clauses": 972,
+    "literals": 2860
+   },
+   "cnf": {
+    "vars": 756,
+    "clauses": 1890,
+    "literals": 5089
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.009
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.014,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "formal/gen/v2.json",
+   "T": 6,
+   "gates": 83,
+   "flops": 8,
+   "sites_modelled": 413,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 962,
+    "literals": 2780
+   },
+   "cnf": {
+    "vars": 720,
+    "clauses": 1809,
+    "literals": 4837
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.012
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.124
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.026
+    }
+   ],
+   "sweep_wall_s": 0.17,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "formal/gen/v2_y038.json",
+   "T": 6,
+   "gates": 83,
+   "flops": 8,
+   "sites_modelled": 413,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 962,
+    "literals": 2780
+   },
+   "cnf": {
+    "vars": 720,
+    "clauses": 1809,
+    "literals": 4837
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.011
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.135
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.03
+    }
+   ],
+   "sweep_wall_s": 0.181,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "formal/gen/w0.json",
+   "T": 6,
+   "gates": 25,
+   "flops": 2,
+   "sites_modelled": 141,
+   "fault_vars": 65,
+   "cnf_circuit": {
+    "vars": 170,
+    "clauses": 432,
+    "literals": 1248
+   },
+   "cnf": {
+    "vars": 362,
+    "clauses": 874,
+    "literals": 2321
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.002,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "formal/gen/w1.json",
+   "T": 6,
+   "gates": 72,
+   "flops": 8,
+   "sites_modelled": 353,
+   "fault_vars": 138,
+   "cnf_circuit": {
+    "vars": 370,
+    "clauses": 1002,
+    "literals": 2960
+   },
+   "cnf": {
+    "vars": 780,
+    "clauses": 1954,
+    "literals": 5272
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.002
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.011,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "formal/gen/w2.json",
+   "T": 6,
+   "gates": 85,
+   "flops": 8,
+   "sites_modelled": 408,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 375,
+    "clauses": 1017,
+    "literals": 2965
+   },
+   "cnf": {
+    "vars": 771,
+    "clauses": 1935,
+    "literals": 5194
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.014
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.034
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.056,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "formal/gen/w2o.json",
+   "T": 6,
+   "gates": 81,
+   "flops": 8,
+   "sites_modelled": 398,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 375,
+    "clauses": 1027,
+    "literals": 2995
+   },
+   "cnf": {
+    "vars": 771,
+    "clauses": 1945,
+    "literals": 5224
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.003
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.016
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.032,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c2/b1_faultmodels/netlists/v0_conda038.json",
+   "T": 6,
+   "gates": 23,
+   "flops": 2,
+   "sites_modelled": 131,
+   "fault_vars": 65,
+   "cnf_circuit": {
+    "vars": 165,
+    "clauses": 432,
+    "literals": 1268
+   },
+   "cnf": {
+    "vars": 357,
+    "clauses": 874,
+    "literals": 2341
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.003,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/b1_faultmodels/netlists/v1_conda038.json",
+   "T": 6,
+   "gates": 70,
+   "flops": 8,
+   "sites_modelled": 348,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 360,
+    "clauses": 972,
+    "literals": 2860
+   },
+   "cnf": {
+    "vars": 756,
+    "clauses": 1890,
+    "literals": 5089
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.005
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.018,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/b1_faultmodels/netlists/v2_conda038.json",
+   "T": 6,
+   "gates": 83,
+   "flops": 8,
+   "sites_modelled": 413,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 962,
+    "literals": 2780
+   },
+   "cnf": {
+    "vars": 720,
+    "clauses": 1809,
+    "literals": 4837
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.018
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.128
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.024
+    }
+   ],
+   "sweep_wall_s": 0.176,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/apt0.33_v0.json",
+   "T": 6,
+   "gates": 25,
+   "flops": 2,
+   "sites_modelled": 141,
+   "fault_vars": 65,
+   "cnf_circuit": {
+    "vars": 170,
+    "clauses": 432,
+    "literals": 1248
+   },
+   "cnf": {
+    "vars": 362,
+    "clauses": 874,
+    "literals": 2321
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.007,
+   "build_s": 0.005,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/apt0.33_v1.json",
+   "T": 6,
+   "gates": 72,
+   "flops": 8,
+   "sites_modelled": 353,
+   "fault_vars": 138,
+   "cnf_circuit": {
+    "vars": 370,
+    "clauses": 1002,
+    "literals": 2960
+   },
+   "cnf": {
+    "vars": 780,
+    "clauses": 1954,
+    "literals": 5272
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.006
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.013,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/apt0.33_v2.json",
+   "T": 6,
+   "gates": 85,
+   "flops": 8,
+   "sites_modelled": 408,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 375,
+    "clauses": 1017,
+    "literals": 2965
+   },
+   "cnf": {
+    "vars": 771,
+    "clauses": 1935,
+    "literals": 5194
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.01
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.028
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.044,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v0.json",
+   "T": 6,
+   "gates": 23,
+   "flops": 2,
+   "sites_modelled": 131,
+   "fault_vars": 65,
+   "cnf_circuit": {
+    "vars": 165,
+    "clauses": 432,
+    "literals": 1268
+   },
+   "cnf": {
+    "vars": 357,
+    "clauses": 874,
+    "literals": 2341
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.002,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v1.json",
+   "T": 6,
+   "gates": 70,
+   "flops": 8,
+   "sites_modelled": 348,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 360,
+    "clauses": 972,
+    "literals": 2860
+   },
+   "cnf": {
+    "vars": 756,
+    "clauses": 1890,
+    "literals": 5089
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.01
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.018,
+   "build_s": 0.005,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/conda-eda0.38_v2.json",
+   "T": 6,
+   "gates": 83,
+   "flops": 8,
+   "sites_modelled": 413,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 962,
+    "literals": 2780
+   },
+   "cnf": {
+    "vars": 720,
+    "clauses": 1809,
+    "literals": 4837
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.108
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.022
+    }
+   ],
+   "sweep_wall_s": 0.142,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v0.json",
+   "T": 6,
+   "gates": 23,
+   "flops": 2,
+   "sites_modelled": 131,
+   "fault_vars": 65,
+   "cnf_circuit": {
+    "vars": 165,
+    "clauses": 432,
+    "literals": 1268
+   },
+   "cnf": {
+    "vars": 357,
+    "clauses": 874,
+    "literals": 2341
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.025
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.027,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v1.json",
+   "T": 6,
+   "gates": 70,
+   "flops": 8,
+   "sites_modelled": 348,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 360,
+    "clauses": 972,
+    "literals": 2860
+   },
+   "cnf": {
+    "vars": 756,
+    "clauses": 1890,
+    "literals": 5089
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.006
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.011
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.027,
+   "build_s": 0.005,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c2/e2_variance/baseline_netlists/conda-formal0.38_v2.json",
+   "T": 6,
+   "gates": 83,
+   "flops": 8,
+   "sites_modelled": 413,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 962,
+    "literals": 2780
+   },
+   "cnf": {
+    "vars": 720,
+    "clauses": 1809,
+    "literals": 4837
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.018
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.151
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.031
+    }
+   ],
+   "sweep_wall_s": 0.207,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c2/reviews/ct/tests/v2_inbuf.json",
+   "T": 6,
+   "gates": 76,
+   "flops": 8,
+   "sites_modelled": 393,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 398,
+    "clauses": 1096,
+    "literals": 3066
+   },
+   "cnf": {
+    "vars": 763,
+    "clauses": 1943,
+    "literals": 5123
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.009
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.003
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.018,
+   "build_s": 0.002,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c3/rt/hostile.json",
+   "T": 6,
+   "gates": 2,
+   "flops": 0,
+   "sites_modelled": 12,
+   "fault_vars": 12,
+   "cnf_circuit": {
+    "vars": 27,
+    "clauses": 51,
+    "literals": 153
+   },
+   "cnf": {
+    "vars": 59,
+    "clauses": 121,
+    "literals": 323
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/b3/nl/v5_apt033.json",
+   "T": 6,
+   "gates": 208,
+   "flops": 9,
+   "sites_modelled": 1028,
+   "fault_vars": 193,
+   "cnf_circuit": {
+    "vars": 778,
+    "clauses": 2301,
+    "literals": 6451
+   },
+   "cnf": {
+    "vars": 1354,
+    "clauses": 3639,
+    "literals": 9700
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.009
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.055
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.216
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 1.446
+    }
+   ],
+   "sweep_wall_s": 1.746,
+   "build_s": 0.008,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c4/layout/nl/v1_layout.json",
+   "T": 6,
+   "gates": 75,
+   "flops": 8,
+   "sites_modelled": 368,
+   "fault_vars": 83,
+   "cnf_circuit": {
+    "vars": 300,
+    "clauses": 812,
+    "literals": 2200
+   },
+   "cnf": {
+    "vars": 545,
+    "clauses": 1379,
+    "literals": 3577
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.002
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.009,
+   "build_s": 0.005,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/layout/nl/v2_layout.json",
+   "T": 6,
+   "gates": 87,
+   "flops": 8,
+   "sites_modelled": 428,
+   "fault_vars": 88,
+   "cnf_circuit": {
+    "vars": 320,
+    "clauses": 817,
+    "literals": 2165
+   },
+   "cnf": {
+    "vars": 580,
+    "clauses": 1419,
+    "literals": 3627
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.005
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.005
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.054
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.216
+    }
+   ],
+   "sweep_wall_s": 0.288,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c4/layout/nl/v2_wi_layout.json",
+   "T": 6,
+   "gates": 87,
+   "flops": 8,
+   "sites_modelled": 428,
+   "fault_vars": 88,
+   "cnf_circuit": {
+    "vars": 320,
+    "clauses": 817,
+    "literals": 2165
+   },
+   "cnf": {
+    "vars": 580,
+    "clauses": 1419,
+    "literals": 3627
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.007
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.059
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.267
+    }
+   ],
+   "sweep_wall_s": 0.341,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v4_opt.json",
+   "T": 6,
+   "gates": 101,
+   "flops": 16,
+   "sites_modelled": 248,
+   "fault_vars": 98,
+   "cnf_circuit": {
+    "vars": 304,
+    "clauses": 854,
+    "literals": 2438
+   },
+   "cnf": {
+    "vars": 594,
+    "clauses": 1526,
+    "literals": 4070
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.021
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.029,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v4_plain.json",
+   "T": 6,
+   "gates": 118,
+   "flops": 16,
+   "sites_modelled": 303,
+   "fault_vars": 138,
+   "cnf_circuit": {
+    "vars": 369,
+    "clauses": 1009,
+    "literals": 2993
+   },
+   "cnf": {
+    "vars": 779,
+    "clauses": 1961,
+    "literals": 5305
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.012
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.024,
+   "build_s": 0.005,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v4b_opt.json",
+   "T": 6,
+   "gates": 116,
+   "flops": 16,
+   "sites_modelled": 248,
+   "fault_vars": 98,
+   "cnf_circuit": {
+    "vars": 304,
+    "clauses": 854,
+    "literals": 2438
+   },
+   "cnf": {
+    "vars": 594,
+    "clauses": 1526,
+    "literals": 4070
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.004
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.028
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.036,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v4b_plain.json",
+   "T": 6,
+   "gates": 128,
+   "flops": 16,
+   "sites_modelled": 303,
+   "fault_vars": 138,
+   "cnf_circuit": {
+    "vars": 369,
+    "clauses": 1009,
+    "literals": 2993
+   },
+   "cnf": {
+    "vars": 779,
+    "clauses": 1961,
+    "literals": 5305
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.022
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.03,
+   "build_s": 0.002,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v5_opt.json",
+   "T": 6,
+   "gates": 188,
+   "flops": 9,
+   "sites_modelled": 933,
+   "fault_vars": 177,
+   "cnf_circuit": {
+    "vars": 676,
+    "clauses": 1872,
+    "literals": 5134
+   },
+   "cnf": {
+    "vars": 1204,
+    "clauses": 3098,
+    "literals": 8111
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.007
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.062
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.344
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.006
+    }
+   ],
+   "sweep_wall_s": 0.444,
+   "build_s": 0.013,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v6_opt.json",
+   "T": 6,
+   "gates": 86,
+   "flops": 24,
+   "sites_modelled": 558,
+   "fault_vars": 205,
+   "cnf_circuit": {
+    "vars": 583,
+    "clauses": 1546,
+    "literals": 4464
+   },
+   "cnf": {
+    "vars": 1195,
+    "clauses": 2968,
+    "literals": 7917
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.014
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.025,
+   "build_s": 0.002,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v6_plain.json",
+   "T": 6,
+   "gates": 78,
+   "flops": 24,
+   "sites_modelled": 518,
+   "fault_vars": 165,
+   "cnf_circuit": {
+    "vars": 482,
+    "clauses": 1263,
+    "literals": 3597
+   },
+   "cnf": {
+    "vars": 974,
+    "clauses": 2405,
+    "literals": 6370
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.001
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.006,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v6bh_opt.json",
+   "T": 6,
+   "gates": 107,
+   "flops": 16,
+   "sites_modelled": 623,
+   "fault_vars": 228,
+   "cnf_circuit": {
+    "vars": 700,
+    "clauses": 1879,
+    "literals": 5345
+   },
+   "cnf": {
+    "vars": 1380,
+    "clauses": 3461,
+    "literals": 9187
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.007
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.004
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.02,
+   "build_s": 0.004,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v6bh_plain.json",
+   "T": 6,
+   "gates": 108,
+   "flops": 24,
+   "sites_modelled": 668,
+   "fault_vars": 218,
+   "cnf_circuit": {
+    "vars": 687,
+    "clauses": 1887,
+    "literals": 5393
+   },
+   "cnf": {
+    "vars": 1337,
+    "clauses": 3399,
+    "literals": 9065
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.004
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.017,
+   "build_s": 0.002,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v6h_opt.json",
+   "T": 6,
+   "gates": 107,
+   "flops": 24,
+   "sites_modelled": 663,
+   "fault_vars": 220,
+   "cnf_circuit": {
+    "vars": 683,
+    "clauses": 1841,
+    "literals": 5229
+   },
+   "cnf": {
+    "vars": 1339,
+    "clauses": 3367,
+    "literals": 8935
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.045
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.061,
+   "build_s": 0.007,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/V456_v6h_plain.json",
+   "T": 6,
+   "gates": 108,
+   "flops": 24,
+   "sites_modelled": 668,
+   "fault_vars": 250,
+   "cnf_circuit": {
+    "vars": 768,
+    "clauses": 2061,
+    "literals": 5869
+   },
+   "cnf": {
+    "vars": 1514,
+    "clauses": 3797,
+    "literals": 10085
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.044
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.06,
+   "build_s": 0.005,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc300_plain.json",
+   "T": 6,
+   "gates": 10,
+   "flops": 12,
+   "sites_modelled": 114,
+   "fault_vars": 24,
+   "cnf_circuit": {
+    "vars": 50,
+    "clauses": 64,
+    "literals": 160
+   },
+   "cnf": {
+    "vars": 118,
+    "clauses": 218,
+    "literals": 534
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc301_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xx0xxxx0' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/crc302_plain.json",
+   "T": 6,
+   "gates": 3,
+   "flops": 11,
+   "sites_modelled": 78,
+   "fault_vars": 48,
+   "cnf_circuit": {
+    "vars": 69,
+    "clauses": 74,
+    "literals": 178
+   },
+   "cnf": {
+    "vars": 209,
+    "clauses": 396,
+    "literals": 960
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc303_opt.json",
+   "T": 6,
+   "gates": 2,
+   "flops": 3,
+   "sites_modelled": 26,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 16,
+    "clauses": 22,
+    "literals": 66
+   },
+   "cnf": {
+    "vars": 30,
+    "clauses": 50,
+    "literals": 134
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.0,
+   "build_s": 0.0,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc304_plain.json",
+   "T": 6,
+   "gates": 2,
+   "flops": 3,
+   "sites_modelled": 26,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 16,
+    "clauses": 22,
+    "literals": 66
+   },
+   "cnf": {
+    "vars": 30,
+    "clauses": 50,
+    "literals": 134
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.0,
+   "build_s": 0.0,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc305_opt.json",
+   "T": 6,
+   "gates": 5,
+   "flops": 6,
+   "sites_modelled": 57,
+   "fault_vars": 12,
+   "cnf_circuit": {
+    "vars": 30,
+    "clauses": 40,
+    "literals": 104
+   },
+   "cnf": {
+    "vars": 62,
+    "clauses": 110,
+    "literals": 274
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc306_plain.json",
+   "T": 6,
+   "gates": 8,
+   "flops": 7,
+   "sites_modelled": 76,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 22,
+    "clauses": 34,
+    "literals": 96
+   },
+   "cnf": {
+    "vars": 36,
+    "clauses": 62,
+    "literals": 164
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.0,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc307_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xxxx0xx0' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/crc308_plain.json",
+   "T": 6,
+   "gates": 3,
+   "flops": 8,
+   "sites_modelled": 59,
+   "fault_vars": 24,
+   "cnf_circuit": {
+    "vars": 42,
+    "clauses": 52,
+    "literals": 128
+   },
+   "cnf": {
+    "vars": 110,
+    "clauses": 206,
+    "literals": 502
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc309_opt.json",
+   "T": 6,
+   "gates": 5,
+   "flops": 5,
+   "sites_modelled": 51,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 18,
+    "clauses": 28,
+    "literals": 80
+   },
+   "cnf": {
+    "vars": 32,
+    "clauses": 56,
+    "literals": 148
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc310_plain.json",
+   "T": 6,
+   "gates": 2,
+   "flops": 3,
+   "sites_modelled": 26,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 20,
+    "clauses": 22,
+    "literals": 70
+   },
+   "cnf": {
+    "vars": 34,
+    "clauses": 50,
+    "literals": 138
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.0,
+   "build_s": 0.0,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc311_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xxxx0xx0' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/crc312_plain.json",
+   "T": 6,
+   "gates": 11,
+   "flops": 9,
+   "sites_modelled": 101,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 26,
+    "clauses": 40,
+    "literals": 112
+   },
+   "cnf": {
+    "vars": 40,
+    "clauses": 68,
+    "literals": 180
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc313_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xxx0xxx0' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/crc314_plain.json",
+   "T": 6,
+   "gates": 5,
+   "flops": 8,
+   "sites_modelled": 69,
+   "fault_vars": 24,
+   "cnf_circuit": {
+    "vars": 42,
+    "clauses": 52,
+    "literals": 128
+   },
+   "cnf": {
+    "vars": 110,
+    "clauses": 206,
+    "literals": 502
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc315_opt.json",
+   "T": 6,
+   "gates": 7,
+   "flops": 8,
+   "sites_modelled": 77,
+   "fault_vars": 12,
+   "cnf_circuit": {
+    "vars": 34,
+    "clauses": 46,
+    "literals": 120
+   },
+   "cnf": {
+    "vars": 66,
+    "clauses": 116,
+    "literals": 290
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc316_plain.json",
+   "T": 6,
+   "gates": 4,
+   "flops": 5,
+   "sites_modelled": 46,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 18,
+    "clauses": 28,
+    "literals": 80
+   },
+   "cnf": {
+    "vars": 32,
+    "clauses": 56,
+    "literals": 148
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.0,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc317_opt.json",
+   "T": 6,
+   "gates": 7,
+   "flops": 7,
+   "sites_modelled": 71,
+   "fault_vars": 6,
+   "cnf_circuit": {
+    "vars": 22,
+    "clauses": 34,
+    "literals": 96
+   },
+   "cnf": {
+    "vars": 36,
+    "clauses": 62,
+    "literals": 164
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.005,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc318_plain.json",
+   "T": 6,
+   "gates": 10,
+   "flops": 16,
+   "sites_modelled": 138,
+   "fault_vars": 48,
+   "cnf_circuit": {
+    "vars": 74,
+    "clauses": 88,
+    "literals": 208
+   },
+   "cnf": {
+    "vars": 214,
+    "clauses": 410,
+    "literals": 990
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc319_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xxx0xxx0' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/crc320_plain.json",
+   "T": 6,
+   "gates": 8,
+   "flops": 10,
+   "sites_modelled": 94,
+   "fault_vars": 24,
+   "cnf_circuit": {
+    "vars": 46,
+    "clauses": 58,
+    "literals": 144
+   },
+   "cnf": {
+    "vars": 114,
+    "clauses": 212,
+    "literals": 518
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/crc321_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xxx0xxx0' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/rand200_plain.json",
+   "T": 6,
+   "gates": 30,
+   "flops": 8,
+   "sites_modelled": 217,
+   "fault_vars": 99,
+   "cnf_circuit": {
+    "vars": 286,
+    "clauses": 785,
+    "literals": 2305
+   },
+   "cnf": {
+    "vars": 579,
+    "clauses": 1464,
+    "literals": 3954
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.011
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.021,
+   "build_s": 0.002,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand201_plain.json",
+   "T": 6,
+   "gates": 9,
+   "flops": 5,
+   "sites_modelled": 78,
+   "fault_vars": 56,
+   "cnf_circuit": {
+    "vars": 117,
+    "clauses": 302,
+    "literals": 997
+   },
+   "cnf": {
+    "vars": 281,
+    "clauses": 680,
+    "literals": 1915
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand202_plain.json",
+   "T": 6,
+   "gates": 31,
+   "flops": 6,
+   "sites_modelled": 212,
+   "fault_vars": 112,
+   "cnf_circuit": {
+    "vars": 317,
+    "clauses": 911,
+    "literals": 2755
+   },
+   "cnf": {
+    "vars": 649,
+    "clauses": 1681,
+    "literals": 4625
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.005,
+   "build_s": 0.001,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand203_plain.json",
+   "T": 6,
+   "gates": 21,
+   "flops": 6,
+   "sites_modelled": 156,
+   "fault_vars": 82,
+   "cnf_circuit": {
+    "vars": 213,
+    "clauses": 699,
+    "literals": 2329
+   },
+   "cnf": {
+    "vars": 455,
+    "clauses": 1259,
+    "literals": 3689
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.001
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.005,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand204_plain.json",
+   "T": 6,
+   "gates": 15,
+   "flops": 7,
+   "sites_modelled": 122,
+   "fault_vars": 67,
+   "cnf_circuit": {
+    "vars": 194,
+    "clauses": 552,
+    "literals": 1714
+   },
+   "cnf": {
+    "vars": 391,
+    "clauses": 1007,
+    "literals": 2819
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.003,
+   "build_s": 0.001,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand205_plain.json",
+   "T": 6,
+   "gates": 7,
+   "flops": 8,
+   "sites_modelled": 64,
+   "fault_vars": 45,
+   "cnf_circuit": {
+    "vars": 124,
+    "clauses": 382,
+    "literals": 1226
+   },
+   "cnf": {
+    "vars": 256,
+    "clauses": 684,
+    "literals": 1959
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand206_plain.json",
+   "T": 6,
+   "gates": 29,
+   "flops": 5,
+   "sites_modelled": 195,
+   "fault_vars": 91,
+   "cnf_circuit": {
+    "vars": 277,
+    "clauses": 810,
+    "literals": 2442
+   },
+   "cnf": {
+    "vars": 546,
+    "clauses": 1433,
+    "literals": 3955
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.011
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.014
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.028,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand207_plain.json",
+   "T": 6,
+   "gates": 23,
+   "flops": 8,
+   "sites_modelled": 170,
+   "fault_vars": 95,
+   "cnf_circuit": {
+    "vars": 239,
+    "clauses": 698,
+    "literals": 2194
+   },
+   "cnf": {
+    "vars": 520,
+    "clauses": 1349,
+    "literals": 3775
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.003
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.012
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.023,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand208_plain.json",
+   "T": 6,
+   "gates": 10,
+   "flops": 4,
+   "sites_modelled": 76,
+   "fault_vars": 52,
+   "cnf_circuit": {
+    "vars": 144,
+    "clauses": 428,
+    "literals": 1308
+   },
+   "cnf": {
+    "vars": 296,
+    "clauses": 778,
+    "literals": 2158
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.002,
+   "build_s": 0.0,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand209_plain.json",
+   "T": 6,
+   "gates": 12,
+   "flops": 3,
+   "sites_modelled": 89,
+   "fault_vars": 47,
+   "cnf_circuit": {
+    "vars": 136,
+    "clauses": 382,
+    "literals": 1118
+   },
+   "cnf": {
+    "vars": 273,
+    "clauses": 697,
+    "literals": 1883
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.002,
+   "build_s": 0.0,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand210_plain.json",
+   "T": 6,
+   "gates": 33,
+   "flops": 8,
+   "sites_modelled": 209,
+   "fault_vars": 89,
+   "cnf_circuit": {
+    "vars": 285,
+    "clauses": 887,
+    "literals": 2753
+   },
+   "cnf": {
+    "vars": 549,
+    "clauses": 1497,
+    "literals": 4234
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.011
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 0,
+     "solve_s": 0.0,
+     "implied_by": 0
+    }
+   ],
+   "sweep_wall_s": 0.016,
+   "build_s": 0.004,
+   "min": 0,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 0
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand211_plain.json",
+   "T": 6,
+   "gates": 19,
+   "flops": 8,
+   "sites_modelled": 149,
+   "fault_vars": 81,
+   "cnf_circuit": {
+    "vars": 220,
+    "clauses": 617,
+    "literals": 1883
+   },
+   "cnf": {
+    "vars": 460,
+    "clauses": 1171,
+    "literals": 3228
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.012,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand212_plain.json",
+   "T": 6,
+   "gates": 25,
+   "flops": 3,
+   "sites_modelled": 160,
+   "fault_vars": 77,
+   "cnf_circuit": {
+    "vars": 233,
+    "clauses": 667,
+    "literals": 1951
+   },
+   "cnf": {
+    "vars": 461,
+    "clauses": 1193,
+    "literals": 3228
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.004,
+   "build_s": 0.001,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rand213_plain.json",
+   "T": 6,
+   "gates": 8,
+   "flops": 4,
+   "sites_modelled": 56,
+   "fault_vars": 16,
+   "cnf_circuit": {
+    "vars": 56,
+    "clauses": 135,
+    "literals": 386
+   },
+   "cnf": {
+    "vars": 100,
+    "clauses": 233,
+    "literals": 624
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    }
+   ],
+   "sweep_wall_s": 0.0,
+   "build_s": 0.0,
+   "min": null,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc100_plain.json",
+   "T": 6,
+   "gates": 16,
+   "flops": 10,
+   "sites_modelled": 135,
+   "fault_vars": 67,
+   "cnf_circuit": {
+    "vars": 141,
+    "clauses": 300,
+    "literals": 854
+   },
+   "cnf": {
+    "vars": 338,
+    "clauses": 755,
+    "literals": 1959
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.008,
+   "build_s": 0.005,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc101_opt.json",
+   "T": 6,
+   "gates": 42,
+   "flops": 7,
+   "sites_modelled": 245,
+   "fault_vars": 37,
+   "cnf_circuit": {
+    "vars": 118,
+    "clauses": 271,
+    "literals": 765
+   },
+   "cnf": {
+    "vars": 226,
+    "clauses": 517,
+    "literals": 1362
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.003,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc102_plain.json",
+   "T": 6,
+   "gates": 25,
+   "flops": 12,
+   "sites_modelled": 190,
+   "fault_vars": 89,
+   "cnf_circuit": {
+    "vars": 185,
+    "clauses": 386,
+    "literals": 1076
+   },
+   "cnf": {
+    "vars": 449,
+    "clauses": 996,
+    "literals": 2557
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.002
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.004,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc103_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xx1001' contains 'x' (unknown); the model needs a known power-up state (trea"
+  },
+  {
+   "name": "research/c4/ver/gen/rc104_plain.json",
+   "T": 6,
+   "gates": 22,
+   "flops": 10,
+   "sites_modelled": 161,
+   "fault_vars": 58,
+   "cnf_circuit": {
+    "vars": 144,
+    "clauses": 315,
+    "literals": 883
+   },
+   "cnf": {
+    "vars": 314,
+    "clauses": 707,
+    "literals": 1835
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.034
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.036,
+   "build_s": 0.0,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc105_opt.json",
+   "T": 6,
+   "gates": 26,
+   "flops": 5,
+   "sites_modelled": 157,
+   "fault_vars": 29,
+   "cnf_circuit": {
+    "vars": 96,
+    "clauses": 205,
+    "literals": 563
+   },
+   "cnf": {
+    "vars": 180,
+    "clauses": 395,
+    "literals": 1024
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.004
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.006,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc106_plain.json",
+   "T": 6,
+   "gates": 24,
+   "flops": 12,
+   "sites_modelled": 185,
+   "fault_vars": 81,
+   "cnf_circuit": {
+    "vars": 187,
+    "clauses": 401,
+    "literals": 1139
+   },
+   "cnf": {
+    "vars": 427,
+    "clauses": 955,
+    "literals": 2484
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.001
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.009,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc107_opt.json",
+   "T": 6,
+   "error": "flop net o: init value '010x101x' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/rc108_plain.json",
+   "T": 6,
+   "gates": 38,
+   "flops": 14,
+   "sites_modelled": 244,
+   "fault_vars": 108,
+   "cnf_circuit": {
+    "vars": 254,
+    "clauses": 597,
+    "literals": 1703
+   },
+   "cnf": {
+    "vars": 574,
+    "clauses": 1339,
+    "literals": 3505
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.01
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.018
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.031,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc109_opt.json",
+   "T": 6,
+   "gates": 14,
+   "flops": 4,
+   "sites_modelled": 75,
+   "fault_vars": 18,
+   "cnf_circuit": {
+    "vars": 59,
+    "clauses": 139,
+    "literals": 401
+   },
+   "cnf": {
+    "vars": 109,
+    "clauses": 251,
+    "literals": 673
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.001,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc110_plain.json",
+   "T": 6,
+   "gates": 40,
+   "flops": 13,
+   "sites_modelled": 269,
+   "fault_vars": 99,
+   "cnf_circuit": {
+    "vars": 217,
+    "clauses": 490,
+    "literals": 1416
+   },
+   "cnf": {
+    "vars": 510,
+    "clauses": 1169,
+    "literals": 3065
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.012
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.017
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.004
+    }
+   ],
+   "sweep_wall_s": 0.04,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc111_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'xx1x10' contains 'x' (unknown); the model needs a known power-up state (trea"
+  },
+  {
+   "name": "research/c4/ver/gen/rc112_plain.json",
+   "T": 6,
+   "gates": 44,
+   "flops": 14,
+   "sites_modelled": 298,
+   "fault_vars": 110,
+   "cnf_circuit": {
+    "vars": 251,
+    "clauses": 556,
+    "literals": 1560
+   },
+   "cnf": {
+    "vars": 577,
+    "clauses": 1312,
+    "literals": 3396
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.009
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.001
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.02,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc113_opt.json",
+   "T": 6,
+   "error": "flop net o: init value '001x1xxx' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c4/ver/gen/rc114_plain.json",
+   "T": 6,
+   "gates": 30,
+   "flops": 12,
+   "sites_modelled": 213,
+   "fault_vars": 73,
+   "cnf_circuit": {
+    "vars": 160,
+    "clauses": 350,
+    "literals": 976
+   },
+   "cnf": {
+    "vars": 376,
+    "clauses": 848,
+    "literals": 2185
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.006
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.009,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc115_opt.json",
+   "T": 6,
+   "gates": 23,
+   "flops": 5,
+   "sites_modelled": 139,
+   "fault_vars": 25,
+   "cnf_circuit": {
+    "vars": 88,
+    "clauses": 209,
+    "literals": 579
+   },
+   "cnf": {
+    "vars": 160,
+    "clauses": 371,
+    "literals": 972
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.001
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.002,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc116_plain.json",
+   "T": 6,
+   "gates": 24,
+   "flops": 11,
+   "sites_modelled": 180,
+   "fault_vars": 82,
+   "cnf_circuit": {
+    "vars": 181,
+    "clauses": 387,
+    "literals": 1089
+   },
+   "cnf": {
+    "vars": 423,
+    "clauses": 947,
+    "literals": 2449
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.003
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.015,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc117_opt.json",
+   "T": 6,
+   "error": "flop net s: init value 'x111' contains 'x' (unknown); the model needs a known power-up state (treati"
+  },
+  {
+   "name": "research/c4/ver/gen/rc118_plain.json",
+   "T": 6,
+   "gates": 32,
+   "flops": 13,
+   "sites_modelled": 231,
+   "fault_vars": 81,
+   "cnf_circuit": {
+    "vars": 172,
+    "clauses": 352,
+    "literals": 978
+   },
+   "cnf": {
+    "vars": 412,
+    "clauses": 906,
+    "literals": 2323
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.002
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.01,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc119_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'x111' contains 'x' (unknown); the model needs a known power-up state (treati"
+  },
+  {
+   "name": "research/c4/ver/gen/rc120_plain.json",
+   "T": 6,
+   "gates": 18,
+   "flops": 10,
+   "sites_modelled": 142,
+   "fault_vars": 53,
+   "cnf_circuit": {
+    "vars": 128,
+    "clauses": 265,
+    "literals": 753
+   },
+   "cnf": {
+    "vars": 284,
+    "clauses": 623,
+    "literals": 1622
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.005
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.007,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc121_opt.json",
+   "T": 6,
+   "error": "flop net o: init value 'x000' contains 'x' (unknown); the model needs a known power-up state (treati"
+  },
+  {
+   "name": "research/c4/ver/gen/rc122_plain.json",
+   "T": 6,
+   "gates": 24,
+   "flops": 7,
+   "sites_modelled": 158,
+   "fault_vars": 36,
+   "cnf_circuit": {
+    "vars": 91,
+    "clauses": 161,
+    "literals": 413
+   },
+   "cnf": {
+    "vars": 195,
+    "clauses": 399,
+    "literals": 991
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.0
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.002,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc123_opt.json",
+   "T": 6,
+   "gates": 22,
+   "flops": 8,
+   "sites_modelled": 146,
+   "fault_vars": 61,
+   "cnf_circuit": {
+    "vars": 173,
+    "clauses": 474,
+    "literals": 1408
+   },
+   "cnf": {
+    "vars": 353,
+    "clauses": 888,
+    "literals": 2413
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.016
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.024,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc124_plain.json",
+   "T": 6,
+   "gates": 28,
+   "flops": 11,
+   "sites_modelled": 202,
+   "fault_vars": 80,
+   "cnf_circuit": {
+    "vars": 217,
+    "clauses": 587,
+    "literals": 1677
+   },
+   "cnf": {
+    "vars": 453,
+    "clauses": 1133,
+    "literals": 3003
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.013
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.015
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.038,
+   "build_s": 0.005,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc125_opt.json",
+   "T": 6,
+   "gates": 34,
+   "flops": 9,
+   "sites_modelled": 219,
+   "fault_vars": 73,
+   "cnf_circuit": {
+    "vars": 210,
+    "clauses": 523,
+    "literals": 1467
+   },
+   "cnf": {
+    "vars": 426,
+    "clauses": 1021,
+    "literals": 2676
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.003
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.011,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc126_plain.json",
+   "T": 6,
+   "gates": 34,
+   "flops": 8,
+   "sites_modelled": 213,
+   "fault_vars": 60,
+   "cnf_circuit": {
+    "vars": 168,
+    "clauses": 433,
+    "literals": 1259
+   },
+   "cnf": {
+    "vars": 344,
+    "clauses": 839,
+    "literals": 2245
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.011
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.001
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.018,
+   "build_s": 0.004,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c4/ver/gen/rc127_opt.json",
+   "T": 6,
+   "error": "flop net o: init value '0011xx1x' contains 'x' (unknown); the model needs a known power-up state (tr"
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_apt_v2.json",
+   "T": 6,
+   "gates": 85,
+   "flops": 8,
+   "sites_modelled": 408,
+   "fault_vars": 133,
+   "cnf_circuit": {
+    "vars": 375,
+    "clauses": 1017,
+    "literals": 2965
+   },
+   "cnf": {
+    "vars": 771,
+    "clauses": 1935,
+    "literals": 5194
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.003
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.011
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.034
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.055,
+   "build_s": 0.002,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_apt_v2c04.json",
+   "T": 6,
+   "gates": 81,
+   "flops": 8,
+   "sites_modelled": 418,
+   "fault_vars": 98,
+   "cnf_circuit": {
+    "vars": 345,
+    "clauses": 917,
+    "literals": 2505
+   },
+   "cnf": {
+    "vars": 635,
+    "clauses": 1589,
+    "literals": 4137
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.002
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.013,
+   "build_s": 0.006,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_apt_v2c4d.json",
+   "T": 6,
+   "gates": 89,
+   "flops": 8,
+   "sites_modelled": 438,
+   "fault_vars": 103,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 957,
+    "literals": 2645
+   },
+   "cnf": {
+    "vars": 660,
+    "clauses": 1664,
+    "literals": 4362
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.009
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.028
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 2,
+     "solve_s": 0.0,
+     "implied_by": 2
+    }
+   ],
+   "sweep_wall_s": 0.047,
+   "build_s": 0.001,
+   "min": 2,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 2
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_apt_v2c5a.json",
+   "T": 6,
+   "gates": 88,
+   "flops": 8,
+   "sites_modelled": 458,
+   "fault_vars": 103,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 957,
+    "literals": 2645
+   },
+   "cnf": {
+    "vars": 660,
+    "clauses": 1664,
+    "literals": 4362
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.005
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.005
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.089
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.031
+    }
+   ],
+   "sweep_wall_s": 0.134,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_apt_v2e.json",
+   "T": 6,
+   "gates": 89,
+   "flops": 8,
+   "sites_modelled": 463,
+   "fault_vars": 98,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 957,
+    "literals": 2615
+   },
+   "cnf": {
+    "vars": 645,
+    "clauses": 1629,
+    "literals": 4247
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.016
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.157
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.114
+    }
+   ],
+   "sweep_wall_s": 0.297,
+   "build_s": 0.006,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_conda_v2.json",
+   "T": 6,
+   "gates": 83,
+   "flops": 8,
+   "sites_modelled": 413,
+   "fault_vars": 123,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 962,
+    "literals": 2780
+   },
+   "cnf": {
+    "vars": 720,
+    "clauses": 1809,
+    "literals": 4837
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.02
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.17
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.034
+    }
+   ],
+   "sweep_wall_s": 0.247,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_conda_v2c04.json",
+   "T": 6,
+   "gates": 82,
+   "flops": 8,
+   "sites_modelled": 418,
+   "fault_vars": 93,
+   "cnf_circuit": {
+    "vars": 340,
+    "clauses": 912,
+    "literals": 2480
+   },
+   "cnf": {
+    "vars": 616,
+    "clauses": 1550,
+    "literals": 4029
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.003
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.001
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.012,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_conda_v2c4d.json",
+   "T": 6,
+   "gates": 88,
+   "flops": 8,
+   "sites_modelled": 453,
+   "fault_vars": 113,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 967,
+    "literals": 2745
+   },
+   "cnf": {
+    "vars": 691,
+    "clauses": 1745,
+    "literals": 4634
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.098
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.249
+    }
+   ],
+   "sweep_wall_s": 0.365,
+   "build_s": 0.001,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_conda_v2c5a.json",
+   "T": 6,
+   "gates": 88,
+   "flops": 8,
+   "sites_modelled": 458,
+   "fault_vars": 118,
+   "cnf_circuit": {
+    "vars": 390,
+    "clauses": 1057,
+    "literals": 2955
+   },
+   "cnf": {
+    "vars": 740,
+    "clauses": 1869,
+    "literals": 4927
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.001
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.008
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.132
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.091
+    }
+   ],
+   "sweep_wall_s": 0.245,
+   "build_s": 0.006,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "research/c6/p01/netlists/nl_conda_v2e.json",
+   "T": 6,
+   "gates": 81,
+   "flops": 8,
+   "sites_modelled": 423,
+   "fault_vars": 113,
+   "cnf_circuit": {
+    "vars": 355,
+    "clauses": 982,
+    "literals": 2790
+   },
+   "cnf": {
+    "vars": 691,
+    "clauses": 1760,
+    "literals": 4679
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.005
+    },
+    {
+     "k": 1,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.023
+    },
+    {
+     "k": 2,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.119
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 3,
+     "solve_s": 0.067
+    }
+   ],
+   "sweep_wall_s": 0.223,
+   "build_s": 0.006,
+   "min": 3,
+   "per_k": {
+    "1": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "2": {
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "min": null
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 3
+    }
+   }
+  },
+  {
+   "name": "validation/nl/v0.json",
+   "T": 6,
+   "gates": 17,
+   "flops": 2,
+   "sites_modelled": 100,
+   "fault_vars": 22,
+   "cnf_circuit": {
+    "vars": 88,
+    "clauses": 236,
+    "literals": 616
+   },
+   "cnf": {
+    "vars": 150,
+    "clauses": 376,
+    "literals": 956
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.004
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.005,
+   "build_s": 0.0,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "validation/nl/v1.json",
+   "T": 6,
+   "gates": 55,
+   "flops": 8,
+   "sites_modelled": 268,
+   "fault_vars": 118,
+   "cnf_circuit": {
+    "vars": 348,
+    "clauses": 996,
+    "literals": 2906
+   },
+   "cnf": {
+    "vars": 698,
+    "clauses": 1808,
+    "literals": 4878
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.002
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.013
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.036,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  },
+  {
+   "name": "validation/nl/v2.json",
+   "T": 6,
+   "gates": 55,
+   "flops": 8,
+   "sites_modelled": 268,
+   "fault_vars": 118,
+   "cnf_circuit": {
+    "vars": 348,
+    "clauses": 996,
+    "literals": 2906
+   },
+   "cnf": {
+    "vars": 698,
+    "clauses": 1808,
+    "literals": 4878
+   },
+   "backend": "minicdcl",
+   "sweep": [
+    {
+     "k": 0,
+     "verdict": "NO_ATTACK_UP_TO_BOUND",
+     "solve_s": 0.006
+    },
+    {
+     "k": 1,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.019
+    },
+    {
+     "k": 2,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    },
+    {
+     "k": 3,
+     "verdict": "ATTACK_FOUND",
+     "min_faults": 1,
+     "solve_s": 0.0,
+     "implied_by": 1
+    }
+   ],
+   "sweep_wall_s": 0.028,
+   "build_s": 0.001,
+   "min": 1,
+   "per_k": {
+    "1": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "2": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    },
+    "3": {
+     "verdict": "ATTACK_FOUND",
+     "min": 1
+    }
+   }
+  }
+ ]
+}

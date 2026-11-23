@@ -1,0 +1,6284 @@
+{
+ "view": "Firmware",
+ "schema": 1,
+ "label": "MEASURED",
+ "source": "firmware/results/summary.json",
+ "platform": "simulator (rv32sim), not silicon",
+ "caption": "Minimum number of instruction-level faults (skip, branch inversion, register bit flip, small PC offset; one model per search) that make the boot ROM run a tampered image",
+ "variants": [
+  {
+   "id": "rom_naive",
+   "description": "one compare, one branch per check"
+  },
+  {
+   "id": "rom_double",
+   "description": "rollback test and MAC compare each done twice; second disagreeing raises the alarm"
+  },
+  {
+   "id": "rom_triple",
+   "description": "three rollback tests and three MAC compares (software counterpart of hardware V2)"
+  },
+  {
+   "id": "rom_compl",
+   "description": "decision kept as a multi-bit boolean and its complement; OTP version read with its complement copy"
+  },
+  {
+   "id": "rom_ctres",
+   "description": "constant-time MAC compare plus an independent count of equal words"
+  },
+  {
+   "id": "rom_cfi",
+   "description": "flow-integrity counter checked before the jump"
+  },
+  {
+   "id": "rom_delay",
+   "description": "random (TRNG-driven) delays before the rollback test and the MAC compare"
+  },
+  {
+   "id": "rom_infective",
+   "description": "MAC difference mixed into the jump address"
+  },
+  {
+   "id": "rom_hardened",
+   "description": "combined: double OTP read + complement, constant-time compare, multi-bit boolean, flow counter, assembly checks that trap, infective jump address"
+  }
+ ],
+ "opts": [
+  "O0",
+  "O1",
+  "O2",
+  "Os"
+ ],
+ "modes": [
+  "plain",
+  "vol",
+  "barrier"
+ ],
+ "models": [
+  "skip",
+  "brinv",
+  "rdflip",
+  "pcoff",
+  "iwflip"
+ ],
+ "model_text": {
+  "skip": "instruction skip",
+  "brinv": "branch inversion",
+  "rdflip": "register bit flip",
+  "pcoff": "small PC corruption (+-2..16 bytes)",
+  "iwflip": "fetched instruction-word bit flip"
+ },
+ "cells": [
+  {
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x27c",
+     "file": "rom_naive.c",
+     "line": 4,
+     "asm": "c.li\ta0, 0x0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x27c",
+     "file": "rom_naive.c",
+     "line": 4,
+     "asm": "c.li\ta0, 0x0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x30c",
+     "file": "rom_naive.c",
+     "line": 4,
+     "asm": "c.li\ta0, 0x0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x146",
+     "file": "rom_naive.c",
+     "line": 22,
+     "asm": "jalr\tra, -0x130(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x146",
+     "file": "rom_naive.c",
+     "line": 22,
+     "asm": "jalr\tra, -0x130(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x14c",
+     "file": "rom_naive.c",
+     "line": 22,
+     "asm": "jalr\tra, -0x136(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x112",
+     "file": "rom_naive.c",
+     "line": 6,
+     "asm": "bne\ta1, a2, 0x16e",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x112",
+     "file": "rom_naive.c",
+     "line": 6,
+     "asm": "bne\ta1, a2, 0x16e",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x118",
+     "file": "rom_naive.c",
+     "line": 6,
+     "asm": "bne\ta1, a2, 0x16c",
+     "effect": "next PC -8 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x142",
+     "file": "rom_naive.c",
+     "line": 22,
+     "asm": "jalr\tra, -0x12c(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x142",
+     "file": "rom_naive.c",
+     "line": 22,
+     "asm": "jalr\tra, -0x12c(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x148",
+     "file": "rom_naive.c",
+     "line": 22,
+     "asm": "jalr\tra, -0x132(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1de",
+     "file": "rom_double.c",
+     "line": 19,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1de",
+     "file": "rom_double.c",
+     "line": 19,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x2d6",
+     "file": "rom_double.c",
+     "line": 24,
+     "asm": "addi\ta1, a0, 0x10",
+     "effect": "next PC +8 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x156",
+     "file": "rom_double.c",
+     "line": 26,
+     "asm": "jalr\tra, -0x140(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x190",
+     "file": "rom_double.c",
+     "line": 29,
+     "asm": "jalr\tra, -0x168(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x156",
+     "file": "rom_double.c",
+     "line": 24,
+     "asm": "c.swsp\ta0, 0x4(sp)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x164",
+     "file": "rom_double.c",
+     "line": 7,
+     "asm": "c.li\ta0, 0x1",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x15c",
+     "file": "rom_double.c",
+     "line": 25,
+     "asm": "c.bnez\ta1, 0x1a8",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x122",
+     "file": "rom_double.c",
+     "line": 7,
+     "asm": "bne\ta1, a2, 0x18a",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x174",
+     "file": "rom_double.c",
+     "line": 24,
+     "asm": "c.swsp\ta0, 0x4(sp)",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x170",
+     "file": "rom_double.c",
+     "line": 25,
+     "asm": "c.bnez\ta0, 0x19c",
+     "effect": "next PC -12 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x128",
+     "file": "rom_double.c",
+     "line": 7,
+     "asm": "bne\ta0, a1, 0x14c",
+     "effect": "next PC +12 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x158",
+     "file": "rom_double.c",
+     "line": 25,
+     "asm": "c.lwsp\ta0, 0x4(sp)",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x15c",
+     "file": "rom_double.c",
+     "line": 25,
+     "asm": "c.bnez\ta1, 0x1a8",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "3",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1de",
+     "file": "rom_triple.c",
+     "line": 19,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "3",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1de",
+     "file": "rom_triple.c",
+     "line": 19,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0x35c",
+     "file": "rom_triple.c",
+     "line": 28,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 10 of ra flipped after write"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x160",
+     "file": "rom_triple.c",
+     "line": 28,
+     "asm": "jalr\tra, -0x14a(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x1ca",
+     "file": "rom_triple.c",
+     "line": 0,
+     "asm": "jalr\tra, -0x1a2(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x166",
+     "file": "rom_triple.c",
+     "line": 27,
+     "asm": "c.bnez\ta0, 0x1e8",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x16c",
+     "file": "rom_triple.c",
+     "line": 27,
+     "asm": "c.bnez\ta1, 0x1ea",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x12e",
+     "file": "rom_triple.c",
+     "line": 27,
+     "asm": "c.bnez\ta0, 0x144",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x11e",
+     "file": "rom_triple.c",
+     "line": 24,
+     "asm": "bgeu\ta0, a1, 0x12c",
+     "effect": "next PC +12 bytes"
+    },
+    {
+     "model": "pcoff",
+     "pc": "0x146",
+     "file": "rom_triple.c",
+     "line": 29,
+     "asm": "c.swsp\ta0, 0x10(sp)",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x148",
+     "file": "rom_triple.c",
+     "line": 27,
+     "asm": "c.bnez\ta0, 0x186",
+     "effect": "next PC -12 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x15c",
+     "file": "rom_triple.c",
+     "line": 28,
+     "asm": "jalr\tra, -0x146(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x1ae",
+     "file": "rom_triple.c",
+     "line": 0,
+     "asm": "jalr\tra, -0x186(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0xee",
+     "file": "rom_triple.c",
+     "line": 20,
+     "asm": "bgeu\ta1, a2, 0x110",
+     "effect": "next PC -10 bytes"
+    },
+    {
+     "model": "pcoff",
+     "pc": "0x10c",
+     "file": "rom_triple.c",
+     "line": 18,
+     "asm": "jalr\tra, -0xf6(ra)",
+     "effect": "next PC -6 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x16c",
+     "file": "rom_triple.c",
+     "line": 27,
+     "asm": "c.bnez\ta1, 0x1ea",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x2ba",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x2c2",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x2ba",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x2c2",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x37a",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x382",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x164",
+     "file": "rom_compl.c",
+     "line": 8,
+     "asm": "bne\ta0, a3, 0x190",
+     "effect": "next PC +6 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x18c",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x1ce",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x192",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x1d6",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": ">2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": ">2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": null
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x1be",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x200",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x1bc",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta1, a3, 0x1fe",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0xe0",
+     "file": "rom_compl.c",
+     "line": 20,
+     "asm": "jalr\tra, -0x96(ra)",
+     "effect": "bit 5 of ra flipped after write"
+    },
+    {
+     "model": "rdflip",
+     "pc": "0xdc",
+     "file": "rom_compl.c",
+     "line": 20,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 8 of ra flipped after write"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x184",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x1c6",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x192",
+     "file": "rom_compl.c",
+     "line": 29,
+     "asm": "bne\ta0, a1, 0x1d6",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1de",
+     "file": "rom_ctres.c",
+     "line": 27,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1de",
+     "file": "rom_ctres.c",
+     "line": 27,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0x24c",
+     "file": "rom_ctres.c",
+     "line": 28,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 6 of ra flipped after write"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x148",
+     "file": "rom_ctres.c",
+     "line": 16,
+     "asm": "sltiu\ta5, a5, 0x1",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x16a",
+     "file": "rom_ctres.c",
+     "line": 32,
+     "asm": "c.swsp\ta1, 0x8(sp)",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x162",
+     "file": "rom_ctres.c",
+     "line": 0,
+     "asm": "addi\ta3, zero, 0x739",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x112",
+     "file": "rom_ctres.c",
+     "line": 33,
+     "asm": "bne\ta2, a1, 0x162",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1c6",
+     "file": "rom_ctres.c",
+     "line": 32,
+     "asm": "c.swsp\ta1, 0xc(sp)",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x172",
+     "file": "rom_ctres.c",
+     "line": 33,
+     "asm": "bne\ta3, a2, 0x1f6",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x148",
+     "file": "rom_ctres.c",
+     "line": 16,
+     "asm": "sltiu\ta5, a5, 0x1",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x16a",
+     "file": "rom_ctres.c",
+     "line": 32,
+     "asm": "c.swsp\ta1, 0x8(sp)",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x162",
+     "file": "rom_ctres.c",
+     "line": 0,
+     "asm": "addi\ta3, zero, 0x739",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1fa",
+     "file": "rom_cfi.c",
+     "line": 28,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1fa",
+     "file": "rom_cfi.c",
+     "line": 28,
+     "asm": "lui\ta0, 0x20000",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x3d8",
+     "file": "rom_cfi.c",
+     "line": 10,
+     "asm": "c.addi4spn\ts0, sp, 0x20",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "2",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "brinv",
+     "pc": "0x1ac",
+     "file": "rom_cfi.c",
+     "line": 32,
+     "asm": "c.beqz\ta0, 0x17e",
+     "effect": "branch direction inverted"
+    },
+    {
+     "model": "brinv",
+     "pc": "0x18e",
+     "file": "rom_cfi.c",
+     "line": 35,
+     "asm": "bne\ta0, a2, 0x1b8",
+     "effect": "branch direction inverted"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": "1",
+    "pcoff": "2",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0x8",
+     "file": "crt0.S",
+     "line": 7,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 8 of ra flipped after write"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "2",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x19a",
+     "file": "rom_cfi.c",
+     "line": 33,
+     "asm": "jalr\tra, -0x184(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x1ae",
+     "file": "rom_cfi.c",
+     "line": 35,
+     "asm": "bne\ta0, a1, 0x1ca",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x138",
+     "file": "rom_cfi.c",
+     "line": 13,
+     "asm": "bne\ta2, a3, 0x1ec",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x220",
+     "file": "rom_cfi.c",
+     "line": 33,
+     "asm": "c.li\ta0, 0x4",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x14e",
+     "file": "rom_cfi.c",
+     "line": 13,
+     "asm": "bne\ta2, a3, 0x1f2",
+     "effect": "next PC -14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x184",
+     "file": "rom_cfi.c",
+     "line": 33,
+     "asm": "jalr\tra, -0x16e(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x198",
+     "file": "rom_cfi.c",
+     "line": 35,
+     "asm": "bne\ta0, a2, 0x1b0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x188",
+     "file": "rom_cfi.c",
+     "line": 33,
+     "asm": "jalr\tra, -0x172(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x1a0",
+     "file": "rom_cfi.c",
+     "line": 35,
+     "asm": "addi\ta1, zero, 0x4de",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": "3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x18e",
+     "file": "rom_cfi.c",
+     "line": 33,
+     "asm": "jalr\tra, -0x178(ra)",
+     "effect": "instruction skipped"
+    },
+    {
+     "model": "skip",
+     "pc": "0x1a2",
+     "file": "rom_cfi.c",
+     "line": 35,
+     "asm": "bne\ta0, a1, 0x1be",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x2da",
+     "file": "rom_delay.c",
+     "line": 5,
+     "asm": "c.li\ta0, 0x0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x2da",
+     "file": "rom_delay.c",
+     "line": 5,
+     "asm": "c.li\ta0, 0x0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x36a",
+     "file": "rom_delay.c",
+     "line": 5,
+     "asm": "c.li\ta0, 0x0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x168",
+     "file": "rom_delay.c",
+     "line": 31,
+     "asm": "jalr\tra, -0x152(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x168",
+     "file": "rom_delay.c",
+     "line": 31,
+     "asm": "jalr\tra, -0x152(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x16c",
+     "file": "rom_delay.c",
+     "line": 31,
+     "asm": "jalr\tra, -0x156(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x134",
+     "file": "rom_delay.c",
+     "line": 7,
+     "asm": "bne\ta1, a2, 0x190",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x134",
+     "file": "rom_delay.c",
+     "line": 7,
+     "asm": "bne\ta1, a2, 0x190",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x138",
+     "file": "rom_delay.c",
+     "line": 7,
+     "asm": "bne\ta1, a2, 0x18c",
+     "effect": "next PC -8 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x164",
+     "file": "rom_delay.c",
+     "line": 31,
+     "asm": "jalr\tra, -0x14e(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x164",
+     "file": "rom_delay.c",
+     "line": 31,
+     "asm": "jalr\tra, -0x14e(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "2",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x168",
+     "file": "rom_delay.c",
+     "line": 31,
+     "asm": "jalr\tra, -0x152(ra)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x29e",
+     "file": "rom_infective.c",
+     "line": 7,
+     "asm": "sw\ta1, -0x10(s0)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x29e",
+     "file": "rom_infective.c",
+     "line": 7,
+     "asm": "sw\ta1, -0x10(s0)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x35e",
+     "file": "rom_infective.c",
+     "line": 7,
+     "asm": "sw\ta1, -0x10(s0)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x132",
+     "file": "rom_infective.c",
+     "line": 26,
+     "asm": "c.bnez\ta0, 0x148",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x132",
+     "file": "rom_infective.c",
+     "line": 24,
+     "asm": "c.swsp\ta0, 0x10(sp)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x124",
+     "file": "rom_infective.c",
+     "line": 9,
+     "asm": "addi\ta2, a2, 0x30",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x112",
+     "file": "rom_infective.c",
+     "line": 26,
+     "asm": "bne\ta2, a1, 0x162",
+     "effect": "next PC -16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x152",
+     "file": "rom_infective.c",
+     "line": 24,
+     "asm": "c.swsp\ta0, 0x4(sp)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x16a",
+     "file": "rom_infective.c",
+     "line": 26,
+     "asm": "c.bnez\ta3, 0x18a",
+     "effect": "next PC -8 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x132",
+     "file": "rom_infective.c",
+     "line": 26,
+     "asm": "c.bnez\ta0, 0x148",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x132",
+     "file": "rom_infective.c",
+     "line": 24,
+     "asm": "c.swsp\ta0, 0x10(sp)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "2",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x124",
+     "file": "rom_infective.c",
+     "line": 9,
+     "asm": "addi\ta2, a2, 0x30",
+     "effect": "next PC +16 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x3fc",
+     "file": "rom_hardened.c",
+     "line": 11,
+     "asm": "sw\ta1, -0x10(s0)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x3fc",
+     "file": "rom_hardened.c",
+     "line": 11,
+     "asm": "sw\ta1, -0x10(s0)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "barrier",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x594",
+     "file": "rom_hardened.c",
+     "line": 11,
+     "asm": "sw\ta1, -0x10(s0)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": "3",
+    "brinv": "3",
+    "rdflip": "2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0x1f2",
+     "file": "rom_hardened.c",
+     "line": 42,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 4 of ra flipped after write"
+    },
+    {
+     "model": "rdflip",
+     "pc": "0x8",
+     "file": "crt0.S",
+     "line": 7,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 8 of ra flipped after write"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": ">3",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x184",
+     "file": "rom_hardened.c",
+     "line": 38,
+     "asm": "c.swsp\ta2, 0xc(sp)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "barrier",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0xdc",
+     "file": "rom_hardened.c",
+     "line": 0,
+     "asm": "andi\ta1, a0, 0x3",
+     "effect": "bit 29 of a1 flipped after write"
+    },
+    {
+     "model": "rdflip",
+     "pc": "0x148",
+     "file": "rom_hardened.c",
+     "line": 27,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 9 of ra flipped after write"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "plain",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "pcoff",
+     "pc": "0x1c2",
+     "file": "rom_hardened.c",
+     "line": 40,
+     "asm": "sw\ta2, 0x0(s1)",
+     "effect": "next PC +14 bytes"
+    },
+    {
+     "model": "pcoff",
+     "pc": "0x1d4",
+     "file": "rom_hardened.c",
+     "line": 41,
+     "asm": "c.addi\ta2, 0x1a",
+     "effect": "next PC +14 bytes"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x208",
+     "file": "rom_hardened.c",
+     "line": 38,
+     "asm": "c.swsp\ta0, 0x10(sp)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "barrier",
+   "tampered": ">2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": ">2",
+    "pcoff": ">2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": null
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "plain",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": "1",
+    "rdflip": "2",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "2",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x18a",
+     "file": "rom_hardened.c",
+     "line": 41,
+     "asm": "c.bnez\ta3, 0x1f0",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "vol",
+   "tampered": "1",
+   "tampered_iwflip_k1": "1",
+   "tampered_per_model": {
+    "skip": "1",
+    "brinv": ">3",
+    "rdflip": "1",
+    "pcoff": "1",
+    "iwflip": "1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "skip",
+     "pc": "0x184",
+     "file": "rom_hardened.c",
+     "line": 38,
+     "asm": "c.swsp\ta2, 0xc(sp)",
+     "effect": "instruction skipped"
+    }
+   ]
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "barrier",
+   "tampered": "2",
+   "tampered_iwflip_k1": ">1",
+   "tampered_per_model": {
+    "skip": ">3",
+    "brinv": ">3",
+    "rdflip": "2",
+    "pcoff": "2",
+    "iwflip": ">1"
+   },
+   "rollback": "1",
+   "witness": [
+    {
+     "model": "rdflip",
+     "pc": "0xdc",
+     "file": "rom_hardened.c",
+     "line": 0,
+     "asm": "andi\ta1, a0, 0x3",
+     "effect": "bit 29 of a1 flipped after write"
+    },
+    {
+     "model": "rdflip",
+     "pc": "0x148",
+     "file": "rom_hardened.c",
+     "line": 27,
+     "asm": "auipc\tra, 0x0",
+     "effect": "bit 9 of ra flipped after write"
+    }
+   ]
+  }
+ ],
+ "redundancy": [
+  {
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.875,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 4,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 4,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 4,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 2.75,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 3.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.875,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.875,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 2,
+   "alarm_call_sites": 2,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 2.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 1,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 1,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "plain",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 0
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "vol",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  },
+  {
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "barrier",
+   "mac_compares": 1.0,
+   "otp_reads": 3,
+   "alarm_call_sites": 0,
+   "infective_mul": 1
+  }
+ ],
+ "hardware_compare": {
+  "rows": [
+   {
+    "design": "V0",
+    "what": "one check",
+    "min_flips": "1",
+    "numbers_ids": [
+     "B2.v0v1"
+    ],
+    "firmware_counterpart": "rom_naive"
+   },
+   {
+    "design": "V1",
+    "what": "two checks joined by one AND gate",
+    "min_flips": "1",
+    "numbers_ids": [
+     "B2.v0v1"
+    ],
+    "firmware_counterpart": "rom_double"
+   },
+   {
+    "design": "V2",
+    "what": "three checks with separate output bits",
+    "min_flips": "3 (stored netlist, full 8-bit word goal); 2 after re-synthesis with apt Yosys 0.33; 1 if only the boot_ok flag must be forced",
+    "numbers_ids": [
+     "B2.v2.spike.word",
+     "B2.v2.apt",
+     "B2.v2.conda",
+     "B2.v2.ok"
+    ],
+    "firmware_counterpart": "rom_triple"
+   }
+  ],
+  "note": "Hardware: single-cycle bit flips on nets of a gate-level netlist (8-bit toy designs, 6 cycles, at most 3 flips). Firmware: instruction-level faults on a simulated RV32IMC core. The units differ (one net flip vs one instruction fault); compare the pattern, not the absolute numbers."
+ },
+ "sha3_engine": {
+  "note": "builds with the secboot_hw SHA3-256 engine driver (the SoC interface); subset k<=2 skip/brinv, k=1 rdflip/pcoff",
+  "rows": [
+   {
+    "build": "rom_cfi-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "1",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_cfi-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_cfi-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "1",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_compl-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_compl-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "1",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_ctres-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_ctres-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_delay-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_double-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "2",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_double-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_hardened-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_infective-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_naive-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "1",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_naive-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "1",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_triple-O0-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O0-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O1-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "2",
+    "agree_within_k": false
+   },
+   {
+    "build": "rom_triple-O1-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-O2-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-barrier-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-barrier-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": "1",
+    "hmac_engine_result": "1",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-barrier-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-barrier-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": "3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-plain-sha3",
+    "model": "brinv",
+    "kmax": 2,
+    "result": ">2",
+    "hmac_engine_result": ">3",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-plain-sha3",
+    "model": "pcoff",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-plain-sha3",
+    "model": "rdflip",
+    "kmax": 1,
+    "result": ">1",
+    "hmac_engine_result": ">2",
+    "agree_within_k": true
+   },
+   {
+    "build": "rom_triple-Os-plain-sha3",
+    "model": "skip",
+    "kmax": 2,
+    "result": "2",
+    "hmac_engine_result": "2",
+    "agree_within_k": true
+   }
+  ]
+ },
+ "random_delay": {
+  "seeds": 32,
+  "scenario": "tampered_payload",
+  "rows": [
+   {
+    "build": "rom_naive-O0-plain-hw",
+    "seeds_with_any_single_skip": 32,
+    "best_fixed_step": 563,
+    "seeds_where_best_step_works": 32,
+    "best_fixed_step_success_rate": 1.0,
+    "run_length_min": 597,
+    "run_length_max": 597
+   },
+   {
+    "build": "rom_delay-O0-plain-hw",
+    "seeds_with_any_single_skip": 32,
+    "best_fixed_step": 650,
+    "seeds_where_best_step_works": 6,
+    "best_fixed_step_success_rate": 0.1875,
+    "run_length_min": 659,
+    "run_length_max": 939
+   },
+   {
+    "build": "rom_naive-O1-plain-hw",
+    "seeds_with_any_single_skip": 32,
+    "best_fixed_step": 193,
+    "seeds_where_best_step_works": 32,
+    "best_fixed_step_success_rate": 1.0,
+    "run_length_min": 198,
+    "run_length_max": 198
+   },
+   {
+    "build": "rom_delay-O1-plain-hw",
+    "seeds_with_any_single_skip": 32,
+    "best_fixed_step": 207,
+    "seeds_where_best_step_works": 3,
+    "best_fixed_step_success_rate": 0.0938,
+    "run_length_min": 212,
+    "run_length_max": 296
+   },
+   {
+    "build": "rom_naive-O2-plain-hw",
+    "seeds_with_any_single_skip": 0,
+    "best_fixed_step": null,
+    "seeds_where_best_step_works": 0,
+    "best_fixed_step_success_rate": 0.0,
+    "run_length_min": 155,
+    "run_length_max": 155
+   },
+   {
+    "build": "rom_delay-O2-plain-hw",
+    "seeds_with_any_single_skip": 0,
+    "best_fixed_step": null,
+    "seeds_where_best_step_works": 0,
+    "best_fixed_step_success_rate": 0.0,
+    "run_length_min": 169,
+    "run_length_max": 253
+   },
+   {
+    "build": "rom_naive-Os-plain-hw",
+    "seeds_with_any_single_skip": 32,
+    "best_fixed_step": 193,
+    "seeds_where_best_step_works": 32,
+    "best_fixed_step_success_rate": 1.0,
+    "run_length_min": 198,
+    "run_length_max": 198
+   },
+   {
+    "build": "rom_delay-Os-plain-hw",
+    "seeds_with_any_single_skip": 32,
+    "best_fixed_step": 207,
+    "seeds_where_best_step_works": 3,
+    "best_fixed_step_success_rate": 0.0938,
+    "run_length_min": 212,
+    "run_length_max": 296
+   }
+  ]
+ },
+ "notes": [
+  "'>k' = no attack with k or fewer faults of any model searched (inside the model).",
+  "'>=k (not completed)' = the search stopped at its time budget; no conclusion at k.",
+  "Fault models are searched one at a time; mixed-model attacks are not searched."
+ ]
+}

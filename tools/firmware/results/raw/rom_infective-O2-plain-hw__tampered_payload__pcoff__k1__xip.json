@@ -1,0 +1,64 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "bne\ta2, a1, 0x162",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "k1_count": 2,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 155,
+ "nodes": 608,
+ "seconds": 0.14,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   26,
+   "0x112",
+   "bne\ta2, a1, 0x162"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "bne\ta2, a1, 0x162",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 147,
+   "pc": "0x112",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "bne\ta2, a1, 0x162",
+   "model": "pcoff",
+   "arg": -8,
+   "effect": "next PC -8 bytes"
+  }
+ ],
+ "build": "rom_infective-O2-plain-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": false,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 135
+}

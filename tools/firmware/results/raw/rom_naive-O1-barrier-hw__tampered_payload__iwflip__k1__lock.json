@@ -1,0 +1,81 @@
+{
+ "model": "iwflip",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 187,
+   "pc": "0xf4",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "bgeu\ta0, a1, 0x116",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bgeu\ta0, a1, 0x126`"
+  }
+ ],
+ "k1_count": 3,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 199,
+ "nodes": 1248,
+ "seconds": 0.77,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_naive.c",
+   19,
+   "0xf4",
+   "bgeu\ta0, a1, 0x116"
+  ],
+  [
+   "rom_naive.c",
+   22,
+   "0x14c",
+   "jalr\tra, -0x136(ra)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 187,
+   "pc": "0xf4",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "bgeu\ta0, a1, 0x116",
+   "model": "iwflip",
+   "arg": 11,
+   "effect": "bit 11 of fetched word flipped -> executes `bgeu\ta0, a1, 0x126`"
+  },
+  {
+   "step": 187,
+   "pc": "0xf4",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 19,
+   "asm": "bgeu\ta0, a1, 0x116",
+   "model": "iwflip",
+   "arg": 26,
+   "effect": "bit 26 of fetched word flipped -> executes `bgeu\ta0, a1, 0x156`"
+  },
+  {
+   "step": 194,
+   "pc": "0x14c",
+   "function": "rom_main",
+   "file": "rom_naive.c",
+   "line": 22,
+   "asm": "jalr\tra, -0x136(ra)",
+   "model": "iwflip",
+   "arg": 2,
+   "effect": "bit 2 of fetched word flipped -> executes `beq\tra, a0, 0xc`"
+  }
+ ],
+ "build": "rom_naive-O1-barrier-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 130
+}

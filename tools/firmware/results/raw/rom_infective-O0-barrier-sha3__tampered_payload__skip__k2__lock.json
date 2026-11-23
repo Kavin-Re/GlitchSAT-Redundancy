@@ -1,0 +1,121 @@
+{
+ "model": "skip",
+ "kmax": 2,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 3862,
+   "pc": "0x450",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 7,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 5,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 4083,
+ "nodes": 319,
+ "seconds": 0.31,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   7,
+   "0x450",
+   "sw\ta1, -0x10(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x45a",
+   "sw\ta0, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x462",
+   "lw\ta1, -0x18(s0)"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x468",
+   "bge\ta0, a1, 0x470"
+  ],
+  [
+   "rom_infective.c",
+   24,
+   "0x396",
+   "sw\ta0, -0x50(s0)"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 3862,
+   "pc": "0x450",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 7,
+   "asm": "sw\ta1, -0x10(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 3865,
+   "pc": "0x45a",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "sw\ta0, -0x18(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 3867,
+   "pc": "0x462",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "lw\ta1, -0x18(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 3869,
+   "pc": "0x468",
+   "function": "ct_diff",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bge\ta0, a1, 0x470",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 4045,
+   "pc": "0x396",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 24,
+   "asm": "sw\ta0, -0x50(s0)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "build": "rom_infective-O0-barrier-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 347
+}

@@ -1,0 +1,1707 @@
+{
+ "schema": "glitchsat-survival-validation/firmware/1",
+ "rows": [
+  {
+   "build": "rom_cfi-O0-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-O0-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-O0-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-O1-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_cfi-O1-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_cfi-O1-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-O2-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-O2-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-O2-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_cfi-Os-barrier-hw",
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_cfi-Os-plain-hw",
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_cfi-Os-vol-hw",
+   "variant": "rom_cfi",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-flow:rom_main:cfi",
+     "kind": "fw_flow_counter",
+     "verdict": "SURVIVED",
+     "intended": null,
+     "guards_present": null,
+     "evaluations": null
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_compl-O0-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O0-plain-hw",
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O0-vol-hw",
+   "variant": "rom_compl",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O1-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O1-plain-hw",
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 1,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O1-vol-hw",
+   "variant": "rom_compl",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O2-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-O2-plain-hw",
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 1,
+     "evaluations": 3,
+     "truth_executed": 1.875,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": ">2"
+  },
+  {
+   "build": "rom_compl-O2-vol-hw",
+   "variant": "rom_compl",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-Os-barrier-hw",
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_compl-Os-plain-hw",
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 1,
+     "evaluations": 2,
+     "truth_executed": 1.875,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_compl-Os-vol-hw",
+   "variant": "rom_compl",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O0-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O0-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O0-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O1-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O1-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O1-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O2-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O2-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-O2-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-Os-barrier-hw",
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-Os-plain-hw",
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_ctres-Os-vol-hw",
+   "variant": "rom_ctres",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O0-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O0-plain-hw",
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O0-vol-hw",
+   "variant": "rom_delay",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O1-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O1-plain-hw",
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O1-vol-hw",
+   "variant": "rom_delay",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O2-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O2-plain-hw",
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-O2-vol-hw",
+   "variant": "rom_delay",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-Os-barrier-hw",
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-Os-plain-hw",
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_delay-Os-vol-hw",
+   "variant": "rom_delay",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O0-barrier-hw",
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O0-plain-hw",
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O0-vol-hw",
+   "variant": "rom_double",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O1-barrier-hw",
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O1-plain-hw",
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_double-O1-vol-hw",
+   "variant": "rom_double",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_double-O2-barrier-hw",
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O2-plain-hw",
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-O2-vol-hw",
+   "variant": "rom_double",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-Os-barrier-hw",
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-Os-plain-hw",
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 1.875,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_double-Os-vol-hw",
+   "variant": "rom_double",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": null,
+     "truth_executed": 2,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:25",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 2,
+     "guards_present": 2,
+     "evaluations": 2,
+     "truth_executed": 2.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-O0-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-O0-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-O0-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-O1-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_hardened-O1-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_hardened-O1-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-O2-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": ">2"
+  },
+  {
+   "build": "rom_hardened-O2-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_hardened-O2-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-Os-barrier-hw",
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_hardened-Os-plain-hw",
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_hardened-Os-vol-hw",
+   "variant": "rom_hardened",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O0-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O0-plain-hw",
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O0-vol-hw",
+   "variant": "rom_infective",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O1-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O1-plain-hw",
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O1-vol-hw",
+   "variant": "rom_infective",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O2-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O2-plain-hw",
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-O2-vol-hw",
+   "variant": "rom_infective",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-Os-barrier-hw",
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-Os-plain-hw",
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_infective-Os-vol-hw",
+   "variant": "rom_infective",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O0-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O0-plain-hw",
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O0-vol-hw",
+   "variant": "rom_naive",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O1-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O1-plain-hw",
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O1-vol-hw",
+   "variant": "rom_naive",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O2-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O2-plain-hw",
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-O2-vol-hw",
+   "variant": "rom_naive",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-Os-barrier-hw",
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-Os-plain-hw",
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_naive-Os-vol-hw",
+   "variant": "rom_naive",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O0-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O0-plain-hw",
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O0-vol-hw",
+   "variant": "rom_triple",
+   "opt": "O0",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O1-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O1-plain-hw",
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_triple-O1-vol-hw",
+   "variant": "rom_triple",
+   "opt": "O1",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O2-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O2-plain-hw",
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "REMOVED",
+     "intended": 3,
+     "guards_present": 1,
+     "evaluations": 1,
+     "truth_executed": 1.0,
+     "truth_merged": true,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-O2-vol-hw",
+   "variant": "rom_triple",
+   "opt": "O2",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_triple-Os-barrier-hw",
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "barrier",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "1"
+  },
+  {
+   "build": "rom_triple-Os-plain-hw",
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "plain",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 2.75,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  },
+  {
+   "build": "rom_triple-Os-vol-hw",
+   "variant": "rom_triple",
+   "opt": "Os",
+   "mode": "vol",
+   "checks": [
+    {
+     "id": "fw-repeat:rom_main:20",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": null,
+     "truth_executed": 3,
+     "truth_merged": false,
+     "what": "rollback check"
+    },
+    {
+     "id": "fw-repeat:rom_main:27",
+     "kind": "fw_repeated_check",
+     "verdict": "SURVIVED",
+     "intended": 3,
+     "guards_present": 3,
+     "evaluations": 3,
+     "truth_executed": 3.0,
+     "truth_merged": false,
+     "what": "MAC compare"
+    }
+   ],
+   "min_faults": "2"
+  }
+ ],
+ "summary": {
+  "builds": 108,
+  "builds_with_repeated_checks": 36,
+  "repeated_checks": 60,
+  "tp": 1,
+  "fp": 0,
+  "fn": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "text": "precision 1.00 (1/1), recall 1.00 (1/1)",
+  "flagged": [
+   {
+    "build": "rom_triple-O2-plain-hw",
+    "check": "MAC compare",
+    "verdict": "REMOVED",
+    "intended": 3,
+    "executed_in_truth": 1.0,
+    "min_faults": "1"
+   }
+  ],
+  "truth_merged": [
+   "rom_triple-O2-plain-hw / MAC compare"
+  ],
+  "flow_counters": {
+   "found": 12,
+   "verdicts": {
+    "SURVIVED": 12,
+    "WEAKENED": 0,
+    "REMOVED": 0
+   },
+   "note": "no ground truth recorded for flow counters: untested against truth"
+  }
+ },
+ "label": "verdicts MEASURED here (static, ELF + line table); truth MEASURED by ext/firmware on its simulator"
+}

@@ -1,0 +1,45 @@
+{
+ "model": "skip",
+ "kmax": 3,
+ "min_faults": 2,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 152,
+   "pc": "0x174",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 24,
+   "asm": "c.swsp\ta0, 0x4(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  },
+  {
+   "step": 165,
+   "pc": "0x184",
+   "function": "rom_main",
+   "file": "rom_double.c",
+   "line": 27,
+   "asm": "c.swsp\ta0, 0x0(sp)",
+   "model": "skip",
+   "arg": 0,
+   "effect": "instruction skipped"
+  }
+ ],
+ "k1_count": 0,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 162,
+ "nodes": 1350,
+ "seconds": 0.46,
+ "witness_replay": "image_runs",
+ "k1_sites": [],
+ "k1_hits": [],
+ "build": "rom_double-O2-vol-hw",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-20",
+ "sites_in_window": 214
+}

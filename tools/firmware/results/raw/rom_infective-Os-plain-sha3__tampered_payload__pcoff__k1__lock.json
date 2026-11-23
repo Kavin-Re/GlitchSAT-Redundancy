@@ -1,0 +1,861 @@
+{
+ "model": "pcoff",
+ "kmax": 1,
+ "min_faults": 1,
+ "completed_k": 1,
+ "witness": [
+  {
+   "step": 1022,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 0,
+   "asm": "addi\ta2, a2, 0x30",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  }
+ ],
+ "k1_count": 69,
+ "status": "attack_found",
+ "golden_outcome": "reject",
+ "golden_steps": 1087,
+ "nodes": 1552,
+ "seconds": 0.62,
+ "witness_replay": "image_runs",
+ "k1_sites": [
+  [
+   "rom_infective.c",
+   0,
+   "0x186",
+   "addi\ta2, a2, 0x30"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x192",
+   "c.addi\ta1, 0x4"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x194",
+   "c.addi\ts0, 0x4"
+  ],
+  [
+   "rom_infective.c",
+   9,
+   "0x196",
+   "bne\ta1, a2, 0x18a"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x18a",
+   "c.lw\ta3, 0x0(s0)"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x18c",
+   "c.lw\ta4, 0x0(a1)"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x18e",
+   "c.xor\ta3, a4"
+  ],
+  [
+   "rom_infective.c",
+   10,
+   "0x190",
+   "c.or\ta0, a3"
+  ],
+  [
+   "rom_infective.c",
+   26,
+   "0x19a",
+   "c.bnez\ta0, 0x1b0"
+  ],
+  [
+   "rom_infective.c",
+   27,
+   "0x1b0",
+   "c.li\ta0, 0x4"
+  ],
+  [
+   "rom_infective.c",
+   27,
+   "0x1b2",
+   "auipc\tra, 0x0"
+  ]
+ ],
+ "k1_hits": [
+  {
+   "step": 1022,
+   "pc": "0x186",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 0,
+   "asm": "addi\ta2, a2, 0x30",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1023,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1023,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1024,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1024,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1025,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1025,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1026,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1027,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1028,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1030,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1031,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1032,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1033,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1034,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1035,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1037,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1038,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1039,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1040,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1041,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1042,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1044,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1045,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1046,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1047,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1048,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1049,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1051,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1052,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1053,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1054,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1055,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1056,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1058,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1059,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1060,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1061,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1062,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1063,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1065,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1066,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1067,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1068,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1069,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1070,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1072,
+   "pc": "0x18a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta3, 0x0(s0)",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1073,
+   "pc": "0x18c",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.lw\ta4, 0x0(a1)",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1074,
+   "pc": "0x18e",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.xor\ta3, a4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1075,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1075,
+   "pc": "0x190",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 10,
+   "asm": "c.or\ta0, a3",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1076,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1076,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1076,
+   "pc": "0x192",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ta1, 0x4",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1077,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 6,
+   "effect": "next PC +6 bytes"
+  },
+  {
+   "step": 1077,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1077,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 14,
+   "effect": "next PC +14 bytes"
+  },
+  {
+   "step": 1077,
+   "pc": "0x194",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "c.addi\ts0, 0x4",
+   "model": "pcoff",
+   "arg": 16,
+   "effect": "next PC +16 bytes"
+  },
+  {
+   "step": 1078,
+   "pc": "0x196",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": 2,
+   "effect": "next PC +2 bytes"
+  },
+  {
+   "step": 1078,
+   "pc": "0x196",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": 8,
+   "effect": "next PC +8 bytes"
+  },
+  {
+   "step": 1078,
+   "pc": "0x196",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": 10,
+   "effect": "next PC +10 bytes"
+  },
+  {
+   "step": 1078,
+   "pc": "0x196",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 9,
+   "asm": "bne\ta1, a2, 0x18a",
+   "model": "pcoff",
+   "arg": 12,
+   "effect": "next PC +12 bytes"
+  },
+  {
+   "step": 1079,
+   "pc": "0x19a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x1b0",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 1079,
+   "pc": "0x19a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x1b0",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 1079,
+   "pc": "0x19a",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 26,
+   "asm": "c.bnez\ta0, 0x1b0",
+   "model": "pcoff",
+   "arg": -10,
+   "effect": "next PC -10 bytes"
+  },
+  {
+   "step": 1080,
+   "pc": "0x1b0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  },
+  {
+   "step": 1080,
+   "pc": "0x1b0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -14,
+   "effect": "next PC -14 bytes"
+  },
+  {
+   "step": 1080,
+   "pc": "0x1b0",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "c.li\ta0, 0x4",
+   "model": "pcoff",
+   "arg": -12,
+   "effect": "next PC -12 bytes"
+  },
+  {
+   "step": 1081,
+   "pc": "0x1b2",
+   "function": "rom_main",
+   "file": "rom_infective.c",
+   "line": 27,
+   "asm": "auipc\tra, 0x0",
+   "model": "pcoff",
+   "arg": -16,
+   "effect": "next PC -16 bytes"
+  }
+ ],
+ "build": "rom_infective-Os-plain-sha3",
+ "scenario": "tampered_payload",
+ "exec_lock": true,
+ "budget_s": 150,
+ "date": "2026-11-21",
+ "sites_in_window": 119
+}
