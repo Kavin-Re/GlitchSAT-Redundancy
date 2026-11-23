@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """GlitchSAT Studio - local desktop front-end for the GlitchSAT engine.
 
-Run:  python3 studio.py [--port 8765] [--no-browser] [--no-autostop]
+Run:  python3 studio.py [--port 8765] [--no-browser] [--no-autostop] [--no-plugins]
 Serves a single-page app on 127.0.0.1 only (Python standard library, fully offline).
+This one command also loads the lesson (learn_view.py, next to this file) and, when it is found on disk, the
+"Open my design" plug-in (tools/studio/studio_byod.py in the repository). See the PLUGIN hook near the end.
 Live mode    : every analysis calls scripts/glitchsat.py:run_check in a worker process that can be stopped
                (needs z3; Yosys for the "rebuilt" designs). Studies on the Findings tab run as background jobs.
 Recorded mode: if z3 (or Yosys) is missing, results stored in the repository are shown and labelled as recorded.
@@ -11,12 +13,14 @@ The project root is $GLITCHSAT_ROOT, else the repository that contains this file
 Extension points (see the end of the Python part and `Studio.registerView` in the page):
   STUDIES / register_study()  - a background study: plan(params) -> units; served by /api/job
   Studio.registerView({...})  - a tab or a Findings card in the page
+  PLUGINS / load_plugins()    - optional add-ons found on disk: install(page) and handle(h, method, path, q)
 """
 import collections, csv, hashlib, json, os, queue, re, shutil, signal, subprocess, sys, tempfile, threading, time, urllib.parse, urllib.request, webbrowser
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 
-STUDIO_VERSION = '3.1'                  # the interface; the product version shown to the user is the engine's (ENGINE_VERSION)
+STUDIO_VERSION = '3.2'                  # the interface; the product version shown to the user is the engine's (ENGINE_VERSION)
 IS_WORKER = '--worker' in sys.argv
+INFO_ONLY = any(a in ('-h', '--help', '--version', '-V') for a in sys.argv[1:]) and not IS_WORKER   # print and exit: no server
 
 def _find_root():
     env = os.environ.get('GLITCHSAT_ROOT')
@@ -26,7 +30,33 @@ def _find_root():
     for up in (here, os.path.dirname(here), os.path.dirname(os.path.dirname(here))):   # repo/, repo/tools/, repo/tools/studio/
         if os.path.isfile(os.path.join(up, 'scripts', 'glitchsat.py')):
             return up
-    return os.path.abspath(os.getcwd())
+    pk = _package_root()
+    if pk:
+        return pk
+    return os.path.abspath(os.getcwd())     # last resort: the Studio says "not a GlitchSAT project folder"
+
+def _package_root():
+    """An installed package that carries the project data (engine, recorded results, tools/<module>), found with
+    importlib.resources, so a wheel install does not depend on the current folder."""
+    try:
+        import importlib.resources as ir
+        import importlib.util as iu
+    except ImportError:                    # pragma: no cover
+        return None
+    for pkg in ('glitchsat_data', 'glitchsat', 'faultbound_wt'):
+        try:
+            if iu.find_spec(pkg) is None:
+                continue
+            base = ir.files(pkg)
+        except Exception:                  # noqa: BLE001 - not installed, or not a package with files
+            continue
+        for d in (base, base / 'data'):
+            try:
+                if (d / 'scripts' / 'glitchsat.py').is_file() or (d / '.glitchsat-project').is_file():
+                    return os.path.abspath(str(d))
+            except Exception:              # noqa: BLE001
+                continue
+    return None
 
 ROOT = _find_root()
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
@@ -63,7 +93,7 @@ def _yshort(v):
     m = re.search(r'Yosys\s+(\S+)', v or '')
     return m.group(1) if m else None
 YOSYS_SHORT = _yshort(YOSYS_V)
-WORK = None if IS_WORKER else tempfile.mkdtemp(prefix='glitchsat-studio-')
+WORK = None if IS_WORKER or INFO_ONLY else tempfile.mkdtemp(prefix='glitchsat-studio-')
 KEY = 0xC3
 NWORKERS = max(1, (os.cpu_count() or 2) - 1)
 CACHE_DIR = os.path.join(os.environ.get('XDG_CACHE_HOME') or os.path.join(os.path.expanduser('~'), '.cache'), 'glitchsat-studio')
@@ -73,6 +103,7 @@ CLIENTS = {}                           # client id -> last time it was heard fro
 EVER_CLIENT = [False]
 LAST_PAGE_GET = [0.0]                  # explainer pages opened from Findings count as "someone is still here"
 STARTED = time.time()
+BOOT_ID = '%x' % int(STARTED * 1000)    # changes with every start of the server
 BROWSER_USED = ['']
 PORT = [0]
 
@@ -1346,7 +1377,7 @@ def register_study(sid, title, plan, needs=('z3',), heavy=False):
 def _have(need):
     if need == 'z3': return LIVE, 'the solver (z3) is not installed on this computer'
     if need == 'yosys': return bool(YOSYS), 'Yosys is not installed on this computer'
-    if need == 'product': return os.path.isfile(P('product', 'src', 'faultbound_wt', 'cli.py')), 'the packaged CLI (product/src) is not in the project folder'
+    if need == 'product': return os.path.isfile(P('product', 'src', 'faultbound_wt', 'cli.py')), 'this study runs only from a full copy of the project (a git clone); the installed app shows the saved results'
     if need == 'validation': return os.path.isfile(P('validation', 'netsim.py')), 'the validation scripts are not in the project folder'
     return True, ''
 
@@ -1548,17 +1579,17 @@ register_study('synth',  'Build settings (96 with this Yosys)', _plan_synth, nee
 register_study('valid',  'Independent check without a solver', _plan_valid, needs=('validation',))
 
 # ------------------------------------------------------------------ finished modules shown as Explore views (3.0)
-# Each module lives at tools/<module>/ in the repository (product/ and real_designs/opentitan_synfi/ for two of them).
-# $GLITCHSAT_EXT/<module> and $GLITCHSAT_REAL are optional extra places, for a module kept outside the repository.
-# Module data is read at run time, never copied into this file.
-EXT_FALLBACK = os.environ.get('GLITCHSAT_EXT')
-MOD_HOME = {'product': ['product'], 'real': ['real_designs', 'opentitan_synfi']}
-MOD_EXTRA = {'real': [os.environ.get('GLITCHSAT_REAL')]}
+# Each module lives at tools/<module>/ in the repository. A work tree may also keep the modules in a folder `ext/` next
+# to the folder of this file (or in $GLITCHSAT_EXT/<module>). Paths are always found relative to this file or the
+# project, never from a fixed machine path. Module data is read at run time, never copied into this file.
+_HERE_UP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EXT_FALLBACK = os.environ.get('GLITCHSAT_EXT') or os.path.join(_HERE_UP, 'ext')
+MOD_EXTRA = {'real': [os.environ.get('GLITCHSAT_REAL') or os.path.join(_HERE_UP, 'real')],
+             'product': [os.path.join(ROOT, 'product')]}   # in the repository the evidence tools are product/ itself
 MODULES = ('surface', 'harden', 'unbounded', 'shots', 'vlab', 'firmware', 'secboot_hw', 'product', 'real')
 
 def mod_dirs(name):
-    home = P(*MOD_HOME[name]) if name in MOD_HOME else P('tools', name)
-    return [home, os.path.join(EXT_FALLBACK, name) if EXT_FALLBACK else None] + MOD_EXTRA.get(name, [])
+    return [P('tools', name), os.path.join(EXT_FALLBACK, name)] + MOD_EXTRA.get(name, [])
 
 def mod_dir(name):
     for d in mod_dirs(name):
@@ -1879,7 +1910,70 @@ def mod_data(name, q=None):
     except Exception as e:                     # noqa: BLE001
         return dict(broken=True, looked=looked, where=_mrel(d), detail=f'{type(e).__name__}: {e}'[:300])
     o['where'] = _mrel(d); o['looked'] = looked
-    o['in_repo'] = bool(d and os.path.abspath(d).startswith(os.path.abspath(ROOT) + os.sep))
+    if name == 'firmware' and o.get('cells'):
+        qq = q or {}
+        v, op, md = qq.get('variant') or 'rom_naive', qq.get('opt') or 'O0', qq.get('mode') or 'plain'
+        with_findings(o, 'from_firmware', o, variants=[v], opt=op, mode=md)
+    o['in_repo'] = bool(d and os.path.abspath(d).startswith(os.path.abspath(P('tools')) + os.sep))
+    return o
+
+_PF = []
+def plain_findings():
+    """The shared plain-words explainer (findings module: tools/findings, or ext/findings next to the Studio's folder)."""
+    if not _PF:
+        m = None
+        d = mod_dir('findings')
+        if d and os.path.isfile(os.path.join(d, 'plain_findings.py')):
+            try:
+                import importlib.util as ilu
+                sp = ilu.spec_from_file_location('plain_findings', os.path.join(d, 'plain_findings.py'))
+                m = ilu.module_from_spec(sp); sp.loader.exec_module(m)
+            except Exception as e:             # noqa: BLE001 - results still show without the explainer
+                print(f'plain findings not loaded: {e}', file=sys.stderr); m = None
+        _PF.append(m)
+    return _PF[0]
+
+def study_reference(q, r):
+    """For a rebuilt lock: the stored chip plan of the same design, for the same goal and limits (the reference that
+    pattern (a) compares against). None when there is no such stored result."""
+    des = str(q.get('design') or '')
+    if not des.endswith('_rtl') or des[:-4] not in DESIGNS:
+        return None
+    try:
+        rr, _ = recorded(DESIGNS[des[:-4]], r.get('_k'), 'plain', r.get('_goal'), r.get('_cycles'))
+    except Exception:                          # noqa: BLE001 - no reference: the finding says it cannot tell
+        return None
+    if rr is None:
+        return None
+    return dict(design=des[:-4], goal=r.get('_goal'), verdict=rr.get('verdict'),
+                min=rr.get('min_faults') if rr.get('verdict') == 'ATTACK_FOUND' else None)
+
+def with_findings(o, fn, *a, **kw):
+    pf = plain_findings()
+    if pf:
+        try: o['findings'] = getattr(pf, fn)(*a, **kw)
+        except Exception as e:                 # noqa: BLE001
+            o['findings_error'] = f'{type(e).__name__}: {e}'[:200]
+    return o
+
+def chip_data():
+    """The whole-chip view data (soc module, studio/explore_chip.json). Labels: BOUNDED = exact within T cycles; the
+    Studio's PROVED (for any waiting time) is never used for these results."""
+    d = mod_dir('soc')
+    looked = [_mrel(x) for x in mod_dirs('soc')]
+    f = os.path.join(d, 'studio', 'explore_chip.json') if d else None
+    if not f or not os.path.isfile(f):
+        return dict(missing=True, looked=looked)
+    try:
+        o = _jload(f)
+    except Exception as e:                     # noqa: BLE001
+        return dict(broken=True, where=_mrel(d), detail=f'{type(e).__name__}: {e}'[:300])
+    for c in o.get('chips', []):               # an older file may still carry PROVED for bounded results: never show it
+        for v in c.get('variants', []):
+            for g in v.get('goals', []):
+                if g.get('label') == 'PROVED': g['label'] = 'BOUNDED'
+    o['file'] = _mrel(f); o['when'] = _mtime(f)
+    for c in o.get('chips', []): with_findings(c, 'from_soc_chip', c)
     return o
 
 def mod_index():
@@ -2048,13 +2142,82 @@ def findings():
     out['local'] = dict(yosys=YOSYS_SHORT, e2_build=_rec_yosys_label('e2'), rep_ver=_rec_yosys_label('rep'), workers=NWORKERS)
     return out
 
+def project_found():
+    """Is ROOT a GlitchSAT project folder? (the engine file and the saved results the path needs)"""
+    return os.path.isfile(P('scripts', 'glitchsat.py')) and os.path.isdir(P('results'))
+
 def status():
     rt = _recorded_tools()
-    return dict(live=LIVE, why=WHY, z3=Z3V, yosys=YOSYS_V, yosys_short=YOSYS_SHORT, root=ROOT, python=sys.version.split()[0],
+    return dict(project_found=project_found(), boot=BOOT_ID, live=LIVE, why=WHY, z3=Z3V, yosys=YOSYS_V, yosys_short=YOSYS_SHORT, root=ROOT, python=sys.version.split()[0],
                 version=ENGINE_VERSION, studio=STUDIO_VERSION, engine='scripts/glitchsat.py', engine_present=os.path.isfile(P('scripts', 'glitchsat.py')),
                 families={k: dict(code=v['code'], name=v['name'], what=v['what']) for k, v in FAMILY.items()},
                 idle_limit_min=IDLE_LIMIT_S // 60, workers=NWORKERS, cache_dir=CACHE_DIR, recorded_tools=rt, browser=BROWSER_USED[0],
-                studies=[k for k in STUDIES if k != 'ladder'])
+                studies=[k for k in STUDIES if k != 'ladder'],
+                plugins=[p['name'] for p in PLUGINS], plugin_notes=PLUGIN_NOTES[:4], gallery=bool(gallery_dir()))
+
+# ---- example gallery of the own-design tool: lesson texts and SAVED results, read as plain data files (nothing is run).
+# This is what makes the hands-on part work on a computer without any build tool.
+PLUGINS, PLUGIN_NOTES = [], []
+PLUGIN_FILE = os.path.join('tools', 'studio', 'studio_byod.py')
+
+def _plugin_candidates():
+    here = os.path.dirname(os.path.abspath(__file__))
+    c = [P(PLUGIN_FILE), os.path.join(here, 'studio_byod.py'), P('tools', 'byod', PLUGIN_FILE), os.path.join(EXT_FALLBACK, 'byod', PLUGIN_FILE)]
+    if os.environ.get('GLITCHSAT_BYOD'): c.insert(0, os.path.join(os.environ['GLITCHSAT_BYOD'], PLUGIN_FILE))
+    return [p for p in c if os.path.isfile(p)]
+
+def gallery_dir():
+    roots = []
+    for p in _plugin_candidates():
+        r = os.path.dirname(os.path.dirname(os.path.dirname(p)))
+        roots += [r, os.path.join(r, 'byod')]
+    roots += [P('tools', 'byod'), os.path.join(EXT_FALLBACK, 'byod')]
+    for r in roots:
+        d = os.path.join(r, 'examples')
+        if os.path.isdir(d) and any(os.path.isfile(os.path.join(d, n, 'expected_results.json')) for n in os.listdir(d)):
+            return d
+    return None
+
+def gallery():
+    d = gallery_dir()
+    if not d: return dict(missing=True)
+    out = []
+    for n in sorted(os.listdir(d)):
+        lp, ep = os.path.join(d, n, 'lesson.json'), os.path.join(d, n, 'expected_results.json')
+        if not (os.path.isfile(lp) and os.path.isfile(ep)): continue
+        try: L, E = _jload(lp), _jload(ep)
+        except Exception: continue             # noqa: BLE001
+        runs = []
+        for r in (L.get('runs') or []):
+            key = (r.get('file') or 'glitchsat.yaml') + (' --task ' + r['task'] if r.get('task') else '')
+            e = E.get(key) or {}
+            for cid, c in (e.get('checks') or {}).items():
+                ml = c.get('merge_lint') or {}
+                runs.append(dict(label=r.get('label'), expect=r.get('expect'), key=key, check=cid, top=e.get('top'), frontend=e.get('frontend'),
+                                 runtime_s=e.get('runtime_s'), verdict=c.get('verdict'), min_faults=c.get('min_faults'), max_faults=c.get('max_faults'),
+                                 horizon=c.get('horizon'), witness=c.get('witness') or [], survival=c.get('survival'), unbounded=c.get('unbounded'),
+                                 surface=c.get('attack_surface'), kept=ml if isinstance(ml, dict) else {}))
+                break
+        pf = plain_findings()
+        for r in runs if pf else []:           # plain-words findings from the saved full report of the same run
+            sp = os.path.join(d, n, 'saved', r['key'].replace('.yaml', '').replace(' --task ', '.') + '.report.json')
+            try:
+                rep = _jload(sp)
+                fs = [f for f in pf.from_byod_report(rep) if f.get('tech', {}).get('check') == r['check']]
+                for f in fs:
+                    f['next']['check_cmd'] = 'glitchsat run %s' % r['key']
+                r['findings'] = fs
+            except Exception:                  # noqa: BLE001 - no saved report: the card says nothing extra
+                pass
+        out.append(dict(id=n, order=L.get('order', 99), title=L.get('title'), what=L.get('what'), why=L.get('why'), teaches=L.get('teaches'),
+                        after=L.get('lesson_after'), runs=runs, file=_mrel(ep), when=_mtime(ep)))
+    out.sort(key=lambda x: x['order'])
+    return dict(examples=out, where=_mrel(d), yosys=bool(YOSYS_V))
+
+# Sent with every response. Same policy as the plug-in asks for, except that pages of this app may frame each other
+# (the Evidence report is a same-origin frame): frame-ancestors 'self', not 'none'.
+CSP = ("default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; "
+       "connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'")
 
 class H(BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.0'
@@ -2063,7 +2226,10 @@ class H(BaseHTTPRequestHandler):
         b = body if isinstance(body, bytes) else body.encode()
         self.send_response(code); self.send_header('Content-Type', ctype + '; charset=utf-8')
         self.send_header('Content-Length', str(len(b))); self.send_header('Cache-Control', 'no-store')
-        self.send_header('X-Content-Type-Options', 'nosniff'); self.end_headers()
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        if not getattr(self, '_csp', False):   # a launcher that wraps this class may already add its own policy
+            self.send_header('Content-Security-Policy', CSP); self.send_header('Referrer-Policy', 'no-referrer')
+        self.end_headers()
         self.wfile.write(b)
     def _local(self):
         """Only this computer's own pages may talk to the server (blocks DNS rebinding and cross-site requests)."""
@@ -2085,10 +2251,19 @@ class H(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self._local(): return self._send(403, '{"error":"forbidden"}')
         path, q = self.path.split('?')[0], self._query()
+        for pl in PLUGINS:                     # PLUGIN hook: a plug-in answers its own requests
+            if pl['handle'](self, 'GET', path, q): return
+        if labs_view and labs_view.handle(self, path, q, os.path.dirname(mod_dir('labs') or os.path.join(EXT_FALLBACK, 'labs'))): return   # LABS-VIEW hook (labs_view.py)
+        if first_run_view and first_run_view.handle(self, 'GET', path, q, ROOT): return   # FIRST-RUN-VIEW hook (first_run_view.py)
         if path in ('/', '/index.html'):
             return self._send(200, PAGE, 'text/html')
+        if path in ('/teach', '/project') and learn_view and hasattr(learn_view, 'page'):   # printable pages of the lesson module
+            LAST_PAGE_GET[0] = time.time()
+            return self._send(200, learn_view.page(path[1:], dict(theme=q.get('theme'), gallery=gallery(), version=ENGINE_VERSION, live=LIVE, yosys=bool(YOSYS_V))), 'text/html')
+        if path == '/api/gallery':
+            return self._send(200, json.dumps(gallery()))
         if path == '/api/ping':
-            self._touch(q.get('cid')); return self._send(200, '{}')
+            self._touch(q.get('cid')); return self._send(200, json.dumps(dict(boot=BOOT_ID)))   # boot id: a window notices a restart
         if path == '/api/status':
             return self._send(200, json.dumps(status()))
         if path == '/api/findings':
@@ -2100,6 +2275,11 @@ class H(BaseHTTPRequestHandler):
             return self._send(200, json.dumps(j.json() if j else dict(error='no such job')))
         if path == '/api/jobs':
             return self._send(200, json.dumps([j.json(full=False) for j in JOBS.values()]))
+        if path == '/api/severity':            # "How we decide severity": the one rule table of the explainer
+            pf = plain_findings()
+            return self._send(200, json.dumps(dict(rules=pf.SEVERITY_RULES, urgency=pf.URGENCY, levels=pf.LEVELS, icons=pf.ICON) if pf else dict(missing=True)))
+        if path == '/api/chip':                # "Explore a real chip": the guided whole-chip view (data of the soc module)
+            return self._send(200, json.dumps(chip_data()))
         if path == '/api/modules':
             return self._send(200, json.dumps(mod_index()))
         if path == '/api/mod':
@@ -2132,15 +2312,22 @@ class H(BaseHTTPRequestHandler):
         except Exception:                      # noqa: BLE001
             return self._send(400, '{"error":"bad request"}')
         path = self.path.split('?')[0]
+        for pl in PLUGINS:                     # PLUGIN hook (before the window bookkeeping: plug-in requests carry no window id)
+            if pl['handle'](self, 'POST', path, q): return
+        if first_run_view and first_run_view.handle(self, 'POST', path, q, ROOT): return  # FIRST-RUN-VIEW hook (first_run_view.py)
         if path == '/api/bye':                 # sent by a window when it closes
             CLIENTS.pop(str(q.get('cid') or 'window')[:64], None); LAST_BYE[0] = time.time()
             return self._send(200, '{}')
         self._touch(q.get('cid'))
         try:
             if path == '/api/analyze':
-                if q.get('design') not in DESIGNS:
+                if not isinstance(q.get('design'), str) or q.get('design') not in DESIGNS:
                     return self._send(400, '{"error":"unknown design"}')
-                return self._send(200, json.dumps(analyze(q)))
+                res = analyze(q)
+                if isinstance(res, dict) and not res.get('error'):
+                    res['_ref'] = study_reference(q, res)
+                    with_findings(res, 'from_studio_result', res, q)
+                return self._send(200, json.dumps(res))
             if path == '/api/stop':
                 t = RUNS.get(str(q.get('run_id') or ''))
                 if t: t['cancel'] = True
@@ -2437,7 +2624,7 @@ html[data-view=plain] .step span.s{font-size:11.5px}
 .chiprow{display:flex;gap:6px;flex-wrap:wrap;margin:5px 0 2px}
 .chip{font-size:11px}
 .chip.h-live,.chip.h-cached{color:var(--acc);border-color:var(--acc)}.chip.h-recorded{color:var(--c1);border-color:var(--c1)}
-.chip.h-simulated{color:var(--c2);border-color:var(--c2)}.chip.h-proved{color:var(--ok);border-color:var(--ok)}
+.chip.h-simulated{color:var(--c2);border-color:var(--c2)}.chip.h-bounded{color:var(--c0);border-color:var(--c0);border-style:dashed}.chip.h-proved{color:var(--ok);border-color:var(--ok)}
 .chip.h-notrun{color:var(--warn);border-color:var(--warn);border-style:dashed}.chip.h-estimate{color:var(--warn);border-color:var(--warn)}.chip.h-ok{color:var(--ok);border-color:var(--ok)}
 /* start page */
 .home{max-width:1180px;margin:0 auto}
@@ -2523,10 +2710,70 @@ details.inl[open]{display:block;margin-top:6px}
 .rtab td{font-size:12.5px}.rtab td b.n{font-size:15px}
 h2.sth:focus,h2.sth:focus-visible,#found:focus{outline:none}
 .found.indlg{border:0;padding:0;margin:0;background:none}
+.chipt{width:100%}.chipt td{vertical-align:top}.chipn{margin:2px 0}.chipn b{font-size:18px}.chipnote{margin:6px 0 0;padding:6px 8px;border:1px solid var(--warn);border-radius:6px;font-size:13px;max-width:460px}
+details.startmore{margin:14px 0 4px}details.startmore>summary{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.fcard{border:1px solid var(--line);border-left:6px solid var(--line2);border-radius:8px;padding:8px 12px;margin:8px 0;background:var(--panel)}
+.fhead{display:flex;gap:10px;align-items:flex-start}.fstat{font-size:15px}.freal,.furg{margin:6px 0}.fsum{margin:0 0 6px}
+.sev{display:inline-flex;gap:5px;align-items:center;white-space:nowrap;font:700 12px var(--sans);padding:2px 8px;border-radius:4px;border:2px solid}
+.sev-crit{color:#fff;background:#b3261e;border-color:#b3261e}.sev-high{color:#fff;background:#b35c00;border-color:#b35c00}.sev-med{color:#1d1d1d;background:#e8c547;border-color:#a98a12}
+.sev-low{color:var(--txt);background:transparent;border-color:var(--line2)}.sev-info{color:var(--mut);background:transparent;border-color:var(--line);border-style:dashed}.sev-unknown{color:var(--txt);background:transparent;border-color:var(--warn);border-style:dotted}
+.sevb-crit{border-left-color:#b3261e}.sevb-high{border-left-color:#b35c00}.sevb-med{border-left-color:#a98a12}.sevb-low{border-left-color:var(--line2)}.sevb-unknown{border-left-color:var(--warn);border-left-style:dotted}
+.ftrace{margin:6px 0}.fctx{font-size:12px;padding:6px;background:var(--inset);border:1px solid var(--line);border-radius:6px;overflow:auto}.fctx .fhit{background:rgba(229,83,75,.22);font-weight:700}.fsteps li{margin:3px 0}.ftl{display:block;margin:4px 0}
 .legend5{display:flex;flex-wrap:wrap;gap:6px 18px;margin:6px 0 4px}
 @media (max-width:1100px){.found .fcols{grid-template-columns:1fr}}
 @media (max-width:1500px){.pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.sbgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:1100px){.xgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hart{display:none}}
+/* ---- UT2: the top bar never wraps or clips; compact labels below 1400 px, a More menu below 1200 px */
+header{white-space:nowrap;min-width:0}
+.tabs{flex:none}.tab{white-space:nowrap;padding:0 12px}
+#tab-more{display:none}#tab-more.has-only{display:block}.tab.monly{display:none!important}
+.tmenu{position:fixed;z-index:70;background:var(--panel);border:1px solid var(--line2);border-radius:6px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.35);display:flex;flex-direction:column;min-width:160px}
+.tmenu button{text-align:left;background:none;border:0;border-radius:4px;padding:7px 10px;font-size:13px}
+.tmenu button:hover{background:var(--raised)}.tmenu button.on{box-shadow:inset 3px 0 0 var(--acc)}
+@media (max-width:1500px){.logo small{display:none}}
+@media (max-width:1400px){.tab{padding:0 9px}.tabs{margin-left:2px}.tab[data-short] .tl{display:none}.tab[data-short]::after{content:attr(data-short)}.hlabel{display:none}header{gap:5px}}
+@media (max-width:1200px){.tab.ovf{display:none}#tab-more{display:block}}
+@media (max-width:1100px){.logo .ver{display:none}.tab{padding:0 7px}header{padding:0 8px}.logo{margin-right:0}}
+/* ---- UT2: predict first (opt-in), fix layer, gallery, small tables */
+details.seehow{margin:10px 0}details.seehow>summary{font-size:15px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}details.seehow[open]>summary{margin-bottom:8px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.predict{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0 0;padding:7px 10px;border:1px dashed var(--line2);border-radius:6px;font-size:13px}
+.predict .btn{min-width:34px}.predict #pred-out:focus{outline:none}
+#result.veil{filter:blur(10px);opacity:.45;pointer-events:none;user-select:none}
+.step.pend .r{visibility:hidden}
+details.fixit>summary{font-size:13px;color:var(--txt);font-weight:600}details.fixit>summary .hint{font-weight:400;margin-left:6px}
+.fxlead{margin:0 0 8px;font-size:13.5px;line-height:1.5}
+.fxgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fxc{background:var(--inset);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:13px;line-height:1.45}
+.fxc.hi{border-color:var(--acc);box-shadow:inset 3px 0 0 var(--acc)}
+.fxc h5{margin:0 0 3px;font-size:13.5px}.fxc h5 .ntag{margin-left:6px}
+.fxc p{margin:3px 0}.fxc .tt{font-size:12px;color:var(--mut);border-top:1px dashed var(--line);margin-top:6px;padding-top:5px}
+.fxc .tt code,.fxlead code{font-family:var(--mono);font-size:11.5px;background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:0 3px;white-space:nowrap}
+.fxc .ev{font-size:12px;margin-top:5px}.fxc .ev b{color:var(--txt)}
+@media (max-width:1100px){.fxgrid{grid-template-columns:1fr}}
+/* audit 5-S1: links in the theme's link colour (the teacher and project links were the browser's default blue on dark) */
+a:not(.btn),a:not(.btn):visited{color:var(--acc)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* audit 5-S4: 200 % zoom on a laptop (about 680 px wide) and narrower: one column, the header wraps, nothing scrolls sideways */
+@media (max-width:900px){
+ .app,.app.nosb{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto;height:auto;min-height:100vh}
+ header{grid-column:1/-1;flex-wrap:wrap;white-space:normal;height:auto;min-height:44px;padding:4px 8px;row-gap:4px}
+ .tabs{flex-wrap:wrap;height:auto}.tabs .tab{height:40px}.app aside{border-right:0;border-bottom:1px solid var(--line);max-height:38vh;overflow:auto}
+ .app>*,.app.nosb>*{grid-column:1/-1!important;min-width:0}.app.nosb aside{display:none}
+ .orient,.cols,.gal3,.fxgrid,.hero,.found .fcols{grid-template-columns:minmax(0,1fr)!important}
+ .pgrid,.xgrid,.sbgrid,.lz-grid{grid-template-columns:minmax(0,1fr)!important}
+ .panel,.mapwrap,#wavebox,.xbody,table{max-width:100%;overflow-x:auto}
+ .xwrap{display:block}.xnav{position:static;width:auto;max-height:none}
+ main,.view{min-width:0;overflow-x:hidden}
+}
+.galx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 12px 10px}
+.galr{background:var(--inset);border:1px solid var(--line);border-radius:6px;padding:9px 11px}
+.galr .who{font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);font-weight:700}
+.galr .ans{font-size:17px;font-weight:650;margin:2px 0 4px}.galr.weak{border-left:4px solid var(--hot)}.galr.held{border-left:4px solid var(--ok)}
+.galr table td,.galr table th{font-size:12.5px;padding:2px 8px 2px 0;border:0;text-align:left;vertical-align:top}
+.gal3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:10px 12px;font-size:13px;line-height:1.45}.gal3 b{display:block;color:var(--acc);font-size:11.5px;letter-spacing:.5px;text-transform:uppercase}
+table.jt{width:auto;border-collapse:collapse}table.jt td{font-size:12px;padding:1px 10px 1px 0;vertical-align:top;border:0}table.jt td:first-child{color:var(--mut);white-space:nowrap}
+.teachline{margin:8px 0 0;font-size:13px}
 </style></head><body><div class="app">
 <header>
  <div class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/><path d="M5 20h6v-8h5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M19 7l-5 10h4l-2 8 7-11h-4z" fill="var(--warn)"/></svg>
@@ -2567,7 +2814,7 @@ h2.sth:focus,h2.sth:focus-visible,#found:focus{outline:none}
  <div id="views" style="display:contents"></div>
  <div class="logdock tech-only" id="logdock"><div class="logbar" id="logbar" data-tip="Run log: what the program did, step by step (`)"><b>Run log</b><span class="last" id="loglast">nothing run yet</span><span id="logtog">▴</span></div><div class="logbody" id="logbody"></div></div>
 </main>
-<footer id="foot"></footer>
+<footer id="foot"></footer><div id="sr-live" class="sr-only" role="status" aria-live="polite"></div>
 </div>
 <div id="tip"></div><div id="modal"></div>
 <script>
@@ -2627,10 +2874,22 @@ document.addEventListener('keydown',e=>{if(e.key!=='Tab')hideTip()});
 const VIEWS=[];
 const Studio={state:S,api,live:S.live,registerView(v){if(v.group==='explore'){EXPLORE.push(v);return}VIEWS.push(v);if(!v.card)buildTabs()},startJob:(s,p)=>startStudy(s,p),esc};
 window.Studio=Studio;
-function buildTabs(){const tabs=VIEWS.filter(v=>!v.card);$('#tabs').innerHTML=tabs.map((v,i)=>`<button class="tab${v.id===S.tab?' on':''}" role="tab" aria-selected="${v.id===S.tab}" data-v="${v.id}" data-tip="${esc(v.tip||v.title)}${i<9?' ('+(i+1)+')':''}">${esc(v.title)}</button>`).join('');
+/* Tabs. A view may say  after:'start'  (where it sits in the bar) and  short:'…'  (label used when the window is narrow).
+   Number keys follow the order in which views were registered, so they stay the same when the bar is rearranged. */
+const TAB_SHORT={mine:'My design'},TAB_OVF=['compare','findings','about'],TAB_MORE_ONLY=[];   /* TAB_MORE_ONLY: pages that live in the More menu at every width (Labs) */
+const narrowTabs=()=>matchMedia('(max-width:1200px)').matches,moreOn=id=>TAB_MORE_ONLY.includes(id)||(narrowTabs()&&TAB_OVF.includes(id));
+function tabOrder(){const t=VIEWS.filter(v=>!v.card),out=t.filter(v=>!v.after);t.filter(v=>v.after).forEach(v=>{const k=out.findIndex(x=>x.id===v.after);out.splice(k<0?out.length:k+1,0,v)});return out}
+function buildTabs(){const reg=VIEWS.filter(v=>!v.card),tabs=tabOrder();$('#tabs').innerHTML=tabs.map(v=>{const n=reg.indexOf(v)+1,sh=v.short||TAB_SHORT[v.id];return `<button class="tab${v.id===S.tab?' on':''}${TAB_OVF.includes(v.id)?' ovf':''}${TAB_MORE_ONLY.includes(v.id)?' monly':''}" role="tab" aria-selected="${v.id===S.tab}" data-v="${v.id}"${sh?` data-short="${esc(sh)}" aria-label="${esc(v.title)}"`:''} data-tip="${esc(v.tip||v.title)}${n<10?' ('+n+')':''}"><span class="tl">${esc(v.title)}</span></button>`}).join('')+`<button class="tab${moreOn(S.tab)?' on':''}${TAB_MORE_ONLY.length?' has-only':''}" id="tab-more" aria-haspopup="menu" aria-expanded="false" data-tip="More pages: ${esc(VIEWS.filter(v=>TAB_OVF.includes(v.id)).map(v=>v.title).join(', '))}">More ▾</button>`;
  const host=$('#views');tabs.forEach(v=>{if(!$('#v-'+v.id)){const d=document.createElement('div');d.className='view'+(v.id===S.tab?'':' hidden');d.id='v-'+v.id;host.appendChild(d);if(v.mount)v.mount(d)}});
- $$('#tabs .tab').forEach(t=>t.onclick=()=>show(t.dataset.v))}
-function show(id){S.tab=id;$$('#tabs .tab').forEach(t=>{t.classList.toggle('on',t.dataset.v===id);t.setAttribute('aria-selected',t.dataset.v===id)});$('.app').classList.toggle('nosb',id!=='analyze');$$('main .view').forEach(s=>s.classList.toggle('hidden',s.id!=='v-'+id));
+ $$('#tabs .tab[data-v]').forEach(t=>t.onclick=()=>show(t.dataset.v));$('#tab-more').onclick=e=>{e.stopPropagation();tabMenu()}}
+function closeTabMenu(focus){const m=$('#tmenu');if(!m)return;m.remove();const b=$('#tab-more');if(b){b.setAttribute('aria-expanded','false');if(focus)b.focus()}}
+function tabMenu(){if($('#tmenu')){closeTabMenu();return}const b=$('#tab-more'),r=b.getBoundingClientRect(),m=document.createElement('div');m.id='tmenu';m.className='tmenu';m.setAttribute('role','menu');m.setAttribute('aria-label','More pages');
+ m.innerHTML=VIEWS.filter(v=>TAB_OVF.includes(v.id)&&(narrowTabs()||TAB_MORE_ONLY.includes(v.id))).map(v=>`<button role="menuitem" data-v="${v.id}" class="${v.id===S.tab?'on':''}">${esc(v.title)}</button>`).join('');
+ m.style.top=(r.bottom+2)+'px';m.style.left=Math.max(4,Math.min(innerWidth-170,r.left))+'px';document.body.appendChild(m);b.setAttribute('aria-expanded','true');
+ const it=[...m.querySelectorAll('button')];it.forEach(x=>x.onclick=()=>{closeTabMenu();show(x.dataset.v);const t=$('#tab-more');t&&t.focus()});it[0]&&it[0].focus();
+ m.addEventListener('keydown',e=>{const i=it.indexOf(document.activeElement);if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closeTabMenu(true)}else if(e.key==='ArrowDown'){e.preventDefault();e.stopPropagation();it[(i+1)%it.length].focus()}else if(e.key==='ArrowUp'){e.preventDefault();e.stopPropagation();it[(i-1+it.length)%it.length].focus()}else if(e.key==='Tab'){closeTabMenu()}})}
+document.addEventListener('click',e=>{if($('#tmenu')&&!e.target.closest('#tmenu'))closeTabMenu()});addEventListener('resize',()=>closeTabMenu());
+function show(id){S.tab=id;$$('#tabs .tab').forEach(t=>{const on=t.dataset.v?t.dataset.v===id:moreOn(id);t.classList.toggle('on',on);if(t.dataset.v)t.setAttribute('aria-selected',on)});$('.app').classList.toggle('nosb',id!=='analyze');$$('main .view').forEach(s=>s.classList.toggle('hidden',s.id!=='v-'+id));
  const v=VIEWS.find(x=>x.id===id);if(v&&v.show)v.show($('#v-'+id))}
 
 /* ---------------- settings + tour */
@@ -2655,7 +2914,7 @@ const TOUR=[
   q:()=>'V2 has three copies and no single deciding wire: each copy sets its own part of the 8-bit result.',
   take:r=>r.min_faults===3?'Three flips were needed here, one per copy. No attack was found with one or two (within the limits shown).':null},
  {t:'Same design, built again',s:'V2 · rebuilt from design',fam:'v2',src:'rtl',g:'word',
-  q:()=>'Exactly the same V2 design text, turned into gates again by the build tool (Yosys). Does the count stay the same? The answer depends on how the build tool turns the text into gates (its settings), not on the design text.',
+  q:()=>'Exactly the same V2 design text, turned into gates again by the build tool (Yosys). Does the count stay the same? The answer depends on the Yosys version and on how it builds.',
   take:r=>{const y=r._prov&&r._prov.yosys?r._prov.yosys.replace(/\s*\(git.*$/,''):'Yosys version not stored',fp=r._prov&&r._prov.netlist_sha?', circuit fingerprint '+r._prov.netlist_sha.slice(0,8)+(r._prov.nl_standin?' (stand-in)':''):'',rec=r._src==='recorded';
    if(r.verdict==='NO_ATTACK_UP_TO_BOUND')return `No attack within ${pl(r._k,'flip')} on this build (${y}${fp}). With Yosys 0.33 the project recorded 2 for the same design text: the count belongs to one circuit file, not to the design idea.`;
    if(r.min_faults==null)return null;
@@ -2668,15 +2927,27 @@ const TOUR=[
  {t:'What if only one bit is read?',s:'V2 · 1-bit flag',fam:'v2',src:'stored',g:'flag',
   q:()=>'The same V2 circuit, but the rest of the chip looks only at the single accept bit instead of all eight result bits.',
   take:r=>r.min_faults===1?'One flip, on the flag wire itself. Three copies in front of a single wire do not protect that wire.':null}];
-function plainTake(i,r){const n=r.min_faults;if(n==null&&r.verdict!=='NO_ATTACK_UP_TO_BOUND')return null;
+/* Predict first (Plain view): steps 1 to 3 ask for a guess by default (audit 1-S2); the box turns it on for every step
+   or off for all. gs_predict: null = steps 1 to 3 (default), true = every step, false = never. */
+S.predOn=LS.get('gs_predict',null);S.predPick={};S.seeHow=LS.get('gs_seehow',false);
+const predAsk=i=>S.predOn===true||(S.predOn!==false&&i>=0&&i<3);
+function predPending(){return !tech()&&S.ti>=0&&predAsk(S.ti)&&S.predPick[S.ti]==null}
+function predictHTML(r){const pend=predPending(),pk=S.predPick[S.ti],on=predAsk(S.ti);let h=`<div class="predict"><label class="chk" data-tip="Ask for a guess before each result is shown. Steps 1 to 3 ask by default."><input type="checkbox" id="pred-on" ${on?'checked':''}> Predict first</label>`;
+ if(pend)h+=`<span><b>Before you look:</b> how many glitches will this lock need?</span>${[1,2,3].map(n=>`<button class="btn" data-pred="${n}" aria-label="I predict ${n}">${n}</button>`).join('')}<button class="btn" data-pred="0">no way in with up to 3</button><button class="linkb" data-pred="skip">skip: just show me</button><button class="linkb" data-pred="never">stop asking</button>`;
+ else if(on&&pk!=null&&pk!=='skip'&&r&&!r.error&&!r._stop){const act=r.verdict==='ATTACK_FOUND'?r.min_faults:0,ok=+pk===act;h+=`<span id="pred-out" role="status" tabindex="-1">You predicted <b>${+pk?pk:'no way in'}</b>. The result: <b>${act?gl(act):'no way in'}</b>. ${ok?'✓ You were right.':'Not what you expected? “What it means” says why.'}</span>`}
+ else if(!on)h+=`<span class="hint">Switch this on to guess each number before it is shown.</span>`;
+ return h+'</div>'}
+function wirePredict(){const c=$('#pred-on');if(c)c.onchange=()=>{S.predOn=c.checked;LS.set('gs_predict',S.predOn);if(!S.predOn)S.predPick={};else if(S.ti>=0&&S.last&&!S.last.error)S.predPick[S.ti]='skip';render();drawSteps();const n=$('#pred-on');n&&n.focus()};
+ $$('[data-pred]').forEach(b=>b.onclick=()=>{if(b.dataset.pred==='never'){S.predOn=false;LS.set('gs_predict',false);S.predPick={}}else S.predPick[S.ti]=b.dataset.pred;render();drawSteps();const o=$('#pred-out')||$('#sth2');o&&o.focus({preventScroll:true})})}
+function plainTake(i,r){const n=r.min_faults;if(n==null&&r.verdict!=='NO_ATTACK_UP_TO_BOUND')return null;const ts=[...new Set((r.faults||[]).map(f=>f.cycle))].sort((a,b)=>a-b);
  if(i===0)return n===1?'One glitch is enough. This is the unprotected starting point.':null;
- if(i===1)return n===1?'Still one glitch. Both copies report through one shared wire, and glitching that single wire is enough. A second copy did not help.':null;
+ if(i===1)return n===1?'Still one glitch. Both copies report through one shared wire, and glitching that single wire is enough. A second copy did not help. (This design was written that way: the designer drew the shared wire.)':null;
  if(i===2)return n===3?'Three glitches, one per copy, all at the same step. With one or two there was no way in. Keeping the copies apart works.':null;
  if(i===3){if(r.verdict==='NO_ATTACK_UP_TO_BOUND')return `No way in with up to ${gl(r._k)} on this second chip plan. The project saved 2 for another chip plan of the same design: the count belongs to one chip plan, not to the idea.`;
-  return n<3?`Only ${gl(n)} on this second chip plan, fewer than the 3 on the first one. The written design did not change; the build tool arranged the parts differently, and the copies no longer fully protect each other.`:`${n} glitches, the same as on the first chip plan. Other chip plans of the same design gave fewer: the count belongs to one chip plan.`}
+  return n<3?`Only ${gl(n)} on this second chip plan, fewer than the 3 on the first one. The written design did not change; the build tool arranged the parts differently, and the copies no longer fully protect each other.${ts.length>1?` Here the ${words(n)} glitches are ${ts[ts.length-1]-ts[0]===1?'one step':words(ts[ts.length-1]-ts[0])+' steps'} apart: glitches do not have to land together.`:''}`:`${n} glitches, the same as on the first chip plan. Other chip plans of the same design gave fewer: the count belongs to one chip plan.`}
  if(i===4)return n!=null?`${n===3?'Three glitches':gl(n)} on this chip plan${r._src==='recorded'?' (saved result)':''}: changing one pattern helped here. It is not a general fix: chip plans in which the copies got merged stay weak, and it does nothing when only one signal is read.`:null;
  if(i===5)return n===1?'One glitch, on the "open" signal itself. The lock stays shut, but the rest of the chip only looks at that signal, so it starts anyway. Three copies in front of a single signal do not protect that signal: the rest of the chip must read the whole answer.':null;return null}
-function drawSteps(){$('#steps').innerHTML=TOUR.map((p,i)=>{const res=S.tourRes[i],q=PATH[i];return `<button class="step${i===S.ti?' on':''}${res!==undefined?' done':''}" data-i="${i}" aria-current="${i===S.ti?'step':'false'}" data-tip="${esc(tech()?'Step '+(i+1)+': loads these settings and runs them':'Goal: '+q.goal)}"><span class="n">${i+1}</span><span><b>${esc(q.p)}</b><span class="s">${esc(tech()?p.s:q.goal)}</span></span>${res!==undefined?`<span class="r" style="color:${res==='unknown'?'var(--warn)':FC(res)}" data-tip="${res==='unknown'?'unknown: the search did not finish':res==null?'no attack found within the limits':'fewest glitches found'}">${res==='unknown'?'?':res==null?'none':res}</span>`:''}</button>`}).join('')}
+function drawSteps(){$('#steps').innerHTML=TOUR.map((p,i)=>{const res=S.tourRes[i],q=PATH[i];return `<button class="step${i===S.ti?' on':''}${res!==undefined?' done':''}${i===S.ti&&predPending()?' pend':''}" data-i="${i}" aria-current="${i===S.ti?'step':'false'}"${tech()?` data-tip="${esc('Step '+(i+1)+': loads these settings and runs them')}"`:''}><span class="n">${i+1}</span><span><b>${esc(q.p)}</b><span class="s">${esc(tech()?p.s:q.goal)}</span></span>${res!==undefined?`<span class="r" style="color:${res==='unknown'?'var(--warn)':FC(res)}" data-tip="${res==='unknown'?'unknown: the search did not finish':res==null?'no attack found within the limits':'fewest glitches found'}">${res==='unknown'?'?':res==null?'none':res}</span>`:''}</button>`}).join('')}
 function seg(id,v){$$('#'+id+' button').forEach(b=>b.classList.toggle('on',b.dataset.v===v))}
 function segv(id){return $('#'+id+' button.on').dataset.v}
 function willLive(q){const st=S.status||{};return !!(st.live&&(!q.design.endsWith('_rtl')||st.yosys))}
@@ -2701,11 +2972,11 @@ function drawStory(r){const el=$('#story');if(!el)return;if(S.ti<0){el.innerHTML
  const p=TOUR[S.ti];const good=r&&!r.error,unk=good&&r._stop;const take=good&&!unk&&p.take(r);
  const recnote=good&&r._src==='recorded'?`<p>This step shows a value measured earlier and kept in the project records (${esc(r._prov.record||'')}). On a computer with the engine installed, the same step is computed live.</p>`:'';
  if(!tech()){const q=PATH[S.ti],nx=S.ti<TOUR.length-1;
-  const means=take?esc(plainTake(S.ti,r)||take):unk?esc(unkText(r))+'. Raise the time limit and try again.':good?'':'Waiting for the result…';
+  const means=predPending()&&good&&!unk?'Make your prediction first. The explanation appears here afterwards.':take?esc(plainTake(S.ti,r)||take):unk?esc(unkText(r))+'. Raise the time limit and try again.':good?'':'Waiting for the result…';
   el.innerHTML=`<div class="panel story plainstory"><div class="shead"><div class="kick">Step ${S.ti+1} of ${TOUR.length} · <b>Goal:</b> ${esc(q.goal)}</div><h2 class="sth" id="sth2" tabindex="-1">${esc(q.p)}</h2></div>
   <div class="nav"><button class="btn" id="prev" ${S.ti===0?'disabled':''} data-tip="Previous step (←)">← Back</button>${nx?'<button class="btn primary" id="next" data-tip="Next step (→)">Next step →</button>':'<button class="btn primary" id="next">Explore more →</button>'}</div>
-  <div class="sbody">${orient(esc(q.look),means||'See the result below.',q.next)}</div></div>`;
-  $('#prev').onclick=()=>loadStep(S.ti-1);$('#next').onclick=()=>nx?loadStep(S.ti+1):openExplore();return}
+  <div class="sbody">${orient(esc(q.look),means||'See the result below.',q.next)}${predictHTML(r)}</div></div>`;
+  $('#prev').onclick=()=>loadStep(S.ti-1);$('#next').onclick=()=>nx?loadStep(S.ti+1):openExplore();wirePredict();return}
  el.innerHTML=`<div class="panel story"><div class="stx"><h2 class="sth" id="sth2" tabindex="-1">${S.ti+1}. ${esc(PATH[S.ti].p)}</h2><p>${p.q()}</p>${take?`<p class="take"><b>Result:</b> ${esc(take)}</p>`:unk?`<p class="take"><b>Result:</b> ${esc(unkText(r))}. Raise the time limit and run the step again.</p>`:''}${recnote}</div>
  <div class="nav"><span class="cnt">step ${S.ti+1} of ${TOUR.length}</span><button class="btn" id="prev" ${S.ti===0?'disabled':''} data-tip="Previous step (←)">← Back</button><button class="btn" id="next" ${S.ti===TOUR.length-1?'disabled':''} data-tip="Next step (→)">Next →</button></div></div>`;
  $('#prev').onclick=()=>loadStep(S.ti-1);$('#next').onclick=()=>loadStep(S.ti+1)}
@@ -2745,10 +3016,10 @@ function render1(){drawLadder()}
 /* ---------------- render result */
 function boundBits(r){const g=r._goal==='flag';return [
  ['flips',T(`up to <b>${r._k}</b>`,`k ≤ <b>${r._k}</b>`)],['time window',T(`<b>${r._cycles}</b> ticks`,`N = <b>${r._cycles}</b> cycles`)],
- ['thief must fake',T(g?'one “open” signal':'the whole answer',g?'<b>boot_ok == 1</b>':'<b>boot_word == 0x96</b>')],
- ['key',T('any wrong key, held steady','`sig` free, constant, ≠ 0xC3')],
- ['glitch model',T('one wire or memory cell gives the wrong answer for one step','single-cycle bit flip of a gate output or flop Q')],
- ['chip plan',T(r._build==='stored'?'the first (saved) chip plan only':'this one chip plan only',esc(r._flow))]]}
+ [T('thief must fake','goal'),T(g?'one “open” signal':'the whole answer',g?'<b>boot_ok == 1</b>':'<b>boot_word == 0x96</b>')],
+ [T('key','attacker input'),T('any wrong key, held steady','`sig` free, constant, ≠ 0xC3')],
+ [T('glitch model','fault model'),T('one wire or memory cell gives the wrong answer for one step','single-cycle bit flip of a gate output or flop Q')],
+ [T('chip plan','netlist / flow'),T(r._build==='stored'?'the first (saved) chip plan only':'this one chip plan only',esc(r._flow))]]}
 function meaning(r){const n=r.min_faults,k=r._k,N=r._cycles;
  if(r._stop)return `The search did not finish, so <b>nothing can be concluded</b>: there may or may not be an attack with up to ${pl(k,'flip')} in ${N} ticks. This is not "no attack found". Raise the time limit or lower the flips or ticks, and run again.`;
  if(r.verdict==='ATTACK_FOUND'){const ts=[...new Set(r.faults.map(f=>f.cycle))].sort();
@@ -2781,23 +3052,27 @@ function ladderHTML(r){const atk=r.verdict==='ATTACK_FOUND',n=r.min_faults;if(r.
   lad+=`<div class="${cls}" data-tip="${esc(tip)}"><b>${j}</b>${lab}</div>`}
  return `<div class="ladder-t">${T('fewer flips','k below the minimum')}${L?(L.status==='running'?' · checking each separately…':' · each searched separately'):''}</div><div class="ladder">${lad}</div>`}
 function drawLadder(){const el=$('#ladbox'),r=S.last;if(el&&r&&!r.error)el.innerHTML=ladderHTML(r)}
+/* audit 5-S3: one polite live region; a screen reader hears the result, a stopped search and a server that stopped answering */
+function announce(t){const n=$('#sr-live');if(n&&t&&n.textContent!==t){n.textContent='';setTimeout(()=>{n.textContent=t},60)}}
 function render(){const r=S.last,R=$('#result');if(!R)return;$('#b-export').disabled=!r||!!r.error;$('#b-export').classList.toggle('hidden',!r||!!r.error);drawStory(r);drawFoot();
+ {const pend=predPending()&&!!r&&!r.error&&!r._stop;R.classList.toggle('veil',pend);R.inert=pend;if(pend)R.setAttribute('aria-hidden','true');else R.removeAttribute('aria-hidden')}
  const st=S.status||{};const mode=st.studio&&!st.live?savedBanner():'';
  if(!r){R.innerHTML=mode+`<div class="empty"><b>Nothing tried yet</b>Press the button to watch the recommended first example, or pick a step of the path on the left.<br><br><button class="btn primary" id="e-try">▶ Watch the first attack</button><br><br>The app finds the fewest ${term('glitch','glitches')} that make a small example lock accept a wrong key.</div>`;$('#e-try').onclick=tryAttack;return}
- if(r.error){const k=r.error_kind;R.innerHTML=`<div class="err"><b>${k==='no_record'?'No saved result for these settings':k==='server'?'The Studio has stopped':k==='bad_settings'?'The settings are not valid':'The analysis could not run'}</b><p>${esc(r.error)}</p>
+ if(r.error){const k=r.error_kind;R.innerHTML=noProjectBanner()+`<div class="err"><b>${k==='no_record'?'No saved result for these settings':k==='server'?'The Studio has stopped':k==='bad_settings'?'The settings are not valid':'The analysis could not run'}</b><p>${esc(r.error)}</p>
   ${k==='no_record'?'<p><button class="btn" id="e-near">Load the closest saved setting</button></p>':k==='server'?'<p>Start GlitchSAT Studio again from the menu or the terminal, then reload this window.</p>':''}
   ${r.can_fallback?'<p><button class="btn" id="e-rec">Show the saved result instead</button></p>':''}
   ${r.error_detail?`<details class="raw"><summary>Details from the engine</summary><pre>${esc(r.error_detail)}</pre></details>`:''}</div>`;
   if($('#e-rec'))$('#e-rec').onclick=()=>run({force_recorded:true});
   if($('#e-near'))$('#e-near').onclick=()=>{seg('goal','word');if(+$('#k').value>3)$('#k').value=3;$('#cyc').value=6;syncControls();run()};return}
  const atk=r.verdict==='ATTACK_FOUND',unk=!!r._stop,n=r.min_faults,pv=r._prov,rec=r._src==='recorded';
+ announce(predPending()?'Result ready. Make your prediction first.':unk?'Search stopped before it finished: no result.':atk?`Result: ${gl(n)} needed.`:`Result: no way in found with up to ${gl(r._k)}.`);
  const vc=unk?'var(--warn)':FC(atk?n:null);
  const title=unk?unkText(r):atk?T(`Cheapest attack found: ${pl(n,'flip')}`,`ATTACK_FOUND · minimum k = ${n}`):T(`No attack found within the limits (up to ${pl(r._k,'flip')}, ${r._cycles} ticks)`,`NO_ATTACK_UP_TO_BOUND · k ≤ ${r._k}, N = ${r._cycles}`);
  let chips=hon(rec?'recorded':'live');
  if(pv.derived)chips+=ntag(T('worked out from a saved result','derived from a recorded run'),`The saved run used a limit of ${pv.k_rec} flip(s) and found a minimum of ${pv.min_rec}. A minimum does not change with a larger limit, so it gives the answer for your limit.`);
  if(pv.nl_standin)chips+=ntag(T('pictures drawn on a similar chip plan','views on a stand-in netlist'),'The recorded run did not keep its circuit file. The pictures, the Yosys version and the fingerprint come from a stored build with the same gate count and wire names, on which the recorded attack was re-checked.');
  if(r._cmp)chips+=r._cmp.same?ntag('same as the recorded result ✓',`The project's saved result for the same settings gives the same answer${tech()?' ('+r._cmp.file+')':''}.`,'ok')
-   :ntag(`differs from the recorded result (${r._cmp.min==null?'none found':r._cmp.min})`,`The project's saved result for the same settings differs${tech()?' ('+r._cmp.file+(r._cmp.yosys?', built with '+r._cmp.yosys:'')+')':''}. A rebuilt circuit can differ from one Yosys build to another; both numbers are shown.`,'bad');
+   :ntag(`differs from the recorded result (${r._cmp.min==null?'none found':r._cmp.min})`,`The project's saved result for the same settings differs${tech()?' ('+r._cmp.file+(r._cmp.yosys?', built with '+r._cmp.yosys:'')+')':''}. A rebuilt circuit depends on the Yosys version; both numbers are shown.`,'bad');
  const y=pv.yosys?pv.yosys.replace(/\s*\(git.*$/,'').replace(/^Yosys\s+/,''):null;
  const srcPlain=rec?`Saved result from the project files${pv.nl_standin?'; the pictures are drawn on a similar chip plan with the same parts':''}.`:`Computed just now on this computer in ${(+r._wall).toFixed(1)} s.`;
  let h=`<div class="panel" style="--vc:${vc}"><div class="verdict"><div class="vnum${!atk&&!unk?' none':''}">${unk?'<b>?</b><span>unknown</span>':atk?`<b>${n}</b><span>${T(G(n),n===1?'fault':'faults')}</span>`:tech()?`<b>&gt;${r._k}</b><span>none found</span>`:`<b>0</b><span>ways in</span><span class="sub2">with up to ${gl(r._k)}</span>`}</div>
@@ -2807,10 +3082,12 @@ function render(){const r=S.last,R=$('#result');if(!R)return;$('#b-export').disa
   <div class="srcline plain-only"><b style="color:var(--txt)">Limits.</b> We tried every wrong key and up to ${gl(r._k)} within ${r._cycles} steps, on this one chip plan. Nothing is claimed beyond that.</div>
   <div class="srcline plain-only">${srcPlain} ${r.netlist&&r.netlist.gates?`Size of this lock: ${r.netlist.gates} gates, ${r.netlist.flops} memory bits.`:''}</div>
   <div class="prov tech-only"><span><span class="k">source</span><span class="v">${rec?'recorded':'live'}</span></span><span><span class="k">engine</span><span class="v">${esc(pv.engine.split(' (')[0])}</span></span>
-   <span><span class="k">z3</span><span class="v">${esc(pv.z3||'n/a')}</span></span><span data-tip="${esc('Where this version comes from: '+pv.yosys_from)}"><span class="k">Yosys</span><span class="v">${esc(y||'n/a')}</span>${pv.nl_standin?' <span class="chip stin">stand-in</span>':''}</span>
-   <span data-tip="Fingerprint of the exact circuit file used for the pictures and the replay"><span class="k">netlist sha256</span><span class="v">${pv.netlist_sha?pv.netlist_sha.slice(0,16)+'…':'not kept'}</span>${pv.nl_standin?' <span class="chip stin">stand-in</span>':''}</span>
+   <span><span class="k">z3</span><span class="v">${esc(pv.z3||'n/a')}</span></span><span data-tip="${esc('Where this version comes from: '+pv.yosys_from)}"><span class="k">Yosys</span><span class="v">${esc(y||'n/a')}</span></span>
+   <span data-tip="Fingerprint of the exact circuit file used for the pictures and the replay"><span class="k">netlist sha256</span><span class="v">${pv.netlist_sha?pv.netlist_sha.slice(0,16)+'…':'not kept'}</span></span>
    ${r.netlist&&r.netlist.gates?`<span><span class="k">netlist</span><span class="v">${r.netlist.gates} gates, ${r.netlist.flops} flops</span></span>`:''}
-   ${r._wall!=null&&!rec?`<span><span class="k">wall time</span><span class="v">${(+r._wall).toFixed(2)} s of ${pv.time_limit_s} s</span></span>`:''}</div>
+   ${r._wall!=null&&!rec?`<span><span class="k">wall time</span><span class="v">${(+r._wall).toFixed(2)} s of ${pv.time_limit_s} s</span></span>`:''}
+   ${S.lastQ&&FAMP[S.lastQ.design.replace(/_rtl$/,'')]?`<span><span class="k">design</span><span class="v keep">${esc(S.lastQ.design.replace(/_rtl$/,'').toUpperCase().replace('V2E','V2e'))} (${esc(PK[S.lastQ.design.replace(/_rtl$/,'').toUpperCase().replace('V2E','V2e')]||'')})</span></span>`:''}</div>
+  ${pv.nl_standin?`<div class="srcline tech-only keep"><b style="color:var(--txt)">Which netlist.</b> Count: recorded run (its netlist was not kept). Waveform and schematic: re-checked on a stored netlist with the same count${pv.netlist_sha?' (sha256 '+esc(pv.netlist_sha.slice(0,12))+'…)':''}; the Yosys version shown is that stored netlist’s.</div>`:''}
   <details class="more"><summary>${T('Learn more (technical details and how to reproduce)','Provenance and reproduce')}</summary><div class="kv">
    ${tech()?'':boundBits(r).map(b=>`<div>limit: ${b[0]}</div><div style="font-family:var(--sans)">${b[1]}</div>`).join('')}
    <div>source</div><div>${rec?'recorded: '+esc(pv.record)+(pv.record_extra?' · '+esc(pv.record_extra):''):'live run on this computer'}</div>
@@ -2823,9 +3100,10 @@ function render(){const r=S.last,R=$('#result');if(!R)return;$('#b-export').disa
    ${r.model&&r.model.sites_total?`<div>fault sites</div><div>${r.model.sites_total} (site × cycle) in total, ${r.model.sites_modelled} modelled after reduction (${esc(r.model.reduce)})</div>`:''}
    ${rec&&r._wall!=null?`<div>solver time in the record</div><div>${(+r._wall).toFixed(2)} s${/results\/reproduce/.test(pv.record||'')?' (as stored; these files predate the current at-most-k encoding, so a live run is not expected to take the same time)':' (as stored)'}</div>`:''}
    ${!rec?`<div>time limit</div><div>${pv.time_limit_s} s; the engine runs in its own process without a solver timeout and is stopped from outside at the limit, so a finished run is exact and a stopped run is UNKNOWN</div>`:''}
-   ${r.honest_key_boots_fault_free!=null?`<div>right key, no flips</div><div>${r.honest_key_boots_fault_free?'reaches Accept (sanity check passed)':'DOES NOT reach Accept'}</div>`:''}
+   ${r.honest_key_boots_fault_free!=null?`<div>${T('right key, no glitches','honest key, no faults')}</div><div>${r.honest_key_boots_fault_free?'reaches Accept (sanity check passed)':'DOES NOT reach Accept'}</div>`:''}
    ${atk&&r.attacker_input?`<div>wrong key in this attack</div><div>${esc(r.attacker_input.sig)} (right key 0xC3)${r._replay&&r._replay.key_from_replay?' · not stored in the record; found by trying wrong keys in the replay':''}</div>`:''}
    <div>equivalent command</div><div>${esc(pv.cli)} <button class="btn" id="b-copy" style="padding:1px 7px;font-size:11px;margin-left:6px">copy</button></div>
+   ${(S.status||{}).gallery?`<div>two tools, one name</div><div style="font-family:var(--sans)">This command is the built-in engine (scripts/glitchsat.py, solver z3). It produced every number on the path, in Explore and in Studies; its “check” runs the analysis. The own-design tool behind “Open my design” and the example gallery is a separate program (“glitchsat”, with its own solver and a project file): there --k is called max_faults, --cycles is called horizon, and “check” only validates the project file.</div>`:''}
    <div>versions</div><div>GlitchSAT ${esc(pv.engine_version||'?')} · Studio interface ${esc(pv.studio)}</div></div></details></div>`;
  const wave=`<div class="panel"><div class="ph"><h4>${T('What happens, tick by tick','Witness waveform')}</h4><span class="hint" data-tip="Not a new result and not a measurement: the answer above, played back step by step on the same circuit file by a small simulator inside this app.">${T('replay of the result above','replay of the witness above (built-in simulator)')}</span><span class="sp"></span>
    <label style="font-size:11.5px;color:var(--mut);display:flex;gap:5px;align-items:center" data-tip="Add the run with the right key and no flips, for comparison"><input type="checkbox" id="honest" ${S.honest?'checked':''}> ${T('show the right key too','show honest key 0xC3')}</label></div>
@@ -2844,7 +3122,11 @@ function render(){const r=S.last,R=$('#result');if(!R)return;$('#b-export').disa
    <div class="seg" id="mapmode">${r._map.focus?`<button data-v="focus" data-tip="Only the gates that feed the flipped wires and the gates the wrong value travels through">${T('Attack path','Fault cone')}</button>`:''}<button data-v="full" data-tip="Every gate of the circuit">${T('Whole circuit','Full netlist')}</button></div>
    <button class="btn ico" id="zo" data-tip="Zoom out">−</button><button class="btn ico" id="zi" data-tip="Zoom in">+</button><button class="btn" id="zf" data-tip="Fit to the panel width">Fit</button></div>
    <div class="mapwrap" id="mapbox"></div><div class="cap" id="mapcap"></div></div>`:'';
- h+=`<div class="cols"><div>${r._replay?wave:nowave}</div><div>${ft}${own}</div></div>${map}`;
+ h+=findingsHTML(r.findings);
+ const deep=`<div class="cols"><div>${r._replay?wave:nowave}</div><div>${ft}${own}</div></div>${unk?'':fixHost(fixKindOf(r))}${map}`;
+ /* Plain view: the replay, the glitch table, the fix and the map wait behind "See how" (audit 1-S1); once a learner has opened
+    it, it stays open on the next steps. Technical view shows everything. */
+ h+=tech()?deep:`<details class="more seehow" id="seehow"${S.seeHow?' open':''}><summary><b>See how</b>: the step-by-step replay, where the glitches land, how to fix it, and the circuit map</summary>${deep}</details>`;
  if(pv.nl_note&&r._replay)h+=`<div class="banner"><span><b style="color:var(--txt)">Note.</b> ${tech()?esc(pv.nl_note):pv.nl_standin?'The saved result did not keep its own chip plan. The pictures are drawn on a stored plan with the same parts, and the attack was re-checked on it.':esc(pv.nl_note)}</span></div>`;
  R.innerHTML=h;
  const cp=$('#b-copy');if(cp)cp.onclick=e=>{e.preventDefault();navigator.clipboard&&navigator.clipboard.writeText(pv.cli);cp.textContent='copied'};
@@ -2852,6 +3134,7 @@ function render(){const r=S.last,R=$('#result');if(!R)return;$('#b-export').disa
  if($('#mapmode')){if(!r._map.focus)S.mapMode='full';seg('mapmode',S.mapMode);$('#mapmode').onclick=e=>{const b=e.target.closest('button');if(b){S.mapMode=b.dataset.v;S.zoom=null;seg('mapmode',S.mapMode);drawMap()}};
   $('#zi').onclick=()=>{S.zoom=(S.zoom||mapFit())*1.25;drawMap()};$('#zo').onclick=()=>{S.zoom=(S.zoom||mapFit())/1.25;drawMap()};$('#zf').onclick=()=>{S.zoom=null;drawMap()}}
  $$('tr.frow').forEach(tr=>tr.onclick=()=>locate(tr.dataset.net));
+ const shw=$('#seehow');if(shw)shw.addEventListener('toggle',()=>{if(shw.open){if(!S.seeHow){S.seeHow=true;LS.set('gs_seehow',true)}drawWave();drawMap()}});
  drawWave();drawMap();if(S.focusStep){S.focusStep=false;const hh=$('#sth2');if(hh&&S.tab==='analyze')hh.focus({preventScroll:true})}}
 const GC=g=>/^c\d$/.test(g)?`var(--${g})`:g==='flag'||g==='state'?'var(--warn)':'var(--shared)';
 
@@ -2875,10 +3158,10 @@ function drawWave(){const r=S.last,box=$('#wavebox');if(!box||!r||r.error||!r._r
  rp.rows.forEach(row=>{const lanes=lanesOf(row);
   lanes.forEach(([lane,lname],li)=>{const main=li===0,vals=row[lane];
    const col=lane==='honest'?'var(--acc)':main?'var(--txt)':'var(--mut)',dash=lane==='clean'?' stroke-dasharray="4 3"':'';
-   let label=main?(tech()?row.tech:plainText(row.plain)):lname,l2=null;const maxc=Math.floor((nameW-16)/6.3);
-   if(label.length>maxc){if(main&&!tech()&&label.length<=2*maxc-2){const cut=label.lastIndexOf(' ',maxc);if(cut>0){l2=label.slice(cut+1);label=label.slice(0,cut)}}if(!l2)label=label.slice(0,maxc-1)+'…'}
-   const hgt=main?(l2?30:20):15,yc=y+hgt/2;
-   body+=`<g data-tip="${esc(main?row.plain:lname)}" data-tipm="${esc(row.tech)}"><rect x="0" y="${y}" width="${nameW}" height="${hgt}" fill="transparent"/><text x="${main?10:22}" y="${l2?yc-2:yc+4}" font-size="${main?12:10.5}" class="${main?(tech()?'mono':''):'m'}" ${main&&row.group?`fill="${GC(row.group)}"`:''}>${esc(label)}</text>${l2?`<text x="10" y="${yc+11}" font-size="12" ${row.group?`fill="${GC(row.group)}"`:''}>${esc(l2)}</text>`:''}</g>`;
+   let label=main?(tech()?row.tech:plainText(row.plain)):lname,l2=null,l3=null;const maxc=Math.floor((nameW-16)/6.3);
+   if(label.length>maxc){if(main&&!tech()){const cut=label.lastIndexOf(' ',maxc);if(cut>0){l2=label.slice(cut+1);label=label.slice(0,cut);if(l2.length>maxc){const c2=l2.lastIndexOf(' ',maxc);if(c2>0){l3=l2.slice(c2+1);l2=l2.slice(0,c2);if(l3.length>maxc)l3=l3.slice(0,maxc-1)+'…'}else l2=l2.slice(0,maxc-1)+'…'}}}if(!l2)label=label.slice(0,maxc-1)+'…'}
+   const hgt=main?(l3?44:l2?30:20):15,yc=y+hgt/2;
+   body+=`<g data-tip="${esc(main?row.plain:lname)}" data-tipm="${esc(row.tech)}"><rect x="0" y="${y}" width="${nameW}" height="${hgt}" fill="transparent"/><text x="${main?10:22}" y="${l3?yc-9:l2?yc-2:yc+4}" font-size="${main?12:10.5}" class="${main?(tech()?'mono':''):'m'}" ${main&&row.group?`fill="${GC(row.group)}"`:''}>${esc(label)}</text>${l2?`<text x="10" y="${l3?yc+4:yc+11}" font-size="12" ${row.group?`fill="${GC(row.group)}"`:''}>${esc(l2)}</text>`:''}${l3?`<text x="10" y="${yc+17}" font-size="12" ${row.group?`fill="${GC(row.group)}"`:''}>${esc(l3)}</text>`:''}</g>`;
    body+=`<text x="${nameW+valW-10}" y="${yc+4}" font-size="11" text-anchor="end" class="mono" fill="${col}">${esc(fitTxt(row,vals[cur],lane,valW+26,11)||vtxt(row,vals[cur],lane).slice(0,9))}</text>`;
    if(row.kind==='bus'){let s=0;for(let t=1;t<=N;t++){if(t===N||vals[t]!==vals[s]){const xa=X(s)+1,xb=X(t)-1,sl=4,v=vals[s],nm=row.names&&row.names[v];
       const open=row.id!=='sig'&&nm==='Accept',fill=open?(lane==='honest'?'color-mix(in srgb,var(--acc) 18%,transparent)':'color-mix(in srgb,var(--warn) 24%,transparent)'):'none',st=open&&lane!=='honest'?'var(--warn)':col;
@@ -2957,7 +3240,8 @@ function drawFoot(msg){const s=S.status||{},r=S.last&&!S.last.error?S.last:null;
  h+=`<span class="credit" data-tip="Worker processes for background studies">${s.workers?s.workers+(s.workers===1?' worker':' workers'):''}</span>`;
  if(!tech()){const pm=S.offline?'<span class="led off"></span>The Studio has stopped: start it again, then reload':S.busy?'<span class="led busy"></span>'+esc(msg||'working'):s.live?'<span class="led live"></span>Live: attacks are computed on this computer':'<span class="led"></span>Showing saved results; nothing is missing · <button class="linkb" data-go="live">how to run it live</button>';
   h=`<span class="i">${pm}</span>${run.length?`<span class="i"><span class="led busy"></span>${run.map(j=>esc(j.title)+': '+j.done+' of '+j.total).join(' · ')}</span>`:''}<span class="i">GlitchSAT <span class="mono">${esc(s.version||'?')}</span></span><span class="credit">Switch to <b>Technical</b> view (top right) for tool versions and file names</span>`}
- $('#foot').innerHTML=h}
+ if(S.restarted&&!S.offline)h+=`<span class="i" style="color:var(--warn)">The Studio was restarted: <button class="linkb" id="f-reload">reload this window</button></span>`;
+ $('#foot').innerHTML=h;const fr=$('#f-reload');if(fr)fr.onclick=()=>location.reload()}
 
 /* ---------------- compare */
 function addHist(r){const atk=r.verdict==='ATTACK_FOUND',pv=r._prov;const y=pv.yosys?pv.yosys.replace(/\s*\(git.*$/,'').replace(/^Yosys\s+/,''):'';
@@ -3116,7 +3400,7 @@ function drawFindings(){const F=S.find,el=$('#v-findings');if(!F)return;const L=
  $('#f-clear').onclick=async()=>{await api.post('/api/cache/clear',{}).catch(()=>{});Object.keys(S.live).forEach(k=>delete S.live[k]);S.jobs={};logLine('cache','local cache cleared','p');loadFindings(true)}}
 
 /* ---------------- about */
-function drawAbout(){const s=S.status||{};$('#v-about').innerHTML=`<div class="about" style="max-width:980px">${foundHTML()}<div class="panel"><div class="ph"><h4>What this tool does</h4></div><div class="pb">
+function drawAbout(){const s=S.status||{};$('#v-about').innerHTML=`<div class="about" style="max-width:980px;margin:0 auto">${foundHTML()}<div class="panel"><div class="ph"><h4>What this tool does</h4></div><div class="pb">
  <p>A chip checks a ${term('key')} before it starts. An attacker can disturb the chip for an instant (a glitch) to make it accept a wrong key. GlitchSAT takes a small key-check ${term('circuit')}, imagines that any ${term('wire')} or ${term('memory bit')} may give the wrong answer for one clock ${term('tick')}, and asks a ${term('solver')} for the <b>fewest such ${term('flip','flips')}</b> that make the lock accept a wrong key. It shows that attack tick by tick, or reports that none was found inside the stated ${term('limit','limits')}.</p>
  <p>The four example locks are the ${term('V0')}, the ${term('V1')}, the ${term('V2')} and the ${term('V2e')}. A lock moves through the states ${term('Idle')}, ${term('Armed')}, then ${term('Accept')} or ${term('Reject')}.</p>
  <p class="tech-only">Method: the netlist (Yosys JSON) is unrolled for N cycles, a fault variable is placed on every gate output and flop Q in every cycle, an at-most-k constraint bounds the faults, and z3 is asked for a model in which a non-key input reaches the goal value; the count is then minimised.</p></div></div>
@@ -3129,25 +3413,27 @@ function drawAbout(){const s=S.status||{};$('#v-about').innerHTML=`<div class="a
  <li>The example locks are <b>toy</b> 8-bit key checks. Their baseline circuits have under 100 gates (18 to 89); some rebuilt variants in the study are larger. The real-chip page uses a few blocks of one open-source chip.</li>
  <li class="tech-only">Nothing here is claimed as new. Solver-based fault analysis exists, and SYNFI (arXiv 2205.04775) showed earlier that synthesis can optimise redundancy away.</li>
  <li>The tick-by-tick view is a <b>replay</b> of the result by a small simulator inside this app; the circuit map is drawn automatically and is not a chip layout.</li></ul></div></div>
- <div class="panel"><div class="ph"><h4>The five labels</h4></div><div class="pb"><p style="margin-top:0">Every result carries one of five labels that say how it was obtained.</p><ul>
+ <div class="panel"><div class="ph"><h4>The six labels</h4></div><div class="pb"><p style="margin-top:0">Everything here is computed; nothing is measured on a chip. Every result carries one of six labels: recorded and live say <i>when</i> it was computed; simulated, bounded, proved and estimate say <i>how</i>.</p><ul>
  <li>${hon('live')}.<span class="tech-only"> Each analysis runs in its own process, without a solver timeout, and is stopped from outside at the time limit, so a finished run is exact.</span></li>
  <li>${hon('recorded')}. A recorded value stays on screen next to a live one; a live value never replaces a record silently.</li>
  <li>${hon('simulated')}. For example clock timing, a laser spot of a given size, or a program on a simulated processor.</li>
+ <li>${hon('bounded')}. Used for the whole chips on “Explore a real chip”: the exact smallest number within the stated number of clock steps, not for longer runs.</li>
  <li>${hon('proved')}. It also assumes a wrong key that is held steady. It is not a claim about a real chip.</li>
  <li>${hon('estimate')}. Worked out from published scoring tables and stated assumptions.</li></ul>
  <p>Everything else is said in a plain sentence: “no result yet” (nothing is guessed), “computed on this computer earlier” (kept in a local cache<span class="tech-only keep">, ${esc(s.cache_dir||'')}, under the circuit fingerprint, the engine and solver versions and the settings</span>), and “unknown” (a search that was stopped).</p></div></div>
+ ${Studio.aboutExtra?Studio.aboutExtra():''}
  <div class="panel" id="about-live"><div class="ph"><h4>Run it live on this computer</h4></div><div class="pb">${howLive()}</div></div>
  <div class="panel plain-only"><div class="ph"><h4>This installation</h4></div><div class="pb">GlitchSAT ${esc(s.version||'?')} · ${s.live?'attacks are computed live on this computer':'shows saved results (nothing is missing; see “Run it live” above)'} · runs only on this computer, with no network access. Switch to Technical view for tool versions and folders.</div></div>
- <div class="panel tech-only"><div class="ph"><h4>This installation</h4></div><div class="pb mono keep" style="line-height:1.7">GlitchSAT ${esc(s.version||'?')} · Studio interface ${esc(s.studio||'')}<br>engine: ${esc(s.engine||'')} ${s.live?'· z3 '+esc(s.z3):'· z3 not installed: showing recorded results'}<br>Yosys: ${esc(s.yosys||'not installed')}<br>Python ${esc(s.python||'')} · ${s.workers||1} worker process(es) for studies<br>project folder: ${esc(s.root||'')}<br>${s.browser?'window: '+esc(s.browser)+'<br>':''}runs only on this computer (127.0.0.1), no network access</div></div>
+ <div class="panel tech-only"><div class="ph"><h4>This installation</h4></div><div class="pb mono keep" style="line-height:1.7">GlitchSAT ${esc(s.version||'?')} · Studio interface ${esc(s.studio||'')}<br>engine: ${esc(s.engine||'')} ${s.live?'· z3 '+esc(s.z3):'· z3 not installed: showing recorded results'}<br>Yosys: ${esc(s.yosys||'not installed')}<br>Python ${esc(s.python||'')} · ${s.workers||1} worker process(es) for studies<br>project folder: ${esc(s.root||'')}<br>${s.browser?'window: '+esc(s.browser)+'<br>':''}add-ons loaded: “Why protect chips?”${(s.plugins||[]).map(p=>', “'+esc(p)+'”').join('')}${(s.plugin_notes||[]).map(n=>'<br>'+esc(n)).join('')}<br>runs only on this computer (127.0.0.1), no network access</div></div>
  <div class="panel"><div class="ph"><h4>Author</h4></div><div class="pb"><p style="margin:0">Kavin.K.K · <span class="mono keep">github.com/Kavin-Re/GlitchSAT-Redundancy</span><br>${T('Built on free tools: a checking program and a chip build tool.','Built on z3 (solver) and Yosys (synthesis).')}</p></div></div></div>`}
 
 /* ---------------- help / walkthrough */
-function openHelp(tab,ci){if(!tab||tab==='tour'){openStory(0);return}S.help={tab:tab,ci:ci||0};drawHelp()}
-function closeHelp(){S.help=null;$('#modal').innerHTML='';LS.set('gs_seen',1)}
+function openHelp(tab,ci){if(!tab||tab==='tour'){openStory(0);return}S.help={tab:tab,ci:ci||0,opener:(S.help&&S.help.opener)||document.activeElement};drawHelp()}
+function closeHelp(){const o=S.help&&S.help.opener;S.help=null;$('#modal').innerHTML='';LS.set('gs_seen',1);if(o&&document.contains(o)&&o!==document.body)o.focus()}
 function drawHelp(){const hs=S.help;if(!hs)return;let body='',foot='';
  if(hs.tab==='gloss'){const src=tech()?GLOSS:PG,keys=Object.keys(src);
   body=`<p class="hint" style="margin-top:0">Words used in this app. Dotted underlined words show the same explanation when you point at them.</p><dl class="gl keep">${keys.map(k=>`<dt>${esc(k)}</dt><dd>${esc(src[k])}</dd>`).join('')}</dl>`;foot='<span style="flex:1"></span>'}
- else{body=`<div class="kb">${[['Enter','run with the current settings, when “Change the experiment yourself” is open (Ctrl+Enter works from anywhere)'],['Esc','stop a running search; close this window'],['← →','previous / next step of the path; in the story, previous / next card; move the step cursor when the step-by-step view is selected'],['V','switch Plain / Technical view'],['S','the story (How it works)'],['1 … 6','Start, Try an attack, Explore, Compare, Studies, About'],['F','what we found, in one minute'],['L','how to run it live on this computer'],['Tab','move between buttons; Enter or Space presses them'],['`','open or close the run log (Technical view)'],['T','dark / light theme'],['?','this help']].map(k=>`<div><kbd>${k[0]}</kbd></div><div style="color:var(--mut)">${k[1]}</div>`).join('')}</div>`;foot='<span style="flex:1"></span>'}
+ else{body=`<div class="kb">${[['Enter','run with the current settings, when “Change the experiment yourself” is open (Ctrl+Enter works from anywhere)'],['Esc','stop a running search; close this window'],['← →','previous / next step of the path; in the story, previous / next card; in the lesson “Why protect chips?”, previous / next screen; move the step cursor when the step-by-step view is selected'],['V','switch Plain / Technical view'],['S','the story (How it works)'],['1 … '+VIEWS.filter(v=>!v.card).length,VIEWS.filter(v=>!v.card).map(v=>v.title).join(', ')+' (the number is also shown when you point at a tab)'],['F','what we found, in one minute'],['L','how to run it live on this computer'],['Tab','move between buttons; Enter or Space presses them'],['`','open or close the run log (Technical view)'],['T','dark / light theme'],['?','this help']].map(k=>`<div><kbd>${k[0]}</kbd></div><div style="color:var(--mut)">${k[1]}</div>`).join('')}</div>`;foot='<span style="flex:1"></span>'}
  $('#modal').innerHTML=`<div class="modal" id="mbg"><div class="dlg" role="dialog" aria-modal="true" aria-label="Help"><div class="dh">${[['gloss','Glossary'],['keys','Keyboard keys']].map(t=>`<button class="tab${hs.tab===t[0]?' on':''}" data-t="${t[0]}">${t[1]}</button>`).join('')}<span style="flex:1"></span><button class="btn ico" id="hx" aria-label="close">✕</button></div><div class="db">${body}</div><div class="df">${foot}<button class="btn" id="hclose">Close</button></div></div></div>`;
  $$('#modal .dh .tab').forEach(b=>b.onclick=()=>{hs.tab=b.dataset.t;drawHelp()});$('#hx').onclick=$('#hclose').onclick=closeHelp;$('#mbg').onclick=e=>{if(e.target.id==='mbg')closeHelp()};
  if($('#hb'))$('#hb').onclick=()=>{hs.ci--;drawHelp()};if($('#hn'))$('#hn').onclick=()=>{hs.ci++;drawHelp()};
@@ -3158,13 +3444,13 @@ $('#b-help').onclick=()=>openHelp('gloss');
 /* ================= 3.0: plain words, story, start page, path, Explore views ================= */
 /* ---- plain words: in Plain view the same numbers are shown with everyday words (text only; Technical view is untouched) */
 const capAt=(off,str,w)=>(off===0||/[.:!?]\s+$/.test(str.slice(0,off)))?w[0].toUpperCase()+w.slice(1):w;
-const PW=[[/\bV2e\b/g,(m,off,str)=>capAt(off,str,'the three-copy lock with one pattern changed')],[/\bV2\b/g,(m,off,str)=>capAt(off,str,'the three-copy lock')],[/\bV1\b/g,(m,off,str)=>capAt(off,str,'the two-check lock')],[/\bV0\b/g,(m,off,str)=>capAt(off,str,'the one-check lock')],
+const PW=[[/\b(?:[Tt]he )?V2e\b/g,(m,off,str)=>capAt(off,str,'the three-copy lock with one pattern changed')],[/\b(?:[Tt]he )?V2\b/g,(m,off,str)=>capAt(off,str,'the three-copy lock')],[/\b(?:[Tt]he )?V1\b/g,(m,off,str)=>capAt(off,str,'the two-check lock')],[/\b(?:[Tt]he )?V0\b/g,(m,off,str)=>capAt(off,str,'the one-check lock')],
  [/\bthe 1-bit accept flag\b/g,'the "open" signal'],[/\bthe 1-bit flag\b/g,'the single "open" signal'],[/\baccept flag\b/g,'"open" signal'],[/\bthe flag itself\b/g,'the "open" signal itself'],[/\bthe flag wire\b/g,'the "open" signal'],
  [/\bnext state bit\b/g,'next memory'],[/\block-state bit\b/g,'lock memory cell'],[/\bstate bit\b/g,'memory'],[/\bconsumer\b/g,'the rest of the chip'],[/\bArmed code\b/g,'pattern for Checking'],
  [/\bFlipped\b/g,'Glitched'],[/\bflipped\b/g,'glitched'],[/\bFlipping\b/g,'Glitching'],[/\bflipping\b/g,'glitching'],[/\bFlips\b/g,'Glitches'],[/\bflips\b/g,'glitches'],[/\bFlip\b/g,'Glitch'],[/\bflip\b/g,'glitch'],
  [/\btick by tick\b/g,'step by step'],[/\bTicks\b/g,'Steps'],[/\bticks\b/g,'steps'],[/\bTick\b/g,'Step'],[/\btick\b/g,'step'],[/\bresult bits\b/g,'answer signals'],[/\bresult bit\b/g,'answer signal'],[/\bResult bits\b/g,'Answer signals'],
  [/\bmemory bits\b/g,'memory cells'],[/\bmemory bit\b/g,'memory cell'],[/\b8-bit result\b/g,'8-signal answer'],[/\bfull 8-bit\b/g,'full 8-signal'],[/\b1-bit flag\b/g,'single "open" signal'],[/\bsaved gate list\b/g,'saved chip plan'],[/\bSaved gate list\b/g,'Saved chip plan'],
- [/\s*\([^()]*0x[0-9A-Fa-f]+[^()]*\)/g,''],[/\b0x[0-9A-Fa-f]+\b/g,'a set value'],[/\bthe Yosys\b/g,'the build tool'],[/\ba Yosys\b/g,'a build tool'],[/\bYosys (\d[\w.+]*)/g,'build tool $1'],[/\bYosys\b/g,'the build tool'],[/\s*\(z3\)/g,''],[/\bz3\b/g,'the checking program'],
+ [/\s*\([^()]*0x[0-9A-Fa-f]+[^()]*\)/g,''],[/\b0x[0-9A-Fa-f]+\b/g,'a set value'],[/\b(chip )?build tool,? Yosys\b/g,(m,c)=>(c||'')+'build tool'],[/\bbuild tool \(Yosys\)/g,'build tool'],[/\bthe cell netlists?\b/g,'the list of factory cells'],[/\bcell netlists?\b/g,'list of factory cells'],[/\bthe Yosys\b/g,'the build tool'],[/\ba Yosys\b/g,'a build tool'],[/\bYosys (\d[\w.+]*)/g,'build tool $1'],[/\bYosys\b/g,'the build tool'],[/\s*\(z3\)/g,''],[/\bz3\b/g,'the checking program'],
  [/\bnetlists\b/g,'chip plans'],[/\bnetlist\b/g,'chip plan'],[/\bNetlist\b/g,'Chip plan'],[/\bsynthesis\b/g,'the build tool'],[/\bSynthesis\b/g,'The build tool'],[/\bsynthesised\b/g,'built'],[/\bre-synthesis\b/g,'rebuilding'],
  [/\bflops\b/g,'memory cells'],[/\bflop\b/g,'memory cell'],[/\bfaults\b/g,'glitches'],[/\bfault\b/g,'glitch'],[/\bFaults\b/g,'Glitches'],[/\bFault\b/g,'Glitch'],[/\bcomparators\b/g,'checks'],[/\bcomparator\b/g,'check'],
  [/\bd_single\b/g,'the one-check version'],[/\bd_dup\b/g,'the two-check version'],[/\bd_trip\b/g,'the three-copy version'],[/\bd_compl\b/g,'the true-and-inverted version'],[/\bh_single\b/g,'the one-check version with fingerprint'],[/\bh_trip\b/g,'the three-copy version with fingerprint'],
@@ -3182,7 +3468,7 @@ function techify(root){if(!tech()||!root)return;const w=document.createTreeWalke
 function tabTerms(root){if(!root)return;const seen=new Map();root.querySelectorAll('.term:not(.auto)').forEach(s=>{const host=s.closest('.view,.dlg,aside')||root,k=s.textContent.trim().toLowerCase().replace(/s$/,'');let set=seen.get(host);if(!set){set=new Set();seen.set(host,set)}
   if(set.has(k)){if(s.hasAttribute('tabindex'))s.removeAttribute('tabindex')}else{set.add(k);if(s.getAttribute('tabindex')!=='0')s.setAttribute('tabindex','0')}})}
 const PDONE=new WeakSet();
-const AUTO_TERMS=[['build tool','build tool'],['chip plans','chip plan'],['chip plan','chip plan'],['answer signals','answer signal'],['answer signal','answer signal'],['written design','written design'],['garbled','garbled'],['checking program','checking program'],['fingerprint','fingerprint'],['gates','gate'],['gate','gate'],['solver','checking program'],['wires','wire'],['wire','wire'],['memory cells','memory cell'],['memory cell','memory cell'],['µm','µm'],['firmware','firmware'],['instruction','instruction']];
+const AUTO_TERMS=[['Verilog','Verilog'],['cell library','cell library'],['build tool','build tool'],['chip plans','chip plan'],['chip plan','chip plan'],['answer signals','answer signal'],['answer signal','answer signal'],['written design','written design'],['garbled','garbled'],['checking program','checking program'],['fingerprint','fingerprint'],['gates','gate'],['gate','gate'],['solver','checking program'],['wires','wire'],['wire','wire'],['memory cells','memory cell'],['memory cell','memory cell'],['µm','µm'],['firmware','firmware'],['instruction','instruction']];
 const TERM_RX=new RegExp('\\b('+AUTO_TERMS.map(t=>t[0].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')\\b');
 function plainify(root){if(tech()||!root)return;const seen=new Set(),todo=[];
  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(PDONE.has(n)||!p||p.closest('.tech-only,.keep,script,style,textarea,code,pre,.term,iframe'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
@@ -3192,7 +3478,7 @@ function plainify(root){if(tech()||!root)return;const seen=new Set(),todo=[];
   const m=n.nodeValue.match(TERM_RX);if(!m)return;const key=(AUTO_TERMS.find(x=>x[0]===m[1])||[])[1];if(!key||!PG[key])return;const tag=host.__terms||(host.__terms=new Set());if(tag.has(key))return;tag.add(key);todo.push([n,m,key])});
  todo.forEach(([n,m,key])=>{const i=m.index,txt=n.nodeValue;if(n.nodeValue.slice(i,i+m[1].length)!==m[1])return;const a=document.createTextNode(txt.slice(0,i)),b=document.createTextNode(txt.slice(i+m[1].length));PDONE.add(a);PDONE.add(b);
   const s=document.createElement('span');s.className='term auto';s.setAttribute('data-tipk','1');s.setAttribute('data-tip',PG[key]);s.textContent=m[1];n.replaceWith(a,s,b)})}
-let plainQ=false;const plainObs=new MutationObserver(()=>{if(plainQ)return;plainQ=true;requestAnimationFrame(()=>{plainObs.disconnect();try{['#views','#steps','#modal','#foot','aside'].forEach(s=>{plainify($(s));techify($(s));tabTerms($(s))})}finally{plainQ=false;observePlain()}})});
+let plainQ=false;const plainObs=new MutationObserver(()=>{if(plainQ)return;plainQ=true;requestAnimationFrame(()=>{plainObs.disconnect();try{fillFix($('#views'));['#views','#steps','#modal','#foot','aside'].forEach(s=>{plainify($(s));techify($(s));tabTerms($(s))})}finally{plainQ=false;observePlain()}})});
 function observePlain(){['#views','#steps','#modal','#foot','aside'].forEach(s=>{const e=$(s);if(e)plainObs.observe(e,{childList:true,subtree:true,characterData:true})})}
 Object.assign(GLOSS,{lock:'The part of a chip that checks a key before the chip starts. Right key: it opens. Wrong key: it stays shut.',
  glitch:'A split-second disturbance (a dip in power, a pulse of light) that makes one tiny part of the chip give the wrong answer for one step. Engineers call it a fault or a bit flip.',
@@ -3238,14 +3524,18 @@ const PG={lock:'The part of a chip that checks a key before the chip starts. Rig
  'µm':'Micrometre: a thousandth of a millimetre. A human hair is about 70 µm wide.',
  firmware:'The small program built into a chip that runs first when it powers up.',
  instruction:'One small command of a program, like “compare these two numbers”.',
+ 'computer model':'Everything in this app is computed; nothing is measured on a chip. The labels recorded and live say when a result was computed; simulated, proved and estimate say how.',
+ Verilog:'A language engineers use to write a chip design as text.',
+ 'cell library':'The catalogue of ready-made gates that a chip factory offers. A chip plan for that factory uses only these.',
  'one-check lock':'The simplest example lock: the key is checked once.','two-check lock':'Two copies of the check that report through one shared wire.',
  'three-copy lock':'Three copies of the check; each copy controls its own part of the 8-signal answer.','three-copy lock, one pattern changed':'The three-copy lock with the pattern for Checking changed.',
  Waiting:'The lock has not started checking yet.',Checking:'The lock is checking the key (one step).',Open:'The lock is open: the key was accepted.',Shut:'The lock is shut: the key was rejected.'};
 /* ---- small helpers shared by the new screens.  Five labels, each with a short gloss; everything else is a plain sentence. */
 const HON={live:['live','computed now, on this computer','Computed on this computer in this session.'],
  recorded:['recorded','saved earlier, not re-run here','Computed earlier and stored in the project files; shown from the file, not re-run.'],
- simulated:['simulated','a software model, not a measurement','A software model of a physical glitch; nothing was measured on a real chip.'],
+ simulated:['simulated','the physics modelled in software (laser spot, clock timing)','The physics of a glitch (a laser spot, clock timing, a program on a processor) modelled in software; nothing was measured on a real chip.'],
  proved:['proved','for any waiting time, but only for this one chip plan, one-wire glitches and a normal start','Covers every possibility for any number of steps. '+PROVED_ASSUME],
+ bounded:['bounded','exact, but only within the stated number of steps','The smallest number, found and checked, within the stated number of clock steps after a normal start. It says nothing about longer runs, so it is not called proved.'],
  estimate:['estimate','a rough score, not a lab rating','A rough score from published tables and stated assumptions, not a lab rating.'],
  cached:['live','computed on this computer earlier','Computed on this computer earlier and kept in its local cache.']};
 const hon=(k,extra,bare)=>k==='notrun'?`<span class="hint">no result yet</span>`:`<span class="tg"><span class="chip h-${k==='cached'?'live':k}" data-tipk="1" data-tip="${esc(HON[k][2]+(extra?' '+extra:''))}">${HON[k][0]}</span>${bare?'':`<span class="gloss">${HON[k][1]}</span>`}</span>`;
@@ -3324,7 +3614,8 @@ function resultSentence(r){const n=r.min_faults,k=r._k,N=r._cycles;
 
 /* ---- 3.1: saved-results banner, "how to run it live", "what we found" */
 const fmtN=n=>Number(n).toLocaleString('en-US');
-function savedBanner(){return `<div class="banner"><span class="bt">${T(`<b style="color:var(--txt)">You are seeing saved results. Nothing is missing:</b> every number was computed earlier and stored with the project. Pages that can recompute on this computer say so next to their button.`,`<b style="color:var(--txt)">Recorded mode.</b> The solver is not installed here, so results are read from the project files and labelled recorded.`)} <button class="linkb" data-go="live">How to run it live</button></span></div>`}
+function noProjectBanner(){const s=S.status||{};return s.studio&&s.project_found===false?`<div class="err" role="alert"><b>This is not a GlitchSAT project folder.</b><p>The Studio was started in <span class="keep mono">${esc(s.root||'')}</span>, which has no saved results and no engine, so the path and Explore have nothing to show. Start it from the repository (<code class="keep">python3 tools/studio/studio.py</code>), or set <code class="keep">GLITCHSAT_ROOT</code> to the repository folder, then reload this window.</p></div>`:''}
+function savedBanner(){if(noProjectBanner())return noProjectBanner();return `<div class="banner"><span class="bt">${T(`<b style="color:var(--txt)">You are seeing saved results. Nothing is missing:</b> every number was computed earlier and stored with the project. Pages that can recompute on this computer say so next to their button.`,`<b style="color:var(--txt)">Recorded mode.</b> The solver is not installed here, so results are read from the project files and labelled recorded.`)} <button class="linkb" data-go="live">How to run it live</button></span></div>`}
 function howLive(){const s=S.status||{},rt=s.recorded_tools||{};
  return `<div class="howlive keep"><ol>
  <li>${s.live?'<b>Done:</b> the solver (z3 '+esc(s.z3||'')+') is installed, so attacks are computed live.':'Install the solver, z3, inside a Python virtual environment:<br><code>python3 -m venv .venv &amp;&amp; . .venv/bin/activate</code> then <code>pip install z3-solver</code>'}</li>
@@ -3337,14 +3628,14 @@ function openDlg(title,html){S.dlg={opener:document.activeElement};$('#modal').i
 function closeDlg(){const o=S.dlg&&S.dlg.opener;S.dlg=null;$('#modal').innerHTML='';if(o&&document.contains(o)&&o!==document.body)o.focus()}
 const openLive=()=>openDlg('How to run it live on this computer',howLive());
 const openFound=()=>openDlg('What we found, in one minute',foundHTML(true));
-function go(g){if(S.dlg){S.dlg.opener=null;closeDlg()}if(g==='live')openLive();else if(g==='found')openFound();else if(g==='studies')show('findings');else if(g==='about')show('about');else if(/^p\d$/.test(g)){show('analyze');loadStep(+g[1])}else openExplore(g)}
+function go(g){if(S.dlg){S.dlg.opener=null;closeDlg()}if(g==='live')openLive();else if(g==='found')openFound();else if(g==='studies')show('findings');else if(g==='about')show('about');else if(/^p\d$/.test(g)){show('analyze');loadStep(+g[1])}else if(Studio.onGo&&Studio.onGo(g)){/* LEARN-VIEW hook: links handled by an extension (learn_view.py) */}else openExplore(g)}
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-go]');if(b){e.preventDefault();e.stopPropagation();go(b.dataset.go)}});
 function foundHTML(inDlg){const F=S.find,v=F&&F.synth&&F.synth.designs&&F.synth.designs.v2,R=S.real&&S.real.agree,ui=S.real&&S.real.under_investigation;
  const sm=(g,t)=>` <button class="linkb" data-go="${g}">${t||'show me'}</button>`;
  const items=[
   ['One check is not enough.',`A lock that checks the key once lets a wrong key in after <b>1 glitch</b>. A second check that reports through the same wire does not help: still 1.`+sm('p0')],
   ['Copies that are kept apart do help.',`With three copies that each control their own part of the answer, a thief needs <b>3 glitches</b>, one per copy, all at the same step.`+sm('p2')],
-  ['The build tool can quietly undo the protection.',(v&&v.min?`The same written design was turned into a chip plan in ${v.solved} different ways: <b>${v.min[1]} of them need only 1 glitch</b>, ${v.min[2]} need 2 and only ${v.min[3]} need 3.`:'The same written design, turned into a chip plan with other settings of the build tool, often needs only 1 or 2 glitches instead of 3.')+sm('studies')],
+  ['The build tool can quietly undo the protection.',(v&&v.min?`The same written design was turned into a chip plan with ${v.solved} build settings${(S.find&&S.find.synth&&S.find.synth.distinct&&S.find.synth.distinct.n)?` (${S.find.synth.distinct.n} distinct chip plans)`:''}: <b>${v.min[1]} of them need only 1 glitch</b>, ${v.min[2]} need 2 and only ${v.min[3]} need 3.`:'The same written design, turned into a chip plan with other settings of the build tool, often needs only 1 or 2 glitches instead of 3.')+sm('studies')],
   ['The rest of the chip must read the whole answer.',`If it looks at a single “open” signal, <b>1 glitch</b> on that signal is enough, and the copies no longer matter.`+sm('p5')],
   R?['On real designs it agrees with an existing tool.',`On blocks of a real open-source security chip, GlitchSAT and ${T('an existing published tool','SYNFI, an existing published tool,')} gave the same answer on <b>${R[0]===R[1]?'all '+fmtN(R[1]):fmtN(R[0])+' of '+fmtN(R[1])}</b> glitch attempts compared.${ui?' One published figure is not matched exactly; that row is marked under investigation.':S.real.reconciled&&(S.real.experiments||[]).some(e=>e.status==='differs')?' One published figure differs slightly; that difference has been checked and is explained on the page.':''}`+sm('x-real')]:null].filter(Boolean);
  return `<div class="found${inDlg?' indlg':''}" id="${inDlg?'found-d':'found'}">${inDlg?'':'<h2>What we found, in one minute</h2>'}<p class="sub">${items.length} findings in plain words. All of them are saved results of a computer model; no real chip was glitched.</p>
@@ -3356,7 +3647,7 @@ function foundHTML(inDlg){const F=S.find,v=F&&F.synth&&F.synth.designs&&F.synth.
  <p class="scope"><b>Scope.</b> Small example locks and a few blocks of one real open-source chip. One kind of glitch: one wire gives the wrong answer for one step. Results marked “proved” hold for any waiting time, but only for one chip plan, that kind of glitch and a chip that starts normally.</p></div></div></div>`}
 
 /* ---- Start page */
-function xlist(){return EXPLORE.filter(v=>tech()||!v.hidePlain||!v.hidePlain())}
+function xlist(){return EXPLORE.filter(v=>(tech()||!v.hidePlain||!v.hidePlain())&&!(v.hide&&v.hide()))}
 function drawStart(el){el=el||$('#v-start');const st=S.status||{};const done=Object.keys(S.tourRes).length;let nxt=0;while(S.tourRes[nxt]!==undefined&&nxt<PATH.length-1)nxt++;
  const cta=done===0?['▶ Watch the first attack','Recommended first example: <b>a lock with one check</b>. Takes about a second, then the path continues step by step.']:done<PATH.length?[`▶ Continue: step ${nxt+1} of ${PATH.length}`,`Next on your path: <b>${esc(PATH[nxt].p)}</b>. Your progress is kept on this computer.`]:['▶ Walk the path again',`You finished all ${PATH.length} steps. There is more under <b>Explore</b> below.`];
  const stepCard=(p,i)=>{const r=S.tourRes[i],has=r!==undefined;return `<button class="pcard${has?' done':''}" data-i="${i}" aria-label="Step ${i+1}: ${esc(p.p)}"><span class="n">${i+1}</span><b>${esc(p.p)}</b><span class="g">${esc(p.goal)}</span>${has?`<span class="res">${r==='unknown'?'not finished':r==null?'no way in found':gl(r)+' needed'}</span>`:''}</button>`};
@@ -3364,15 +3655,17 @@ function drawStart(el){el=el||$('#v-start');const st=S.status||{};const done=Obj
  el.innerHTML=`<div class="home"><div class="hero"><div class="hx"><h1>Can a thief glitch their way past a lock?</h1>
   <p>Chips check a secret key before they start. A thief without the key can try to disturb the chip for a split second, a <b>glitch</b>, so that a wrong key is accepted. This app counts <b>how many perfectly-timed glitches</b> that takes, and shows which designs make it harder.</p>
   <div class="cta"><button class="btn primary big" id="h-try">${cta[0]}</button><div class="ctah">${cta[1]}</div></div>
-  <p class="small"><b style="color:var(--txt)">In a hurry?</b> <button class="linkb" id="h-found">What we found, in one minute</button> · <button class="linkb" id="h-story">Watch the short story again</button> · <button class="linkb" id="h-help">Glossary and keyboard keys</button></p></div>
-  <div class="hart" aria-hidden="true">${STORY[3].svg()}</div></div>
+  <p class="small"><b style="color:var(--txt)">In a hurry?</b> <button class="linkb" id="h-found">What we found, in one minute</button> · <button class="linkb" id="h-story">Watch the short story again</button> · <button class="linkb" id="h-help">Glossary and keyboard keys</button></p>${Studio.startExtra?Studio.startExtra():''/* LEARN-VIEW hook: Start-page link from an extension */}</div>
+  <div class="hart" aria-hidden="true">${(STORY.find(c=>c.h==='Why engineers add copies')||STORY[3]).svg()/* LEARN-VIEW: found by title, extensions may add story cards */}</div></div>
   ${st.studio&&!st.live?savedBanner():''}
-  ${foundHTML()}
   <h3 class="sec">Your path <span class="m">· ${done} of ${PATH.length} done</span></h3><div class="pgrid">${PATH.map(stepCard).join('')}</div>
+  <details class="more startmore" id="start-more"${S.startMore?' open':''}><summary>More on this page: what we found, and all ${xlist().length} Explore pages</summary>
+  ${foundHTML()}
   <h3 class="sec">Explore more <span class="m">· each page starts with what you are looking at</span></h3><div class="xgrid">${ex}</div>
-  ${!tech()&&S.hw&&S.hw.total&&!S.hw.run?`<p class="hint" style="margin:8px 2px 0">Coming: our own boot-check circuit (${S.hw.total} versions designed, not analysed yet).</p>`:''}
-  <div class="foot-note" style="display:block">Everything here is a computer model. No real chip was glitched. Each result carries one of five labels that say how it was obtained:<div class="legend5">${['live','recorded','simulated','proved','estimate'].map(k=>hon(k)).join('')}</div></div></div>`;
- $('#h-try').onclick=tryAttack;$('#h-story').onclick=()=>openStory(0);$('#h-help').onclick=()=>openHelp('gloss');$('#h-found').onclick=()=>{const f=$('#found');f.scrollIntoView({behavior:'smooth',block:'start'});f.setAttribute('tabindex','-1');f.focus({preventScroll:true})};
+  ${!tech()&&S.hw&&S.hw.total&&!S.hw.run?`<p class="hint" style="margin:8px 2px 0">Coming: our own boot-check circuit (${S.hw.total} versions designed, not analysed yet).</p>`:''}</details>
+  <div class="foot-note" style="display:block">Everything here is computed; nothing is measured on a chip. Each result carries one of six labels. <b>Recorded</b> and <b>live</b> say <i>when</i> it was computed; <b>simulated</b>, <b>bounded</b>, <b>proved</b> and <b>estimate</b> say <i>how</i>.<div class="legend5">${['live','recorded','simulated','bounded','proved','estimate'].map(k=>hon(k)).join('')}</div></div></div>`;
+ $('#h-try').onclick=tryAttack;$('#h-story').onclick=()=>openStory(0);$('#h-help').onclick=()=>openHelp('gloss');$('#h-found').onclick=()=>{const m=$('#start-more');if(m){m.open=true;S.startMore=true}const f=$('#found');f.scrollIntoView({behavior:'smooth',block:'start'});f.setAttribute('tabindex','-1');f.focus({preventScroll:true})};
+ {const m=$('#start-more');if(m)m.addEventListener('toggle',()=>{S.startMore=m.open})}
  el.querySelectorAll('.pcard').forEach(b=>b.onclick=()=>{show('analyze');loadStep(+b.dataset.i)});el.querySelectorAll('.xcard').forEach(b=>b.onclick=()=>openExplore(b.dataset.x))}
 
 /* ---- Explore: one tab, a list of pages on the left (EXTENSION POINT: Studio.registerView({group:'explore', ...})) */
@@ -3382,8 +3675,8 @@ function drawExplore(el){el=el||$('#v-explore');const XL=xlist();if(!S.xv||!XL.f
  if(!$('#xnav')){el.innerHTML=`<div class="xwrap"><nav class="xnav" id="xnav" aria-label="Explore pages"></nav><div class="xbody" id="xbody"></div></div>`}
  $('#xnav').innerHTML=`<div class="xh">Explore</div>`+XL.map(v=>`<button class="xn${v.id===S.xv?' on':''}" data-x="${v.id}" aria-current="${v.id===S.xv?'page':'false'}"><span class="xi" aria-hidden="true">${v.icon||''}</span><span><b>${esc(T(v.title,v.ttitle||v.title))}</b><span>${esc(v.blurb)}</span></span></button>`).join('');
  $$('#xnav .xn').forEach(b=>b.onclick=()=>{S.xv=b.dataset.x;drawExplore()});
- const v=EXPLORE.find(x=>x.id===S.xv),body=$('#xbody');body.innerHTML=`<h2 class="xt">${esc(T(v.title,v.ttitle||v.title))} ${(v.labels||[]).map(l=>hon(l)).join(' ')}</h2><div id="xc"></div>`;
- const xc=$('#xc');xc.innerHTML=modProblem(null);Promise.resolve(v.render(xc)).catch(e=>{xc.innerHTML=`<div class="err"><b>This page could not be drawn</b><p>Try reloading the window.</p><details class="raw"><summary>Details</summary><pre>${esc(String(e&&e.stack||e))}</pre></details></div>`})}
+ const v=EXPLORE.find(x=>x.id===S.xv),body=$('#xbody');body.innerHTML=`<h2 class="xt">${esc(T(v.title,v.ttitle||v.title))} ${(v.labels||[]).map(l=>hon(l)).join(' ')}</h2><div id="xc"></div>${XFIX[v.id]?fixHost(XFIX[v.id]):''}`;
+ const xc=$('#xc');xc.innerHTML=modProblem(null);Promise.resolve(v.render(xc)).then(()=>{const L=v.findings&&v.findings();if(L&&L.length&&!xc.querySelector('.findings')){const o=xc.querySelector('.orient');(o||xc).insertAdjacentHTML(o?'afterend':'afterbegin',findingsHTML(L));(plainify||(()=>{}))(xc)}}).catch(e=>{xc.innerHTML=`<div class="err"><b>This page could not be drawn</b><p>Try reloading the window.</p><details class="raw"><summary>Details</summary><pre>${esc(String(e&&e.stack||e))}</pre></details></div>`})}
 
 /* small chart helpers (SVG, labelled; colour is never the only carrier of meaning) */
 const COPYC=c=>/^c\d/.test(c||'')?`var(--c${c[1]})`:c==='shared'||c==='merge'?'var(--hot)':'var(--shared)';
@@ -3498,7 +3791,7 @@ async function viewShots(el){const d=await getMod('shots');const p=modProblem(d,
   <div class="cap">${a?`<b class="w">This example:</b> ${a.n_shots} shot${a.n_shots===1?'':'s'} with a spot radius of ${r2(a.shots[0].r)} µm${a.r_last_um>a.r_from_um?` (works from ${r2(a.r_from_um)} to ${r2(a.r_last_um)} µm)`:''}, all at step ${[...new Set(a.shots.map(s=>s.cycle))].join(' and ')}. The lock then shows "open" for a wrong key${a.flop_only_replay_ok?' (re-checked)':''}.`:'No example attack stored for this layout.'}</div></div>
   <div><div class="panel"><div class="ph"><h4>Fewest shots needed, by spot size</h4></div><div class="pb">${chart}</div><div class="cap">The thief may aim anywhere. A larger spot reaches more of the chip at once, so fewer shots are needed.</div></div>
   <div class="panel"><div class="ph"><h4>Does placing the copies apart help?</h4></div><table class="notx"><thead><tr><th>Layout</th><th>One shot works from</th><th>Shots with a 0.5 µm spot</th></tr></thead><tbody>${vt}</tbody></table><div class="cap">Pinning the copies apart pushes the one-shot spot size up several times.${(()=>{const os=id=>{const z=d.designs.find(q=>q.id===id),g=z&&(z.steps||{})['centre/grid'];return g&&(g.steps.find(s=>s.min_shots===1)||{}).r_from};const a8=os('v2_v8'),a15=os('v2_v15');return a8!=null&&a15!=null&&a15<a8?` Further apart is not automatically better: the layout pinned 15 µm apart gives way to one shot from ${r2(a15)} µm, earlier than the one pinned 8 µm apart (${r2(a8)} µm). We have not analysed why.`:''})()}</div></div></div></div>
- ${learn('Learn more (technical details)',`<div class="kv2"><div>model</div><div>${esc(JSON.stringify(d.model))}</div><div>labels</div><div>${esc(JSON.stringify(d.labels))}</div><div>one-shot radius</div><div class="mono">${esc(JSON.stringify(x.one_shot))}</div><div>files</div><div class="mono">${esc(JSON.stringify(x.files))}</div><div>spot sizes</div><div>${(x.sources||[]).map(s=>esc(s.id+' ('+s.label+')')).join(', ')}</div><div>not placed</div><div>${esc((d.unplaced||[]).join(', '))}</div><div>source</div><div class="mono">${esc(x.file)} · ${esc(d.generated||'')}</div></div>`)}${srcLine(d)}`;
+ ${learn('Learn more (technical details)',`<div class="kv2"><div>model</div><div>${jt(d.model)}</div><div>labels</div><div>${jt(d.labels)}</div><div>one-shot radius (µm)</div><div class="mono">${jt(x.one_shot)}</div><div>input files</div><div class="mono keep">${jt(x.files)}</div><div>spot sizes</div><div>${(x.sources||[]).map(s=>esc(s.id+' ('+s.label+')')).join(', ')}</div><div>not placed</div><div>${esc((d.unplaced||[]).join(', '))}</div><div>source</div><div class="mono">${esc(x.file)} · ${esc(d.generated||'')}</div></div>`)}${srcLine(d)}`;
  onSeg('shsel',v=>{S.shd=v;S.sha=null;viewShots(el)});if($('#shp'))$('#shp').onclick=()=>{S.sha--;viewShots(el)};if($('#shn'))$('#shn').onclick=()=>{S.sha++;viewShots(el)}}
 
 /* 5. Virtual glitch lab */
@@ -3531,7 +3824,7 @@ async function viewFirmware(el){const q=S.fw||(S.fw={variant:'rom_naive',opt:'O0
  `<div class="panel"><div class="pb"><div class="lbl">Program version</div>${segBtns('fwsel',d.variants.map(v=>[v.id,T(FWN[v.id]||v.id,v.id)]),q.variant)}<div class="tech-only" style="margin-top:8px;display:flex;gap:12px"><span class="lbl">compiler</span>${segBtns('fwopt',d.opts.map(o=>[o,o]),q.opt)}<span class="lbl">mode</span>${segBtns('fwmode',d.modes.map(o=>[o,o]),q.mode)}</div></div>
   <div class="sentence">${sent}</div><div class="pb rowflex">${hon('simulated','Run on an instruction simulator of a small processor, not on a chip.')}<span class="hint">${esc((d.variants.find(v=>v.id===q.variant)||{}).description||'')}</span></div></div>
  <div class="cols"><div class="panel"><div class="ph"><h4>The program, with glitch spots</h4><span class="sp"></span><span class="hint keep mono">${esc(src.variant||'')}.c</span></div><div class="code keep">${code||'<div class="note">The source file was not found in the module.</div>'}</div>
-  <div class="cap"><b class="w">How to read this.</b> ⚡S skip an instruction · ⚡B decision goes the wrong way · ⚡R one bit of a register changed · ⚡J small jump · ⚡I instruction corrupted. ⚡×3 means three kinds work on that line: point at it (or Tab to it) to see which. Letters and words carry the meaning, not only colour.</div></div>
+  <div class="cap"><b class="w">How to read this.</b> ⚡S skip an instruction · ⚡B decision goes the wrong way · ⚡R one bit of a register changed · ⚡J small jump · ⚡I instruction corrupted. ⚡×3 means three kinds work on that line: point at it (or Tab to it) to see which. Letters and words carry the meaning, not only colour. The word <span class="keep mono">SRC</span> in the listing is part of the program as written (a macro that stands for <span class="keep mono">const</span>, or <span class="keep mono">const volatile</span> in the volatile build); nothing was replaced.</div></div>
   <div><div class="panel"><div class="ph"><h4>Fewest glitches, by kind of glitch</h4></div><table><tbody>${Object.entries(per).map(([k,v])=>`<tr><td>${esc(T(MP[k]||k,(d.model_text||{})[k]||k))}</td><td><b>${esc(v)}</b></td></tr>`).join('')}</tbody></table><div class="cap">“&gt;3” means no attack with 3 or fewer glitches of that kind. Each kind was searched on its own.</div></div>
   <div class="panel"><div class="ph"><h4>Same idea in hardware</h4></div><table><thead><tr><th>Hardware lock</th><th>Glitches</th><th>Program version</th></tr></thead><tbody>${((d.hardware_compare||{}).rows||[]).map(r=>`<tr><td>${esc(T(DESN[r.design.toLowerCase()]||r.what,r.design+' · '+r.what))}</td><td>${esc(tech()?r.min_flips:r.min_flips.split(' ')[0])}</td><td>${esc(T(FWN[r.firmware_counterpart]||r.firmware_counterpart,r.firmware_counterpart))}</td></tr>`).join('')}</tbody></table><div class="cap">The units differ (one wire versus one instruction), so compare the pattern, not the numbers.</div></div></div></div>
  ${learn('Learn more (technical details)',`<div class="kv2"><div>build</div><div class="mono">${esc(src.build)} · ${src.searches} searches read</div><div>platform</div><div>${esc(d.platform)}</div><div>caption</div><div>${esc(d.caption)}</div><div>witness</div><div class="mono">${esc(JSON.stringify(cell.witness||[]))}</div><div>notes</div><div>${esc((d.notes||[]).join(' '))}</div><div>source</div><div class="mono">${esc(d.file)} · ${esc(src.file)}</div></div>`)}${srcLine(d)}`;
@@ -3546,7 +3839,8 @@ async function viewSecboot(el){const d=await getMod('secboot_hw');const p=modPro
  const res=c=>{const r=(c.results||{}).plain||{},b=(r.by_k||[]).find(x=>x.verdict==='ATTACK_FOUND');return c.status==='NOT_RUN'?'<span class="hint">no result yet</span>':c.status==='FAILED'?'<span class="badc">failed</span>':b?`<b>${gl(b.min_faults)}</b>`:`<b>more than ${d.kmax}</b>`};
  const sent=run.length?`${run.length} of ${d.cards.length} protected versions have results so far.`:`Our own boot-check hardware is ready in ${d.cards.length} protected versions, but <b>none has been checked yet</b>: the check needs a longer run on a computer with the build tool and solver. Until then no numbers are shown, and nothing is guessed.`;
  el.innerHTML=orient(`A real boot-check circuit built for this project: it reads a program, computes its fingerprint, compares it, and says open or shut. Each protection can be switched on or off.`,`Each card is one protected version and what its protection is meant to do. The glitch count appears here once the run has been done.`,run.length?`Read the cards; each says how many glitches it needs.`:`Nothing to do here yet. ${d.cloud_script?`<span class="tech-only">The run is started with <span class="keep mono">${esc(d.cloud_script)}</span>.</span>`:''}`)+
- `<div class="panel"><div class="sentence">${sent}</div><div class="pb rowflex">${run.length?hon('recorded'):''}<span class="hint tech-only">${esc(d.banner||'')}</span></div></div>
+ `<div class="panel"><div class="sentence">${sent}</div><div class="pb rowflex">${run.length?hon('recorded'):''}<span class="hint tech-only">${esc(d.banner||'')}</span></div>${(()=>{const g=S.gal&&(S.gal.examples||[]).find(x=>x.id==='secure_boot');if(!g||!g.runs.length)return '';
+   return `<div class="cap"><b class="w">Already analysed elsewhere.</b> Two small configurations of this same circuit have saved results in the example gallery: ${g.runs.map(r=>`${esc(galLabel(r.label))}: <b>${r.verdict==='ATTACK_FOUND'?gl(r.min_faults):'no way in with up to '+r.max_faults}</b>`).join('; ')}. They were computed by the own-design tool, not by the long run this page waits for. <button class="linkb" data-go="x-gal">Example gallery</button></div>`})()}</div>
  <div class="sbgrid">${d.cards.map((c,i)=>`<div class="panel sbc"><div class="ph"><h4>${T('Version '+(i+1)+(c.slow?' (long run)':''),`<span class="mono">${esc(c.name)}</span>`)}</h4><span class="sp"></span>${res(c)}</div><div class="pb"><div class="tags">${(c.countermeasures||[]).map(m=>`<span class="tag">${esc(tech()?m.text:SBP[m.id]||plainText(m.text))}</span>`).join('')}</div>${c.design_intent?`<p class="hint"><b>Meant to:</b> ${esc(tech()?c.design_intent:plainText(c.design_intent))}</p>`:''}<p class="hint tech-only mono">${esc(c.experiment.top)} · goal ${esc(c.experiment.goal)} · ${c.experiment.cycles} cycles${c.slow?' · slow':''}</p></div></div>`).join('')}</div>${srcLine(d,d.when?'file from '+d.when:'')}`}
 
 /* 8. Evidence report and margin */
@@ -3600,15 +3894,188 @@ const ICON={spots:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height=
  lab:'<svg viewBox="0 0 24 24"><path d="M3 12h4l2-6 3 12 2-6h7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',fw:'<svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
  hw:'<svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="1.4"/></svg>',
  rep:'<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h7M9 16h7" stroke="currentColor" stroke-width="1.4"/></svg>',real:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>'};
+/* ================= UT2: "How would you fix it?" (for chip designers) =================
+   One closed line in Plain view, open in Technical view. Plain sentences first; the exact tool words sit in a .keep block
+   so the Plain view never rewrites them. Evidence lines are read from data the app already has; nothing is invented. */
+const FIX_LEAD={one:'This lock has one check, so one glitch decides. The first fix is a change to the design: more than one copy of the check, and no single wire that decides. “Suggest a fix” lists changes that were checked on this lock. After that, four things keep a protection alive:',
+ shared:'Both copies report into one wire that the designer drew, and that wire alone decides. No build setting repairs this. Change the design so that each copy controls its own part of the answer and the rest of the chip reads all of it (path step 3). Then keep it that way:',
+ sep:'Nothing to fix on this chip plan: the copies are apart and each one needs its own glitch. The work now is to keep it that way through the build and on the chip:',
+ merge:'The written design is the same as in step 3. The build tool rearranged the logic, so fewer glitches are enough. Fix the build, not the idea:',
+ enc:'Changing one stored pattern brought this chip plan back up. That is the second remedy below. It helps only while the copies are still apart, so the other three still matter:',
+ flag:'The copies are intact, but the rest of the chip reads one signal, and that signal is a single point. Make the reader use every copy’s output (the whole answer). No build setting repairs a single point. For the copies themselves:',
+ held:'No way in was found within the limits, so there is nothing to fix here. To keep the protection through the build and on the chip:',
+ spots:'A part that most of the cheapest ways in use is a single point. If several copies share it, give each copy its own. If the build tool created it, stop the merge:',
+ fix:'The changes on this page are changes to the design. In your own project they last only if the build keeps them. Four things to set in your flow:',
+ place:'On this page the weakness is physical: copies that sit side by side fall to one spot. The third remedy below is the one that answers it; the other three make sure the copies are still there to be placed.',
+ fw:'In a boot program the compiler plays the part of the build tool: it can see three identical checks and keep one. The fourth remedy below is the one for software.',
+ real:'These blocks come from a chip whose designers already use the four remedies below; its public source is a good place to see them written out.',
+ gal:'The gallery shows the pattern in small: a protection that is in the written design can be missing after the build. Four ways to keep it:'};
+const FIX_HI={merge:[0,3],sep:[0],held:[0],enc:[1],place:[2],fw:[3],spots:[0],fix:[0,1],gal:[0],one:[],shared:[],flag:[],real:[]};
+const numOf=v=>typeof v==='number'?v:null;
+function fixEvidence(){const ev=['','','',''],G0=S.gal&&S.gal.examples||[];
+ const hl=G0.find(x=>x.id==='hello_lock'),hr=hl&&hl.runs.find(r=>r.survival&&'synth-keep' in r.survival);
+ if(hr){const sv=hr.survival,say=v=>numOf(v)!=null?`needs <b>${gl(v)}</b>`:`holds against ${gl(hr.max_faults)}`;
+  ev[0]=`<b>Seen here</b> ${hon('recorded',null,true)}: the protected hello lock ${say(sv.plain)} when built as written, ${say(sv.synth)} when the build tool tidies across the copies, and ${say(sv['synth-keep'])} again when each copy is kept as its own block. <button class="linkb" data-go="x-gal">Example gallery</button>`}
+ else{const v=S.find&&S.find.synth&&S.find.synth.designs&&S.find.synth.designs.v2;if(v&&v.min)ev[0]=`<b>Seen here</b> ${hon('recorded',null,true)}: of ${v.solved} ways of building the three-copy lock, ${v.min[1]} need only 1 glitch. <button class="linkb" data-go="studies">Studies</button>`}
+ const a=S.tourRes[3],b=S.tourRes[4];ev[1]=typeof a==='number'&&typeof b==='number'&&b>a?`<b>Seen here</b>: on the path, step 4 needs ${a} and step 5, with one pattern changed, needs ${b}, on that one chip plan. Not a general fix. <button class="linkb" data-go="p4">path step 5</button>`:`<b>Seen here</b>: path step 5 changes one stored pattern and builds again. <button class="linkb" data-go="p4">path step 5</button>`;
+ const sh=S.mods&&S.mods.shots,os=id=>{const z=sh&&sh.designs&&sh.designs.find(q=>q.id===id),g=z&&(z.steps||{})['centre/grid'];return g&&(g.steps.find(s=>s.min_shots===1)||{}).r_from};
+ const o0=os('v2'),o8=os('v2_v8'),o15=os('v2_v15');
+ ev[2]=o0!=null&&o8!=null?`<b>Seen here</b> ${hon('simulated',null,true)}: with the copies side by side, one shot is enough from a ${r2(o0)} µm spot; pinned 8 µm apart, from ${r2(o8)} µm.${o15!=null&&o15<o8?` Further apart was not automatically better (15 µm apart: ${r2(o15)} µm), so check the result, do not assume it.`:''} <button class="linkb" data-go="x-shots">Laser shots on the chip</button>`:`<b>Seen here</b>: the laser page compares layouts with the copies side by side and pinned apart. <button class="linkb" data-go="x-shots">Laser shots on the chip</button>`;
+ const fw=S.mods&&Object.keys(S.mods).filter(k=>k.startsWith('firmware')).map(k=>S.mods[k]).find(d=>d&&d.cells),cell=m=>fw&&fw.cells.find(c=>c.variant==='rom_triple'&&c.opt==='O2'&&c.mode===m),sk=c=>c&&c.tampered_per_model&&/^\d+$/.test(c.tampered_per_model.skip||'')?+c.tampered_per_model.skip:null;
+ const p=sk(cell('plain')),vv=sk(cell('vol')),bb=sk(cell('barrier'));
+ ev[3]=p!=null&&vv!=null&&p<vv?`<b>Seen here</b> ${hon('simulated',null,true)}: the boot program with every check done three times, compiled with strong optimisation, falls to ${p} skipped instruction${p===1?'':'s'}; with volatile reads it needs ${vv}${bb!=null?`, with barriers ${bb}`:''}. <button class="linkb" data-go="x-fw">Boot program</button>`:`<b>Seen here</b>: the boot-program page has the same checks compiled plain, with volatile reads and with barriers (Technical view). <button class="linkb" data-go="x-fw">Boot program</button>`;
+ return ev}
+function fixHTML(kind,open){const ev=fixEvidence(),hi=FIX_HI[kind]||[];
+ const C=[['Keep the copies','keep / dont_touch','Tell the build tool not to merge or tidy the copies: build each copy as its own block and mark it “keep”.',
+   'Yosys: one module per copy with <code>(* keep_hierarchy *)</code>, or <code>synth</code> without <code>-flatten</code> and flatten only after optimisation; <code>(* keep *)</code> on each copy’s output wires. Commercial flows: <code>set_dont_touch</code> on the copy instances and their output nets.'],
+  ['Choose the encoding','state codes','Store each state as a pattern that differs from the others in several places, and stop the tool from choosing new patterns.',
+   'Write the state codes yourself, so that any two valid codes differ in at least one more bit than the number of faults you want to resist (OpenTitan calls this sparse FSM encoding and asks for a large distance). Yosys: <code>synth -nofsm</code> or <code>(* fsm_encoding = "none" *)</code> on the state register; commercial flows: switch FSM re-encoding off for that register. Measure the distance in the netlist, not in the RTL.'],
+  ['Place the copies apart','placement','On the chip, put the copies in separate areas, so one laser spot or one local dip in power cannot reach all of them.',
+   'Floorplan: one placement region per copy (DEF <code>REGIONS</code> / <code>GROUPS</code>; commercial flows: placement bounds) with other logic in between. Carry the dont_touch through placement and timing optimisation, which can also merge or clone cells.'],
+  ['Barriers the optimiser cannot see through','hardware and compiler','Put a marked part between each copy and the place where the copies are combined, so the optimiser cannot work out that two copies are equal and join them.',
+   'Hardware: a hand-instantiated buffer or flip-flop marked keep / <code>size_only</code> between each copy and the combine point (OpenTitan: <code>prim_buf</code>, <code>prim_flop</code>, <code>prim_sec_anchor_buf</code>). Boot program in C: <code>volatile</code> reads, or pass the value through an empty <code>asm</code> statement (OpenTitan: <code>launder32()</code>, <code>barrier32()</code>, <code>HARDENED_CHECK_EQ()</code>).']];
+ return `<details class="more learn fixit" ${open?'open':''}><summary>How would you fix it? <span class="hint">for chip designers: what to change in the design and in the build</span></summary><div class="pb">
+ <p class="fxlead">${FIX_LEAD[kind]||FIX_LEAD.gal}</p>
+ <div class="fxgrid">${C.map((c,i)=>`<div class="fxc${hi.includes(i)?' hi':''}"><h5>${i+1}. ${c[0]}${hi.includes(i)?ntag('most relevant here','Of the four remedies, this one answers what this page shows.','mut'):''}</h5><p>${c[2]}</p><div class="tt keep"><b>In tool words (${c[1]}):</b> ${c[3]}</div>${ev[i]?`<div class="ev">${ev[i]}</div>`:''}</div>`).join('')}</div>
+ <p class="hint" style="margin:8px 0 0"><b style="color:var(--txt)">Then check again.</b> A remedy in the written design is not evidence. It counts once the final chip plan, after the build and after placement, has been analysed again. These four are standard practice, named so you can look them up; the tool words are examples, not a full recipe, and this app has not tested them on your flow.
+ <button class="linkb" data-go="x-fix">Suggest a fix</button> lists the design changes that were checked on the example locks${typeof Studio!=='undefined'&&Studio.projectLink?' · '+Studio.projectLink():''}.</p></div></details>`}
+const fixHost=kind=>`<div class="fxhost" data-fx="${kind}"></div>`;
+function fixKindOf(r){const fam=((S.lastQ&&S.lastQ.design)||'').replace(/_rtl$/,'');if(r.verdict!=='ATTACK_FOUND')return 'held';if(r._goal==='flag')return 'flag';if(fam==='v0')return 'one';if(fam==='v1')return 'shared';
+ if(fam==='v2e')return r.min_faults>=3?'enc':'merge';return r.min_faults<3?'merge':'sep'}
+let fixAsked=false;
+function fillFix(root,again){(root||document).querySelectorAll('.fxhost').forEach(h=>{if(h.dataset.done&&!again)return;const d=h.querySelector('details'),open=d?d.open:tech();h.dataset.done='1';h.innerHTML=fixHTML(h.dataset.fx,open);
+  h.querySelector('details').addEventListener('toggle',e=>{if(e.target.open&&!fixAsked){fixAsked=true;Promise.all([getMod('shots'),getMod('firmware','&variant=rom_triple&opt=O2&mode=plain')]).then(()=>fillFix(document,true))}})})
+ if(tech()&&!fixAsked&&(root||document).querySelector('.fxhost')){fixAsked=true;Promise.all([getMod('shots'),getMod('firmware','&variant=rom_triple&opt=O2&mode=plain')]).then(()=>fillFix(document,true))}}
+Studio.fixHost=fixHost;
+const XFIX={'x-spots':'spots','x-fix':'fix','x-shots':'place','x-fw':'fw','x-real':'real','x-gal':'gal'};
+
+/* small readable table instead of raw JSON in “Learn more” */
+function jt(o,depth){if(o==null)return '<span class="hint">n/a</span>';if(typeof o!=='object')return esc(String(o));depth=depth||0;
+ if(Array.isArray(o))return o.every(x=>x==null||typeof x!=='object')?esc(o.join(', ')):depth>2?esc(JSON.stringify(o)):o.map(x=>jt(x,depth+1)).join('');
+ return depth>3?esc(JSON.stringify(o)):`<table class="jt">${Object.entries(o).map(([k,v])=>`<tr><td>${esc(k.replace(/_/g,' '))}</td><td>${jt(v,depth+1)}</td></tr>`).join('')}</table>`}
+
+/* ---- Plain-words findings (shared explainer, findings module): severity first, then what it means, why, where, how sure,
+   what to do and how to check, then "How we found it" and "Show technical details" one click away. Used by the path,
+   the whole-chip page, the boot program page, the example gallery and the "Open my design" plug-in (Studio.findings). */
+const SEVORD=['Critical','High','Medium','Low','Info'];
+function sevBadge(s){return `<span class="sev sev-${esc(s.css)}" role="img" aria-label="Severity: ${esc(s.words||s.level)}"><b aria-hidden="true">${esc(s.icon)}</b> ${esc(s.words||s.level)}</span>`}
+function findSummary(L){const c={};L.forEach(f=>{c[f.severity.level]=(c[f.severity.level]||0)+1});const parts=SEVORD.filter(k=>c[k]).map(k=>c[k]+' '+k.toLowerCase());
+ const top=[...L].sort((a,b)=>b.severity.rank-a.severity.rank)[0];
+ return top.severity.level==='Info'?parts.join(', ')+': nothing to fix within the limits that were checked.':`${parts.join(', ')}. Start with the ${top.severity.level.toLowerCase()} one: ${top.statement}`}
+function findTimeline(w){if(w.cycle==null)return '';const end=Math.max(w.hit_cycle??w.cycle,w.cycle)+1,N=Math.min(Math.max(end,4),24),x=i=>14+i*(260/(N-1||1));
+ let g='';for(let i=0;i<N;i++){const hit=i===w.cycle,goal=i===w.hit_cycle;g+=`<circle cx="${x(i)}" cy="16" r="${hit||goal?6:3}" fill="${hit?'var(--hot)':goal?'var(--warn)':'var(--line2)'}"/>`}
+ return `<svg class="ftl" viewBox="0 0 290 40" width="290" height="40" role="img" aria-label="Timeline: the glitch at step ${w.cycle}${w.hit_cycle!=null?', the bad outcome at step '+w.hit_cycle:''}">${g}<text x="${x(w.cycle)}" y="36" font-size="10" text-anchor="middle">glitch, step ${w.cycle}</text>${w.hit_cycle!=null&&w.hit_cycle!==w.cycle?`<text x="${x(w.hit_cycle)}" y="36" font-size="10" text-anchor="middle">outcome</text>`:''}</svg>`}
+function findingCard(f,i){const s=f.severity,w=f.where,h=f.how,ti=h.replay||{};
+ const tr=(h.trace||[]).length?`<table class="ftrace keep"><thead><tr><th>value</th><th>normal run</th><th>glitched run</th></tr></thead><tbody>${h.trace.map(t=>`<tr><td>${esc(t.name)}</td><td>${esc(t.normal)}</td><td><b>${esc(t.glitched)}</b></td></tr>`).join('')}</tbody></table>`:`<p class="hint">${esc(h.trace_note||'No value trace is stored for this result.')}</p>`;
+ const tryit=ti.studio?`<button class="btn" data-ftry="${i}">Replay this step</button> <span class="hint">${esc(h.predict||'')}</span>`:ti.cmd?`<code class="keep">${esc(ti.cmd)}</code>${ti.replayed?' <span class="hint">(the attack was replayed on a simulator and gave the same outcome)</span>':''}`:'<span class="hint">no replay for this result</span>';
+ return `<div class="fcard sevb-${esc(s.css)}" data-fid="${esc(f.id)}">
+ <div class="fhead">${sevBadge(s)}<b class="fstat">${esc(f.statement)}</b></div>
+ ${s.real_life?`<p class="freal"><b>In real life:</b> ${esc(s.real_life)}</p>`:''}<p class="furg"><b>How urgent:</b> ${esc(s.urgency)}</p>
+ <details class="more fwhy"><summary>Why it is rated ${esc(s.level)}, and what to do</summary><div class="pb">
+  <ul>${s.rationale.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${s.comparison?`<p><b>Real-world comparison:</b> ${esc(s.comparison.text)} <button class="linkb" data-go="learn:${s.comparison.lesson}">Read the story</button></p>`:''}
+  <p><b>Why it happened:</b> ${esc(f.why.tag)} ${esc(f.why.title)}. ${esc(f.why.text)}</p><p><b>How sure we are:</b> ${esc(f.sure.plain)}</p>
+  <p style="margin-bottom:2px"><b>What to do:</b></p><ul>${f.next.fixes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p><b>How to check the fix:</b> <code class="keep">${esc(f.next.check_cmd)}</code></p>
+  <p class="hint">${esc(s.estimate_note)} <button class="linkb" data-sevrules="1">How we decide severity</button></p></div></details>
+ <details class="more fhow"><summary>How we found it</summary><div class="pb">
+  <p><b>Where:</b> <span class="keep">${esc(w.text)}</span>${w.missing_note?` <span class="hint">${esc(w.missing_note)}</span>`:''}</p>${(w.context||[]).length?`<pre class="keep fctx">${w.context.map(l=>`<span class="${l.hit?'fhit':''}">${String(l.line).padStart(4)}${l.hit?' ▶ ':'   '}${esc(l.text)}</span>`).join('\n')}</pre>`:''}${findTimeline(w)}
+  <ol class="fsteps">${h.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${tr}
+  <p><b>Try it yourself:</b> ${tryit}</p><p><b>Spot it next time:</b> ${esc(h.spot_next)}</p>${h.lesson?`<p><button class="linkb" data-go="learn:${h.lesson}">The lesson screen about this</button> · <button class="linkb" data-fgloss="1">Glossary</button></p>`:''}</div></details>
+ <details class="more ftech"><summary>Show technical details</summary><div class="pb keep"><table><thead><tr><th>pattern</th><th>in this result</th></tr></thead><tbody>${(f.patterns||[]).map(p=>`<tr><td>${esc(p.tag+' '+p.title)}</td><td>${esc(p.status)}</td></tr>`).join('')}</tbody></table>
+  <p class="mono" style="font-size:11.5px">${esc(Object.entries(f.tech||{}).map(([k,v])=>k+' = '+v).join(' · '))}${f.why.evidence?' · evidence: '+esc(f.why.evidence):''}</p></div></details></div>`}
+function findingsHTML(L,title){if(!L||!L.length)return '';const s=[...L].sort((a,b)=>b.severity.rank-a.severity.rank);S.fcur=s;
+ return `<div class="panel findings" role="region" aria-label="What we found and what it means"><div class="ph"><h4>${esc(title||'What we found and what it means')}</h4></div><div class="pb"><p class="fsum"><b>${esc(findSummary(s))}</b></p>${s.map((f,i)=>findingCard(f,i)).join('')}</div></div>`}
+async function sevRules(){const d=S.sevrules||(S.sevrules=await api.get('/api/severity').catch(()=>({missing:true})));if(d.missing){openDlg('How we decide severity','<p>The rule table is not available here.</p>');return}
+ openDlg('How we decide severity',`<table class="keep"><tbody>${d.rules.map(r=>`<tr><th style="text-align:left;vertical-align:top">${esc(r[0])}</th><td>${esc(r[1])}</td></tr>`).join('')}</tbody></table><table style="margin-top:10px"><thead><tr><th>level</th><th>how urgent</th></tr></thead><tbody>${[...d.levels].reverse().map(l=>`<tr><td><span class="sev sev-${{Critical:'crit',High:'high',Medium:'med',Low:'low',Info:'info'}[l]}"><b>${esc(d.icons[l])}</b> ${esc(l)}</span></td><td>${esc(d.urgency[l])}</td></tr>`).join('')}</tbody></table>`)}
+document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-sevrules],[data-ftry],[data-fgloss]');if(!t)return;e.preventDefault();
+ if(t.dataset.sevrules)sevRules();else if(t.dataset.fgloss)openHelp('gloss');else if(t.dataset.ftry!=null){if(S.ti>=0){S.predPick[S.ti]=null;loadStep(S.ti)}else run()}});
+Studio.findings={html:findingsHTML,card:findingCard,summary:findSummary};
+
+/* 11. Explore a real chip (audit 2-B2): the whole-chip work of the soc module, learner first. Every number is read from
+   soc/studio/explore_chip.json. Its results hold within a stated number of clock steps, so they carry the label
+   BOUNDED, never PROVED (which in this app means "for any waiting time"). */
+const CHIP_PLAIN={picosoc:['PicoSoC with a start check','A small open-source computer on a chip: a processor, a little memory, a serial port and a connection to the memory that holds its program. It has no protection of its own, so this project put a start check in front of it: the chip only starts when an 8-signal code matches a key. There are two versions of that check: one check, and three checks (the same idea as the three-copy lock on the path).'],
+ ibex_demo:['Ibex demo system','A small microcontroller chip from lowRISC, built around their Ibex processor, with memory, a serial port and a debug port through which a debugger can take over the processor. There are two versions: as published, and with Ibex’s security setting switched on (a second “shadow” processor runs two steps behind the first, and an alarm goes off when they disagree).']};
+const GOAL_PLAIN={boot_release:'The chip starts although the code was wrong.',first_fetch:'The processor starts reading its program although the code was wrong.',
+ flash_takeover:'The memory connection is handed to software although no program runs yet.',debug_entry:'The processor switches into debug mode (where whoever controls it can do anything) while nobody is connected.',
+ debug_entry_silent:'The same, on the chip with the shadow processor, and its alarm stays quiet.',alarm_suppressed:'The two processor copies disagree, and the alarm stays quiet.'};
+const CHIP_BUILD={written:['built as written','written (no optimisation)'],keep:['tidied, each copy kept apart','keep (synthesis, protected blocks kept apart)'],flat:['tidied across everything','flat (synthesis, everything optimised together)']};
+const CHIP_VAR={plain:['one check','plain: one comparison, one accept flop'],tmr:['three checks','tmr: three comparators, sparse state codes'],stock:['as published','stock (SecureIbex = 0)'],lockstep:['with the shadow processor and alarm','lockstep (SecureIbex = 1)']};
+const LOCKSTEP_NOTE='This shadow-processor version is this project’s own setting of the demo system: it was configured by editing the source for this study. lowRISC does not ship the demo system in this form.';
+async function viewChip(el){if(!S.chip)S.chip=await api.get('/api/chip').catch(()=>({error:'offline'}));const d=S.chip;
+ if(!d||d.missing||d.broken||d.error){el.innerHTML=orient('Whole open-source chips, asked the same question as the small locks.','Nothing yet: the whole-chip module is not in this project folder.','Nothing to do here yet.')+modProblem(d.missing?{missing:true,looked:d.looked||[]}:d,'The whole-chip module');return}
+ const chips=d.chips||[];if(!S.chipSel||!chips.find(c=>c.id===S.chipSel))S.chipSel=(chips.find(c=>c.id==='picosoc')||chips[0]||{}).id;const c=chips.find(x=>x.id===S.chipSel);if(!c){el.innerHTML='<div class="empty"><b>No chip in the file</b></div>';return}
+ const CP=CHIP_PLAIN[c.id]||[c.title,''],num=x=>{const n=parseInt(x,10);return String(n)===String(x)?n:null};
+ const rows={};(c.variants||[]).forEach(v=>(v.goals||[]).forEach(g=>{(rows[g.id]=rows[g.id]||{title:g.title,cycles:g.cycles,list:[]}).list.push({v,g})}));
+ const ord={written:0,keep:1,flat:2},vo={plain:0,tmr:1,stock:0,lockstep:1};
+ const goalCard=(gid,r)=>{const L=r.list.sort((a,b)=>(vo[a.v.variant]??9)-(vo[b.v.variant]??9)||(ord[a.v.flow]??9)-(ord[b.v.flow]??9));const lock=L.some(x=>x.v.variant==='lockstep');
+  const byVar={};L.forEach(x=>(byVar[x.v.variant]=byVar[x.v.variant]||[]).push(x));
+  const tr=Object.entries(byVar).map(([vn,xs])=>{const ns=xs.map(x=>x.g.faults_needed),same=new Set(ns).size===1;
+   return `<tr><td>${esc(T((CHIP_VAR[vn]||[vn])[0],(CHIP_VAR[vn]||[vn,vn])[1]))}${vn==='lockstep'?`<div class="chipnote" role="note"><b>Read this first:</b> ${esc(LOCKSTEP_NOTE)}</div>`:''}</td>
+    <td>${xs.map(x=>`<div class="chipn"><b>${esc(x.g.faults_needed)}</b> ${num(x.g.faults_needed)!=null?G(num(x.g.faults_needed)):''}<span class="hint"> · ${esc(T((CHIP_BUILD[x.v.flow]||[x.v.flow])[0],(CHIP_BUILD[x.v.flow]||[x.v.flow,x.v.flow])[1]))}</span><span class="tech-only hint"> · slice ${x.g.slice_cells.toLocaleString('en')} of ${x.v.cells.toLocaleString('en')} cells (${x.g.slice_percent} %) · ${x.g.seconds} s</span></div>`).join('')}
+    ${!same&&xs.length>2?`<p class="take" style="margin:4px 0 0"><b>Same written design, ${words(xs.length)} ways of building it, ${ns.join(', ')} glitches.</b> Tidying the design can merge the protective copies.</p>`:''}</td></tr>`}).join('');
+  return `<div class="panel"><div class="ph"><h4>${esc(T(GOAL_PLAIN[gid]||r.title,r.title))}</h4><span class="sp"></span>${hon('bounded',`Within ${r.cycles} clock steps after the start.`)}</div><div class="pb">
+   <table class="chipt"><thead><tr><th>Version</th><th>Glitches needed, within ${r.cycles} steps</th></tr></thead><tbody>${tr}</tbody></table>
+   ${lock?'':''}</div></div>`};
+ const where=(c.where_security_decisions_live||[]).map(w=>`<li><b>${esc(T(GOAL_PLAIN[w.goal]||w.title,w.title))}</b><span class="tech-only"> ${esc(w.plain)} <span class="keep mono">${esc(w.where)}</span></span></li>`).join('');
+ const nr=d.next_rung;
+ el.innerHTML=orient(`Two whole open-source chips with tens of thousands of gates each: ${esc(chips.map(x=>(CHIP_PLAIN[x.id]||[x.title])[0]).join(' and '))}. The same question as on the path: how many perfectly-timed glitches turn one of the chip’s security decisions around?`,
+   `The numbers hold within a few clock steps after the start, on one way of building each chip. That is why they carry the label ${hon('bounded',null,true)} and not ${hon('proved',null,true)}: nobody checked longer runs. On PicoSoC, look for the row where the same written design gives 3, 2 and 1 glitches.`,
+   `Pick a chip. Read what it is, where its security decisions sit, and then what was found. Open “Learn more” for the technical names and sizes.`)+
+  `<div class="row" style="margin:0 0 10px">${segBtns('chipsel',chips.map(x=>[x.id,(CHIP_PLAIN[x.id]||[x.title])[0]]),S.chipSel)}</div>
+  <div class="panel"><div class="ph"><h4>What this chip is</h4></div><div class="pb"><p style="margin-top:0">${esc(T(CP[1],c.what_this_chip_is))}</p><p class="hint tech-only keep">Source: ${esc(c.source||'')}</p></div></div>
+  <div class="panel"><div class="ph"><h4>Where its security decisions live</h4></div><div class="pb"><p style="margin-top:0">A whole chip has tens of thousands of parts, but only a few wires decide questions like “may this chip start?” or “may a debugger take over?”. These are the decisions that were attacked here:</p><ul>${where}</ul></div></div>
+  <h3 class="sec">What was found</h3>${findingsHTML(c.findings,'What we found and what it means')}${Object.entries(rows).map(([gid,r])=>goalCard(gid,r)).join('')}
+  ${(c.read_with_care||[]).length?`<div class="panel"><div class="ph"><h4>Read with care</h4></div><div class="pb"><ul class="keep">${c.read_with_care.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>`:''}
+  ${learn('Learn more: how these numbers were made, and their limits',`<ul>${(d.intro&&d.intro.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><ul class="tech-only keep">${(c.what_we_found||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="tech-only keep">${esc(((d.intro||{}).labels||{}).BOUNDED||'')}</p>`)}
+  ${nr?`<div class="panel"><div class="ph"><h4>Next: OpenTitan Earl Grey, a full security chip</h4><span class="sp"></span><span class="hint">no glitch count yet</span></div><div class="pb"><p style="margin-top:0"><b>Read in full, gate step needs a bigger machine.</b> The whole design was read and prepared, but turning it into gates needs more memory than this computer could give, so no glitch count exists for it yet.</p>
+   <details class="more"><summary>Learn more: each step and how far it got</summary><table class="keep"><thead><tr><th>step</th><th>result</th><th>time</th><th>memory</th></tr></thead><tbody>${(nr.steps||[]).map(x=>`<tr><td>${esc(x.step)}</td><td>${esc(x.result)}</td><td>${esc(x.wall||'')}</td><td>${esc(x.peak_memory||'')}</td></tr>`).join('')}</tbody></table><p class="keep">${esc(nr.stopped||'')}</p></details></div></div>`:''}
+  <div class="fsrc tech-only">data: <span class="keep">${esc(d.file||'')}</span>${d.when?' · file from '+esc(d.when):''} · labels: BOUNDED = exact minimum within T cycles (no unbounded proof)</div>`;
+ onSeg('chipsel',v=>{S.chipSel=v;viewChip(el)})}
+
+/* 10. Example gallery: the saved results of the own-design examples. Works with no build tool installed. */
+const GALB={plain:['as written','plain'],synth:['tidied across the copies','synth (flatten, full optimisation)'],'synth-keep':['tidied, each copy kept as its own block','synth-keep (per module, then flatten)'],netlist:['the factory cells as given','netlist'],rtl:['the written design','RTL']};
+const galTxt=s=>tech()?String(s||''):String(s||'').replace(/flip-flops/g,'memory cells').replace(/flip-flop/g,'memory cell').replace(/\bRedundancy\b/g,'Repeating a check').replace(/\(synth\)/g,'(the tidying one)').replace(/\bcycles\b/g,'steps');
+function galSite(s){if(tech())return `<span class="mono keep">${esc(s)}</span>`;let m;
+ if((m=/^(\S+) \(.*flip-flop (?:output|stored value)\)$/.exec(s)))return `the memory cell behind <span class="keep">“${esc(m[1])}”</span>`;
+ if((m=/^(\S+) \((\w+) gate output\)$/.exec(s)))return `the gate that drives <span class="keep">“${esc(m[1])}”</span>`;
+ if((m=/^(\w+) gate #\d+$/.exec(s)))return `a gate inside the circuit (${esc(m[1])})`;return `<span class="keep">${esc(s)}</span>`}
+const galLabel=l=>String(l||'').replace(/^\d+\.\s*/,'').replace(/^Run /i,'');
+function galRun(r,i,n){const atk=r.verdict==='ATTACK_FOUND',N=r.horizon,ub=r.unbounded||{};
+ const ans=atk?`${gl(r.min_faults)} ${r.min_faults===1?'is':'are'} enough`:r.verdict==='NO_ATTACK_UP_TO_BOUND'?`No way in with up to ${gl(r.max_faults)}`:'Not decided';
+ const sv=r.survival?Object.entries(r.survival).map(([k,v])=>`<tr><td>${esc(T((GALB[k]||[k])[0],(GALB[k]||[k,k])[1]))}</td><td><b>${numOf(v)!=null?gl(v):v==='NO_ATTACK_UP_TO_BOUND'?'no way in with up to '+r.max_faults:esc(String(v).toLowerCase())}</b></td></tr>`).join(''):'';
+ const KN=k=>/^\d+ copies of/.test(k)?`The ${k.match(/^\d+/)[0]} copies of the check`:/^alarm/.test(k)?'The alarm':/^register .* codes/.test(k)?'The spread-out patterns for the lock’s state':/^registers/.test(k)?'The paired step counters':'A protection',KS={rtl:'in the written design',plain:'built as written',synth:'built and tidied','synth-keep':'tidied, each copy kept as its own block',netlist:'in the factory cells'};
+ const kp=Object.entries(r.kept||{}).map(([k,st])=>`<p class="hint" style="margin:4px 0 0">${T(KN(k),'<span class="keep">'+esc(k)+'</span>')}: ${Object.entries(st).map(([b,v])=>`${esc(T(KS[b]||b,b))}: <b>${tech()?esc(v):v==='SURVIVED'?'still there':v==='REMOVED'?'not there':v==='UNTRACKED'?'not followed':esc(String(v).toLowerCase())}</b>`).join(' · ')}${Object.values(st).includes('UNTRACKED')?T(' (“not followed”: it could not be traced through that build, so nothing is said about it)',' (UNTRACKED: could not be followed through this flow, so nothing is said about it)'):''}</p>`).join('');
+ return `<div class="galr ${i===0&&atk?'weak':'held'}"><div class="who">${n>1?(i+1)+'. ':''}${esc(galLabel(r.label))}</div><div class="ans">${ans}</div>
+  <p class="hint" style="margin:0 0 4px">Checked within ${N} steps, with up to ${gl(r.max_faults)}.${atk?'':' Nothing is claimed beyond that, unless the line on waiting time says so.'}</p>
+  ${atk&&r.witness.length?`<p style="margin:4px 0"><b>Where the ${G(r.witness.length)} ${r.witness.length===1?'lands':'land'}:</b> ${r.witness.map(w=>`step ${w[0]}, ${galSite(w[1])}`).join('; ')}.</p>`:''}
+  ${ub.verdict==='PROVED_UNBOUNDED'?`<p style="margin:4px 0">${hon('proved',null,true)} ${ub.k===0?'Without any glitch this never happens, however long the chip runs.':`With up to ${gl(ub.k)} it can never happen, however long the chip runs.`}</p>`:ub.verdict?`<p class="hint" style="margin:4px 0">For any waiting time: not decided.</p>`:''}
+  ${sv?`<p style="margin:6px 0 2px"><b>Did the protection survive the build?</b></p><table>${sv}</table>`:''}${kp}${(r.findings||[]).length?`<details class="more"><summary>What this means, how bad it is, and how it was found</summary>${findingsHTML(r.findings,' ')}</details>`:''}
+  <p class="hint tech-only keep" style="margin:6px 0 0">${esc(r.key)} · check ${esc(r.check)} · top ${esc(r.top||'')} · frontend ${esc(r.frontend||'')} · ${r.runtime_s} s when recorded${r.surface&&r.surface.count?` · ${r.surface.count} cheapest attacks${r.surface.complete?'':' (list not complete)'}`:''}</p></div>`}
+async function viewGallery(el){if(!S.gal)S.gal=await api.get('/api/gallery').catch(()=>({missing:true}));const d=S.gal;
+ if(!d||d.missing||!(d.examples||[]).length){el.innerHTML=`<div class="empty"><b>The example gallery is not in this project folder</b>Nothing can be shown, and nothing is guessed.</div>`;return}
+ const hasMine=VIEWS.some(v=>v.id==='mine');
+ const SAME={hello_lock:'The same idea as path steps 1 and 3: one check against three separate copies.',secure_boot:'The same idea as the path, on a boot check: one compare against three compares with an alarm.',opentitan_count:'A counter from OpenTitan, a real open-source security chip, next to a plain counter.',sky130_lock:'The hello lock again, after it was turned into the ready-made gates of a real chip factory.'};
+ el.innerHTML=orient(`Four small designs, each in a weak and a protected version, with the saved result of each: how many glitches are needed, where the glitch lands, and whether the protection survived the build.`,`Compare the two versions of each design. The number says how many perfectly-timed glitches a thief needs; the “survive the build” lines say whether the build tool kept the copies.`,`Guess each answer before you read it. Then open <b>Why?</b> under each pair and compare with your own explanation. Nothing has to be installed.`)+
+ `<div class="banner"><span><b style="color:var(--txt)">You are seeing saved results. Nothing is missing.</b> ${d.yosys?'The build tool is installed, so these examples can also be run live':'Running an example live needs the build tool, which is not installed on this computer; these are the saved results of the same runs'}${hasMine?' (live runs are in <button class="linkb" id="gal-mine">Open my design</button>)':''}. <button class="linkb" data-go="live">How to run it live</button></span></div>`+
+ d.examples.map(x=>{const runs=[...x.runs].sort((a,b)=>(a.verdict==='ATTACK_FOUND'?a.min_faults:99)-(b.verdict==='ATTACK_FOUND'?b.min_faults:99));
+  return `<div class="panel"><div class="ph"><h4>${esc(galTxt(x.title))}</h4><span class="sp"></span>${hon('recorded')}</div>
+  <div class="gal3"><div><b>What it is</b>${esc(galTxt(x.what))}</div><div><b>Why the protection matters</b>${esc(galTxt(x.why))}</div><div><b>Compare with</b>${esc(SAME[x.id]||galTxt(x.teaches))}</div></div>
+  <div class="galx">${runs.map((r,i)=>galRun(r,i,runs.length)).join('')}</div>
+  <details class="more learn" style="margin:0 12px 10px"><summary>Why? Open after you have written your own explanation</summary><div class="pb"><p style="margin:0 0 6px">${esc(galTxt(x.teaches))}</p><p style="margin:0">${esc(galTxt(x.after))}</p></div></details>
+  <div class="fsrc tech-only">saved results: <span class="keep">${esc(x.file)}</span>${x.when?' · file from '+esc(x.when):''} · computed by the own-design tool (glitchsat run), labelled MEASURED in that file; shown here as recorded because nothing is re-run</div></div>`}).join('')+
+ `<p class="hint" style="margin:0 2px 10px">Own designs: this tool answers the build question only (does the protection survive the build tool?). The laser-spot analysis exists for the built-in layouts on the page “Laser shots on the chip”.</p>`;
+ const gm=$('#gal-mine');if(gm)gm.onclick=()=>show('mine')}
 Studio.registerView({id:'x-spots',group:'explore',title:'Weak spots',ttitle:'Attack surface and merge lint',icon:ICON.spots,blurb:'Every cheapest way in, and which parts they use.',labels:['recorded'],render:viewSurface});
 Studio.registerView({id:'x-fix',group:'explore',title:'Suggest a fix',ttitle:'Suggest a fix (auto-harden)',icon:ICON.fix,blurb:'The cheapest change that makes the thief need more glitches.',labels:['recorded'],render:viewFix});
 Studio.registerView({id:'x-forever',group:'explore',title:'Holds for any waiting time?',ttitle:'Unbounded proof status',icon:ICON.forever,blurb:'Proofs that hold however long the thief waits.',labels:['proved'],render:viewForever});
 Studio.registerView({id:'x-shots',group:'explore',title:'Laser shots on the chip',ttitle:'Glitch shots on the layout',icon:ICON.shots,blurb:'Where on the real layout a pulse must land.',labels:['simulated'],render:viewShots});
 Studio.registerView({id:'x-lab',group:'explore',title:'Clock-glitch lab',ttitle:'Virtual glitch campaign',icon:ICON.lab,blurb:'Every clock-glitch timing, tried in software.',labels:['simulated'],render:viewVlab});
-Studio.registerView({id:'x-fw',group:'explore',title:'Boot program',ttitle:'Firmware secure boot',icon:ICON.fw,blurb:'Glitches against the program that starts the chip.',labels:['simulated'],render:viewFirmware});
-Studio.registerView({id:'x-hw',group:'explore',title:'Our boot-check hardware',ttitle:'Secure-boot hardware',icon:ICON.hw,blurb:'Our own protected circuit; no results yet.',labels:[],hidePlain:()=>!(S.hw&&S.hw.run>0),render:viewSecboot});
+Studio.registerView({id:'x-fw',group:'explore',title:'Boot program',ttitle:'Firmware secure boot',icon:ICON.fw,blurb:'Glitches against the program that starts the chip.',labels:['simulated'],render:viewFirmware,findings:()=>{const q=S.fw||{};const d=S.mods[`firmware&variant=${q.variant}&opt=${q.opt}&mode=${q.mode}`];return d&&d.findings}});
+Studio.registerView({id:'x-hw',group:'explore',title:'Our boot-check hardware',ttitle:'Secure-boot hardware',icon:ICON.hw,blurb:'Our own protected circuit; the long run is still to come.',labels:[],hidePlain:()=>!(S.hw&&S.hw.run>0),render:viewSecboot});
 Studio.registerView({id:'x-rep',group:'explore',title:'Evidence report',ttitle:'Evidence report and margin',icon:ICON.rep,blurb:'The count turned into the points test labs use.',labels:['estimate'],render:viewEvidence});
 Studio.registerView({id:'x-real',group:'explore',title:'Real chip designs',ttitle:'Real designs (OpenTitan)',icon:ICON.real,blurb:'Same answers as a published tool on real security-chip blocks.',labels:['recorded'],render:viewReal});
+Studio.registerView({id:'x-chip',group:'explore',title:'Explore a real chip',ttitle:'Whole chip (PicoSoC, Ibex demo system)',icon:ICON.real,blurb:'Whole open-source chips: where the security decisions sit, and how many glitches break them.',labels:['bounded'],render:viewChip});
+Studio.registerView({id:'x-gal',group:'explore',title:'Example gallery',ttitle:'Example gallery (own-design tool)',icon:ICON.real,blurb:'Weak and protected versions of four small designs. Hands-on, nothing to install.',labels:['recorded'],hide:()=>!S.gal||S.gal.missing||!(S.gal.examples||[]).length,render:viewGallery});
 
 Studio.registerView({id:'start',title:'Start',tip:'Where to begin: try an attack, follow the path, explore',mount:el=>{},show:el=>drawStart(el)});
 Studio.registerView({id:'analyze',title:'Try an attack',tip:'Run one attack and read its result',mount:el=>{el.innerHTML='<div id="story"></div><div id="dirty"></div><div id="result"></div>'},show:()=>{if(S.last)requestAnimationFrame(()=>{drawWave();drawMap()})}});
@@ -3623,6 +4090,7 @@ $('#viewseg').onclick=e=>{const b=e.target.closest('button');if(b)setView(b.data
 function setTheme(t){S.theme=t;LS.set('gs_theme',t);document.documentElement.dataset.theme=t}
 $('#b-theme').onclick=()=>setTheme(S.theme==='dark'?'light':'dark');
 document.addEventListener('keydown',e=>{const tg=e.target,tn=tg.tagName;
+ if(S.fr)return;/* FIRST-RUN-VIEW: the welcome story or Presenter mode has the keys */
  if(S.story!=null){if(e.key==='Escape')closeStory();else if(e.key==='ArrowRight'&&$('#snx'))$('#snx').click();else if(e.key==='ArrowLeft'&&$('#sbk')&&!$('#sbk').disabled)$('#sbk').click();return}
  if(S.dlg){if(e.key==='Escape')closeDlg();return}
  if(S.help){if(e.key==='Escape')closeHelp();else if(e.key==='ArrowRight'&&$('#hn'))$('#hn').click();else if(e.key==='ArrowLeft'&&$('#hb')&&!$('#hb').disabled)$('#hb').click();return}
@@ -3645,7 +4113,10 @@ document.addEventListener('keydown',e=>{const tg=e.target,tn=tg.tagName;
 let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(S.last&&!S.last.error){drawWave();drawMap()}},120)});
 
 /* ---------------- lifecycle: the server stops only when every window has closed */
-function ping(){fetch('/api/ping?cid='+CID).then(()=>{if(S.offline){S.offline=false;drawFoot()}}).catch(()=>{if(!S.offline){S.offline=true;drawFoot()}})}
+function ping(){fetch('/api/ping?cid='+CID).then(r=>r.json()).then(p=>{const back=S.offline,restarted=!!(p&&p.boot&&S.boot&&p.boot!==S.boot);if(p&&p.boot&&!S.boot)S.boot=p.boot;
+  if(back||restarted){S.offline=false;if(restarted)S.boot=p.boot;S.restarted=S.restarted||restarted;
+   api.get('/api/status').then(s=>{S.status=s;syncControls();drawFoot();announce(restarted?'The Studio was restarted. Reload this window if a page does not answer.':'The Studio answers again.')}).catch(()=>drawFoot())}})
+ .catch(()=>{if(!S.offline){S.offline=true;drawFoot();announce('The Studio is not answering.')}})}
 setInterval(ping,15000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)ping()});
 addEventListener('pagehide',()=>{try{fetch('/api/bye',{method:'POST',keepalive:true,headers:{'X-GlitchSAT':'1','Content-Type':'application/json'},body:JSON.stringify({cid:CID})})}catch(e){}});
 addEventListener('pageshow',ping);
@@ -3656,11 +4127,68 @@ $('#b-story').onclick=()=>openStory(0);$('#setdet').open=tech()||LS.get('gs_seto
 show('start');observePlain();
 api.get('/api/status').then(s=>{S.status=s;$('#ver').textContent=s.version||'';document.title='GlitchSAT Studio '+(s.version||'');syncControls();render();drawFoot();
  logLine('ready',s.live?`GlitchSAT ${s.version} · z3 ${s.z3} · ${s.yosys||'Yosys not installed'} · ${s.workers} worker process(es)`:`GlitchSAT ${s.version} · recorded mode: z3 not installed; results are read from the project files`,'p');
- loadFindings();if(S.tab==='start')drawStart();if(!LS.get('gs_seen3',0))openStory(0);
+ loadFindings();if(S.tab==='start')drawStart();if(!LS.get('gs_seen3',0)&&!(Studio.firstRun&&Studio.firstRun()))openStory(0);/* FIRST-RUN-VIEW */
  const redo=()=>{if(S.story!=null||S.dlg||S.help)return;if(S.tab==='start')drawStart();else if(S.tab==='about')drawAbout();else if(S.tab==='explore')drawExplore()};
+ if(s.gallery)api.get('/api/gallery').then(g=>{S.gal=g;redo()}).catch(()=>{});
  getMod('real').then(d=>{S.real=d&&!d.missing&&!d.error&&!d.broken?d:null;redo();if(S.story!=null&&S.tab==='start')drawStart()});
  getMod('secboot_hw').then(d=>{if(d&&d.cards)S.hw={total:d.cards.length,run:d.cards.filter(c=>c.status!=='NOT_RUN').length};redo();if(S.story!=null&&S.tab==='start')drawStart()})}).catch(()=>{S.offline=true;drawFoot();drawStart()});
 </script></body></html>'''
+
+# ---- LEARN-VIEW hook: the "Why protect chips?" lesson lives in learn_view.py (tab, story card, Start link, Explore lines)
+learn_view = None
+try:
+    import importlib.util as _ilu
+    _sp = _ilu.spec_from_file_location('learn_view', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'learn_view.py'))
+    learn_view = _ilu.module_from_spec(_sp); _sp.loader.exec_module(learn_view); PAGE = learn_view.install(PAGE)
+except Exception as _e:                # noqa: BLE001  - the Studio must start without it
+    learn_view = None; print(f'learn_view not loaded: {_e}', file=sys.stderr)
+
+# ---- FIRST-RUN-VIEW hook: the welcome story ("Why GlitchSAT?") and Presenter mode live in first_run_view.py
+first_run_view = None
+try:
+    import importlib.util as _ilu
+    _sp = _ilu.spec_from_file_location('first_run_view', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'first_run_view.py'))
+    first_run_view = _ilu.module_from_spec(_sp); _sp.loader.exec_module(first_run_view); PAGE = first_run_view.install(PAGE)
+except Exception as _e:                # noqa: BLE001  - the Studio must start without it
+    first_run_view = None; print(f'first_run_view not loaded: {_e}', file=sys.stderr)
+
+# ---- LABS-VIEW hook: the "Labs" tab (experiments in progress) lives in labs_view.py; it only reads saved Labs results
+labs_view = None
+try:
+    import importlib.util as _ilu
+    _sp = _ilu.spec_from_file_location('labs_view', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'labs_view.py'))
+    labs_view = _ilu.module_from_spec(_sp); _sp.loader.exec_module(labs_view); PAGE = labs_view.install(PAGE)
+except Exception as _e:                # noqa: BLE001  - the Studio must start without it
+    labs_view = None; print(f'labs_view not loaded: {_e}', file=sys.stderr)
+
+# ---- PLUGIN hook: add-ons found on disk are loaded by the one start command; no environment variable is needed.
+# The loading contract (studio.py never edits a plug-in file, and a plug-in never has to edit studio.py):
+#   * A plug-in is marked by its launcher file  tools/studio/studio_byod.py  (looked for in the project, next to this
+#     file, in tools/byod/ and, for testing, in $GLITCHSAT_EXT/byod).
+#   * Next to the launcher lives the view module  byod_view.py  with two functions:
+#         install(page) -> page                 adds its style and script; the script calls Studio.registerView({...})
+#         handle(h, method, path, q) -> bool    answers its own requests (True when it answered); h is the request handler
+#   * A launcher that defines  attach(studio_module)  is asked instead; it returns an object with handle(...) (or None)
+#     and may change studio_module.PAGE itself.
+# Skipped for worker processes, with --no-plugins, and when the page already has the plug-in (started through the launcher).
+def load_plugins():
+    global PAGE
+    if PLUGINS or IS_WORKER or '--no-plugins' in sys.argv or '/api/byod/' in PAGE: return
+    import importlib.util as ilu
+    for lp in _plugin_candidates()[:1]:
+        try:
+            d = os.path.dirname(lp)
+            if 'def attach(' in open(lp, encoding='utf-8').read():
+                sp = ilu.spec_from_file_location('studio_byod', lp); m = ilu.module_from_spec(sp); sp.loader.exec_module(m)
+                obj = m.attach(sys.modules[__name__])
+                if obj is not None: PLUGINS.append(dict(name='Open my design', path=lp, handle=obj.handle))
+            else:
+                sp = ilu.spec_from_file_location('byod_view', os.path.join(d, 'byod_view.py')); m = ilu.module_from_spec(sp); sp.loader.exec_module(m)
+                PAGE = m.install(PAGE)
+                PLUGINS.append(dict(name='Open my design', path=lp, handle=m.handle))
+        except Exception as e:                 # noqa: BLE001  - the Studio must start without it
+            PLUGIN_NOTES.append('Open my design was found at %s but could not be loaded (%s: %s)' % (lp, type(e).__name__, str(e)[:160]))
+            print('plug-in not loaded: %s: %s' % (lp, e), file=sys.stderr)
 
 def _arg(name, default=None):
     if name in sys.argv:
@@ -3678,7 +4206,40 @@ def _open_window(url):
     webbrowser.open(url)
     BROWSER_USED[0] = 'default browser (tab); install Chromium for a separate app window'
 
+HELP = '''GlitchSAT Studio %s - counts how many glitches an attacker needs, on this computer only.
+
+usage: python3 studio.py [--port N] [--no-browser] [--no-autostop] [--no-plugins] [--allow-root DIR]
+       python3 studio.py --help | --version
+
+  --port N        first port to try on 127.0.0.1 (default 8765; the next free one is used)
+  --no-browser    do not open a window; open the printed address yourself
+  --no-autostop   keep running when every window is closed
+  --no-plugins    start without the "Open my design" plug-in
+  --allow-root DIR  let "Open my design" open folders under DIR too (default: only the home folder)
+  -h, --help      show this text and exit (no server is started)
+  -V, --version   show the versions and exit
+
+The project folder is $GLITCHSAT_ROOT, else the repository that contains this file, else the current folder.
+Without z3 every result is a saved result from the project files, labelled RECORDED.'''
+
+def info_only():
+    """--help / --version: print and return True, before anything is started."""
+    if '--version' in sys.argv or '-V' in sys.argv:
+        print('GlitchSAT %s, Studio interface %s (project: %s%s)' % (ENGINE_VERSION or '?', STUDIO_VERSION, ROOT,
+                                                                     '' if project_found() else ', NOT a GlitchSAT project folder'))
+        return True
+    print(HELP % STUDIO_VERSION)
+    return True
+
+def not_project_note():
+    return ('This is not a GlitchSAT project folder: %s has no scripts/glitchsat.py and results/. Start the Studio from the '
+            'repository (python3 tools/studio/studio.py), or set GLITCHSAT_ROOT=/path/to/the/repository.' % ROOT)
+
 def main():
+    try: sys.stdout.reconfigure(line_buffering=True)   # the address must appear at once, also when the output goes to a file
+    except Exception: pass                             # noqa: BLE001
+    if not project_found(): print('WARNING: ' + not_project_note(), file=sys.stderr, flush=True)
+    load_plugins()
     try: port = int(_arg('--port', '8765'))
     except ValueError: sys.exit('--port needs a number, for example: --port 8765')
     try:                                       # a Studio already running on this port? Reuse it instead of starting a second server.
@@ -3703,7 +4264,10 @@ def main():
     print(f'  engine : {"live, z3 " + Z3V if LIVE else "recorded results only (z3 not installed)"}')
     print(f'  Yosys  : {YOSYS_V or "not installed (rebuilt designs use recorded results)"}')
     if not LIVE: print('  to compute live: pip install z3-solver (inside a Python virtual environment), then start the Studio again')
-    print(f'  project: {ROOT}')
+    print(f'  project: {ROOT}' + ('' if project_found() else '   <- NOT a GlitchSAT project folder (see the warning above)'))
+    print('  lesson : ' + ('"Why protect chips?" loaded' if learn_view else 'not loaded (learn_view.py missing)'))
+    print('  design : ' + ('"Open my design" loaded from ' + PLUGINS[0]['path'] if PLUGINS else '"Open my design" tab already installed by its launcher' if '/api/byod/' in PAGE
+                           else (PLUGIN_NOTES[0] if PLUGIN_NOTES else '"Open my design" plug-in not found (optional)')))
     if '--no-browser' not in sys.argv:
         _open_window(url)
         print(f'  window : {BROWSER_USED[0]}')
@@ -3736,7 +4300,9 @@ def main():
         shutil.rmtree(WORK, ignore_errors=True)
 
 if __name__ == '__main__':
-    if IS_WORKER:
+    if INFO_ONLY:
+        info_only()
+    elif IS_WORKER:
         i = sys.argv.index('--worker')
         worker_main(sys.argv[i + 1], sys.argv[i + 2])
     else:
