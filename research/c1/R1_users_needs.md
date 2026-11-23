@@ -12,7 +12,6 @@ Caveat up front: I found NO forum/Reddit/StackExchange threads of practitioners 
 
 ### Secure-boot / firmware teams
 - [OPENED] NCC Group, MediaTek BootROM glitch: https://www.nccgroup.com/research/there-s-a-hole-in-your-soc-glitching-the-mediatek-bootrom/ . Signature check bypassed with ~USD 390 hardware, "several days worth of bruteforce", 15-20% success; flaw is in mask ROM so unpatchable; authors say in-silicon brown-out detection is the best mitigation and that fault resistance must be designed in before tape-out. Software counters (redundant checks, random delays, CFI) only raise cost. Relevance: the bypass-the-check scenario is real, and the "redundant check" mitigation is exactly what the project tests.
-- [OPENED] eShard MCUboot series pt1: https://www.eshard.com/blog/mcuboot-under-good-pressure-part-1 . Pains: hardware campaigns slow, samples can be destroyed, needs deep expertise; root cause hard to understand for countermeasure design; emulation "depends on the fault model, and so may, or may not, be realistic". This is firmware-level; it does not address RTL/netlist.
 - [SNIPPET] Patents on randomized execution / redundant checks in secure boot (USPTO) show redundancy is the standard industrial countermeasure; UNVERIFIED details.
 
 ### EDA / verification tool developers and academic tool authors

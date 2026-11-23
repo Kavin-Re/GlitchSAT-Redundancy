@@ -26,7 +26,7 @@ shows the attack step by step, and says in plain words what went wrong and what 
 - Doing a check twice does not help when both copies meet in one shared wire: **1** glitch is enough.
 - Three separate copies need **3** glitches on the stored design. The answer depends on the build: on a whole
   open-source chip design (PicoSoC with a three-copy boot check) it goes **3 / 2 / 1** across three ways of building
-  it. The drop to 2 comes from a weak stored code (the copies are still apart); the drop to 1 is the build tool
+  it. The drop to 2 is most likely a weak stored code (the copies are still apart); the drop to 1 is the build tool
   merging the three copies. The V2 drop to 2 after a rebuild also comes from one stored code (see
   [`docs/report/WHY_TWO_FLIPS.md`](docs/report/WHY_TWO_FLIPS.md)).
 - On real OpenTitan security hardware (published SYNFI netlists), GlitchSAT gives the same answer as lowRISC's own

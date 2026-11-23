@@ -94,10 +94,10 @@ WHO = {
 
 # Real-world comparisons: only cases told, with sources, in the lesson "Why protect chips?" (screen numbers from 1).
 COMPARE = {
-    'boot': ('Like the Nintendo Switch modchips, which glitch the start-up checks so that they accept unofficial '
-             'software (lesson, true stories 1).', 5),
-    'unlock': ('Like the start-up checks of the Nintendo Switch, which modchips glitched to accept unofficial software '
-               '(lesson, true stories 1).', 5),
+    'boot': ('Like the Xbox 360 reset glitch (2011), where one timed pulse made the start-up check accept programs '
+             'that were never signed (lesson, true stories 1).', 5),
+    'unlock': ('Like the Xbox 360 reset glitch (2011), where one timed pulse made the start-up check accept programs '
+               'that were never signed (lesson, true stories 1).', 5),
     'key': ('Like the Trezor wallets, where two voltage glitches let researchers copy out the stored secret (lesson, '
             'true stories 2).', 6),
     'debug': ('Like the Apple AirTag, whose locked debug connector gave way to one well-timed power cut (lesson, '

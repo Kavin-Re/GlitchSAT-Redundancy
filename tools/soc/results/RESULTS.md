@@ -308,8 +308,8 @@ What we found and what it means
      21 to 23. Result bounded: the real answer might be worse or better than shown.
    In real life: Someone with the device on their desk and standard glitching tools could do this, after some
      practice. If it works, they make the chip start their own software.
-   Real-world comparison: Like the Nintendo Switch modchips, which glitch the start-up checks so that they
-     accept unofficial software (lesson, true stories 1).
+   Real-world comparison: Like the Xbox 360 reset glitch (2011), where one timed pulse made the start-up check
+     accept programs that were never signed (lesson, true stories 1).
    How urgent: Fix this before the design is made into a chip (or before the firmware ships).
    Why it happened: (d) One wire or branch decides the outcome: The whole decision passes through a single
      point: one wire, one memory cell or one branch. Disturbing that one point is enough.
@@ -346,8 +346,8 @@ What we found and what it means
      21 to 23. Result bounded: the real answer might be worse or better than shown.
    In real life: Someone with the device on their desk and standard glitching tools could do this, after some
      practice. If it works, they make the chip start their own software.
-   Real-world comparison: Like the Nintendo Switch modchips, which glitch the start-up checks so that they
-     accept unofficial software (lesson, true stories 1).
+   Real-world comparison: Like the Xbox 360 reset glitch (2011), where one timed pulse made the start-up check
+     accept programs that were never signed (lesson, true stories 1).
    How urgent: Fix this before the design is made into a chip (or before the firmware ships).
    Why it happened: (d) One wire or branch decides the outcome: The whole decision passes through a single
      point: one wire, one memory cell or one branch. Disturbing that one point is enough.
@@ -385,8 +385,8 @@ What we found and what it means
      shown.
    In real life: Someone with the device on their desk and standard glitching tools could do this, after some
      practice. If it works, they make the chip start their own software.
-   Real-world comparison: Like the Nintendo Switch modchips, which glitch the start-up checks so that they
-     accept unofficial software (lesson, true stories 1).
+   Real-world comparison: Like the Xbox 360 reset glitch (2011), where one timed pulse made the start-up check
+     accept programs that were never signed (lesson, true stories 1).
    How urgent: Fix this before the design is made into a chip (or before the firmware ships).
    Why it happened: (a) The build tool removed a protection: The design as written has a second check or extra
      copies. The tool that built the chip (or the compiler that made the machine code) merged or removed them.
@@ -427,8 +427,8 @@ What we found and what it means
      shown.
    In real life: Someone with the device on their desk and standard glitching tools could do this, after some
      practice. If it works, they make the chip start their own software.
-   Real-world comparison: Like the Nintendo Switch modchips, which glitch the start-up checks so that they
-     accept unofficial software (lesson, true stories 1).
+   Real-world comparison: Like the Xbox 360 reset glitch (2011), where one timed pulse made the start-up check
+     accept programs that were never signed (lesson, true stories 1).
    How urgent: Fix this before the design is made into a chip (or before the firmware ships).
    Why it happened: (a) The build tool removed a protection: The design as written has a second check or extra
      copies. The tool that built the chip (or the compiler that made the machine code) merged or removed them.
