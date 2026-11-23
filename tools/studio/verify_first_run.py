@@ -92,6 +92,16 @@ def run():
                     txt = pg.inner_text('#fr .fr-card')
                     check(f'{t}: how: four steps and the bridge sentence', all(x in txt for x in ('A chip runs on clock ticks.', 'flip-flop', 'short dip in the power', 'too short', 'electromagnetic pulse', 'one bit flips', 'say yes to a wrong key', 'GlitchSAT doesn’t use real hardware.', 'It models step 3: it flips a wire’s value for one clock tick in the design, and asks a solver for the fewest flips that make the check say yes.')), txt[:200])
                     check(f'{t}: how: links to the sourced real cases in the lesson', pg.is_visible('#fr [data-go="learn:5"]'))
+                    pg.click('#fr-real'); pg.wait_for_timeout(250)
+                    check(f'{t}: how: "See 6 real attacks" shows six cards, each with Why it matters and a source', pg.evaluate("[document.querySelectorAll('#fr .fr-rc').length,document.querySelectorAll('#fr .fr-rc .why').length,document.querySelectorAll('#fr .fr-rc .src a').length]") == [6, 6, 6] and heading(pg) == 'Real attacks: glitches that worked')
+                    snap(pg, f'{t}_s2_real'); pg.click('#fr-next'); pg.wait_for_timeout(250)
+                    check(f'{t}: how: "Back to the story" returns to screen 2', heading(pg) == 'How a glitch attack works')
+                    sayvis = "(b=>!!b&&!b.hidden&&b.getClientRects().length>0)(document.querySelector('#fr-saybox'))"
+                    check(f'{t}: Say-this lines hidden by default (no .fr-say on the audience screen)', not pg.evaluate(sayvis) and not pg.evaluate("!!document.querySelector('#fr details.fr-say')"))
+                    pg.keyboard.press('Control+f'); pg.wait_for_timeout(150); on1 = pg.evaluate(sayvis); txt1 = pg.evaluate("(document.querySelector('#fr-saybox')||{}).textContent||''")
+                    pg.keyboard.press('Control+f'); pg.wait_for_timeout(150); off1 = not pg.evaluate(sayvis)
+                    pg.keyboard.press('s'); pg.wait_for_timeout(150); on2 = pg.evaluate(sayvis); pg.keyboard.press('S'); pg.wait_for_timeout(150); off2 = not pg.evaluate(sayvis)
+                    check(f'{t}: Ctrl+F and S show and hide the Say-this line (and the story stays put)', on1 and off1 and on2 and off2 and txt1.startswith('Say this:') and heading(pg) == 'How a glitch attack works', [on1, off1, on2, off2, txt1[:40]])
                     g = pg.locator('#fr .fr-glitch').bounding_box(); tk = pg.evaluate("(()=>{const s=document.querySelector('.fr-gsvg'),p=s.createSVGPoint();p.x=330;p.y=162;const q=p.matrixTransform(s.getScreenCTM());return [q.x,q.y]})()")
                     pg.mouse.move(g['x'] + g['width'] / 2, g['y'] + g['height'] / 2); pg.mouse.down(); pg.mouse.move(tk[0] - 30, tk[1], steps=6); pg.mouse.move(tk[0], tk[1], steps=3); pg.mouse.up(); pg.wait_for_timeout(2600)
                     check(f'{t}: how: dragging the glitch onto tick 3 flips one bit and opens the lock', res(pg).startswith('1 bit flipped') and 'check cell kept the wrong value' in res(pg) and pg.evaluate("document.querySelector('.fr-gsvg').getAttribute('aria-label')").startswith('Frame 4'), res(pg)[:120])
@@ -194,59 +204,64 @@ def run():
             pg.keyboard.press('Enter'); pg.wait_for_timeout(500)
             check('keyboard: Enter on the top-bar link opens the story again', heading(pg) == 'Can a tiny glitch open a lock?')
             pg.keyboard.press('Escape'); pg.wait_for_timeout(400); c.close()
-            # 6. Presenter mode: 10 stops through the real views, one key
+            # 6. Presenter mode: 12 stops through the real views, one key
             c = ctx(b, 1366, 768, 'dark', fr={'v': 1, 'screen': 0, 'done': True}, pred=False); pg = newpage(c); pg.wait_for_function("S.status&&S.story!=null"); pg.keyboard.press('p'); pg.wait_for_timeout(800)   # pred=False: a new profile, Predict first on (B-1)
-            check('presenter: P enters (html.present, stop 1 of 11)', pg.evaluate("document.documentElement.classList.contains('present')") and 'stop 1 of 11' in pg.inner_text('#fr-pbar'), pg.evaluate("[document.documentElement.className,S.story,!!FirstRun.FR.P,(document.querySelector('#fr-pbar')||{}).innerText]"))
-            check('presenter: no "Say this" cue and no Skip in the audience window', not pg.evaluate("!!document.querySelector('#fr .fr-say,#fr-skip')"))
+            check('presenter: P enters (html.present, stop 1 of 12)', pg.evaluate("document.documentElement.classList.contains('present')") and 'stop 1 of 12' in pg.inner_text('#fr-pbar'), pg.evaluate("[document.documentElement.className,S.story,!!FirstRun.FR.P,(document.querySelector('#fr-pbar')||{}).innerText]"))
+            check('presenter: no "Say this" cue and no Skip in the audience window', not pg.evaluate("!!document.querySelector('#fr .fr-say,#fr-skip')") and not pg.evaluate("(b=>!!b&&!b.hidden)(document.querySelector('#fr-saybox'))"))
+            pg.keyboard.press('Control+f'); pg.wait_for_timeout(150); pon = pg.evaluate("(b=>!!b&&!b.hidden&&(b.textContent||'').includes('toy lock'))(document.querySelector('#fr-saybox'))")
+            pg.keyboard.press('s'); pg.wait_for_timeout(150); poff = pg.evaluate("(b=>!b||b.hidden)(document.querySelector('#fr-saybox'))")
+            check('presenter: Ctrl+F shows the Say-this line of the stop, S hides it, the stop does not change', pon and poff and pg.evaluate("[FirstRun.FR.P.k,FirstRun.FR.P.step]") == [0, 0], [pon, poff])
             snap(pg, 'present_dark_stop1'); seen, views = [], []
-            want = [None, None, None, None, None, 'v-learn', 'v-analyze', 'v-explore', 'v-mine', 'v-findings', None]
-            for k in range(11):
+            want = [None, None, None, None, None, None, 'v-learn', 'v-analyze', 'v-explore', 'v-mine', 'v-findings', None]
+            for k in range(12):
                 st = pg.evaluate("FirstRun.FR.P&&[FirstRun.FR.P.k,FirstRun.FR.P.step]"); seen.append(st)
                 acts = pg.evaluate("(s=>s.kind==='story'?(FirstRun.SCR[s.i].acts||[]).length:(s.acts||[]).length)(FirstRun.STOPS[FirstRun.FR.P.order[FirstRun.FR.P.k]])")
                 vis = pg.evaluate("[...document.querySelectorAll('main .view')].filter(v=>!v.classList.contains('hidden')).map(v=>v.id)[0]||null")
                 if want[k]: views.append((k + 1, vis == want[k] and not pg.evaluate("!!document.querySelector('#fr:not([hidden])')"), vis))
-                if k == 7: views.append(('x-chip', pg.evaluate("S.xv") == 'x-chip' and pg.evaluate("S.chipSel") == 'picosoc', pg.evaluate("S.xv")))
-                if k in (1, 2, 4): check(f'presenter B-3: stop {k+1} arrives scrolled to the top', pg.evaluate("document.querySelector('#fr').scrollTop") == 0)
-                if k == 4:
+                if k == 8: views.append(('x-chip', pg.evaluate("S.xv") == 'x-chip' and pg.evaluate("S.chipSel") == 'picosoc', pg.evaluate("S.xv")))
+                if k in (1, 2, 3, 5): check(f'presenter B-3: stop {k+1} arrives scrolled to the top', pg.evaluate("document.querySelector('#fr').scrollTop") == 0)
+                if k == 2:
+                    check('presenter: stop 3 shows the real attacks (six cards, each with a Why it matters line and a source link)', pg.evaluate("[document.querySelectorAll('#fr .fr-rc').length,document.querySelectorAll('#fr .fr-rc .why').length,document.querySelectorAll('#fr .fr-rc .src a[href^=\"https://\"]').length]") == [6, 6, 6], pg.evaluate("document.querySelectorAll('#fr .fr-rc').length"))
+                if k == 5:
                     pg.keyboard.press('ArrowDown'); pg.wait_for_timeout(200)
-                    check('presenter: Down arrow scrolls the card and stays on the stop', pg.evaluate("[document.querySelector('#fr').scrollTop>0,FirstRun.FR.P.k,FirstRun.FR.P.step]") == [True, 4, 0])
+                    check('presenter: Down arrow scrolls the card and stays on the stop', pg.evaluate("[document.querySelector('#fr').scrollTop>0,FirstRun.FR.P.k,FirstRun.FR.P.step]") == [True, 5, 0])
                     pg.keyboard.press('ArrowUp'); pg.wait_for_timeout(200)
-                if k == 6:
-                    pg.wait_for_timeout(1500)
-                    check('presenter B-1: stop 7 does not ask for a prediction (no blurred result)', pg.evaluate("[S.predOn,typeof predPending==='function'?predPending():null,!!document.querySelector('#v-analyze .predict .blur,#v-analyze [data-pred]')]") == [False, False, False], pg.evaluate("[S.predOn,typeof predPending==='function'?predPending():null]"))
                 if k == 7:
+                    pg.wait_for_timeout(1500)
+                    check('presenter B-1: stop 8 does not ask for a prediction (no blurred result)', pg.evaluate("[S.predOn,typeof predPending==='function'?predPending():null,!!document.querySelector('#v-analyze .predict .blur,#v-analyze [data-pred]')]") == [False, False, False], pg.evaluate("[S.predOn,typeof predPending==='function'?predPending():null]"))
+                if k == 8:
                     pg.wait_for_timeout(800)
-                    check('presenter S-4: stop 8 scrolls the 3 / 2 / 1 line into view', pg.evaluate("(e=>{if(!e)return null;const r=e.getBoundingClientRect(),pb=document.querySelector('#fr-pbar'),lim=pb&&!pb.hidden?pb.getBoundingClientRect().top:innerHeight;return r.top>=0&&r.bottom<=lim+1})(document.querySelector('#v-explore .take'))") is True)
+                    check('presenter S-4: stop 9 scrolls the 3 / 2 / 1 line into view', pg.evaluate("(e=>{if(!e)return null;const r=e.getBoundingClientRect(),pb=document.querySelector('#fr-pbar'),lim=pb&&!pb.hidden?pb.getBoundingClientRect().top:innerHeight;return r.top>=0&&r.bottom<=lim+1})(document.querySelector('#v-explore .take'))") is True)
                     pg.keyboard.press('ArrowDown'); pg.wait_for_timeout(200)
-                    check('presenter: Down arrow in an app stop does not change the stop', pg.evaluate("FirstRun.FR.P.k") == 7)
-                if k == 9:
+                    check('presenter: Down arrow in an app stop does not change the stop', pg.evaluate("FirstRun.FR.P.k") == 8)
+                if k == 10:
                     check('presenter S-3: "Run all studies" is hidden in Presenter mode', not pg.evaluate("(b=>!!b&&b.offsetParent!==null)(document.querySelector('#f-all'))"))
-                if k == 5: views.append(('learn:8', 'hidden danger' in (pg.evaluate("(document.querySelector('#lz-h')||{}).textContent||''").lower()), ''))
+                if k == 6: views.append(('learn:8', 'hidden danger' in (pg.evaluate("(document.querySelector('#lz-h')||{}).textContent||''").lower()), ''))
                 for a in range(acts):
                     pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(900)
                     if k == 1 and a == 2:
                         check('presenter B-3: stop 2, third press: the bridge line it reveals is scrolled into view', pg.evaluate("(e=>{if(!e)return null;const r=e.getBoundingClientRect(),pb=document.querySelector('#fr-pbar'),lim=pb&&!pb.hidden?pb.getBoundingClientRect().top:innerHeight;return r.top>=0&&r.bottom<=lim+1})(document.querySelector('#fr .fr-bridge'))") is True, pg.evaluate("document.querySelector('#fr').scrollTop"))
                     if k == 1 and a == 3:
                         check('presenter B-3: stop 2, fourth press: the result line is in view', pg.evaluate("(e=>{if(!e)return null;const r=e.getBoundingClientRect(),pb=document.querySelector('#fr-pbar'),lim=pb&&!pb.hidden?pb.getBoundingClientRect().top:innerHeight;return r.top>=0&&r.bottom<=lim+1})(document.querySelector('#fr .fr-res p'))") is True)
-                    if k == 2 and a == 0:
-                        check('presenter B-3: stop 3, first press: the build text it reveals is scrolled into view', pg.evaluate("(e=>{if(!e)return null;const r=e.getBoundingClientRect(),pb=document.querySelector('#fr-pbar'),lim=pb&&!pb.hidden?pb.getBoundingClientRect().top:innerHeight;return r.top>=0&&r.bottom<=lim+1})(document.querySelector('#fr .fr-res .fr-bridge'))") is True, pg.evaluate("document.querySelector('#fr').scrollTop"))
+                    if k == 3 and a == 0:
+                        check('presenter B-3: stop 4, first press: the build text it reveals is scrolled into view', pg.evaluate("(e=>{if(!e)return null;const r=e.getBoundingClientRect(),pb=document.querySelector('#fr-pbar'),lim=pb&&!pb.hidden?pb.getBoundingClientRect().top:innerHeight;return r.top>=0&&r.bottom<=lim+1})(document.querySelector('#fr .fr-res .fr-bridge'))") is True, pg.evaluate("document.querySelector('#fr').scrollTop"))
                     if k == 1 and a == 3:
                         check('presenter: stop 2 (how a glitch attack works): three → reveal the steps, the fourth drops the glitch on the right tick', res(pg).startswith('1 bit flipped'), res(pg)[:80])
                     if k == 0 and a == 0:
                         wait_res(pg, r'flip'); check('presenter: the first → on stop 1 runs "Glitch it" and stays on the stop', res(pg).startswith('1 flip') and pg.evaluate("FirstRun.FR.P.k") == 0)
-                    if k == 2 and a == 1:
-                        check('presenter: stop 3 (code): → reveals the build, → opens the gate-level view of the three copies', pg.evaluate("[S.tab,S.ti]") == ['analyze', 2], pg.evaluate("[S.tab,S.ti]"))
-                        check('presenter B-2: stop 3, second press: the story card closes so the gate view is in front', pg.evaluate("[document.querySelector('#fr').hidden,!document.querySelector('#v-analyze').classList.contains('hidden'),FirstRun.FR.P.k]") == [True, True, 2], pg.evaluate("[document.querySelector('#fr').hidden,FirstRun.FR.P.k]"))
                     if k == 3 and a == 1:
-                        wait_res(pg, r'all three'); check('presenter: stop 2 → → gives 3 copies', res(pg).startswith('3 flips'))
+                        check('presenter: stop 4 (code): → reveals the build, → opens the gate-level view of the three copies', pg.evaluate("[S.tab,S.ti]") == ['analyze', 2], pg.evaluate("[S.tab,S.ti]"))
+                        check('presenter B-2: stop 4, second press: the story card closes so the gate view is in front', pg.evaluate("[document.querySelector('#fr').hidden,!document.querySelector('#v-analyze').classList.contains('hidden'),FirstRun.FR.P.k]") == [True, True, 3], pg.evaluate("[document.querySelector('#fr').hidden,FirstRun.FR.P.k]"))
                     if k == 4 and a == 1:
-                        check('presenter: stop 5 → → steps the build from 3 to 2 to 1 fault', res(pg).startswith('1 fault'), res(pg)[:60])
-                pg.wait_for_timeout(700 if k in (2, 6, 8) else 300)
+                        wait_res(pg, r'all three'); check('presenter: stop 5 → → gives 3 copies', res(pg).startswith('3 flips'))
+                    if k == 5 and a == 1:
+                        check('presenter: stop 6 → → steps the build from 3 to 2 to 1 fault', res(pg).startswith('1 fault'), res(pg)[:60])
+                pg.wait_for_timeout(700 if k in (3, 7, 9) else 300)
                 snap(pg, f'present_dark_stop{k+1}')
-                if k < 10: pg.keyboard.press('PageDown'); pg.wait_for_timeout(700)
-            check('presenter: eleven stops in order, reached with one key', [s[0] for s in seen] == list(range(11)), seen)
-            check('presenter: stops 6-10 show the real views (lesson, Try an attack, Explore x-chip PicoSoC, Open my design, Studies)', all(v[1] for v in views), views)
-            check('presenter: stop 11 is the close (scope, limits, doors)', 'Today it checks one family of risks' in pg.inner_text('#fr') and pg.evaluate("document.querySelectorAll('#fr [data-door]').length") == 4)
+                if k < 11: pg.keyboard.press('PageDown'); pg.wait_for_timeout(700)
+            check('presenter: twelve stops in order, reached with one key', [s[0] for s in seen] == list(range(12)), seen)
+            check('presenter: stops 7-11 show the real views (lesson, Try an attack, Explore x-chip PicoSoC, Open my design, Studies)', all(v[1] for v in views), views)
+            check('presenter: stop 12 is the close (scope, limits, doors)', 'Today it checks one family of risks' in pg.inner_text('#fr') and pg.evaluate("document.querySelectorAll('#fr [data-door]').length") == 4)
             pg.keyboard.press('b'); pg.wait_for_timeout(150); blank = pg.is_visible('#fr-blank'); pg.keyboard.press('b'); pg.wait_for_timeout(150)
             check('presenter: B blanks the screen and B brings it back', blank and not pg.is_visible('#fr-blank'))
             pg.keyboard.press('Home'); pg.wait_for_timeout(400)
@@ -261,16 +276,16 @@ def run():
             pg.keyboard.press('Escape'); pg.wait_for_timeout(200); pg.keyboard.press('p'); pg.wait_for_timeout(800)
             pg.evaluate("FirstRun.enterStop(1)"); pg.wait_for_timeout(400)
             s2 = pg.evaluate("[document.querySelectorAll('#fr .fr-how li.on').length,!!document.querySelector('#fr .fr-bridge')]")
-            pg.evaluate("FirstRun.enterStop(2)"); pg.wait_for_timeout(400); s3 = pg.evaluate("!!document.querySelector('#fr .fr-res .fr-bridge')")
-            pg.evaluate("FirstRun.enterStop(4)"); pg.wait_for_timeout(400); s5 = res(pg)
-            check('presenter B-4: stops start fresh after the story ran in the same tab (stop 2 one step, stop 3 no build text, stop 5 on 3 faults)', s2 == [1, False] and s3 is False and s5.startswith('3 faults'), [s2, s3, s5[:30]])
-            pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(300); pg.keyboard.press('ArrowLeft'); pg.wait_for_timeout(500)   # stop 5 played once, back to stop 4
-            for _ in range(3): pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(900)                                            # stop 4: two actions, then on to stop 5
-            check('presenter B-4: going back to a stop shows its start again', pg.evaluate("[FirstRun.FR.P.k,FirstRun.FR.P.step]") == [4, 0] and res(pg).startswith('3 faults'), [pg.evaluate("[FirstRun.FR.P.k,FirstRun.FR.P.step]"), res(pg)[:30]])
+            pg.evaluate("FirstRun.enterStop(3)"); pg.wait_for_timeout(400); s3 = pg.evaluate("!!document.querySelector('#fr .fr-res .fr-bridge')")
+            pg.evaluate("FirstRun.enterStop(5)"); pg.wait_for_timeout(400); s5 = res(pg)
+            check('presenter B-4: stops start fresh after the story ran in the same tab (stop 2 one step, stop 4 no build text, stop 6 on 3 faults)', s2 == [1, False] and s3 is False and s5.startswith('3 faults'), [s2, s3, s5[:30]])
+            pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(300); pg.keyboard.press('ArrowLeft'); pg.wait_for_timeout(500)   # stop 6 played once, back to stop 5
+            for _ in range(3): pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(900)                                            # stop 5: two actions, then on to stop 6
+            check('presenter B-4: going back to a stop shows its start again', pg.evaluate("[FirstRun.FR.P.k,FirstRun.FR.P.step]") == [5, 0] and res(pg).startswith('3 faults'), [pg.evaluate("[FirstRun.FR.P.k,FirstRun.FR.P.step]"), res(pg)[:30]])
             check('notes S-11: every stop has its own time limit from the script (45 s to 2 min 30 s)', pg.evaluate("FirstRun.STOPS.every(s=>{const m=/^(\\d+):(\\d\\d)$/.exec(s.pace||'');const t=m?m[1]*60+(+m[2]):0;return t>=45&&t<=150})"))
             pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
             pg.goto(URL + '#present?short=30'); pg.wait_for_timeout(1500)
-            check('presenter: #present?short=30 has 3 stops (glitch, rebuilt, close)', pg.evaluate("FirstRun.FR.P&&FirstRun.FR.P.order") == [0, 4, 10])
+            check('presenter: #present?short=30 has 3 stops (glitch, rebuilt, close)', pg.evaluate("FirstRun.FR.P&&FirstRun.FR.P.order") == [0, 5, 11])
             pg.keyboard.press('Escape'); pg.goto(URL + '?present=1'); pg.wait_for_timeout(1500)
             check('presenter: ?present=1 starts it too', pg.evaluate("!!FirstRun.FR.P"))
             # 7. notes window on the same computer
@@ -282,7 +297,7 @@ def run():
             notes.keyboard.press('ArrowRight'); pg.wait_for_timeout(1200); notes.keyboard.press('ArrowRight'); pg.wait_for_timeout(900)
             check('notes: → in the notes window runs the action, then moves the main window to stop 2', pg.evaluate("FirstRun.FR.P.k") == 1, pg.evaluate("FirstRun.FR.P.k"))
             notes.wait_for_timeout(400)
-            check('notes: follows the main window (stop 2 of 11)', 'stop 2 of 11' in notes.inner_text('#pos'), notes.inner_text('#pos'))
+            check('notes: follows the main window (stop 2 of 12)', 'stop 2 of 12' in notes.inner_text('#pos'), notes.inner_text('#pos'))
             snap(notes, 'present_notes_stop2')
             pg.keyboard.press('Escape'); notes.close(); c.close()
             # 8. reduced motion

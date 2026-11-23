@@ -5,7 +5,7 @@ lives here:
   * a 7-screen welcome story in a full-window overlay (#fr). Each screen has a "Say this" cue for a presenter, one
     action, and a result line with its label and its source file. It replaces the old 6-card story on first launch
     only; the old story stays on Start ("Watch the short story again").
-  * Presenter mode: 9 fixed stops through the real views of the Studio, driven with one key; speaker cues in a second
+  * Presenter mode: 12 fixed stops through the real views of the Studio, driven with one key; speaker cues in a second
     window (/present-notes) on the presenting computer.
   * the server side: /api/firstrun/facts (every number the story shows, read from the project files at request time),
     /api/firstrun/seen (a "seen" flag in the Studio's cache folder), /firstrun/src/<fact> (the source file of a fact,
@@ -342,6 +342,13 @@ CSS = r"""
 .fr-bridge{margin:.5em 0 0;padding:.5em .8em;border-left:4px solid var(--acc);background:var(--inset);border-radius:4px}
 .fr-glitch:focus{outline:none}.fr-glitch:focus-visible rect{stroke:var(--acc);stroke-width:2.5}
 .fr-glitch{touch-action:none}
+.fr-real{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6em;width:100%;text-align:left}
+.fr-rc{min-width:0;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--hot);border-radius:6px;padding:.5em .7em}
+.fr-rc h3{margin:0;font-size:1.15em;text-transform:none;letter-spacing:0;color:var(--txt)}.fr-rc h3 .y{color:var(--acc);margin-right:.35em}
+.fr-rc p{margin:.25em 0 0;font-size:.95em;line-height:1.35}.fr-rc .who{font-size:.85em;color:var(--mut)}
+.fr-rc .why{border-top:1px solid var(--line);padding-top:.25em}.fr-rc .src{font-size:.78em;overflow-wrap:anywhere}
+@media (max-width:900px){.fr-real{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.fr-real{grid-template-columns:minmax(0,1fr)}}
 .fr-dot-go{animation:frdot 1.1s ease-out both}.fr-dot-late{animation:frdot 2.2s ease-in both}
 @keyframes frdot{from{transform:translateX(var(--fr-from))}to{transform:none}}
 
@@ -353,9 +360,7 @@ CSS = r"""
 .fr-doors button{min-height:3.4em;text-align:left;border-radius:8px;border:1px solid var(--line2);background:var(--panel);padding:.5em .8em;font-size:1em;color:var(--txt)}
 .fr-doors button:hover{border-color:var(--acc)}
 .fr-doors b{display:block;font-size:1.05em}.fr-doors span{color:var(--mut);font-size:.87em}
-details.fr-say{margin:.7em 0 0;border:1px dashed var(--line2);border-radius:6px;font-size:.9em}
-details.fr-say>summary{cursor:pointer;padding:.3em .7em;color:var(--mut)}
-details.fr-say>p{margin:0;padding:0 .8em .5em}
+#fr-saybox{position:fixed;left:.6em;bottom:3.2em;z-index:36;max-width:min(760px,92vw);background:var(--raised);border:1px dashed var(--line2);border-radius:6px;padding:.3em .7em;font-size:13px;line-height:1.35;color:var(--mut);box-shadow:0 4px 16px #0005}
 .fr-foot{display:flex;gap:.6em;align-items:center;flex-wrap:wrap;margin-top:.9em;border-top:1px solid var(--line);padding-top:.7em}
 .fr-foot .sp{flex:1}
 .fr-foot .btn{font-size:.9em;padding:.35em 1em;min-height:36px}
@@ -477,7 +482,7 @@ const SCR=[
   lead:()=>`Four steps, from a real chip to what GlitchSAT checks. Press <b>Next step</b>, then drag the glitch onto the clock line.`,
   body:st=>{const n=st.s||1;return `${glitchSVG(st)}<ol class="fr-tl fr-how" aria-live="polite">${HOW.map((t,j)=>`<li class="${j<n?'on':'off'}"><span class="d" aria-hidden="true">${j+1}</span><span class="t"${j<n?'':' aria-hidden="true"'}><b>${t[0]}</b> ${t[1]}</span></li>`).join('')}</ol><div class="fr-row"><button class="fr-act" id="fr-act" ${n>=HOW.length?'disabled':''}>Next step</button><button class="btn" id="fr-drop" aria-describedby="fr-gl-help">Glitch at tick ${(st.g==null?0:st.g)+1}</button></div><p class="fr-small" id="fr-gl-help" style="margin:0">Drag the glitch, or focus it and use the arrow keys, then press Enter. Only one tick is the moment the check result is stored.</p>`},
   result:st=>`${st.drop==null?'':st.drop===HIT?`<p><b class="fr-n">1 bit flipped</b> The signal was late at tick ${HIT+1}, so the check cell kept the wrong value, and the lock opened with a wrong key.</p>`:`<p><b class="fr-n">nothing happened</b> The glitch at tick ${st.drop+1} missed the moment the check result is stored. Timing matters: try another tick.</p>`}${(st.s||1)>=HOW.length?`<p class="fr-bridge"><b>GlitchSAT doesn’t use real hardware.</b> It models step 3: it flips a wire’s value for one clock tick in the design, and asks a solver for the fewest flips that make the check say yes.</p>`:''}`,
-  extra:()=>`<p class="fr-small">Real cases, with sources: game consoles, an AirTag, crypto wallets and cars, in the lesson <button class="linkb" data-go="learn:5">True stories</button>.</p>`,
+  extra:()=>`<p class="fr-small"><button class="btn" id="fr-real">See 6 real attacks</button> Game consoles, an AirTag, crypto wallets and a car, with sources. More detail in the lesson <button class="linkb" data-go="learn:5">True stories</button>.</p>`,
   acts:[1,2,3].map(()=>st=>howStep(st)).concat([st=>dropAt(st,HIT)]),alab:['Step 2','Step 3','Step 4','Glitch at the right tick'],
   say:()=>{const st=FR.st.how||{};return HOW[Math.min(HOW.length,st.s||1)-1][2]},
   sayAll:()=>HOW.map((t,j)=>(j+1)+'. '+t[2]).join(' '),
@@ -550,6 +555,22 @@ const CHIPS=[
  {n:3,s:'Ibex',t:'Ibex demo system with lockstep',html:()=>{const a=V('chip_ibex_alarm'),d=V('chip_ibex_debug');return a!=null?`<p>Lockstep means a second processor copy plus an alarm. Fooling the alarm takes <b>${fa(a)}</b>.${d?` Entering debug mode takes <b>${d.lockstep}</b>.`:''}</p><p class="cav">Lockstep was switched on by editing the source for this study.</p><p class="fr-src">${chip('BOUNDED')}<span>${F('chip_ibex_alarm').cycles} clock steps</span><span>source: ${srcA('chip_ibex_alarm')}</span></p>`:`<p>${MISS}</p>`}}];
 const DOORS=()=>`<div class="fr-doors">${[['learn','I’m new to chips','Start with the short lesson.'],['p0','I’m learning VLSI','Try an attack, step by step.'],['mine','I design chips',hasView('mine')?'Open your own design.':'See the example gallery.'],['teach','I teach','Print the class plan.']].map(d=>`<button data-door="${d[0]}"><b>${d[1]}</b><span>${d[2]}</span></button>`).join('')}</div><p style="margin:.2em 0 0"><button class="linkb" id="fr-present">Present this</button> <span class="fr-small">(full screen, one key. Press P any time.)</span></p>`;
 const CLOSE={id:'close',h:'What it checks today, and where to go next',go:null,lead:()=>SCOPE,body:()=>DOORS(),result:()=>LIMITS,say:()=>`Today: glitch attacks only. Every number says how sure we are.`,expect:()=>'Expect: scope, limits and the doors'};
+/* ---- Real attacks: six documented fault-injection cases (same sources as the lesson's True stories; ext STORIES.md) */
+const RCASES=[
+ {y:'2011',d:'Xbox 360',who:'a console hacker, released to the public',how:'A tiny pulse on the reset wire, while the chip was slowed down.',got:'The start-up check accepted programs Microsoft never signed.',why:'Any Xbox 360, slim models too, could run unsigned programs. The protection was one check, and one well-timed glitch skipped it.',fix:'',src:['Hackaday, 29 Aug 2011','https://hackaday.com/2011/08/29/run-unsigned-code-on-any-xbox']},
+ {y:'2019',d:'ESP32 Wi-Fi chip',who:'reported to the chip maker, who confirmed it',how:'A voltage glitch right after the chip is switched on.',got:'The keys that hide and check the stored program.',why:'Gadgets built on this chip could have their program read and replaced. A glitch at power-on beat the settings that guard the keys.',fix:'Maker: no software fix for chips already sold.',src:['Espressif advisory, CVE-2019-17391','https://www.espressif.com/en/news/Security_Advisory_Concerning_Fault_Injection_and_eFuse_Protections']},
+ {y:'2020',d:'Trezor crypto wallet',who:'researchers at Kraken Security Labs',how:'Two voltage glitches, about 15 minutes with the wallet in hand.',got:'The secret words that own the money.',why:'Whoever steals such a wallet could take the coins. Two glitches re-opened a memory lock that was meant to stay shut.',fix:'Needs a hardware redesign, the researchers said.',src:['Kraken blog','https://blog.kraken.com/kraken-identifies-critical-flaw-in-trezor-hardware-wallets']},
+ {y:'2021',d:'Apple AirTag',who:'a security researcher',how:'The chip’s power cut for an instant, at the right moment.',got:'The locked program was copied out and changed.',why:'The changed program could be copied onto other AirTags without glitching them again. One glitch opened the debug lock.',fix:'',src:['TechTarget, 12 May 2021','https://www.techtarget.com/cybersecurity/news/252500691/Hacker-makes-short-work-of-Apple-AirTag-jailbreak']},
+ {y:'2022',d:'Trezor One (a lost PIN)',who:'a hardware hacker, asked by the owner',how:'A voltage change at the right moment got past the memory lock.',got:'The PIN, and coins worth about 2 million US dollars, back to their owner.',why:'With the wallet in hand, the PIN and the recovery words could be read: all a thief would need. One glitch got past the memory lock.',fix:'',src:['Decrypt, 26 Jan 2022','https://decrypt.co/91250/hacker-helps-recover-2m-worth-crypto-trezor-wallet']},
+ {y:'2023',d:'Tesla car computer',who:'security researchers',how:'A dip in the AMD chip’s supply voltage during start-up.',got:'Full control of the computer, paid extras unlocked, the car’s own key read out.',why:'Paid extras unlocked; contacts, calls and Wi-Fi passwords read; the car’s own key copied. The start-up check of the program was skipped by one glitch.',fix:'Needs new hardware, the researchers said.',src:['Black Hat USA 2023 slides','https://i.blackhat.com/BH-US-23/Presentations/US-23-Werling-Jailbreaking-Teslas.pdf']}];
+const rcard=c=>`<div class="fr-rc" role="article" aria-label="${esc(c.y+', '+c.d)}"><h3><span class="y">${c.y}</span>${esc(c.d)}</h3><p class="who">${esc(c.who)}</p><p><b>How:</b> ${esc(c.how)}</p><p><b>Got:</b> ${esc(c.got)}</p><p class="why"><b>Why it matters:</b> ${esc(c.why)}</p>${c.fix?`<p><b>Fix?</b> ${esc(c.fix)}</p>`:''}<p class="src">source: <a class="keep" href="${c.src[1]}" target="_blank" rel="noopener noreferrer">${esc(c.src[0])}</a></p></div>`;
+const REAL={id:'real',h:'Real attacks: glitches that worked',go:'learn:5',
+ lead:()=>`Not just theory. Six documented cases, each a glitch in the power, clock or reset of a real chip. Most were shown by <b>researchers</b>; none of these six was sold as an attack tool.`,
+ body:()=>`<div class="fr-real">${RCASES.map(rcard).join('')}</div>`,
+ result:()=>`<p class="fr-bridge" style="text-align:left"><b>Common thread:</b> the attacker had the device in hand, and one or two well-timed glitches were enough. Where the weak spot is in the chip itself, a software update can’t remove it. GlitchSAT counts how many glitches a design needs, before the chip is made.</p>`,
+ extra:()=>`<p class="fr-small">More detail and every source: the lesson <button class="linkb" data-go="learn:5">True stories</button>.</p>`,
+ say:()=>`These are real. In 2011 a hacker glitched the Xbox 360 to run unsigned games. In 2020 researchers pulled the secret words out of a Trezor crypto wallet with two glitches, and in 2023 researchers took over a Tesla car computer. Some of these can’t be fixed by an update, because the weak spot is in the chip.`,
+ expect:()=>'Expect: six cards: Xbox 360, ESP32, Trezor 2020, AirTag, Trezor 2022, Tesla'};
 function seg(id,label,opts,sel){return `<div class="fr-seg" id="${id}" role="radiogroup" aria-label="${esc(label)}">${opts.map((o,j)=>`<button role="radio" data-sel="${j}" aria-checked="${j===sel}" tabindex="${j===sel?0:-1}">${esc(o)}</button>`).join('')}</div>`}
 function runAct(st,design,say){if(st.busy)return;st.busy=true;redraw(false);live(design).then(x=>{st.busy=false;st.r=x;redraw(false);if(x.n!=null)announce(say(x));sync()})}
 const SEGD={copies:['v0','v1','v2']};
@@ -559,21 +580,27 @@ function pick(st,j){const sid=FR.cur().id;st.sel=j;if(sid==='build'){redraw(fals
  live(d).then(x=>{st.busy=false;st.r[j]=x;if(FR.cur().id===sid)redraw(false);if(x.n!=null)announce(resText(sid,j,x));sync()})}
 const resText=(sid,j,x)=>sid==='build'?(V('soc_build')?`${BUILDS[j][1]}: ${fa(V('soc_build')[BUILDS[j][0]])}.`:''):`Result: ${fl(x.n)}.`;
 /* ---- drawing */
-FR.cur=()=>FR.mode==='close'?CLOSE:SCR[FR.i];
+FR.cur=()=>FR.mode==='close'?CLOSE:FR.mode==='real'?REAL:SCR[FR.i];
 function host(){let h=document.getElementById('fr');if(!h){h=document.createElement('div');h.id='fr';h.hidden=true;document.body.appendChild(h);h.addEventListener('click',onClick,true)}return h}
 function focusKey(){const a=document.activeElement;if(!a||!host().contains(a))return null;return a.id?'#'+a.id:a.dataset.sel!=null?`.fr-seg [data-sel="${a.dataset.sel}"]`:a.dataset.chip?`[data-chip="${a.dataset.chip}"]`:a.dataset.door?`[data-door="${a.dataset.door}"]`:a.classList.contains('fr-glitch')?'.fr-glitch':null}
 function redraw(focus){if(!FR.open)return;const keep=focus===false?focusKey():null;const s=FR.cur(),st=FR.st[s.id]=FR.st[s.id]||{},pres=!!FR.P,N=SCR.length,i=FR.i;
- const kick=FR.mode==='close'?'Why GlitchSAT? · the close':`Why GlitchSAT? · ${i+1} of ${N}`;const gid=s.goFor?s.goFor(st):s.go;
+ const kick=FR.mode==='close'?'Why GlitchSAT? · the close':FR.mode==='real'?'Why GlitchSAT? · real attacks':`Why GlitchSAT? · ${i+1} of ${N}`;const gid=s.goFor?s.goFor(st):s.go;
  host().innerHTML=`<div class="fr-card" role="dialog" aria-modal="true" aria-labelledby="fr-h" aria-describedby="fr-lead"><div class="fr-top"><span class="fr-kick">${kick}</span><span class="fr-bar" aria-hidden="true"><i style="width:${FR.mode==='close'?100:Math.round(100*(i+1)/N)}%"></i></span>${pres?'':'<button class="btn fr-skip" id="fr-skip">Skip</button>'}</div>
  <h2 id="fr-h" tabindex="-1">${esc(s.h)}</h2><p class="fr-lead" id="fr-lead">${s.lead()}</p><div class="fr-int">${s.body(st)}</div><div class="fr-res">${s.result(st)}</div>${s.extra?s.extra():''}
- ${pres?'':`<details class="fr-say"><summary>Presenting? Say this</summary><p>“${esc(s.sayAll?s.sayAll():s.say())}”</p></details>`}
- ${pres?'':`<div class="fr-foot"><button class="btn" id="fr-back" ${i===0?'disabled':''}>Back</button><span class="sp"></span>${gid?`<button class="linkb" id="fr-show" data-go="${gid}">Show me in the app →</button>`:''}<button class="btn primary" id="fr-next">${i===N-1?'Close':'Next'}</button></div>`}</div>`;
- if(focus!==false){const h=document.getElementById('fr-h');h&&h.focus({preventScroll:false})}else if(keep){const x=host().querySelector(keep);x&&x.focus({preventScroll:true})}if(s.id==='how')wireGlitch()}
+ ${pres?'':`<div class="fr-foot"><button class="btn" id="fr-back" ${i===0?'disabled':''}>Back</button><span class="sp"></span>${gid?`<button class="linkb" id="fr-show" data-go="${gid}">Show me in the app →</button>`:''}<button class="btn primary" id="fr-next">${FR.mode==='real'?'Back to the story':i===N-1?'Close':'Next'}</button></div>`}</div>`;
+ if(focus!==false){const h=document.getElementById('fr-h');h&&h.focus({preventScroll:false})}else if(keep){const x=host().querySelector(keep);x&&x.focus({preventScroll:true})}if(s.id==='how')wireGlitch();sayBox()}
+/* "Say this" lines: hidden on the audience screen by default; Ctrl+F (or S) shows / hides them; the choice lasts for this tab only.
+   The notes window (/present-notes) always shows them. */
+FR.sayOn=(()=>{try{return sessionStorage.getItem('gs_say')==='1'}catch(e){return false}})();
+function sayText(){if(FR.P){const s=STOPS[FR.P.order[FR.P.k]];return s?stopSay(s):''}if(FR.open){const s=FR.cur();return s.sayAll?s.sayAll():s.say()}return ''}
+function sayBox(){let b=document.getElementById('fr-saybox');const on=!!(FR.sayOn&&(FR.P||FR.open));if(!on){if(b)b.hidden=true;return}
+ if(!b){b=document.createElement('div');b.id='fr-saybox';b.className='fr-say';document.body.appendChild(b)}b.hidden=false;b.textContent='Say this: “'+sayText()+'”'}
+function toggleSay(){FR.sayOn=!FR.sayOn;try{sessionStorage.setItem('gs_say',FR.sayOn?'1':'0')}catch(e){}sayBox()}
 function openWhy(n,opts){opts=opts||{};if(S.story!=null&&typeof closeStory==='function')closeStory(true);if(S.dlg&&typeof closeDlg==='function'){S.dlg.opener=null;closeDlg()}
  if(!FR.open)FR.opener=opts.opener||(document.activeElement!==document.body?document.activeElement:null);
  FR.mode=opts.mode||null;FR.i=Math.max(0,Math.min(SCR.length-1,n||0));FR.open=true;S.fr=true;hideToast();host().hidden=false;
  const s=FR.cur(),st=FR.st[s.id]=FR.st[s.id]||{};const draw=()=>{if(s.init)s.init(st);redraw();if(!FR.P)save(false)};FR.ready.then(draw);if(opts.hash!==false&&!FR.P)setHash('#why/'+(FR.i+1))}
-function closeWhy(done,nofocus){if(!FR.open)return;FR.open=false;if(!FR.P)S.fr=false;host().hidden=true;host().innerHTML='';if(done)save(true);LS.set('gs_seen3',1);if(/^#why/.test(location.hash))setHash('');
+function closeWhy(done,nofocus){if(!FR.open)return;FR.open=false;sayBox();if(!FR.P)S.fr=false;host().hidden=true;host().innerHTML='';if(done)save(true);LS.set('gs_seen3',1);if(/^#why/.test(location.hash))setHash('');
  if(nofocus)return;const o=FR.opener;FR.opener=null;const b=(o&&document.contains(o)&&o!==document.body&&o)||$('#b-why')||$('#tabs .tab.on');b&&b.focus()}
 function goScreen(n){if(n<0||n>=SCR.length)return;FR.i=n;const s=SCR[n],st=FR.st[s.id]=FR.st[s.id]||{};if(s.init)s.init(st);redraw();save(false);if(!FR.P)setHash('#why/'+(n+1))}
 function setHash(h){try{history.replaceState(null,'',location.pathname+location.search+h)}catch(e){}}
@@ -587,6 +614,8 @@ function onClick(e){const t=e.target.closest&&e.target.closest('button,a');if(!t
  if(t.dataset.door){e.preventDefault();e.stopPropagation();const d=t.dataset.door;closeWhy(true,true);if(FR.P)exitPresent(true);
   if(d==='learn')goApp('learn:1');else if(d==='p0')goApp('p0');else if(d==='mine'){if(hasView('mine'))show('mine');else goApp('x-gal')}else if(d==='teach'){try{window.open('/teach','_blank')}catch(x){}}return}
  if(t.id==='fr-skip'){closeWhy(true);return}
+ if(t.id==='fr-real'){FR.mode='real';redraw();if(!FR.P)setHash('#why/real');return}
+ if(FR.mode==='real'&&(t.id==='fr-next'||t.id==='fr-back')){FR.mode=null;goScreen(FR.i);return}
  if(t.id==='fr-next'){if(FR.i===SCR.length-1)closeWhy(true);else goScreen(FR.i+1);return}
  if(t.id==='fr-back'){goScreen(FR.i-1);return}
  if(t.id==='fr-present'){closeWhy(true,true);startPresent();return}
@@ -597,7 +626,9 @@ function onClick(e){const t=e.target.closest&&e.target.closest('button,a');if(!t
 function goApp(g){if(g==='labs'){if(hasView('labs'))show('labs');else go_('studies');return}if(g==='mine'){if(hasView('mine'))show('mine');else go_('x-gal');return}go_(g)}
 /* ---- keys: capture phase, only while the story or Presenter mode is active */
 function focusables(){return [...host().querySelectorAll('button:not([disabled]),a[href],summary,[tabindex="0"]')].filter(x=>x.offsetParent!==null)}
-addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key,tn=(e.target.tagName||'');
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&!e.altKey&&!e.shiftKey&&(e.key==='f'||e.key==='F')){e.preventDefault();e.stopPropagation();toggleSay();return}
+ if(e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key,tn=(e.target.tagName||'');
+ if((k==='s'||k==='S')&&(FR.P||FR.open)&&!(FR.P&&FR.P.blank)&&!(tn==='INPUT'||tn==='TEXTAREA'||tn==='SELECT')){e.preventDefault();e.stopPropagation();toggleSay();return}
  if(FR.P){if(FR.P.blank&&k!=='b'&&k!=='B'&&k!=='Escape'){e.preventDefault();e.stopPropagation();return}
   const m={ArrowRight:next,PageDown:next,' ':next,ArrowLeft:prev,PageUp:prev,ArrowDown:()=>presScrollBy(1),ArrowUp:()=>presScrollBy(-1),Home:()=>enterStop(0),n:openNotes,N:openNotes,b:blank,B:blank,Escape:()=>exitPresent()}[k];
   if(m){e.preventDefault();e.stopPropagation();m()}else if(FR.open&&k==='Tab')trap(e);else if(!FR.open&&/^[1-9`?vVtTsSfFlL]$/.test(k)){e.stopPropagation()}return}
@@ -607,6 +638,7 @@ addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const k=
   if(k==='Tab'){trap(e);return}
   const inSeg=e.target.closest&&e.target.closest('.fr-seg');
   if(inSeg&&(k==='ArrowRight'||k==='ArrowLeft')){e.preventDefault();const bs=[...inSeg.querySelectorAll('button')],j=bs.indexOf(document.activeElement),n=(j+(k==='ArrowRight'?1:-1)+bs.length)%bs.length;bs[n].click();return}
+  if((k==='ArrowRight'||k==='ArrowLeft')&&tn!=='INPUT'&&FR.mode==='real'){e.preventDefault();FR.mode=null;goScreen(FR.i);return}
   if(k==='ArrowRight'&&tn!=='INPUT'){e.preventDefault();if(FR.mode!=='close')goScreen(FR.i+1);return}
   if(k==='ArrowLeft'&&tn!=='INPUT'){e.preventDefault();if(FR.mode!=='close')goScreen(FR.i-1);return}
   if(k==='p'||k==='P'){e.preventDefault();closeWhy(true,true);startPresent();return}
@@ -614,10 +646,11 @@ addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const k=
  if((k==='p'||k==='P')&&!(tn==='INPUT'||tn==='TEXTAREA'||tn==='SELECT')&&!S.dlg&&!S.help){e.preventDefault();e.stopPropagation();startPresent()}},true);
 function trap(e){const f=focusables();if(!f.length)return;const a=f[0],b=f[f.length-1];if(!host().contains(document.activeElement)){e.preventDefault();a.focus();return}
  if(e.shiftKey&&document.activeElement===a){e.preventDefault();b.focus()}else if(!e.shiftKey&&document.activeElement===b){e.preventDefault();a.focus()}}
-/* ---- Presenter mode (design section 5): nine stops through the real views */
+/* ---- Presenter mode (design section 5): twelve stops through the story, the real attacks and the real views */
 const STOPS=[
  {t:'Can a tiny glitch open a lock?',kind:'story',i:0,pace:'1:00'},
  {t:'How a glitch attack works',kind:'story',i:1,pace:'2:30'},
+ {t:'Real attacks',kind:'real',pace:'1:30'},
  {t:'How a chip protects itself, in its code',kind:'story',i:2,pace:'2:00'},
  {t:'Do copies help?',kind:'story',i:3,pace:'1:00'},
  {t:'The finished design can be different',kind:'story',i:4,pace:'1:30'},
@@ -628,8 +661,8 @@ const STOPS=[
  {t:'Studies: many builds of one lock',kind:'app',pace:'1:00',enter:()=>show('findings'),view:'findings',say:()=>{const e=V('e2');return e?`The same three-copy lock, built ${e.total} ways: 1 flip in ${e.min1}, 2 in ${e.min2}, 3 in ${e.min3}. The answer depends on the build.`:'The same three-copy lock, built many ways: the answer depends on the build.'},expect:()=>'Expect: the Studies page (do not press “Run all studies”)'},
  {t:'What it checks today',kind:'close',pace:'1:00'}];
 const SEC_MIN=6e1;function paceS(t){const m=/^(\d+):(\d\d)$/.exec(t||'1:00');return m?(+m[1])*SEC_MIN+(+m[2]):25}  /* the phone script's time for a stop, m:ss */
-function stopSay(s){return s.kind==='story'?SCR[s.i].say():s.kind==='close'?CLOSE.say():s.say()}
-function stopExpect(s){return s.kind==='story'?SCR[s.i].expect():s.kind==='close'?CLOSE.expect():s.expect()}
+function stopSay(s){return s.kind==='story'?SCR[s.i].say():s.kind==='close'?CLOSE.say():s.kind==='real'?REAL.say():s.say()}
+function stopExpect(s){return s.kind==='story'?SCR[s.i].expect():s.kind==='close'?CLOSE.expect():s.kind==='real'?REAL.expect():s.expect()}
 function stopActs(s){return s.kind==='story'?(SCR[s.i].acts||[]):(s.acts||[])}
 function stopPress(s,step){const a=stopActs(s),l=s.kind==='story'?(SCR[s.i].alab||[]):(s.alab||[]);return step<a.length?(l[step]||'the action'):'the next stop'}
 function startPresent(short){if(S.story!=null&&typeof closeStory==='function')closeStory(true);if(S.dlg&&typeof closeDlg==='function'){S.dlg.opener=null;closeDlg()}
@@ -640,7 +673,7 @@ function exitPresent(keep){if(!FR.P)return;S.predOn=FR.P.pred===undefined?LS.get
  try{if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{})}catch(e){}
  if(!keep){if(FR.open)closeWhy(false,true);show('start');const b=$('#b-why');b&&b.focus()}setHash('');sync()}
 function enterStop(k){const P=FR.P;if(!P)return;P.k=Math.max(0,Math.min(P.order.length-1,k));P.step=0;P.ts=Date.now();const s=STOPS[P.order[P.k]];
- if(s.kind==='story'){FR.i=s.i;FR.st[SCR[s.i].id]={};openWhy(s.i,{mode:null,hash:false})}else if(s.kind==='close'){openWhy(0,{mode:'close',hash:false})}else{if(FR.open)closeWhy(false,true);S.fr=true;s.enter()}
+ if(s.kind==='story'){FR.i=s.i;FR.st[SCR[s.i].id]={};openWhy(s.i,{mode:null,hash:false})}else if(s.kind==='close'){openWhy(0,{mode:'close',hash:false})}else if(s.kind==='real'){openWhy(1,{mode:'real',hash:false})}else{if(FR.open)closeWhy(false,true);S.fr=true;s.enter()}
  bars();sync();FR.ready.then(()=>setTimeout(()=>{if(FR.P&&FR.P.k===P.k){if(FR.open)host().scrollTop=0;if(s.scrollTo)presScroll(s.scrollTo)}},80))}
 /* Presenter: what a press revealed is scrolled into view (the card is taller than the screen when the text is scaled up) */
 function revealNew(id){if(!FR.P||!FR.open)return;const h=host(),st=FR.st[id]||{};let el=null;
@@ -669,7 +702,7 @@ let BC=null;try{BC=new BroadcastChannel('gs-present')}catch(e){BC=null}
 function post(m){if(BC){try{BC.postMessage(m)}catch(e){}}else{try{localStorage.setItem('gs_present_sync',JSON.stringify(Object.assign({n:Date.now()},m)))}catch(e){}}}
 function onMsg(m){if(!m||m.from!=='notes')return;if(m.cmd==='hello'){sync();return}if(m.cmd==='start'&&!FR.P){startPresent();return}if(!FR.P)return;if(m.cmd==='next')next();else if(m.cmd==='prev')prev();else if(m.cmd==='home')enterStop(0);else if(m.cmd==='blank')blank();else if(typeof m.stop==='number'&&m.cmd==='goto')enterStop(m.stop)}
 if(BC)BC.onmessage=e=>onMsg(e.data);addEventListener('storage',e=>{if(e.key==='gs_present_sync'&&e.newValue){try{onMsg(JSON.parse(e.newValue))}catch(x){}}});
-function sync(){const P=FR.P;if(!P){post({from:'main',on:false});return}const s=STOPS[P.order[P.k]],nx=STOPS[P.order[P.k+1]];
+function sync(){sayBox();const P=FR.P;if(!P){post({from:'main',on:false});return}const s=STOPS[P.order[P.k]],nx=STOPS[P.order[P.k+1]];
  const st=s.kind==='story'?FR.st[SCR[s.i].id]||{}:{};const rs=[st.r].flat().filter(Boolean);
  post({from:'main',on:true,stop:P.k,total:P.order.length,step:P.step,steps:stopActs(s).length,press:stopPress(s,P.step),title:s.t,say:stopSay(s),expect:stopExpect(s),next:nx?nx.t:'(last stop)',fb:rs.some(x=>x&&x.fb),t0:P.t0,ts:P.ts,pace:paceS(P.short?'0:30':s.pace)})}
 function openNotes(){try{window.open('/present-notes','gs-notes','width=720,height=560')}catch(e){}}
@@ -704,7 +737,7 @@ topLink();
 {const prevS=Studio.startExtra;Studio.startExtra=()=>(prevS?prevS():'')+`<p class="fr-startline"><b>First time here?</b> <button class="linkb" data-go="why">Why GlitchSAT?</button> explains in nine short screens why it was built, what it found and what it checks today. Presenting it? <button class="linkb" data-go="present">Presenter mode</button> (key P).</p>`}
 {const prevA=Studio.aboutExtra;Studio.aboutExtra=()=>(prevA?prevA():'')+`<div class="panel"><div class="ph"><h4>Why GlitchSAT?</h4></div><div class="pb"><p style="margin:0">The nine-screen welcome story: <button class="linkb" data-go="why">open it</button> · <button class="linkb" id="fr-reset" onclick="FirstRun.reset()">Show the welcome again</button> at the next start · <button class="linkb" data-go="present">Presenter mode</button> (key P; key N opens the speaker notes in a second window on this computer).</p></div></div>`}
 if(typeof S!=='undefined'&&S.tab==='start'&&typeof drawStart==='function')drawStart();
-window.FirstRun={SCR,STOPS,CLOSE,FR,open:openWhy,close:closeWhy,present:startPresent,exit:exitPresent,next,prev,enterStop,goScreen,
+window.FirstRun={SCR,STOPS,CLOSE,REAL,RCASES,FR,open:openWhy,close:closeWhy,present:startPresent,exit:exitPresent,next,prev,enterStop,goScreen,
  reset:()=>{LS.set('gs_fr_seen',{v:1,screen:0,done:false});FR.i=0;api.post('/api/firstrun/seen',{seen:false,screen:0}).then(()=>{try{fetch('/api/firstrun/seen')}catch(e){}}).catch(()=>{});announce('The welcome will show at the next start.')},
  noLive:v=>{FR.noLive=!!v;FR.res={}}};
 })();
