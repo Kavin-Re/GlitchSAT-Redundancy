@@ -1,0 +1,41 @@
+# GlitchSAT project: our secure-boot hardware, used as it is, with no hand-written wrapper. A copy of its four RTL
+# files is in rtl/ (rtl/SOURCES.sha256), so the example also works after `glitchsat examples copy secure_boot`.
+# The boot check compares a tag (the program's signature, here 8 bits) with the expected one and then says
+# ACCEPT (boot_word = 0x96) or REJECT. Question: can glitches make it ACCEPT a wrong tag?
+#   glitchsat run                    -> the vulnerable build: one compare decides
+#   glitchsat run --task hardened    -> three compares, each owning its own state bits, plus an alarm
+glitchsat: 1
+name: secure_boot
+design:
+  sources:
+    - rtl/secboot_core.v
+    - rtl/sb_cmp.v
+    - rtl/sb_hash.v
+    - rtl/sb_keccak_round.v
+  top: secboot_core
+  params: {W: 2, RATE_LANES: 4, TAG_LANES: 4, NR: 0, KEY_BLOCKS: 1, IMG_BLOCKS: 1, HASH_EN: 0, HASH_COPIES: 1,
+           CMP_MODE: 0, FLAG_MUBI: 0, SEPARATE: 1, ALARM_EN: 0, INFECT_SPREAD: 0, CFI_EN: 0, OTP_REG: 0, TKW: 8,
+           KEY: "8'h0", EXP_TAG: "8'hC3", TOKEN: "8'hB7"}
+clock: clk
+reset: {port: rst, active: high}
+inputs:
+  attacker: [tag_in]
+  attacker_changes: once        # the tag is the program's: one value for the whole boot
+  fixed: {start: 1, blk_valid: 1, blk_data: 0, exp_in: 0, exp_load: 0, pad_ok: 1}
+checks:
+  - id: accept_wrong_tag
+    template: secure_boot_wrong_key
+    goal: boot_accept
+    params:
+      accept: "boot_word == 8'h96"
+      key_input: tag_in
+      good_key: "8'hC3"
+faults:
+  max_faults: 3
+  horizon: 8                    # the genuine tag is accepted in cycle 6 after reset
+flows: [plain, synth]
+tasks:
+  hardened:
+    name: secure_boot_hardened
+    design:
+      params: {CMP_MODE: 2, ALARM_EN: 1}

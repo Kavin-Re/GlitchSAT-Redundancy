@@ -1,0 +1,43 @@
+{
+ "schema": "labs-result/1",
+ "module": "bootloader",
+ "title": "Bootloader fault hardening",
+ "status": "EXPERIMENTAL",
+ "question": "Does a real bootloader's fault hardening still refuse a tampered image when one instruction is disturbed?",
+ "example": {
+  "name": "One tampered image, single modelled faults (details withheld)",
+  "description": "A small harness around a real bootloader's hardening code, run on the RV32 simulator of the firmware module. Details are withheld pending responsible disclosure.",
+  "command": "python3 scripts/run_labs.py  (in the module folder; needs the private notes)"
+ },
+ "findings": [
+  {
+   "id": "withheld",
+   "text": "Experimental analysis of a real bootloader's fault hardening; details withheld pending responsible disclosure.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "searches_completed": true
+   }
+  }
+ ],
+ "labels": {
+  "MEASURED": "counted or computed by running real tools on real inputs in this module",
+  "SIMULATED": "the outcome of a model (fault simulator or probing model); a model, not silicon",
+  "UNTESTED": "stated or expected, but not checked by any run in this module yet"
+ },
+ "caveats": [
+  "Limits first: a small test harness around the bootloader's hardening code, one compiler, one optimisation setting at a time and one modelled fault, on an instruction simulator. The full bootloader was not compiled.",
+  "A result of the model is a reason to look closer, not a proven attack on any device. Related work on this bootloader's hardening has been published by others, so this may already be known."
+ ],
+ "run": {
+  "started": "2026-11-22T20:28:53+00:00",
+  "seconds": 5.12,
+  "ok": true,
+  "errors": [],
+  "tools": {
+   "simulator": "firmware module rv32sim"
+  },
+  "withheld": true
+ },
+ "readme": "README.md"
+}

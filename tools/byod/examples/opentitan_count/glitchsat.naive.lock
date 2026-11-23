@@ -1,0 +1,101 @@
+{
+ "analyses": [
+  "validate",
+  "min_faults",
+  "survival"
+ ],
+ "blackboxes": {
+  "plain": []
+ },
+ "checks": {
+  "count_changes_unnoticed": {
+   "assertions": null,
+   "bad": "!$initial && cnt_o != $past(cnt_o)",
+   "detect_latency": 1,
+   "horizon": 5,
+   "kind": "fault",
+   "max_faults": 3,
+   "must_hold": [
+    "!(err_o)"
+   ],
+   "template": null
+  }
+ },
+ "clock": "clk_i",
+ "faults": {
+  "attacker_changes": "every_cycle",
+  "exclude": [],
+  "include": [],
+  "normalisation": "dffunmap; flip-flop site = stored value",
+  "types": [
+   "flip"
+  ],
+  "where": "both"
+ },
+ "files": {},
+ "fixed": {
+  "clr_i": 0,
+  "commit_i": 1,
+  "decr_en_i": 0,
+  "incr_en_i": 0,
+  "set_cnt_i": 0,
+  "set_i": 0,
+  "step_i": 1
+ },
+ "flows": [
+  "plain"
+ ],
+ "frontend": "slang",
+ "glitchsat_lock": 2,
+ "glitchsat_version": "0.1.0",
+ "liberty": {},
+ "powerup": "any",
+ "probes": {},
+ "project": "glitchsat.yaml",
+ "project_sha256": "a589c565c0749d9bac0299719277f986a6e6a30c86acbb40bc4e69ca8ee64cbb",
+ "reset": {
+  "active": "low",
+  "cycles": 1,
+  "glitch_during_reset": false,
+  "port": "rst_ni"
+ },
+ "roles": {
+  "clk_i": "clock",
+  "clr_i": "fixed",
+  "commit_i": "fixed",
+  "decr_en_i": "fixed",
+  "incr_en_i": "fixed",
+  "rst_ni": "reset",
+  "set_cnt_i": "fixed",
+  "set_i": "fixed",
+  "step_i": "fixed"
+ },
+ "selectors": {
+  "exclude": [],
+  "include": [],
+  "sites_per_check": {
+   "count_changes_unnoticed": {
+    "plain": {
+     "candidates": 99,
+     "excluded": 0,
+     "selected": 99,
+     "where": "both"
+    }
+   }
+  }
+ },
+ "solver": {
+  "backend": "auto",
+  "time_s": 300.0
+ },
+ "sources": {
+  "rtl/naive_count.sv": "fe99e4d7fbb3c2ae336f362b61dc7c09e4810e6876c21c2e39c9db2038e73732"
+ },
+ "task": "naive",
+ "top": "naive_count",
+ "validation": {},
+ "yosys": {
+  "elaborate": "Yosys 0.71",
+  "plain": "Yosys 0.71"
+ }
+}

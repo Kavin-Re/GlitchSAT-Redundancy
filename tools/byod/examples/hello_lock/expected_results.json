@@ -1,0 +1,94 @@
+{
+ "glitchsat.yaml": {
+  "top": "hello_lock",
+  "frontend": "verilog",
+  "checks": {
+   "open_without_code": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 1,
+    "max_faults": 2,
+    "horizon": 6,
+    "witness": [
+     [
+      0,
+      "open_o (DFF_PN0 flip-flop stored value)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "plain": true
+    },
+    "attack_surface": {
+     "count": 66,
+     "complete": true
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 0
+    },
+    "merge_lint": {}
+   }
+  },
+  "expect_in_words": "1 glitch is enough",
+  "runtime_s": 0.8,
+  "label": "MEASURED"
+ },
+ "glitchsat_hardened.yaml": {
+  "top": "hello_lock_hardened",
+  "frontend": "verilog",
+  "checks": {
+   "open_without_code": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 3,
+    "max_faults": 3,
+    "horizon": 6,
+    "witness": [
+     [
+      0,
+      "open_o[0] (DFF_PN0 flip-flop stored value)",
+      "flip"
+     ],
+     [
+      0,
+      "open_o[1] (DFF_PN0 flip-flop stored value)",
+      "flip"
+     ],
+     [
+      0,
+      "open_o[2] (DFF_PN0 flip-flop stored value)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "plain": true,
+     "synth": true,
+     "synth-keep": true
+    },
+    "survival": {
+     "plain": 3,
+     "synth": 1,
+     "synth-keep": 3
+    },
+    "attack_surface": {
+     "count": 100,
+     "complete": false
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 2
+    },
+    "merge_lint": {
+     "3 copies of code_check(code_i, try_i)": {
+      "rtl": "SURVIVED",
+      "plain": "SURVIVED",
+      "synth": "REMOVED",
+      "synth-keep": "SURVIVED"
+     }
+    }
+   }
+  },
+  "expect_in_words": "3 glitches needed (plain build); the optimised build merges the copies and needs only 1",
+  "runtime_s": 11.9,
+  "label": "MEASURED"
+ }
+}

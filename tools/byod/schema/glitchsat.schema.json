@@ -1,0 +1,618 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "urn:glitchsat:schema:project:1",
+ "title": "GlitchSAT project file (glitchsat.yaml), version 1",
+ "description": "Describes one chip design, who can do what to it, what must never happen, and how to look for faults. Paths are relative to the folder of the file.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "glitchsat",
+  "design",
+  "checks"
+ ],
+ "properties": {
+  "glitchsat": {
+   "const": 1,
+   "description": "File format version. Always 1."
+  },
+  "name": {
+   "type": "string",
+   "description": "Short name for reports."
+  },
+  "description": {
+   "type": "string"
+  },
+  "design": {
+   "$ref": "#/$defs/design"
+  },
+  "clock": {
+   "description": "The clock input. `none` for a purely combinational design. Omit to auto-detect.",
+   "oneOf": [
+    {
+     "const": "none"
+    },
+    {
+     "type": "string"
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "port"
+     ],
+     "properties": {
+      "port": {
+       "type": "string"
+      },
+      "edge": {
+       "enum": [
+        "posedge",
+        "negedge"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  "reset": {
+   "description": "The reset input and what happens before the attacker acts. Omit to auto-detect; `none` for no reset.",
+   "oneOf": [
+    {
+     "const": "none"
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "port"
+     ],
+     "properties": {
+      "port": {
+       "type": "string"
+      },
+      "active": {
+       "enum": [
+        "low",
+        "high"
+       ],
+       "description": "Level that resets. Default: low if the name ends in _n/_ni/_b, else high."
+      },
+      "cycles": {
+       "type": "integer",
+       "minimum": 1,
+       "description": "How many cycles reset is held at the start. Default 1."
+      },
+      "glitch_during_reset": {
+       "type": "boolean",
+       "description": "false (default): faults start after reset; true: cycle 0 is power-up and faults may hit the reset sequence too."
+      }
+     }
+    }
+   ]
+  },
+  "powerup": {
+   "enum": [
+    "zero",
+    "any",
+    "init"
+   ],
+   "description": "Flip-flop values at power-up. any: unknown (each may be 0 or 1, the search chooses); zero: all 0; init: the netlist's initial values (error if missing). Default: any when there is a reset, otherwise init where given and 0 elsewhere."
+  },
+  "inputs": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "attacker": {
+     "description": "Inputs the attacker controls. Default: every input that is not clock, reset, secret or fixed.",
+     "oneOf": [
+      {
+       "const": "all"
+      },
+      {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     ]
+    },
+    "attacker_changes": {
+     "enum": [
+      "every_cycle",
+      "once"
+     ],
+     "description": "every_cycle (default): a new value each cycle; once: one value for the whole run."
+    },
+    "secret": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Inputs that carry a secret (a key). Held constant; the search may choose any value."
+    },
+    "fixed": {
+     "type": "object",
+     "additionalProperties": {
+      "type": [
+       "integer",
+       "string",
+       "boolean"
+      ]
+     },
+     "description": "Inputs tied to a value (e.g. scan_en: 0). Strings like \"8'hC3\" or \"0xC3\" are accepted."
+    }
+   }
+  },
+  "observe": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "Outputs the attacker can see (default: all outputs). Used by secret-flow checks and reports."
+  },
+  "probes": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "Internal signals used in conditions: alias -> hierarchical name (u_ctrl.state_q). They are marked keep before synthesis. Dotted names in conditions become probes automatically."
+  },
+  "assets": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "secrets": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Secret registers or nets (patterns, or @attribute)."
+    },
+    "protected_states": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "fsm": {
+       "type": "string"
+      },
+      "states": {
+       "type": "array",
+       "items": {
+        "type": [
+         "string",
+         "integer"
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "checks": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/check"
+   }
+  },
+  "faults": {
+   "$ref": "#/$defs/faults"
+  },
+  "flows": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "plain",
+     "synth",
+     "synth-nofsm",
+     "synth-keep",
+     "nangate45",
+     "sky130hd",
+     "ihp-sg13g2",
+     "gf180mcu",
+     "liberty",
+     "netlist",
+     "custom"
+    ]
+   },
+   "description": "Synthesis flows to analyse. The first is the main one; the others are compared with it (survival across flows). Default: [plain]."
+  },
+  "analyses": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "validate",
+     "min_faults",
+     "attack_surface",
+     "merge_lint",
+     "survival",
+     "unbounded"
+    ]
+   },
+   "description": "What to run. Default: all of them (each one says when it cannot run)."
+  },
+  "solver": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "backend": {
+     "type": "string",
+     "description": "auto | py | cadical | kissat | dimacs:/path/to/solver | pysat:NAME"
+    },
+    "time_s": {
+     "type": "number",
+     "minimum": 1,
+     "description": "Time limit per analysis (default 300 s)."
+    },
+    "workers": {
+     "enum": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  "unbounded": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "max_state_bits": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Skip the unbounded proof above this many state bits (default 400)."
+    },
+    "time_s": {
+     "type": "number",
+     "minimum": 1
+    }
+   }
+  },
+  "validation": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "runs": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Random simulation runs comparing the analysed netlist with the RTL (default 256)."
+    },
+    "cycles": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "seed": {
+     "type": "integer"
+    }
+   }
+  },
+  "report": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "redact": {
+     "type": "boolean",
+     "description": "Replace signal and module names by aliases (sig_001, mod_001) in reports."
+    },
+    "out": {
+     "type": "string",
+     "description": "Folder for results (default .glitchsat/)."
+    }
+   }
+  },
+  "tasks": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object"
+   },
+   "description": "Named variants (like SymbiYosys tasks): each value overrides keys of this file, e.g. {hardened: {design: {defines: {HARDENED: 1}}}}."
+  }
+ },
+ "$defs": {
+  "design": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "sources": {
+     "type": "array",
+     "items": {
+      "oneOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "filelist"
+        ],
+        "properties": {
+         "filelist": {
+          "type": "string"
+         }
+        }
+       }
+      ]
+     },
+     "description": "Verilog/SystemVerilog files, a gate-level netlist, or {filelist: files.f} (-f style)."
+    },
+    "top": {
+     "type": "string",
+     "description": "Top module. Omit to auto-detect (the module that nothing instantiates)."
+    },
+    "frontend": {
+     "enum": [
+      "auto",
+      "slang",
+      "verilog",
+      "netlist",
+      "json"
+     ],
+     "description": "auto: .sv -> read_slang (Yosys >= 0.67) else read_verilog -sv; .json -> Yosys JSON netlist."
+    },
+    "include_dirs": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "defines": {
+     "type": "object",
+     "additionalProperties": {
+      "type": [
+       "string",
+       "integer",
+       "boolean",
+       "null"
+      ]
+     }
+    },
+    "params": {
+     "type": "object",
+     "additionalProperties": {
+      "type": [
+       "string",
+       "integer",
+       "boolean"
+      ]
+     },
+     "description": "Parameter overrides of the top module (like -G)."
+    },
+    "liberty": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Liberty files of the standard cells. Read in place, never copied."
+    },
+    "blackboxes": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "module"
+      ],
+      "properties": {
+       "module": {
+        "type": "string"
+       },
+       "stub": {
+        "type": "string",
+        "description": "Verilog with the module's ports only."
+       }
+      }
+     },
+     "description": "Modules without a source (encrypted or missing IP). Their outputs become free inputs; the report lists them."
+    },
+    "yosys_script": {
+     "oneOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     ],
+     "description": "Flow `custom`: your Yosys commands after reading the design. Only allow-listed synthesis commands; files read must be inside the project folder. Never: `!`, shell, exec, script, tee, plugin, tcl, python, write_*."
+    },
+    "physical_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_*?]+$"
+     },
+     "description": "Cell-type patterns of physical-only cells (taps, fillers, decaps, diodes) that are dropped before a gate-level netlist is read, and counted. Default for frontend netlist: ['*tap*', '*fill*', '*decap*', '*diode*']."
+    }
+   }
+  },
+  "check": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^[A-Za-z_][A-Za-z0-9_-]*$"
+    },
+    "kind": {
+     "enum": [
+      "fault",
+      "secret_flow",
+      "masking"
+     ],
+     "description": "fault (default). secret_flow and masking: format only, not run by this release."
+    },
+    "template": {
+     "enum": [
+      "secure_boot_wrong_key",
+      "debug_unlock_locked",
+      "fsm_forbidden_state",
+      "key_to_output",
+      "counter_skip",
+      "alarm_suppressed",
+      "custom"
+     ]
+    },
+    "goal": {
+     "enum": [
+      "boot_accept",
+      "key_leak",
+      "debug_unlock",
+      "lock_bypass",
+      "alarm_suppress",
+      "state_change",
+      "crash_only"
+     ],
+     "description": "What an attacker gets when this check fails; reports take 'what the attacker gets' from it. Default: the template's goal. Without either, reports say the gain was guessed from whole words of the names, or claim none."
+    },
+    "explain": {
+     "type": "string",
+     "description": "Plain-language sentence shown in reports."
+    },
+    "bad": {
+     "type": "string",
+     "description": "Verilog expression: true in a cycle where the attack has succeeded."
+    },
+    "must_hold": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Verilog expressions that must be true in every cycle up to the success (e.g. the alarm stays low)."
+    },
+    "detected_by": {
+     "type": "string",
+     "description": "Shortcut: the attack only counts if this alarm expression stays false (adds !(...) to must_hold)."
+    },
+    "detect_latency": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Cycles the alarm may take to react: success must stay unreported this long after it happens."
+    },
+    "assertions": {
+     "type": "string",
+     "description": "A checker module file with SVA immediate assert/assume (read with read_verilog -formal); port names = top-level signals."
+    },
+    "horizon": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "max_faults": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "params": {
+     "type": "object",
+     "description": "Template parameters."
+    },
+    "rule": {
+     "type": "string",
+     "description": "secret_flow: 'src =/=> dst when cond unless cond'."
+    },
+    "labels": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "masking: signal -> secret N | static_random | volatile_random | unimportant."
+    },
+    "order": {
+     "type": "integer"
+    },
+    "leakage": {
+     "type": "array",
+     "items": {
+      "enum": [
+       "glitch",
+       "transition"
+      ]
+     }
+    }
+   }
+  },
+  "faults": {
+   "type": "object",
+   "additionalProperties": false,
+   "properties": {
+    "types": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "enum": [
+       "flip",
+       "bitflip",
+       "set",
+       "reset",
+       "stuck_at_0",
+       "stuck_at_1"
+      ]
+     },
+     "description": "flip: value inverted for one cycle; set/reset: forced to 1/0 for one cycle. stuck_at_*: accepted as set/reset for one cycle (a permanent fault is not modelled)."
+    },
+    "where": {
+     "enum": [
+      "both",
+      "gates",
+      "flops",
+      "registers",
+      "combinational"
+     ],
+     "description": "Which outputs can be hit: gate outputs, flip-flop outputs or both (default)."
+    },
+    "include": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Only these sites: hierarchy patterns (u_core.*), re:REGEX, or @attribute[=value]."
+    },
+    "exclude": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Never these sites (same pattern forms)."
+    },
+    "max_faults": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Largest number of faults searched (default 3)."
+    },
+    "search_k_up_to": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Same as max_faults."
+    },
+    "horizon": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Observation window in cycles (default 20; SymbiYosys uses the same default depth)."
+    },
+    "depth": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Same as horizon (SymbiYosys name)."
+    },
+    "per_cycle": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "description": "Not modelled in this release (any number per cycle); must be omitted or null."
+    },
+    "cycles": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "description": "Not modelled in this release; must be omitted or null."
+    }
+   }
+  }
+ }
+}

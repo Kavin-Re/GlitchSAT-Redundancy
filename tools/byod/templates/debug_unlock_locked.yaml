@@ -1,0 +1,11 @@
+# Template: debug_unlock_locked
+# In plain words: when the chip's life-cycle state says LOCKED (in the field, at a customer), the debug port
+# (JTAG) must stay closed. A glitch on the unlock logic would give an attacker full access.
+checks:
+  - id: debug_opens_when_locked
+    template: debug_unlock_locked
+    goal: debug_unlock            # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    params:
+      unlocked: "dbg_en_o"                    # the signal that opens debug access
+      locked: "lc_state_i == 4'b1010"         # the condition for "locked" (often a life-cycle input or register)
+      # alarm: "fatal_alert_o"

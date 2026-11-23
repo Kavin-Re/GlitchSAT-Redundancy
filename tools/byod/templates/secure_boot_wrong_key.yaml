@@ -1,0 +1,13 @@
+# Template: secure_boot_wrong_key
+# In plain words: the boot check must never say ACCEPT for a program whose key or signature is wrong.
+# A glitch attack tries to make the comparison "lie" for one clock cycle.
+# Paste under `checks:` and change the three names to the ones in your design.
+checks:
+  - id: boot_accepts_wrong_key
+    template: secure_boot_wrong_key
+    goal: boot_accept             # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    params:
+      accept: "boot_word == 8'h96"   # the output value (or signal) that means ACCEPT
+      key_input: tag_in              # the input that carries the key / signature / tag
+      good_key: "8'hC3"              # the one genuine value
+      # alarm: alarm                 # optional: the attack only counts if this alarm stays 0

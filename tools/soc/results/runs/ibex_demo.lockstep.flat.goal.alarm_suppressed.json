@@ -1,0 +1,217 @@
+{
+ "chip": "ibex_demo",
+ "cone": {
+  "cells_any_depth": 59461,
+  "sequential_depth": 18,
+  "share_any_depth": 0.879067
+ },
+ "cone_growth": [
+  {
+   "cells": 10889,
+   "cycles": 1,
+   "share": 0.160982
+  },
+  {
+   "cells": 34136,
+   "cycles": 2,
+   "share": 0.504664
+  },
+  {
+   "cells": 53398,
+   "cycles": 3,
+   "share": 0.789432
+  },
+  {
+   "cells": 56846,
+   "cycles": 4,
+   "share": 0.840407
+  },
+  {
+   "cells": 57274,
+   "cycles": 5,
+   "share": 0.846735
+  },
+  {
+   "cells": 57666,
+   "cycles": 6,
+   "share": 0.85253
+  },
+  {
+   "cells": 58090,
+   "cycles": 7,
+   "share": 0.858799
+  },
+  {
+   "cells": 59181,
+   "cycles": 8,
+   "share": 0.874928
+  },
+  {
+   "cells": 59418,
+   "cycles": 9,
+   "share": 0.878432
+  },
+  {
+   "cells": 59423,
+   "cycles": 10,
+   "share": 0.878506
+  },
+  {
+   "cells": 59426,
+   "cycles": 11,
+   "share": 0.87855
+  },
+  {
+   "cells": 59431,
+   "cycles": 12,
+   "share": 0.878624
+  }
+ ],
+ "flow": "flat",
+ "goal": "alarm_suppressed",
+ "hi": 3,
+ "hi_by": "exact",
+ "label": "BOUNDED",
+ "lo": 3,
+ "lo_by": "exact",
+ "min_faults": 3,
+ "plain": "The lockstep comparator sees a difference between the main processor and its shadow for two cycles in a row, yet the internal major alarm output stays at 0 for the whole run. An attacker who achieves this can then disturb the main processor without being noticed.\n",
+ "relabelled": true,
+ "schema": "glitchsat-soc-goal/1",
+ "search": {
+  "backend": "dimacs:kissat",
+  "events": [
+   {
+    "by": "modules",
+    "lo": 1,
+    "t": 7.445
+   },
+   {
+    "by": "exact",
+    "hi": 4,
+    "t": 9.933
+   },
+   {
+    "by": "exact",
+    "hi": 3,
+    "t": 16.011
+   },
+   {
+    "by": "exact",
+    "lo": 3,
+    "t": 19.175
+   }
+  ],
+  "modules": {
+   "count": 9,
+   "names": [
+    "island1",
+    "island2",
+    "island3",
+    "island4",
+    "island5",
+    "island6",
+    "island7",
+    "island8",
+    "island9"
+   ]
+  },
+  "parts": {},
+  "reduction": {
+   "dag": {
+    "nodes": 335099,
+    "observed": 12,
+    "sites": 269612
+   },
+   "level": "struct",
+   "reduce_s": 0.515,
+   "sites_kept": 70637,
+   "sites_live": 269612,
+   "sites_struct": 70637,
+   "sites_total": 345996,
+   "unroll_s": 1.426
+  },
+  "seconds": 19.175,
+  "slice_seconds": 0.33,
+  "time_limit_s": 140.0,
+  "timed_out": false,
+  "workers": 2
+ },
+ "slice": {
+  "cells_by_distance": {
+   "0": 10889,
+   "1": 23247,
+   "2": 19262,
+   "3": 3448,
+   "4": 428,
+   "5": 392
+  },
+  "chip_cells": 67641,
+  "chip_flops": 10709,
+  "chip_gates": 56932,
+  "cycles": 6,
+  "fault_candidates": 345996,
+  "flops_cut_at_horizon": 83,
+  "flops_free_initial_value": 3736,
+  "free_values_in_slice": {
+   "blackbox": 64,
+   "tick": 1
+  },
+  "slice_cells": 57666,
+  "slice_flops": 8137,
+  "slice_gates": 49529,
+  "slice_inputs": 13,
+  "slice_share": 0.85253
+ },
+ "spec": {
+  "attacker": null,
+  "cycles": 6,
+  "fix": {
+   "td_i": 0,
+   "tms_i": 0,
+   "trst_ni": 0
+  },
+  "hit": [
+   "u_top.gen_lockstep.u_ibex_lockstep.outputs_mismatch=1"
+  ],
+  "hold": 2,
+  "kmax": 4,
+  "quiet": [
+   "alert_major_internal_o=0"
+  ]
+ },
+ "status": "EXACT",
+ "text": "ATTACK_FOUND: the smallest attack uses 3 flip(s) within 6 cycles (minimum proved).",
+ "title": "The two processor copies disagree and the alarm stays silent",
+ "variant": "lockstep",
+ "where": "u_top.gen_lockstep.u_ibex_lockstep.outputs_mismatch (comparator result) against alert_major_internal_o",
+ "witness": {
+  "attacker_value": null,
+  "faults": [
+   {
+    "cell": "$abc$224177$blif$224177$89",
+    "cycle": 0,
+    "kind": "gate",
+    "net": "alert_major_internal_o"
+   },
+   {
+    "cell": "$auto$ff.cc:337:slice$58896",
+    "cycle": 0,
+    "kind": "flop",
+    "net": "u_top.gen_lockstep.u_ibex_lockstep.enable_cmp_q[0]"
+   },
+   {
+    "cell": "$abc$224177$blif$224177$89",
+    "cycle": 1,
+    "kind": "gate",
+    "net": "alert_major_internal_o"
+   }
+  ],
+  "free_values_set_to_1": 2397,
+  "hit_cycle": 1,
+  "note": "uses 2397 unknown start value(s) / black-box value(s) chosen by the solver",
+  "replayed_on_slice": true,
+  "replayed_on_whole_chip": true,
+  "whole_chip_hit_cycle": 1
+ }
+}

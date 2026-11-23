@@ -1,0 +1,203 @@
+{
+ "chip": "picosoc",
+ "cone": {
+  "cells_any_depth": 43580,
+  "sequential_depth": 68,
+  "share_any_depth": 0.996798
+ },
+ "cone_growth": [
+  {
+   "cells": 1,
+   "cycles": 1,
+   "share": 2.3e-05
+  },
+  {
+   "cells": 454,
+   "cycles": 2,
+   "share": 0.010384
+  },
+  {
+   "cells": 6187,
+   "cycles": 3,
+   "share": 0.141514
+  },
+  {
+   "cells": 31590,
+   "cycles": 4,
+   "share": 0.722553
+  },
+  {
+   "cells": 42011,
+   "cycles": 5,
+   "share": 0.96091
+  },
+  {
+   "cells": 43264,
+   "cycles": 6,
+   "share": 0.98957
+  },
+  {
+   "cells": 43422,
+   "cycles": 7,
+   "share": 0.993184
+  },
+  {
+   "cells": 43426,
+   "cycles": 8,
+   "share": 0.993275
+  },
+  {
+   "cells": 43428,
+   "cycles": 9,
+   "share": 0.993321
+  },
+  {
+   "cells": 43430,
+   "cycles": 10,
+   "share": 0.993367
+  },
+  {
+   "cells": 43432,
+   "cycles": 11,
+   "share": 0.993413
+  },
+  {
+   "cells": 43434,
+   "cycles": 12,
+   "share": 0.993458
+  }
+ ],
+ "flow": "keep",
+ "goal": "first_fetch",
+ "hi": 2,
+ "hi_by": "exact",
+ "label": "BOUNDED",
+ "lo": 2,
+ "lo_by": "modules",
+ "min_faults": 2,
+ "plain": "The processor's memory-request signal is high for four cycles in a row (it is reading the first instruction from the SPI flash) although the value on the sig pins is not the key. The goal is on a register deep inside the processor, so the attacker may also aim at the processor itself.\n",
+ "relabelled": true,
+ "schema": "glitchsat-soc-goal/1",
+ "search": {
+  "backend": "dimacs:kissat",
+  "events": [
+   {
+    "by": "modules",
+    "lo": 1,
+    "t": 5.534
+   },
+   {
+    "by": "exact",
+    "hi": 4,
+    "t": 7.179
+   },
+   {
+    "by": "modules",
+    "lo": 2,
+    "t": 7.746
+   },
+   {
+    "by": "exact",
+    "hi": 2,
+    "t": 11.014
+   }
+  ],
+  "modules": {
+   "count": 3,
+   "names": [
+    "bootcheck.c0",
+    "bootcheck.c1",
+    "bootcheck.c2"
+   ]
+  },
+  "parts": {},
+  "reduction": {
+   "dag": {
+    "nodes": 264344,
+    "observed": 8,
+    "sites": 210355
+   },
+   "level": "struct",
+   "reduce_s": 0.311,
+   "sites_kept": 54953,
+   "sites_live": 210355,
+   "sites_struct": 54953,
+   "sites_total": 347408,
+   "unroll_s": 0.972
+  },
+  "seconds": 11.014,
+  "slice_seconds": 0.2,
+  "time_limit_s": 100.0,
+  "timed_out": false,
+  "workers": 2
+ },
+ "slice": {
+  "cells_by_distance": {
+   "0": 1,
+   "1": 453,
+   "2": 5733,
+   "3": 25403,
+   "4": 10421,
+   "5": 1253,
+   "6": 158,
+   "7": 4
+  },
+  "chip_cells": 43720,
+  "chip_flops": 10711,
+  "chip_gates": 33009,
+  "cycles": 8,
+  "fault_candidates": 347408,
+  "flops_cut_at_horizon": 1,
+  "flops_free_initial_value": 10029,
+  "free_values_in_slice": {
+   "x": 66
+  },
+  "slice_cells": 43426,
+  "slice_flops": 10622,
+  "slice_gates": 32804,
+  "slice_inputs": 50,
+  "slice_share": 0.993275
+ },
+ "spec": {
+  "attacker": {
+   "differs_from": 195,
+   "port": "sig"
+  },
+  "cycles": 8,
+  "fix": {},
+  "hit": [
+   "soc.cpu.mem_valid=1"
+  ],
+  "hold": 4,
+  "kmax": 4,
+  "quiet": []
+ },
+ "status": "EXACT",
+ "text": "ATTACK_FOUND: the smallest attack uses 2 flip(s) within 8 cycles (minimum proved).",
+ "title": "The processor starts a memory access with a wrong authorisation value",
+ "variant": "tmr",
+ "where": "soc.cpu.mem_valid: the memory request register of PicoRV32",
+ "witness": {
+  "attacker_value": 131,
+  "faults": [
+   {
+    "cell": "$abc$64830$auto$blifparse.cc:386:parse_blif$67675",
+    "cycle": 0,
+    "kind": "gate",
+    "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[4]"
+   },
+   {
+    "cell": "$abc$64830$auto$blifparse.cc:386:parse_blif$67679",
+    "cycle": 0,
+    "kind": "gate",
+    "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[6]"
+   }
+  ],
+  "free_values_set_to_1": 7972,
+  "hit_cycle": 6,
+  "note": "uses 7972 unknown start value(s) / black-box value(s) chosen by the solver",
+  "replayed_on_slice": true,
+  "replayed_on_whole_chip": true,
+  "whole_chip_hit_cycle": 6
+ }
+}

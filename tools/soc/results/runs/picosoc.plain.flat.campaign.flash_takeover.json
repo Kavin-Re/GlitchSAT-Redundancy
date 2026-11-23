@@ -1,0 +1,35 @@
+{
+ "chip": "picosoc",
+ "chip_cells": 43660,
+ "cycles": 6,
+ "flow": "flat",
+ "goal": "flash_takeover",
+ "label": "SAMPLED",
+ "lanes": 4096,
+ "no_fault": {
+  "goal_reached": 0,
+  "scenarios": 4096
+ },
+ "note": "Environment sampled once per scenario (inputs, unknown start values, black-box values). Counts say what was observed in these scenarios only.",
+ "pairs": {
+  "examples": [],
+  "goal_reached": 0,
+  "rate": 0.0,
+  "scenarios": 20000
+ },
+ "schema": "glitchsat-soc-campaign/1",
+ "seconds": 7.9,
+ "seed": 1,
+ "simulator": "gsoc.sim.Compiled (compiled Python, bit-parallel)",
+ "single": {
+  "complete_fault_space": true,
+  "distinct_cells": 0,
+  "examples": [],
+  "goal_reached": 0,
+  "of_all": 261960,
+  "rate": 0.0,
+  "scenarios": 261960
+ },
+ "stopped_at_time_limit": false,
+ "variant": "plain"
+}

@@ -1,0 +1,194 @@
+{
+ "chip": "picosoc",
+ "cone": {
+  "cells_any_depth": 43520,
+  "sequential_depth": 69,
+  "share_any_depth": 0.996793
+ },
+ "cone_growth": [
+  {
+   "cells": 1,
+   "cycles": 1,
+   "share": 2.3e-05
+  },
+  {
+   "cells": 81,
+   "cycles": 2,
+   "share": 0.001855
+  },
+  {
+   "cells": 849,
+   "cycles": 3,
+   "share": 0.019446
+  },
+  {
+   "cells": 10824,
+   "cycles": 4,
+   "share": 0.247916
+  },
+  {
+   "cells": 40916,
+   "cycles": 5,
+   "share": 0.937151
+  },
+  {
+   "cells": 42995,
+   "cycles": 6,
+   "share": 0.984769
+  },
+  {
+   "cells": 43352,
+   "cycles": 7,
+   "share": 0.992945
+  },
+  {
+   "cells": 43362,
+   "cycles": 8,
+   "share": 0.993175
+  },
+  {
+   "cells": 43366,
+   "cycles": 9,
+   "share": 0.993266
+  },
+  {
+   "cells": 43368,
+   "cycles": 10,
+   "share": 0.993312
+  },
+  {
+   "cells": 43370,
+   "cycles": 11,
+   "share": 0.993358
+  },
+  {
+   "cells": 43372,
+   "cycles": 12,
+   "share": 0.993404
+  }
+ ],
+ "flow": "keep",
+ "goal": "flash_takeover",
+ "hi": 2,
+ "hi_by": "exact",
+ "label": "BOUNDED",
+ "lo": 2,
+ "lo_by": "exact",
+ "min_faults": 2,
+ "plain": "PicoSoC's flash controller has a configuration bit that hands the flash pins to software (\"bit-bang\" mode). The goal is that this bit changes to manual control for two cycles while the chip is still held in reset by the boot check, i.e. without any program running.\n",
+ "relabelled": true,
+ "schema": "glitchsat-soc-goal/1",
+ "search": {
+  "backend": "dimacs:kissat",
+  "events": [
+   {
+    "by": "modules",
+    "lo": 1,
+    "t": 3.381
+   },
+   {
+    "by": "exact",
+    "hi": 2,
+    "t": 5.874
+   },
+   {
+    "by": "exact",
+    "lo": 2,
+    "t": 80.573
+   }
+  ],
+  "modules": {
+   "count": 1,
+   "names": [
+    "island1"
+   ]
+  },
+  "parts": {},
+  "reduction": {
+   "dag": {
+    "nodes": 120224,
+    "observed": 6,
+    "sites": 95666
+   },
+   "level": "struct",
+   "reduce_s": 0.194,
+   "sites_kept": 17376,
+   "sites_live": 95666,
+   "sites_struct": 17376,
+   "sites_total": 257970,
+   "unroll_s": 0.656
+  },
+  "seconds": 80.573,
+  "slice_seconds": 0.22,
+  "time_limit_s": 170.0,
+  "timed_out": false,
+  "workers": 2
+ },
+ "slice": {
+  "cells_by_distance": {
+   "0": 1,
+   "1": 80,
+   "2": 768,
+   "3": 9975,
+   "4": 30092,
+   "5": 2079
+  },
+  "chip_cells": 43660,
+  "chip_flops": 10706,
+  "chip_gates": 32954,
+  "cycles": 6,
+  "fault_candidates": 257970,
+  "flops_cut_at_horizon": 192,
+  "flops_free_initial_value": 10020,
+  "free_values_in_slice": {
+   "x": 66
+  },
+  "slice_cells": 42995,
+  "slice_flops": 10605,
+  "slice_gates": 32390,
+  "slice_inputs": 50,
+  "slice_share": 0.984769
+ },
+ "spec": {
+  "attacker": {
+   "differs_from": 195,
+   "port": "sig"
+  },
+  "cycles": 6,
+  "fix": {},
+  "hit": [
+   "soc.spimemio.config_en=0"
+  ],
+  "hold": 2,
+  "kmax": 3,
+  "quiet": []
+ },
+ "status": "EXACT",
+ "text": "ATTACK_FOUND: the smallest attack uses 2 flip(s) within 6 cycles (minimum proved).",
+ "title": "The flash controller is switched to manual pin control without the processor asking",
+ "variant": "plain",
+ "where": "soc.spimemio.config_en: configuration register of the SPI flash controller (unprotected, native)",
+ "witness": {
+  "attacker_value": 0,
+  "faults": [
+   {
+    "cell": "$auto$ff.cc:266:slice$33703",
+    "cycle": 4,
+    "kind": "flop",
+    "net": "soc.spimemio.cfgreg_do[31]"
+   },
+   {
+    "cell": "$auto$ff.cc:266:slice$33703",
+    "cycle": 5,
+    "kind": "flop",
+    "net": "soc.spimemio.cfgreg_do[31]"
+   }
+  ],
+  "free_values_set_to_1": 1,
+  "hit_cycle": 5,
+  "note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+  "replayed_on_slice": true,
+  "replayed_on_whole_chip": true,
+  "whole_chip_hit_cycle": 5
+ }
+}

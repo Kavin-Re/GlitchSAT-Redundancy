@@ -1,0 +1,22 @@
+{
+ "order": 2,
+ "title": "Secure boot: never run a fake program",
+ "what": "The boot check of a small processor: it compares the program's signature (an 8-bit tag here) with the expected one and answers ACCEPT or REJECT.",
+ "why": "If a glitch makes the check say ACCEPT for a wrong signature, the chip runs the attacker's program.",
+ "teaches": "How many glitches a real protection (three compares, each owning its own state bits, plus an alarm) forces the attacker to use.",
+ "runs": [
+  {
+   "label": "1. Run one compare (weak)",
+   "file": "glitchsat.yaml",
+   "task": "",
+   "expect": "1 glitch"
+  },
+  {
+   "label": "2. Run three compares + alarm (protected)",
+   "file": "glitchsat.yaml",
+   "task": "hardened",
+   "expect": "3 glitches"
+  }
+ ],
+ "lesson_after": "One compare falls to one glitch. Three compares plus an alarm need three well-timed glitches: the protection raises the cost, it does not make the attack impossible. More glitches at the right moments are much harder to do in a laboratory."
+}

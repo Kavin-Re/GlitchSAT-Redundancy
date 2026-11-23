@@ -1,0 +1,683 @@
+{
+ "schema": "labs-result/1",
+ "module": "masking",
+ "title": "Side-channel masking survival",
+ "status": "EXPERIMENTAL",
+ "question": "Does a masked circuit still hide its secret from someone who measures one wire, with and without glitches, and does that stay true after synthesis?",
+ "example": {
+  "name": "3 textbook gadgets x 2 build flows + 2 OpenTitan gadgets",
+  "description": "Example (smallest meaningful set, about 10 s):\n  naive_and2      own textbook gadget, known INSECURE (no randomness)\n  isw_and2        own textbook ISW AND: known secure without glitches, known insecure with glitches\n  dom_indep_and2  own textbook DOM-indep AND: known secure in both models\n  ot_dom_and      OpenTitan prim_dom_and_2share (DW=1), elaborated with Yosys 0.71 read_slang\n  ot_gf2p2_mul    OpenTitan aes_dom_indep_mul_gf2pn (NPower=2), the DOM multiplier inside the masked S-box\n  ot_sbox_dom     OpenTitan aes_sbox_dom: build only (too many random bits for exhaustive counting)",
+  "command": "python3 ext/masking/scripts/run_labs.py"
+ },
+ "findings": [
+  {
+   "id": "naive_and2.plain",
+   "text": "textbook masked AND without fresh randomness (known insecure), built with the plain flow: standard probing model LEAKS, glitch model LEAKS (matches the textbook expectation).",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 2,
+    "glitch": 2,
+    "probe_sets": 10,
+    "expected": {
+     "standard": false,
+     "glitch": false
+    },
+    "matches_textbook": true,
+    "unmasked_output_ok": true,
+    "cells": 6,
+    "example_leak": [
+     {
+      "probes": [
+       "q0"
+      ],
+      "observes": [
+       "a0",
+       "b0",
+       "b1"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "naive_and2.synth",
+   "text": "textbook masked AND without fresh randomness (known insecure), built with the synth flow: standard probing model LEAKS, glitch model LEAKS (matches the textbook expectation).",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 3,
+    "glitch": 3,
+    "probe_sets": 7,
+    "expected": {
+     "standard": false,
+     "glitch": false
+    },
+    "matches_textbook": true,
+    "unmasked_output_ok": true,
+    "cells": 3,
+    "example_leak": [
+     {
+      "probes": [
+       "q1"
+      ],
+      "observes": [
+       "a1",
+       "b0",
+       "b1"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "isw_and2.plain",
+   "text": "textbook ISW masked AND, no registers (known: secure without glitches, insecure with glitches), built with the plain flow: standard probing model no leak found, glitch model LEAKS (matches the textbook expectation).",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 0,
+    "glitch": 2,
+    "probe_sets": 13,
+    "expected": {
+     "standard": true,
+     "glitch": false
+    },
+    "matches_textbook": true,
+    "unmasked_output_ok": true,
+    "cells": 8,
+    "example_leak": [
+     {
+      "probes": [
+       "z2"
+      ],
+      "observes": [
+       "a0",
+       "a1",
+       "b0",
+       "b1",
+       "r"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "isw_and2.synth",
+   "text": "textbook ISW masked AND, no registers (known: secure without glitches, insecure with glitches), built with the synth flow: standard probing model LEAKS, glitch model LEAKS (DOES NOT match the textbook expectation). Yosys `synth` regrouped the AND/XOR terms (7 cells instead of 8) and the regrouped circuit leaks: the masking did not survive synthesis.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 2,
+    "glitch": 3,
+    "probe_sets": 12,
+    "expected": {
+     "standard": true,
+     "glitch": false
+    },
+    "matches_textbook": false,
+    "unmasked_output_ok": true,
+    "cells": 7,
+    "example_leak": [
+     {
+      "probes": [
+       "$abc$103$new_n10_"
+      ],
+      "observes": [
+       "b0",
+       "b1"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "dom_indep_and2.plain",
+   "text": "textbook DOM-indep masked AND with registered cross terms (known secure in both models), built with the plain flow: standard probing model no leak found, glitch model no leak found (matches the textbook expectation).",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 0,
+    "glitch": 0,
+    "probe_sets": 15,
+    "expected": {
+     "standard": true,
+     "glitch": true
+    },
+    "matches_textbook": true,
+    "unmasked_output_ok": true,
+    "cells": 10,
+    "example_leak": []
+   }
+  },
+  {
+   "id": "dom_indep_and2.synth",
+   "text": "textbook DOM-indep masked AND with registered cross terms (known secure in both models), built with the synth flow: standard probing model no leak found, glitch model no leak found (matches the textbook expectation).",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 0,
+    "glitch": 0,
+    "probe_sets": 15,
+    "expected": {
+     "standard": true,
+     "glitch": true
+    },
+    "matches_textbook": true,
+    "unmasked_output_ok": true,
+    "cells": 10,
+    "example_leak": []
+   }
+  },
+  {
+   "id": "ot_dom_and",
+   "text": "OpenTitan prim_dom_and_2share, 1 bit wide, Pipeline=0: standard probing model no leak found, glitch model no leak found, first order, in the \"inputs held stable, enable on\" setting.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 0,
+    "glitch": 0,
+    "probe_sets": 21,
+    "unmasked_output_ok": true,
+    "cells": 16,
+    "share_and_random_bits": 5
+   }
+  },
+  {
+   "id": "ot_gf2p2_mul",
+   "text": "OpenTitan aes_dom_indep_mul_gf2pn, NPower=2 (a GF(2^2) DOM multiplier of the masked S-box): standard probing model no leak found, glitch model no leak found, first order, in the \"inputs held stable, enable on\" setting.",
+   "label": "SIMULATED",
+   "experimental": true,
+   "evidence": {
+    "standard": 0,
+    "glitch": 0,
+    "probe_sets": 70,
+    "unmasked_output_ok": true,
+    "cells": 60,
+    "share_and_random_bits": 10
+   }
+  },
+  {
+   "id": "ot_sbox_dom.build",
+   "text": "OpenTitan aes_sbox_dom (the full masked S-box) elaborates with Yosys 0.71 read_slang and maps to 1714 single-bit cells.",
+   "label": "MEASURED",
+   "experimental": true,
+   "evidence": {
+    "cells": 1714,
+    "input_bits": 50
+   }
+  },
+  {
+   "id": "ot_sbox_dom.probing",
+   "text": "Whether the full masked S-box is first-order secure under glitches: not checked. It has too many share and random bits for exhaustive counting; a smarter engine is needed.",
+   "label": "UNTESTED",
+   "experimental": true,
+   "evidence": {}
+  },
+  {
+   "id": "transitions",
+   "text": "Leakage from value changes between cycles (transition leakage) and higher orders: not checked.",
+   "label": "UNTESTED",
+   "experimental": true,
+   "evidence": {}
+  }
+ ],
+ "labels": {
+  "MEASURED": "counted or computed by running real tools on real inputs in this module",
+  "SIMULATED": "the outcome of a model (fault simulator or probing model); a model, not silicon",
+  "UNTESTED": "stated or expected, but not checked by any run in this module yet"
+ },
+ "caveats": [
+  "Exact counting on a model: first-order probes only, inputs held stable, flip-flops settled, enable active.",
+  "Glitch model is the usual \"a probe sees its whole combinational cone up to registers\"; real glitches can be weaker or stronger (routing, couplings).",
+  "Transition leakage, multi-cycle effects and order 2 or more are not checked.",
+  "Exhaustive: limited to 20 share and random bits; the full OpenTitan S-box is out of reach.",
+  "No power traces were recorded; nothing here is measured on a chip."
+ ],
+ "run": {
+  "started": "2026-11-22T04:50:10+00:00",
+  "seconds": 0.56,
+  "ok": true,
+  "errors": [],
+  "tools": {
+   "yosys33": "yosys",
+   "yosys71": "yosys-with-slang:yosys"
+  },
+  "rows": {
+   "naive_and2/plain": {
+    "stats": {
+     "cells": 6,
+     "types": {
+      "$_AND_": 4,
+      "$_XOR_": 2
+     },
+     "share_and_random_bits": 4,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 10,
+     "leaking_sets": 2,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "q0"
+       ],
+       "observes": [
+        "q0"
+       ]
+      },
+      {
+       "probes": [
+        "q1"
+       ],
+       "observes": [
+        "q1"
+       ]
+      }
+     ]
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 10,
+     "leaking_sets": 2,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "q0"
+       ],
+       "observes": [
+        "a0",
+        "b0",
+        "b1"
+       ]
+      },
+      {
+       "probes": [
+        "q1"
+       ],
+       "observes": [
+        "a1",
+        "b0",
+        "b1"
+       ]
+      }
+     ]
+    },
+    "expected": {
+     "standard": false,
+     "glitch": false
+    },
+    "matches_textbook": true
+   },
+   "naive_and2/synth": {
+    "stats": {
+     "cells": 3,
+     "types": {
+      "$_AND_": 2,
+      "$_XOR_": 1
+     },
+     "share_and_random_bits": 4,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 7,
+     "leaking_sets": 3,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "q1"
+       ],
+       "observes": [
+        "q1"
+       ]
+      },
+      {
+       "probes": [
+        "$abc$97$new_n7_"
+       ],
+       "observes": [
+        "$abc$97$new_n7_"
+       ]
+      },
+      {
+       "probes": [
+        "q0"
+       ],
+       "observes": [
+        "q0"
+       ]
+      }
+     ]
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 7,
+     "leaking_sets": 3,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "q1"
+       ],
+       "observes": [
+        "a1",
+        "b0",
+        "b1"
+       ]
+      },
+      {
+       "probes": [
+        "$abc$97$new_n7_"
+       ],
+       "observes": [
+        "b0",
+        "b1"
+       ]
+      },
+      {
+       "probes": [
+        "q0"
+       ],
+       "observes": [
+        "a0",
+        "b0",
+        "b1"
+       ]
+      }
+     ]
+    },
+    "expected": {
+     "standard": false,
+     "glitch": false
+    },
+    "matches_textbook": true
+   },
+   "isw_and2/plain": {
+    "stats": {
+     "cells": 8,
+     "types": {
+      "$_AND_": 4,
+      "$_XOR_": 4
+     },
+     "share_and_random_bits": 5,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 13,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 13,
+     "leaking_sets": 2,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "z2"
+       ],
+       "observes": [
+        "a0",
+        "a1",
+        "b0",
+        "b1",
+        "r"
+       ]
+      },
+      {
+       "probes": [
+        "q1"
+       ],
+       "observes": [
+        "a0",
+        "a1",
+        "b0",
+        "b1",
+        "r"
+       ]
+      }
+     ]
+    },
+    "expected": {
+     "standard": true,
+     "glitch": false
+    },
+    "matches_textbook": true
+   },
+   "isw_and2/synth": {
+    "stats": {
+     "cells": 7,
+     "types": {
+      "$_AND_": 3,
+      "$_XOR_": 4
+     },
+     "share_and_random_bits": 5,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 12,
+     "leaking_sets": 2,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "$abc$103$new_n10_"
+       ],
+       "observes": [
+        "$abc$103$new_n10_"
+       ]
+      },
+      {
+       "probes": [
+        "$abc$103$new_n11_"
+       ],
+       "observes": [
+        "$abc$103$new_n11_"
+       ]
+      }
+     ]
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 12,
+     "leaking_sets": 3,
+     "secure": false,
+     "examples": [
+      {
+       "probes": [
+        "$abc$103$new_n10_"
+       ],
+       "observes": [
+        "b0",
+        "b1"
+       ]
+      },
+      {
+       "probes": [
+        "$abc$103$new_n11_"
+       ],
+       "observes": [
+        "a1",
+        "b0",
+        "b1"
+       ]
+      },
+      {
+       "probes": [
+        "q1"
+       ],
+       "observes": [
+        "a0",
+        "a1",
+        "b0",
+        "b1",
+        "r"
+       ]
+      }
+     ]
+    },
+    "expected": {
+     "standard": true,
+     "glitch": false
+    },
+    "matches_textbook": false
+   },
+   "dom_indep_and2/plain": {
+    "stats": {
+     "cells": 10,
+     "types": {
+      "$_DFF_P_": 2,
+      "$_AND_": 4,
+      "$_XOR_": 4
+     },
+     "share_and_random_bits": 5,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 15,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 15,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "expected": {
+     "standard": true,
+     "glitch": true
+    },
+    "matches_textbook": true
+   },
+   "dom_indep_and2/synth": {
+    "stats": {
+     "cells": 10,
+     "types": {
+      "$_AND_": 4,
+      "$_XOR_": 4,
+      "$_DFF_P_": 2
+     },
+     "share_and_random_bits": 5,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 15,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 15,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "expected": {
+     "standard": true,
+     "glitch": true
+    },
+    "matches_textbook": true
+   },
+   "ot_dom_and/plain": {
+    "stats": {
+     "cells": 16,
+     "types": {
+      "$_DFF_P_": 2,
+      "$_AND_": 4,
+      "$_XOR_": 4,
+      "$_MUX_": 6
+     },
+     "share_and_random_bits": 5,
+     "secret_bits": 2
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 21,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 21,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    }
+   },
+   "ot_gf2p2_mul/plain": {
+    "stats": {
+     "cells": 60,
+     "types": {
+      "$_DFF_P_": 4,
+      "$_AND_": 12,
+      "$_XOR_": 24,
+      "$_MUX_": 12,
+      "$_NOT_": 8
+     },
+     "share_and_random_bits": 10,
+     "secret_bits": 4
+    },
+    "unmasked_output_ok": true,
+    "standard": {
+     "model": "standard",
+     "order": 1,
+     "probe_sets": 70,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    },
+    "glitch": {
+     "model": "glitch",
+     "order": 1,
+     "probe_sets": 70,
+     "leaking_sets": 0,
+     "secure": true,
+     "examples": []
+    }
+   },
+   "ot_sbox_dom/plain": {
+    "built": true,
+    "cells": 1714,
+    "input_bits": 50
+   }
+  }
+ },
+ "readme": "README.md"
+}

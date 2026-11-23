@@ -1,0 +1,5 @@
+# Private: full results, reproduction and reporting notes stay off any public tree until the reporting
+# decision is made (see README.md, "Private notes").
+to_report/
+work/
+*_pre_audit.*

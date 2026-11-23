@@ -1,0 +1,10 @@
+# Template: custom
+# In plain words: write the bad condition yourself as a Verilog expression over the ports of the top module
+# (and internal signals as u_inst.signal). `must_hold` conditions must stay true until the bad condition happens.
+# Extras: $past(x) is x one cycle earlier, $past(x, n) n cycles earlier, $initial is 1 in the first cycle.
+checks:
+  - id: my_property
+    goal: lock_bypass             # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    bad: "open_o"
+    must_hold:
+      - "!(try_i && code_i == 8'hA5)"

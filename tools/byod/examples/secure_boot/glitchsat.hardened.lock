@@ -1,0 +1,113 @@
+{
+ "analyses": [
+  "validate",
+  "min_faults",
+  "attack_surface",
+  "merge_lint",
+  "survival",
+  "unbounded"
+ ],
+ "blackboxes": {
+  "plain": [],
+  "synth": []
+ },
+ "checks": {
+  "accept_wrong_tag": {
+   "assertions": null,
+   "bad": "(boot_word == 8'h96) && (tag_in != 8'hC3)",
+   "detect_latency": 0,
+   "horizon": 8,
+   "kind": "fault",
+   "max_faults": 3,
+   "must_hold": [],
+   "template": "secure_boot_wrong_key"
+  }
+ },
+ "clock": "clk",
+ "faults": {
+  "attacker_changes": "once",
+  "exclude": [],
+  "include": [],
+  "normalisation": "dffunmap; flip-flop site = stored value",
+  "types": [
+   "flip"
+  ],
+  "where": "both"
+ },
+ "files": {},
+ "fixed": {
+  "blk_data": 0,
+  "blk_valid": 1,
+  "exp_in": 0,
+  "exp_load": 0,
+  "pad_ok": 1,
+  "start": 1
+ },
+ "flows": [
+  "plain",
+  "synth"
+ ],
+ "frontend": "verilog",
+ "glitchsat_lock": 2,
+ "glitchsat_version": "0.1.0",
+ "liberty": {},
+ "powerup": "any",
+ "probes": {},
+ "project": "glitchsat.yaml",
+ "project_sha256": "0983428b0f0eb844f043e8452be4310f432e66276db045c6a198d7669ae5aecb",
+ "reset": {
+  "active": "high",
+  "cycles": 1,
+  "glitch_during_reset": false,
+  "port": "rst"
+ },
+ "roles": {
+  "blk_data": "fixed",
+  "blk_valid": "fixed",
+  "clk": "clock",
+  "exp_in": "fixed",
+  "exp_load": "fixed",
+  "pad_ok": "fixed",
+  "rst": "reset",
+  "start": "fixed",
+  "tag_in": "attacker"
+ },
+ "selectors": {
+  "exclude": [],
+  "include": [],
+  "sites_per_check": {
+   "accept_wrong_tag": {
+    "plain": {
+     "candidates": 326,
+     "excluded": 0,
+     "selected": 326,
+     "where": "both"
+    },
+    "synth": {
+     "candidates": 248,
+     "excluded": 0,
+     "selected": 248,
+     "where": "both"
+    }
+   }
+  }
+ },
+ "solver": {
+  "backend": "auto",
+  "time_s": 300.0
+ },
+ "sources": {
+  "rtl/sb_cmp.v": "c8fa1cdd340820a991235394e8d54f723a912cb3e40e3bf4408c1c32204f08b7",
+  "rtl/sb_hash.v": "c8ef9046f9c08eb6c2fd8ea868c8fe6949f160322c82841a57349ceabac2e653",
+  "rtl/sb_keccak_round.v": "1fa2bbc45397d34351d5907d3875481f36a308e62e1ccab3dc72ddf1ce649256",
+  "rtl/secboot_core.v": "080afc278e65dbf511305db39d62b69affefbea83b03507040ce3bc9a4c1b7a8"
+ },
+ "task": "hardened",
+ "top": "secboot_core",
+ "validation": {},
+ "yosys": {
+  "elaborate": "Yosys 0.33",
+  "plain": "Yosys 0.33",
+  "synth": "Yosys 0.33"
+ }
+}

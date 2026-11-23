@@ -1,0 +1,123 @@
+# lowRISC Ibex demo system: Ibex RISC-V core, RAM, UART, GPIO, PWM, SPI, timer and a JTAG debug module.
+name: ibex_demo
+title: lowRISC Ibex demo system
+what: >
+  A small microcontroller-style chip built around lowRISC's Ibex RISC-V processor: 128 kB of RAM, a serial port,
+  general-purpose pins, PWM outputs, an SPI port, a timer and a JTAG debug module through which a debugger can
+  halt the processor and run its own code. The "lockstep" variant switches on Ibex's security configuration:
+  a second copy of the processor runs two cycles behind the first and an alarm fires when they disagree.
+source:
+  repo: https://github.com/lowRISC/ibex-demo-system
+  commit: d37beb753e19482eb054aefac73a27289bf72e47
+  vendored_ibex: 594ea976c9dad793f87edf91ec1c4c1df447e6dc
+  licence: Apache-2.0
+  added_by_this_project: [rtl/prim_shims.sv, "two source edits made by fetch.sh (listed there)"]
+top: ibex_demo_system
+frontend: slang
+slang_args: ["-DSYNTHESIS", "-DYOSYS", "--allow-use-before-declare", "--ignore-initial"]
+include_dirs:
+  - vendor/lowrisc_ip/ip/prim/rtl
+  - vendor/lowrisc_ibex/vendor/lowrisc_ip/dv/sv/dv_utils
+  - vendor/lowrisc_ibex/rtl
+library_dirs:
+  - vendor/lowrisc_ip/ip/prim/rtl
+  - vendor/lowrisc_ip/ip/prim_generic/rtl
+  - vendor/lowrisc_ibex/rtl
+  - vendor/lowrisc_ibex/shared/rtl
+  - vendor/lowrisc_ibex/dv/uvm/core_ibex/common/prim
+  - vendor/pulp_riscv_dbg/src
+  - vendor/pulp_riscv_dbg/debug_rom
+  - rtl/system
+files:
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_util_pkg.sv
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_mubi_pkg.sv
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_ram_2p_pkg.sv
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_cipher_pkg.sv
+  - vendor/lowrisc_ip/ip/prim/rtl/prim_count_pkg.sv
+  - vendor/lowrisc_ibex/dv/uvm/core_ibex/common/prim/prim_pkg.sv
+  - vendor/lowrisc_ibex/rtl/ibex_pkg.sv
+  - vendor/pulp_riscv_dbg/src/dm_pkg.sv
+  - rtl/system/jtag_id_pkg.sv
+  - rtl/prim_shims.sv
+variants:
+  stock: {top: ibex_demo_system, files: [rtl/system/ibex_demo_system.sv], title: "as published (SecureIbex = 0)"}
+  lockstep: {top: ibex_demo_system_secure, files: [rtl/system/ibex_demo_system_secure.sv], title: "SecureIbex = 1: dual-core lockstep and alarms",
+             note: "This lockstep chip is this project's own configuration of the demo system, made for this study by two source edits in the fetched copy (listed in chips/ibex_demo/fetch.sh). lowRISC does not ship the demo system in this form."}
+memory_map_max_words: 4096     # the 32 x 32 register file becomes flops; the 128 kB RAM stays a black box
+clock: clk_sys_i
+reset: {port: rst_sys_ni, active: 0, cycles: 16}
+reset_straps: {trst_ni: 0, tms_i: 0, td_i: 0}     # JTAG port idle and held in reset while the chip is reset
+flows: [flat]
+goals:
+  - id: debug_entry
+    title: The processor enters debug mode while the debug port is idle
+    plain: >
+      In debug mode a debugger controls the processor completely. Here nobody is attached: the JTAG port is held
+      in reset for the whole run. The goal is that the processor is in debug mode for two cycles in a row anyway.
+      This is the open-chip counterpart of "debug unlocked on a locked device".
+    where: "u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q: the debug-mode register of the Ibex controller"
+    variants: [stock]
+    hit: ["u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q=1"]
+    hold: 2
+    fix: {trst_ni: 0, tms_i: 0, td_i: 0}
+    cycles: 6
+    kmax: 3
+  - id: debug_entry_silent
+    title: The processor enters debug mode while the debug port is idle, and no alarm fires
+    plain: >
+      Same goal on the lockstep chip, with a longer wait: the main processor is in debug mode for six cycles in
+      a row (long enough for the two-cycle-delayed shadow processor to be compared with it) and the internal
+      major alarm has stayed silent all the time.
+    where: "debug_mode_q of the main core; alert_major_internal_o is the alarm that must stay 0"
+    variants: [lockstep]
+    hit: ["u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q=1"]
+    hold: 6
+    quiet: ["alert_major_internal_o=0"]
+    fix: {trst_ni: 0, tms_i: 0, td_i: 0}
+    cycles: 10
+    kmax: 3
+  - id: alarm_suppressed
+    title: The two processor copies disagree and the alarm stays silent
+    plain: >
+      The lockstep comparator sees a difference between the main processor and its shadow for two cycles in a row,
+      yet the internal major alarm output stays at 0 for the whole run. An attacker who achieves this can then
+      disturb the main processor without being noticed.
+    where: "u_top.gen_lockstep.u_ibex_lockstep.outputs_mismatch (comparator result) against alert_major_internal_o"
+    variants: [lockstep]
+    hit: ["u_top.gen_lockstep.u_ibex_lockstep.outputs_mismatch=1"]
+    hold: 2
+    quiet: ["alert_major_internal_o=0"]
+    fix: {trst_ni: 0, tms_i: 0, td_i: 0}
+    cycles: 6
+    kmax: 4
+
+# Inventory entries that were read against the RTL by hand. Everything else in the inventory is an unreviewed
+# candidate of the scan heuristics (on a chip of this size they include outputs that are merely named *err*
+# and repeated instances of one module that are not redundant copies).
+reviewed:
+  "alarm:ibex_demo_system_secure.alert_major_internal_o": "Deliberate: Ibex's internal major alarm (lockstep mismatch, PC mismatch, register-file ECC, shadow-CSR error)."
+  "alarm:ibex_demo_system_secure.alert_major_bus_o": "Deliberate: Ibex's bus-integrity alarm."
+  "alarm:ibex_demo_system_secure.alert_minor_o": "Deliberate alarm, constant 0 in this configuration by design: its only source is the instruction-cache ECC and the demo system has no instruction cache. Not a synthesis loss."
+  "copies:ibex_cs_registers.ibex_csr": "Not redundant copies: eight different control registers built from one module. The scan matched them because they share clock and reset."
+
+# Read these with the numbers (copied into RESULTS.md and the Studio view).
+caveats:
+  - >-
+    The lockstep variant was configured by source edits for this study: SecureIbex was switched on and the alarm
+    outputs were brought to ports in the fetched copy (chips/ibex_demo/fetch.sh lists both edits). lowRISC does not
+    ship the demo system in this form, so its results describe this configuration, not a lowRISC product.
+  - >-
+    "Debug mode" here means the debug-mode register of the processor is set. One flip of that register (or of
+    the controller state in front of it) does this; it is not the same as a debugger being attached, but code
+    that runs with this register set has debug privileges.
+  - >-
+    The lockstep alarm compares the outputs of the two processor copies, not their internal state, and it is not
+    armed in the first cycles after reset. The one-fault result on the lockstep chip uses both facts: the flip
+    happens right after reset and the outputs of the two copies do not differ within the ten cycles analysed.
+    It does not say that the alarm would stay silent for longer.
+  - >-
+    The RAM is a black box and most data registers have no reset, so the solver chooses their contents. The
+    attacks reported were replayed with those chosen contents; with a specific program in memory the attacker
+    may need more.

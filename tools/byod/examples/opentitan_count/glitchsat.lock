@@ -1,0 +1,112 @@
+{
+ "analyses": [
+  "validate",
+  "min_faults",
+  "survival"
+ ],
+ "blackboxes": {
+  "plain": []
+ },
+ "checks": {
+  "count_changes_unnoticed": {
+   "assertions": null,
+   "bad": "!$initial && cnt_o != $past(cnt_o)",
+   "detect_latency": 1,
+   "horizon": 5,
+   "kind": "fault",
+   "max_faults": 3,
+   "must_hold": [
+    "!(err_o)"
+   ],
+   "template": null
+  }
+ },
+ "clock": "clk_i",
+ "faults": {
+  "attacker_changes": "every_cycle",
+  "exclude": [],
+  "include": [],
+  "normalisation": "dffunmap; flip-flop site = stored value",
+  "types": [
+   "flip"
+  ],
+  "where": "both"
+ },
+ "files": {
+  "ot/prim_assert.sv": "99f6d9d2fe9fcebdb8324a2e03e39da3272df84d7a0d53bf80b3a9d2b27bcbbd",
+  "ot/prim_assert_dummy_macros.svh": "cac4a930105da662547de873f0b80246074fb22df9a398663e1c8ac3e7998218",
+  "ot/prim_assert_sec_cm.svh": "be56ed5e2fb9ff5022306355b4e71727404be0aaab826a12f84b3646896f5aac",
+  "ot/prim_assert_standard_macros.svh": "bef76f6cee177bf6f7798aad1283b718a0ada7ad15e7c1163b45be1ef92fc760",
+  "ot/prim_assert_yosys_macros.svh": "d1fd8c350785a7c6d8cccc0b0c385392b71575397e7dc58c70f07716c8f9f3a3",
+  "ot/prim_flop_macros.sv": "2e8e6c2ee484899ae5d0020eaf0c9732c31537c60c30cb2a0a0acd2e92baee03"
+ },
+ "fixed": {
+  "clr_i": 0,
+  "commit_i": 1,
+  "decr_en_i": 0,
+  "incr_en_i": 0,
+  "set_cnt_i": 0,
+  "set_i": 0,
+  "step_i": 1
+ },
+ "flows": [
+  "plain"
+ ],
+ "frontend": "slang",
+ "glitchsat_lock": 2,
+ "glitchsat_version": "0.1.0",
+ "liberty": {},
+ "powerup": "any",
+ "probes": {},
+ "project": "glitchsat.yaml",
+ "project_sha256": "a589c565c0749d9bac0299719277f986a6e6a30c86acbb40bc4e69ca8ee64cbb",
+ "reset": {
+  "active": "low",
+  "cycles": 1,
+  "glitch_during_reset": false,
+  "port": "rst_ni"
+ },
+ "roles": {
+  "clk_i": "clock",
+  "clr_i": "fixed",
+  "commit_i": "fixed",
+  "decr_en_i": "fixed",
+  "incr_en_i": "fixed",
+  "rst_ni": "reset",
+  "set_cnt_i": "fixed",
+  "set_i": "fixed",
+  "step_i": "fixed"
+ },
+ "selectors": {
+  "exclude": [],
+  "include": [],
+  "sites_per_check": {
+   "count_changes_unnoticed": {
+    "plain": {
+     "candidates": 266,
+     "excluded": 0,
+     "selected": 266,
+     "where": "both"
+    }
+   }
+  }
+ },
+ "solver": {
+  "backend": "auto",
+  "time_s": 300.0
+ },
+ "sources": {
+  "ot/prim_count.sv": "9ac6e396f34c358e136f18ada3225fb04ca44dfeef5cc859f539d920356ad52b",
+  "ot/prim_count_pkg.sv": "8e465ed25b7d59f29faf0f315243a774cf0e50d178ec2068d8c71983cb2f18df",
+  "ot/prim_generic_flop.sv": "aee23ae22d314f2e9ef672f1d2da4555d29e9a0e0dc2d2b5f8b81f6396a39951",
+  "ot/prim_util_pkg.sv": "597766461dbb9d1b122cdb116b091cbec2d8250a497e549157c3e9b2c177314f",
+  "rtl/prim_flop_shim.sv": "18f9dce9c20b9814c6ad0bb23d22d6a8ec497acd761809288a624415efe00033"
+ },
+ "task": null,
+ "top": "prim_count",
+ "validation": {},
+ "yosys": {
+  "elaborate": "Yosys 0.71",
+  "plain": "Yosys 0.71"
+ }
+}

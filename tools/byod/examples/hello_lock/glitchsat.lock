@@ -1,0 +1,91 @@
+{
+ "analyses": [
+  "validate",
+  "min_faults",
+  "attack_surface",
+  "merge_lint",
+  "survival",
+  "unbounded"
+ ],
+ "blackboxes": {
+  "plain": []
+ },
+ "checks": {
+  "open_without_code": {
+   "assertions": null,
+   "bad": "open_o",
+   "detect_latency": 0,
+   "horizon": 6,
+   "kind": "fault",
+   "max_faults": 2,
+   "must_hold": [
+    "!(try_i && code_i == 8'hA5)"
+   ],
+   "template": "custom"
+  }
+ },
+ "clock": "clk",
+ "faults": {
+  "attacker_changes": "every_cycle",
+  "exclude": [],
+  "include": [],
+  "normalisation": "dffunmap; flip-flop site = stored value",
+  "types": [
+   "flip"
+  ],
+  "where": "both"
+ },
+ "files": {},
+ "fixed": {},
+ "flows": [
+  "plain"
+ ],
+ "frontend": "verilog",
+ "glitchsat_lock": 2,
+ "glitchsat_version": "0.1.0",
+ "liberty": {},
+ "powerup": "any",
+ "probes": {},
+ "project": "glitchsat.yaml",
+ "project_sha256": "a8cc9b43a93fd332a91742042df3469e81d76a07e501d319816daaaddf638cc1",
+ "reset": {
+  "active": "low",
+  "cycles": 1,
+  "glitch_during_reset": false,
+  "port": "rst_n"
+ },
+ "roles": {
+  "clk": "clock",
+  "code_i": "attacker",
+  "rst_n": "reset",
+  "try_i": "attacker"
+ },
+ "selectors": {
+  "exclude": [],
+  "include": [],
+  "sites_per_check": {
+   "open_without_code": {
+    "plain": {
+     "candidates": 13,
+     "excluded": 0,
+     "selected": 13,
+     "where": "both"
+    }
+   }
+  }
+ },
+ "solver": {
+  "backend": "auto",
+  "time_s": 300.0
+ },
+ "sources": {
+  "rtl/hello_lock.v": "546189f58501ebdc16e2beffd36e08054580003111472676588d2f1266872d5f"
+ },
+ "task": null,
+ "top": "hello_lock",
+ "validation": {},
+ "yosys": {
+  "elaborate": "Yosys 0.33",
+  "plain": "Yosys 0.33"
+ }
+}

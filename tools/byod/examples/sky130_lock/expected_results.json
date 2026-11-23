@@ -1,0 +1,65 @@
+{
+ "glitchsat.yaml": {
+  "top": "hello_lock",
+  "frontend": "netlist",
+  "checks": {
+   "open_without_code": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 1,
+    "max_faults": 2,
+    "horizon": 6,
+    "witness": [
+     [
+      0,
+      "open_o (sky130_fd_sc_hd__dfrtp_1 flip-flop stored value)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "netlist": true
+    },
+    "attack_surface": {
+     "count": 21,
+     "complete": true
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 0
+    },
+    "merge_lint": {}
+   }
+  },
+  "expect_in_words": "1 glitch",
+  "runtime_s": 1.3,
+  "label": "MEASURED"
+ },
+ "glitchsat.yaml --task hardened": {
+  "top": "hello_lock_hardened",
+  "frontend": "netlist",
+  "checks": {
+   "open_without_code": {
+    "verdict": "NO_ATTACK_UP_TO_BOUND",
+    "min_faults": null,
+    "max_faults": 2,
+    "horizon": 6,
+    "witness": [],
+    "validation": {
+     "netlist": true
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 2
+    },
+    "merge_lint": {
+     "3 copies of sky130_fd_sc_hd__nand3b_1(code_i[6], code_i[7], try_i)": {
+      "rtl": "UNTRACKED",
+      "netlist": "SURVIVED"
+     }
+    }
+   }
+  },
+  "expect_in_words": "no attack with up to 2 glitches",
+  "runtime_s": 13.5,
+  "label": "MEASURED"
+ }
+}

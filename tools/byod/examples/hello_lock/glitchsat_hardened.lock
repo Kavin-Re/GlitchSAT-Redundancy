@@ -1,0 +1,109 @@
+{
+ "analyses": [
+  "validate",
+  "min_faults",
+  "attack_surface",
+  "merge_lint",
+  "survival",
+  "unbounded"
+ ],
+ "blackboxes": {
+  "plain": [],
+  "synth": [],
+  "synth-keep": []
+ },
+ "checks": {
+  "open_without_code": {
+   "assertions": null,
+   "bad": "open_o == 3'b111",
+   "detect_latency": 0,
+   "horizon": 6,
+   "kind": "fault",
+   "max_faults": 3,
+   "must_hold": [
+    "!(try_i && code_i == 8'hA5)"
+   ],
+   "template": "custom"
+  }
+ },
+ "clock": "clk",
+ "faults": {
+  "attacker_changes": "every_cycle",
+  "exclude": [],
+  "include": [],
+  "normalisation": "dffunmap; flip-flop site = stored value",
+  "types": [
+   "flip"
+  ],
+  "where": "both"
+ },
+ "files": {},
+ "fixed": {},
+ "flows": [
+  "plain",
+  "synth",
+  "synth-keep"
+ ],
+ "frontend": "verilog",
+ "glitchsat_lock": 2,
+ "glitchsat_version": "0.1.0",
+ "liberty": {},
+ "powerup": "any",
+ "probes": {},
+ "project": "glitchsat_hardened.yaml",
+ "project_sha256": "a96fab2dfb94fd3797179ef5e87f379fdae4adfbd94b4054fc0c128a5bf15261",
+ "reset": {
+  "active": "low",
+  "cycles": 1,
+  "glitch_during_reset": false,
+  "port": "rst_n"
+ },
+ "roles": {
+  "clk": "clock",
+  "code_i": "attacker",
+  "rst_n": "reset",
+  "try_i": "attacker"
+ },
+ "selectors": {
+  "exclude": [],
+  "include": [],
+  "sites_per_check": {
+   "open_without_code": {
+    "plain": {
+     "candidates": 39,
+     "excluded": 0,
+     "selected": 39,
+     "where": "both"
+    },
+    "synth": {
+     "candidates": 14,
+     "excluded": 0,
+     "selected": 14,
+     "where": "both"
+    },
+    "synth-keep": {
+     "candidates": 30,
+     "excluded": 0,
+     "selected": 30,
+     "where": "both"
+    }
+   }
+  }
+ },
+ "solver": {
+  "backend": "auto",
+  "time_s": 300.0
+ },
+ "sources": {
+  "rtl/hello_lock_hardened.v": "5fe55d816bf829ab0840adc868f4c4ab0192e138bb057c6317d9c9e258fc47ad"
+ },
+ "task": null,
+ "top": "hello_lock_hardened",
+ "validation": {},
+ "yosys": {
+  "elaborate": "Yosys 0.33",
+  "plain": "Yosys 0.33",
+  "synth": "Yosys 0.33",
+  "synth-keep": "Yosys 0.33"
+ }
+}

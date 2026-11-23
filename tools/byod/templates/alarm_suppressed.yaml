@@ -1,0 +1,11 @@
+# Template: alarm_suppressed
+# In plain words: when the tamper sensor (or any "must alarm" condition) fires, the alarm output must go high
+# within a few cycles. A glitch that keeps the alarm silent hides the attack.
+checks:
+  - id: alarm_stays_silent
+    template: alarm_suppressed
+    goal: alarm_suppress          # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    params:
+      trigger: "tamper_i"          # what must raise the alarm
+      alarm: "alarm_o"             # the alarm output
+      latency: 2                   # cycles the alarm may take

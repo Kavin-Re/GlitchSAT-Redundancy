@@ -1,0 +1,38 @@
+# GlitchSAT project: OpenTitan's hardened counter `prim_count` (tag Earlgrey-PROD-M6), used as it is.
+# Fetch the sources first: sh fetch_ot.sh   (SystemVerilog: needs Yosys 0.67+ with read_slang)
+#
+# prim_count keeps the count twice: a primary counter going up and a secondary one going down. Their sum must
+# always be all ones; if not, err_o goes high one cycle later. Question: with no request at all, can glitches
+# change the count without err_o noticing?
+#   glitchsat run               -> OpenTitan prim_count (expected: needs 2 faults within 5 cycles)
+#   glitchsat run --task naive  -> a plain counter with the same ports (expected: 1 fault)
+glitchsat: 1
+name: opentitan_prim_count
+design:
+  sources: [ot/prim_util_pkg.sv, ot/prim_count_pkg.sv, ot/prim_generic_flop.sv, rtl/prim_flop_shim.sv, ot/prim_count.sv]
+  include_dirs: [ot]
+  defines: {SYNTHESIS: null}
+  top: prim_count
+  frontend: slang
+  params: {Width: 4}
+clock: clk_i
+reset: {port: rst_ni, active: low}
+inputs:
+  attacker: []                    # the attacker only glitches; every request input is tied below
+  fixed: {clr_i: 0, set_i: 0, set_cnt_i: 0, incr_en_i: 0, decr_en_i: 0, step_i: 1, commit_i: 1}
+checks:
+  - id: count_changes_unnoticed
+    goal: state_change
+    explain: The counter value changes although nobody asked, and the error output stays quiet.
+    bad: "!$initial && cnt_o != $past(cnt_o)"
+    detected_by: "err_o"
+    detect_latency: 1             # err_o is registered: the change must stay unreported one more cycle
+faults:
+  max_faults: 3
+  horizon: 5
+tasks:
+  naive:
+    name: naive_counter
+    design:
+      sources: [rtl/naive_count.sv]
+      top: naive_count

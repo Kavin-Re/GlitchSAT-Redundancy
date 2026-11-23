@@ -1,0 +1,20 @@
+{
+ "order": 1,
+ "title": "Hello lock: the smallest lock",
+ "what": "A door lock on a chip: it opens when someone types the secret code A5. In the protected version, three separate checks must all agree.",
+ "why": "If one wire decides 'open', one glitch on that wire opens the door without the code.",
+ "teaches": "Redundancy only helps when the copies are really separate: one glitch beats one check, but not three.",
+ "runs": [
+  {
+   "label": "1. Run the weak lock",
+   "file": "glitchsat.yaml",
+   "expect": "1 glitch is enough"
+  },
+  {
+   "label": "2. Run the protected lock",
+   "file": "glitchsat_hardened.yaml",
+   "expect": "3 glitches needed (plain build); the optimised build merges the copies and needs only 1"
+  }
+ ],
+ "lesson_after": "Compare the two runs. The weak lock opens with a single glitch on its one 'open' flip-flop. The protected lock needs three glitches, one per copy, as long as the copies stay separate. Look at 'Did the protection survive the build?': the optimising build (synth) merges the three copies into one, and the lock is weak again. The fix is named under 'What to do': keep the copies in separate modules and stop the tool from merging them, then check the final netlist again."
+}

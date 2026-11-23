@@ -1,0 +1,194 @@
+{
+ "chip": "ibex_demo",
+ "cone": {
+  "cells_any_depth": 34650,
+  "sequential_depth": 18,
+  "share_any_depth": 0.795564
+ },
+ "cone_growth": [
+  {
+   "cells": 1,
+   "cycles": 1,
+   "share": 2.3e-05
+  },
+  {
+   "cells": 159,
+   "cycles": 2,
+   "share": 0.003651
+  },
+  {
+   "cells": 9887,
+   "cycles": 3,
+   "share": 0.227006
+  },
+  {
+   "cells": 23037,
+   "cycles": 4,
+   "share": 0.52893
+  },
+  {
+   "cells": 31498,
+   "cycles": 5,
+   "share": 0.723194
+  },
+  {
+   "cells": 32630,
+   "cycles": 6,
+   "share": 0.749185
+  },
+  {
+   "cells": 33127,
+   "cycles": 7,
+   "share": 0.760596
+  },
+  {
+   "cells": 34354,
+   "cycles": 8,
+   "share": 0.788768
+  },
+  {
+   "cells": 34611,
+   "cycles": 9,
+   "share": 0.794669
+  },
+  {
+   "cells": 34614,
+   "cycles": 10,
+   "share": 0.794738
+  },
+  {
+   "cells": 34619,
+   "cycles": 11,
+   "share": 0.794852
+  },
+  {
+   "cells": 34624,
+   "cycles": 12,
+   "share": 0.794967
+  }
+ ],
+ "flow": "flat",
+ "goal": "debug_entry",
+ "hi": 1,
+ "hi_by": "exact",
+ "label": "BOUNDED",
+ "lo": 1,
+ "lo_by": "modules",
+ "min_faults": 1,
+ "plain": "In debug mode a debugger controls the processor completely. Here nobody is attached: the JTAG port is held in reset for the whole run. The goal is that the processor is in debug mode for two cycles in a row anyway. This is the open-chip counterpart of \"debug unlocked on a locked device\".\n",
+ "relabelled": true,
+ "schema": "glitchsat-soc-goal/1",
+ "search": {
+  "backend": "dimacs:kissat",
+  "events": [
+   {
+    "by": "modules",
+    "lo": 1,
+    "t": 2.926
+   },
+   {
+    "by": "exact",
+    "hi": 1,
+    "t": 3.576
+   }
+  ],
+  "modules": {
+   "count": 10,
+   "names": [
+    "island1",
+    "island2",
+    "island3",
+    "island4",
+    "island5",
+    "island6",
+    "island7",
+    "island8",
+    "island9",
+    "island10"
+   ]
+  },
+  "parts": {},
+  "reduction": {
+   "dag": {
+    "nodes": 117156,
+    "observed": 6,
+    "sites": 96614
+   },
+   "level": "struct",
+   "reduce_s": 0.132,
+   "sites_kept": 20891,
+   "sites_live": 96614,
+   "sites_struct": 20891,
+   "sites_total": 195780,
+   "unroll_s": 0.458
+  },
+  "seconds": 3.576,
+  "slice_seconds": 0.15,
+  "time_limit_s": 150.0,
+  "timed_out": false,
+  "workers": 2
+ },
+ "slice": {
+  "cells_by_distance": {
+   "0": 1,
+   "1": 158,
+   "2": 9728,
+   "3": 13150,
+   "4": 8461,
+   "5": 1132
+  },
+  "chip_cells": 43554,
+  "chip_flops": 7200,
+  "chip_gates": 36354,
+  "cycles": 6,
+  "fault_candidates": 195780,
+  "flops_cut_at_horizon": 120,
+  "flops_free_initial_value": 2490,
+  "free_values_in_slice": {
+   "blackbox": 64,
+   "tick": 1
+  },
+  "slice_cells": 32630,
+  "slice_flops": 4616,
+  "slice_gates": 28014,
+  "slice_inputs": 5,
+  "slice_share": 0.749185
+ },
+ "spec": {
+  "attacker": null,
+  "cycles": 6,
+  "fix": {
+   "td_i": 0,
+   "tms_i": 0,
+   "trst_ni": 0
+  },
+  "hit": [
+   "u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q=1"
+  ],
+  "hold": 2,
+  "kmax": 3,
+  "quiet": []
+ },
+ "status": "EXACT",
+ "text": "ATTACK_FOUND: the smallest attack uses 1 flip(s) within 6 cycles (minimum proved).",
+ "title": "The processor enters debug mode while the debug port is idle",
+ "variant": "stock",
+ "where": "u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q: the debug-mode register of the Ibex controller",
+ "witness": {
+  "attacker_value": null,
+  "faults": [
+   {
+    "cell": "$auto$ff.cc:337:slice$24172",
+    "cycle": 4,
+    "kind": "flop",
+    "net": "u_top.u_ibex_core.cs_registers_i.debug_mode_i"
+   }
+  ],
+  "free_values_set_to_1": 1,
+  "hit_cycle": 5,
+  "note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+  "replayed_on_slice": true,
+  "replayed_on_whole_chip": true,
+  "whole_chip_hit_cycle": 5
+ }
+}

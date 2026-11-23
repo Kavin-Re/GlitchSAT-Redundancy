@@ -1,0 +1,17 @@
+# Template: counter_skip
+# In plain words: a counter must only count up by its step (for example a "tries left" counter or a step
+# counter that proves every boot step ran). A glitch that makes it jump can skip a check or reset a limit.
+# A glitch that makes it NOT count (it stays where it was) is the classic retry-counter attack: a wrong PIN is
+# tried and the "tries left" counter does not move. Set `must_step_when` to the event that must always be
+# counted, so a stuck counter is caught too. Without it, a counter that does not change is NOT reported.
+checks:
+  - id: counter_jumps
+    template: counter_skip
+    goal: state_change            # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    params:
+      counter: cnt_o               # the counter (a port, or u_inst.cnt_q)
+      step: 1                      # use -1 (or the width's all-ones value) for a counter that counts down
+      must_step_when: "try_i && !ok_i"   # the event that must always be counted (a wrong try); remove if none
+      # when: "!clr_i"             # optional: ignore cycles where it may legally change otherwise
+      # alarm: err_o               # optional: the jump only counts if this error output stays 0
+      # alarm_latency: 1           # the error output may react this many cycles later

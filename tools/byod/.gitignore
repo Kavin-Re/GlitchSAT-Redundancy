@@ -1,0 +1,4 @@
+.glitchsat/
+__pycache__/
+.pytest_cache/
+examples/opentitan_count/ot/

@@ -1,0 +1,23 @@
+# GlitchSAT project: hello_lock_hardened (the protected version). Same question as glitchsat.yaml.
+glitchsat: 1
+name: hello_lock_hardened
+design:
+  sources: [rtl/hello_lock_hardened.v]
+  top: hello_lock_hardened
+clock: clk
+reset: {port: rst_n, active: low}
+inputs:
+  attacker: [code_i, try_i]
+checks:
+  - id: open_without_code
+    template: custom
+    goal: lock_bypass
+    explain: The lock opens although the right code was never entered.
+    bad: "open_o == 3'b111"
+    must_hold:
+      - "!(try_i && code_i == 8'hA5)"
+flows: [plain, synth, synth-keep]
+faults:
+  types: [flip]
+  max_faults: 3                 # the plain build needs exactly 3 (one per copy)
+  horizon: 6

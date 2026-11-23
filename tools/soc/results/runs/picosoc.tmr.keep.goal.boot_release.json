@@ -1,0 +1,195 @@
+{
+ "chip": "picosoc",
+ "cone": {
+  "cells_any_depth": 71,
+  "sequential_depth": 1,
+  "share_any_depth": 0.001624
+ },
+ "cone_growth": [
+  {
+   "cells": 20,
+   "cycles": 1,
+   "share": 0.000457
+  },
+  {
+   "cells": 71,
+   "cycles": 2,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 3,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 4,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 5,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 6,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 7,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 8,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 9,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 10,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 11,
+   "share": 0.001624
+  },
+  {
+   "cells": 71,
+   "cycles": 12,
+   "share": 0.001624
+  }
+ ],
+ "flow": "keep",
+ "goal": "boot_release",
+ "hi": 2,
+ "hi_by": "modules",
+ "label": "BOUNDED",
+ "lo": 2,
+ "lo_by": "modules",
+ "min_faults": 2,
+ "plain": "The chip leaves reset and stays out of reset for four clock cycles (long enough for the processor to begin fetching the program from flash) although the value on the sig pins is not the key.\n",
+ "relabelled": true,
+ "schema": "glitchsat-soc-goal/1",
+ "search": {
+  "backend": "dimacs:kissat",
+  "events": [
+   {
+    "by": "modules",
+    "lo": 1,
+    "t": 0.08
+   },
+   {
+    "by": "modules",
+    "lo": 2,
+    "t": 0.104
+   },
+   {
+    "by": "exact",
+    "hi": 4,
+    "t": 0.151
+   },
+   {
+    "by": "modules",
+    "hi": 2,
+    "t": 0.162
+   }
+  ],
+  "modules": {
+   "count": 3,
+   "names": [
+    "bootcheck.c0",
+    "bootcheck.c1",
+    "bootcheck.c2"
+   ]
+  },
+  "parts": {},
+  "reduction": {
+   "dag": {
+    "nodes": 581,
+    "observed": 8,
+    "sites": 517
+   },
+   "level": "struct",
+   "reduce_s": 0.0,
+   "sites_kept": 112,
+   "sites_live": 517,
+   "sites_struct": 112,
+   "sites_total": 568,
+   "unroll_s": 0.002
+  },
+  "seconds": 0.162,
+  "slice_seconds": 0.0,
+  "time_limit_s": 170.0,
+  "timed_out": false,
+  "workers": 2
+ },
+ "slice": {
+  "cells_by_distance": {
+   "0": 20,
+   "1": 51
+  },
+  "chip_cells": 43720,
+  "chip_flops": 10711,
+  "chip_gates": 33009,
+  "cycles": 8,
+  "fault_candidates": 568,
+  "flops_cut_at_horizon": 0,
+  "flops_free_initial_value": 0,
+  "free_values_in_slice": {},
+  "slice_cells": 71,
+  "slice_flops": 8,
+  "slice_gates": 63,
+  "slice_inputs": 9,
+  "slice_share": 0.001624
+ },
+ "spec": {
+  "attacker": {
+   "differs_from": 195,
+   "port": "sig"
+  },
+  "cycles": 8,
+  "fix": {},
+  "hit": [
+   "soc_resetn=1"
+  ],
+  "hold": 4,
+  "kmax": 4,
+  "quiet": []
+ },
+ "status": "EXACT",
+ "text": "ATTACK_FOUND: the smallest attack uses 2 flip(s) within 8 cycles (minimum proved).",
+ "title": "Boot accepted with a wrong authorisation value",
+ "variant": "tmr",
+ "where": "soc_resetn: the reset of the whole SoC, driven by the boot check",
+ "witness": {
+  "attacker_value": 131,
+  "faults": [
+   {
+    "cell": "$abc$64830$auto$blifparse.cc:386:parse_blif$67675",
+    "cycle": 0,
+    "kind": "gate",
+    "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[4]"
+   },
+   {
+    "cell": "$abc$64830$auto$blifparse.cc:386:parse_blif$67679",
+    "cycle": 0,
+    "kind": "gate",
+    "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[6]"
+   }
+  ],
+  "free_values_set_to_1": 0,
+  "hit_cycle": 4,
+  "note": "does not depend on any unknown start value or black-box value being 1",
+  "replayed_on_slice": true,
+  "replayed_on_whole_chip": true,
+  "whole_chip_hit_cycle": 4
+ }
+}

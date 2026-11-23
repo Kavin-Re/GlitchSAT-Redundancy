@@ -1,0 +1,59 @@
+{
+ "chip": "picosoc",
+ "chip_cells": 43898,
+ "cycles": 8,
+ "flow": "flat",
+ "goal": "boot_release",
+ "label": "SAMPLED",
+ "lanes": 4096,
+ "no_fault": {
+  "goal_reached": 0,
+  "scenarios": 4096
+ },
+ "note": "Environment sampled once per scenario (inputs, unknown start values, black-box values). Counts say what was observed in these scenarios only.",
+ "pairs": {
+  "examples": [
+   [
+    {
+     "cycle": 1,
+     "net": "$abc$64906$new_n23568_"
+    },
+    {
+     "cycle": 0,
+     "net": "$abc$64906$flatten\\bootcheck.$procmux$1165_Y[6]"
+    }
+   ]
+  ],
+  "goal_reached": 1,
+  "rate": 5e-05,
+  "scenarios": 20000
+ },
+ "schema": "glitchsat-soc-campaign/1",
+ "seconds": 13.6,
+ "seed": 1,
+ "simulator": "gsoc.sim.Compiled (compiled Python, bit-parallel)",
+ "single": {
+  "complete_fault_space": true,
+  "distinct_cells": 2,
+  "examples": [
+   {
+    "cycles": [
+     0
+    ],
+    "net": "$abc$64906$flatten\\bootcheck.$procmux$1165_Y[6]"
+   },
+   {
+    "cycles": [
+     1
+    ],
+    "net": "bootcheck.c0.m"
+   }
+  ],
+  "goal_reached": 2,
+  "of_all": 351184,
+  "rate": 5.7e-06,
+  "scenarios": 351184
+ },
+ "stopped_at_time_limit": false,
+ "variant": "tmr"
+}

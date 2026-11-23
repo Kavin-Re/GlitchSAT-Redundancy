@@ -1,0 +1,48 @@
+{
+ "chip": "picosoc",
+ "chip_cells": 43660,
+ "cycles": 8,
+ "flow": "flat",
+ "goal": "first_fetch",
+ "label": "SAMPLED",
+ "lanes": 4096,
+ "no_fault": {
+  "goal_reached": 0,
+  "scenarios": 4096
+ },
+ "note": "Environment sampled once per scenario (inputs, unknown start values, black-box values). Counts say what was observed in these scenarios only.",
+ "pairs": {
+  "examples": [],
+  "goal_reached": 0,
+  "rate": 0.0,
+  "scenarios": 20000
+ },
+ "schema": "glitchsat-soc-campaign/1",
+ "seconds": 12.8,
+ "seed": 1,
+ "simulator": "gsoc.sim.Compiled (compiled Python, bit-parallel)",
+ "single": {
+  "complete_fault_space": true,
+  "distinct_cells": 2,
+  "examples": [
+   {
+    "cycles": [
+     1
+    ],
+    "net": "$abc$65125$flatten\\bootcheck.$eq$chips/picosoc/rtl/bootcheck.v:28$52_Y"
+   },
+   {
+    "cycles": [
+     2
+    ],
+    "net": "boot_release"
+   }
+  ],
+  "goal_reached": 2,
+  "of_all": 349280,
+  "rate": 5.73e-06,
+  "scenarios": 349280
+ },
+ "stopped_at_time_limit": false,
+ "variant": "plain"
+}

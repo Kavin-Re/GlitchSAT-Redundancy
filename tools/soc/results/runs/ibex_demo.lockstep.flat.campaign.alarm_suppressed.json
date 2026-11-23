@@ -1,0 +1,35 @@
+{
+ "chip": "ibex_demo",
+ "chip_cells": 67641,
+ "cycles": 6,
+ "flow": "flat",
+ "goal": "alarm_suppressed",
+ "label": "SAMPLED",
+ "lanes": 4096,
+ "no_fault": {
+  "goal_reached": 0,
+  "scenarios": 4096
+ },
+ "note": "Environment sampled once per scenario (inputs, unknown start values, black-box values). Counts say what was observed in these scenarios only.",
+ "pairs": {
+  "examples": [],
+  "goal_reached": 0,
+  "rate": 0.0,
+  "scenarios": 20000
+ },
+ "schema": "glitchsat-soc-campaign/1",
+ "seconds": 15.4,
+ "seed": 1,
+ "simulator": "gsoc.sim.Compiled (compiled Python, bit-parallel)",
+ "single": {
+  "complete_fault_space": true,
+  "distinct_cells": 0,
+  "examples": [],
+  "goal_reached": 0,
+  "of_all": 405846,
+  "rate": 0.0,
+  "scenarios": 405846
+ },
+ "stopped_at_time_limit": false,
+ "variant": "lockstep"
+}

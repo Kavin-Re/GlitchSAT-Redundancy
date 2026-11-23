@@ -1,0 +1,37 @@
+# GlitchSAT project: a gate-level netlist made of SkyWater sky130 standard cells (no RTL needed).
+# The cells' functions are read from the sky130_fd_sc_hd Liberty file in place (fetch it once with
+# `sh ../../scripts/fetch_libs.sh`; or point design.liberty at your own PDK installation).
+#   glitchsat run                    -> hello_lock as sky130 cells (one flip-flop decides)
+#   glitchsat run --task hardened    -> hello_lock_hardened as sky130 cells (three separate checks)
+glitchsat: 1
+name: sky130_lock
+design:
+  sources: [netlist/hello_lock_sky130.v]
+  top: hello_lock
+  frontend: netlist
+  liberty: [$GLITCHSAT_LIBS/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib]
+clock: clk
+reset: {port: rst_n, active: low}
+inputs:
+  attacker: [code_i, try_i]
+checks:
+  - id: open_without_code
+    goal: lock_bypass
+    explain: The lock opens although the right code was never entered.
+    bad: "open_o"
+    must_hold: ["!(try_i && code_i == 8'hA5)"]
+faults:
+  max_faults: 2
+  horizon: 6
+tasks:
+  hardened:
+    name: sky130_lock_hardened
+    design:
+      sources: [netlist/hello_lock_hardened_sky130.v]
+      top: hello_lock_hardened
+    checks:
+      - id: open_without_code
+        goal: lock_bypass
+        explain: The lock opens although the right code was never entered.
+        bad: "open_o == 3'b111"
+        must_hold: ["!(try_i && code_i == 8'hA5)"]

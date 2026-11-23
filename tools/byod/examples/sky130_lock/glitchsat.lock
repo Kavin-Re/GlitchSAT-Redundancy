@@ -1,0 +1,90 @@
+{
+ "analyses": [
+  "validate",
+  "min_faults",
+  "survival"
+ ],
+ "blackboxes": {
+  "netlist": []
+ },
+ "checks": {
+  "open_without_code": {
+   "assertions": null,
+   "bad": "open_o",
+   "detect_latency": 0,
+   "horizon": 6,
+   "kind": "fault",
+   "max_faults": 2,
+   "must_hold": [
+    "!(try_i && code_i == 8'hA5)"
+   ],
+   "template": null
+  }
+ },
+ "clock": "clk",
+ "faults": {
+  "attacker_changes": "every_cycle",
+  "exclude": [],
+  "include": [],
+  "normalisation": "dffunmap; flip-flop site = stored value",
+  "types": [
+   "flip"
+  ],
+  "where": "both"
+ },
+ "files": {},
+ "fixed": {},
+ "flows": [
+  "netlist"
+ ],
+ "frontend": "netlist",
+ "glitchsat_lock": 2,
+ "glitchsat_version": "0.1.0",
+ "liberty": {
+  "$GLITCHSAT_LIBS/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9"
+ },
+ "powerup": "any",
+ "probes": {},
+ "project": "glitchsat.yaml",
+ "project_sha256": "db51d62172a2a21b72291aeecf7e3dc89092ff9b362bd0b7461eb97fefc2bb0b",
+ "reset": {
+  "active": "low",
+  "cycles": 1,
+  "glitch_during_reset": false,
+  "port": "rst_n"
+ },
+ "roles": {
+  "clk": "clock",
+  "code_i": "attacker",
+  "rst_n": "reset",
+  "try_i": "attacker"
+ },
+ "selectors": {
+  "exclude": [],
+  "include": [],
+  "sites_per_check": {
+   "open_without_code": {
+    "netlist": {
+     "candidates": 4,
+     "excluded": 0,
+     "selected": 4,
+     "where": "both"
+    }
+   }
+  }
+ },
+ "solver": {
+  "backend": "auto",
+  "time_s": 300.0
+ },
+ "sources": {
+  "netlist/hello_lock_sky130.v": "db85f625f282214c514baff489377e32a7c8767f13052997e66d302603771165"
+ },
+ "task": null,
+ "top": "hello_lock",
+ "validation": {},
+ "yosys": {
+  "elaborate": "Yosys 0.71",
+  "netlist": "Yosys 0.71"
+ }
+}

@@ -1,0 +1,2192 @@
+{
+ "chips": [
+  {
+   "id": "ibex_demo",
+   "inventory": [
+    {
+     "flows": [
+      "flat"
+     ],
+     "found": 46,
+     "merge_lint": {},
+     "reviewed": [
+      {
+       "note": "Deliberate alarm, constant 0 in this configuration by design: its only source is the instruction-cache ECC and the demo system has no instruction cache. Not a synthesis loss.",
+       "per_flow": {
+        "flat": "REMOVED"
+       },
+       "title": "alarm alert_minor_o",
+       "verdict": "REMOVED"
+      },
+      {
+       "note": "Deliberate: Ibex's internal major alarm (lockstep mismatch, PC mismatch, register-file ECC, shadow-CSR error).",
+       "per_flow": {
+        "flat": "SURVIVED"
+       },
+       "title": "alarm alert_major_internal_o",
+       "verdict": "SURVIVED"
+      },
+      {
+       "note": "Deliberate: Ibex's bus-integrity alarm.",
+       "per_flow": {
+        "flat": "SURVIVED"
+       },
+       "title": "alarm alert_major_bus_o",
+       "verdict": "SURVIVED"
+      },
+      {
+       "note": "Not redundant copies: eight different control registers built from one module. The scan matched them because they share clock and reset.",
+       "per_flow": {
+        "flat": "REMOVED"
+       },
+       "title": "8 copies of ibex_csr()",
+       "verdict": "REMOVED"
+      }
+     ],
+     "unreviewed_candidates": 42,
+     "variant": "lockstep",
+     "verdicts": {
+      "REMOVED": 5,
+      "SURVIVED": 20,
+      "UNTRACKED": 14,
+      "WEAKENED": 7
+     }
+    },
+    {
+     "flows": [
+      "flat"
+     ],
+     "found": 36,
+     "merge_lint": {},
+     "reviewed": [
+      {
+       "note": "Not redundant copies: eight different control registers built from one module. The scan matched them because they share clock and reset.",
+       "per_flow": {
+        "flat": "REMOVED"
+       },
+       "title": "8 copies of ibex_csr()",
+       "verdict": "REMOVED"
+      }
+     ],
+     "unreviewed_candidates": 35,
+     "variant": "stock",
+     "verdicts": {
+      "REMOVED": 1,
+      "SURVIVED": 4,
+      "UNTRACKED": 31
+     }
+    }
+   ],
+   "read_with_care": [
+    "The lockstep variant was configured by source edits for this study: SecureIbex was switched on and the alarm outputs were brought to ports in the fetched copy (chips/ibex_demo/fetch.sh lists both edits). lowRISC does not ship the demo system in this form, so its results describe this configuration, not a lowRISC product.",
+    "\"Debug mode\" here means the debug-mode register of the processor is set. One flip of that register (or of the controller state in front of it) does this; it is not the same as a debugger being attached, but code that runs with this register set has debug privileges.",
+    "The lockstep alarm compares the outputs of the two processor copies, not their internal state, and it is not armed in the first cycles after reset. The one-fault result on the lockstep chip uses both facts: the flip happens right after reset and the outputs of the two copies do not differ within the ten cycles analysed. It does not say that the alarm would stay silent for longer.",
+    "The RAM is a black box and most data registers have no reset, so the solver chooses their contents. The attacks reported were replayed with those chosen contents; with a specific program in memory the attacker may need more."
+   ],
+   "source": "https://github.com/lowRISC/ibex-demo-system at commit d37beb753e19 (Apache-2.0)",
+   "title": "lowRISC Ibex demo system",
+   "variants": [
+    {
+     "cells": 67641,
+     "flops": 10709,
+     "flow": "flat",
+     "flow_plain": "synthesised, everything optimised together",
+     "gates": 56932,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 10889,
+         "cycles": 1,
+         "share": 0.160982
+        },
+        {
+         "cells": 34136,
+         "cycles": 2,
+         "share": 0.504664
+        },
+        {
+         "cells": 53398,
+         "cycles": 3,
+         "share": 0.789432
+        },
+        {
+         "cells": 56846,
+         "cycles": 4,
+         "share": 0.840407
+        },
+        {
+         "cells": 57274,
+         "cycles": 5,
+         "share": 0.846735
+        },
+        {
+         "cells": 57666,
+         "cycles": 6,
+         "share": 0.85253
+        },
+        {
+         "cells": 58090,
+         "cycles": 7,
+         "share": 0.858799
+        },
+        {
+         "cells": 59181,
+         "cycles": 8,
+         "share": 0.874928
+        },
+        {
+         "cells": 59418,
+         "cycles": 9,
+         "share": 0.878432
+        },
+        {
+         "cells": 59423,
+         "cycles": 10,
+         "share": 0.878506
+        },
+        {
+         "cells": 59426,
+         "cycles": 11,
+         "share": 0.87855
+        },
+        {
+         "cells": 59431,
+         "cycles": 12,
+         "share": 0.878624
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 0,
+         "kind": "gate",
+         "net": "alert_major_internal_o"
+        },
+        {
+         "cycle": 0,
+         "kind": "flop",
+         "net": "u_top.gen_lockstep.u_ibex_lockstep.enable_cmp_q[0]"
+        },
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "alert_major_internal_o"
+        }
+       ],
+       "example_note": "uses 2397 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "3",
+       "id": "alarm_suppressed",
+       "label": "BOUNDED",
+       "seconds": 19.175,
+       "slice_cells": 57666,
+       "slice_percent": 85.25,
+       "title": "The two processor copies disagree and the alarm stays silent"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 10889,
+         "cycles": 1,
+         "share": 0.160982
+        },
+        {
+         "cells": 34136,
+         "cycles": 2,
+         "share": 0.504664
+        },
+        {
+         "cells": 53398,
+         "cycles": 3,
+         "share": 0.789432
+        },
+        {
+         "cells": 56846,
+         "cycles": 4,
+         "share": 0.840407
+        },
+        {
+         "cells": 57274,
+         "cycles": 5,
+         "share": 0.846735
+        },
+        {
+         "cells": 57666,
+         "cycles": 6,
+         "share": 0.85253
+        },
+        {
+         "cells": 58090,
+         "cycles": 7,
+         "share": 0.858799
+        },
+        {
+         "cells": 59181,
+         "cycles": 8,
+         "share": 0.874928
+        },
+        {
+         "cells": 59418,
+         "cycles": 9,
+         "share": 0.878432
+        },
+        {
+         "cells": 59423,
+         "cycles": 10,
+         "share": 0.878506
+        },
+        {
+         "cells": 59426,
+         "cycles": 11,
+         "share": 0.87855
+        },
+        {
+         "cells": 59431,
+         "cycles": 12,
+         "share": 0.878624
+        }
+       ],
+       "cycles": 10,
+       "example": [
+        {
+         "cycle": 0,
+         "kind": "flop",
+         "net": "u_top.u_ibex_core.cs_registers_i.debug_mode_i"
+        }
+       ],
+       "example_note": "uses 4278 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "1",
+       "id": "debug_entry_silent",
+       "label": "BOUNDED",
+       "seconds": 18.583,
+       "slice_cells": 59423,
+       "slice_percent": 87.85,
+       "title": "The processor enters debug mode while the debug port is idle, and no alarm fires"
+      }
+     ],
+     "note": "This lockstep chip is this project's own configuration of the demo system, made for this study by two source edits in the fetched copy (listed in chips/ibex_demo/fetch.sh). lowRISC does not ship the demo system in this form.",
+     "variant": "lockstep",
+     "variant_plain": "SecureIbex = 1: dual-core lockstep and alarms"
+    },
+    {
+     "cells": 43554,
+     "flops": 7200,
+     "flow": "flat",
+     "flow_plain": "synthesised, everything optimised together",
+     "gates": 36354,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 159,
+         "cycles": 2,
+         "share": 0.003651
+        },
+        {
+         "cells": 9887,
+         "cycles": 3,
+         "share": 0.227006
+        },
+        {
+         "cells": 23037,
+         "cycles": 4,
+         "share": 0.52893
+        },
+        {
+         "cells": 31498,
+         "cycles": 5,
+         "share": 0.723194
+        },
+        {
+         "cells": 32630,
+         "cycles": 6,
+         "share": 0.749185
+        },
+        {
+         "cells": 33127,
+         "cycles": 7,
+         "share": 0.760596
+        },
+        {
+         "cells": 34354,
+         "cycles": 8,
+         "share": 0.788768
+        },
+        {
+         "cells": 34611,
+         "cycles": 9,
+         "share": 0.794669
+        },
+        {
+         "cells": 34614,
+         "cycles": 10,
+         "share": 0.794738
+        },
+        {
+         "cells": 34619,
+         "cycles": 11,
+         "share": 0.794852
+        },
+        {
+         "cells": 34624,
+         "cycles": 12,
+         "share": 0.794967
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "u_top.u_ibex_core.cs_registers_i.debug_mode_i"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "1",
+       "id": "debug_entry",
+       "label": "BOUNDED",
+       "seconds": 3.576,
+       "slice_cells": 32630,
+       "slice_percent": 74.92,
+       "title": "The processor enters debug mode while the debug port is idle"
+      }
+     ],
+     "note": null,
+     "variant": "stock",
+     "variant_plain": "as published (SecureIbex = 0)"
+    }
+   ],
+   "what_this_chip_is": "A small microcontroller-style chip built around lowRISC's Ibex RISC-V processor: 128 kB of RAM, a serial port, general-purpose pins, PWM outputs, an SPI port, a timer and a JTAG debug module through which a debugger can halt the processor and run its own code. The \"lockstep\" variant switches on Ibex's security configuration: a second copy of the processor runs two cycles behind the first and an alarm fires when they disagree.",
+   "what_we_found": [
+    "lockstep, goal \"The two processor copies disagree and the alarm stays silent\": 3 fault(s) needed (BOUNDED) within 6 cycles.",
+    "lockstep, goal \"The processor enters debug mode while the debug port is idle, and no alarm fires\": 1 fault(s) needed (BOUNDED) within 10 cycles.",
+    "stock, goal \"The processor enters debug mode while the debug port is idle\": 1 fault(s) needed (BOUNDED) within 6 cycles.",
+    "Slicing: the smallest slice is 32630 of 43554 cells (74.92 % of the chip, goal debug_entry); the largest is 59423 of 67641 cells (87.9 %, goal debug_entry_silent). Every goal here sits on a processor register, so within a few cycles most of the chip can influence it: slicing helps little and the search runs on most of the chip.",
+    "Cross-check: in 3 of 3 goal/netlist combinations the whole-chip simulation campaign (every cell flipped in every cycle, sampled inputs) agrees with the exact minimum within T cycles: single-fault successes appear exactly where that minimum is 1.",
+    "lockstep, countermeasure \"alarm alert_minor_o\": REMOVED (flat: REMOVED). Deliberate alarm, constant 0 in this configuration by design: its only source is the instruction-cache ECC and the demo system has no instruction cache. Not a synthesis loss."
+   ],
+   "where_security_decisions_live": [
+    {
+     "goal": "alarm_suppressed",
+     "plain": "The lockstep comparator sees a difference between the main processor and its shadow for two cycles in a row, yet the internal major alarm output stays at 0 for the whole run. An attacker who achieves this can then disturb the main processor without being noticed.",
+     "title": "The two processor copies disagree and the alarm stays silent",
+     "where": "u_top.gen_lockstep.u_ibex_lockstep.outputs_mismatch (comparator result) against alert_major_internal_o"
+    },
+    {
+     "goal": "debug_entry_silent",
+     "plain": "Same goal on the lockstep chip, with a longer wait: the main processor is in debug mode for six cycles in a row (long enough for the two-cycle-delayed shadow processor to be compared with it) and the internal major alarm has stayed silent all the time.",
+     "title": "The processor enters debug mode while the debug port is idle, and no alarm fires",
+     "where": "debug_mode_q of the main core; alert_major_internal_o is the alarm that must stay 0"
+    },
+    {
+     "goal": "debug_entry",
+     "plain": "In debug mode a debugger controls the processor completely. Here nobody is attached: the JTAG port is held in reset for the whole run. The goal is that the processor is in debug mode for two cycles in a row anyway. This is the open-chip counterpart of \"debug unlocked on a locked device\".",
+     "title": "The processor enters debug mode while the debug port is idle",
+     "where": "u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q: the debug-mode register of the Ibex controller"
+    }
+   ]
+  },
+  {
+   "id": "picosoc",
+   "inventory": [
+    {
+     "flows": [
+      "written",
+      "keep",
+      "flat"
+     ],
+     "found": 2,
+     "merge_lint": {},
+     "reviewed": [
+      {
+       "note": "Not a countermeasure: PicoRV32's one-hot processor state (distance 2 is a side effect of one-hot coding).",
+       "per_flow": {
+        "flat": "WEAKENED",
+        "keep": "WEAKENED",
+        "written": "SURVIVED"
+       },
+       "title": "register cpu_state with 8 codes, distance 2",
+       "verdict": "WEAKENED"
+      },
+      {
+       "note": "Not a countermeasure: alu_wait_2 is a pipeline delay of alu_wait, not a redundant copy.",
+       "per_flow": {
+        "flat": "UNTRACKED",
+        "keep": "UNTRACKED",
+        "written": "UNTRACKED"
+       },
+       "title": "registers alu_wait / alu_wait_2",
+       "verdict": "UNTRACKED"
+      }
+     ],
+     "unreviewed_candidates": 0,
+     "variant": "plain",
+     "verdicts": {
+      "UNTRACKED": 1,
+      "WEAKENED": 1
+     }
+    },
+    {
+     "flows": [
+      "written",
+      "keep",
+      "flat"
+     ],
+     "found": 4,
+     "merge_lint": {
+      "boot_release": {
+       "flat": "merged",
+       "keep": "separate",
+       "written": "separate"
+      }
+     },
+     "reviewed": [
+      {
+       "note": "Deliberate: the three comparators of the added boot check.",
+       "per_flow": {
+        "flat": "REMOVED",
+        "keep": "SURVIVED",
+        "written": "SURVIVED"
+       },
+       "title": "3 copies of bootcheck_cmp8(sig)",
+       "verdict": "REMOVED"
+      },
+      {
+       "note": "Deliberate: the four state codes of the added boot check differ pairwise in four bits.",
+       "per_flow": {
+        "flat": "SURVIVED",
+        "keep": "SURVIVED",
+        "written": "SURVIVED"
+       },
+       "title": "register st with 4 codes, distance 4",
+       "verdict": "SURVIVED"
+      },
+      {
+       "note": "Not a countermeasure: PicoRV32's one-hot processor state (distance 2 is a side effect of one-hot coding).",
+       "per_flow": {
+        "flat": "WEAKENED",
+        "keep": "WEAKENED",
+        "written": "SURVIVED"
+       },
+       "title": "register cpu_state with 8 codes, distance 2",
+       "verdict": "WEAKENED"
+      },
+      {
+       "note": "Not a countermeasure: alu_wait_2 is a pipeline delay of alu_wait, not a redundant copy.",
+       "per_flow": {
+        "flat": "UNTRACKED",
+        "keep": "UNTRACKED",
+        "written": "UNTRACKED"
+       },
+       "title": "registers alu_wait / alu_wait_2",
+       "verdict": "UNTRACKED"
+      }
+     ],
+     "unreviewed_candidates": 0,
+     "variant": "tmr",
+     "verdicts": {
+      "REMOVED": 1,
+      "SURVIVED": 1,
+      "UNTRACKED": 1,
+      "WEAKENED": 1
+     }
+    }
+   ],
+   "read_with_care": [
+    "The boot check is this project's addition, not part of PicoSoC. Its `sig` pins stand for the verdict of an image verifier that PicoSoC does not have.",
+    "\"written\", \"keep\" and \"flat\" are three ways of turning the same source into gates with an open flow and no cell library. They show that the answer depends on the build; they do not predict what a commercial flow would produce.",
+    "PicoRV32 has almost no reset on its data path (10,105 of 10,711 flops have an unknown value after reset in the keep flow) and the solver may choose those values."
+   ],
+   "source": "https://github.com/YosysHQ/picorv32 at commit ef203c2b0a3f (ISC)",
+   "title": "PicoSoC with a boot check",
+   "variants": [
+    {
+     "cells": 43660,
+     "flops": 10706,
+     "flow": "flat",
+     "flow_plain": "synthesised, everything optimised together",
+     "gates": 32954,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 5,
+         "cycles": 1,
+         "share": 0.000115
+        },
+        {
+         "cells": 17,
+         "cycles": 2,
+         "share": 0.000389
+        },
+        {
+         "cells": 20,
+         "cycles": 3,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 4,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 5,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 6,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 7,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 8,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 9,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 10,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 11,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 12,
+         "share": 0.000458
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "boot_release"
+        }
+       ],
+       "example_note": "does not depend on any unknown start value or black-box value being 1",
+       "faults_needed": "1",
+       "id": "boot_release",
+       "label": "BOUNDED",
+       "seconds": 0.091,
+       "slice_cells": 20,
+       "slice_percent": 0.05,
+       "title": "Boot accepted with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 442,
+         "cycles": 2,
+         "share": 0.010124
+        },
+        {
+         "cells": 6145,
+         "cycles": 3,
+         "share": 0.140747
+        },
+        {
+         "cells": 31553,
+         "cycles": 4,
+         "share": 0.722698
+        },
+        {
+         "cells": 42111,
+         "cycles": 5,
+         "share": 0.964521
+        },
+        {
+         "cells": 43204,
+         "cycles": 6,
+         "share": 0.989556
+        },
+        {
+         "cells": 43362,
+         "cycles": 7,
+         "share": 0.993175
+        },
+        {
+         "cells": 43366,
+         "cycles": 8,
+         "share": 0.993266
+        },
+        {
+         "cells": 43368,
+         "cycles": 9,
+         "share": 0.993312
+        },
+        {
+         "cells": 43370,
+         "cycles": 10,
+         "share": 0.993358
+        },
+        {
+         "cells": 43372,
+         "cycles": 11,
+         "share": 0.993404
+        },
+        {
+         "cells": 43374,
+         "cycles": 12,
+         "share": 0.993449
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 2,
+         "kind": "flop",
+         "net": "boot_release"
+        }
+       ],
+       "example_note": "uses 7924 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "1",
+       "id": "first_fetch",
+       "label": "BOUNDED",
+       "seconds": 10.18,
+       "slice_cells": 43366,
+       "slice_percent": 99.33,
+       "title": "The processor starts a memory access with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 81,
+         "cycles": 2,
+         "share": 0.001855
+        },
+        {
+         "cells": 849,
+         "cycles": 3,
+         "share": 0.019446
+        },
+        {
+         "cells": 10824,
+         "cycles": 4,
+         "share": 0.247916
+        },
+        {
+         "cells": 40916,
+         "cycles": 5,
+         "share": 0.937151
+        },
+        {
+         "cells": 42995,
+         "cycles": 6,
+         "share": 0.984769
+        },
+        {
+         "cells": 43352,
+         "cycles": 7,
+         "share": 0.992945
+        },
+        {
+         "cells": 43362,
+         "cycles": 8,
+         "share": 0.993175
+        },
+        {
+         "cells": 43366,
+         "cycles": 9,
+         "share": 0.993266
+        },
+        {
+         "cells": 43368,
+         "cycles": 10,
+         "share": 0.993312
+        },
+        {
+         "cells": 43370,
+         "cycles": 11,
+         "share": 0.993358
+        },
+        {
+         "cells": 43372,
+         "cycles": 12,
+         "share": 0.993404
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        },
+        {
+         "cycle": 5,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "flash_takeover",
+       "label": "BOUNDED",
+       "seconds": 67.027,
+       "slice_cells": 42995,
+       "slice_percent": 98.48,
+       "title": "The flash controller is switched to manual pin control without the processor asking"
+      }
+     ],
+     "note": null,
+     "variant": "plain",
+     "variant_plain": "one comparison, one accept flop"
+    },
+    {
+     "cells": 43660,
+     "flops": 10706,
+     "flow": "keep",
+     "flow_plain": "synthesised, protected blocks kept apart",
+     "gates": 32954,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 5,
+         "cycles": 1,
+         "share": 0.000115
+        },
+        {
+         "cells": 17,
+         "cycles": 2,
+         "share": 0.000389
+        },
+        {
+         "cells": 20,
+         "cycles": 3,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 4,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 5,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 6,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 7,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 8,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 9,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 10,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 11,
+         "share": 0.000458
+        },
+        {
+         "cells": 20,
+         "cycles": 12,
+         "share": 0.000458
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "boot_release"
+        }
+       ],
+       "example_note": "does not depend on any unknown start value or black-box value being 1",
+       "faults_needed": "1",
+       "id": "boot_release",
+       "label": "BOUNDED",
+       "seconds": 0.152,
+       "slice_cells": 20,
+       "slice_percent": 0.05,
+       "title": "Boot accepted with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 442,
+         "cycles": 2,
+         "share": 0.010124
+        },
+        {
+         "cells": 6145,
+         "cycles": 3,
+         "share": 0.140747
+        },
+        {
+         "cells": 31553,
+         "cycles": 4,
+         "share": 0.722698
+        },
+        {
+         "cells": 42111,
+         "cycles": 5,
+         "share": 0.964521
+        },
+        {
+         "cells": 43204,
+         "cycles": 6,
+         "share": 0.989556
+        },
+        {
+         "cells": 43362,
+         "cycles": 7,
+         "share": 0.993175
+        },
+        {
+         "cells": 43366,
+         "cycles": 8,
+         "share": 0.993266
+        },
+        {
+         "cells": 43368,
+         "cycles": 9,
+         "share": 0.993312
+        },
+        {
+         "cells": 43370,
+         "cycles": 10,
+         "share": 0.993358
+        },
+        {
+         "cells": 43372,
+         "cycles": 11,
+         "share": 0.993404
+        },
+        {
+         "cells": 43374,
+         "cycles": 12,
+         "share": 0.993449
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 2,
+         "kind": "flop",
+         "net": "boot_release"
+        }
+       ],
+       "example_note": "uses 7924 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "1",
+       "id": "first_fetch",
+       "label": "BOUNDED",
+       "seconds": 15.055,
+       "slice_cells": 43366,
+       "slice_percent": 99.33,
+       "title": "The processor starts a memory access with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 81,
+         "cycles": 2,
+         "share": 0.001855
+        },
+        {
+         "cells": 849,
+         "cycles": 3,
+         "share": 0.019446
+        },
+        {
+         "cells": 10824,
+         "cycles": 4,
+         "share": 0.247916
+        },
+        {
+         "cells": 40916,
+         "cycles": 5,
+         "share": 0.937151
+        },
+        {
+         "cells": 42995,
+         "cycles": 6,
+         "share": 0.984769
+        },
+        {
+         "cells": 43352,
+         "cycles": 7,
+         "share": 0.992945
+        },
+        {
+         "cells": 43362,
+         "cycles": 8,
+         "share": 0.993175
+        },
+        {
+         "cells": 43366,
+         "cycles": 9,
+         "share": 0.993266
+        },
+        {
+         "cells": 43368,
+         "cycles": 10,
+         "share": 0.993312
+        },
+        {
+         "cells": 43370,
+         "cycles": 11,
+         "share": 0.993358
+        },
+        {
+         "cells": 43372,
+         "cycles": 12,
+         "share": 0.993404
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        },
+        {
+         "cycle": 5,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "flash_takeover",
+       "label": "BOUNDED",
+       "seconds": 80.573,
+       "slice_cells": 42995,
+       "slice_percent": 98.48,
+       "title": "The flash controller is switched to manual pin control without the processor asking"
+      }
+     ],
+     "note": null,
+     "variant": "plain",
+     "variant_plain": "one comparison, one accept flop"
+    },
+    {
+     "cells": 63997,
+     "flops": 10812,
+     "flow": "written",
+     "flow_plain": "as written: turned into gates with no optimisation",
+     "gates": 53185,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 2,
+         "cycles": 1,
+         "share": 3.1e-05
+        },
+        {
+         "cells": 20,
+         "cycles": 2,
+         "share": 0.000313
+        },
+        {
+         "cells": 28,
+         "cycles": 3,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 4,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 5,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 6,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 7,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 8,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 9,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 10,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 11,
+         "share": 0.000438
+        },
+        {
+         "cells": 28,
+         "cycles": 12,
+         "share": 0.000438
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "boot_release"
+        }
+       ],
+       "example_note": "does not depend on any unknown start value or black-box value being 1",
+       "faults_needed": "1",
+       "id": "boot_release",
+       "label": "BOUNDED",
+       "seconds": 0.093,
+       "slice_cells": 28,
+       "slice_percent": 0.04,
+       "title": "Boot accepted with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 1.6e-05
+        },
+        {
+         "cells": 593,
+         "cycles": 2,
+         "share": 0.009266
+        },
+        {
+         "cells": 6395,
+         "cycles": 3,
+         "share": 0.099927
+        },
+        {
+         "cells": 34044,
+         "cycles": 4,
+         "share": 0.531962
+        },
+        {
+         "cells": 56445,
+         "cycles": 5,
+         "share": 0.881994
+        },
+        {
+         "cells": 62903,
+         "cycles": 6,
+         "share": 0.982905
+        },
+        {
+         "cells": 63344,
+         "cycles": 7,
+         "share": 0.989796
+        },
+        {
+         "cells": 63351,
+         "cycles": 8,
+         "share": 0.989906
+        },
+        {
+         "cells": 63354,
+         "cycles": 9,
+         "share": 0.989953
+        },
+        {
+         "cells": 63357,
+         "cycles": 10,
+         "share": 0.99
+        },
+        {
+         "cells": 63360,
+         "cycles": 11,
+         "share": 0.990046
+        },
+        {
+         "cells": 63363,
+         "cycles": 12,
+         "share": 0.990093
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "$flatten\\bootcheck.$0\\ok[0:0]"
+        }
+       ],
+       "example_note": "uses 16416 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "1",
+       "id": "first_fetch",
+       "label": "BOUNDED",
+       "seconds": 117.956,
+       "slice_cells": 63351,
+       "slice_percent": 98.99,
+       "title": "The processor starts a memory access with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 1.6e-05
+        },
+        {
+         "cells": 75,
+         "cycles": 2,
+         "share": 0.001172
+        },
+        {
+         "cells": 966,
+         "cycles": 3,
+         "share": 0.015094
+        },
+        {
+         "cells": 13359,
+         "cycles": 4,
+         "share": 0.208744
+        },
+        {
+         "cells": 44021,
+         "cycles": 5,
+         "share": 0.68786
+        },
+        {
+         "cells": 62083,
+         "cycles": 6,
+         "share": 0.970092
+        },
+        {
+         "cells": 63315,
+         "cycles": 7,
+         "share": 0.989343
+        },
+        {
+         "cells": 63344,
+         "cycles": 8,
+         "share": 0.989796
+        },
+        {
+         "cells": 63351,
+         "cycles": 9,
+         "share": 0.989906
+        },
+        {
+         "cells": 63354,
+         "cycles": 10,
+         "share": 0.989953
+        },
+        {
+         "cells": 63357,
+         "cycles": 11,
+         "share": 0.99
+        },
+        {
+         "cells": 63360,
+         "cycles": 12,
+         "share": 0.990046
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        },
+        {
+         "cycle": 5,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "flash_takeover",
+       "label": "BOUNDED",
+       "seconds": 80.918,
+       "slice_cells": 62083,
+       "slice_percent": 97.01,
+       "title": "The flash controller is switched to manual pin control without the processor asking"
+      }
+     ],
+     "note": null,
+     "variant": "plain",
+     "variant_plain": "one comparison, one accept flop"
+    },
+    {
+     "cells": 43898,
+     "flops": 10711,
+     "flow": "flat",
+     "flow_plain": "synthesised, everything optimised together",
+     "gates": 33187,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 20,
+         "cycles": 1,
+         "share": 0.000456
+        },
+        {
+         "cells": 51,
+         "cycles": 2,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 3,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 4,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 5,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 6,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 7,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 8,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 9,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 10,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 11,
+         "share": 0.001162
+        },
+        {
+         "cells": 51,
+         "cycles": 12,
+         "share": 0.001162
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.c0.m"
+        }
+       ],
+       "example_note": "does not depend on any unknown start value or black-box value being 1",
+       "faults_needed": "1",
+       "id": "boot_release",
+       "label": "BOUNDED",
+       "seconds": 0.101,
+       "slice_cells": 51,
+       "slice_percent": 0.12,
+       "title": "Boot accepted with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 456,
+         "cycles": 2,
+         "share": 0.010388
+        },
+        {
+         "cells": 6249,
+         "cycles": 3,
+         "share": 0.142353
+        },
+        {
+         "cells": 31735,
+         "cycles": 4,
+         "share": 0.722926
+        },
+        {
+         "cells": 42164,
+         "cycles": 5,
+         "share": 0.960499
+        },
+        {
+         "cells": 43442,
+         "cycles": 6,
+         "share": 0.989612
+        },
+        {
+         "cells": 43600,
+         "cycles": 7,
+         "share": 0.993212
+        },
+        {
+         "cells": 43604,
+         "cycles": 8,
+         "share": 0.993303
+        },
+        {
+         "cells": 43606,
+         "cycles": 9,
+         "share": 0.993348
+        },
+        {
+         "cells": 43608,
+         "cycles": 10,
+         "share": 0.993394
+        },
+        {
+         "cells": 43610,
+         "cycles": 11,
+         "share": 0.993439
+        },
+        {
+         "cells": 43612,
+         "cycles": 12,
+         "share": 0.993485
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.c0.m"
+        }
+       ],
+       "example_note": "uses 7939 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "1",
+       "id": "first_fetch",
+       "label": "BOUNDED",
+       "seconds": 9.084,
+       "slice_cells": 43604,
+       "slice_percent": 99.33,
+       "title": "The processor starts a memory access with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 96,
+         "cycles": 2,
+         "share": 0.002187
+        },
+        {
+         "cells": 882,
+         "cycles": 3,
+         "share": 0.020092
+        },
+        {
+         "cells": 10954,
+         "cycles": 4,
+         "share": 0.249533
+        },
+        {
+         "cells": 40940,
+         "cycles": 5,
+         "share": 0.932617
+        },
+        {
+         "cells": 43047,
+         "cycles": 6,
+         "share": 0.980614
+        },
+        {
+         "cells": 43590,
+         "cycles": 7,
+         "share": 0.992984
+        },
+        {
+         "cells": 43600,
+         "cycles": 8,
+         "share": 0.993212
+        },
+        {
+         "cells": 43604,
+         "cycles": 9,
+         "share": 0.993303
+        },
+        {
+         "cells": 43606,
+         "cycles": 10,
+         "share": 0.993348
+        },
+        {
+         "cells": 43608,
+         "cycles": 11,
+         "share": 0.993394
+        },
+        {
+         "cells": 43610,
+         "cycles": 12,
+         "share": 0.993439
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        },
+        {
+         "cycle": 5,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "flash_takeover",
+       "label": "BOUNDED",
+       "seconds": 68.341,
+       "slice_cells": 43047,
+       "slice_percent": 98.06,
+       "title": "The flash controller is switched to manual pin control without the processor asking"
+      }
+     ],
+     "note": null,
+     "variant": "tmr",
+     "variant_plain": "three comparators, sparse state codes (the V2 check)"
+    },
+    {
+     "cells": 43720,
+     "flops": 10711,
+     "flow": "keep",
+     "flow_plain": "synthesised, protected blocks kept apart",
+     "gates": 33009,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 20,
+         "cycles": 1,
+         "share": 0.000457
+        },
+        {
+         "cells": 71,
+         "cycles": 2,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 3,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 4,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 5,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 6,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 7,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 8,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 9,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 10,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 11,
+         "share": 0.001624
+        },
+        {
+         "cells": 71,
+         "cycles": 12,
+         "share": 0.001624
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 0,
+         "kind": "gate",
+         "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[4]"
+        },
+        {
+         "cycle": 0,
+         "kind": "gate",
+         "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[6]"
+        }
+       ],
+       "example_note": "does not depend on any unknown start value or black-box value being 1",
+       "faults_needed": "2",
+       "id": "boot_release",
+       "label": "BOUNDED",
+       "seconds": 0.162,
+       "slice_cells": 71,
+       "slice_percent": 0.16,
+       "title": "Boot accepted with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 454,
+         "cycles": 2,
+         "share": 0.010384
+        },
+        {
+         "cells": 6187,
+         "cycles": 3,
+         "share": 0.141514
+        },
+        {
+         "cells": 31590,
+         "cycles": 4,
+         "share": 0.722553
+        },
+        {
+         "cells": 42011,
+         "cycles": 5,
+         "share": 0.96091
+        },
+        {
+         "cells": 43264,
+         "cycles": 6,
+         "share": 0.98957
+        },
+        {
+         "cells": 43422,
+         "cycles": 7,
+         "share": 0.993184
+        },
+        {
+         "cells": 43426,
+         "cycles": 8,
+         "share": 0.993275
+        },
+        {
+         "cells": 43428,
+         "cycles": 9,
+         "share": 0.993321
+        },
+        {
+         "cells": 43430,
+         "cycles": 10,
+         "share": 0.993367
+        },
+        {
+         "cells": 43432,
+         "cycles": 11,
+         "share": 0.993413
+        },
+        {
+         "cells": 43434,
+         "cycles": 12,
+         "share": 0.993458
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 0,
+         "kind": "gate",
+         "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[4]"
+        },
+        {
+         "cycle": 0,
+         "kind": "gate",
+         "net": "$abc$64830$flatten\\bootcheck.$procmux$1165_Y[6]"
+        }
+       ],
+       "example_note": "uses 7972 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "first_fetch",
+       "label": "BOUNDED",
+       "seconds": 11.014,
+       "slice_cells": 43426,
+       "slice_percent": 99.33,
+       "title": "The processor starts a memory access with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 2.3e-05
+        },
+        {
+         "cells": 96,
+         "cycles": 2,
+         "share": 0.002196
+        },
+        {
+         "cells": 900,
+         "cycles": 3,
+         "share": 0.020586
+        },
+        {
+         "cells": 10850,
+         "cycles": 4,
+         "share": 0.24817
+        },
+        {
+         "cells": 40791,
+         "cycles": 5,
+         "share": 0.933005
+        },
+        {
+         "cells": 42886,
+         "cycles": 6,
+         "share": 0.980924
+        },
+        {
+         "cells": 43412,
+         "cycles": 7,
+         "share": 0.992955
+        },
+        {
+         "cells": 43422,
+         "cycles": 8,
+         "share": 0.993184
+        },
+        {
+         "cells": 43426,
+         "cycles": 9,
+         "share": 0.993275
+        },
+        {
+         "cells": 43428,
+         "cycles": 10,
+         "share": 0.993321
+        },
+        {
+         "cells": 43430,
+         "cycles": 11,
+         "share": 0.993367
+        },
+        {
+         "cells": 43432,
+         "cycles": 12,
+         "share": 0.993413
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        },
+        {
+         "cycle": 5,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "flash_takeover",
+       "label": "BOUNDED",
+       "seconds": 69.036,
+       "slice_cells": 42886,
+       "slice_percent": 98.09,
+       "title": "The flash controller is switched to manual pin control without the processor asking"
+      }
+     ],
+     "note": null,
+     "variant": "tmr",
+     "variant_plain": "three comparators, sparse state codes (the V2 check)"
+    },
+    {
+     "cells": 64079,
+     "flops": 10817,
+     "flow": "written",
+     "flow_plain": "as written: turned into gates with no optimisation",
+     "gates": 53262,
+     "goals": [
+      {
+       "cone_growth": [
+        {
+         "cells": 21,
+         "cycles": 1,
+         "share": 0.000328
+        },
+        {
+         "cells": 109,
+         "cycles": 2,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 3,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 4,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 5,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 6,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 7,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 8,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 9,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 10,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 11,
+         "share": 0.001701
+        },
+        {
+         "cells": 109,
+         "cycles": 12,
+         "share": 0.001701
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.word[5]"
+        },
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.word[0]"
+        },
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.c1.m"
+        }
+       ],
+       "example_note": "does not depend on any unknown start value or black-box value being 1",
+       "faults_needed": "3",
+       "id": "boot_release",
+       "label": "BOUNDED",
+       "seconds": 0.165,
+       "slice_cells": 109,
+       "slice_percent": 0.17,
+       "title": "Boot accepted with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 1.6e-05
+        },
+        {
+         "cells": 612,
+         "cycles": 2,
+         "share": 0.009551
+        },
+        {
+         "cells": 6484,
+         "cycles": 3,
+         "share": 0.101188
+        },
+        {
+         "cells": 34125,
+         "cycles": 4,
+         "share": 0.532546
+        },
+        {
+         "cells": 56526,
+         "cycles": 5,
+         "share": 0.88213
+        },
+        {
+         "cells": 62984,
+         "cycles": 6,
+         "share": 0.982912
+        },
+        {
+         "cells": 63425,
+         "cycles": 7,
+         "share": 0.989794
+        },
+        {
+         "cells": 63432,
+         "cycles": 8,
+         "share": 0.989903
+        },
+        {
+         "cells": 63435,
+         "cycles": 9,
+         "share": 0.98995
+        },
+        {
+         "cells": 63438,
+         "cycles": 10,
+         "share": 0.989997
+        },
+        {
+         "cells": 63441,
+         "cycles": 11,
+         "share": 0.990044
+        },
+        {
+         "cells": 63444,
+         "cycles": 12,
+         "share": 0.99009
+        }
+       ],
+       "cycles": 8,
+       "example": [
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.word[5]"
+        },
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.word[0]"
+        },
+        {
+         "cycle": 1,
+         "kind": "gate",
+         "net": "bootcheck.c1.m"
+        }
+       ],
+       "example_note": "uses 15953 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "3",
+       "id": "first_fetch",
+       "label": "BOUNDED",
+       "seconds": 16.703,
+       "slice_cells": 63432,
+       "slice_percent": 98.99,
+       "title": "The processor starts a memory access with a wrong authorisation value"
+      },
+      {
+       "cone_growth": [
+        {
+         "cells": 1,
+         "cycles": 1,
+         "share": 1.6e-05
+        },
+        {
+         "cells": 94,
+         "cycles": 2,
+         "share": 0.001467
+        },
+        {
+         "cells": 1055,
+         "cycles": 3,
+         "share": 0.016464
+        },
+        {
+         "cells": 13440,
+         "cycles": 4,
+         "share": 0.209741
+        },
+        {
+         "cells": 44102,
+         "cycles": 5,
+         "share": 0.688244
+        },
+        {
+         "cells": 62164,
+         "cycles": 6,
+         "share": 0.970115
+        },
+        {
+         "cells": 63396,
+         "cycles": 7,
+         "share": 0.989341
+        },
+        {
+         "cells": 63425,
+         "cycles": 8,
+         "share": 0.989794
+        },
+        {
+         "cells": 63432,
+         "cycles": 9,
+         "share": 0.989903
+        },
+        {
+         "cells": 63435,
+         "cycles": 10,
+         "share": 0.98995
+        },
+        {
+         "cells": 63438,
+         "cycles": 11,
+         "share": 0.989997
+        },
+        {
+         "cells": 63441,
+         "cycles": 12,
+         "share": 0.990044
+        }
+       ],
+       "cycles": 6,
+       "example": [
+        {
+         "cycle": 4,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        },
+        {
+         "cycle": 5,
+         "kind": "flop",
+         "net": "soc.spimemio.cfgreg_do[31]"
+        }
+       ],
+       "example_note": "uses 1 unknown start value(s) / black-box value(s) chosen by the solver",
+       "faults_needed": "2",
+       "id": "flash_takeover",
+       "label": "BOUNDED",
+       "seconds": 53.35,
+       "slice_cells": 62164,
+       "slice_percent": 97.01,
+       "title": "The flash controller is switched to manual pin control without the processor asking"
+      }
+     ],
+     "note": null,
+     "variant": "tmr",
+     "variant_plain": "three comparators, sparse state codes (the V2 check)"
+    }
+   ],
+   "what_this_chip_is": "PicoSoC is a small complete computer on a chip: a 32-bit RISC-V processor (PicoRV32), 1 kB of RAM, a serial port and a controller that reads the program from an external SPI flash chip. It has no security features of its own, so a boot check was added in front of it (rtl/bootcheck.v): the whole chip stays in reset until an 8-bit authorisation value on the `sig` pins equals a key.",
+   "what_we_found": [
+    "plain, goal \"Boot accepted with a wrong authorisation value\": 1 fault(s) needed (BOUNDED) within 8 cycles in every flow (written, keep, flat).",
+    "plain, goal \"The processor starts a memory access with a wrong authorisation value\": 1 fault(s) needed (BOUNDED) within 8 cycles in every flow (written, keep, flat).",
+    "plain, goal \"The flash controller is switched to manual pin control without the processor asking\": 2 fault(s) needed (BOUNDED) within 6 cycles in every flow (written, keep, flat).",
+    "tmr, goal \"Boot accepted with a wrong authorisation value\": the number of faults needed depends on how the chip was built: 3 (BOUNDED) in the flow \"as written: turned into gates with no optimisation\", 2 (BOUNDED) in the flow \"synthesised, protected blocks kept apart\", 1 (BOUNDED) in the flow \"synthesised, everything optimised together\". Same source code, different netlist, different protection.",
+    "tmr, goal \"The processor starts a memory access with a wrong authorisation value\": the number of faults needed depends on how the chip was built: 3 (BOUNDED) in the flow \"as written: turned into gates with no optimisation\", 2 (BOUNDED) in the flow \"synthesised, protected blocks kept apart\", 1 (BOUNDED) in the flow \"synthesised, everything optimised together\". Same source code, different netlist, different protection.",
+    "tmr, goal \"The flash controller is switched to manual pin control without the processor asking\": 2 fault(s) needed (BOUNDED) within 6 cycles in every flow (written, keep, flat).",
+    "Slicing: the smallest slice is 28 of 63997 cells (0.04 % of the chip, goal boot_release); the largest is 43604 of 43898 cells (99.3 %, goal first_fetch). A goal on a dedicated check needs a tiny part of the chip; a goal on a processor register pulls in almost everything within a few cycles.",
+    "Cross-check: in 18 of 18 goal/netlist combinations the whole-chip simulation campaign (every cell flipped in every cycle, sampled inputs) agrees with the exact minimum within T cycles: single-fault successes appear exactly where that minimum is 1.",
+    "tmr, countermeasure \"3 copies of bootcheck_cmp8(sig)\": REMOVED (written: SURVIVED, keep: SURVIVED, flat: REMOVED). Deliberate: the three comparators of the added boot check."
+   ],
+   "where_security_decisions_live": [
+    {
+     "goal": "boot_release",
+     "plain": "The chip leaves reset and stays out of reset for four clock cycles (long enough for the processor to begin fetching the program from flash) although the value on the sig pins is not the key.",
+     "title": "Boot accepted with a wrong authorisation value",
+     "where": "soc_resetn: the reset of the whole SoC, driven by the boot check"
+    },
+    {
+     "goal": "first_fetch",
+     "plain": "The processor's memory-request signal is high for four cycles in a row (it is reading the first instruction from the SPI flash) although the value on the sig pins is not the key. The goal is on a register deep inside the processor, so the attacker may also aim at the processor itself.",
+     "title": "The processor starts a memory access with a wrong authorisation value",
+     "where": "soc.cpu.mem_valid: the memory request register of PicoRV32"
+    },
+    {
+     "goal": "flash_takeover",
+     "plain": "PicoSoC's flash controller has a configuration bit that hands the flash pins to software (\"bit-bang\" mode). The goal is that this bit changes to manual control for two cycles while the chip is still held in reset by the boot check, i.e. without any program running.",
+     "title": "The flash controller is switched to manual pin control without the processor asking",
+     "where": "soc.spimemio.config_en: configuration register of the SPI flash controller (unprotected, native)"
+    }
+   ]
+  }
+ ],
+ "intro": {
+  "labels": {
+   "BOUNDED": "BOUNDED (within T cycles): the exact smallest number within the stated number of clock cycles after reset. An attack of this size was replayed on the whole chip, and the solver showed that no smaller one exists in the model within those cycles. It says nothing about longer runs, so it is not called proved",
+   "PARTIAL": "PARTIAL: only a range is known within the stated number of cycles (time limit or fault budget reached)",
+   "SAMPLED": "SAMPLED: a simulation campaign; it reports what happened in the scenarios that were run"
+  },
+  "limits": [
+   "A bit flip in a netlist is a model of a fault, not a measurement on silicon.",
+   "Every answer covers a stated number of clock cycles after reset, not all time.",
+   "Large memories are black boxes: the analysis allows any content.",
+   "The chips were built with an open synthesis flow without a cell library; a production flow gives a different netlist and may give different numbers."
+  ],
+  "plain": [
+   "So far every design in this app was one small block. A real chip is tens of thousands of gates: a processor, memory, a serial port, and somewhere inside it a handful of wires that decide security questions such as \"may this chip start?\" or \"may a debugger take over?\".",
+   "Here the same question is asked about whole open-source chips: how many momentary bit flips does an attacker need to turn one of those decisions around?",
+   "Three kinds of answer appear, and they are not the same thing."
+  ],
+  "title": "Explore a real chip"
+ },
+ "next_rung": {
+  "label": "MEASURED for the steps listed; fault analysis NOT RUN",
+  "steps": [
+   {
+    "output": "809 SystemVerilog files",
+    "peak_memory": "",
+    "result": "done",
+    "step": "Earl Grey: fetch (sparse clone, commit checked)",
+    "wall": "3 s"
+   },
+   {
+    "output": "22 wrappers generated from prim_generic (gen_prim_shims.py) plus prim_pkg",
+    "peak_memory": "",
+    "result": "done",
+    "step": "Earl Grey: abstract primitives",
+    "wall": "< 1 s"
+   },
+   {
+    "output": "675,182 RTL cells, 34 memories declared (1,933,364 bits), 1,714 port bits",
+    "peak_memory": "2.7 GB",
+    "result": "done",
+    "step": "Earl Grey: elab (read_slang top_earlgrey, one compilation unit, hierarchy -check)",
+    "wall": "38 s"
+   },
+   {
+    "output": "280,436 RTL cells (15,126 $aldff flop cells among them), coarse.il 353 MB",
+    "peak_memory": "2.9 GB",
+    "result": "done",
+    "step": "Earl Grey: coarse (proc, opt_expr, opt_clean, memory -nomap)",
+    "wall": "148 s"
+   },
+   {
+    "output": "none",
+    "peak_memory": "6.1 GB at the kill",
+    "result": "STOPPED: killed by the kernel (out of memory) inside techmap",
+    "step": "Earl Grey: gates, flat (memory_map <= 4096 words, techmap)",
+    "wall": "35 s"
+   },
+   {
+    "output": "none",
+    "peak_memory": "6.1 GB at the kill",
+    "result": "STOPPED: killed by the kernel (out of memory) inside techmap",
+    "step": "Earl Grey: hier (read_slang --keep-hierarchy, per-module techmap, memory_map <= 64 words)",
+    "wall": "139 s"
+   },
+   {
+    "output": "none",
+    "peak_memory": "",
+    "result": "NOT POSSIBLE HERE: the pinned tag does not contain hw/top_englishbreakfast/rtl/autogen; topgen needs the Python packages hjson and mako, which cannot be installed in the build environment (no package index access)",
+    "step": "English Breakfast: generate top (topgen)",
+    "wall": ""
+   }
+  ],
+  "stopped": "Where it stopped: Earl Grey is read, elaborated and brought to 280,436 word-level cells here. Mapping those cells to gates (Yosys techmap) needs more than the 6.1 GB this machine can give one process, flat and hierarchical alike. No gate or flop count of Earl Grey exists yet; the 15,126 $aldff cells are multi-bit flop cells, not a flop count. English Breakfast was not generated.",
+  "summary": "Read in full; the gate step needs a bigger machine.",
+  "title": "OpenTitan Earl Grey: how far the front end got here"
+ },
+ "schema": "glitchsat-studio-explore-chip/1"
+}

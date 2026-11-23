@@ -1,0 +1,87 @@
+# PicoSoC (YosysHQ/picorv32, picosoc/) with a boot check on its reset.
+name: picosoc
+title: PicoSoC with a boot check
+what: >
+  PicoSoC is a small complete computer on a chip: a 32-bit RISC-V processor (PicoRV32), 1 kB of RAM, a serial
+  port and a controller that reads the program from an external SPI flash chip. It has no security features of
+  its own, so a boot check was added in front of it (rtl/bootcheck.v): the whole chip stays in reset until an
+  8-bit authorisation value on the `sig` pins equals a key.
+source:
+  repo: https://github.com/YosysHQ/picorv32
+  commit: ef203c2b0a3fb793280f5114941416c425c5b461
+  licence: ISC
+  added_by_this_project: [rtl/bootcheck.v, rtl/picosoc_chip.v]
+top: picosoc_chip
+frontend: verilog
+files:
+  - rtl/bootcheck.v
+  - rtl/picosoc_chip.v
+  - picosoc/picosoc.v
+  - picorv32.v
+  - picosoc/spimemio.v
+  - picosoc/simpleuart.v
+variants:
+  plain: {defines: {BOOTCHECK: bootcheck_plain}, title: "one comparison, one accept flop"}
+  tmr: {defines: {BOOTCHECK: bootcheck_tmr}, title: "three comparators, sparse state codes (the V2 check)"}
+memory_map_max_words: 4096     # RAM (256 x 32) and the register file (32 x 32) are modelled exactly as flops
+clock: clk
+reset: {port: resetn, active: 0, cycles: 16}
+flows: [written, keep, flat]
+goals:
+  - id: boot_release
+    title: Boot accepted with a wrong authorisation value
+    plain: >
+      The chip leaves reset and stays out of reset for four clock cycles (long enough for the processor to begin
+      fetching the program from flash) although the value on the sig pins is not the key.
+    where: "soc_resetn: the reset of the whole SoC, driven by the boot check"
+    decision: bootcheck.st          # tmr variant; the plain variant has no redundant copies to lint
+    variants_decision: [tmr]
+    hit: ["soc_resetn=1"]
+    hold: 4
+    attacker: {port: sig, differs_from: 0xC3}
+    cycles: 8
+    kmax: 4
+  - id: first_fetch
+    title: The processor starts a memory access with a wrong authorisation value
+    plain: >
+      The processor's memory-request signal is high for four cycles in a row (it is reading the first
+      instruction from the SPI flash) although the value on the sig pins is not the key. The goal is on a
+      register deep inside the processor, so the attacker may also aim at the processor itself.
+    where: "soc.cpu.mem_valid: the memory request register of PicoRV32"
+    hit: ["soc.cpu.mem_valid=1"]
+    hold: 4
+    attacker: {port: sig, differs_from: 0xC3}
+    cycles: 8
+    kmax: 4
+  - id: flash_takeover
+    title: The flash controller is switched to manual pin control without the processor asking
+    plain: >
+      PicoSoC's flash controller has a configuration bit that hands the flash pins to software ("bit-bang" mode).
+      The goal is that this bit changes to manual control for two cycles while the chip is still held in reset by
+      the boot check, i.e. without any program running.
+    where: "soc.spimemio.config_en: configuration register of the SPI flash controller (unprotected, native)"
+    hit: ["soc.spimemio.config_en=0"]
+    hold: 2
+    attacker: {port: sig, differs_from: 0xC3}
+    cycles: 6
+    kmax: 3
+
+# Inventory entries that were read against the RTL by hand. Everything else in the inventory is an unreviewed
+# candidate of the scan heuristics.
+reviewed:
+  "copies:bootcheck_tmr.bootcheck_cmp8": "Deliberate: the three comparators of the added boot check."
+  "encoding:bootcheck_tmr.st": "Deliberate: the four state codes of the added boot check differ pairwise in four bits."
+  "encoding:picorv32.cpu_state": "Not a countermeasure: PicoRV32's one-hot processor state (distance 2 is a side effect of one-hot coding)."
+  "dup:picorv32.alu_wait": "Not a countermeasure: alu_wait_2 is a pipeline delay of alu_wait, not a redundant copy."
+
+caveats:
+  - >-
+    The boot check is this project's addition, not part of PicoSoC. Its `sig` pins stand for the verdict of an
+    image verifier that PicoSoC does not have.
+  - >-
+    "written", "keep" and "flat" are three ways of turning the same source into gates with an open flow and no
+    cell library. They show that the answer depends on the build; they do not predict what a commercial flow
+    would produce.
+  - >-
+    PicoRV32 has almost no reset on its data path (10,105 of 10,711 flops have an unknown value after reset in
+    the keep flow) and the solver may choose those values.

@@ -1,0 +1,67 @@
+{
+ "chip": "picosoc",
+ "flow": "written",
+ "frontend": {
+  "script": "work/picosoc/picosoc_tmr_written.ys",
+  "seconds": 11.0,
+  "tool": "Yosys 0.33"
+ },
+ "label": "MEASURED",
+ "load_seconds": 0.9,
+ "reset": {
+  "flops_known": 607,
+  "flops_unknown": 10210,
+  "reset_cycles": 16,
+  "seconds": 0.52,
+  "widening_steps": 1
+ },
+ "schema": "glitchsat-soc-chip/1",
+ "source": {
+  "added_by_this_project": [
+   "rtl/bootcheck.v",
+   "rtl/picosoc_chip.v"
+  ],
+  "commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+  "licence": "ISC",
+  "repo": "https://github.com/YosysHQ/picorv32"
+ },
+ "stats": {
+  "async_reset_nets": {},
+  "blackbox_output_bits": 0,
+  "blackboxes": {},
+  "cell_types": {
+   "$_AND_": 16154,
+   "$_DFF_N_": 4,
+   "$_DFF_P_": 10813,
+   "$_MUX_": 27151,
+   "$_NOT_": 2176,
+   "$_OR_": 6184,
+   "$_XOR_": 1597
+  },
+  "cells": 64079,
+  "clock_domains": {
+   "bootcheck.clk": 10813,
+   "bootcheck.clk (negative edge)": 4
+  },
+  "clock_gates_modelled": {},
+  "flops": 10817,
+  "flops_async_reset": 0,
+  "flops_enable_only": 0,
+  "flops_off_reference_clock": 4,
+  "flops_on_free_tick_clocks": 4,
+  "flops_plain": 10817,
+  "flops_sync_reset": 0,
+  "flops_with_initial": 0,
+  "gates": 53262,
+  "input_bits": 51,
+  "memory_bits_blackboxed": 0,
+  "output_bits": 80,
+  "primitive_gates": 53266,
+  "reference_clock": "bootcheck.clk",
+  "top": "picosoc_chip",
+  "undriven_bits": 0,
+  "x_readers": 1393
+ },
+ "top": "picosoc_chip",
+ "variant": "tmr"
+}

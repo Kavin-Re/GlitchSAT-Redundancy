@@ -1,0 +1,57 @@
+# OpenTitan Earl Grey. STATUS: PREPARED, NOT RUN. The netlist does not exist yet: the front end stops at gate
+# mapping on a 7 GB machine (results/opentitan_attempt.json). The goals below are drafts: their net names are
+# taken from the RTL and have not been checked against a netlist. cloud/run_opentitan.sh builds the netlist on a
+# larger machine and lists the nets that match each goal before any analysis starts.
+name: earlgrey
+title: OpenTitan Earl Grey (prepared, not run)
+what: >
+  OpenTitan Earl Grey is an open-source silicon root of trust: an Ibex processor with lockstep, a life-cycle
+  controller that decides whether debug and test features are open, a ROM checker that decides whether the
+  processor may start, a key manager, AES/HMAC/KMAC/OTBN accelerators and an alert handler that collects
+  the alarms of every block.
+source:
+  repo: https://github.com/lowRISC/opentitan
+  commit: a78922f14a8cc20c7ee569f322a04626f2ac6127
+  tag: Earlgrey-PROD-M6
+  licence: Apache-2.0
+top: top_earlgrey
+prebuilt: {written: earlgrey/earlgrey_written.json, flat: earlgrey/earlgrey_flat.json}
+clock: clk_main_i
+reset: {port: por_n_i, active: 0, cycles: 32}
+flows: [written]
+status: PREPARED_NOT_RUN
+goals:
+  - id: debug_unlock
+    title: Hardware debug enabled although the life-cycle state does not allow it
+    plain: >
+      The life-cycle controller tells the rest of the chip whether a debugger may attach. The signal is a
+      4-bit code; only one code means "on". Goal: the code reads "on" for two cycles while the stored
+      life-cycle state is a locked one. The stored state comes from the one-time-programmable memory, which is
+      a black box here, so it must be pinned with a `quiet` condition on the black-box outputs once their net
+      names are known.
+    where: "u_lc_ctrl.lc_hw_debug_en_o (lc_tx_t, On = 4'b0101)   [name from RTL, not checked]"
+    hit: ["u_lc_ctrl.lc_hw_debug_en_o=5"]
+    hold: 2
+    cycles: 8
+    kmax: 4
+  - id: boot_accept
+    title: The ROM check releases the processor although the ROM digest is wrong
+    plain: >
+      rom_ctrl hashes the boot ROM and compares the digest; the power manager lets the processor start only on
+      "good". Goal: the "good" code is seen for two cycles while "done" was reached without a matching digest.
+    where: "u_rom_ctrl.pwrmgr_data_o.good (mubi4, True = 4'h6)   [name from RTL, not checked]"
+    hit: ["u_rom_ctrl.pwrmgr_data_o=0x66"]
+    hold: 2
+    cycles: 8
+    kmax: 4
+  - id: alert_suppressed
+    title: A fatal alarm of the processor wrapper does not reach the alert handler
+    plain: >
+      rv_core_ibex raises a fatal hardware alarm when the lockstep comparison fails. Goal: the comparison result
+      says "mismatch" for two cycles and the alert sender's differential output stays idle.
+    where: "u_rv_core_ibex lockstep mismatch against alert_tx_o[2]   [names from RTL, not checked]"
+    hit: ["u_rv_core_ibex.u_core.gen_lockstep.u_ibex_lockstep.outputs_mismatch=1"]
+    hold: 2
+    quiet: ["u_rv_core_ibex.alert_major_internal=0"]
+    cycles: 6
+    kmax: 4

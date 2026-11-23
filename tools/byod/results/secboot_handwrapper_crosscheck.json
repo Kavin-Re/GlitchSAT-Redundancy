@@ -1,0 +1,27 @@
+{
+ "label": "MEASURED",
+ "what": "Same question on the secure-boot hardware two ways: (a) the hand-written wrappers rtl/tops/top_<v>.v with the original engine scripts/glitchsat.py (z3), attacker input held constant, power-up from initial values, no reset; (b) examples/secure_boot with GlitchSAT bring-your-own-design: no hand-written Verilog, generated monitor, reset for 1 cycle then faults, power-up any, gscale engine.",
+ "command_a": "python3 scripts/glitchsat.py check <cat of rtl files + tops/top_<v>.v> --top top_<v> --k 3 --cycles 8",
+ "rows": [
+  {
+   "variant": "d_single",
+   "original_engine_hand_wrapper": 1,
+   "byod": 1,
+   "agree": true,
+   "original_netlist": {
+    "gates": 193,
+    "flops": 24
+   }
+  },
+  {
+   "variant": "d_trip_alarm",
+   "original_engine_hand_wrapper": 3,
+   "byod": 3,
+   "agree": true,
+   "original_netlist": {
+    "gates": 265,
+    "flops": 26
+   }
+  }
+ ]
+}

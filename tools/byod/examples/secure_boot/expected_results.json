@@ -1,0 +1,116 @@
+{
+ "glitchsat.yaml": {
+  "top": "secboot_core",
+  "frontend": "verilog",
+  "checks": {
+   "accept_wrong_tag": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 1,
+    "max_faults": 3,
+    "horizon": 8,
+    "witness": [
+     [
+      4,
+      "says[0] (DFF_P flip-flop stored value)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "plain": true,
+     "synth": true
+    },
+    "survival": {
+     "plain": 1,
+     "synth": 1
+    },
+    "attack_surface": {
+     "count": 19,
+     "complete": true
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 0
+    },
+    "merge_lint": {
+     "register st with 7 codes, distance 4": {
+      "plain": "SURVIVED",
+      "synth": "SURVIVED"
+     },
+     "registers step / step_n": {
+      "plain": "UNTRACKED",
+      "synth": "UNTRACKED"
+     },
+     "alarm alarm": {
+      "plain": "REMOVED",
+      "synth": "REMOVED"
+     }
+    }
+   }
+  },
+  "expect_in_words": "1 glitch",
+  "runtime_s": 3.9,
+  "label": "MEASURED"
+ },
+ "glitchsat.yaml --task hardened": {
+  "top": "secboot_core",
+  "frontend": "verilog",
+  "checks": {
+   "accept_wrong_tag": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 3,
+    "max_faults": 3,
+    "horizon": 8,
+    "witness": [
+     [
+      1,
+      "alarm (NOT gate output)",
+      "flip"
+     ],
+     [
+      2,
+      "rel[3] (DFF_P flip-flop stored value)",
+      "flip"
+     ],
+     [
+      2,
+      "rel[6] (DFF_P flip-flop stored value)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "plain": true,
+     "synth": true
+    },
+    "survival": {
+     "plain": 3,
+     "synth": 3
+    },
+    "attack_surface": {
+     "count": 95,
+     "complete": false
+    },
+    "unbounded": {
+     "verdict": "UNKNOWN",
+     "k": 2
+    },
+    "merge_lint": {
+     "register st with 7 codes, distance 4": {
+      "plain": "SURVIVED",
+      "synth": "SURVIVED"
+     },
+     "registers step / step_n": {
+      "plain": "UNTRACKED",
+      "synth": "UNTRACKED"
+     },
+     "alarm alarm": {
+      "plain": "SURVIVED",
+      "synth": "SURVIVED"
+     }
+    }
+   }
+  },
+  "expect_in_words": "3 glitches",
+  "runtime_s": 107.6,
+  "label": "MEASURED"
+ }
+}

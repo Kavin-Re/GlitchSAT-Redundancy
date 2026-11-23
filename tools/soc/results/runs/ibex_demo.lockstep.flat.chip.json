@@ -1,0 +1,108 @@
+{
+ "chip": "ibex_demo",
+ "flow": "flat",
+ "frontend": {
+  "script": "work/ibex_demo/ibex_demo_lockstep_flat.ys",
+  "seconds": 71.3,
+  "tool": "Yosys 0.71"
+ },
+ "label": "MEASURED",
+ "load_seconds": 0.97,
+ "reset": {
+  "flops_known": 4875,
+  "flops_unknown": 5834,
+  "reset_cycles": 16,
+  "seconds": 0.89,
+  "widening_steps": 1
+ },
+ "schema": "glitchsat-soc-chip/1",
+ "source": {
+  "added_by_this_project": [
+   "rtl/prim_shims.sv",
+   "two source edits made by fetch.sh (listed there)"
+  ],
+  "commit": "d37beb753e19482eb054aefac73a27289bf72e47",
+  "licence": "Apache-2.0",
+  "repo": "https://github.com/lowRISC/ibex-demo-system",
+  "vendored_ibex": "594ea976c9dad793f87edf91ec1c4c1df447e6dc"
+ },
+ "stats": {
+  "async_reset_nets": {
+   "gen_dm_top.u_dm_top.dap.dmi_rst_no": 13,
+   "gen_dm_top.u_dm_top.dap.i_dmi_cdc.i_cdc_req.rst_wr_ni": 185,
+   "gen_dm_top.u_dm_top.dap.i_dmi_cdc.rst_ni": 1301,
+   "gen_dm_top.u_dm_top.dap.i_dmi_cdc.u_combined_rstn_sync.rst_ni": 2,
+   "rst_core_n": 1841,
+   "u_top.gen_lockstep.u_ibex_lockstep.enable_cmp_d[0]": 1533
+  },
+  "blackbox_output_bits": 65,
+  "blackboxes": {
+   "$auto$ff.cc:337:slice$30495": {
+    "output_bits": 1,
+    "role": "clock-gate latch (modelled: the gated domain ticks when its enable is 1)",
+    "type": "$_DLATCH_N_"
+   },
+   "u_ram.u_ram.u_impl_generic.mem": {
+    "memid": "u_ram.u_ram.u_impl_generic.mem",
+    "output_bits": 64,
+    "type": "$mem_v2",
+    "width": 32,
+    "words": 32768
+   }
+  },
+  "cell_types": {
+   "$_AND_": 26262,
+   "$_DFFE_PN0P_": 3969,
+   "$_DFFE_PN1P_": 55,
+   "$_DFFE_PP_": 4425,
+   "$_DFF_NN0_": 1,
+   "$_DFF_PN0_": 827,
+   "$_DFF_PN1_": 23,
+   "$_DFF_P_": 1324,
+   "$_DLATCH_N_": 1,
+   "$_MUX_": 5346,
+   "$_NOT_": 3447,
+   "$_OR_": 17448,
+   "$_SDFFCE_PN0P_": 32,
+   "$_SDFFCE_PP0P_": 33,
+   "$_SDFF_PN0_": 2,
+   "$_SDFF_PP0_": 10,
+   "$_SDFF_PP1_": 8,
+   "$_XOR_": 4429,
+   "$mem_v2": 1
+  },
+  "cells": 67641,
+  "clock_domains": {
+   "clk_sys_i": 4567,
+   "gen_dm_top.u_dm_top.dap.i_dmi_cdc.i_cdc_req.clk_wr_i": 225,
+   "gen_dm_top.u_dm_top.dap.i_dmi_cdc.i_cdc_req.clk_wr_i (negative edge)": 1,
+   "u_top.clk": 5916
+  },
+  "clock_gates_modelled": {
+   "u_top.clk": {
+    "enable": "u_top.clock_en",
+    "flops": 5916,
+    "latch": "$auto$ff.cc:337:slice$30495"
+   }
+  },
+  "flops": 10709,
+  "flops_async_reset": 4875,
+  "flops_enable_only": 4425,
+  "flops_off_reference_clock": 6142,
+  "flops_on_free_tick_clocks": 226,
+  "flops_plain": 1324,
+  "flops_sync_reset": 85,
+  "flops_with_initial": 0,
+  "gates": 56932,
+  "input_bits": 16,
+  "memory_bits_blackboxed": 1048576,
+  "output_bits": 35,
+  "primitive_gates": 81457,
+  "reference_clock": "clk_sys_i",
+  "top": "ibex_demo_system_secure",
+  "undriven_bits": 0,
+  "x_readers": 4
+ },
+ "top": "ibex_demo_system_secure",
+ "variant": "lockstep"
+}

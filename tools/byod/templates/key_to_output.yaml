@@ -1,0 +1,14 @@
+# Template: key_to_output
+# In plain words: bits of the secret key must never appear on an output pin. GlitchSAT puts a test key on the
+# key input that the design never shows on the output by itself (it checks this first), then asks whether
+# faults can make the output show it.
+checks:
+  - id: key_leaks
+    template: key_to_output
+    goal: key_leak                # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    params:
+      key: key_i                    # the key input
+      test_key: "32'hA5C3_5A3C"     # any test value
+      output: data_o                # the output that must not show it
+      # mask: "32'h0000_FFFF"       # optional: only these bits count
+      # valid: "valid_o"            # optional: only when the output is marked valid

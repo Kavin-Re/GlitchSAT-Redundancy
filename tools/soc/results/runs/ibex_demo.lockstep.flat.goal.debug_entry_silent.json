@@ -1,0 +1,203 @@
+{
+ "chip": "ibex_demo",
+ "cone": {
+  "cells_any_depth": 59461,
+  "sequential_depth": 18,
+  "share_any_depth": 0.879067
+ },
+ "cone_growth": [
+  {
+   "cells": 10889,
+   "cycles": 1,
+   "share": 0.160982
+  },
+  {
+   "cells": 34136,
+   "cycles": 2,
+   "share": 0.504664
+  },
+  {
+   "cells": 53398,
+   "cycles": 3,
+   "share": 0.789432
+  },
+  {
+   "cells": 56846,
+   "cycles": 4,
+   "share": 0.840407
+  },
+  {
+   "cells": 57274,
+   "cycles": 5,
+   "share": 0.846735
+  },
+  {
+   "cells": 57666,
+   "cycles": 6,
+   "share": 0.85253
+  },
+  {
+   "cells": 58090,
+   "cycles": 7,
+   "share": 0.858799
+  },
+  {
+   "cells": 59181,
+   "cycles": 8,
+   "share": 0.874928
+  },
+  {
+   "cells": 59418,
+   "cycles": 9,
+   "share": 0.878432
+  },
+  {
+   "cells": 59423,
+   "cycles": 10,
+   "share": 0.878506
+  },
+  {
+   "cells": 59426,
+   "cycles": 11,
+   "share": 0.87855
+  },
+  {
+   "cells": 59431,
+   "cycles": 12,
+   "share": 0.878624
+  }
+ ],
+ "flow": "flat",
+ "goal": "debug_entry_silent",
+ "hi": 1,
+ "hi_by": "modules",
+ "label": "BOUNDED",
+ "lo": 1,
+ "lo_by": "modules",
+ "min_faults": 1,
+ "plain": "Same goal on the lockstep chip, with a longer wait: the main processor is in debug mode for six cycles in a row (long enough for the two-cycle-delayed shadow processor to be compared with it) and the internal major alarm has stayed silent all the time.\n",
+ "relabelled": true,
+ "schema": "glitchsat-soc-goal/1",
+ "search": {
+  "backend": "dimacs:kissat",
+  "events": [
+   {
+    "by": "modules",
+    "lo": 1,
+    "t": 13.14
+   },
+   {
+    "by": "exact",
+    "hi": 3,
+    "t": 16.297
+   },
+   {
+    "by": "modules",
+    "hi": 1,
+    "t": 18.583
+   }
+  ],
+  "modules": {
+   "count": 8,
+   "names": [
+    "island1",
+    "island2",
+    "island3",
+    "island4",
+    "island5",
+    "island6",
+    "island7",
+    "island8"
+   ]
+  },
+  "parts": {},
+  "reduction": {
+   "dag": {
+    "nodes": 626043,
+    "observed": 20,
+    "sites": 498440
+   },
+   "level": "struct",
+   "reduce_s": 1.037,
+   "sites_kept": 142685,
+   "sites_live": 498440,
+   "sites_struct": 142685,
+   "sites_total": 594230,
+   "unroll_s": 2.482
+  },
+  "seconds": 18.583,
+  "slice_seconds": 0.25,
+  "time_limit_s": 140.0,
+  "timed_out": false,
+  "workers": 2
+ },
+ "slice": {
+  "cells_by_distance": {
+   "0": 10889,
+   "1": 23247,
+   "2": 19262,
+   "3": 3448,
+   "4": 428,
+   "5": 392,
+   "6": 424,
+   "7": 1091,
+   "8": 237,
+   "9": 5
+  },
+  "chip_cells": 67641,
+  "chip_flops": 10709,
+  "chip_gates": 56932,
+  "cycles": 10,
+  "fault_candidates": 594230,
+  "flops_cut_at_horizon": 1,
+  "flops_free_initial_value": 3794,
+  "free_values_in_slice": {
+   "blackbox": 64,
+   "tick": 1
+  },
+  "slice_cells": 59423,
+  "slice_flops": 8295,
+  "slice_gates": 51128,
+  "slice_inputs": 13,
+  "slice_share": 0.878506
+ },
+ "spec": {
+  "attacker": null,
+  "cycles": 10,
+  "fix": {
+   "td_i": 0,
+   "tms_i": 0,
+   "trst_ni": 0
+  },
+  "hit": [
+   "u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_q=1"
+  ],
+  "hold": 6,
+  "kmax": 3,
+  "quiet": [
+   "alert_major_internal_o=0"
+  ]
+ },
+ "status": "EXACT",
+ "text": "ATTACK_FOUND: the smallest attack uses 1 flip(s) within 10 cycles (minimum proved).",
+ "title": "The processor enters debug mode while the debug port is idle, and no alarm fires",
+ "variant": "lockstep",
+ "where": "debug_mode_q of the main core; alert_major_internal_o is the alarm that must stay 0",
+ "witness": {
+  "attacker_value": null,
+  "faults": [
+   {
+    "cell": "$auto$ff.cc:337:slice$33006",
+    "cycle": 0,
+    "kind": "flop",
+    "net": "u_top.u_ibex_core.cs_registers_i.debug_mode_i"
+   }
+  ],
+  "free_values_set_to_1": 4278,
+  "hit_cycle": 5,
+  "note": "uses 4278 unknown start value(s) / black-box value(s) chosen by the solver",
+  "replayed_on_slice": true,
+  "replayed_on_whole_chip": true,
+  "whole_chip_hit_cycle": 5
+ }
+}

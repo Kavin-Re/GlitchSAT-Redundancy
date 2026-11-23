@@ -1,0 +1,23 @@
+# GlitchSAT project: hello_lock (the vulnerable version).
+# Question: without ever typing the right code, can glitches open the lock?
+glitchsat: 1
+name: hello_lock
+design:
+  sources: [rtl/hello_lock.v]
+  top: hello_lock
+clock: clk
+reset: {port: rst_n, active: low}
+inputs:
+  attacker: [code_i, try_i]        # the attacker types any code, every cycle
+checks:
+  - id: open_without_code
+    template: custom
+    goal: lock_bypass
+    explain: The lock opens although the right code was never entered.
+    bad: "open_o"
+    must_hold:
+      - "!(try_i && code_i == 8'hA5)"   # the attacker never enters the secret
+faults:
+  types: [flip]
+  max_faults: 2
+  horizon: 6

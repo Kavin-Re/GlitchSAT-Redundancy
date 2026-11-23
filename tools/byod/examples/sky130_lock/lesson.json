@@ -1,0 +1,22 @@
+{
+ "order": 4,
+ "title": "Real standard cells (SkyWater sky130)",
+ "what": "The hello lock after it was turned into real SkyWater sky130 logic cells, the way a chip factory receives it. No Verilog source is needed: only the cell netlist and the cell library.",
+ "why": "The chip that is made is the cell netlist, not the source code. Protections must survive into it.",
+ "teaches": "GlitchSAT reads what each cell does from the library file, checks every cell by its truth table, and asks the same question on the real cells.",
+ "runs": [
+  {
+   "label": "1. Run the weak lock (sky130)",
+   "file": "glitchsat.yaml",
+   "task": "",
+   "expect": "1 glitch"
+  },
+  {
+   "label": "2. Run the protected lock (sky130)",
+   "file": "glitchsat.yaml",
+   "task": "hardened",
+   "expect": "no attack with up to 2 glitches"
+  }
+ ],
+ "lesson_after": "Same answers as for the Verilog version, now on factory cells: the protected lock's three checks survived into this sky130 netlist because it was mapped one module at a time. A flow that flattens before optimising (LibreLane's default, like the hello lock's `synth` build) can merge the three copies, so always check the netlist that is really made. These netlists also use the isolation cell lpflow_inputiso1p as a plain OR gate; real flows list lpflow cells as don't-use. Needs the sky130 library on this computer (scripts/fetch_libs.sh)."
+}

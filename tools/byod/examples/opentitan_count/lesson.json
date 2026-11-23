@@ -1,0 +1,22 @@
+{
+ "order": 3,
+ "title": "OpenTitan counter: a real security block",
+ "what": "prim_count from OpenTitan, an open-source security chip. It keeps every count twice, one copy counting up and one counting down, and raises err_o when they disagree.",
+ "why": "Counters limit retries and prove that steps ran. A glitch that changes a count without anyone noticing can skip a limit.",
+ "teaches": "A real industrial protection, checked by the same question. The plain counter falls to one glitch; OpenTitan's cross counter needs two (one on the counter, one on the error check).",
+ "runs": [
+  {
+   "label": "1. Run a plain counter (weak)",
+   "file": "glitchsat.yaml",
+   "task": "naive",
+   "expect": "1 glitch"
+  },
+  {
+   "label": "2. Run OpenTitan prim_count (protected)",
+   "file": "glitchsat.yaml",
+   "task": "",
+   "expect": "2 glitches"
+  }
+ ],
+ "lesson_after": "The cross counter doubles the cost: the attacker must change the count and also silence the error check. Note the answer is bounded (5 cycles); the proof section says whether it also holds for any waiting time."
+}

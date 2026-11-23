@@ -1,0 +1,986 @@
+{
+ "chip": "ibex_demo",
+ "declared_in_modules_not_in_this_chip": 0,
+ "flows": [
+  "flat"
+ ],
+ "label": "MEASURED",
+ "merge_lint": {},
+ "netlist_scan": {
+  "flat": {
+   "by_kind": {
+    "complement_pair": 12,
+    "redundant_copies": 3
+   },
+   "cells": 43554,
+   "found": 15,
+   "items": [
+    {
+     "codes": null,
+     "id": "copies:ibex_demo_system.n0",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$abc$146099$auto$simplemap.cc:465:simplemap_pmux$56359",
+      "$abc$146099$new_n141"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 1248 bits (ff:$\\u_top.gen_regfile_fpga.register_file_i.mem$rdreg, ff:gen_dm_top.u_dm_top.host_add_o, ff:gen_dm_top.u_dm_top.i_dm_csrs.sbaccess_o, ff:gen_dm_top.u_dm_top.i_dm_sba.state_q (+17 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:ibex_demo_system.n1",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$abc$145690$auto$simple.cc:230:make_patterns_logic$16480",
+      "$abc$145696$auto$simple.cc:213:make_patterns_logic$16883",
+      "$abc$146158$auto$simplemap.cc:189:logic_reduce$21293"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 18 bits (ff:gen_dm_top.u_dm_top.dap.dmi_req_o, ff:gen_dm_top.u_dm_top.dap.i_dmi_cdc.i_cdc_req.u_prim_sync_reqack.gen_rz_hs_protocol.ack_sync.d_i, ff:gen_dm_top.u_dm_top.dap.i_dmi_cdc.i_cdc_req.u_prim_sync_reqack.gen_rz_hs_protocol.dst_req, ff:gen_dm_top.u_dm_top.i_dm_csrs.dmcontrol_q (+5 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:ibex_demo_system.n2",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$abc$146154$new_n536",
+      "$abc$146202$new_n160"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 12 bits (ff:gen_dm_top.u_dm_top.dap.dmi_req_o, ff:gen_dm_top.u_dm_top.i_dm_csrs.sbcs_q, ff:gen_dm_top.u_dm_top.i_dm_csrs.sbdata_o, ff:gen_dm_top.u_dm_top.i_dm_sba.state_q)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n3",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n3449",
+      "u_uart.tx_baud_tick"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 9 bits (ff:u_uart.tx_baud_counter_q)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n4",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4201",
+      "$abc$146277$new_n4202"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n5",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4232",
+      "$abc$146277$new_n4233"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n6",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4263",
+      "$abc$146277$new_n4264"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n7",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4295",
+      "$abc$146277$new_n4296"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n8",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4326",
+      "$abc$146277$new_n4327"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n9",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4357",
+      "$abc$146277$new_n4358"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n10",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4388",
+      "$abc$146277$new_n4389"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n11",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146277$new_n4419",
+      "$abc$146277$new_n4420"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:u_gpio.gen_debounce)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n12",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146154$new_n620",
+      "$abc$146158$new_n197"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 4 bits (ff:gen_dm_top.u_dm_top.hartsel)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n13",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146085$new_n23",
+      "$abc$146277$new_n2616"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 4 bits (ff:u_spi.u_tx_fifo.gen_normal_fifo.fifo_rptr, ff:u_spi.u_tx_fifo.gen_normal_fifo.fifo_wptr)"
+    },
+    {
+     "codes": null,
+     "id": "rails:ibex_demo_system.n14",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$146085$auto$simplemap.cc:148:simplemap_reduce$43218[2]",
+      "$abc$146277$new_n2629"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 4 bits (ff:u_spi.u_tx_fifo.gen_normal_fifo.fifo_rptr, ff:u_spi.u_tx_fifo.gen_normal_fifo.fifo_wptr)"
+    }
+   ],
+   "seconds": 2.0
+  }
+ },
+ "note": "rtl-scan entries are declared intent; netlist-scan entries are structure only and include incidental duplication. A SURVIVED verdict says the structure is intact, not that the chip is secure.",
+ "reviewed": 1,
+ "rtl_files_scanned": 54,
+ "rtl_scan": {
+  "by_kind": {
+   "alarm": 29,
+   "redundant_copies": 6,
+   "sparse_encoding": 1
+  },
+  "found": 36,
+  "items": [
+   {
+    "broken_at": null,
+    "id": "copies:ibex_core.prim_secded_inv_39_32_dec",
+    "kind": "redundant_copies",
+    "module": "ibex_core",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The checker could not find the copies here. Without an unoptimised netlist of the RTL it knows the instance names but not the function, and this netlist kept no names.",
+      "evidence": [
+       "the copies could not be located: no net name of the form regfile_ecc_dec_a, regfile_ecc_dec_b exists in this netlist and no earlier stage gave their function"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "2 copies of prim_secded_inv_39_32_dec(, )",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_core.sv:907"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_core.double_fault_seen_o",
+    "kind": "alarm",
+    "module": "ibex_core",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named double_fault_seen_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm double_fault_seen_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_core.sv:120"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_core.alert_minor_o",
+    "kind": "alarm",
+    "module": "ibex_core",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named alert_minor_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm alert_minor_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_core.sv:166"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_core.alert_major_internal_o",
+    "kind": "alarm",
+    "module": "ibex_core",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named alert_major_internal_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm alert_major_internal_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_core.sv:167"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_core.alert_major_bus_o",
+    "kind": "alarm",
+    "module": "ibex_core",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named alert_major_bus_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm alert_major_bus_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_core.sv:168"
+   },
+   {
+    "broken_at": "flat",
+    "id": "copies:ibex_cs_registers.ibex_csr",
+    "kind": "redundant_copies",
+    "module": "ibex_cs_registers",
+    "origin": "rtl-scan",
+    "reviewed": "Not redundant copies: eight different control registers built from one module. The scan matched them because they share clock and reset.",
+    "stages": [
+     {
+      "cause": "The copies were optimised together and now share gates. This happens when technology mapping (ABC) runs after `flatten`, or with `abc -dff`.",
+      "evidence": [
+       "1 independent copy left of 8 intended: 4 net(s) still compute the function but share 6025 cell(s)",
+       "4 net(s) compute the copies' function: u_top.u_ibex_core.cs_registers_i.mstatus_en, u_top.u_ibex_core.cs_registers_i.mcause_en, u_top.u_ibex_core.cs_registers_i.mtval_en, u_top.u_ibex_core.cs_registers_i.mepc_en",
+       "6025 cell(s) lie in the logic of more than one copy: $abc$145675$blif$145675$3 [$_OR_], $abc$145676$blif$145676$10 [$_NOT_], $abc$145676$blif$145676$100 [$_AND_], $abc$145676$blif$145676$101 [$_OR_], $abc$145676$blif$145676$102 [$_OR_], $abc$145676$blif$145676$103 [$_OR_], $abc$145676$blif$145676$10"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "REMOVED"
+     }
+    ],
+    "title": "8 copies of ibex_csr()",
+    "verdict": "REMOVED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_cs_registers.sv:882"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_cs_registers.csr_shadow_err_o",
+    "kind": "alarm",
+    "module": "ibex_cs_registers",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named csr_shadow_err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm csr_shadow_err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_cs_registers.sv:95"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_cs_registers.double_fault_seen_o",
+    "kind": "alarm",
+    "module": "ibex_cs_registers",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named double_fault_seen_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm double_fault_seen_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_cs_registers.sv:110"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_csr.rd_error_o",
+    "kind": "alarm",
+    "module": "ibex_csr",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named rd_error_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm rd_error_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_csr.sv:23"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_fetch_fifo.out_err_o",
+    "kind": "alarm",
+    "module": "ibex_fetch_fifo",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named out_err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm out_err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_fetch_fifo.sv:37"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_fetch_fifo.out_err_plus2_o",
+    "kind": "alarm",
+    "module": "ibex_fetch_fifo",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named out_err_plus2_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm out_err_plus2_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_fetch_fifo.sv:38"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_if_stage.instr_intg_err_o",
+    "kind": "alarm",
+    "module": "ibex_if_stage",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named instr_intg_err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm instr_intg_err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_if_stage.sv:46"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_if_stage.instr_fetch_err_o",
+    "kind": "alarm",
+    "module": "ibex_if_stage",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named instr_fetch_err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm instr_fetch_err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_if_stage.sv:75"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_if_stage.instr_fetch_err_plus2_o",
+    "kind": "alarm",
+    "module": "ibex_if_stage",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named instr_fetch_err_plus2_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm instr_fetch_err_plus2_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_if_stage.sv:76"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_if_stage.icache_ecc_error_o",
+    "kind": "alarm",
+    "module": "ibex_if_stage",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named icache_ecc_error_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm icache_ecc_error_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_if_stage.sv:101"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_if_stage.pc_mismatch_alert_o",
+    "kind": "alarm",
+    "module": "ibex_if_stage",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named pc_mismatch_alert_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm pc_mismatch_alert_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_if_stage.sv:118"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_load_store_unit.load_err_o",
+    "kind": "alarm",
+    "module": "ibex_load_store_unit",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "load_err_o is driven by non-constant logic"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "SURVIVED"
+     }
+    ],
+    "title": "alarm load_err_o",
+    "verdict": "SURVIVED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_load_store_unit.sv:62"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_load_store_unit.load_resp_intg_err_o",
+    "kind": "alarm",
+    "module": "ibex_load_store_unit",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named load_resp_intg_err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm load_resp_intg_err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_load_store_unit.sv:63"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_load_store_unit.store_err_o",
+    "kind": "alarm",
+    "module": "ibex_load_store_unit",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "store_err_o is driven by non-constant logic"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "SURVIVED"
+     }
+    ],
+    "title": "alarm store_err_o",
+    "verdict": "SURVIVED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_load_store_unit.sv:64"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_load_store_unit.store_resp_intg_err_o",
+    "kind": "alarm",
+    "module": "ibex_load_store_unit",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named store_resp_intg_err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm store_resp_intg_err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_load_store_unit.sv:65"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_prefetch_buffer.err_o",
+    "kind": "alarm",
+    "module": "ibex_prefetch_buffer",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_prefetch_buffer.sv:27"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_prefetch_buffer.err_plus2_o",
+    "kind": "alarm",
+    "module": "ibex_prefetch_buffer",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named err_plus2_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm err_plus2_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_prefetch_buffer.sv:28"
+   },
+   {
+    "broken_at": null,
+    "id": "copies:ibex_register_file_fpga.prim_onehot_enc",
+    "kind": "redundant_copies",
+    "module": "ibex_register_file_fpga",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The checker could not find the copies here. Without an unoptimised netlist of the RTL it knows the instance names but not the function, and this netlist kept no names.",
+      "evidence": [
+       "the copies could not be located: no net name of the form u_prim_onehot_enc_raddr_a, u_prim_onehot_enc_raddr_b exists in this netlist and no earlier stage gave their function"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "2 copies of prim_onehot_enc(1'b1)",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_register_file_fpga.sv:61"
+   },
+   {
+    "broken_at": null,
+    "id": "copies:ibex_register_file_fpga.prim_onehot_check",
+    "kind": "redundant_copies",
+    "module": "ibex_register_file_fpga",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The checker could not find the copies here. Without an unoptimised netlist of the RTL it knows the instance names but not the function, and this netlist kept no names.",
+      "evidence": [
+       "the copies could not be located: no net name of the form u_prim_onehot_check_raddr_a, u_prim_onehot_check_raddr_b exists in this netlist and no earlier stage gave their function"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "2 copies of prim_onehot_check(1'b1)",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_register_file_fpga.sv:95"
+   },
+   {
+    "broken_at": null,
+    "id": "copies:ibex_register_file_fpga.prim_onehot_mux",
+    "kind": "redundant_copies",
+    "module": "ibex_register_file_fpga",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The checker could not find the copies here. Without an unoptimised netlist of the RTL it knows the instance names but not the function, and this netlist kept no names.",
+      "evidence": [
+       "the copies could not be located: no net name of the form u_rdata_a_mux, u_rdata_b_mux exists in this netlist and no earlier stage gave their function"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "2 copies of prim_onehot_mux(mem)",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_register_file_fpga.sv:128"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_register_file_fpga.err_o",
+    "kind": "alarm",
+    "module": "ibex_register_file_fpga",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_register_file_fpga.sv:42"
+   },
+   {
+    "broken_at": null,
+    "id": "copies:ibex_top.prim_secded_inv_39_32_dec",
+    "kind": "redundant_copies",
+    "module": "ibex_top",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The checker could not find the copies here. Without an unoptimised netlist of the RTL it knows the instance names but not the function, and this netlist kept no names.",
+      "evidence": [
+       "the copies could not be located: no net name of the form u_data_intg_dec, u_instr_intg_dec exists in this netlist and no earlier stage gave their function"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "2 copies of prim_secded_inv_39_32_dec(, )",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_top.sv:1357"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_top.double_fault_seen_o",
+    "kind": "alarm",
+    "module": "ibex_top",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named double_fault_seen_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm double_fault_seen_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_top.sv:96"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_top.alert_minor_o",
+    "kind": "alarm",
+    "module": "ibex_top",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named alert_minor_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm alert_minor_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_top.sv:141"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_top.alert_major_internal_o",
+    "kind": "alarm",
+    "module": "ibex_top",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named alert_major_internal_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm alert_major_internal_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_top.sv:142"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:ibex_top.alert_major_bus_o",
+    "kind": "alarm",
+    "module": "ibex_top",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named alert_major_bus_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm alert_major_bus_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/rtl/ibex_top.sv:143"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:bus.host_err_o",
+    "kind": "alarm",
+    "module": "bus",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "host_err_o is driven by non-constant logic"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "SURVIVED"
+     }
+    ],
+    "title": "alarm host_err_o",
+    "verdict": "SURVIVED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/shared/rtl/bus.sv:36"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:timer.timer_err_o",
+    "kind": "alarm",
+    "module": "timer",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "timer_err_o is driven by non-constant logic"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "SURVIVED"
+     }
+    ],
+    "title": "alarm timer_err_o",
+    "verdict": "SURVIVED",
+    "where": "work/src/ids/vendor/lowrisc_ibex/shared/rtl/timer.sv:26"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:prim_fifo_sync.err_o",
+    "kind": "alarm",
+    "module": "prim_fifo_sync",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_sync.sv:33"
+   },
+   {
+    "broken_at": null,
+    "id": "alarm:prim_fifo_sync_cnt.err_o",
+    "kind": "alarm",
+    "module": "prim_fifo_sync_cnt",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The alarm compares signals that the tool proved equal (after merging the redundant copies, `a != a` is constant 0), so the alarm logic was removed as dead code.",
+      "evidence": [
+       "no net or port named err_o in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "alarm err_o",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_sync_cnt.sv:32"
+   },
+   {
+    "broken_at": null,
+    "id": "encoding:dmi_jtag.data_d",
+    "kind": "sparse_encoding",
+    "module": "dmi_jtag",
+    "origin": "rtl-scan",
+    "stages": [
+     {
+      "cause": "The state register was re-encoded by FSM extraction (Yosys `fsm`/`fsm_recode`, part of `synth`; other tools: FSM compilation/`fsm_auto_inferring`). The tool picks its own code words (binary or one-hot), so the distances written in the RTL are gone.",
+      "evidence": [
+       "no flops named data_d[...] in this netlist, and no 32-bit register holds only the RTL codes"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "register data_d with 3 codes, distance 12",
+    "verdict": "UNTRACKED",
+    "where": "work/src/ids/vendor/pulp_riscv_dbg/src/dmi_jtag.sv:127"
+   }
+  ],
+  "seconds": 8.8,
+  "stages": [
+   "flat"
+  ],
+  "verdicts": {
+   "REMOVED": 1,
+   "SURVIVED": 4,
+   "UNTRACKED": 31
+  }
+ },
+ "schema": "glitchsat-soc-inventory/1",
+ "variant": "stock"
+}

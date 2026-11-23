@@ -1,0 +1,182 @@
+{
+ "chip": "ibex_demo",
+ "chip_cells": 43554,
+ "cycles": 6,
+ "flow": "flat",
+ "goal": "debug_entry",
+ "label": "SAMPLED",
+ "lanes": 4096,
+ "no_fault": {
+  "goal_reached": 0,
+  "scenarios": 4096
+ },
+ "note": "Environment sampled once per scenario (inputs, unknown start values, black-box values). Counts say what was observed in these scenarios only.",
+ "pairs": {
+  "examples": [
+   [
+    {
+     "cycle": 4,
+     "net": "$abc$146231$new_n2885"
+    },
+    {
+     "cycle": 2,
+     "net": "$abc$145678$auto$simplemap.cc:148:simplemap_reduce$69424[1]"
+    }
+   ],
+   [
+    {
+     "cycle": 2,
+     "net": "u_top.u_ibex_core.id_stage_i.controller_i.ctrl_fsm_cs[3]"
+    },
+    {
+     "cycle": 3,
+     "net": "u_uart.u_rx_fifo.gen_normal_fifo.storage[170]"
+    }
+   ],
+   [
+    {
+     "cycle": 1,
+     "net": "$abc$145988$new_n53"
+    },
+    {
+     "cycle": 5,
+     "net": "u_pwm.gen_pwm[6].u_pwm.counter[0]"
+    }
+   ],
+   [
+    {
+     "cycle": 1,
+     "net": "$abc$145988$new_n53"
+    },
+    {
+     "cycle": 5,
+     "net": "$abc$146236$new_n2939"
+    }
+   ],
+   [
+    {
+     "cycle": 4,
+     "net": "$abc$146212$new_n972"
+    },
+    {
+     "cycle": 1,
+     "net": "$abc$145988$new_n108"
+    }
+   ]
+  ],
+  "goal_reached": 6,
+  "rate": 0.0003,
+  "scenarios": 20000
+ },
+ "schema": "glitchsat-soc-campaign/1",
+ "seconds": 7.2,
+ "seed": 1,
+ "simulator": "gsoc.sim.Compiled (compiled Python, bit-parallel)",
+ "single": {
+  "complete_fault_space": true,
+  "distinct_cells": 13,
+  "examples": [
+   {
+    "cycles": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "net": "u_top.u_ibex_core.cs_registers_i.debug_mode_i"
+   },
+   {
+    "cycles": [
+     1,
+     2,
+     3
+    ],
+    "net": "$abc$145678$auto$simplemap.cc:148:simplemap_reduce$69424[1]"
+   },
+   {
+    "cycles": [
+     1,
+     2,
+     3
+    ],
+    "net": "$abc$145678$auto$simplemap.cc:465:simplemap_pmux$69287"
+   },
+   {
+    "cycles": [
+     1,
+     2,
+     3
+    ],
+    "net": "$abc$145678$new_n277"
+   },
+   {
+    "cycles": [
+     1,
+     2,
+     3
+    ],
+    "net": "$abc$145678$procmux$11172_CMP"
+   },
+   {
+    "cycles": [
+     0,
+     1,
+     2
+    ],
+    "net": "u_top.u_ibex_core.id_stage_i.controller_i.ctrl_fsm_cs[3]"
+   },
+   {
+    "cycles": [
+     1,
+     2,
+     3
+    ],
+    "net": "u_top.u_ibex_core.id_stage_i.controller_i.debug_mode_d"
+   },
+   {
+    "cycles": [
+     1,
+     2
+    ],
+    "net": "$abc$145988$new_n53"
+   },
+   {
+    "cycles": [
+     1
+    ],
+    "net": "$abc$145988$new_n102"
+   },
+   {
+    "cycles": [
+     1
+    ],
+    "net": "$abc$145988$new_n103"
+   },
+   {
+    "cycles": [
+     1
+    ],
+    "net": "$abc$145988$new_n107"
+   },
+   {
+    "cycles": [
+     1
+    ],
+    "net": "$abc$145988$new_n108"
+   },
+   {
+    "cycles": [
+     1
+    ],
+    "net": "u_top.u_ibex_core.id_stage_i.controller_i.ctrl_fsm_ns[3]"
+   }
+  ],
+  "goal_reached": 30,
+  "of_all": 261324,
+  "rate": 0.0001148,
+  "scenarios": 261324
+ },
+ "stopped_at_time_limit": false,
+ "variant": "stock"
+}

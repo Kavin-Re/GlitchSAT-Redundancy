@@ -1,0 +1,12 @@
+# Template: fsm_forbidden_state
+# In plain words: a state machine must never reach a certain state (for example UNLOCKED without a password),
+# or must never hold a code that is none of its legal states. Internal signals are written with their
+# instance path (u_ctrl.state_q); GlitchSAT keeps them through synthesis.
+checks:
+  - id: fsm_reaches_forbidden
+    template: fsm_forbidden_state
+    goal: state_change            # what an attacker gets if this fails (boot_accept, key_leak, debug_unlock, lock_bypass, alarm_suppress, state_change, crash_only)
+    params:
+      state: "u_ctrl.state_q"
+      forbidden: ["4'h9"]                     # or: allowed: ["4'h1", "4'h2", "4'h4"]  (any other code is bad)
+      # when: "!pw_ok"                        # optional extra condition

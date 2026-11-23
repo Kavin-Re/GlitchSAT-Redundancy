@@ -1,0 +1,83 @@
+{
+ "glitchsat.yaml --task naive": {
+  "top": "naive_count",
+  "frontend": "slang",
+  "checks": {
+   "count_changes_unnoticed": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 1,
+    "max_faults": 3,
+    "horizon": 5,
+    "witness": [
+     [
+      1,
+      "cnt_o[3] (DFF_PN0 flip-flop stored value)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "plain": true
+    },
+    "attack_surface": {
+     "count": 100,
+     "complete": false
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 0
+    },
+    "merge_lint": {
+     "alarm err_o": {
+      "plain": "REMOVED"
+     }
+    }
+   }
+  },
+  "expect_in_words": "1 glitch",
+  "runtime_s": 1.7,
+  "label": "MEASURED"
+ },
+ "glitchsat.yaml": {
+  "top": "prim_count",
+  "frontend": "slang",
+  "checks": {
+   "count_changes_unnoticed": {
+    "verdict": "ATTACK_FOUND",
+    "min_faults": 2,
+    "max_faults": 3,
+    "horizon": 5,
+    "witness": [
+     [
+      0,
+      "cnt_d_committed[2] (OR gate output)",
+      "flip"
+     ],
+     [
+      0,
+      "cnt_d_committed[6] (AND gate output)",
+      "flip"
+     ]
+    ],
+    "validation": {
+     "plain": true
+    },
+    "attack_surface": {
+     "count": 100,
+     "complete": false
+    },
+    "unbounded": {
+     "verdict": "PROVED_UNBOUNDED",
+     "k": 1
+    },
+    "merge_lint": {
+     "alarm err_o": {
+      "plain": "SURVIVED"
+     }
+    }
+   }
+  },
+  "expect_in_words": "2 glitches",
+  "runtime_s": 13.9,
+  "label": "MEASURED"
+ }
+}

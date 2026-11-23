@@ -1,0 +1,560 @@
+{
+ "label": "MEASURED",
+ "yosys": "Yosys 0.33",
+ "libraries": {
+  "nangate45": {
+   "path_in_libs_dir": "src/orfs/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib",
+   "summary": {
+    "library": "NangateOpenCellLibrary",
+    "cells": 135,
+    "kinds": {
+     "comb": 92,
+     "none": 8,
+     "unsupported": 19,
+     "ff": 16
+    },
+    "risks": [
+     "clock-gating cell (latch_posedge)",
+     "clock-gating cell (latch_posedge_precontrol)",
+     "scan flip-flop (scan enable is a fixed functional-mode input by default)"
+    ]
+   },
+   "A_truth_table": {
+    "passed": 108,
+    "failed": [],
+    "not_modelled": [
+     "ANTENNA_X1: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "CLKGATETST_X1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATETST_X2: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATETST_X4: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATETST_X8: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATE_X1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATE_X2: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATE_X4: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "CLKGATE_X8: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "DLH_X1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "DLH_X2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "DLL_X1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "DLL_X2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "FILLCELL_X16: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "FILLCELL_X1: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "FILLCELL_X2: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "FILLCELL_X32: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "FILLCELL_X4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "FILLCELL_X8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "TAPCELL_X1: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "TBUF_X16: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "TBUF_X1: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "TBUF_X2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "TBUF_X4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "TBUF_X8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "TINV_X1: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "TLAT_X1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)"
+    ]
+   },
+   "B_yosys_read_liberty": {
+    "compared": 108,
+    "agree": 104,
+    "differ": [
+     {
+      "cell": "DFFRS_X1",
+      "rows_differing": 4,
+      "rows": 16,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RN": 0,
+        "SN": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 0,
+        "QN": 0,
+        "next": 0
+       },
+       "yosys": {
+        "Q": 0,
+        "QN": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "DFFRS_X2",
+      "rows_differing": 4,
+      "rows": 16,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RN": 0,
+        "SN": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 0,
+        "QN": 0,
+        "next": 0
+       },
+       "yosys": {
+        "Q": 0,
+        "QN": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "SDFFRS_X1",
+      "rows_differing": 16,
+      "rows": 64,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RN": 0,
+        "SE": 0,
+        "SI": 0,
+        "SN": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 0,
+        "QN": 0,
+        "next": 0
+       },
+       "yosys": {
+        "Q": 0,
+        "QN": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "SDFFRS_X2",
+      "rows_differing": 16,
+      "rows": 64,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RN": 0,
+        "SE": 0,
+        "SI": 0,
+        "SN": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 0,
+        "QN": 0,
+        "next": 0
+       },
+       "yosys": {
+        "Q": 0,
+        "QN": 1,
+        "next": 0
+       }
+      }
+     }
+    ],
+    "not_in_yosys": [],
+    "skipped": []
+   },
+   "D_synfi_functions": {
+    "compared": 92,
+    "agree": 92,
+    "differ": [],
+    "not_parsed": 6
+   },
+   "seconds": 0.5
+  },
+  "sky130hd": {
+   "path_in_libs_dir": "src/orfs/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+   "summary": {
+    "library": "sky130_fd_sc_hd__tt_025C_1v80",
+    "cells": 428,
+    "kinds": {
+     "comb": 334,
+     "none": 12,
+     "ff": 45,
+     "unsupported": 37
+    },
+    "risks": [
+     "clock-gating cell (latch_posedge)",
+     "clock-gating cell (latch_posedge_precontrol)",
+     "scan flip-flop (scan enable is a fixed functional-mode input by default)"
+    ]
+   },
+   "A_truth_table": {
+    "passed": 379,
+    "failed": [],
+    "not_modelled": [
+     "sky130_fd_sc_hd__decap_12: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__decap_3: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__decap_4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__decap_6: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__decap_8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__diode_2: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__dlclkp_1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "sky130_fd_sc_hd__dlclkp_2: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "sky130_fd_sc_hd__dlclkp_4: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "sky130_fd_sc_hd__dlrbn_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrbn_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrbp_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrbp_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrtn_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrtn_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrtn_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrtp_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrtp_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlrtp_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxbn_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxbn_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxbp_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxtn_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxtn_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxtn_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__dlxtp_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__ebufn_1: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__ebufn_2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__ebufn_4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__ebufn_8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvn_0: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvn_1: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvn_2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvn_4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvn_8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvp_1: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvp_2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvp_4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__einvp_8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sky130_fd_sc_hd__lpflow_bleeder_1: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__lpflow_decapkapwr_12: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__lpflow_decapkapwr_3: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__lpflow_decapkapwr_4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__lpflow_decapkapwr_6: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__lpflow_decapkapwr_8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sky130_fd_sc_hd__lpflow_inputisolatch_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sky130_fd_sc_hd__sdlclkp_1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "sky130_fd_sc_hd__sdlclkp_2: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "sky130_fd_sc_hd__sdlclkp_4: not modelled: statetable (state described as a table; typical for clock-gating cells)"
+    ]
+   },
+   "B_yosys_read_liberty": {
+    "compared": 379,
+    "agree": 373,
+    "differ": [
+     {
+      "cell": "sky130_fd_sc_hd__dfbbn_1",
+      "rows_differing": 4,
+      "rows": 16,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "sky130_fd_sc_hd__dfbbn_2",
+      "rows_differing": 4,
+      "rows": 16,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "sky130_fd_sc_hd__dfbbp_1",
+      "rows_differing": 4,
+      "rows": 16,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "sky130_fd_sc_hd__sdfbbn_1",
+      "rows_differing": 16,
+      "rows": 64,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SCD": 0,
+        "SCE": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "sky130_fd_sc_hd__sdfbbn_2",
+      "rows_differing": 16,
+      "rows": 64,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SCD": 0,
+        "SCE": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     },
+     {
+      "cell": "sky130_fd_sc_hd__sdfbbp_1",
+      "rows_differing": 16,
+      "rows": 64,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SCD": 0,
+        "SCE": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     }
+    ],
+    "not_in_yosys": [],
+    "skipped": []
+   },
+   "C_skywater_lib_json": {
+    "files": 428,
+    "compared": 379,
+    "agree": 379,
+    "differ": [],
+    "missing_in_lib": []
+   },
+   "seconds": 0.8
+  },
+  "ihp-sg13g2": {
+   "path_in_libs_dir": "src/orfs/flow/platforms/ihp-sg13g2/lib/sg13g2_stdcell_typ_1p20V_25C.lib",
+   "summary": {
+    "library": "sg13g2_stdcell_typ_1p20V_25C",
+    "cells": 84,
+    "kinds": {
+     "comb": 54,
+     "none": 7,
+     "ff": 9,
+     "unsupported": 14
+    },
+    "risks": [
+     "clock-gating cell (latch_posedge)",
+     "clock-gating cell (latch_posedge_precontrol)",
+     "scan flip-flop (scan enable is a fixed functional-mode input by default)"
+    ]
+   },
+   "A_truth_table": {
+    "passed": 63,
+    "failed": [],
+    "not_modelled": [
+     "sg13g2_antennanp: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_decap_4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_decap_8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_dlhq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sg13g2_dlhr_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sg13g2_dlhrq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sg13g2_dllr_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sg13g2_dllrq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "sg13g2_ebufn_2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sg13g2_ebufn_4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sg13g2_ebufn_8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sg13g2_einvn_2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sg13g2_einvn_4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sg13g2_einvn_8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "sg13g2_fill_1: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_fill_2: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_fill_4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_fill_8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "sg13g2_lgcp_1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "sg13g2_sighold: not modelled: inout pin SH",
+     "sg13g2_slgcp_1: not modelled: statetable (state described as a table; typical for clock-gating cells)"
+    ]
+   },
+   "B_yosys_read_liberty": {
+    "compared": 63,
+    "agree": 62,
+    "differ": [
+     {
+      "cell": "sg13g2_sdfbbp_1",
+      "rows_differing": 16,
+      "rows": 64,
+      "example": {
+       "inputs": {
+        "D": 0,
+        "RESET_B": 0,
+        "SCD": 0,
+        "SCE": 0,
+        "SET_B": 0,
+        "stored": 0
+       },
+       "glitchsat": {
+        "Q": 1,
+        "Q_N": 0,
+        "next": 1
+       },
+       "yosys": {
+        "Q": 0,
+        "Q_N": 1,
+        "next": 0
+       }
+      }
+     }
+    ],
+    "not_in_yosys": [],
+    "skipped": []
+   },
+   "seconds": 0.1
+  },
+  "gf180mcu": {
+   "path_in_libs_dir": "src/orfs/flow/platforms/gf180/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz",
+   "summary": {
+    "library": "gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00",
+    "cells": 229,
+    "kinds": {
+     "comb": 145,
+     "none": 15,
+     "unsupported": 33,
+     "ff": 36
+    },
+    "risks": [
+     "clock-gating cell (latch_negedge_precontrol)",
+     "clock-gating cell (latch_posedge_precontrol)",
+     "scan flip-flop (scan enable is a fixed functional-mode input by default)"
+    ]
+   },
+   "A_truth_table": {
+    "passed": 181,
+    "failed": [],
+    "not_modelled": [
+     "gf180mcu_fd_sc_mcu7t5v0__antenna: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_12: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_16: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_1: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_2: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_3: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_4: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__bufz_8: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__endcap: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_16: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_1: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_2: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_32: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_64: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fill_8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fillcap_16: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fillcap_32: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fillcap_4: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fillcap_64: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__fillcap_8: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__filltie: not modelled: no output with a function (filler, tap, decap, antenna diode or similar)",
+     "gf180mcu_fd_sc_mcu7t5v0__hold: not modelled: three-state output Z (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__icgtn_1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "gf180mcu_fd_sc_mcu7t5v0__icgtn_2: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "gf180mcu_fd_sc_mcu7t5v0__icgtn_4: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "gf180mcu_fd_sc_mcu7t5v0__icgtp_1: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "gf180mcu_fd_sc_mcu7t5v0__icgtp_2: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "gf180mcu_fd_sc_mcu7t5v0__icgtp_4: not modelled: statetable (state described as a table; typical for clock-gating cells)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_12: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_16: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_1: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_2: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_3: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_4: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__invz_8: not modelled: three-state output ZN (tri-state buses are not modelled)",
+     "gf180mcu_fd_sc_mcu7t5v0__latq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latq_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latq_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latrnq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latrnq_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latrnq_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latrsnq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latrsnq_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latrsnq_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latsnq_1: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latsnq_2: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)",
+     "gf180mcu_fd_sc_mcu7t5v0__latsnq_4: not modelled: latch (level-sensitive storage is not modelled; only edge-triggered flip-flops are)"
+    ]
+   },
+   "B_yosys_read_liberty": {
+    "compared": 181,
+    "agree": 181,
+    "differ": [],
+    "not_in_yosys": [],
+    "skipped": []
+   },
+   "seconds": 1.0
+  }
+ }
+}

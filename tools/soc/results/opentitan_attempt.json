@@ -1,0 +1,17 @@
+{
+ "schema": "glitchsat-soc-opentitan-attempt/1",
+ "label": "MEASURED",
+ "source": {"repo": "https://github.com/lowRISC/opentitan", "tag": "Earlgrey-PROD-M6", "commit": "a78922f14a8cc20c7ee569f322a04626f2ac6127", "licence": "Apache-2.0"},
+ "machine": "2 cores, about 7 GB RAM, Yosys 0.71 with read_slang",
+ "script": "chips/earlgrey/frontend.sh",
+ "steps": [
+  {"step": "Earl Grey: fetch (sparse clone, commit checked)", "result": "done", "wall": "3 s", "peak_memory": "", "output": "809 SystemVerilog files"},
+  {"step": "Earl Grey: abstract primitives", "result": "done", "wall": "< 1 s", "peak_memory": "", "output": "22 wrappers generated from prim_generic (gen_prim_shims.py) plus prim_pkg"},
+  {"step": "Earl Grey: elab (read_slang top_earlgrey, one compilation unit, hierarchy -check)", "result": "done", "wall": "38 s", "peak_memory": "2.7 GB", "output": "675,182 RTL cells, 34 memories declared (1,933,364 bits), 1,714 port bits"},
+  {"step": "Earl Grey: coarse (proc, opt_expr, opt_clean, memory -nomap)", "result": "done", "wall": "148 s", "peak_memory": "2.9 GB", "output": "280,436 RTL cells (15,126 $aldff flop cells among them), coarse.il 353 MB"},
+  {"step": "Earl Grey: gates, flat (memory_map <= 4096 words, techmap)", "result": "STOPPED: killed by the kernel (out of memory) inside techmap", "wall": "35 s", "peak_memory": "6.1 GB at the kill", "output": "none"},
+  {"step": "Earl Grey: hier (read_slang --keep-hierarchy, per-module techmap, memory_map <= 64 words)", "result": "STOPPED: killed by the kernel (out of memory) inside techmap", "wall": "139 s", "peak_memory": "6.1 GB at the kill", "output": "none"},
+  {"step": "English Breakfast: generate top (topgen)", "result": "NOT POSSIBLE HERE: the pinned tag does not contain hw/top_englishbreakfast/rtl/autogen; topgen needs the Python packages hjson and mako, which cannot be installed in the build environment (no package index access)", "wall": "", "peak_memory": "", "output": "none"}
+ ],
+ "stopped": "Where it stopped: Earl Grey is read, elaborated and brought to 280,436 word-level cells here. Mapping those cells to gates (Yosys techmap) needs more than the 6.1 GB this machine can give one process, flat and hierarchical alike. No gate or flop count of Earl Grey exists yet; the 15,126 $aldff cells are multi-bit flop cells, not a flop count. English Breakfast was not generated."
+}

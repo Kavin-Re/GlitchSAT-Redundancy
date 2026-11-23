@@ -1,0 +1,44 @@
+{
+ "chip": "ibex_demo",
+ "chip_cells": 67641,
+ "cycles": 10,
+ "flow": "flat",
+ "goal": "debug_entry_silent",
+ "label": "SAMPLED",
+ "lanes": 4096,
+ "no_fault": {
+  "goal_reached": 0,
+  "scenarios": 4096
+ },
+ "note": "Environment sampled once per scenario (inputs, unknown start values, black-box values). Counts say what was observed in these scenarios only.",
+ "pairs": {
+  "examples": [],
+  "goal_reached": 0,
+  "rate": 0.0,
+  "scenarios": 20000
+ },
+ "schema": "glitchsat-soc-campaign/1",
+ "seconds": 43.2,
+ "seed": 1,
+ "simulator": "gsoc.sim.Compiled (compiled Python, bit-parallel)",
+ "single": {
+  "complete_fault_space": true,
+  "distinct_cells": 1,
+  "examples": [
+   {
+    "cycles": [
+     0,
+     1,
+     2
+    ],
+    "net": "u_top.u_ibex_core.cs_registers_i.debug_mode_i"
+   }
+  ],
+  "goal_reached": 3,
+  "of_all": 676410,
+  "rate": 4.44e-06,
+  "scenarios": 676410
+ },
+ "stopped_at_time_limit": false,
+ "variant": "lockstep"
+}

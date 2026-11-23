@@ -1,0 +1,1532 @@
+{
+ "chip": "picosoc",
+ "declared_in_modules_not_in_this_chip": 0,
+ "flows": [
+  "written",
+  "keep",
+  "flat"
+ ],
+ "label": "MEASURED",
+ "merge_lint": {
+  "boot_release": {
+   "flat": {
+    "cone_gates": 55,
+    "copies": {
+     "c0": {
+      "cone_size": 8,
+      "decision_bits": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     },
+     "c1": {
+      "cone_size": 8,
+      "decision_bits": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     },
+     "c2": {
+      "cone_size": 8,
+      "decision_bits": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ]
+     }
+    },
+    "decision_register": "bootcheck.st",
+    "findings": [
+     "copy groups from hierarchy names: c0 (8 input-dependent nets), c1 (8 input-dependent nets), c2 (8 input-dependent nets)",
+     "8 net(s) lie inside two or more copy cones (merged copy logic), e.g. `$abc$64906$new_n14071_` (c0+c1+c2), `$abc$64906$new_n14072_` (c0+c1+c2), `$abc$64906$new_n14073_` (c0+c1+c2), `$abc$64906$new_n14074_` (c0+c1+c2), `$abc$64906$new_n14075_` (c0+c1+c2)",
+     "2 first merge point(s) combine copies before the decision bits: `$abc$64906$flatten\\bootcheck.$procmux$1165_Y[7]` (c0+c1+c2), `bootcheck.word[0]` (c0+c1+c2) (21 merge nets in total)",
+     "copies c0, c1, c2 are structurally identical (same canonical hash): a structural-hashing pass (e.g. opt_merge) can fold them unless the flow keeps them apart",
+     "8 decision bit(s) depend on more than one copy: bits [0, 1, 2, 3, 4, 5, 6, 7]"
+    ],
+    "identical_copies": [
+     [
+      "c0",
+      "c1",
+      "c2"
+     ]
+    ],
+    "mode": "names",
+    "runtime_s": 0.0012,
+    "shared_net_count": 8,
+    "single_point_count": 29,
+    "single_points": [
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14071_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14072_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14073_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14074_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14075_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14076_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "$abc$64906$new_n14077_"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "shared",
+      "net": "bootcheck.c0.m"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "$abc$64906$flatten\\bootcheck.$procmux$1165_Y[7]"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "bootcheck.word[0]"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "$abc$64906$flatten\\bootcheck.$procmux$1165_Y[4]"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "$abc$64906$flatten\\bootcheck.$procmux$1165_Y[5]"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "$abc$64906$flatten\\bootcheck.$procmux$1165_Y[6]"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45258"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45259"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45261"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45262"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45264"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45265"
+     },
+     {
+      "copies": [
+       "c0",
+       "c1",
+       "c2"
+      ],
+      "kind": "merge",
+      "net": "45267"
+     }
+    ],
+    "structural_groups": [
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    ],
+    "verdict": "merged"
+   },
+   "keep": {
+    "cone_gates": 75,
+    "copies": {
+     "c0": {
+      "cone_size": 8,
+      "decision_bits": [
+       0,
+       3,
+       6
+      ]
+     },
+     "c1": {
+      "cone_size": 8,
+      "decision_bits": [
+       1,
+       4,
+       7
+      ]
+     },
+     "c2": {
+      "cone_size": 8,
+      "decision_bits": [
+       2,
+       5
+      ]
+     }
+    },
+    "decision_register": "bootcheck.st",
+    "findings": [
+     "copy groups from hierarchy names: c0 (8 input-dependent nets), c1 (8 input-dependent nets), c2 (8 input-dependent nets)",
+     "no net is shared by two copies and no net combines copies before the decision bits",
+     "copies c0, c1, c2 are structurally identical (same canonical hash): a structural-hashing pass (e.g. opt_merge) can fold them unless the flow keeps them apart"
+    ],
+    "identical_copies": [
+     [
+      "c0",
+      "c1",
+      "c2"
+     ]
+    ],
+    "mode": "names",
+    "runtime_s": 0.002,
+    "shared_net_count": 0,
+    "single_point_count": 0,
+    "single_points": [],
+    "structural_groups": [
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    ],
+    "verdict": "separate"
+   },
+   "written": {
+    "cone_gates": 88,
+    "copies": {
+     "c1": {
+      "cone_size": 12,
+      "decision_bits": [
+       1,
+       4,
+       7
+      ]
+     },
+     "c2": {
+      "cone_size": 12,
+      "decision_bits": [
+       2,
+       5
+      ]
+     }
+    },
+    "decision_register": "bootcheck.st",
+    "findings": [
+     "copy groups from hierarchy names: c1 (12 input-dependent nets), c2 (12 input-dependent nets)",
+     "no net is shared by two copies and no net combines copies before the decision bits",
+     "copies c1, c2 are structurally identical (same canonical hash): a structural-hashing pass (e.g. opt_merge) can fold them unless the flow keeps them apart"
+    ],
+    "identical_copies": [
+     [
+      "c1",
+      "c2"
+     ]
+    ],
+    "mode": "names",
+    "runtime_s": 0.0019,
+    "shared_net_count": 0,
+    "single_point_count": 0,
+    "single_points": [],
+    "structural_groups": [
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    ],
+    "verdict": "separate"
+   }
+  }
+ },
+ "netlist_scan": {
+  "flat": {
+   "by_kind": {
+    "complement_pair": 2,
+    "redundant_copies": 1
+   },
+   "cells": 43898,
+   "found": 3,
+   "items": [
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n0",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$64906$new_n15504_",
+      "$abc$64906$new_n15585_"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 52 bits (ff:soc.cpu.cpu_state, ff:soc.cpu.instr_add, ff:soc.cpu.instr_addi, ff:soc.cpu.instr_and (+44 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n1",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$abc$64906$new_n40094_",
+      "$abc$64906$new_n40101_"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 14 bits (ff:soc.cpu.genblk2.pcpi_div.dividend, ff:soc.cpu.genblk2.pcpi_div.outsign)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n2",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$64906$new_n17659_",
+      "$abc$64906$new_n17660_"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:soc.cpu.timer)"
+    }
+   ],
+   "seconds": 1.9
+  },
+  "keep": {
+   "by_kind": {
+    "complement_pair": 3,
+    "redundant_copies": 2
+   },
+   "cells": 43720,
+   "found": 5,
+   "items": [
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n0",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$abc$64830$new_n39893_",
+      "$abc$64830$new_n39900_"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 14 bits (ff:soc.cpu.genblk2.pcpi_div.dividend, ff:soc.cpu.genblk2.pcpi_div.outsign)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n1",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "bootcheck.m0",
+      "bootcheck.m1",
+      "bootcheck.m2"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 8 bits (in:sig)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n2",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$64830$new_n17535_",
+      "$abc$64830$new_n17536_"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 6 bits (ff:soc.cpu.timer)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n3",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$64830$new_n14878_",
+      "$abc$64830$new_n14879_"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 3 bits (ff:soc.cpu.decoder_trigger, ff:soc.cpu.do_waitirq, ff:soc.cpu.instr_waitirq)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n4",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$abc$64830$new_n15433_",
+      "$abc$64830$new_n15434_"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 3 bits (ff:soc.cpu.cpu_state)"
+    }
+   ],
+   "seconds": 1.8
+  },
+  "written": {
+   "by_kind": {
+    "complement_pair": 9,
+    "redundant_copies": 123
+   },
+   "cells": 64079,
+   "found": 132,
+   "items": [
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n0",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$flatten\\soc.\\cpu.$0\\reg_op1[31:0][31]",
+      "$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$work/src/picorv32/picorv32.v:2474$915.$auto$alumacc.cc:485:replace_alu$93444.Y[31]"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 254 bits (ff:$\\soc.cpu.cpuregs.regs$rdreg, ff:bootcheck.st, ff:iomem_addr, ff:iomem_wstrb (+54 more))"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n1",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$flatten\\soc.\\cpu.$0\\reg_op2[31:0][31]",
+      "$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$work/src/picorv32/picorv32.v:2475$920.$auto$alumacc.cc:485:replace_alu$93627.Y[31]"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 113 bits (ff:$\\soc.cpu.cpuregs.regs$rdreg, ff:bootcheck.st, ff:soc.cpu.cpu_state, ff:soc.cpu.cpuregs.raddr2 (+56 more))"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n2",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$procmux$1314_Y[31]",
+      "$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$work/src/picorv32/picorv32.v:2493$933.$auto$alumacc.cc:485:replace_alu$93444.Y[31]"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 97 bits (ff:soc.cpu.genblk2.pcpi_div.dividend, ff:soc.cpu.genblk2.pcpi_div.divisor, ff:soc.cpu.genblk2.pcpi_div.quotient, ff:soc.cpu.genblk2.pcpi_div.quotient_msk)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n3",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$procmux$1334_Y[31]",
+      "$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$work/src/picorv32/picorv32.v:2495$935.$auto$alumacc.cc:485:replace_alu$93444.Y[31]"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 95 bits (ff:soc.cpu.genblk2.pcpi_div.dividend, ff:soc.cpu.genblk2.pcpi_div.divisor)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n4",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$105896[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106388[1]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 76 bits (ff:iomem_addr, ff:soc.cpu.dbg_mem_valid, ff:soc.spimemio.din_valid, ff:soc.spimemio.rd_addr (+9 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n5",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$105873[3]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106019[3]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106137[3]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 76 bits (ff:iomem_addr, ff:soc.cpu.dbg_mem_valid, ff:soc.spimemio.din_valid, ff:soc.spimemio.rd_addr (+9 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n6",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$flatten\\soc.\\cpu.$procmux$1910_Y",
+      "$flatten\\soc.\\cpu.$procmux$2466_Y[1]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 72 bits (ff:bootcheck.st, ff:soc.cpu.cpu_state, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_ready, ff:soc.cpu.genblk2.pcpi_div.pcpi_ready (+54 more))"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n7",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\cpu.$lt$work/src/picorv32/picorv32.v:1242$843.$auto$alumacc.cc:485:replace_alu$80916.Y[31]",
+      "$techmap$flatten\\soc.\\cpu.$sub$work/src/picorv32/picorv32.v:1240$839.$auto$alumacc.cc:485:replace_alu$80051.Y[31]"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 64 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n8",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$105864[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106025[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106143[0]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 52 bits (ff:iomem_addr, ff:soc.cpu.dbg_mem_valid, ff:soc.spimemio.din_valid, ff:soc.spimemio.rd_wait (+8 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n9",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\cpu.$lt$work/src/picorv32/picorv32.v:1242$843.$auto$alumacc.cc:485:replace_alu$80916.CO[15]",
+      "$techmap$flatten\\soc.\\cpu.$lt$work/src/picorv32/picorv32.v:1243$844.$auto$alumacc.cc:485:replace_alu$80930.CO[15]",
+      "$techmap$flatten\\soc.\\cpu.$sub$work/src/picorv32/picorv32.v:1240$839.$auto$alumacc.cc:485:replace_alu$80051.CO[15]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 32 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n10",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\cpu.$sub$work/src/picorv32/picorv32.v:1443$670.$auto$alumacc.cc:485:replace_alu$80051.Y[31]",
+      "$techmap$flatten\\soc.\\cpu.$sub$work/src/picorv32/picorv32.v:1918$805.$auto$alumacc.cc:485:replace_alu$80051.Y[31]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 32 bits (ff:soc.cpu.timer)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n11",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\simpleuart.$gt$work/src/picorv32/picosoc/simpleuart.v:90$97.$auto$alumacc.cc:485:replace_alu$73475.CO[15]",
+      "$techmap$flatten\\soc.\\simpleuart.$gt$work/src/picorv32/picosoc/simpleuart.v:97$98.$auto$alumacc.cc:485:replace_alu$73475.CO[15]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 32 bits (ff:soc.simpleuart.cfg_divider, ff:soc.simpleuart.recv_divcnt)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n12",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$techmap$flatten\\soc.\\simpleuart.$gt$workshare/yosys/techmap.v:240$117199_Y",
+      "$techmap$techmap$flatten\\soc.\\simpleuart.$gt$workshare/yosys/techmap.v:240$117199_Y"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 32 bits (ff:soc.simpleuart.cfg_divider, ff:soc.simpleuart.recv_divcnt)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n13",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$techmap$flatten\\soc.\\cpu.$lt$workshare/yosys/techmap.v:240$117199_Y",
+      "$techmap$techmap$flatten\\soc.\\cpu.$lt$workshare/yosys/techmap.v:240$117199_Y"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 32 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n14",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$74320[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$93812[2]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 30 bits (ff:iomem_addr, ff:soc.spimemio.rd_addr)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n15",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\spimemio.$add$work/src/picorv32/picosoc/spimemio.v:226$153.$auto$alumacc.cc:485:replace_alu$74256.Y[23]",
+      "$techmap$flatten\\soc.\\spimemio.$add$work/src/picorv32/picosoc/spimemio.v:72$116.$auto$alumacc.cc:485:replace_alu$74256.Y[23]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 22 bits (ff:soc.spimemio.rd_addr)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n16",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.$ge$work/src/picorv32/picosoc/picosoc.v:162$28.$auto$alumacc.cc:485:replace_alu$93755.CO[15]",
+      "$techmap$flatten\\soc.$lt$work/src/picorv32/picosoc/picosoc.v:209$40.$auto$alumacc.cc:485:replace_alu$80930.CO[15]",
+      "$techmap$flatten\\soc.$lt$work/src/picorv32/picosoc/picosoc.v:215$44.$auto$alumacc.cc:485:replace_alu$80930.CO[15]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 16 bits (ff:iomem_addr)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n17",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$116882[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$116921[1]",
+      "$techmap$techmap$flatten\\soc.$ge$workshare/yosys/techmap.v:241$117200_Y"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 16 bits (ff:iomem_addr)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n18",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$106928[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106973[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$80903[1]",
+      "$techmap$techmap$flatten\\soc.\\cpu.$sub$workshare/yosys/techmap.v:241$117188_Y"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 16 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n19",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$106928[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106973[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$80903[2]",
+      "$techmap$techmap$flatten\\soc.\\cpu.$sub$workshare/yosys/techmap.v:241$117191_Y"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 16 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n20",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$106928[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106973[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$80903[0]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 16 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n21",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$106928[3]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106973[3]",
+      "$auto$simplemap.cc:117:simplemap_reduce$80903[3]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 16 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs1, ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n22",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\cpu.$procmux$1766.$reduce_or$share/yosys/techmap.v:597$81880_Y",
+      "$techmap$flatten\\soc.\\cpu.$procmux$1788.$reduce_or$share/yosys/techmap.v:597$82169_Y",
+      "$techmap$flatten\\soc.\\cpu.$procmux$1811.$reduce_or$share/yosys/techmap.v:597$82169_Y",
+      "$techmap$flatten\\soc.\\cpu.$procmux$2179.$reduce_or$share/yosys/techmap.v:597$82169_Y",
+      "$techmap$flatten\\soc.\\cpu.$procmux$2192.$reduce_or$share/yosys/techmap.v:597$82169_Y",
+      "$techmap$flatten\\soc.\\cpu.$procmux$2205.$reduce_or$share/yosys/techmap.v:597$82169_Y"
+     ],
+     "register": null,
+     "title": "6 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n23",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$110556[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$111341[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$111811[1]",
+      "$techmap$flatten\\soc.\\cpu.$procmux$3132.$reduce_or$share/yosys/techmap.v:597$74565_Y"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n24",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$107560[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107589[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107618[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107809[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107838[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107867[0]"
+     ],
+     "register": null,
+     "title": "7 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n25",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$79629",
+      "$auto$simplemap.cc:246:simplemap_eqne$82050",
+      "$auto$simplemap.cc:246:simplemap_eqne$82310",
+      "$auto$simplemap.cc:246:simplemap_eqne$82530",
+      "$auto$simplemap.cc:246:simplemap_eqne$83085",
+      "$auto$simplemap.cc:246:simplemap_eqne$83211"
+     ],
+     "register": null,
+     "title": "29 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n26",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$107555[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107584[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107613[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107804[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107833[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107862[0]"
+     ],
+     "register": null,
+     "title": "11 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n27",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$82026",
+      "$auto$simplemap.cc:246:simplemap_eqne$82286",
+      "$auto$simplemap.cc:246:simplemap_eqne$82506",
+      "$auto$simplemap.cc:246:simplemap_eqne$82816",
+      "$auto$simplemap.cc:246:simplemap_eqne$82844",
+      "$auto$simplemap.cc:246:simplemap_eqne$82873"
+     ],
+     "register": null,
+     "title": "25 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n28",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$107555[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107584[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107613[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107804[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107833[1]",
+      "$auto$simplemap.cc:117:simplemap_reduce$107862[1]"
+     ],
+     "register": null,
+     "title": "8 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n29",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:158:logic_reduce$80040[3]",
+      "$auto$simplemap.cc:158:logic_reduce$80711[3]",
+      "$auto$simplemap.cc:158:logic_reduce$80748[3]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 8 bits (ff:soc.cpu.timer)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n30",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$81866",
+      "$auto$simplemap.cc:246:simplemap_eqne$82129",
+      "$auto$simplemap.cc:246:simplemap_eqne$82155",
+      "$auto$simplemap.cc:246:simplemap_eqne$82386",
+      "$auto$simplemap.cc:246:simplemap_eqne$82786",
+      "$auto$simplemap.cc:246:simplemap_eqne$83304"
+     ],
+     "register": null,
+     "title": "18 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n31",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$81978",
+      "$auto$simplemap.cc:246:simplemap_eqne$82238",
+      "$auto$simplemap.cc:246:simplemap_eqne$82458",
+      "$auto$simplemap.cc:246:simplemap_eqne$82585",
+      "$auto$simplemap.cc:246:simplemap_eqne$82643",
+      "$auto$simplemap.cc:246:simplemap_eqne$82996"
+     ],
+     "register": null,
+     "title": "17 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n32",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$82002",
+      "$auto$simplemap.cc:246:simplemap_eqne$82262",
+      "$auto$simplemap.cc:246:simplemap_eqne$82482",
+      "$auto$simplemap.cc:246:simplemap_eqne$82701",
+      "$auto$simplemap.cc:246:simplemap_eqne$82730",
+      "$auto$simplemap.cc:246:simplemap_eqne$82758"
+     ],
+     "register": null,
+     "title": "17 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n33",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$81930",
+      "$auto$simplemap.cc:246:simplemap_eqne$82190",
+      "$auto$simplemap.cc:246:simplemap_eqne$82360",
+      "$auto$simplemap.cc:246:simplemap_eqne$82410",
+      "$auto$simplemap.cc:246:simplemap_eqne$82671",
+      "$auto$simplemap.cc:246:simplemap_eqne$83328"
+     ],
+     "register": null,
+     "title": "13 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n34",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$81954",
+      "$auto$simplemap.cc:246:simplemap_eqne$82214",
+      "$auto$simplemap.cc:246:simplemap_eqne$82434",
+      "$auto$simplemap.cc:246:simplemap_eqne$83352",
+      "$auto$simplemap.cc:246:simplemap_eqne$83545",
+      "$auto$simplemap.cc:246:simplemap_eqne$83738"
+     ],
+     "register": null,
+     "title": "12 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n35",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:158:logic_reduce$80040[0]",
+      "$auto$simplemap.cc:158:logic_reduce$80711[0]",
+      "$techmap$flatten\\soc.\\cpu.$sub$work/src/picorv32/picorv32.v:1443$670.$auto$alumacc.cc:485:replace_alu$80051.CO[7]",
+      "$techmap$flatten\\soc.\\cpu.$sub$work/src/picorv32/picorv32.v:1918$805.$auto$alumacc.cc:485:replace_alu$80051.CO[7]"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 8 bits (ff:soc.cpu.timer)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n36",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$82074",
+      "$auto$simplemap.cc:246:simplemap_eqne$82334",
+      "$auto$simplemap.cc:246:simplemap_eqne$82554",
+      "$auto$simplemap.cc:246:simplemap_eqne$83472",
+      "$auto$simplemap.cc:246:simplemap_eqne$83665",
+      "$auto$simplemap.cc:246:simplemap_eqne$83858"
+     ],
+     "register": null,
+     "title": "7 copies of a function of 8 bits (ff:soc.cpu.cpu_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n37",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$78566[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78639[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78714[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78787[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78863[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78937[0]"
+     ],
+     "register": null,
+     "title": "6 copies of a function of 8 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n38",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:158:logic_reduce$80040[1]",
+      "$auto$simplemap.cc:158:logic_reduce$80711[1]",
+      "$techmap$techmap$flatten\\soc.\\cpu.$sub$workshare/yosys/techmap.v:241$117188_Y",
+      "$techmap$techmap$flatten\\soc.\\cpu.$sub$workshare/yosys/techmap.v:241$117188_Y"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 8 bits (ff:soc.cpu.timer)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n39",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:158:logic_reduce$80040[2]",
+      "$auto$simplemap.cc:158:logic_reduce$80711[2]",
+      "$techmap$techmap$flatten\\soc.\\cpu.$sub$workshare/yosys/techmap.v:241$117191_Y",
+      "$techmap$techmap$flatten\\soc.\\cpu.$sub$workshare/yosys/techmap.v:241$117191_Y"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 8 bits (ff:soc.cpu.timer)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n40",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$69120",
+      "bootcheck.word[0]",
+      "bootcheck.word[5]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 8 bits (in:sig)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n41",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$93547[0]",
+      "$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$work/src/picorv32/picorv32.v:2475$920.$auto$alumacc.cc:485:replace_alu$93627.CO[7]"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 8 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n42",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$93547[1]",
+      "$techmap$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$workshare/yosys/techmap.v:241$126565_Y"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 8 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "rails:picosoc_chip.n43",
+     "kind": "complement_pair",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$93547[2]",
+      "$techmap$techmap$flatten\\soc.\\cpu.\\genblk2.pcpi_div.$neg$workshare/yosys/techmap.v:241$126568_Y"
+     ],
+     "register": null,
+     "title": "complemented rails of a function of 8 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_rs2)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n44",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$78512",
+      "$auto$simplemap.cc:246:simplemap_eqne$78585",
+      "$auto$simplemap.cc:246:simplemap_eqne$78660",
+      "$auto$simplemap.cc:246:simplemap_eqne$78733",
+      "$auto$simplemap.cc:246:simplemap_eqne$78809",
+      "$auto$simplemap.cc:246:simplemap_eqne$78883"
+     ],
+     "register": null,
+     "title": "7 copies of a function of 7 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n45",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:158:logic_reduce$78179",
+      "$auto$simplemap.cc:158:logic_reduce$78204",
+      "$auto$simplemap.cc:158:logic_reduce$78258",
+      "$auto$simplemap.cc:158:logic_reduce$78312",
+      "$auto$simplemap.cc:158:logic_reduce$78337",
+      "$auto$simplemap.cc:158:logic_reduce$78362"
+     ],
+     "register": null,
+     "title": "12 copies of a function of 7 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n46",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$78231",
+      "$auto$simplemap.cc:246:simplemap_eqne$78277",
+      "$auto$simplemap.cc:246:simplemap_eqne$78439",
+      "$auto$simplemap.cc:246:simplemap_eqne$79264"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 7 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n47",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$92400",
+      "$auto$simplemap.cc:246:simplemap_eqne$93701"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 7 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_insn)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n48",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$79092",
+      "$auto$simplemap.cc:246:simplemap_eqne$79169"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 7 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n49",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$92377",
+      "$auto$simplemap.cc:246:simplemap_eqne$93678"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 7 bits (ff:soc.cpu.genblk1.genblk1.pcpi_mul.pcpi_insn)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n50",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$115718[0]",
+      "$techmap$flatten\\soc.\\cpu.$procmux$3202.$reduce_or$share/yosys/techmap.v:597$73746_Y",
+      "$techmap$flatten\\soc.\\cpu.$procmux$3208.$reduce_or$share/yosys/techmap.v:597$73746_Y"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 6 bits (ff:soc.cpu.instr_sll, ff:soc.cpu.instr_slli, ff:soc.cpu.instr_sra, ff:soc.cpu.instr_srai (+2 more))"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n51",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$techmap$flatten\\soc.\\simpleuart.$procmux$1055.$reduce_or$share/yosys/techmap.v:597$73746_Y",
+      "$techmap$flatten\\soc.\\simpleuart.$procmux$1085.$reduce_or$share/yosys/techmap.v:597$73949_Y",
+      "$techmap$flatten\\soc.\\simpleuart.$procmux$1097.$reduce_or$share/yosys/techmap.v:597$74014_Y"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 4 bits (ff:soc.simpleuart.recv_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n52",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$78237[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78283[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78445[0]",
+      "$auto$simplemap.cc:117:simplemap_reduce$79270[0]",
+      "$auto$simplemap.cc:158:logic_reduce$78176[0]",
+      "$auto$simplemap.cc:158:logic_reduce$78201[0]"
+     ],
+     "register": null,
+     "title": "17 copies of a function of 4 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n53",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$105977[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106019[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106137[2]"
+     ],
+     "register": null,
+     "title": "3 copies of a function of 4 bits (ff:soc.spimemio.state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n54",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$106025[2]",
+      "$auto$simplemap.cc:117:simplemap_reduce$106143[2]"
+     ],
+     "register": null,
+     "title": "2 copies of a function of 4 bits (ff:soc.spimemio.state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n55",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$74758",
+      "$auto$simplemap.cc:246:simplemap_eqne$75073",
+      "$auto$simplemap.cc:246:simplemap_eqne$75148",
+      "$auto$simplemap.cc:246:simplemap_eqne$75168",
+      "$auto$simplemap.cc:246:simplemap_eqne$75318",
+      "$auto$simplemap.cc:246:simplemap_eqne$75489"
+     ],
+     "register": null,
+     "title": "6 copies of a function of 4 bits (ff:soc.spimemio.state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n56",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:117:simplemap_reduce$78560[4]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78633[4]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78708[4]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78781[4]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78857[4]",
+      "$auto$simplemap.cc:117:simplemap_reduce$78931[4]"
+     ],
+     "register": null,
+     "title": "6 copies of a function of 4 bits (ff:soc.cpu.mem_rdata_q)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n57",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$73737",
+      "$auto$simplemap.cc:246:simplemap_eqne$73876",
+      "$auto$simplemap.cc:246:simplemap_eqne$73901",
+      "$auto$simplemap.cc:246:simplemap_eqne$73940",
+      "$auto$simplemap.cc:246:simplemap_eqne$74005"
+     ],
+     "register": null,
+     "title": "5 copies of a function of 4 bits (ff:soc.simpleuart.recv_state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n58",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$74659",
+      "$auto$simplemap.cc:246:simplemap_eqne$74992",
+      "$auto$simplemap.cc:246:simplemap_eqne$75239",
+      "$auto$simplemap.cc:246:simplemap_eqne$75373"
+     ],
+     "register": null,
+     "title": "4 copies of a function of 4 bits (ff:soc.spimemio.state)"
+    },
+    {
+     "codes": null,
+     "id": "copies:picosoc_chip.n59",
+     "kind": "redundant_copies",
+     "min_distance": null,
+     "nets": [
+      "$auto$simplemap.cc:246:simplemap_eqne$74697",
+      "$auto$simplemap.cc:246:simplemap_eqne$75024",
+      "$auto$simplemap.cc:246:simplemap_eqne$75129",
+      "$auto$simplemap.cc:246:simplemap_eqne$75269",
+      "$auto$simplemap.cc:246:simplemap_eqne$75428"
+     ],
+     "register": null,
+     "title": "5 copies of a function of 4 bits (ff:soc.spimemio.state)"
+    }
+   ],
+   "seconds": 2.8
+  }
+ },
+ "note": "rtl-scan entries are declared intent; netlist-scan entries are structure only and include incidental duplication. A SURVIVED verdict says the structure is intact, not that the chip is secure.",
+ "reviewed": 4,
+ "rtl_files_scanned": 7,
+ "rtl_scan": {
+  "by_kind": {
+   "redundant_copies": 1,
+   "redundant_register": 1,
+   "sparse_encoding": 2
+  },
+  "found": 4,
+  "items": [
+   {
+    "broken_at": "flat",
+    "id": "copies:bootcheck_tmr.bootcheck_cmp8",
+    "kind": "redundant_copies",
+    "module": "bootcheck_tmr",
+    "origin": "rtl-scan",
+    "reviewed": "Deliberate: the three comparators of the added boot check.",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "3 independent copies of 3 intended, no shared cell",
+       "3 net(s) compute the copies' function: $auto$simplemap.cc:246:simplemap_eqne$69120, bootcheck.word[0], bootcheck.word[5]"
+      ],
+      "label": "MEASURED",
+      "stage": "written",
+      "verdict": "SURVIVED"
+     },
+     {
+      "cause": "",
+      "evidence": [
+       "3 independent copies of 3 intended, no shared cell",
+       "3 net(s) compute the copies' function: bootcheck.m2, bootcheck.m0, bootcheck.m1"
+      ],
+      "label": "MEASURED",
+      "stage": "keep",
+      "verdict": "SURVIVED"
+     },
+     {
+      "cause": "Identical logic with identical inputs was merged into one copy (common-subexpression elimination). In Yosys this is `opt_merge` (also inside `opt` and `synth`) once the copies are in one module, or structural hashing in ABC when the copies are optimised together.",
+      "evidence": [
+       "1 independent copy left of 3 intended: 1 net(s) still compute the function",
+       "the outputs of copies c0, c1, c2 are one and the same net (bootcheck.m0)",
+       "1 net(s) compute the copies' function: bootcheck.m0"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "REMOVED"
+     }
+    ],
+    "title": "3 copies of bootcheck_cmp8(sig)",
+    "verdict": "REMOVED",
+    "where": "chips/picosoc/rtl/bootcheck.v:37"
+   },
+   {
+    "broken_at": null,
+    "id": "encoding:bootcheck_tmr.st",
+    "kind": "sparse_encoding",
+    "module": "bootcheck_tmr",
+    "origin": "rtl-scan",
+    "reviewed": "Deliberate: the four state codes of the added boot check differ pairwise in four bits.",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "bootcheck.st: all 8 flops present; codes not re-derived on this netlist (flops with enable/reset pins or without a known power-up value), so the distance is the RTL's, unverified here"
+      ],
+      "label": "MEASURED",
+      "stage": "written",
+      "verdict": "SURVIVED"
+     },
+     {
+      "cause": "",
+      "evidence": [
+       "bootcheck.st: all 8 flops present; codes not re-derived on this netlist (flops with enable/reset pins or without a known power-up value), so the distance is the RTL's, unverified here"
+      ],
+      "label": "MEASURED",
+      "stage": "keep",
+      "verdict": "SURVIVED"
+     },
+     {
+      "cause": "",
+      "evidence": [
+       "bootcheck.st: all 8 flops present; codes not re-derived on this netlist (flops with enable/reset pins or without a known power-up value), so the distance is the RTL's, unverified here"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "SURVIVED"
+     }
+    ],
+    "title": "register st with 4 codes, distance 4",
+    "verdict": "SURVIVED",
+    "where": "chips/picosoc/rtl/bootcheck.v:35"
+   },
+   {
+    "broken_at": "keep",
+    "id": "encoding:picorv32.cpu_state",
+    "kind": "sparse_encoding",
+    "module": "picorv32",
+    "origin": "rtl-scan",
+    "reviewed": "Not a countermeasure: PicoRV32's one-hot processor state (distance 2 is a side effect of one-hot coding).",
+    "stages": [
+     {
+      "cause": "",
+      "evidence": [
+       "soc.cpu.cpu_state: all 8 flops present; codes not re-derived on this netlist (flops with enable/reset pins or without a known power-up value), so the distance is the RTL's, unverified here"
+      ],
+      "label": "MEASURED",
+      "stage": "written",
+      "verdict": "SURVIVED"
+     },
+     {
+      "cause": "The register still exists, but the set of codes it can reach on this netlist has a smaller minimum Hamming distance than the RTL constants.",
+      "evidence": [
+       "register soc.cpu.cpu_state has 6 flops, the RTL declares 8",
+       "soc.cpu.cpu_state: all 6 flops present; codes not re-derived on this netlist (flops with enable/reset pins or without a known power-up value), so the distance is the RTL's, unverified here"
+      ],
+      "label": "MEASURED",
+      "stage": "keep",
+      "verdict": "WEAKENED"
+     },
+     {
+      "cause": "The register still exists, but the set of codes it can reach on this netlist has a smaller minimum Hamming distance than the RTL constants.",
+      "evidence": [
+       "register soc.cpu.cpu_state has 6 flops, the RTL declares 8",
+       "soc.cpu.cpu_state: all 6 flops present; codes not re-derived on this netlist (flops with enable/reset pins or without a known power-up value), so the distance is the RTL's, unverified here"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "WEAKENED"
+     }
+    ],
+    "title": "register cpu_state with 8 codes, distance 2",
+    "verdict": "WEAKENED",
+    "where": "work/src/picorv32/picorv32.v:1181"
+   },
+   {
+    "broken_at": null,
+    "id": "dup:picorv32.alu_wait",
+    "kind": "redundant_register",
+    "module": "picorv32",
+    "origin": "rtl-scan",
+    "reviewed": "Not a countermeasure: alu_wait_2 is a pipeline delay of alu_wait, not a redundant copy.",
+    "stages": [
+     {
+      "cause": "Flops that always hold the same (or the complemented) value were merged or removed (Yosys `opt_merge -share_all`, `opt_dff`, `opt_clean`; equivalent-register removal in other tools).",
+      "evidence": [
+       "no flops named alu_wait / alu_wait_2 in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "written",
+      "verdict": "UNTRACKED"
+     },
+     {
+      "cause": "Flops that always hold the same (or the complemented) value were merged or removed (Yosys `opt_merge -share_all`, `opt_dff`, `opt_clean`; equivalent-register removal in other tools).",
+      "evidence": [
+       "no flops named alu_wait / alu_wait_2 in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "keep",
+      "verdict": "UNTRACKED"
+     },
+     {
+      "cause": "Flops that always hold the same (or the complemented) value were merged or removed (Yosys `opt_merge -share_all`, `opt_dff`, `opt_clean`; equivalent-register removal in other tools).",
+      "evidence": [
+       "no flops named alu_wait / alu_wait_2 in this netlist"
+      ],
+      "label": "MEASURED",
+      "stage": "flat",
+      "verdict": "UNTRACKED"
+     }
+    ],
+    "title": "registers alu_wait / alu_wait_2",
+    "verdict": "UNTRACKED",
+    "where": "work/src/picorv32/picorv32.v:1223"
+   }
+  ],
+  "seconds": 9.7,
+  "stages": [
+   "written",
+   "keep",
+   "flat"
+  ],
+  "verdicts": {
+   "REMOVED": 1,
+   "SURVIVED": 1,
+   "UNTRACKED": 1,
+   "WEAKENED": 1
+  }
+ },
+ "schema": "glitchsat-soc-inventory/1",
+ "variant": "tmr"
+}
