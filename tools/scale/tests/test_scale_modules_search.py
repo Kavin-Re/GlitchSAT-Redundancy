@@ -155,16 +155,24 @@ def test_copies_are_not_swapped_when_goal_reads_one_copy(proxy_problem):
 
 # ---------------------------------------------------------------- intervals, two cores, horizons
 def test_interval_is_always_valid(proxy_problem):
+    """Whatever the time budget, the answer is a valid interval around the true minimum. A fast machine may finish
+    every timed run (EXACT), so the unfinished case is forced with a budget that is already used up (time_s=0):
+    that does not depend on how fast the machine is."""
     P = proxy_problem('tmr2s'); true = 3
     seen = set()
-    for t in (0.3, 1.0, 3.0):
+    for t in (0, 0.3, 1.0, 3.0):
         r = search.analyse(P, 3, time_s=t, modules='none', backend='py')
         seen.add(r['status'])
         assert r['lo'] <= true and (r['hi'] is None or r['hi'] >= true)
         assert r['status'] in ('EXACT', 'INTERVAL', 'LOWER_BOUND_ONLY')
         if r['hi'] is not None: assert sim.is_attack(P, *r['_witness_raw'])
         assert ('between' in r['text']) == (r['status'] == 'INTERVAL')
+        assert r['timed_out'] == (r['status'] != 'EXACT')
+        if t == 0:
+            assert r['status'] != 'EXACT' and r['timed_out'], 'a used-up budget must give an unfinished answer'
     assert seen - {'EXACT'}, 'expected at least one unfinished answer'
+    r = search.analyse(P, 3, modules='none', backend='py')       # no time limit: the exact answer
+    assert r['status'] == 'EXACT' and r['lo'] == r['hi'] == true and not r['timed_out']
 
 
 def test_interval_reports_both_ends():

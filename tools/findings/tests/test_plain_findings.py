@@ -174,6 +174,37 @@ def test_text_sarif_and_wording():
     assert not cw.scan([MOD])
 
 
+def _code_flow_locations(sarif):
+    for r in sarif['runs'][0]['results']:
+        for cf in r.get('codeFlows', []):
+            for tf in cf['threadFlows']:
+                for tl in tf['locations']:
+                    yield r, tl
+
+
+def test_sarif_code_flow_steps_have_a_file_location():
+    """GitHub code scanning rejects a code flow step without a physical location ("expected physical location"):
+    every threadFlowLocation carries artifactLocation.uri and a region; a finding without a file has no code flow."""
+    with_file = PF.from_byod_check(byod_check(), {})
+    no_file = json.loads(json.dumps(with_file))
+    no_file['where']['file'] = None
+    s = PF.to_sarif([with_file, no_file])
+    a, b = s['runs'][0]['results']
+    assert len(a['codeFlows'][0]['threadFlows'][0]['locations']) == len(with_file['how']['steps'])
+    assert 'codeFlows' not in b and 'locations' not in b and b['properties']['how_steps'] == no_file['how']['steps']
+    n = 0
+    for r, tl in _code_flow_locations(s):
+        pl = tl['location']['physicalLocation']
+        assert pl['artifactLocation']['uri'] and pl['region']['startLine'] >= 1, tl
+        assert tl['location']['message']['text']
+        n += 1
+    assert n == len(with_file['how']['steps'])
+    schema = os.environ.get('GLITCHSAT_SARIF_SCHEMA')    # optional: the full OASIS SARIF 2.1.0 schema file
+    if schema and os.path.isfile(schema):
+        jsonschema = pytest.importorskip('jsonschema')
+        jsonschema.validate(s, json.load(open(schema)))
+
+
 def test_reading_level_is_plain():
     """Statements, real-life lines and pattern texts: short sentences (grade 6-8 target: about 20 words or fewer)."""
     texts = [p['text'] for p in PF.PATTERNS.values()] + list(PF.URGENCY.values()) + list(PF.WHO.values())

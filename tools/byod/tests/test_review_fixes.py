@@ -495,6 +495,10 @@ def test_hardened_lock_names_the_remedy(tmp_path):
     t = open(p).read().replace('max_faults: 3 ', 'max_faults: 1 ')
     open(p, 'w').write(t)
     rep, _ = run_project(p, only=['validate', 'min_faults', 'survival', 'merge_lint'])
+    # The placement remedy comes from merge_lint (it finds the copies), which needs ext/checker and so numpy. Without
+    # numpy merge_lint reports NOT_RUN and only the survival remedy is given: say that, instead of a bare text mismatch.
+    ml = rep['checks'][0]['analyses'].get('merge_lint') or {}
+    assert ml.get('verdict') != 'NOT_RUN', 'merge_lint did not run (%s); install numpy and networkx' % ml.get('why')
     todo = ' '.join(x['text'] for x in rep['checks'][0]['what_to_do'])
     assert 'keep_hierarchy' in todo and 'dont_touch' in todo and 'placement' in todo
     from glitchsat_byod.report import plain

@@ -860,23 +860,31 @@ SARIF_LEVEL = {'Critical': 'error', 'High': 'error', 'Medium': 'warning', 'Low':
 
 
 def to_sarif(findings, tool='glitchsat', version='', uri_base=None):
-    """SARIF 2.1.0 log: one result per finding, the plain text as message, the how-steps as a threadFlow."""
+    """SARIF 2.1.0 log: one result per finding, the plain text as message, the how-steps as a threadFlow.
+
+    Code scanning (GitHub upload-sarif) rejects a code flow whose steps lack a file location ("expected physical
+    location"). The steps all describe the one place the finding is about, so each step carries that file and line.
+    A finding without a file gets no code flow; its steps are kept in properties.how_steps."""
     results = []
     for f in findings:
         loc = None
         if f['where'].get('file'):
-            loc = dict(physicalLocation=dict(artifactLocation=dict(uri=f['where']['file']),
-                                             region=dict(startLine=int(f['where'].get('line') or 1))))
-        tf = [dict(location=dict(message=dict(text=st), **({'physicalLocation': loc['physicalLocation']} if loc and j == 2 else {})))
-              for j, st in enumerate(f['how']['steps'])]
+            loc = dict(physicalLocation=dict(artifactLocation=dict(uri=str(f['where']['file'])),
+                                             region=dict(startLine=max(1, int(f['where'].get('line') or 1)))))
+        steps = [str(st) for st in f['how']['steps']]
         res = dict(ruleId=f['why']['id'], level=SARIF_LEVEL[f['severity']['level']],
                    message=dict(text='[%s] %s %s What to do: %s How to check the fix: %s' % (
                        f['severity']['level'], f['statement'], f['severity'].get('real_life') or '',
                        ' '.join(f['next']['fixes'][:2]), f['next']['check_cmd'])),
-                   codeFlows=[dict(threadFlows=[dict(locations=tf)])],
                    properties=dict(severity=f['severity']['level'], sure=f['sure']['label'], estimate=f['severity']['estimate_note']))
         if loc:
             res['locations'] = [loc]
+            if steps:
+                tf = [dict(location=dict(physicalLocation=json.loads(json.dumps(loc['physicalLocation'])), message=dict(text=st)))
+                      for st in steps]
+                res['codeFlows'] = [dict(threadFlows=[dict(locations=tf)])]
+        elif steps:
+            res['properties']['how_steps'] = steps
         results.append(res)
     rules = [dict(id=pid, name=p['title'], shortDescription=dict(text=p['title']), fullDescription=dict(text=p['text']),
                   help=dict(text=p['spot'])) for pid, p in PATTERNS.items()]
