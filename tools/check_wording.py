@@ -8,6 +8,9 @@ Three kinds of finding:
   * a word or phrase from the project's list of words that must not appear in shipped files;
   * an identifier withheld pending responsible disclosure (function, file, build and commit names of the bootloader
     study), matched as a whole identifier or as one part of an identifier split at '_' and '-'.
+One exemption (decision D-015): the conventional names of the two handoff files at the repository root, written
+exactly as HANDOFF_NAMES lists them (capitals, '.md'), are removed from a line before the word scan, so a file may
+point to them. The same word anywhere else, in any other spelling, is still reported.
 The word list is stored only as SHA-256 hashes, so neither this file nor the tests that call it contain the
 words themselves. A token is checked as a whole word (case-insensitive), as a word stem, or as a two-word phrase.
 Used by the test suites of the Studio and of the modules; it needs nothing outside the Python standard library.
@@ -36,6 +39,9 @@ DISCLOSE = {
 }
 # A published third-party article in the research log may keep its own link (its address contains a withheld name).
 DISCLOSE_OK = {('research/c1/R1_users_needs.md', '2c5b41081632e17c')}
+# D-015: the two handoff file names, exact spelling only, not part of a longer name (a sentence-ending full stop is allowed).
+HANDOFF_NAMES = ('AGENTS.md', 'CLAUDE.md')
+HANDOFF_RX = re.compile(r'(?<![A-Za-z0-9_.-])(?:' + '|'.join(re.escape(n) for n in HANDOFF_NAMES) + r')(?![A-Za-z0-9_]|\.[A-Za-z0-9_])')
 ID_RX = re.compile(r'[A-Za-z0-9_]+(?:-[A-Za-z0-9_]+)*')
 PATH_RX = re.compile(r'(?<![\w.~])/home/(?!you\b)[A-Za-z0-9_.-]+')
 TOKEN_RX = re.compile(r"[A-Za-z][A-Za-z0-9]*")
@@ -54,6 +60,7 @@ def line_hits(line):
     out = []
     if PATH_RX.search(line):
         out.append('path')
+    line = HANDOFF_RX.sub(' ', line)
     for ident in ID_RX.findall(line):
         il = ident.lower()
         for part in {il} | set(re.split(r'[-_]', il)) | set(il.split('-')):
